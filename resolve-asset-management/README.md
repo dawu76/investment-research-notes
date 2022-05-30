@@ -1,4 +1,4 @@
-#### Investment strategies
+### Investment strategies
 
 Investment strategy lineup of funds: [funds listing](https://investresolve.com/strategies/investment-strategy-lineup/)
 - strategies: adaptive asset allocation, risk parity, global tactical equity, 
