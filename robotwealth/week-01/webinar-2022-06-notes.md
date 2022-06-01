@@ -55,8 +55,9 @@ Illustration: Hull Tactical's market timing signals
 - they take a reasonable approach here, but they've under-performed the market due to their lower exposure
 
 Question: how do we effectively leverage our analytical skills in trading?
-- Most quant techniques are good for modeling things in an environment where "the edge is self-evident". E.g. an options trader on the sell-side whose problem is all about managing risk while processing customer orders.
+- Most quant techniques are good for modeling things in an environment where "the edge is self-evident". They're focused on scalable techniques executed with precision. E.g. an options trader on the buy-side whose problem is all about managing risk while processing customer orders.
 - Focus less on fancy techniques and more on understanding, "why do I get the trade? Why is the other side willing to trade at prices that seem cheap/attractive to me?"
+- Focus on a simple-enough implementation that gets your 80% of the way there.
 
 ### Questions
 
