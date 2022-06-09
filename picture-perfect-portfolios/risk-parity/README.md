@@ -11,7 +11,7 @@ Key concept: "Risk parity is about diversity and balance."
 - Think about economic shocks is along the axes of inflation and growth. Different asset classes thrive in different conditions.
 - Balance: a simple portfolio that holds equal weight in stocks and bonds is not well balanced because stocks are much more volatile than bonds; a portfolio that has 50% stocks and 50% in bonds has over 90% of its risk coming from stocks. To create a balanced portfolio of stocks and bonds you would have to hold about 80% of capital in bonds and just 20% in stocks.
 
-<img src="https://pictureperfectportfolios.com/wp-content/uploads/2022/04/image001.png" alt="Inflation vs Growth regimes"/>![image](https://user-images.githubusercontent.com/1627180/172748601-709c5532-f2d5-4d39-a02f-228f5adf5018.png)
+![image](https://user-images.githubusercontent.com/1627180/172748601-709c5532-f2d5-4d39-a02f-228f5adf5018.png)
 
 Example of how risk parity uses leverage to achieve a target return
 - Given: $100 to invest, borrowing rate = 2%, portfolio return and volatility = 4%, 6%
@@ -19,3 +19,12 @@ Example of how risk parity uses leverage to achieve a target return
 - Investing that $150 in the portfolio yields 1.5 * 4% return = 6% return, 1.5 * 6% volatility = 9% volatility
 - Borrowing cost = $50 * 2% = 1% cost ($1)
 - Net return = 6% - 5% = 5%, volatility = 9%
+
+Example: most of the risk in a stock-heavy portfolio comes from the stock allocation 
+- Given: we invest in just stocks and bonds, which we assume are uncorrelated
+- stocks have a return = 6%, volatility = 20%
+- bonds have return = 3%, volatility = 5%
+- suppose we want to target a 5% return: this is achievable via 2/3 stock and 1/3 bond allocation = 2/3 * 6% + 1/3 * 3%
+- if stocks & bonds are uncorrelated, then the volatility of this 2:1 allocation = $\sqrt{(2/3 * 20)^2 + (1/3 * 5)^2}$ = 13.5
+- note that the volatility of a 2:1 stock:cash allocation is $(2/3) * 20$, which is almost as high as the 2:1 stock:bond portfolio;
+- this tells us that most of the volatility of the 2:1 stock:bond portfolio comes from the stock portion
