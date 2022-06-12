@@ -1,3 +1,16 @@
+### Intro to Forward Contracts and Futures
+
+What purpose do they play?
+- producers and buyers of a given asset want to lock in the price they'll get or pay for that asset in N months; so producers and buyers enter into a **forward contract** to lock in the price at which they can buy & sell the asset; the producer agrees to deliver that asset in N months in return for a fixed price; the buyer agrees to take delivery of the asset, paying a fixed price for the asset
+- forward contracts expose both sides of the trade to **counterparty risk**, where one side cannot fulfill the terms of the contract; e.g. the counterparty risk for the producer is that the buyer doesn't have the cash in N months to purchase the asset, while the risk for the buyer is that the producer isn't able to deliver the asset in N months (e.g. because of problems growing the crop or extracting the resource)
+- forward contracts are also a less flexible, less scalable arrangement for both sides, as it's difficult to get out of the contract even if plans change
+- Futures contracts are an evolution of forward contracts: these contracts trade on exchange, which takes a small cut of each transaction in return for the added convenience. Instead of entering into forward contracts with a specific producer or buyer, producers and buyers can instead trade futures contracts on the exchange to hedge their exposure to the asset. Futures contracts let both sides enter and exit their hedges as needed based on their desired exposure levels.
+- How do futures exchanges manage the counterparty risk, i.e. the risk that buyers/sellers of contracts don't fulfill their end of the agreement? Through margin requirements that change as the contract's P&L fluctuates. E.g. a producer sells a contract to deliver `X` amount of an asset for `$K` in `D` days, and the buyer of the contract agrees to take delivery of `X` amount of the asset for `$K` in `D` days. The futures exchange will require that both sides of the trade post an 'initial margin' amount, e.g. 10% of the `$K` notional contract value, to their margin accounts at the exchange. This is caled 'initial' margin because the margin amount will fluctuate over time.
+- What if the market for the asset changes significantly before contract expiration to the point that it makes sense for one of the parties to renege on the contract, e.g. the producer no longer wants to deliver the asset for `$K` because the asset's price has risen, or the buyer no longer wants to purchase at `$K` because the asset's price has fallen. How does the exchange prevent either side from reneging? By requiring the trade to be settled every day based on the futures contracts price fluctuations, with changes in the P&L of the contract position getting posted to the margin accounts of both parties. For example, if the price of the futures contract falls (because supply of the underlying is expected to increase), then the contract seller (usually the producer) sees a profit, while the contract buyer seller sees a loss. If the price of the contract rises, then the contract buyer sees a gain while the seller sees a loss.
+- These gains/losses are realized each day and are posted to their respective margin accounts, with funds going from the account of the day's loser into the that of the day's winner. If this results in the margin account of the day's loser dipping below the minimum margin requirement, then that party has to post additional margin.
+
+---
+
 ### Intro to Crypto Stablecoin Lending and Basis Arbitrage
 
 Key questions to ask yourself as you're structuring a trade
@@ -39,3 +52,5 @@ Key considerations for the crypto basis arbitrage trade
 ### References
 
 TLAQ Week 2 [lecture](https://robotwealth.com/courses/trade-like-a-quant-bootcamp/lessons/2-stonkingly-obvious-high-probability-edges/topic/crypto-stablecoin-lending-and-other-yield-plays/): Crytpo Stablecoin Lending & Other Yield Plays
+
+TLAQ Week 2 [lecture](https://robotwealth.com/courses/trade-like-a-quant-bootcamp/lessons/2-stonkingly-obvious-high-probability-edges/topic/crypto-basis-arbitrage-an-introduction-to-forward-contracts-and-futures/): Intro to Crypto Forward Contracts and Futures
