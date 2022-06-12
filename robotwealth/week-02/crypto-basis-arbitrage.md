@@ -25,7 +25,16 @@ Method (2) can result in crypto futures and spot prices diverging, resulting in 
 - as the futures contract's expiry approaches, the futures & spot prices will converge; just as in the commodity carry trade possible in the 1980s, traders can bet on this convergence. In the commodity carry trade, there was an excess supply of commodity futures from producers trying to lock in the price they would get for their goods, driving the futures price below spot. In this crypto futures trade, the imbalance is on the other side, with excess demand for futures coming from leveraged speculators and driving the futures price above spot.
 - in the commodity carry trade, traders would buy the depressed futures contract in the hopes that it would converge up towards the spot price; in this crypto basis arbitrage trade, traders would buy the spot asset and short the futures in the hopes that the two would converge as expiration approaches
 - this difference between spot and futures prices is called the "basis" and this convergence trade is known as "basis arbitrage"; since the convergence trade is betting that the basis will go to zero, this is a "short basis arbitrage" trade
-  
+- as more traders try to take advantage of this short basis arbitrage trade, the demand for the spot crypto will increase, as will the amount of crypto futures being shorted; this will drive the "basis" lower, reducing the return from this trade
+- regarding the persistence of this edge: why does the crypto futures vs. spot premium persist? Because there are limitations on how much spot can be purchased and how much the futures can be shorted.
+
+![image](https://user-images.githubusercontent.com/1627180/173246935-4bd49524-6917-4af1-a59b-02a57102101c.png)
+
+Key considerations for the crypto basis arbitrage trade
+
+![image](https://user-images.githubusercontent.com/1627180/173248010-f5b9d2d7-5f11-4222-b150-a974f56ce832.png)
+
+---
 
 ### References
 
