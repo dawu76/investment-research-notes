@@ -1,4 +1,6 @@
-#### Commodity Carry Trade (in the 1980s)
+### ETF arbitrage
+
+...
 
 ### Market Making
 
