@@ -2,9 +2,13 @@
 
 ...
 
+---
+
 ### Market Making
 
 ...
+
+---
 
 ### Commodity Carry Trade (in the past)
 
@@ -23,6 +27,8 @@ What role did speculators play? they took on risk in order to earn a positive ex
 Disappearance of this edge
 - in the mid-2000s, the futures price started to trade at a premium to spot
 - due to an increasing number of speculators and CTA funds trying to take advantage of this edge, the demand for these futures contracts started to outweight the supply, causing the futures price to actually exceed the spot price
+
+---
 
 ### Pairs Trading in Equities
 
