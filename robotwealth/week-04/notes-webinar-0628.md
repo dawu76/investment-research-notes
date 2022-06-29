@@ -117,7 +117,12 @@ Looking for NAV discounts in CEFs
 
 Stink-bids
 - This is a bid well below current market prices, where you're providing liquidity to anyone who wants to get out at any price, e.g. during forced liquidations. So you're trying to take advantage of these forced sellers.
-- Example: $IVT, an "mortage REIT". They layered orders starting at 25% below the current price based on an educated guess that there could be forced selling down there. The reason is that a few of the larger REIT EPTs had stricter mandate criteria, and during the 2020 Covid crash, $IVT fell out of the mandate criteria. So during the forced selling, a few of the stink-bids for $IVT were executed. 
+- Example: $IVT, an "mortage REIT". They layered orders starting at 25% below the current price based on an educated guess that there could be forced selling down there. The reason is that a few of the larger REIT EPTs had stricter mandate criteria, and during the 2020 Covid crash, $IVT fell out of the mandate criteria because its value decreased by a certain amount. So during the forced selling, a few of the stink-bids for $IVT were executed. 
+- How to find eligible stocks for these bids? Look for sectors where this could happen based on news, fundamentals, rumors. Look for stocks that have had this occur in the past - e.g. sharp downward moves followed by slow rebounds.
+
+Cross-exchange arbitrage
+- Normally untenable strategies can actually work in times of stress as bid-ask spreads go way up. E.g. taking advantage of spreads in similar index futures on different exchanges.
+- This is like a form of a pairs trade, which bets on mean reversion: evaluate a spread that puts equal volatility weight on each leg of the pairs, buy the spread when it goes below a certain threshold, sell it when it goes above a certain threshold.
 
 ---
 
@@ -127,3 +132,7 @@ Stink-bids
 - What is "carry-whoring"? Activities that tend to make a bit of money most of the time but occasionally lose a lot.
 - Why did you say this time-series of basis, colored by "full factor decile sort", was "stationary-ish"? It means the distribution of outcomes over different periods looked largely the same.
 - Can you explain the "composite score" based on 50% basis ratio decile, 25% VIX level decile, 25% VVIX level decile? The point of this score was to identify when we should go long or short volatility. The effect is noisy, but it was better to be long volatility for lower levels of this score, and short volatility for higher levels of this score. This is a simple but common tactic in trading research - reduce a bunch of measures into a sinle measure that we then rank.
+- Would stink bids to take advantage of volatility during FOMC meeting days? Absent a complete shock, FOMC meetings won't result in forced selling; it's more of a behavioral tic like post-announcement drift rather than forced selling.
+- Are hedges less necessary when your holding periods are shorter? It depends on what you're holding and where the risks come from. You may still be exposed to certain risks if you're turning over assets very quickly, but it could be harder to hedge against that risk. E.g. how does a market maker hedge their risks like exposure to prime brokers going broke?
+- How do we survive a secular bear market if we're afraid of short-selling? Either lengthen your time horizon to the point where the pain is manageable, or spread your bets.
+- "Would you consider beta hedging by selling futures against your portfolio?" 
