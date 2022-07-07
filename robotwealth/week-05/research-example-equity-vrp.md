@@ -1,6 +1,6 @@
-### Analysis of equity VRP
+### [Analysis of equity VRP](https://robotwealth.com/courses/trade-like-a-quant-bootcamp/lessons/5-research-mindset-and-data-analysis-techniques/topic/research-example-1-analysis-of-equity-vrp/)
 
-Techniques covered
+Techniques covered + accompanying [Colab notebook](https://colab.research.google.com/drive/1X3rkf2bxaWqq31giX9u-Eh_zD5uAplKG?usp=sharing)
 - Getting index data
 - Munging and reshaping data
 - Plotting distributions
