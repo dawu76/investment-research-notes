@@ -1,3 +1,13 @@
+### Candidate funds
+
+[$MAFIX](https://www.abbeycapital.com/multi-asset-fund/#documentation): Abbey Capital multi-asset fund
+- target exposures by % of net assets: 100% = multi-manager managed futures offering exposure to currencies, commodities, interest rates, equities, bonds; 50% = long US equity via S&P 500 futures; 70% = short-duration US fixed income
+- uses futures to efficiently get leveraged exposure
+- net expenses = 1.79% for Class I shares ($MAFIX)
+- [2022 Q2 performance report](https://www.abbeycapital.com/wp-content/uploads/2022/07/Abbey-Capital-Multi-Asset-Fund-Quarterly-Performance-Report-June-2022.pdf)
+
+---
+
 ### Global macro vs. CTA
 
 #### References
