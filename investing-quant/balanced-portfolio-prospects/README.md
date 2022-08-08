@@ -6,6 +6,12 @@
 - net expenses = 1.79% for Class I shares ($MAFIX)
 - [2022 Q2 performance report](https://www.abbeycapital.com/wp-content/uploads/2022/07/Abbey-Capital-Multi-Asset-Fund-Quarterly-Performance-Report-June-2022.pdf)
 
+[$EBSIX](https://www.campbell.com/systematicmacro): Campbell Systematic Macro fund
+- incorporates 80 unique return sources encompassing systematic macro, short-term, and momentum strategies; incorporates 80 unique return sources from long-standing and emerging markets and spans trend following, systematic macro and short-term strategies. One important strategy within this portfolio is trend following, which can detect long-term opportunities in markets based on investor herding behavior and it has the potential to profit from them. Moreover, diversification across geographies, sectors and time horizons allows us to profit from trends wherever and whenever they occur, which may help to provide more consistent returns over time.
+- correlations vs: Barclays CTA index = 0.77, Barclays Global Bond Index = -0.08, S&P 500 = 0.02
+- "allocates up to 25% of its total assets in its wholly-owned subsidiary, Campbell Systematic Macro Offshore Limited (the "Subsidiary"), which is organized under the acts of the Cayman Islands and employs the Adviser's Campbell Systematic Macro Program (as described below), and (iii) allocating the remainder of its assets directly in a portfolio of investment grade securities (including government securities) for cash management purposes
+- net expense ratio = 1.75% for Class I shares
+
 ---
 
 ### Global macro vs. CTA
