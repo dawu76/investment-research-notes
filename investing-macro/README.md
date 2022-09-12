@@ -22,6 +22,9 @@ The government will then "pay" back the maturing bond by subtracting the sum fro
 - "Crucially, these cash reserves are held by the central bank and pay an interest rate just as the treasury bonds did. In a sense the Federal Reserve swapped ten year treasury bonds with hypothetical _Federal Reserve Bonds_. That’s why you can see a graph of the money supply that shows a massive increase, and yet inflation has not spiked. The money never entered the economy — it is being held in a vault at the central bank (or more realistically is just a number in a spreadsheet). In practical terms it was an asset swap, not a true increase in the money supply."
 
 Question: What are Treasury bills vs. Treasury bonds?
-- ?
+- Treasury bonds, Treasury bills, and Treasury notes are all government-issued fixed income securities that are deemed safe and secure. These investments are auctioned off regularly on the U.S. Treasury's website; TreasuryDirect.
+- T-bonds mature in 20 or 30 years and offer the highest interest payments bi-annually.
+- T-notes mature anywhere between two and 10 years, with bi-annual interest payments, but lower yields.
+- T-bills have the shortest maturity terms—from four weeks to one year.
 
 ---
