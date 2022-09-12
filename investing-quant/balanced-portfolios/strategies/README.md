@@ -4,9 +4,7 @@ Below is a collection of asset allocation strategies that can be self-managed.
 
 ---
 
-### References
-
-#### Alpha Architect: [Robust Asset Allocation (RAA)](https://alphaarchitect.com/2014/12/the-robust-asset-allocation-raa-index/)
+### Alpha Architect: [Robust Asset Allocation (RAA)](https://alphaarchitect.com/2014/12/the-robust-asset-allocation-raa-index/)
 
 The tactical objectives of our RAA indexes are as follows:
 - Portfolio growth that keeps up with inflation (principal growth): the goal is not to outperform some other index or benchmark
@@ -35,8 +33,8 @@ Principles of RAA approach
 
 Value/Momentum rules
 - RAA Moderate uses both a "time-series absolute momentum" rule as well as a long-term moving average rule. The goals are to avoid assets with poor absolute and relative performance
-- Absolute momentum rule: If "excess return" := return above Treasury bills over the past N months > 0, go long risky assets; otherwise go to cash or T-bills.
-- Moving-average rule: If current price > moving average over past N months, then go long risky assets; otherwise go to cash or T-bills.
+- Absolute momentum rule: If "excess return" := return above Treasury bills over the past N = 12 months > 0, go long risky assets; otherwise go to cash or T-bills.
+- Moving-average rule: If current price > moving average over past N = 12 months, then go long risky assets; otherwise go to cash or T-bills.
 - RAA spreads its bets based on both rules, going to cash/T-bills or partial risk or full risk based on whether one or both rules are triggered: "we’ve found evidence that these rules sometimes have a difference of opinion, where one rule says 'risk' and the other says 'no risk.' We also find that spreading our trend-following bet across these two systems is more robust than simply relying on one or the other."
 
 Notes on performance comparisons
@@ -54,3 +52,18 @@ Actual performance of SMAs based on RAA methodology
 
 Performance of Robust RAA portfolio
 - Based on [study by PortfolioLabs](https://portfolioslab.com/portfolio/alpha-architect-robust)
+
+Ongoing trend signals for RAA strategy
+- [This page](https://alphaarchitect.com/indexes/trend/#_trendcurrent) lists current signals for the GVMT (Global Value Momentum Trend Index) and RAA
+- As of early 2022-September, the balanced, moderate, and aggressive variants of RAA have 80-95% Treasuries and 5% to 20% commodities (balanced = 20% commodities) according to the "Current Signals" section of the page.
+- In the "Historical Signals" section, RAA was listed as having a signal of 100% for commodities during the past several months.
+
+---
+
+### References
+
+The following are listed as strategies tested by Alpha Architect
+- Simple MA Rules: [Faber (2007)](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=962461), "A Quantitative Approach to Tactical Asset Allocation."
+- Challenging MA rule #1: Scholz and Walther (2011), "The trend is not your friend! Why empirical timing success is determined by the underlying’s price characteristics and market efficiency is irrelevant"
+- Challenging MA Rule #2: Zakamulin, "The Real-Life Performance of Market Timing with Moving Average and Time-Series Momentum Rules"
+- Challenging MA Rule #3: Marmi, Pacati, Risso, Reno, "A Quantitative Approach to Faber’s Tactical Asset Allocation"
