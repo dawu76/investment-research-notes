@@ -2,7 +2,9 @@
 
 Refer to books by Alex Shahidi.
 
-#### Risk Parity + other strategories
+---
+
+#### Risk Parity + other strategies
 
 Risk Parity + Trend Following
 - From the AllocateSmartly [blog post](https://allocatesmartly.com/taa-strategy-combining-risk-parity-trend-following/): "TAA Strategy Combining Risk Parity & Trend Following"
