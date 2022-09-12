@@ -65,6 +65,18 @@ Ongoing trend signals for RAA strategy
 
 ---
 
+### Discussion forum posts
+
+Reddit
+- [post](https://www.reddit.com/r/investing/comments/9u57vp/why_are_taa_strategies_preferred_over_a_long_term/): Why are TAA strategies preferred over long-term buy & hold?
+
+bogleheads.org
+- [post](https://www.bogleheads.org/forum/viewtopic.php?t=158297): Dual momentum investing
+- [post](https://www.bogleheads.org/forum/viewtopic.php?f=10&t=29844): Debunking a Meb Faber backtesting paper
+- [post](https://www.bogleheads.org/forum/viewtopic.php?t=27460): 200-day moving average market timing
+
+---
+
 ### References
 
 The following are listed as strategies tested by Alpha Architect
