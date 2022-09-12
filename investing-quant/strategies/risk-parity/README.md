@@ -1,6 +1,6 @@
 ### Notes on risk parity.
 
----
+Refer to books by Alex Shahidi.
 
 #### Risk Parity + other strategories
 
