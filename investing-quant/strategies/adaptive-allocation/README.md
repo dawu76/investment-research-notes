@@ -60,6 +60,11 @@ Ongoing trend signals for RAA strategy
 
 ---
 
+### Dual Momentum – Global Equity Momentum
+- InvestResolve's [executive summary](https://investresolve.com/global-equity-momentum-executive-summary/) + [whitepaper](https://investresolve.com/global-equity-momentum-a-craftsmans-perspective-lp/)
+
+---
+
 ### References
 
 The following are listed as strategies tested by Alpha Architect
