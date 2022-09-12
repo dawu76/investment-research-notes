@@ -10,6 +10,3 @@ Strategy: return-stacked 60/40 absolute return index
 - Stacking is achieved by allocating to a custom basket of widely available Mutual Funds and ETFs, which embed a variety of capital efficient exposures to equities, bonds and alternative strategies
 - Assets are allocated to 10 mutual funds/ETFs with weights between 3% - 15%, with weights adding up to 100%. Due to the leverage in some of these funds, the notional exposure adds up to 160%.
 
-Strategy: Dual Momentum – Global Equity Momentum
-- [executive summary](https://investresolve.com/global-equity-momentum-executive-summary/) + [whitepaper](https://investresolve.com/global-equity-momentum-a-craftsmans-perspective-lp/)
-
