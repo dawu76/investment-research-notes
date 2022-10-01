@@ -15,7 +15,7 @@ Key concept: "Risk parity is about diversity and balance."
 - Think about economic shocks is along the axes of inflation and growth. Different asset classes thrive in different conditions.
 - Balance: a simple portfolio that holds equal weight in stocks and bonds is not well balanced because stocks are much more volatile than bonds; a portfolio that has 50% stocks and 50% in bonds has over 90% of its risk coming from stocks. To create a balanced portfolio of stocks and bonds you would have to hold about 80% of capital in bonds and just 20% in stocks.
 
-![image](https://user-images.githubusercontent.com/1627180/172748601-709c5532-f2d5-4d39-a02f-228f5adf5018.png)
+<img src="https://user-images.githubusercontent.com/1627180/172748601-709c5532-f2d5-4d39-a02f-228f5adf5018.png" width="75%" height="75%" />
 
 Example of how risk parity uses leverage to achieve a target return
 - Given: $100 to invest, borrowing rate = 2%, portfolio return and volatility = 4%, 6%
