@@ -4,47 +4,67 @@
 
 #### Multi-strategy
 
-Multi-strategy - [$MAFIX](https://www.abbeycapital.com/multi-asset-fund/#documentation): Abbey Capital multi-asset fund
+<img src="https://user-images.githubusercontent.com/1627180/193396977-1faa550e-25da-4c92-958d-2c5f34ce2c93.png" alt="funds-tactical-metrics-comparison-20220930.png" width="60%" height="60%">
+<img src="https://user-images.githubusercontent.com/1627180/193396746-808084d5-00cb-4b26-93f1-3608fb22f425.png" alt="funds-tactical-perf-comparison-20220930.png" width="60%" height="60%">
+
+[$MAFIX](https://www.abbeycapital.com/multi-asset-fund/#documentation): Abbey Capital Multi-Asset fund
 - target exposures by % of net assets: 100% = multi-manager managed futures offering exposure to currencies, commodities, interest rates, equities, bonds; 50% = long US equity via S&P 500 futures; 70% = short-duration US fixed income
 - uses futures to efficiently get leveraged exposure
 - net expenses = 1.79% for Class I shares ($MAFIX)
 - [2022 Q2 performance report](https://www.abbeycapital.com/wp-content/uploads/2022/07/Abbey-Capital-Multi-Asset-Fund-Quarterly-Performance-Report-June-2022.pdf)
 
-Multi-strategy - [$QDSIX](https://funds.aqr.com/funds/aqr-diversifying-strategies-fund/qdsix): AQR Diversifying Strategies Fund
+[$QDSIX](https://funds.aqr.com/funds/aqr-diversifying-strategies-fund/qdsix): AQR Diversifying Strategies Fund
 - Goal: attractive long-term risk-adjusted returns through strategic allocations to AQR alternative mutual funds; represents an all-in-one solution for investors seeking a strategic, long-term approach to alternatives
 - Designed to complement an investor’s traditional stock and bond portfolio, investing in a portfolio of AQR mutual funds (like its risk parity, global macro, and commodities funds), providing exposure to both Active Multi-Asset strategies and Absolute Return strategies
 - Active Multi-Asset Strategies: provide tactical and risk-managed allocations among major asset classes across global markets; expected to have some correlation to traditional asset classes over long-term
 - Absolute Return Strategies: capture returns from well-established investments styles, such as value and momentum; provide exposure to less accessible types of returns; tends to be uncorrelated to traditional asset classes over long-term
+- Implemented as a fund of other funds managed by AQR, e.g. Multi-asset, Equity Market Neutral, Macro Opportunities, Diversified Arbitrage, Managed Futures, etc.
+- Availability: not available at E-Trade or TD Ameritrade
+
+[$RLY](https://www.ssga.com/us/en/intermediary/etfs/funds/spdr-ssga-multi-asset-real-return-etf-rly): SPDR SSgA Multi-Asset Real Return ETF
+- Goal: to achieve real return consisting of capital appreciation and current income via exposure to inflation protected securities issued domestically and internationally, domestic and international real estate securities, commodities, and publicly traded companies in natural resources and/or commodity businesses. These companies may include agriculture, energy, and metals and mining companies.
+- Strategies: Run as a fund of funds with holdings consisting of 11 other funds, e.g. SPDR S&P Global Natural Resources ETF, Invesco Optimum Yield Diversified Commodity Strategy No K-1 ETF, SPDR S&P Metals & Mining ETF, SPDR S&P Global Infrastructure ETF, VanEck Agribusiness ETF, SPDR Dow Jones International Real Estate ETF, SPDR Dow Jones REIT ETF, SPDR Bloomberg 1-10 Year TIPS ETF, etc.
+- Expenses and taxes: low expense ratio of 0.50% (gross), but not tax-efficient; over the past 3 years, the NAV and market value growth are 2.4% higher than returns after taxes on distributions and 3.7% higher than returns after taxes on distributions + sale of fund shares
+
+[$HDG](https://www.proshares.com/our-etfs/strategic/hdg): Hedge Replication ETF
+- Goal: "seeks investment results, before fees and expenses, that track the performance of the Merrill Lynch Factor Model — Exchange Series"
+- The Merrill Lynch Factor Model — Exchange Series tries to emulate "the risk and return characteristics of the hedge fund asset class by targeting a high correlation to HFRI Fund Weighted Composite Index (HFRI). The HFRI is designed to reflect hedge fund industry performance through an equally weighted composite of over 2,000 constituent funds.
+- More about this benchmark: In seeking to maintain a high correlation with the HFRI, the benchmark utilizes a systematic model to establish, each month, weighted long or short (or, in certain cases, long or flat) positions in six underlying factors: (1) S&P 500 Total Return Index, (2) MSCI EAFE US Dollar Net Total Return Index, (3) MSCI Emerging Markets US Dollar Net Total Return Index, (4) Russell 2000 Total Return Index, (5) three-month U.S. Treasury bills, and (6) ProShares UltraShort Euro ETF.
+- Note: performance is underwhelming; its 10-year return based on market price and NAV is only 2%, while its return since inception is 1.6%
 
 ---
 
 #### Global Macro
 
-Global Macro - [$EBSIX](https://www.campbell.com/systematicmacro): Campbell Systematic Macro fund + [presentation](https://www.campbell.com/resource/1660751382000/SystematicMacro_Presentation)
+<img src="https://user-images.githubusercontent.com/1627180/193396453-a458b066-a23b-439a-8616-ac8f4eec0ca5.png" alt="funds-macro-tactical-metrics-comparison-20220930.png" width="60%" height="60%"/>
+<img src="https://user-images.githubusercontent.com/1627180/193397470-3b13aa85-d9c8-4f67-a8ac-7e9c7e47454d.png" alt="funds-macro-tactical-perf-comparison-20220930.png" width="60%" height="60%"/>
+
+[$EBSIX](https://www.campbell.com/systematicmacro): Campbell Systematic Macro fund + [presentation](https://www.campbell.com/resource/1660751382000/SystematicMacro_Presentation)
 - incorporates 80 unique return sources encompassing systematic macro, short-term, and momentum strategies; incorporates 80 unique return sources from long-standing and emerging markets and spans trend following, systematic macro and short-term strategies. One important strategy within this portfolio is trend following, which can detect long-term opportunities in markets based on investor herding behavior and it has the potential to profit from them. Moreover, diversification across geographies, sectors and time horizons allows us to profit from trends wherever and whenever they occur, which may help to provide more consistent returns over time.
 - correlations vs: Barclays CTA index = 0.77, Barclays Global Bond Index = -0.08, S&P 500 = 0.02
 - "allocates up to 25% of its total assets in its wholly-owned subsidiary, Campbell Systematic Macro Offshore Limited (the "Subsidiary"), which is organized under the acts of the Cayman Islands and employs the Adviser's Campbell Systematic Macro Program (as described below), and (iii) allocating the remainder of its assets directly in a portfolio of investment grade securities (including government securities) for cash management purposes
 - net expense ratio = 1.75% for Class I shares
 
-Global Macro - [$BLNDX](https://www.standpointfunds.com/fund/brochure): Standpoint Multi-Asset Fund
+[$MBXIX](https://catalystmf.com/funds/catalyst-millburn-hedge-strategy-fund/): Catalyst Millburn Hedge Strategy Fund
+- "The Catalyst/Millburn Hedge Strategy Fund utilizes complementary active and passive investment strategies, with the goal of outperforming typical long-only equity investments, including reducing drawdowns during protracted periods of stress."
+- "The Fund trades a diverse portfolio of global equity, currency, and interest rate instruments, as well as futures contracts on commodities in the energy, metal and agricultural sectors. The Fund implements a 100% systematic strategy with the potential to invest in over 125 markets. The Fund’s portfolio is comprised of an active long/short futures & FX component and a strategic equity exposure component."
+- High expense ratio of ~2%.
+
+[$BLNDX](https://www.standpointfunds.com/fund/brochure): Standpoint Multi-Asset Fund
 - Provides an 'all-weather' investment solution.
 - An all-weather approach is an asset allocation methodology that diversifies across geographic regions, asset classes, and investment styles. The goal of this multi-layered diversification is to shield investors from the pitfalls of concentrated investing by relying on thoughtful preparation rather than unreliable predictions.
 - Invests in equities, fixed income, industrial commodities, agricultural commodities
 - $BLNDX is the institutional share class, $REMIX the individual investor share class
 
-Global Macro / Tactical Allocation - [$MBXIX](https://catalystmf.com/funds/catalyst-millburn-hedge-strategy-fund/): Catalyst Millburn Hedge Strategy Fund
-- "The Catalyst/Millburn Hedge Strategy Fund utilizes complementary active and passive investment strategies, with the goal of outperforming typical long-only equity investments, including reducing drawdowns during protracted periods of stress."
-- "The Fund trades a diverse portfolio of global equity, currency, and interest rate instruments, as well as futures contracts on commodities in the energy, metal and agricultural sectors. The Fund implements a 100% systematic strategy with the potential to invest in over 125 markets. The Fund’s portfolio is comprised of an active long/short futures & FX component and a strategic equity exposure component."
-- High expense ratio of ~2%.
-
-Global Macro - [$RDMIX](https://rationalmf.com/funds/rational-resolve-adaptive-asset-allocation-fund/): Rational/ReSolve Adaptive Asset Allocation Fund + [brochure](https://rationalmf.com/wp-content/uploads/funds/resolve_adaptive_asset_allocation_fund/FundBrochure.pdf)
+[$RDMIX](https://rationalmf.com/funds/rational-resolve-adaptive-asset-allocation-fund/): Rational/ReSolve Adaptive Asset Allocation Fund + [brochure](https://rationalmf.com/wp-content/uploads/funds/resolve_adaptive_asset_allocation_fund/FundBrochure.pdf)
 - Goal: "invests in futures contracts to gain dynamic exposure to global market opportunities across country equity indexes, fixed income, currencies, and commodities. Portfolios are formed using proprietary quantitative innovations that emphasize characteristics such as, but not limited to: total return momentum, trends, seasonal patterns, carry measures, mean reversion and others, while simultaneously maximizing diversification based on changing estimates of volatility and correlations across global asset classes."
 - "As portfolio weights and estimates of volatility and correlations change through time, the Fund will increase and decrease the gross exposure in an effort to maintain its **target level of 12% annualized portfolio volatility**."
 
-Global Macro - [$QGMIX](https://funds.aqr.com/funds/alternatives/aqr-macro-opportunities-fund/qgmix): AQR Macro Opportunities Fund
+[$QGMIX](https://funds.aqr.com/funds/alternatives/aqr-macro-opportunities-fund/qgmix): AQR Macro Opportunities Fund
 - Goal: "The Fund aims to deliver returns that are uncorrelated to stocks and bonds. The Fund positions across macro asset classes (currencies, commodities, equities, fixed income) on the basis of macroeconomic trends, seeking to capitalize on the markets’ tendency to under-react to changes in fundamentals ... trades in over 100 individual markets across approximately 30 countries. The Fund positions across asset classes, encompassing currencies, commodities, equities, and fixed income."
 - strategies: "... net market neutral over the long term, but can take directional views over the short term ... tends to buy assets for which macroeconomic fundamentals are improving, either on a relative or absolute basis, and short assets for which macroeconomic fundamentals are deteriorating. Macroeconomic trends are evaluated across multiple dimensions, utilizing both quantitative and discretionary inputs."
 - gross / net expense ratios = 2.06% / 1.22%
+- Availability: not available at E-Trade or TD Ameritrade
 
 ---
 
@@ -65,8 +85,8 @@ Risk Parity - [$AQRIX](https://funds.aqr.com/Funds/Multi-Asset/AQR-Multi-Asset-F
 - Goal: total return based on capital appreciation and income
 - Strategies: "allocates risk, rather than dollars, in a balanced manner across multiple asset classes" to avoid concentrated equity risk in traditional portfolios; traditional portfolios that allocate by capital (e.g. 60% stocks and 40% bonds) tend not to be risk-managed throughout time and rely on strong economic growth environments to generate returns
 - built around diversified risk-balanced exposures to Equity Risk, Interest Rate Risk and Inflation Risk; seeks to add return by taking relative-value positions within each asset class, overweighting individual assets that are more attractive and underweighting (or, to a limited extent, shorting) those that we find less attractive
-- adjusted expense ratio = 0.98%?
-- note: may be closed to new investors below $1M; does not appear to be available on TDA 
+- Expense ratio (adjusted) = 0.98%?
+- Availability: not available at E-Trade;
 
 ---
 
@@ -92,22 +112,5 @@ Various - Resolve asset management
   - Assets are allocated to 10 mutual funds/ETFs with weights between 3% - 15%, with weights adding up to 100%. Due to the leverage in some of these funds, the notional exposure adds up to 160%.
 - Strategy: Dual Momentum – Global Equity Momentum
   - [executive summary](https://investresolve.com/global-equity-momentum-executive-summary/) + [whitepaper](https://investresolve.com/global-equity-momentum-a-craftsmans-perspective-lp/)
-
----
-
-### Global macro vs. CTA
-
-Global macro strategy definitions
-- This is a flexible strategy whose positions are based on views regarding the economic and geopolitical prospects of various countries. These views are informed by interest rates, politics, domestic and foreign poilcies, international trade, currency exchange rates, etc.
-- Holdings may include long and short positions in various equity, fixed income, currency, commodities, and futures markets. The funds may take directional or relative value bets.
-
-3 primary types of global macro funds
-- discretionary global macro: in these funds, the PMs take a high-level view of global markets and allocate funds to asset classes accordingly in a flexible, discretionary manner
-- CTAS: these funds rely primarily on trend-following algorithms to go long or short different assets (commodities, currencies, etc.)
-- systematic global macro: these funds blend a discretionary and CTA-based approach
-
-References
-- [Investopedia](https://www.investopedia.com/terms/g/globalmacro.asp): Global macro strategy funds
-- [Crystal Capital Funds post](https://www.crystalfunds.com/insights/breaking-down-global-macro-hedge-funds): Breaking down global macro hedge funds
 
 ---
