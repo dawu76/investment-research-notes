@@ -4,6 +4,42 @@ Below is a collection of asset allocation strategies that can be self-managed.
 
 ---
 
+### Dual Momentum – Global Equity Momentum
+
+From Antonacci's Dual Momentum book [notes](https://read.amazon.com/kp/notebook?ref_=k4w_ms_notebook):
+
+> In absolute momentum, we look at an asset’s excess return (its return less the return on Treasury bills) over a given look-back period. If the excess return is above zero, then the asset has positive absolute momentum. If the excess return is below zero, then the asset has negative absolute momentum. Absolute momentum is roughly the same as relative momentum applied to an asset paired up with Treasury bills.
+>
+> The best approach is to use absolute and relative together in order to gain the advantages of both. The way we do that is by first using relative momentum to select the best-performing asset over the preceding 12 months. We then apply absolute momentum as a trend-following filter by seeing if the excess return of our selected asset has been positive or negative over the preceding year. If it has been positive, that means its trend is up and we proceed to use that asset. If our asset’s excess return over the past year has been negative, then its trend is down and we invest instead in short- to intermediate-term fixed-income instruments until the trend turns positive. This way, we are always in harmony with the trend of the market.
+
+And from Antonacci's 2018 blog post:
+
+> When the trend of stocks is up according to absolute momentum applied to the S&P 500, we use relative strength to determine if we will be in U.S. or non-U.S. stocks. When the trend of stocks is down, we invest in bonds. We use a 12-month lookback period for both types of momentum and rebalance monthly.
+
+#### References
+- Gary Antonacci's [Optimal Momentum](https://www.optimalmomentum.com/faq/) site + [running tally](https://www.optimalmomentum.com/global-equities-momentum/) of monthly & annual returns of GEM
+- InvestResolve's [executive summary](https://investresolve.com/global-equity-momentum-executive-summary/) + [whitepaper](https://investresolve.com/global-equity-momentum-a-craftsmans-perspective-lp/)
+- Antonaaci's 2019 [blog post](https://dualmomentum.net/2019/01/17/whither-fragility-dual-momentum-gem/), "Whither Fragility: Dual Momentum GEM", on Corey Hoffstein's "Fragility Case Study: Dual Momentum GEM" article advocating the use of multiple lookback periods to avoid specification bias 
+- Extrategic [blog post](https://extradash.com/en/strategies/models/10/dual-momentum/) on Antonaaci's Dual Momentum
+
+---
+
+### Meb Faber's Tactical Asset Allocation
+
+From the Extrategic [blog post](https://extradash.com/en/strategies/models/5/faber-tactical-asset-allocation/):
+
+> The Faber TAA model uses a 10-month Simple Moving Average (SMA) of the monthly closing prices to determine whether to enter or exit a particular market.
+> 
+> You calculate the SMA value by simply taking the average of the closing prices of the most recent 10 months. On the following month, the oldest data is dropped off and is replaced by the newest one.
+> 
+> At the end of each month, we buy if the price is greater than the SMA, and we sell if the price is lesser than the SMA. We ignore any price changes in the middle of the month. If you’ve looked into Fabian’s timing model, you’ll notice that the logic is the same, except Faber uses 10 months for lookback while Fabian uses 39 weeks (10 months is approximately 40 weeks).
+
+#### References
+- Fabers [2014 paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=962461): A Quantitative Approach to Tactical Asset Allocation
+- Extrategic [blog post](https://extradash.com/en/strategies/models/5/faber-tactical-asset-allocation/) on Faber's TAA
+
+---
+
 ### Alpha Architect: [Robust Asset Allocation (RAA)](https://alphaarchitect.com/2014/12/the-robust-asset-allocation-raa-index/)
 
 The tactical objectives of our RAA indexes are as follows:
@@ -58,10 +94,11 @@ Ongoing trend signals for RAA strategy
 - As of early 2022-September, the balanced, moderate, and aggressive variants of RAA have 80-95% Treasuries and 5% to 20% commodities (balanced = 20% commodities) according to the "Current Signals" section of the page.
 - In the "Historical Signals" section, RAA was listed as having a signal of 100% for commodities during the past several months.
 
----
-
-### Dual Momentum – Global Equity Momentum
-- InvestResolve's [executive summary](https://investresolve.com/global-equity-momentum-executive-summary/) + [whitepaper](https://investresolve.com/global-equity-momentum-a-craftsmans-perspective-lp/)
+[Alpha Architect (2015)](https://alphaarchitect.com/2015/08/avoiding-the-big-drawdown-with-trend-following-investment-strategies/): Avoiding the Big Drawdown with Trend-Following Investment Strategies
+- This post evaluates the performance of two common strategies: 1) If weak absolute performance appears, go to cash; 2) If weak trending performance appears, go to cash.
+- These rules together constitute the "Downside Protection Model" based on Time-series Momentum (TMOM) and Simple Moving Averages (SMA).
+- Time Series (Absolute) Momentum Rule (TMOM) Excess return = total return over the past 12 months less return of T-Bills > 0, go long risky assets. Otherwise, go long alternative assets (T-Bills)
+- Simple Moving Average (Trending Performance) Rule (MA): If Current Price – Moving Average (12) > 0, go long risky assets. Otherwise, go long alternative assets (T-Bills).
 
 ---
 
