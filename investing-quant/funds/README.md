@@ -1,10 +1,14 @@
 ### Candidate funds
 
+---
+
 Multi-strategy - [$MAFIX](https://www.abbeycapital.com/multi-asset-fund/#documentation): Abbey Capital multi-asset fund
 - target exposures by % of net assets: 100% = multi-manager managed futures offering exposure to currencies, commodities, interest rates, equities, bonds; 50% = long US equity via S&P 500 futures; 70% = short-duration US fixed income
 - uses futures to efficiently get leveraged exposure
 - net expenses = 1.79% for Class I shares ($MAFIX)
 - [2022 Q2 performance report](https://www.abbeycapital.com/wp-content/uploads/2022/07/Abbey-Capital-Multi-Asset-Fund-Quarterly-Performance-Report-June-2022.pdf)
+
+---
 
 Global Macro - [$EBSIX](https://www.campbell.com/systematicmacro): Campbell Systematic Macro fund + [presentation](https://www.campbell.com/resource/1660751382000/SystematicMacro_Presentation)
 - incorporates 80 unique return sources encompassing systematic macro, short-term, and momentum strategies; incorporates 80 unique return sources from long-standing and emerging markets and spans trend following, systematic macro and short-term strategies. One important strategy within this portfolio is trend following, which can detect long-term opportunities in markets based on investor herding behavior and it has the potential to profit from them. Moreover, diversification across geographies, sectors and time horizons allows us to profit from trends wherever and whenever they occur, which may help to provide more consistent returns over time.
@@ -27,6 +31,13 @@ Global Macro - [$RDMIX](https://rationalmf.com/funds/rational-resolve-adaptive-a
 - "The Fund invests in futures contracts to gain dynamic exposure to global market opportunities across country equity indexes, fixed income, currencies, and commodities. Portfolios are formed using proprietary quantitative innovations that emphasize characteristics such as, but not limited to: total return momentum, trends, seasonal patterns, carry measures, mean reversion and others, while simultaneously maximizing diversification based on changing estimates of volatility and correlations across global asset classes."
 - "As portfolio weights and estimates of volatility and correlations change through time, the Fund will increase and decrease the gross exposure in an effort to maintain its **target level of 12% annualized portfolio volatility**."
 
+Global Macro - [$QGMIX](https://funds.aqr.com/funds/alternatives/aqr-macro-opportunities-fund/qgmix): AQR Macro Opportunities Fund
+- "The Fund aims to deliver returns that are uncorrelated to stocks and bonds. The Fund positions across macro asset classes (currencies, commodities, equities, fixed income) on the basis of macroeconomic trends, seeking to capitalize on the markets’ tendency to under-react to changes in fundamentals ... trades in over 100 individual markets across approximately 30 countries. The Fund positions across asset classes, encompassing currencies, commodities, equities, and fixed income."
+- "... net market neutral over the long term, but can take directional views over the short term ... tends to buy assets for which macroeconomic fundamentals are improving, either on a relative or absolute basis, and short assets for which macroeconomic fundamentals are deteriorating. Macroeconomic trends are evaluated across multiple dimensions, utilizing both quantitative and discretionary inputs."
+- gross / net expense ratios = 2.06% / 1.22%
+
+---
+
 Managed Futures - [$DBMF](https://imgpfunds.com/im-dbi-managed-futures-strategy-etf/)
 - This is an actively managed futures ETF that has outperformed the SG CTA Index since inception. It uses long and short positions within derivatives, mostly futures contracts, and forward contracts. These contracts span domestic equities, fixed income, currencies, and commodities. $DBMFI tries to minimize single manager risk by targeting the performance of a diversified pool of managed futures managers while charging only a 0.85% expense ratio.
 - From [etftrends.com articles](https://www.etftrends.com/managed-futures-channel/andrew-beer-digs-into-dbmf-performance-ytd/): "DBMF invests across ten different core futures markets: three different equity futures contracts, three different rates futures contracts, two currency futures contracts, and two different commodity contracts. "As a philosophical matter, when we decide what we want to invest in, we believe that market depth and liquidity are really, really valuable, precious things because it allows us to go in and out of positions with virtually no trading costs," Beer explained. "It means that if the cracks underneath the market continue to spread, more liquidity flows into the stuff that we’re trading... When managed futures does the best is when the unexpected or the seemingly impossible keeps happening in markets," Beer said. "We think the diversification argument has really been cemented this year, and there’s no reason to believe that the returns that we’ve realized are going to reverse or even diminish over time just given the market that we’re in."
@@ -35,12 +46,16 @@ Managed Futures - [$DBMF](https://imgpfunds.com/im-dbi-managed-futures-strategy-
 - "During the quarter, the Fund maintained short positions in the EUR and Yen – a bet on faster rate hikes in the US — while also pivoting from short to long gold. Additionally, the portfolio maintained its profitable long position in crude oil and rotated from international developed to large cap US equities.  During the quarter, the Fund outperformed the SG CTA Index by 290 bps."
 - From the prospectus: "The fund will employ long and short positions in derivatives, primarily futures contracts and forward contracts, across the broad asset classes of equities, fixed income, currencies and commodities... Fund positions in those contracts are determined based on a proprietary, quantitative model – the Dynamic Beta Engine – that seeks to identify the main drivers of performance by approximating the current asset allocation of a selected pool of the largest commodity trading advisor hedge funds. The Dynamic Beta Engine analyzes recent (i.e., trailing 60-day) performance of CTA hedge funds in order to identify a portfolio of liquid financial instruments that closely reflects the estimated current asset allocation of the selected pool of CTA hedge funds, with the goal of simulating the performance, but not the underlying positions, of those funds. Based on this analysis, the Fund will invest in an optimized portfolio of long and short positions in domestically-traded, liquid derivative contracts. The Dynamic Beta Engine uses data sourced from (1) publicly available U.S. futures market data obtained and cross-checked through multiple common subscription pricing sources, and (2) public CTA hedge fund indexes obtained through common subscription services and cross-checked with publicly available index information. The Fund may have gross notional exposure, which is defined as the sum of the notional exposure of both long and short derivative positions across the Fund, that approximates the current asset allocation and matches the risk profile of a diversified pool of the largest CTAs."
 
+---
+
 Risk Parity - [$RPAR, $UPAR](https://www.rparetf.com/quarterlyreviews)
 - Nomadic Samuel's [review of $UPAR](https://pictureperfectportfolios.com/upar-ultra-risk-parity-etf-all-weather-portfolio-that-outperforms-stocks/) at Picture Perfect Portfolios: $RPAR offers 120% exposure while $UPAR offers 168% exposure
 - $RPAR's allocation: stocks = 25%, commodities = 25% (producer equities = 15%, gold = 10%), Treasuries = 35%, TIPS = 35%
 - $UPAR's allocations: stocks = 35% (USA = 17.5%, international = 7%, emerging = 10.5%); commodities = 35% (producer equities = 21%, gold = 14%), Treasuries = 49%, TIPS = 49%
 - [Quarterly reviews](https://www.rparetf.com/quarterlyreviews) of performance for $RPAR + [additional resources](https://www.rparetf.com/resource); in particular, see the [Fund Intro](https://www.rparetf.com/rpar/IntrotoRPARRiskParityETF) and the [2022-Q2 review](https://rparetf.com/quarterly-reviews/Review--1658509638-RPARUPAR-Quarterly-Review-Q2-2022-revised2.pdf)
 - The [$DBMF 2022-Q2 review](https://imgpfunds.com/imgp-dbi-managed-futures-strategy-etf-second-quarter-2022-commentary/) mentions the surprising outcomes in 2022 that resulted in historically poor risk parity strategies: "Handed a crystal ball in December 2020 that showed 7% CPI (Consumer Price Index) a year later, who would have expected gold to decline ... and commodity-heavy emerging market stocks to underperform global equities by 25%?"
+
+---
 
 Various - Resolve asset management
 - Investment strategy lineup of funds: [funds listing](https://investresolve.com/strategies/investment-strategy-lineup/)
