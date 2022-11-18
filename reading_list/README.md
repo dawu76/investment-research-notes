@@ -10,5 +10,8 @@ Portfolio construction
 - [Cambria whitepaper](https://www.cambriainvestments.com/wp-content/uploads/2019/07/Cambria-SYLD-Paper-FINAL-Q2-2019.pdf): "SYLD: Think Income and Growth Don’t Exist in This Market? Think Again"
 - [Cambria whitepaper](https://mebfaber.com/wp-content/uploads/2017/10/DTAX-10.23.17.pdf): "Do You Pay Taxes? Then Avoid Dividends and Do this Instead"
 
+Company analyses
+- [TCI fund letter](https://www.tcifund.com/files/corporateengageement/alphabet/15th%20November%202022.pdf) to $GOOG board
+
 Basic terminology
 - [Investopedia](https://www.investopedia.com/terms/c/couponequivalentrate.asp): coupon equivalent rate
