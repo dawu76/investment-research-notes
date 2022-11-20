@@ -1,3 +1,9 @@
+### Candidate fund shortlist
+
+[Spreadsheet](https://docs.google.com/spreadsheets/d/14-pLsj-SJFZwOrFtgy1rjTPx8MgdiHWIJlg_QQigbIE/edit?usp=sharing) of candidate funds
+- includes Wisdom Tree efficient funds, DFA equity funds, equity income funds such as $JEPI, Managed Futures ETFs, and Global Macro and Managed Futures mutual funds.
+- The short-list includes 15 funds as of mid-November, 2022.
+
 ### Candidate funds
 
 ---
