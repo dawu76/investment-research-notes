@@ -36,4 +36,12 @@ Key considerations: uncertainty and cost
 
 What we don't know: future average returns
 - Financial markets are highly unstable, prone to bubbles and crashes. They are not a 'stable and self-correcting system.'
-- It's not just about predicting future returns, but doing so better than others. Prices already reflect knowledge and viewpoints that are widespread. Can we actually predict the future with a higher success rate than the average market participant? 
+- It's not just about predicting future returns, but doing so better than others. Prices already reflect knowledge and viewpoints that are widespread. Can we actually predict the future with a higher success rate than the average market participant?
+
+What we probably know: similarity and risk
+- We have a sense of which investments are similar or more correlated with one another.
+- We also have a sense of which investments are riskier than others.
+
+What we definitely know: costs
+- Some costs are fixed.
+
