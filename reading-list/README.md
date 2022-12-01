@@ -25,8 +25,16 @@ TAA: current allocations
 - Engineered Portfolio blog: Accelerating Dual Momentum Update for 2022-November. Refer to email for content. Summary: Stay in cash.
 - [AllocateSmartly](https://allocatesmartly.com/members/strategy/keller-and-keunings-vigilant-asset-allocation/): Keller and Keuning’s [Vigilant Asset Allocation – Aggressive](https://allocatesmartly.com/vigilant-asset-allocation-dr-wouter-keller-jw-keuning/) approach. Allocation for 2022-November: 100% cash.
 
+Federal Reserve, QT, and liquidity
+- [Fed Guy](https://fedguy.com/the-marginal-buyer/): The marginal buyer
+- [The Last Bear Standing Substack](https://thelastbearstanding.substack.com/p/down-the-drain): Down the Drain
+- [The Last Bear Standing Substack](https://thelastbearstanding.substack.com/p/draining-the-repo): Draining the Repo
+
 Company analyses
 - [TCI fund letter](https://www.tcifund.com/files/corporateengageement/alphabet/15th%20November%202022.pdf) to $GOOG board
+- [Fallacy Alarm Substack](https://fallacyalarm.substack.com/p/meta-3q22-digest-and-revisiting-my): Meta 3Q22 Digest & revisiting my original investment case
+- [Investment Ideas by Antonio Substack](https://antoniolinares.substack.com/p/meta-investing-for-an-exponential): $META - Investing for an exponential future
+- [Gupta Media post](https://www.guptamedia.com/insights/meta-conversion-breakdowns-return): Meta's conversion breakdowns return
 
 Basic terminology
 - [Investopedia](https://www.investopedia.com/terms/c/couponequivalentrate.asp): coupon equivalent rate
