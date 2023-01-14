@@ -1,5 +1,7 @@
 ### References
 
+---
+
 #### Federal Reserve and QE/QT
 
 [Bloomberg](https://archive.ph/Cmxl7): The Fed Is About to Go Full Throttle on QT. Fear Not.
@@ -28,3 +30,11 @@ Question: What are Treasury bills vs. Treasury bonds?
 - T-bills have the shortest maturity terms—from four weeks to one year.
 
 ---
+
+#### Overnight reverse repo facility
+
+[bpi.com](https://bpi.com/the-reverse-repo-bank/): The Reverse Repo Bank
+- "The Federal Reserve introduced the overnight reverse repo facility (ON RRP) in 2014 to improve its control of the federal funds rate. The set of counterparties eligible to participate in the ON RRP is quite broad and includes banks, MMFs, government-sponsored enterprises (GSEs) and primary dealers. MMFs and the GSEs have accounted for almost all ON RRP take-up."
+- "The ON RRP facility helps the Federal Reserve set a floor on the fed funds rate because the Fed controls the interest rate that MMFs and GSEs earn on their excess holdings of cash. More precisely, by setting the ON RRP rate close or equal to the lower bound of the federal funds rate target range, the Fed effectively sets a hard floor (at least, to date) for the policy rate. "
+- "Capital requirements of banks have been significantly increasing over the past 2 years, with both leverage and risk-based requirements rising about 25 percent. Given these balance sheet pressures, it is not surprising that money market funds have been absorbing some of the excess deposits at banks and are investing those funds in the ON RRP facility. We estimate that the $2.2 trillion in RRP balances is currently saving the largest banks $50 billion in tier 1 capital. "
+
