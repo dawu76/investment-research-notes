@@ -8,7 +8,8 @@ catalysts and to evolve gradually (e.g., GFC, 2022), which explains why trend-fo
 - "There is no tendency for trend-following strategies to perform worse than average following periods of extremely strong performance."
 
 [AQR](https://www.aqr.com/Insights/Trend-Following): additional resources on trend-following
-- ...
+- [paper](https://www.aqr.com/Insights/Research/Journal-Article/A-Century-of-Evidence-on-Trend-Following-Investing): A century of evidence on trend-following. "This paper seeks to establish whether the strong performance of trend following is a statistical fluke of the last few decades or a more robust phenomenon that exists over a wide range of economic conditions. Using historical data from a number of sources, we construct a time series momentum strategy back to 1880 and find that the strategy was consistently profitable over the next 110 years."
+- [paper](https://www.aqr.com/Insights/Research/White-Papers/A-Half-Century-of-Macro-Momentum): A Half Century of Macro Momentum. "Macro momentum – a systematic global macro strategy that takes long positions in assets for which fundamental macroeconomic trends are improving and short positions in assets for which fundamental macroeconomic trends are deteriorating – has the potential to deliver strong positive returns with low correlation to traditional asset classes across various macroeconomic and market environments, including the potential to provide important diversification benefits in bear equity markets and rising yield environments."
 
 ### CTA vs. Global Macro
 
