@@ -1,5 +1,18 @@
+### On trend-following performance
+
+[AQR](https://www.aqr.com/Insights/Research/White-Papers/Trend-Following-Why-Now-A-Macro-Perspective): "Trend-Following: Why Now? A Macro Perspective"
+- "Both the macroeconomic picture and empirical evidence, however, suggest that strong performance for trend-following may persist, making it a potentially valuable source of diversifying returns during a challenging time for the rest of investors’ portfolios."
+- "given the backdrop of persistently high inflation, a rapid and resolute shift in central banks’ policies, and the unexpected war in Ukraine, macroeconomic volatility is on the rise. As we would expect, this rise in macroeconomic volatility has also been accompanied by larger market moves and  improved trend-following performance. So far in 2022, market moves are significantly larger than average, and the SG Trend Index is on track for its best annual return since its inception in 2000, as shown in Figure 3. The current environment provides out-of-sample evidence that the relationship between large market moves and trend performance remains intact."
+- "At their core, trend-following strategies capture the tendency of markets to gradually incorporate new information. This tendency creates persistent price trends, which may allow trend-following to be profitable on average. Notably, large market drawdowns and crises generally tend to have identifiable 
+catalysts and to evolve gradually (e.g., GFC, 2022), which explains why trend-following strategies tend to perform particularly well in such environments. There is a direct relationship between macroeconomic volatility and the size of market moves, with the latter strongly (and intuitively) associated with trend￾following performance."
+- "There is no tendency for trend-following strategies to perform worse than average following periods of extremely strong performance."
+
+[AQR](https://www.aqr.com/Insights/Trend-Following): additional resources on trend-following
+- ...
 
 ### CTA vs. Global Macro
+
+---
 
 Global macro strategy definitions
 - This is a flexible strategy whose positions are based on views regarding the economic and geopolitical prospects of various countries. These views are informed by interest rates, politics, domestic and foreign poilcies, international trade, currency exchange rates, etc.
