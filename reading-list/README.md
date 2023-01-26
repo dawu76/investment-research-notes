@@ -30,14 +30,6 @@ Federal Reserve, QT, and liquidity
 - [The Last Bear Standing Substack](https://thelastbearstanding.substack.com/p/down-the-drain): Down the Drain
 - [The Last Bear Standing Substack](https://thelastbearstanding.substack.com/p/draining-the-repo): Draining the Repo
 
-Company analyses
-- [TCI fund letter](https://www.tcifund.com/files/corporateengageement/alphabet/15th%20November%202022.pdf) to $GOOG board
-- [Fallacy Alarm Substack](https://fallacyalarm.substack.com/p/meta-3q22-digest-and-revisiting-my): Meta 3Q22 Digest & revisiting my original investment case
-- [Investment Ideas by Antonio Substack](https://antoniolinares.substack.com/p/meta-investing-for-an-exponential): $META - Investing for an exponential future
-- [Gupta Media post](https://www.guptamedia.com/insights/meta-conversion-breakdowns-return): Meta's conversion breakdowns return
-- [Rihard Jarc blog](https://uncoveralpha.substack.com/p/meta-short-term-profits-vs-long-term): $META - short-term profits vs. long-term vision
-- [Commonstock post](https://commonstock.com/post/fbd93762-8ebc-461a-925f-9ab41ecb1eac): WhatsApp: Meta's Next Growth Engine
-
 Basic terminology
 - [Investopedia](https://www.investopedia.com/terms/c/couponequivalentrate.asp): coupon equivalent rate
 
