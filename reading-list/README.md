@@ -49,6 +49,18 @@
 - "The law of large numbers works against you here. We’ve been taught that with more trials, the sample moves closer towards the “average”. But which average in this case?1 What if you play this game in series? Three 50 flip games in a row is the same as the 150 game. The likelihood of receiving the average return at 150 flips is worse than at 50 flips. Playing the games more often, one after each other doesn’t make the arithmetic average more likely. It makes it less likely."
 - "A 'sample' taken from multiple compounded coin flips is very, very unlikely to “find” the arithmetic return. It’s far more likely that it tracked toward the geometric return."
 
+[Breaking the Market](https://breakingthemarket.com/math-games/): Understanding Investing Math Games
+- Which game represents buy and hold? 
+- Which game(s) represents index investing? 
+- Which game(s) represents traditional portfolio construction? 
+- Which game(s) represents trend following? 
+- Which game represents Geometric Balancing?
+- Which game represents the best strategy?
+
+[Breaking the Market](https://breakingthemarket.com/trend-following-is-hot-air/): Trend Following is Hot Air
+- "The easiest conclusion is that a concentrated market index is potentially trouble. And there is some historical data which backs this up. Entering 2000 the S&P 500 was historically concentrated. We know how that played out. Also historically when the “market breadth”–the number of stocks which rise during a rally–is low, returns usually lag soon after. This is very similar to when a single coin peaks up before reverting back down."
+- "in the real world while portfolios will not degrade and become fully concentrated like our coin flip example, they are very likely to experience portfolio standard deviation changes through shifts in correlation. Therefore I believe it is critical to monitor portfolio correlation. Essentially correlation is the rudder on the investment portfolio ship, charting its most likely heading."
+
 ---
 
 #### Federal Reserve, QT, and liquidity
