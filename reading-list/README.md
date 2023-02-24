@@ -31,6 +31,17 @@
 
 ---
 
+#### Equity factors
+
+[Alpha Architect](https://alphaarchitect.com/2023/02/expected-stock-returns/): Inside the Minds of Expected Stock Returns
+- Explanations for the casual relationship between firm characteristics and returns are classified as either risk- or behavioral-based.
+- Risk-based explanations: Stocks with certain characteristics tend to perform worse when the marginal utility of money is high (such as in recessions, when unemployment is high and labor capital is at risk). Thus, investors demand a risk premium in return for accepting the risks of firms (companies on the long side of a factor) with such characteristics. On the flip side (companies on the short side of a factor), investors rationally pay a high price and accept low average returns for stocks that provide insurance against bad economic regimes.
+- There are two categories of behavioral-based explanations: behavioral errors that lead to mispricing and a taste-based explanation.
+- Behavioral explanation: certain firm characteristics correlate with, or induce, overly optimistic beliefs. Overly optimistic beliefs can arise from investors’ extrapolation of past cash-flow growth or stock market performance (recency bias) and overconfidence. In the presence of limits to arbitrage, overly optimistic beliefs generate overpricing. Since overpricing is eventually corrected, these characteristics predict low future stock returns.
+- Taste-based explanation: investors prefer (they derive utility from) extreme payoffs even if the probability of receiving such payoffs is exceedingly small, causing them to overpay (from a purely economic perspective) for assets with a lottery-like distribution of returns.
+
+---
+
 #### Expected returns: geometric vs. average
 
 [Breaking the Market](https://breakingthemarket.com/solving-the-equity-premium-puzzle-and-uncovering-a-huge-flaw-in-investment-theory/): Solving the Equity Premium Puzzle, and Uncovering a Huge Flaw in Investment Theory.
