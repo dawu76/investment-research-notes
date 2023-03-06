@@ -11,3 +11,14 @@
 
 [Macro-ops post](): What I Learned From Michael Burry's Value Investor Club Write-ups [source: [InvestmentTalk](https://investmenttalk.substack.com/p/playing-long-games-the-value-trap)]
 - Michael Burry shared a series of write-ups (here) between 2000 and 2002 on Value Investor’s Club (VIC). In typical Burry style, each is short and to the point, concluding with a brief synopsis of the catalyst. The folks over at MacroOps Musings wrote a great article summarising the overlapping themes of the stock pitches. The TLDR is that Burry liked absolute valuation, downside protection, small and illiquid companies, low share counts, and no restrictions for where he hunted.
+
+[Jensen Investments](https://www.jenseninvestment.com/insights/earnings-adjustments/): Do Not Be Fooled by Earnings Adjustments - Focus on Cash Flow
+- Examples of adjustments: excluding amortization related to large M&A and/or intangible assets
+- Why are non-GAAP earnings ever reported? They may improve income statement comparability across time periods and between different companies. To aid comparability, non-GAAP excludes one-time expenses such as restructuring costs, goodwill write-downs, and legal expenses.
+- GAAP standards require accrual accounting (rather than cash accounting) because it presents a more accurate picture of a company’s financial condition. Under accrual reporting, revenue and expenses are recognized as they occur, while under cash reporting, revenue and expenses are recognized only when the cash changes hands.
+- Changes to these adjustments in the non-GAAP earnings do NOT affect cash flow, since amortization is a non-cash expense.
+
+[Jensen Investments](https://www.jenseninvestment.com/insights/access-white-paper-roe/): Return on Equity:
+A Compelling Case for Investors
+- The goal is to find high-quality, profitable companies that can generate returns above their costs of capital in a variety of circumstances and economic environment.
+- We use a time period of 10 consecutive years to calculate ROE and a hurdle rate of 15% per year.
