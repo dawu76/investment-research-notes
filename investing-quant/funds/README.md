@@ -10,8 +10,8 @@
 
 #### Multi-strategy
 
-<img src="https://user-images.githubusercontent.com/1627180/193396977-1faa550e-25da-4c92-958d-2c5f34ce2c93.png" alt="funds-tactical-metrics-comparison-20220930.png" width="60%" height="60%">
-<img src="https://user-images.githubusercontent.com/1627180/193396746-808084d5-00cb-4b26-93f1-3608fb22f425.png" alt="funds-tactical-perf-comparison-20220930.png" width="60%" height="60%">
+<img src="https://user-images.githubusercontent.com/1627180/193396977-1faa550e-25da-4c92-958d-2c5f34ce2c93.png" alt="funds-tactical-metrics-comparison-20220930.png" width="50%" height="50%">
+<img src="https://user-images.githubusercontent.com/1627180/193396746-808084d5-00cb-4b26-93f1-3608fb22f425.png" alt="funds-tactical-perf-comparison-20220930.png" width="50%" height="50%">
 
 [$MAFIX](https://www.abbeycapital.com/multi-asset-fund/#documentation): Abbey Capital Multi-Asset fund
 - target exposures by % of net assets: 100% = multi-manager managed futures offering exposure to currencies, commodities, interest rates, equities, bonds; 50% = long US equity via S&P 500 futures; 70% = short-duration US fixed income
@@ -42,8 +42,8 @@
 
 #### Global Macro
 
-<img src="https://user-images.githubusercontent.com/1627180/193396453-a458b066-a23b-439a-8616-ac8f4eec0ca5.png" alt="funds-macro-tactical-metrics-comparison-20220930.png" width="60%" height="60%"/>
-<img src="https://user-images.githubusercontent.com/1627180/193397470-3b13aa85-d9c8-4f67-a8ac-7e9c7e47454d.png" alt="funds-macro-tactical-perf-comparison-20220930.png" width="60%" height="60%"/>
+<img src="https://user-images.githubusercontent.com/1627180/193396453-a458b066-a23b-439a-8616-ac8f4eec0ca5.png" alt="funds-macro-tactical-metrics-comparison-20220930.png" width="50%" height="50%"/>
+<img src="https://user-images.githubusercontent.com/1627180/193397470-3b13aa85-d9c8-4f67-a8ac-7e9c7e47454d.png" alt="funds-macro-tactical-perf-comparison-20220930.png" width="50%" height="50%"/>
 
 [$EBSIX](https://www.campbell.com/systematicmacro): Campbell Systematic Macro fund + [presentation](https://www.campbell.com/resource/1660751382000/SystematicMacro_Presentation)
 - incorporates 80 unique return sources encompassing systematic macro, short-term, and momentum strategies; incorporates 80 unique return sources from long-standing and emerging markets and spans trend following, systematic macro and short-term strategies. One important strategy within this portfolio is trend following, which can detect long-term opportunities in markets based on investor herding behavior and it has the potential to profit from them. Moreover, diversification across geographies, sectors and time horizons allows us to profit from trends wherever and whenever they occur, which may help to provide more consistent returns over time.
@@ -142,9 +142,22 @@ $JEPI - [Seeking Alpha](https://archive.is/5QQvh#selection-1227.0-1227.56): JEPI
 - Important: Even a 6.5% yield over time, as management is guiding for, still sounds great. But here's the catch. If you don't reinvest a significant portion of those dividends, your initial investment will lose money over time. For context $XYLD investors who took their dividends in cash have lost 21% of their original investment over the last nine years when adjusting for inflation. To offset this and keep your principle intact, you would have had to reinvest 38% of the dividends. Since inception [June 2020], if you had invested in JEPI and taken your dividends in cash, then even ignoring high taxes, you'd be down 7% when adjusting for inflation; reinvesting 50% of the dividends into more JEPI shares would have kept your principal whole.
 - In other words, if you want to avoid your original investment getting eaten away by inflation over time, you should plan to reinvest 50% of the dividends: allocate up to 50% of dividends to taxes (for the top tax bracket), and reinvest the other 50% to keep your principal from eroding.
 
+$JEPI - [Seeking Alpha](https://archive.is/zqjqq): JEPI Is The Name, High Yield Is The Game
+- JEPI is well-diversified, with low concentration in its top 10 stock holdings. On average, each position in its top 10 is 1.446% of their overall portfolio. Combined, their top 10 stock holdings make up 14.46% of their total holdings.
+- Although JEPI is an income fund, it selects its holdings to maximize risk-adjusted total return and does not select its holdings based on current yield, as most of the distributions paid by JEPI come from selling covered calls.
+- JEPI sells “out of the money” call options. This is an important point because it allows JEPI to catch some of the upside if the stock or index gains in price.
+One of their closest competitors, Global X S&P 500 Covered Call ETF (XYLD) sells cover calls “at the money,” which provides a larger premium but limits the upside potential.
+- JEPI uses Equity-Linked Notes (“ELNs”) as a vehicle to sell cover calls. Equity-linked notes are a type of structured product that combines characteristics of a debt instrument with an underlying equity component, in this case covered calls.
+- JEPI may invest up to 20% of the funds’ net assets in ELNs. Again, we don’t know how JP Morgan structures their ELNs, but typically the biggest risk involved in structured products is counterparty default, just like with a regular bond. If the bank('s') issuing the ELN goes bankrupt, then JEPI’s performance would be significantly impacted.
+- On average JEPI expects to receive a 1 to 2% yield from dividends on their long positions and a 5 to 8% yield on the option premiums received.
+
+$JEPI - [Seeking Alpha](https://archive.is/MmkgC): Here's why you probably shouldn't own JEPI
+- ...
+
 $JEPI - [WSJ](https://archive.is/00dI9#selection-115.5-115.82): Why Investors Are Piling into Funds That Promise Not to Beat the Stock Market
 - What if you could earn monthly dividends on stocks at an annual rate of at least 11%? That’s the pitch for exchange-traded funds that are generating eye-popping yields by selling options contracts. These ETFs, known as covered-call or option-income funds, also shielded investors from some of the pounding that stocks took last year.
 - Last year, JPMorgan Equity Premium Income ETF lost 3.5%—far outperforming the dismal 18.1% decline in the S&P 500. No wonder the JPMorgan fund took in $12.9 billion in new money last year—the biggest annual haul for any actively managed ETF ever. Three covered-call funds from Global X, linked to the Nasdaq-100, S&P 500 and Russell 2000 indexes respectively, attracted a combined $5.2 billion in 2022. So far in 2023, approximately $3 billion more has flowed into these four funds alone.
 - This week, with the S&P 500 gaining 8% so far this year, JPMorgan’s Equity Premium Income ETF was up just 1%. That trade-off is inevitable. “You’re not going to capture all of the upside in an up market,” says Hamilton Reiner, lead portfolio manager of the JPMorgan Equity Premium Income fund. “You trade away some of that for the bird-in-hand of higher income."
 - Tax implications: You could generate a roughly 12% annual “yield” on your stock portfolio simply by selling 1% of your holdings every month. The proceeds would be taxable at the maximum capital-gains rate of about 20% (or would even reduce your tax bill if you sell positions at a loss).
 With covered-call funds, on the other hand, dividend distributions can be taxed at ordinary-income rates of up to approximately 40%, whereas stock dividends are typically taxed at half that rate or less.
+
