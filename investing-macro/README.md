@@ -2,7 +2,7 @@
 
 ---
 
-#### Federal Reserve and QE/QT
+### Federal Reserve and QE/QT
 
 [Bloomberg](https://archive.ph/Cmxl7): The Fed Is About to Go Full Throttle on QT. Fear Not.
 - "By combining the size of the Fed’s balance sheet with the amount of reverse repos outstanding and the TGA balance, we can create a liquidity indicator that better explains movements in stock prices than just the Fed’s balance sheet alone. Stocks have closely tracked the size of the Fed's balance sheet assets minus reverse repos outstanding and the Treasury General Account."
@@ -31,10 +31,20 @@ Question: What are Treasury bills vs. Treasury bonds?
 
 ---
 
-#### Overnight reverse repo facility
+### Overnight reverse repo facility
 
 [bpi.com](https://bpi.com/the-reverse-repo-bank/): The Reverse Repo Bank
 - "The Federal Reserve introduced the overnight reverse repo facility (ON RRP) in 2014 to improve its control of the federal funds rate. The set of counterparties eligible to participate in the ON RRP is quite broad and includes banks, MMFs, government-sponsored enterprises (GSEs) and primary dealers. MMFs and the GSEs have accounted for almost all ON RRP take-up."
 - "The ON RRP facility helps the Federal Reserve set a floor on the fed funds rate because the Fed controls the interest rate that MMFs and GSEs earn on their excess holdings of cash. More precisely, by setting the ON RRP rate close or equal to the lower bound of the federal funds rate target range, the Fed effectively sets a hard floor (at least, to date) for the policy rate. "
 - "Capital requirements of banks have been significantly increasing over the past 2 years, with both leverage and risk-based requirements rising about 25 percent. Given these balance sheet pressures, it is not surprising that money market funds have been absorbing some of the excess deposits at banks and are investing those funds in the ON RRP facility. We estimate that the $2.2 trillion in RRP balances is currently saving the largest banks $50 billion in tier 1 capital. "
 
+---
+
+### US Banking System Failures
+
+[FDIC paper](https://www.fdic.gov/bank/historical/history/3_85.pdf)An Examination of the Banking Crises of the 1980s and Early 1990s
+- The distinguishing feature of the history of banking in the 1980s was the extraordinary upsurge in the number of bank failures. Between 1980 and 1994 more than 1,600 banks insured by the Federal Deposit Insurance Corporation (FDIC) were closed or received FDIC financial assistancefar more than in any other period since the advent of federal deposit insurance in the 1930s 
+- The behavior of banks in the regions and sectors that suffered recessions during the 1980s also exhibited some common elements:
+  - In the economic expansions that preceded these recessions, banks generally responded aggressively to rising credit demands.
+  - Banks that failed during the regional recessions generally had assumed greater risks, on average, than those that survived, as measured by ratios of total loans and commercial real estate loans to total assets. Banks that failed had generally not been in a seriously weak condition (as measured by equity-to-assets ratios) in the years preceding the regional recessions.
+  - Banks chartered in the 1980s and mutual institutions converting to the stock form of ownership failed with greater frequency than comparable banks
