@@ -4,7 +4,7 @@ Below is a collection of asset allocation strategies that can be self-managed.
 
 ---
 
-### Dual Momentum – Global Equity Momentum
+#### Dual Momentum – Global Equity Momentum
 
 From Antonacci's Dual Momentum book [notes](https://read.amazon.com/kp/notebook?ref_=k4w_ms_notebook):
 
@@ -16,7 +16,7 @@ And from Antonacci's 2018 blog post:
 
 > When the trend of stocks is up according to absolute momentum applied to the S&P 500, we use relative strength to determine if we will be in U.S. or non-U.S. stocks. When the trend of stocks is down, we invest in bonds. We use a 12-month lookback period for both types of momentum and rebalance monthly.
 
-#### References
+##### References
 - Gary Antonacci's [Optimal Momentum](https://www.optimalmomentum.com/faq/) site + [running tally](https://www.optimalmomentum.com/global-equities-momentum/) of monthly & annual returns of GEM
 - InvestResolve's [executive summary](https://investresolve.com/global-equity-momentum-executive-summary/) + [whitepaper](https://investresolve.com/global-equity-momentum-a-craftsmans-perspective-lp/)
 - Antonaaci's 2019 [blog post](https://dualmomentum.net/2019/01/17/whither-fragility-dual-momentum-gem/), "Whither Fragility: Dual Momentum GEM", on Corey Hoffstein's "Fragility Case Study: Dual Momentum GEM" article advocating the use of multiple lookback periods to avoid specification bias 
@@ -24,7 +24,7 @@ And from Antonacci's 2018 blog post:
 
 ---
 
-### Meb Faber's Tactical Asset Allocation
+#### Meb Faber's Tactical Asset Allocation
 
 From the Extrategic [blog post](https://extradash.com/en/strategies/models/5/faber-tactical-asset-allocation/):
 
@@ -34,13 +34,13 @@ From the Extrategic [blog post](https://extradash.com/en/strategies/models/5/fab
 > 
 > At the end of each month, we buy if the price is greater than the SMA, and we sell if the price is lesser than the SMA. We ignore any price changes in the middle of the month. If you’ve looked into Fabian’s timing model, you’ll notice that the logic is the same, except Faber uses 10 months for lookback while Fabian uses 39 weeks (10 months is approximately 40 weeks).
 
-#### References
+##### References
 - Fabers [2014 paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=962461): A Quantitative Approach to Tactical Asset Allocation
 - Extrategic [blog post](https://extradash.com/en/strategies/models/5/faber-tactical-asset-allocation/) on Faber's TAA
 
 ---
 
-### Alpha Architect: [Robust Asset Allocation (RAA)](https://alphaarchitect.com/2014/12/the-robust-asset-allocation-raa-index/)
+#### Alpha Architect: [Robust Asset Allocation (RAA)](https://alphaarchitect.com/2014/12/the-robust-asset-allocation-raa-index/)
 
 The tactical objectives of our RAA indexes are as follows:
 - Portfolio growth that keeps up with inflation (principal growth): the goal is not to outperform some other index or benchmark
@@ -99,6 +99,15 @@ Ongoing trend signals for RAA strategy
 - These rules together constitute the "Downside Protection Model" based on Time-series Momentum (TMOM) and Simple Moving Averages (SMA).
 - Time Series (Absolute) Momentum Rule (TMOM) Excess return = total return over the past 12 months less return of T-Bills > 0, go long risky assets. Otherwise, go long alternative assets (T-Bills)
 - Simple Moving Average (Trending Performance) Rule (MA): If Current Price – Moving Average (12) > 0, go long risky assets. Otherwise, go long alternative assets (T-Bills).
+
+---
+
+### Research
+
+[paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4318157): A Century of Asset Allocation Crash Risk [2023]
+- While endowment strategy is a front runner in cumulative returns and surpasses both classic strategies, such as U.S. 60/40, Global 60/40, Diversified, and more sophisticated and innovativeRisk Parity, Factor-Based, and Dynamic allocation, it only comes out third on the risk-adjusted basis, losing to Factor-Based and Dynamic strategies. It turns out that most strategies are prone to deep, frequent, and prolonged downturns in portfolio value (drawdowns) in the event of market crash that occur several times during the observed period.
+- Only Factor-Based allocation offers a significant improvement over others when it comes to a large-scale loss of wealth when markets approach their trough. Dynamic allocation stands out in stark contrast with others with maximum drawdown of only 26% and very infrequent incidences of 15-25% drawdowns, as compared to 62% maximum wealth loss in US 60/40, Risk Parity, and Endowments.
+- Dynamic allocation stands out sharply among the rest of the popular investment strategies with only 8 drawdowns of 15% or more, only 2 of 25% or more, and the maximum drawdown of 26%, a stunning achievement, when the next lowest of Factor-Based portfolio is at 44%. In sum, unconditionally, Dynamic allocation significantly reduces drawdown risk.
 
 ---
 
