@@ -42,7 +42,7 @@ Question: What are Treasury bills vs. Treasury bonds?
 
 ### US Banking System Failures
 
-[FDIC paper](https://www.fdic.gov/bank/historical/history/3_85.pdf)An Examination of the Banking Crises of the 1980s and Early 1990s
+[FDIC paper](https://www.fdic.gov/bank/historical/history/)An Examination of the Banking Crises of the 1980s and Early 1990s
 - The distinguishing feature of the history of banking in the 1980s was the extraordinary upsurge in the number of bank failures. Between 1980 and 1994 more than 1,600 banks insured by the Federal Deposit Insurance Corporation (FDIC) were closed or received FDIC financial assistancefar more than in any other period since the advent of federal deposit insurance in the 1930s 
 - The behavior of banks in the regions and sectors that suffered recessions during the 1980s also exhibited some common elements:
   - In the economic expansions that preceded these recessions, banks generally responded aggressively to rising credit demands.
