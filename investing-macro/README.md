@@ -38,11 +38,19 @@ Question: What are Treasury bills vs. Treasury bonds?
 - "The ON RRP facility helps the Federal Reserve set a floor on the fed funds rate because the Fed controls the interest rate that MMFs and GSEs earn on their excess holdings of cash. More precisely, by setting the ON RRP rate close or equal to the lower bound of the federal funds rate target range, the Fed effectively sets a hard floor (at least, to date) for the policy rate. "
 - "Capital requirements of banks have been significantly increasing over the past 2 years, with both leverage and risk-based requirements rising about 25 percent. Given these balance sheet pressures, it is not surprising that money market funds have been absorbing some of the excess deposits at banks and are investing those funds in the ON RRP facility. We estimate that the $2.2 trillion in RRP balances is currently saving the largest banks $50 billion in tier 1 capital. "
 
+SOFR/IOER
+- [thread](https://twitter.com/concodanomics/status/1641233231629656064?s=20) on BTFP, Quantitative Teasing, and SOFR/IOER
+- [Investopedia](https://www.investopedia.com/secured-overnight-financing-rate-sofr-4683954): SOFR overview
+- [Reuters](https://www.reuters.com/article/us-usa-bonds-repo-explainer/explainer-u-s-repo-market-flirts-with-negative-rates-as-fed-seeks-to-absorb-excess-cash-idUSKBN2C32AI): Explainer: U.S. repo market flirts with negative rates as Fed seeks to absorb excess cash
+- [SF Fed](https://www.frbsf.org/education/publications/doctor-econ/2013/march/federal-reserve-interest-balances-reserves/): Why did the Federal Reserve start paying interest on reserve balances held on deposit at the Fed?
+- [Cato](https://www.cato.org/cato-journal/spring/summer-2019/interest-reserves-history-rationale-complications-risks): Interest on Reserves: History and Rationale, Complications and Risks
+- [Chicago Fed](https://www.chicagofed.org/publications/chicago-fed-letter/2019/423): Understanding Recent Fluctuations in Short-Term Interest Rates
+
 ---
 
 ### US Banking System Failures
 
-[FDIC paper](https://www.fdic.gov/bank/historical/history/)An Examination of the Banking Crises of the 1980s and Early 1990s
+[FDIC paper](https://www.fdic.gov/bank/historical/history/): An Examination of the Banking Crises of the 1980s and Early 1990s
 - The distinguishing feature of the history of banking in the 1980s was the extraordinary upsurge in the number of bank failures. Between 1980 and 1994 more than 1,600 banks insured by the Federal Deposit Insurance Corporation (FDIC) were closed or received FDIC financial assistancefar more than in any other period since the advent of federal deposit insurance in the 1930s 
 - The behavior of banks in the regions and sectors that suffered recessions during the 1980s also exhibited some common elements:
   - In the economic expansions that preceded these recessions, banks generally responded aggressively to rising credit demands.
