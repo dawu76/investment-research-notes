@@ -31,6 +31,36 @@ Question: What are Treasury bills vs. Treasury bonds?
 
 ---
 
+### Bank reserves and liquidity
+
+[Reuters](https://www.reuters.com/markets/rates-bonds/us-debt-ceiling-saga-softens-feds-qt-mcgeever-2023-01-19/): U.S. debt ceiling saga softens Fed's QT: McGeever [2023-01-19]
+- As yet another debt ceiling crisis looms, the Treasury will have to run down its cash balance at the Fed, with potential knock on effects on market liquidity, the yield curve, and even the dollar.
+- The TGA is a liability on the Fed's balance sheet. This means that when the TGA goes down, reserves go up, effectively administering an injection of liquidity into the system.
+
+[Reuters](https://www.reuters.com/article/us-usa-treasury-liquidity-explainer/explainer-u-s-treasurys-cash-drawdown-and-why-markets-care-idUSKBN2AM26A): U.S. Treasury's cash drawdown - and why markets care [2021-02-21]
+- The U.S. government runs most of its day-to-day business through the TGA - managed by the New York Fed and into which flow tax receipts and proceeds from the sale of Treasury debt.
+- When citizens or businesses receives a government cheque, they deposit it at their commercial bank, which presents it to the Fed. The Fed then debits the Treasury’s account and credits the bank’s account at the Fed - increasing its reserve balance.
+- The TGA sits on the Fed’s balance sheet as a liability, along with notes, coins and bank reserves. But the Fed’s liabilities must match its assets. So a drop in the TGA must see a rise in bank reserves and vice versa. Last year’s reserves drain was masked by the Fed’s $3 trillion in asset purchases.
+- But when cash flows leaves the TGA, bank reserves rise - potentially increasing lending or investment in the wider economy or markets.
+
+[livewiremarkets.com](https://www.livewiremarkets.com/wires/bulls-beware-this-rally-is-about-liquidity-not-fundamentals): Bulls beware – this rally is about liquidity, not fundamentals [2023-01-27]
+- What happens during QE? The Fed buys assets like US Treasury bonds and mortgage-backed securities in return for ‘fed funds’, which the Fed simply creates out of thin air. These funds – bank reserves (aka ‘liquidity’) – circulate in the financial system (but not the real economy). They lead to inflation of asset prices but not inflation in goods and services.
+- The assets the Fed buys go onto its balance sheet as an asset, while the bank reserves created and injected into the banking system are the corresponding liability. The Fed’s balance sheet size is therefore a good barometer of the extent of QE.
+
+[Investopedia](https://www.investopedia.com/terms/b/bank-reserve.asp): Bank Reserves: Definition, Purpose, Types, and Requirements
+- Bank reserves are the cash minimums that financial institutions must have on hand in order to meet central bank requirements. This is real paper money that must be kept by the bank in a vault on-site or held in its account at the central bank. Cash reserves requirements are intended to ensure that every bank can meet any large and unexpected demand for withdrawals.
+- In the U.S., the Federal Reserve dictates the amount of cash, called the reserve ratio, that each bank must maintain. Historically, the reserve ratio has ranged from zero to 10% of bank deposits.
+
+[S&P paper](https://www.hks.harvard.edu/sites/default/files/centers/mrcbg/programs/senior.fellows/2019-20%20fellows/BanksCannotLendOutReservesAug2013_%20(002).pdf): Repeat After Me: Banks Cannot And Do Not "Lend Out" Reserves
+- Many talk as if banks can "lend out" their reserves, raising concerns that massive excess reserves created by QE could fuel runaway credit creation and inflation in the future. But banks cannot lend their reserves directly to commercial borrowers, so this concern is misplaced.
+- Banks do need to hold reserves (as a liquidity buffer) against their deposits, and banks create deposits when they lend. But normally banks are not reserve constrained, so excess reserves do not loosen a reserve constraint.
+- Banks in aggregate can reduce their reserves only to the extent that they initiate new lending and the bank deposits created as a result flow into the economy as new banknotes as the public demands more of them.
+- QE does aim to ease financial conditions and spur more bank lending than otherwise would have occurred, but the mechanisms by which this happens are much more subtle and indirect than commonly implied.
+- If the excess reserves created by QE were to be associated with too much credit creation, central banks could readily extinguish them.\
+- [tweet commentary](https://twitter.com/DEhnts/status/1624329431593385984) & [Reddit commentary](https://www.reddit.com/r/Economics/comments/1kdflu/repeat_after_me_banks_cannot_and_do_not_lend_out/)
+
+---
+
 ### Overnight reverse repo facility
 
 [bpi.com](https://bpi.com/the-reverse-repo-bank/): The Reverse Repo Bank
