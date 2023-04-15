@@ -71,6 +71,13 @@ Question: What are Treasury bills vs. Treasury bonds?
 - If the excess reserves created by QE were to be associated with too much credit creation, central banks could readily extinguish them.
 - [tweet commentary](https://twitter.com/DEhnts/status/1624329431593385984) & [Reddit commentary](https://www.reddit.com/r/Economics/comments/1kdflu/repeat_after_me_banks_cannot_and_do_not_lend_out/)
 
+[Twitter thread](https://twitter.com/dampedspring/status/1615400383555465216) by @dampedspring
+- Let's say the government wants to spend while they have a bank account called the TGA. To spend, the Treasury issues a public obligation, either a T-bill or a 10-year note, for example. Assume that everyone with savings is currently satisfied with their asset holdings. To buy the bonds from the Treasury they, need to do one of only two things: use cash or borrow in a secured way from a bank that can magically create cash.
+- In both cases the investor is asked to take on more risk than they had planned moments before. If it is T-bills being offered, they are asked to take on very little risk, while if it's 10-year notes, they are asked to take on a little more. The impact on all other assets depends on this issuance because the 10-year notes compete with other long-term assets, while the bills compete with other forms of cash.
+- Next step is for the spending by the government. For the moment, assume the spending is instantaneous. So at that moment the private sector gets cash. If they happen to be savers of 100% of the cash, and they want to save exactly what was just issued by the government, nothing happens to markets or the economy. But that's not how spending works, as most spending goes to those who consume.
+- ... Let's throw Fed purchases into the mix. The Fed buys the issuance and the market need not adjust. The spending is distributed to savers and spenders, and over time ends ups in savings which need to be funneled to investments. There are isn't a new supply of investments, this results in asset inflation, as the quantity available for the private sector doesn't change while the amount of money held in savings by the private sector has increased.  
+- QT is the opposite. In this case, issuance is absorbed by the private sector, and the money is handed back to the Fed and does not create future savings in the private sector. This is deflationary for assets as the quantity of assets circulating increases while the amount of money remains the same ...
+
 ---
 
 ### Overnight reverse repo facility
