@@ -7,6 +7,25 @@ Goals
 
 ---
 
+### Return-stacking from POV of Portfolio Tilts versus Overlays
+
+From the Newfound Research [blog](https://blog.thinknewfound.com/2023/04/portfolio-tilts-versus-overlays-its-long-short-portfolios-all-the-way-down/), "Portfolio Tilts versus Overlays: It’s Long/Short Portfolios All the Way Down".
+
+The distance between any two portfolios can be measured as a long/short strategy.
+- Example: suppose you buy the iShares MSCI USA Value ETF (“VLUE”).  If we subtract the weights of holdings in VLUE from the S&P 500, we can identify how much VLUE is over- or underweight any given position. This is equivalent to saying, “VLUE is equal to the S&P 500 plus a long/short portfolio” where the longs are the overweights and the shorts are the underweights.
+- Tilts and overlays are not mutually exclusive: it’s long/short portfolios all the way down.
+- Through the lens of long/short portfolios all the way down, everything is an "overlay." Buying value stocks? Equity long/short overlay on broad equity market. Rebalancing your portfolio?  Multi-asset long/short overlay on top of your prior asset allocation.
+- This lets us calculate the implicit hurdle rate for alpha required to overcome the fee. E.g. if VLUE = 100% x S&P 500 + 86.2% x Long/Short, i.e. the longs and shorts both sum up to 86.2%. The positions in the long/short capture our active bets while the 86.2% here is our active share. The current expense ratio for VLUE is 0.15% and the current expense ratio for the iShares Core S&P 500 ETF (“IVV”) is 0.03%. So 0.15% = 0.03% + 86.2% x Fee of Long/Short. This means the implicit fee of the long/short strategy is 0.139%. This is the hurdle rate that the long/short portfolio must clear before it adds any excess return.
+- While active bets are responsible for generating alpha, the combination of a high fee and a low active share can lead to an unclearable hurdle rate. In the example above, if the active share was just 10% (i.e., the fund was a closet benchmarker), the hurdle rate would jump to 1.2%.
+
+How do investors implement portfolio overlays?
+- For leverage-constrained allocators (e.g. many financial advisors), overlays have historically remained out of reach.  More flexible institutions were able to implement it through a process that became known as “portable alpha,” originally pioneered by PIMCO in the 1970s. It's called such because the net portfolio construction, in effect, retains the beta and "ports" the alpha on as an overlay.
+- The implementation, on paper, is fairly simple: (i) Replace passive beta exposure with a capital efficient derivative (e.g. futures or swaps) to free up capital. (ii) Allocate freed up capital to the desired alpha source.
+- Example of this approach, where a 60/40 allocation is packaged into a capital efficient '90/60' fund, allowing an investor to utilize just 2/3rds of their capital to capture the same exposure. When this freed up capital is allocated, it effectively 'stacks' the exposure on top of the original 60/40 portfolio. This approach is also known as "Return Stacking."
+- The freed-up capital should be invested in assets with positive expected returns and low correlation to both stocks and bonds, such as managed futures.
+
+---
+
 ### Twitter research
 
 [2022-08-07 tweet](https://twitter.com/HML_Compounder/status/1554943229870628865?s=20&t=QBwqSrWLWFZkHA0ezMcExw): "Fun/quick piece from @AuspiceCapital on return-stacking, specifically with CTAs - [Auspice Capital blog](https://t.co/dknnZJgIYS), "Return-stacking - What, When, Where, How"
