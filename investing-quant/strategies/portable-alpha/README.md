@@ -48,7 +48,15 @@ Side note from Blackrock re: fixed income manager's 'reach for yield'
 
 ---
 
+Case study: PSLDX from Seeking Alpha article, "PSLDX One Year Later: The Right Idea At The Wrong Time"
+- "PSLDX has a lot of duration (about 16 years), so some investors inadvertently took on too much interest rate risk with funds like PSLDX and took a beating from it."
+- I made a 100% stock/100% bond benchmark and compared it to PSLDX in Portfolio Visualizer. The point of this is that it would detect if any weird bets led to PSLDX's poor performance this year, or if the market was driving it. What I found was that from the peak in November to month-end October, PSLDX beat its benchmark by about 200 bps. Granted, the 100/100 benchmark was down 45% and PSLDX was down 43%, but it shows that the managers of PSLDX are fulfilling their mandate.
+- "Asset prices have come down substantially, and they may come down a lot more. When this happens, buyers of PSLDX will find redemption with stocks cheap and bond yields normalized, likely making back the 2022 drawdown over time and then some. Look for the S&P 500 around 3200 and yields of 4.5% or higher on the 30-year Treasury for a highly attractive entry point on PSLDX."
+
+---
+
 #### References
 
 - [Pimco Education](https://www.pimco.com/en-us/resources/education/portable-alpha-strategies): Portable Alpha Strategies
 - [Blackrock](https://www.blackrock.com/institutions/en-us/insights/investment-actions/portable-alpha-strategies): Portable alpha strategies
+- [Seeking Alpha](https://archive.is/uwbuM#selection-1149.0-1149.54): PSLDX One Year Later: The Right Idea At The Wrong Time [2022-11]
