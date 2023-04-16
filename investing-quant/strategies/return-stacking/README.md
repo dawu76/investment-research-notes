@@ -7,6 +7,20 @@ Goals
 
 ---
 
+### Return-stacking explained
+
+From the Optimized Portfolio [blog post](https://www.optimizedportfolio.com/return-stacking/), "Return Stacking Explained – Greater Returns With Lower Risk?"
+- Return-stacking involves borrowing or levering up to free up capital and “stacking” different sources of expected return atop one another, preferably using assets with low or negative correlations among them to maximize diversification and lower risk. This idea has historically also been called “portable alpha” and “overlays.”
+- This can result in "achieving more than $1.00 of exposure for each $1.00 invested," thus improving the efficiency of invested capital, and possibly reducing risk if we're adding uncorrelated exposures. This can be particularly useful when faced with low expected returns for multiple core assets like stock and bonds.
+- Implemention of "achieving more than $1.00 of exposure for each $1.00 invested": NTSX from WisdomTree, which has exposure to 90% U.S. large cap stocks and 60% exposure to intermediate U.S. treasury bonds via futures contracts. There are also sister funds NTSI and NTSE for ex-US Developed Markets and Emerging Markets respectively.
+- The traditional approach involves “grasping for returns” by "stretching for higher yields and increasing pro-cyclical asset exposure." Instead it's more capital efficient to lever up core assets and allocate the free capital to uncorrelated assets, thus lowering the portfolio's overall volatility.
+
+Backtest using Portfolio Visualizer, comparing 4 portfolios
+- Portfolio 1 is just the classic 60/40 portfolio – 60% stocks and 40% bonds using intermediate treasuries. Portfolio 2 is an approximation of NTSX, which is 90/60, or effectively 1.5x 60/40. So 90% stocks and 60% intermediate treasuries. Portfolio 3 takes the freed up capital and buys an uncorrelated asset, in this case gold. Lastly we’ve got 100% stocks via the S&P 500 to compare against.
+- Comparison results: 90/60 exposure delivered the highest absolute return of the bunch, with general and risk-adjusted returns considerably higher than those of the S&P 500. Because we simply levered up the 60/40, those two have nearly identical risk-adjusted returns. Portfolio 3 with gold didn’t get us the highest absolute return but it did get us the smallest drawdown (2008 crash), the best worst year, and the highest risk-adjusted return. Again, we had a much lower risk profile than 100% stocks across multiple dimensions of risk.
+
+---
+
 ### Return-stacking from POV of Portfolio Tilts versus Overlays
 
 From the Newfound Research [blog](https://blog.thinknewfound.com/2023/04/portfolio-tilts-versus-overlays-its-long-short-portfolios-all-the-way-down/), "Portfolio Tilts versus Overlays: It’s Long/Short Portfolios All the Way Down".
