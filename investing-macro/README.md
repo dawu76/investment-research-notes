@@ -120,6 +120,22 @@ SOFR/IOER
 
 ---
 
+### Money supply
+
+What is M1 vs. M2: from [2023-04-24 episode](https://am.jpmorgan.com/us/en/asset-management/adv/insights/market-insights/market-updates/notes-on-the-week-ahead/) of _Notes on the Week Ahead_
+- M1 consists of currency in circulation and various kinds of liquid checking accounts at banks and credit unions. 
+- M2 = M1 + money held in CD’s and other time deposits below $100,000 and retail money market funds.
+- M2 rose in 2020-2021 due to the Fed buying up Treasuries and MBS. It is now falling due to QT of $95B per month.
+- MMFs, which are part of M2 but not M1, pay much more competitive rates and are likely contributing to the sharper decline in M1, which has fallen by 5.8% over the past year compared to a 2.4% decline in M2
+
+Why does M2 growth no longer explain economic growth?
+- between 1953 and 1983, 42% of the change in year-over-year nominal GDP growth could be explained by changes in the year-over-year growth in M2 two quarters earlier.
+- from 1984 to 2019, year-over-year M2 growth explained less than 1% of the year-over-year change in nominal GDP two quarters later.
+- why? alternative payment methods and competitive rates paid on MMFs and ETFs have made monetary aggregates like M1 and M2 less relevant to the economy. If, for some reason, the use of cash and checking accounts was somehow constrained, the economy would seamlessly move to using other means to complete transactions
+- it may also be due to the increasing use of QE: starting from already low rates, further cuts in rates can cause the economy to slow by reducing the income of savers, increasing public worries about recession and encouraging people to wait for even lower rates before completing transactions; at the same time, rate-sensitive sectors like home-building and capital spending have diminished in importance
+
+---
+
 ### US Banking System Failures
 
 [FDIC paper](https://www.fdic.gov/bank/historical/history/): An Examination of the Banking Crises of the 1980s and Early 1990s
