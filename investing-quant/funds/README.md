@@ -165,3 +165,11 @@ $JEPI - [WSJ](https://archive.is/00dI9#selection-115.5-115.82): Why Investors Ar
 - Tax implications: You could generate a roughly 12% annual “yield” on your stock portfolio simply by selling 1% of your holdings every month. The proceeds would be taxable at the maximum capital-gains rate of about 20% (or would even reduce your tax bill if you sell positions at a loss).
 With covered-call funds, on the other hand, dividend distributions can be taxed at ordinary-income rates of up to approximately 40%, whereas stock dividends are typically taxed at half that rate or less.
 
+---
+
+### High-yield debt 
+
+$PFL - [Seeking Alpha](https://archive.is/uJ6pM): PFL: A Few Reasons I Think Its Next Move Will Be Higher
+- sector exposures: 43% in in high-yield credit, 15% in non-US developed, 10% in US government-related, 9.7% in mortgage bonds (mostly non-agency), 7.2% in EMs, 6.8% in IG credit, 2.1% in CMBS, 1.9% in munincipal
+- Thesis: "if we are at "peak" levels now, that bodes especially well for high yield credit and PLF by extension since it owns a lot of that type of debt." During the past few decades, this is an area that out-performed consistently after the central bank (the Fed) pauses its rate hiking. Also, it sits just over NAV - so those who prefer a discount may not love it - but it is still very reasonable.
+- Counter-arguments: "PFL is not earning enough in income to cover its current stated distribution level. Its coverage metrics are weak and the inverted yield curve continues to punish highly leveraged funds like PFL and others."
