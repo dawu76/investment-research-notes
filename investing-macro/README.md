@@ -1,3 +1,14 @@
+### Topics
+
+---
+
+- Federal Reserve and QE/QT
+- Bank reserves and liquidity
+- Overnight reverse repo facility
+- Money supply
+- US Banking System Failures
+- Capital and trade imbalances
+
 ### References
 
 ---
@@ -144,3 +155,28 @@ Why does M2 growth no longer explain economic growth?
   - In the economic expansions that preceded these recessions, banks generally responded aggressively to rising credit demands.
   - Banks that failed during the regional recessions generally had assumed greater risks, on average, than those that survived, as measured by ratios of total loans and commercial real estate loans to total assets. Banks that failed had generally not been in a seriously weak condition (as measured by equity-to-assets ratios) in the years preceding the regional recessions.
   - Banks chartered in the 1980s and mutual institutions converting to the stock form of ownership failed with greater frequency than comparable banks
+
+---
+
+### Capital and trade imbalances
+
+[Cato Institute](https://www.cato.org/policy-analysis/balance-trade-balance-power): Balance of Trade, Balance of Power
+- The United States can only run a persistent deficit in its current account because it runs an equally persistent surplus in the financial account, which measures the flow of capital across the border. 
+- The surplus savings of a number of countries drove a huge net capital inflow into the US, which resulted in a massive trade deficit and so ultimately, the loss of manufacturing jobs in the US heartland. It was the capital account that mattered. The trade balance was just the byproduct. If foreigners want to hold American liquid assets in vast amounts, the US must run a huge external deficit, unless its private sector wishes to load itself up with riskier foreign assets on a comparable scale
+- The national income is created by producing consumption goods and services, investment, and exports - imports (hich contribute to production but are not counted in domestic production. Thus the current account and the financial account always balance each other.
+- Reasons for persistent current account surplus or deficit: a deficit can be caused by lower‐than‐optimal savings, a surplus caused by systemic underinvestment in its domestic economy and public infrastructure.
+- Bilateral imbalances are even less meaningful than the general balance in trade There is no rational economic reason why Americans should be expected to sell exactly the same value of goods and services to people in a particular foreign nation than they buy from them.
+
+Identities from the article above
+
+```
+national income = consumption + savings
+
+national income = consumption + investment + exports − imports
+
+➡️ (exports - imports) = (savings - investment)
+
+➡️ current account = financial account + changes in FX reserves
+
+Note: 'current account' includes trade in goods + trade in services, investment income, and unilateral transfers
+```
