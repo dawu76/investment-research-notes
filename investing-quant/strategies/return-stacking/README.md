@@ -40,6 +40,14 @@ How do investors implement portfolio overlays?
 
 ---
 
+### Blogs / podcasts
+
+[YouTube](https://www.youtube.com/watch?v=EDeeI4664Jk): 'Raise Your Average' interview with Corey Hoffstein [[transcript](https://www.assemblyai.com/playground/transcript/6gchn5w188-0e2d-47a8-b0f3-fb4b48fe392d)]
+- Question: Does the portable alpha approach of getting exposure to alternatives through leverage still hold with today's high interest rates? It's important to remember that on that Y-axis, it's not simple returns, but rather excess returns. It doesn't really matter what the leverage cost is, as long as you can lever up at the risk free rate. If you wouldn't hold stocks at 1.1X or 1.2X leverage, you wouldn't hold them unleveraged either. If you would've held the asset unlevered because you think it will outperform cash, then adding leverage to it isn't suddenly going to make it underperform. If you're holding a 60/40 portfolio, you should be just as willing to hold a levered 90/60.
+- We generally expect the equity risk premium and bond risk premium to float on top of the risk-free rate. If the risk-free rate is 0%, the equity risk premium historically might be 3-4%. With the risk-free rate at 4%, we might expect the nominal equity return to be 7-8% (as stocks will usually reset at a lower price after rate hikes). If the risk-free rate today is 4.5% but you try to lever up in your brokerage account, it will cost you 12-13% [which is too high of a hurdle]. But if you're using futures, like Treasury futures, to efficiently get leverage, historically the cost of that implied financing is very close to the 3-month T-bill or the LIBR SOFR.
+
+---
+
 ### Twitter research
 
 [2022-09-29 thread](https://twitter.com/choffstein/status/1575536886575116289?lang=en) on "Is Return Stacking just Portable Alpha rebranded?"
