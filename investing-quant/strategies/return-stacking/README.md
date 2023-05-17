@@ -21,7 +21,7 @@ Backtest using Portfolio Visualizer, comparing 4 portfolios
 
 ---
 
-### Return-stacking from POV of Portfolio Tilts versus Overlays
+### Return-stacking from POV of Portfolio tilts versus overlays
 
 From the Newfound Research [blog](https://blog.thinknewfound.com/2023/04/portfolio-tilts-versus-overlays-its-long-short-portfolios-all-the-way-down/), "Portfolio Tilts versus Overlays: It’s Long/Short Portfolios All the Way Down".
 
@@ -43,8 +43,10 @@ How do investors implement portfolio overlays?
 ### Blogs / podcasts
 
 [YouTube](https://www.youtube.com/watch?v=EDeeI4664Jk): 'Raise Your Average' interview with Corey Hoffstein [[transcript](https://www.assemblyai.com/playground/transcript/6gchn5w188-0e2d-47a8-b0f3-fb4b48fe392d)]
+- A major benefit of return-stacking is that you don't need to allocate funds away from 60/40 to alternatives which may offer diversification benefits but underperform for extended periods of time. The funds for those alternatives come from leveraged vehicles such as futures. Other notes: the S&P is already levered 3:1 due to the balance sheets of its companies. The alternatives portion of many advisor portfolios are allocated to private equity, real estate, and venture capital, all of which are leveraged forms of investment and are exposed to the same economic risks as the S&P; they've done well in the past decade b/c the overall equity market has done well, but may not provide much diversification benefit in a different economic environment.
 - Question: Does the portable alpha approach of getting exposure to alternatives through leverage still hold with today's high interest rates? It's important to remember that on that Y-axis, it's not simple returns, but rather excess returns. It doesn't really matter what the leverage cost is, as long as you can lever up at the risk free rate. If you wouldn't hold stocks at 1.1X or 1.2X leverage, you wouldn't hold them unleveraged either. If you would've held the asset unlevered because you think it will outperform cash, then adding leverage to it isn't suddenly going to make it underperform. If you're holding a 60/40 portfolio, you should be just as willing to hold a levered 90/60.
 - We generally expect the equity risk premium and bond risk premium to float on top of the risk-free rate. If the risk-free rate is 0%, the equity risk premium historically might be 3-4%. With the risk-free rate at 4%, we might expect the nominal equity return to be 7-8% (as stocks will usually reset at a lower price after rate hikes). If the risk-free rate today is 4.5% but you try to lever up in your brokerage account, it will cost you 12-13% [which is too high of a hurdle]. But if you're using futures, like Treasury futures, to efficiently get leverage, historically the cost of that implied financing is very close to the 3-month T-bill or the LIBR SOFR.
+- Moreover, the funds that use capital-efficient futures to get S&P exposure will put their large cash position into T-bills, thus earning carry that partially offsets the borrowing cost of the leverage.
 
 ---
 
