@@ -5,6 +5,7 @@
 - Federal Reserve and QE/QT
 - Bank reserves and liquidity
 - Overnight reverse repo facility
+- TGA, RRP, and reserves
 - Money supply
 - US Banking System Failures
 - Capital and trade imbalances
@@ -128,6 +129,12 @@ SOFR/IOER
 - [SF Fed](https://www.frbsf.org/education/publications/doctor-econ/2013/march/federal-reserve-interest-balances-reserves/): Why did the Federal Reserve start paying interest on reserve balances held on deposit at the Fed?
 - [Cato](https://www.cato.org/cato-journal/spring/summer-2019/interest-reserves-history-rationale-complications-risks): Interest on Reserves: History and Rationale, Complications and Risks
 - [Chicago Fed](https://www.chicagofed.org/publications/chicago-fed-letter/2019/423): Understanding Recent Fluctuations in Short-Term Interest Rates
+
+### TGA, RRP, and reserves
+
+References
+- [FedGuy](https://fedguy.com/the-treasury-is-dumping-800-billion-out-of-the-tga-and-its-nbd/): The Treasury is Dumping $800 Billion Out of the TGA, and it’s NBD
+- [Last Bear Standing](https://thelastbearstanding.substack.com/p/draining-the-repo): Draining the Repo - The Risk and Reward of Treasury Buybacks
 
 ---
 
