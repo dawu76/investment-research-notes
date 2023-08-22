@@ -18,6 +18,12 @@
 
 ### Michael Howell @Cross-border Capital's liquidity framework
 
+[Blockworks Macro](https://www.youtube.com/watch?v=5nZwrE_uNcg): The U.S. Treasury Is Neutralizing The Fed's Quantitative Tightening | Michael Howell & Andy Constan
+
+[Lead-lag Report](https://www.youtube.com/watch?v=I1TwczR3Z3U): Liquidity, Credit, and Crises: A Comprehensive Dialogue with Michael Howell
+
+[Blockworks Macro](https://www.youtube.com/watch?v=xvAaAllnFzk&t=1s): Fed's Shadow Liquidity Is Pumping Up New Bull Market (Here's How) | Michael Howell
+
 [Wealthion](https://www.youtube.com/watch?v=jNpx68rQkq8): Liquidity Cycle At A Key Turning Point That Will Now Push Markets Higher? 
 
 [Wealthion](https://www.youtube.com/watch?v=nRoMMH4NOko): Stocks To Hit New Highs This Year?
