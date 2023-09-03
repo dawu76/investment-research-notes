@@ -10,8 +10,6 @@ From the CFA Institute [blog post](https://blogs.cfainstitute.org/investor/2016/
 
 ### Expected returns: geometric vs. average
 
----
-
 [Breaking the Market](https://breakingthemarket.com/solving-the-equity-premium-puzzle-and-uncovering-a-huge-flaw-in-investment-theory/): Solving the Equity Premium Puzzle, and Uncovering a Huge Flaw in Investment Theory.
 - This post aims to convey the importance of the geometric average and highlight the foundational problem with financial studies- that a stock market index does not represent the stock market.
 - The puzzle: "Equities (stocks) have provided a real return of about 7% for the last 100 years.  The risk-free rate (treasury bills) has provided about 1% of return. The 6% difference between these two investments is very high.  Economic models imply this difference should be at most 1%.  We don’t know why the large difference exists."
