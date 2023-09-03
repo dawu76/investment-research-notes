@@ -57,3 +57,23 @@ References
 - [Crystal Capital Funds post](https://www.crystalfunds.com/insights/breaking-down-global-macro-hedge-funds): Breaking down global macro hedge funds
 
 ---
+
+### On incorporating managed futures into an existing portfolio
+
+From the Newfound Research [post](https://blog.thinknewfound.com/2023/06/is-managed-futures-value-able/), "Is Managed Futures Value-able?".
+
+Key question: The most common portfolio tilt is towards value stocks (and, often, quality-screened value). Is stacking managed futures still attractive in the presence of an existing value tilt? A key argument for managed futures is that it can hedge against inflationary pressures. But some argue that value stocks do much of the same, acting as “low duration” stocks compared to their growth peers.
+
+What the historical data says:
+- The long-term empirical correlations between managed futures and value is near-zero, where 'value' here is calculated as the returns of long-only value strategies minus the returns of broad equities to isolate the impact of the value tilt. This isolates the returns of the active bets the tilt is actually taking.
+- Correlations, however, do not tell us about the tails, so a follow-up question would be: “how have managed futures performed historically conditional upon value being in a drawdown?” The data shows that managed futures performance remained largely independent and accretive to the portfolio as a whole. In addition, univariate regression coefficients between different value implementations (e.g. FCF yield, dividend yield, earnings yield, book-to-market, and quality value) against managed futures result in insignificant coefficients.
+- Conclusion: Managed futures can act as a hedge against inflationary pressures and offer diversifying exposure during relative value drawdowns.
+
+Given an existing value tilt in our portfolio, by how much should we shift it towards managed futures?
+- Calculate Information Ratios (IR) and MAR ratios for different value vs. managed futures tilts, where IR = (excess return / tracking error) while MAR ratio = (CAGR / max drawdown). Excess return = (strategy return - benchmark return), while tracking error = standard deviation of these differences.
+- What the data shows: a 100% tilt to either value or managed futures is not prudent. The optimal mix, as measured by either the IR or MAR Ratio, is around the 40/60 mark, i.e. 40% to value + 60% to managed futures.
+- Practical recommendations: "an investor who currently tilts their equity exposure towards value may be better off by only tilting a portion of their equity towards value and introducing a managed futures overlay onto their portfolio. For example, if an investor has a 60% stock and 40% bond portfolio and the 60% stock exposure is currently all value, they might consider moving 36% of it into passive equity exposure and introducing a 36% managed futures overlay." Question: Does this mean moving 36% of the 60% stock exposure to passive equities, 36% of the 60% to managed futures, and the remaining 28% to value?
+- Given tracking error constraints, an investor can choose an allocation to the 60/40 managed futures vs. value overlay so that the overall portfolio's tracking error is within certain bounds. For this they can use the chart plotting the overlay allocation to tracking error. E.g. a 46% allocation to the 40/60 value/managed futures would result in 18% going to value and 28% to managed futures.
+
+Given an existing factor tilt in our portfolio, by how much should we shift it towards managed futures?
+- Based on the same analysis of IRs and MAR ratios for portfolios tilted towards the Profitability, Momentum, Size, and Investment factors, a 40/60 split for <factor> vs. managed futures again emerges as a robust solution, suggesting that managed futures has historically offered a unique, diversifying return to all equity factors.
