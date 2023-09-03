@@ -5,7 +5,10 @@
 #### $GOOG
 
 [TCI fund letter](https://www.tcifund.com/files/corporateengageement/alphabet/15th%20November%202022.pdf) to $GOOG board
-- ...
+- “We are writing to express our view that the cost base of Alphabet is too high and management needs to take aggressive action,” TCI wrote in the letter, signed by managing director Christopher Hohn. “The company has too many employees and the cost per employee is too high ... Our conversations with former executives suggest that the business could be operated more effectively with significantly fewer employees."
+- “We acknowledge that Alphabet employs some of the most talented and brightest computer scientists,” the letter continued, “but these represent only a fraction of the employee base.” For nonengineering staff, the letter read, compensation should fall “in-line with other technology companies.”
+- TCI argued for an increase in share buybacks and the establishment of an EBIT margin target for Google Services. EBIT margin is a measurement of a company’s operating profit as a percentage of revenue. Google Services posted a 39% EBIT margin in 2021. TCI argued that a margin target of “at least 40% is reasonable."
+- TCI argued that Google’s "Other Bets" category – their Moonshot division – demanded immediate attention, singling out self-driving vertical Waymo as a unit that failed to justify “its excessive investment.” Facebook parent Meta faced similar calls from Brad Gerstner’s Altimeter, which argued for a dramatic reduction in Reality Labs expenses.
 
 [Semi-analysis Substack](https://www.semianalysis.com/p/tpuv5e-the-new-benchmark-in-cost): "TPUv5e: The New Benchmark in Cost-Efficient Inference and Training for <200B Parameter Models"
 - "During its Cloud Next 2023 event, Google has announced general availability of its latest AI chip, the TPUv5e (TPUv5 lite), and it is a game changer ... TPUv5e also enables Google to inference models that are larger than OpenAI at the same cost as OpenAI’s smaller model. This will massively help Google level the playing field, because they can play the brute force game that no one else can. OpenAI will have to rely on being much smarter with their chips and algorithms due to the massive compute deficit versus Google. AI chips from Amazon (Trainium/Inferentia), Meta (MTIA), and Microsoft (Athena) are all nowhere close to where Google is."
