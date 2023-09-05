@@ -1,4 +1,4 @@
-#### Equity risk premium (ERP) calculations
+### Equity risk premium (ERP) calculations
 
 [Musings on Markets](https://aswathdamodaran.substack.com/p/data-update-2-for-2023-a-rocky-year): Data Update 2 for 2023
 - There is another approach to estimating expected returns on stocks, and equity risk premiums, and it is forward-looking. It too requires estimate for inputs, but the range of error is magnitudes smaller than with historical premiums.
@@ -14,7 +14,7 @@
 
 ---
 
-#### Recognition of stock-based compensation (SBC)
+### Recognition of stock-based compensation (SBC)
 
 References
 - [Musings on Markets](https://aswathdamodaran.substack.com/p/stock-based-employee-compensation-14-02-13): "Stock-based Employee Compensation: Value and Pricing Effects"
@@ -22,7 +22,7 @@ References
 
 ---
 
-#### Capitalizing R&D expenses
+### Capitalizing R&D expenses
 
 References
 - [CFI](https://corporatefinanceinstitute.com/resources/knowledge/accounting/capitalizing-rd-expenses/): "Capitalizing R&D Expenses"
@@ -30,7 +30,7 @@ References
 
 ---
 
-#### Accruals
+### Accruals
 
 Accruals refer to the recording of revenues a company has earned but _has yet to receive payment for_, and expenses that have been incurred but the company _has yet to pay_.
 
@@ -46,3 +46,15 @@ Accrual vs. cash-based accounting
 
 References
 - [CFI](https://corporatefinanceinstitute.com/resources/accounting/accrual-accounting-guide/): Accrual accounting
+
+---
+
+### Valuations
+
+From the Of Dollars and Data [blog](https://ofdollarsanddata.com/the-problem-with-valuation/): The Problem with Valuation
+- On why valuations may remain elevated going forward: "I do have an issue with valuation models in general. Because, today, basically all the valuation metrics tell the same story—U.S. stocks are overvalued, therefore, we should expect a major crash as these metrics return to their long-term historical averages. Whether you use Hussman’s measure, the Buffett indicator, or Shiller’s CAPE (cyclically-adjusted price-to-earnings) ratio, the logic is always the same. But, there’s a huge problem with this logic—there is nothing that says that these metrics have to return to their long-term averages. In fact, I believe the opposite. Valuation multiples are likely to stay above their historical norms for the foreseeable future. Why?"
+- "With the rise of cheap diversification over the last half century, investors today are willing to accept lower future returns (i.e. higher valuations) than their predecessors. This has fundamentally changed valuation metrics and made historical comparisons less useful than they once were. Investing today is far simpler and cheaper that it was nearly a century ago. This begs a question: how much annual return would you be willing to give up in 1940 to have all the investment innovations that we have today? I bet it’s at least a few percentage points. And, if this is true across investors in general, then we would expect stock prices to be bid up accordingly over time."
+- "If my hypothesis is correct, then valuation metrics should not revert back to their historical averages (at least not for more than a few months) because modern day investors would bid them back up if they did... if we assume that today’s investors are willing to accept higher valuations, then it also means that they are willing to accept lower future returns. This is something that seems quite clear in the data."
+
+References
+- Of Dollars and Data [blog](https://ofdollarsanddata.com/the-problem-with-valuation/): The Problem with Valuation
