@@ -25,3 +25,4 @@ What are the different numbers mentioned in Treasury auction results?
 - [bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=414627): Understanding TIPS at auction
 - [bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=403323): Details of a TIPs auction purchase
 - [moontowermeta.com](https://moontowermeta.com/moontower-202/): I Tried to Buy TIPs and Failed
+- [awealthofcommonsense.com](https://awealthofcommonsense.com/2022/08/why-are-tips-losing-money-with-inflation-at-9/): A Wealth of Common Sense
