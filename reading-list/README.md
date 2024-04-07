@@ -10,6 +10,7 @@
 - [Cambria whitepaper](https://www.cambriainvestments.com/wp-content/uploads/2019/07/Cambria-SYLD-Paper-FINAL-Q2-2019.pdf): "SYLD: Think Income and Growth Don’t Exist in This Market? Think Again"
 - [Cambria whitepaper](https://mebfaber.com/wp-content/uploads/2017/10/DTAX-10.23.17.pdf): "Do You Pay Taxes? Then Avoid Dividends and Do this Instead"
 - [Newfound Research](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3673910): Rebalance Timing Luck: The (Dumb) Luck of Smart Beta
+- [Morningstar](https://www.morningstar.com/personal-finance/victor-haghani-lessons-missing-billionaires): "Victor Haghani: Lessons From the Missing Billionaires", or "Why investment sizing is an important—yet often overlooked—factor in investor outcomes."
 
 ---
 
