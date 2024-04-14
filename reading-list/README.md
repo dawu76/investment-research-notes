@@ -58,4 +58,5 @@
 
 #### Basic terminology
 - [Investopedia](https://www.investopedia.com/terms/c/couponequivalentrate.asp): coupon equivalent rate
+- [Capital Gains blog](https://capitalgains.thediff.co/p/stocksandflows?ref=thediff.co): Stocks vs. flows
 
