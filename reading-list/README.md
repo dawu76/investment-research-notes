@@ -3,6 +3,7 @@
 ---
 
 #### Portfolio construction
+- [AllocateSmartly](https://allocatesmartly.com/make-things-easy-on-yourself-roll-up-small-asset-positions/): Make Things Easy on Yourself: “Roll up” Small Asset Positions
 - [AllocateSmartly](https://allocatesmartly.com/meb-fabers-trinity-portfolio-lite/): "Meb Faber's Trinity Lite Portfolio"
 - [Unlimited blog](https://blog.unlimitedfunds.com/diversified-alpha-is-better-than-constrained-beta): "Diversified Alpha Is Better Than Constrained Beta" - on 'defined outcome' funds
 - [Perfect Portfolio](https://pictureperfectportfolios.com/10-things-investors-need-to-know-about-managed-futures/): "10 Things Investors Need To Know About Managed Futures Investing Strategies"
@@ -11,6 +12,7 @@
 - [Cambria whitepaper](https://mebfaber.com/wp-content/uploads/2017/10/DTAX-10.23.17.pdf): "Do You Pay Taxes? Then Avoid Dividends and Do this Instead"
 - [Newfound Research](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3673910): Rebalance Timing Luck: The (Dumb) Luck of Smart Beta
 - [Morningstar](https://www.morningstar.com/personal-finance/victor-haghani-lessons-missing-billionaires): "Victor Haghani: Lessons From the Missing Billionaires", or "Why investment sizing is an important—yet often overlooked—factor in investor outcomes."
+- [Morningstar Long View](https://www.morningstar.com/podcasts/the-long-view/40f4a934-545e-4e37-b755-128f0ce3dc6c): Victor Haghani: Lessons From the Missing Billionaires
 
 ---
 
