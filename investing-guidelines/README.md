@@ -26,10 +26,13 @@ What does it mean when we say, “we’re not market timers”?  For me, it mean
 
 ---
 
-### Seth Klarman on risk management
+### Risk management
 
-From "Margin of Safety":
+From Klarman's "Margin of Safety":
 
 > Many investors mistakenly establish an investment goal of achieving a specific rate of return. Setting a goal, unfortunately, does not make that return achievable. Indeed, no matter what the goal, it may be out of reach. Stating that you want to earn, say, 15 percent a year, does not tell you a thing about how to achieve it. Investment returns are not a direct function of how long or hard you work or how much you wish to earn. A ditch digger can work an hour of overtime for extra pay, and a piece worker earns more the more he or she produces. An investor cannot decide to think harder or put in overtime in order to achieve a higher return. All an investor can do is follow a consistently disciplined and rigorous approach; over time the returns will come.
 
 > Rather than targeting a desired rate of return, even an eminently reasonable one, investors should target risk. Treasury bills are the closest thing to a riskless investment; hence the interest rate on Treasury bills is considered the risk-free rate. Since investors always have the option of holding all of their money in T-bills, investments that involve risk should only be made if they hold the promise of considerably higher returns than those available without risk. This does not express an investment preference for T-bills; to the contrary, you would rather be fully invested in superior alternatives. But alternatives with some risk attached are superior only if the return more than fully compensates for the risk.
+
+---
+
