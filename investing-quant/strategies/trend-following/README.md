@@ -13,14 +13,11 @@ catalysts and to evolve gradually (e.g., GFC, 2022), which explains why trend-fo
 
 ---
 
-### Implementations of trend-following
+### Negative Crisis Beta and the Market-Timing Ability of Trend-following CTAs
 
-[Raposa Tech](https://medium.com/raposa-technologies/beat-the-market-with-a-diversified-trend-following-model-and-the-donchian-channel-10f850ce6aee): Beat the Market with a Diversified Trend Following Model and the Donchian Channel
-- Any trading system has 4 basic rules: Instrument Rule: What instruments do you trade? Entry Rule: When do you enter a trade? Exit Rule: When do you exit a trade? Position Rule: How much do you put on a trade?
-- I like to use a **volatility-based position sizing** module. This scales your allocation based on the volatility of the stock, so the higher the volatility, the lower the allocation and vice versa. I usually use a 252-day lookback period (there are 252 trading days per year, so that’s a 1-year lookback) to get a reasonable sample size of the volatility.
-- Specify the target risk. If we set this to 10%, it means that each position will be risk-adjusted so it takes 10% of our portfolio. Example: Say we have two stocks, A and B with a 10% Target Risk. If the volatility of stock A is 2 and the volatility of stock B is 5, then we’d allocate 5% of our capital to stock A and 2% to stock B after adjusting for risk because 10% / 2% = 5% allocation and 10% / 5% = 2% allocation.
-- Entry rules: Start by keeping our entry rule quite simple and just use a Donchian Channel breakout over 100 days. This is a classic trend following indicator. I find I get better results with longer term signals (100+ days) but you could easily make it shorter term as well to suit your needs.
-- ...
+[Quantica blog](https://quantica-capital.com/en/publication/qi-2024Q2): Negative Crisis Beta and the Hidden Market Timing Ability of Trend-following CTAs
+- Part of the performance of trend- following CTAs comes from an intrinsic ability to time equity market risk. We show that allowing for an unconstrained long allocation to equities is (1) key to capturing the full extent of this ability and (2) does not run counter to its risk mitigation properties.
+- The contribution of negative crisis beta was positive in 15 of the 16 worst equity market quarters since 2000, accounting for more than 40% of trend-following CTA performance in these periods. Thus, the consistently positive return contribution of equity beta reported for all equity market regimes highlights a **significant equity market timing ability** of trend-following over the past 25 years.
 
 ---
 
@@ -58,6 +55,17 @@ References
 
 ---
 
+### Implementations of trend-following
+
+[Raposa Tech](https://medium.com/raposa-technologies/beat-the-market-with-a-diversified-trend-following-model-and-the-donchian-channel-10f850ce6aee): Beat the Market with a Diversified Trend Following Model and the Donchian Channel
+- Any trading system has 4 basic rules: Instrument Rule: What instruments do you trade? Entry Rule: When do you enter a trade? Exit Rule: When do you exit a trade? Position Rule: How much do you put on a trade?
+- I like to use a **volatility-based position sizing** module. This scales your allocation based on the volatility of the stock, so the higher the volatility, the lower the allocation and vice versa. I usually use a 252-day lookback period (there are 252 trading days per year, so that’s a 1-year lookback) to get a reasonable sample size of the volatility.
+- Specify the target risk. If we set this to 10%, it means that each position will be risk-adjusted so it takes 10% of our portfolio. Example: Say we have two stocks, A and B with a 10% Target Risk. If the volatility of stock A is 2 and the volatility of stock B is 5, then we’d allocate 5% of our capital to stock A and 2% to stock B after adjusting for risk because 10% / 2% = 5% allocation and 10% / 5% = 2% allocation.
+- Entry rules: Start by keeping our entry rule quite simple and just use a Donchian Channel breakout over 100 days. This is a classic trend following indicator. I find I get better results with longer term signals (100+ days) but you could easily make it shorter term as well to suit your needs.
+- ...
+
+---
+
 ### On incorporating managed futures into an existing portfolio
 
 From the Newfound Research [post](https://blog.thinknewfound.com/2023/06/is-managed-futures-value-able/), "Is Managed Futures Value-able?".
@@ -77,3 +85,4 @@ Given an existing value tilt in our portfolio, by how much should we shift it to
 
 Given an existing factor tilt in our portfolio, by how much should we shift it towards managed futures?
 - Based on the same analysis of IRs and MAR ratios for portfolios tilted towards the Profitability, Momentum, Size, and Investment factors, a 40/60 split for <factor> vs. managed futures again emerges as a robust solution, suggesting that managed futures has historically offered a unique, diversifying return to all equity factors.
+- Trend-following CTAs have provided significant equity risk mitigation over the past two and a half decades. Since 2000, we estimate that **two-thirds** of the trend-following CTA industry’s total return have been generated during the **16 worst calendar quarters** for equity markets, while the remaining 81 quarters have only accounted for the remaining one third.
