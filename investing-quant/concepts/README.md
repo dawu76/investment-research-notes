@@ -11,8 +11,8 @@ From the CFA Institute [blog post](https://blogs.cfainstitute.org/investor/2016/
 ### Expected returns: geometric vs. average
 
 [Breaking the Market](https://breakingthemarket.com/solving-the-equity-premium-puzzle-and-uncovering-a-huge-flaw-in-investment-theory/): Solving the Equity Premium Puzzle, and Uncovering a Huge Flaw in Investment Theory.
-- This post aims to convey the importance of the geometric average and highlight the foundational problem with financial studies- that a stock market index does not represent the stock market.
-- The puzzle: "Equities (stocks) have provided a real return of about 7% for the last 100 years.  The risk-free rate (treasury bills) has provided about 1% of return. The 6% difference between these two investments is very high.  Economic models imply this difference should be at most 1%.  We don’t know why the large difference exists."
+- This post aims to convey the importance of the geometric average and highlight the foundational problem with financial studies - that a stock market _index_ does not represent the stock market.
+- The puzzle: "Equities (stocks) have provided a real return of about 7% for the last 100 years.  The risk-free rate (treasury bills) has provided about 1% of return. The 6% difference between these two investments is very high. Economic models imply this difference should be at most 1%.  We don’t know why the large difference exists."
 - It should be easy now to understand the enormous apple to oranges mistake in the original study.  The stock market and a stock market index are not interchangeable. One recent paper (Bessembinder, 2018) gets close by recognizing that 58 percent of common stocks do not keep pace with the returns of a one month treasury bill over time, but does not call out the false equivalency being made by the market index comparison.
 
 [Breaking the Market](https://breakingthemarket.com/the-great-age-of-rebalancing-begins/): The Great Age of Rebalancing Begins
