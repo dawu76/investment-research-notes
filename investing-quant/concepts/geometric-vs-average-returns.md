@@ -20,3 +20,13 @@
 - Which game(s) represents trend following? 
 - Which game represents Geometric Balancing?
 - Which game represents the best strategy?
+
+---
+
+
+### On mathematical expectancy vs. the CAGR
+
+[Moontower Meta](https://moontowermeta.com/well-what-did-you-expect/): Well What Did You Expect? 
+- "what is the relationship of mathematical expectancy and the CAGR?" It’s an important question since that theoretical arithmetic mean is only expected if we live thousands of lives (actually there are ways to experience the arithmetic mean without relying on reincarnation. This is pleasant news because what good is being rich if you come back a pony.) We want to focus on the CAGR, which is much closer to what we might experience. It turns out that number is lower.
+- How much lower? It depends on how volatile the investment is. The formula that relates the arithmetic mean and CAGR: CAGR = Arithmetic Mean – .5 * σ², where: σ = annualized volatility. The formula tells us that the arithmetic and geometric mean (“CAGR”) will diverge by the volatility. And that volatility term is squared…which means the divergence is extremely sensitive to the volatility.
+- By re-balancing, you "create" more lives by not concentrating your wealth in a single bucket which swamps the rest of your portfolio as it grows. If you never rebalanced BTC on the way up it would have eventually become nearly 100% of your portfolio and then 2022 happened. Rebalancing is _not changing your overall expectancy_; it’s changing the distribution of returns by pushing the median return (geometric mean or CAGR) up to your theoretical arithmetic return. This trade-off is not free. If you rebalance you don’t get the 1000x payoff that occurs when a single concentrated position hits 50 heads in a row.
