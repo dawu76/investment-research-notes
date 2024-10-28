@@ -62,3 +62,8 @@
 - [Investopedia](https://www.investopedia.com/terms/c/couponequivalentrate.asp): coupon equivalent rate
 - [Capital Gains blog](https://capitalgains.thediff.co/p/stocksandflows?ref=thediff.co): Stocks vs. flows
 
+---
+
+#### Other asset classes
+
+- [Pinebridge Capital](https://www.pinebridge.com/en/insights/private-credit-vs-broadly-syndicated-loans-not-a-zero-sum-game); Private Credit vs. Broadly Syndicated Loans: Not a Zero-Sum Game
