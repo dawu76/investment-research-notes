@@ -16,6 +16,8 @@
 
 [mysolo401k.net](https://www.mysolo401k.net/solo-401k/ein-number/): EIN Number for Solo 401k Retirement Trust
 
+---
+
 ### Sole proprietor EIN or plan EIN to open a new solo 401K?
 
 [mysolo401k.net](https://www.mysolo401k.net/do-i-need-an-ein-for-my-self-employed-business-to-open-a-solo-401k/): Solo 401K - Do I need separate EIN from my business EIN
