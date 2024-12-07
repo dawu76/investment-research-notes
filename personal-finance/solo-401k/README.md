@@ -1,4 +1,28 @@
-## Solo 401k
+## Solo 401k and EINs
+
+### Reasons for EIN
+
+[reddit.com](https://www.reddit.com/r/smallbusiness/comments/rconu3/is_there_any_reason_to_get_a_federal_or_state_ein/): Is there any reason to get a federal or state EIN if you're a Sole Proprietor?
+- Sole proprietorships a great way to lose everything in a lawsuit. LLC + EIN + Duns # - give your business its own life so you dont lose everything you've built in yours.
+- Without an EIN your business bank accounts are a reflection on your credit instead of your company.
+- Note: A DUNS number, or Data Universal Numbering System number, is a unique nine-digit identifier for businesses.
+
+### IRS info on single-member LLC
+
+[irs.gov](https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number): Get an EIN
+- When to get an EIN: If you are forming a legal entity (LLC, partnership, corporation or tax exempt organization), form your entity through your state before you apply for an EIN. If you don’t form your entity with your state first, your EIN application may be delayed.
+
+[irs.gov](https://www.irs.gov/businesses/small-businesses-self-employed/single-member-limited-liability-companies): Single member limited liability companies
+- If a single-member LLC does not elect to be treated as a corporation, the LLC is a "disregarded entity," and the LLC's activities should be reflected on its owner's federal tax return.
+- If the owner is an individual, the activities of the LLC will generally be reflected on: Form 1040 or 1040-SR Schedule C, Profit or Loss from Business (Sole Proprietorship); Form 1040 or 1040-SR Schedule E, Supplemental Income or Loss; Form 1040 or 1040-SR Schedule F, Profit or Loss from Farming
+- An individual owner of a single-member LLC that operates a trade or business is subject to the tax on net earnings from self employment in the same manner as a sole proprietorship.
+- For federal income tax purposes, a single-member LLC classified as a disregarded entity generally must use the owner's social security number (SSN) or employer identification number (EIN) for all information returns and reporting related to income tax. For example, if a disregarded entity LLC that is owned by an individual is required to provide a Form W-9, _'Request for Taxpayer Identification Number (TIN) and Certification'_, the W-9 should provide the owner’s SSN or EIN, not the LLC’s EIN.
+
+Background [[TurboTax](https://turbotax.intuit.com/tax-tips/self-employment-taxes/what-is-the-purpose-of-an-irs-w-9-form/L0ZtUOnSk)]: What is the W-9 form?
+- The person or business paying you is responsible for requesting the W-9 Form from you. However, the requester has no obligation to file the W-9 with the IRS. That person keeps the form on file and uses this information to prepare other returns, such as 1099 Forms and 1098 Forms, as well as to determine whether federal tax withholding is necessary on the payments you receive.
+- You will usually submit a W-9 form when you engage with a company where reporting information to the IRS might be necessary, such as receiving payments for services you provide as an independent contractor, paying interest on your mortgage or even contributing money to your IRA account. The individual or business you are doing business with uses the W-9 to collect some of your personal information, the most important of which is your taxpayer identification number (TIN).
+- For certain _Employment Tax and Excise Tax_ requirements discussed below, the EIN of the LLC must be used. An LLC will need an EIN if it has any employees or if it will be required to file any of the excise tax forms listed below. Most new single-member LLCs classified as disregarded entities will need to obtain an EIN.
+- A single-member LLC that is a disregarded entity that does not have employees and does not have an excise tax liability does not need an EIN. It should use the **name and TIN of the single member owner for federal tax purposes**. However, if a single-member LLC, whose taxable income and loss will be reported by the single member owner needs an EIN to open a bank account or if state tax law requires the single-member LLC to have a federal EIN, then the LLC can apply for and obtain an EIN.
 
 ### IRS rules on solo 401K
 
@@ -13,8 +37,17 @@
 ### Do I Need An EIN To Open A Solo 401k?
 
 [Carry.com](https://carry.com/learn/solo-401k-ein-requirement): Do I Need An EIN To Open A Solo 401k?
+- Technically, you could open a solo 401k without an EIN if you operate your business using your Social Security Number.
+- A solo 401k will need to set up its own EIN in order to set up bank accounts and brokerage accounts under the trust.
+- Getting an EIN is free and can be done online in just a few minutes. Usually, the IRS will issue them instantly.
+- If your business is incorporated, it’s likely you’ve already registered an EIN for your business in the past. When you apply for a solo 401k, you would use your business’ EIN. However, some sole proprietorships don’t have an EIN and just operate their business using their Social Security Number. While it’s possible to use your SSN rather than an EIN to open a solo 401k, it could complicate things because a solo 401k is an employer-sponsored retirement plan. Having an EIN allows the IRS to be able to identify your business separately from your personal account.
+- A solo 401k needs its own EIN: While you don’t need an EIN to open an account, your solo 401k will need to apply for its **own EIN, separate from your business.** A solo 401k is a retirement trust, which makes it an entity that’s separate from your business. The same way that a business needs an EIN to operate, a solo 401k plan also requires **its own EIN** for tax filings, opening a bank account, and opening a brokerage account. Investments through your solo 401k are owned by the 401k trust, **not by you or your business**. When you sell an asset, the IRS is able to tell that the funds are deferred since it’s owned by your solo 401k trust.
+- How do I get an EIN: In the IRS form, instead of selecting a business entity, you would select “View Additional Types” in the first step. On the next page, you would select “Employer Pl an (401K, Money Purchase Plan, etc.)“. When you’re done, the IRS will provide you an EIN specifically for your solo 401k trust. You can use this EIN to open separate bank and brokerage accounts under your solo 401k.
 
 [mysolo401k.net](https://www.mysolo401k.net/solo-401k/ein-number/): EIN Number for Solo 401k Retirement Trust
+- This page reviews the EIN application form steps, as shown in the Carry.com site.
+- Check off "View Additional Types ..." and click on "continue." Check off “Employer Plan (401K, Money Purchase Plan, etc.),” and click on “continue.” Enter you name, social security number, and check off “I am the owner, trustee…,” and click on “continue.” Enter your home or business address, phone number and click on "continue."
+- When we assist you in opening the solo 401(k) bank or brokerage account, the bank or the brokerage firm will ask for the EIN as they will need it for reporting purposes. Since a Solo 401(k) is a qualified retirement plan, it has to be **sponsored by a business entity**. The EIN is **for the solo 401(k), not for your  self-employed business**.
 
 ---
 
@@ -36,7 +69,7 @@
 
 ---
 
-### Instructions for Completing the Schwab Individual 401(k) Plan [[pdf](https://www.schwab.com/public/file/P-619623/REG30724-05-01.pdf)]
+### Instructions for Completing Schwab Individual 401(k) Plan [[pdf](https://www.schwab.com/public/file/P-619623/REG30724-05-01.pdf)]
 
 Employer Information
 - Fill in the requested information. The Name of the Adopting Employer is the business (the "Employer") that sponsors the Plan.
@@ -45,7 +78,7 @@ Employer Information
 Plan Information
 - Fill in the requested information.
 - The three-digit Plan Sequence Number is used to identify your Plan in annual reporting to the IRS. Your business determines the number, beginning with 001 for the first Plan the business established. For example, if this is the fourth Plan your business maintains or has maintained, the Plan Sequence Number would be 004.
-- Fill in the Plan Identification Number (if applicable). This is the tax identification number assigned to your Individual 401(k) Plan for reporting purposes. Do not use your Social Security Number or the tax identification number assigned to your business. If your Plan does not have a Plan Identification Number, you or your tax advisor may obtain one immediately online or by telephone; the instructions for IRS Form SS-4 (available on the IRS website at www.irs.gov) explain how to proceed.
+- Fill in the Plan Identification Number (if applicable). This is the tax identification number **assigned to your Individual 401(k) Plan** for reporting purposes. **Do not use your Social Security Number or the tax identification number assigned to your business**. If your Plan does not have a Plan Identification Number, you or your tax advisor may obtain one immediately online or by telephone; the instructions for IRS Form SS-4 (available on the IRS website at www.irs.gov) explain how to proceed.
 
 ---
 
@@ -78,6 +111,17 @@ Let's say I setup two businesses and get two different EINs.
 ### EIN for estimated tax payments on ES-1040
 
 [turbotax.com](https://ttlc.intuit.com/community/business-taxes/discussion/ein-vs-ssn/00/846902): EIN vs SSN
+
+[ttlc.intuit.com](https://ttlc.intuit.com/community/business-taxes/discussion/when-to-use-ein-or-ssn-for-single-member-llc/00/323244): When to use EIN or SSN for single member LLC?
+- I registered the business as an single member LLC a year ago and requested an EIN a few months ago. I just submitted 2016 taxes using only my SSN, filing under a 1040 on the Schedule C, and did not include the EIN on there. The main reason I got the EIN was so that when I receive various 1099s the individuals and companies do not have my SSN. I must now submit quarterly tax payments which, since I filed under my SSN for 2016, shows that I must file quarterly with the SSN and cannot use the EIN. Should I forget about the EIN entirely, as the only point was to use it when individuals request a W9? Or can I still use it for that as it is connected to my SSN.
+- You will use your SSN since this is a disregarded entity. This applies to your quarterly estimated tax payments as well. However, you can use **either your SSN or EIN when receiving 1099-MISC income**. Just make sure to **report all these 1099-MISCs under your Schedule C** since they all relate to your LLC business income.
+- Also you can use your EIN for your LLC when necessary like if purchasing property for your LLC or filing your Sales tax report with your state's Department of Revenue.
+- Remember, *ONLY* the IRS issues EINs. When you requested the EIN you had to provide an SSN for the IRS to tie that EIN to. So it *does* *not* *matter* which you use when dealing with the IRS. THe IRS *knows* what SSN the EIN belogs to, and you and the IRS are the only ones who need to know what SSN your EIN is tied to.
+- Iit's not a "MUST" that you file with your SSN either. You can use either. I've had some quarters where I'ved filed with the SSN, and other quarters with the EIN. It *does* *not* *matter* and is not a problem or issue for the IRS.
+- Potentially confusing info from IRS forms: _For federal income tax purposes, a single-member LLC classified as a disregarded entity generally must use the owner's social security number (SSN) or employer identification number (EIN) for all information returns and reporting related to income tax. For example, if a disregarded entity LLC that is owned by an individual is required to provide a Form W-9, Request for Taxpayer Identification Number (TIN) and Certification, the W-9 should provide the owner’s SSN or EIN, not the LLC’s EIN._
+- Response: The reason that a Single Member LLC (SMLLC) is required to use the SSN of the owner is because of backup withholding.  If the legal name and Taxpayer Identification Number (TIN) that the IRS expects to be associated with the reporting do not match their database, a red flag will go up.  Think of the W-9 form as a map. The W-9 ties into the 1099-MISC because that is the form that reports amounts paid to an independent contractor. SMLLCs are considered disregarded entities separate from their owners, as you know. This is because **the IRS expects the taxpayer to carry the income onto his or her personal tax return**.  For this purpose, it's irrelevant whether the LLC uses its own EIN for banking.  Imagine you are going to the airport to catch a flight.  It doesn't matter if you are representing your business or if it's a personal vacation- you need to show your driver's license and not your Articles of Organization to get on the plane.
+- Form W-9 asks for the Name as shown on your tax return on line one, and the Business Name / Disregarded Entity name on line two.  Line two makes it clear to the IRS that there is another EIN out there being used in banks, for example.  If the disregarded LLC's EIN is used on Form W-9 line one and on Form 1099-MISC, then nothing will happen to you when you file your tax return; however, the IRS could potentially inform the withholding agent that they are required to collect a B Notice from you to correct the information.
+- When filling out a W-9 (to receive 1099s), you use the EIN (or SSN) that is in YOUR name, not the name of the LLC ... Yes, you can report the 1099 on the Schedule C for the LLC.  The IRS looks for the business owner's SSN or EIN when receiving a 1099 form.  However, the IRS is matching income to the return.  If you choose to use the LLC's EIN, you may receive a follow-up from the IRS requesting information to ensure the income was reported properly.  
 
 ---
 
