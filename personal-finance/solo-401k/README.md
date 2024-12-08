@@ -7,6 +7,8 @@
 - Without an EIN your business bank accounts are a reflection on your credit instead of your company.
 - Note: A DUNS number, or Data Universal Numbering System number, is a unique nine-digit identifier for businesses.
 
+---
+
 ### IRS info on single-member LLC
 
 [irs.gov](https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number): Get an EIN
@@ -23,6 +25,8 @@ Background [[TurboTax](https://turbotax.intuit.com/tax-tips/self-employment-taxe
 - You will usually submit a W-9 form when you engage with a company where reporting information to the IRS might be necessary, such as receiving payments for services you provide as an independent contractor, paying interest on your mortgage or even contributing money to your IRA account. The individual or business you are doing business with uses the W-9 to collect some of your personal information, the most important of which is your taxpayer identification number (TIN).
 - For certain _Employment Tax and Excise Tax_ requirements discussed below, the EIN of the LLC must be used. An LLC will need an EIN if it has any employees or if it will be required to file any of the excise tax forms listed below. Most new single-member LLCs classified as disregarded entities will need to obtain an EIN.
 - A single-member LLC that is a disregarded entity that does not have employees and does not have an excise tax liability does not need an EIN. It should use the **name and TIN of the single member owner for federal tax purposes**. However, if a single-member LLC, whose taxable income and loss will be reported by the single member owner needs an EIN to open a bank account or if state tax law requires the single-member LLC to have a federal EIN, then the LLC can apply for and obtain an EIN.
+
+---
 
 ### IRS rules on solo 401K
 
@@ -69,24 +73,27 @@ Background [[TurboTax](https://turbotax.intuit.com/tax-tips/self-employment-taxe
 
 ---
 
-### Instructions for Completing Schwab Individual 401(k) Plan [[pdf](https://www.schwab.com/public/file/P-619623/REG30724-05-01.pdf)]
+### Changing business type on solo 401K
 
-Employer Information
-- Fill in the requested information. The Name of the Adopting Employer is the business (the "Employer") that sponsors the Plan.
-- The Adopting Employer's Federal Tax Identification Number is the tax identification number assigned to your business. Do not use your Social Security Number. If your business does not have a Federal Tax Identification Number, you or your tax advisor may obtain one immediately online or by telephone; the instructions for IRS Form SS-4 (available on the IRS website at www.irs.gov) explain how to proceed.
+[bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=390878): Changing solo 401(k) from LLC to sole proprietorship
+- "My wife has an LLC sponsoring her solo 401(k). She decided this year to shut down her business and go back to work. We would like to amend the adoption agreement to "move" the plan to her sole proprietorship. The adoption agreement paperwork has you fill in the sponsoring employer information on it, but i don't see how they tie the plan to the prior plan with a different name and EIN."
+- Answers: do not set up a new 401(k). You want to either (1) amend the current plan or (2) transfer the current plan.
+- Normally you can add the sole proprietorship in the controlled group section of the amended plan document. But since the Sponsor (LLC) is being terminated, the paperwork in your case is likely different. If the EIN used for the Solo 401k Plan is the LLC’s (sponsor’s) EIN, your spouse will need to obtain a new EIN for the Plan. Form 5500-EZ Part II Lines 4a-4d are used to report any changes to the Plan Sponsor Name/Plan Name/EIN since the last Form 5500-EZ filed, if any.
 
-Plan Information
-- Fill in the requested information.
-- The three-digit Plan Sequence Number is used to identify your Plan in annual reporting to the IRS. Your business determines the number, beginning with 001 for the first Plan the business established. For example, if this is the fourth Plan your business maintains or has maintained, the Plan Sequence Number would be 004.
-- Fill in the Plan Identification Number (if applicable). This is the tax identification number **assigned to your Individual 401(k) Plan** for reporting purposes. **Do not use your Social Security Number or the tax identification number assigned to your business**. If your Plan does not have a Plan Identification Number, you or your tax advisor may obtain one immediately online or by telephone; the instructions for IRS Form SS-4 (available on the IRS website at www.irs.gov) explain how to proceed.
+[bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=438455): Solo 401(k), moving from LLC to Sole Proprietor, change employer of existing plan?
+- You can change the sponsoring employer. My wife did that when she closed her LLC and went back to a salary job. She has been filing 5500s due to the balance, and there is a place on the form to indicate that the employer changed. She has continued to file as a sole proprietor. Haven't heard a complaint from the feds.
+
+[mysolo401k.net](https://www.mysolo401k.net/what-happens-to-my-solo-401k-when-i-change-my-business-entity/): What happens to my Solo 401k when I change my business entity?
+- Question: What if I want to close the original LLC that I used to set up the solo 401(k)? If I start a new LLC this year, can I roll over the old solo 401(k) into a new solo 401(k) yet to be created? Can you help with this?
+- For example, a self-employed person may operate their self-employed business through one LLC and now they wish to operate their business through a new LLC. In this scenario, the plan documents will be amended to reflect the new entity as opposed to shutting down one solo 401(k) and then starting up a new solo 401(k). Taking this approach means that there are no changes to the Solo 401k investments, accounts, etc. as it is merely a change at the document level.
 
 ---
 
-### Using SSN and EIN for Tax filing as a sole proprietorship
+### Using SSN and EIN for tax filing as sole proprietorship
 
 [bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=407992): Solo 401k -- SSN vs. EIN
 - I would like to open a Solo 401k account with Schwab, but they're both requiring that I submit an EIN in order to create the account. I've heard that I can generate an EIN on the IRS website, and submit it as part of my Solo 401k application. Question: Would it be OK if my 1099 is still being sent to my SSN (and NOT the EIN), but the Solo 401k is opened with the EIN?
-- Yes, that's fine. When you get the EIN online there is a place to select that it's an EIN for a qualified plan. That's what you want. The plan EIN does not need to be the same as your employer EIN (if you decide to get one at some point). You'll need an EIN for the plan so that you can file 5500-EZ someday, you can't use your SSN on that form.
+- Yes, that's fine. When you get the EIN online there is a place to **select that it's an EIN for a qualified plan. That's what you want.** The plan EIN does not need to be the same as your employer EIN (if you decide to get one at some point). You'll need an EIN for the plan so that you can file 5500-EZ someday, you can't use your SSN on that form.
 - 5500 EZ requires the employer EIN, not the plan EIN.
 - Question: When the time comes for me to file a 5500 EZ, what EIN would I use? I won't have an "employer" EIN and per the guidance above, I'll just have a "plan" EIN ... You need to register for a sole proprietorship EIN. It takes two minutes on the IRS site ... If I register for the sole proprietorship EIN, but continue to receive 1099's for my SSN, will that be an issue? Answer: No.
 - In Post #4, MP123 was suggesting that I get an EIN for the plan and submit that to Schwab (and *not* an EIN for the sole prop). And then, if/when my 401k balance exceeds 250k and I have to file a 5500 EZ, I'll then get an EIN for the sole prop and use it for that form.
@@ -94,7 +101,7 @@ Plan Information
 - A part of me is still worried that if the 1099's are going direct to my SSN, the Sole Prop EIN isn't generating any income. Does anyone know whether that'll cause complications wrt my ability to make employee and/or employer contributions into the Solo 401k? Answers: Shouldn't matter.
 
 [bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=341358): Are there specific sections in our tax filings where I need to use EIN instead of SSN?
-- When you fill out Schedule C, your name and social security number (just yours, NOT your spouse's) goes on the top of the form. Then your business name is entered in Box C and your EIN is entered in box D.
+- When you fill out Schedule C, **your name and social security number (just yours, NOT your spouse's) goes on the top of the form.** Then your business name is entered in Box C and your EIN is entered in box D.
 - Edit: if you happen to have separate businesses with different EINs, or if your wife had her own self employment income, each business gets their own Schedule C form. With the same personal information on the very top line and then the individual business is referenced on the rest of the form.
 
 Does it matter for my taxes whether I open self-employment retirement account using SSN (or) EIN? Does IRS treat my SSN & EIN as same entity?
@@ -131,6 +138,32 @@ Let's say I setup two businesses and get two different EINs.
 
 ---
 
+### Info on completing Schwab individual 401(k) Plan [[pdf](https://www.schwab.com/public/file/P-619623/REG30724-05-01.pdf)]
+
+Employer Information
+- Fill in the requested information. The Name of the Adopting Employer is the business (the "Employer") that sponsors the Plan.
+- The Adopting Employer's Federal Tax Identification Number is the tax identification number assigned to your business. Do not use your Social Security Number. If your business does not have a Federal Tax Identification Number, you or your tax advisor may obtain one immediately online or by telephone; the instructions for IRS Form SS-4 (available on the IRS website at www.irs.gov) explain how to proceed.
+
+Plan Information
+- Fill in the requested information.
+- The three-digit Plan Sequence Number is used to identify your Plan in annual reporting to the IRS. Your business determines the number, beginning with 001 for the first Plan the business established. For example, if this is the fourth Plan your business maintains or has maintained, the Plan Sequence Number would be 004.
+- Fill in the Plan Identification Number (if applicable). This is the tax identification number **assigned to your Individual 401(k) Plan** for reporting purposes. **Do not use your Social Security Number or the tax identification number assigned to your business**. If your Plan does not have a Plan Identification Number, you or your tax advisor may obtain one immediately online or by telephone; the instructions for IRS Form SS-4 (available on the IRS website at www.irs.gov) explain how to proceed.
+
+--- 
+
+### Info on completing ETrade individual 401K plan [[etrade.com](https://us.etrade.com/what-we-offer/our-accounts/individual-401k)]
+
+Info
+- Can a person who is employed by an employer and also has an unrelated self-employed business set up an individual 401(k) plan, and also contribute to the unrelated employer's 401(k) plan? Yes. However, total annual employee contributions cannot exceed the 401(k) contribution limits ($23,000 for 2024 or $30,500 if age 50 or older for 2024).
+
+"INDIVIDUAL 401(k) & ROTH INDIVIDUAL 401(k) APPLICATION" [[pdf](https://content.etrade.com/etrade/mssb/pdf/Qualified_Retirement_Plan_App.pdf)]
+- see instructions for "TO OPEN BOTH AN INDIVIDUAL 401(K) AND A ROTH INDIVIDUAL 401(k)"
+- Adopting Employer’s Federal Tax Identification Number (required): This	is	the	tax	identification	number	assigned	to	your	business
+and	should	match	what	you	provide	on	the	first	page	of	your application. If	your	business	does	not	have	a	Federal Tax	Identification	Number,	complete	and	file	an	Internal	Revenue	Service	(IRS)	Form	SS-4 to	obtain	a	number.	The	IRS	Form	SS-4	can	be	obtained	from	an	IRS	office	or	from	your	tax	advisor.
+If	you	have	already	filed	a	Form	SS-4,	print	“Applied	for”	on	the	“Adopting	Employer’s	Federal Tax	Identification	Number”	line. After you	receive	a	tax	identification	number,	please	add	that	information	to	your	adoption	agreement.
+
+---
+
 ### Funding a solo 401K account?
 
 [Bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=430429): funding solo 401(k) - must use business account?
@@ -148,7 +181,7 @@ Is a solo 401k considered a separate capacity for SIPC?
 
 ### Related topics
 
-Set up single member llc in california
+Setting up single-member LLC in california
 - [LegalZoom](https://www.legalzoom.com/marketing/business-formation/llc): Start your LLC with confidence
 - [Nolo](https://www.nolo.com/legal-encyclopedia/how-form-single-member-llc-california.html): How to Form a Single-Member LLC in California
 
