@@ -75,22 +75,6 @@ Background [[TurboTax](https://turbotax.intuit.com/tax-tips/self-employment-taxe
 
 ---
 
-### Changing business type on solo 401K
-
-[bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=390878): Changing solo 401(k) from LLC to sole proprietorship
-- "My wife has an LLC sponsoring her solo 401(k). She decided this year to shut down her business and go back to work. We would like to amend the adoption agreement to "move" the plan to her sole proprietorship. The adoption agreement paperwork has you fill in the sponsoring employer information on it, but i don't see how they tie the plan to the prior plan with a different name and EIN."
-- Answers: do not set up a new 401(k). You want to either (1) amend the current plan or (2) transfer the current plan.
-- Normally you can add the sole proprietorship in the controlled group section of the amended plan document. But since the Sponsor (LLC) is being terminated, the paperwork in your case is likely different. If the EIN used for the Solo 401k Plan is the LLC’s (sponsor’s) EIN, your spouse will need to obtain a new EIN for the Plan. Form 5500-EZ Part II Lines 4a-4d are used to report any changes to the Plan Sponsor Name/Plan Name/EIN since the last Form 5500-EZ filed, if any.
-
-[bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=438455): Solo 401(k), moving from LLC to Sole Proprietor, change employer of existing plan?
-- You can change the sponsoring employer. My wife did that when she closed her LLC and went back to a salary job. She has been filing 5500s due to the balance, and there is a place on the form to indicate that the employer changed. She has continued to file as a sole proprietor. Haven't heard a complaint from the feds.
-
-[mysolo401k.net](https://www.mysolo401k.net/what-happens-to-my-solo-401k-when-i-change-my-business-entity/): What happens to my Solo 401k when I change my business entity?
-- Question: What if I want to close the original LLC that I used to set up the solo 401(k)? If I start a new LLC this year, can I roll over the old solo 401(k) into a new solo 401(k) yet to be created? Can you help with this?
-- For example, a self-employed person may operate their self-employed business through one LLC and now they wish to operate their business through a new LLC. In this scenario, the plan documents will be amended to reflect the new entity as opposed to shutting down one solo 401(k) and then starting up a new solo 401(k). Taking this approach means that there are no changes to the Solo 401k investments, accounts, etc. as it is merely a change at the document level.
-
----
-
 ### Using SSN and EIN for tax filing as sole proprietorship
 
 [bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=407992): Solo 401k -- SSN vs. EIN
@@ -131,6 +115,63 @@ Let's say I setup two businesses and get two different EINs.
 - Response: The reason that a Single Member LLC (SMLLC) is required to use the SSN of the owner is because of backup withholding.  If the legal name and Taxpayer Identification Number (TIN) that the IRS expects to be associated with the reporting do not match their database, a red flag will go up.  Think of the W-9 form as a map. The W-9 ties into the 1099-MISC because that is the form that reports amounts paid to an independent contractor. SMLLCs are considered disregarded entities separate from their owners, as you know. This is because **the IRS expects the taxpayer to carry the income onto his or her personal tax return**.  For this purpose, it's irrelevant whether the LLC uses its own EIN for banking.  Imagine you are going to the airport to catch a flight.  It doesn't matter if you are representing your business or if it's a personal vacation- you need to show your driver's license and not your Articles of Organization to get on the plane.
 - Form W-9 asks for the Name as shown on your tax return on line one, and the Business Name / Disregarded Entity name on line two.  Line two makes it clear to the IRS that there is another EIN out there being used in banks, for example.  If the disregarded LLC's EIN is used on Form W-9 line one and on Form 1099-MISC, then nothing will happen to you when you file your tax return; however, the IRS could potentially inform the withholding agent that they are required to collect a B Notice from you to correct the information.
 - When filling out a W-9 (to receive 1099s), you use the EIN (or SSN) that is in YOUR name, not the name of the LLC ... Yes, you can report the 1099 on the Schedule C for the LLC.  The IRS looks for the business owner's SSN or EIN when receiving a 1099 form.  However, the IRS is matching income to the return.  If you choose to use the LLC's EIN, you may receive a follow-up from the IRS requesting information to ensure the income was reported properly.  
+
+---
+
+### Solo 401K and IRA contribution limits
+
+[irs.gov](https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits): Two annual limits apply to contributions:
+- A limit on employee elective salary deferrals. Salary deferrals are contributions an employee makes, in lieu of salary, to certain retirement plans: 401(k) plans, 403(b) plans, SARSEP IRA plans (Salary Reduction Simplified Employee Pension Plans), SIMPLE IRA plans (Savings Incentive Match Plans for Employees)
+- An overall limit on contributions to a participant’s account. The limit applies to the total of: elective deferrals (but not catch-up contributions), employer matching contributions, employer nonelective contributions, allocations of forfeitures
+- The limit on employee elective deferrals (for traditional and safe harbor plans) is: $23,000 
+
+Total annual contributions (annual additions) to all of your accounts in plans maintained by one employer (and any related employer) are limited.
+- The annual additions paid to a participant’s account cannot exceed the lesser of: 100% of the participant's compensation, or $69,000 ($76,500 including catch-up contributions) for 2024
+- an employer’s deduction for contributions to a defined contribution plan (profit-sharing plan or money purchase pension plan) cannot be more than 25% of the compensation paid (or accrued) during the year to eligible employees participating in the plan
+
+Example 1: In 2020, Greg, 46, is employed by an employer with a 401(k) plan, and he also works as an independent contractor for an unrelated business and sets up a solo 401(k). Greg contributes the maximum amount to his employer’s 401(k) plan for 2020, $19,500. He would also like to contribute the maximum amount to his solo 401(k) plan. 
+- He is not able to make further elective deferrals to his solo 401(k) plan because he has already contributed his personal maximum, $19,500. He would also like to contribute the maximum amount to his solo 401(k) plan.
+- Greg is not able to make further elective salary deferrals to his solo 401(k) plan because he has already contributed his personal maximum, $19,500, to his employer’s plan. However, he has enough earned income from his business to contribute the overall maximum for the year, $57,000. Greg can make a **nonelective contribution** of $57,000 to his solo 401(k) plan. This $57,000 limit is not reduced by the elective deferrals Greg made under his employer’s plan because the limit on annual additions applies to each plan separately.
+
+Example 2:  In Example 1, if Greg were 52 years old and eligible to make catch-up contributions, he could contribute an additional $6,500 of elective deferrals for 2020. 
+- His catch-up contribution could be split between the plans in any proportion he chooses. Or, Greg may contribute the full $6,500 catch-up contribution to his solo 401(k) plan, making a total contribution of $63,500 for 2020.
+- This is because, although he made nonelective contribution to his solo 401(k) plan up to the maximum of $57,000, the $57,000 limit is not reduced by the elective deferral catch-up contributions.
+
+---
+
+### Tax savings from Solo 401K contributions
+
+[reddit.com](https://www.reddit.com/r/tax/comments/111gkcz/please_help_me_to_understand_the_tax_benefit_of/): Please help me to understand the tax benefit of the Solo 401(k)
+- Question: Of the remaining $97,100 that is in the bank, I (in my capacity as an employee of my own single-member LLC) can contribute $15,500 (I contribute $7,000 to my W-2 401k, hitting the $22,500 contribution limit). This leaves $81,600 as my business income for this calculation. The LLC (as the employer) can contribute the amount that is equal to 20% of my net business income, or 20% of $81,600, or $16,320. This leaves $65,280. Assuming this is all correct, does this mean that my Schedule C income is reduced all the way down to $65,280, or am I thinking about this wrong? ... I'm still having trouble figuring out exactly how the contribution helps me. If I contribute the max as an employee (e.g. $15,500) and then the max as an employer (e.g. let's just say $20,000), how does this effect my taxable income?
+- Answers: Your own retirement contributions from self-employment don't directly reduce your "Schedule C" income, because that would also reduce your self-employment tax. Instead, the retirement contributions are taken as a deduction on Schedule 1. For the exact specifics of how much you can contribute, there is a worksheet available in Publication 560, Chapter 5, Page 22 (irs.gov/Pub560).
+- It [the contribution] increases the value on Schedule 1, line 16 [of the deduction], which increases the value on Form 1040 line 10, which results in a lower AGI [due to higher deduction] and thus lower income tax.
+- ... You are correct in that the Salary Reduction/Roth Elective deferral limit is an aggregate total of the contributions you make between the two 401k plans, and the combined total cannot exceed $22,500. The Employer discretionary contribution c an be up to 25% of your adjusted net income, which is basically the net income on the Schedule C after the employer portion of the self-employment taxes have been paid.
+
+[irs.gov](https://www.irs.gov/retirement-plans/self-employed-individuals-calculating-your-own-retirement-plan-contribution-and-deduction): Calculating your own retirement plan contribution and deduction
+- If you are self-employed (a sole proprietor or a working partner in a partnership or limited liability company), you must use a special rule to calculate retirement plan contributions for yourself.
+- You calculate self-employment (SE) tax using the amount of your net earnings from self-employment and following the instructions on Schedule SE, Self-Employment Tax. However, you must make adjustments to your net earnings from self-employment to arrive at the amount of "plan compensation" to use to determine the plan contribution/deduction for yourself.
+- Total limits on plan contributions depend in part on your plan type. See the contribution limits for your plan.
+
+[irs.gov](https://www.irs.gov/retirement-plans/plan-participant-employee/2024-ira-contribution-and-deduction-limits-effect-of-modified-agi-on-deductible-contributions-if-you-are-covered-by-a-retirement-plan-at-work): IRA contribution and deduction limits effect of modified AGI on deductible contributions for married filing jointly or qualifying widow(er)
+- ... if you are covered by a retirement plan at work
+- modified AGI of $123,000 or less - a full deduction up to the amount of your contribution limit
+- modified AGI of more than $123,000 but less than $143,000: a partial deduction
+
+---
+
+### Changing business type on solo 401K
+
+[bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=390878): Changing solo 401(k) from LLC to sole proprietorship
+- "My wife has an LLC sponsoring her solo 401(k). She decided this year to shut down her business and go back to work. We would like to amend the adoption agreement to "move" the plan to her sole proprietorship. The adoption agreement paperwork has you fill in the sponsoring employer information on it, but i don't see how they tie the plan to the prior plan with a different name and EIN."
+- Answers: do not set up a new 401(k). You want to either (1) amend the current plan or (2) transfer the current plan.
+- Normally you can add the sole proprietorship in the controlled group section of the amended plan document. But since the Sponsor (LLC) is being terminated, the paperwork in your case is likely different. If the EIN used for the Solo 401k Plan is the LLC’s (sponsor’s) EIN, your spouse will need to obtain a new EIN for the Plan. Form 5500-EZ Part II Lines 4a-4d are used to report any changes to the Plan Sponsor Name/Plan Name/EIN since the last Form 5500-EZ filed, if any.
+
+[bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=438455): Solo 401(k), moving from LLC to Sole Proprietor, change employer of existing plan?
+- You can change the sponsoring employer. My wife did that when she closed her LLC and went back to a salary job. She has been filing 5500s due to the balance, and there is a place on the form to indicate that the employer changed. She has continued to file as a sole proprietor. Haven't heard a complaint from the feds.
+
+[mysolo401k.net](https://www.mysolo401k.net/what-happens-to-my-solo-401k-when-i-change-my-business-entity/): What happens to my Solo 401k when I change my business entity?
+- Question: What if I want to close the original LLC that I used to set up the solo 401(k)? If I start a new LLC this year, can I roll over the old solo 401(k) into a new solo 401(k) yet to be created? Can you help with this?
+- For example, a self-employed person may operate their self-employed business through one LLC and now they wish to operate their business through a new LLC. In this scenario, the plan documents will be amended to reflect the new entity as opposed to shutting down one solo 401(k) and then starting up a new solo 401(k). Taking this approach means that there are no changes to the Solo 401k investments, accounts, etc. as it is merely a change at the document level.
 
 ---
 
