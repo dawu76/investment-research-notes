@@ -1,5 +1,14 @@
 ## Solo 401k and EINs
 
+###
+
+Comments by E*Trade retirement specialist [2024-12-20]
+- Deadlines for tax year contributions (e.g. 2024): Employee contributions should be made by 2025-01-10 - slightly after end of calendar year to account for payroll; empmoyer contributions can be made up until 2025-April tax filing deadline.
+- How to specify whether contributions are for employee or employer: by default, contributions to E-trade's 401k accounts will be on behalf of employer. In order to classify contributions as being from employees, call the E*Trade retirement team before end of calendar year to request that certain contributions be reclassified; this can be done in bulk to retroactively reclassify past contributions.
+- Employee contributions are subject to a total limit of ~$23K across your IRA and 401k accounts. Employer contributions may have a higher limit up to 25% of your business income.
+
+---
+
 ### Reasons for EIN
 
 [reddit.com](https://www.reddit.com/r/smallbusiness/comments/rconu3/is_there_any_reason_to_get_a_federal_or_state_ein/): Is there any reason to get a federal or state EIN if you're a Sole Proprietor?
