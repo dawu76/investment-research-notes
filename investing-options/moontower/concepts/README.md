@@ -1,14 +1,14 @@
 ### What is 'skew' and how is it measured?
 
-In options trading, "skew" refers to the difference in implied volatility (IV) between options with different strike prices but the same expiration date. It is a measure of how the market perceives the risk of an asset moving in a particular direction. Skew is often observed as a higher implied volatility for out-of-the-money (OTM) puts compared to at-the-money (ATM) options, reflecting a market expectation of potential downside risk.
+In options trading, "skew" refers to the difference in implied volatility (IV) between options with different strike prices but the same expiration date. It is a measure of how the market perceives the risk of an asset moving in a particular direction. Skew is often observed as a higher IV for out-of-the-money (OTM) puts compared to at-the-money (ATM) options, reflecting a market expectation of potential downside risk.
 
-One common way to measure skew is through "**normalized skew**," which calculates the percent premium or discount of implied volatility at a specific delta strike (e.g., 25 delta) compared to the 50 delta strike. For example, if the 50 delta IV is 30% and the 25 delta put is 36%, the normalized skew is 20%. [since 36% is 600 bp higher than the 50-delta IV of 30%, and 6% / 30% = 20%]. This measure helps to determine if the skew is relatively or historically high or low by charting it as a time series or comparing it across correlated assets [[12](https://moontowermeta.com/ratiod)].
-
-Skew can also be analyzed through option premiums rather than implied volatility, which might be more intuitive for some investors. This involves looking at how option premiums change and expressing skew through structures like vertical spreads and ratio spreads [[1](https://moontowermeta.com/ratiod)].
+Ways to measure skew
+- "**Normalized skew**": This is one way to measure skew - it calculates the percent premium or discount of implied volatility at a specific delta strike (e.g., 25 delta) compared to the 50 delta strike. For example, if the 50 delta IV is 30% and the 25 delta put is 36%, the normalized skew is 20%. [since 36% is 600 bp higher than the 50-delta IV of 30%, and 6% / 30% = 20%]. This measure helps to determine if the skew is relatively or historically high or low by charting it as a time series or comparing it across correlated assets [[12](https://moontowermeta.com/ratiod)].
+- Skew can also be analyzed through option premiums rather than implied volatility, which might be more intuitive for some investors. This involves looking at how option premiums change and expressing skew through structures like vertical spreads and ratio spreads [[1](https://moontowermeta.com/ratiod)].
 
 ---
 
-### what are the best ways to measure and view normalized skew?
+#### What are the best ways to measure and view normalized skew?
 
 To measure and view normalized skew effectively, several approaches can be utilized:
 
@@ -26,7 +26,7 @@ By employing these methods, traders can gain a comprehensive understanding of sk
 
 ---
 
-### what does a "breakpoint" mean in the context of skew models?
+#### What does a "breakpoint" mean in the context of skew models?
 
 In the context of skew models, a "breakpoint" refers to specific points on the implied volatility (IV) curve that are used to parameterize the volatility surface. These breakpoints are critical in defining how the IV changes across different strike prices and are used to fit an IV curve to a discrete chain of option strikes.
 
