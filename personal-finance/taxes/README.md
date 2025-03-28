@@ -107,7 +107,6 @@ For 2024, you can contribute up to $7,000 ($8,000 if you're 50 or older)
 Deductibility may be limited if you or your spouse have a retirement plan at work and your income exceeds certain thresholds
 
 Important Notes:
-
 You can contribute to both a Solo 401(k) and an IRA in the same year
 The tax benefits apply to traditional accounts, not Roth versions (which provide tax-free growth instead of immediate tax deductions)
 There are specific timing requirements for establishing and funding these accounts to count for the current tax year
