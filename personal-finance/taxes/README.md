@@ -56,6 +56,17 @@ The $10,334 you owe in self-employment tax is included in your balance due amoun
 
 ---
 
+### Health insurance
+
+> If you reported self-employment income on any of the schedules listed below and you used that income to buy health insurance through Healthcare.gov or your state Marketplace, you can deduct your premiums on your taxes. However, you need to tie that income to your 1095-A so we can properly calculate the deduction amount.
+
+Schedule C — Self-employed business income
+Schedule F—Farm income
+Schedule K-1 partnership—This only counts if you earned self-employment income from that partnership, which means you'd have an entry on Line 14 of your K-1 from that partnership.
+Schedule K-1 S corporation —This only counts if you have a W-2 from that S corporation and are an owner with more than 2% interest in the S corporation.
+
+---
+
 **Question**: suppose someone owes $10,000 in self-employment taxes to the IRS. is it possible for someone to have to pay that self-employment tax while at the same time be eligible for a refund on income tax through other credits / deductions?
 
 Response from Claude 3.7 Sonnet
