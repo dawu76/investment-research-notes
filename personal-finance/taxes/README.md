@@ -65,6 +65,14 @@ Schedule F—Farm income
 Schedule K-1 partnership—This only counts if you earned self-employment income from that partnership, which means you'd have an entry on Line 14 of your K-1 from that partnership.
 Schedule K-1 S corporation —This only counts if you have a W-2 from that S corporation and are an owner with more than 2% interest in the S corporation.
 
+Looks like you have to pay back some of your health insurance discount
+- How much you qualify for	$12,212
+- Minus how much you got in advance as a discount	$15,566
+
+How much of the difference you may have to pay back through your taxes	$3,354
+- Repayment limitation	$3,150
+- Actual amount you have to pay back	$3,150
+
 ---
 
 **Question**: suppose someone owes $10,000 in self-employment taxes to the IRS. is it possible for someone to have to pay that self-employment tax while at the same time be eligible for a refund on income tax through other credits / deductions?
