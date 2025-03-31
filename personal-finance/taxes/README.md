@@ -100,6 +100,10 @@ How much of the difference you may have to pay back through your taxes	$3,354
 - clarification: "employer contributions to a solo 401(k) are not deductible on Schedule C.  They only go on Schedule 1 line 16 as part of the self-employed retirement deduction, which you indicated.  Only employer contributions for non-owner employees are deductible on Schedule C, and a solo 401(k) is not permitted to have non-owner participants .... it is an adjustment to income on Schedule 1 line 16 which goes to 1040 line 10. That is for both the [employ-] EE & ER contributions.  No, it is not new."
 - '... This has never changed.  The sole proprietor gets the deduction on Schedule 1 line 16 for both the employee elective deferrals and the employer contribution to the sole proprietor's 401(k) account. See the [IRS instructions](https://www.irs.gov/instructions/i1040sc#en_US_2024_publink24329wd0e1604) for Schedule C line 19 ... If you file Schedule C, you are a sole proprietor. A single member LLC that has not made the election to be a corporation is a sole proprietorship. View on TurboTax's Keogh, SEP and SIMPLE Contribution Worksheet the calculation of your permissible solo 401(k) contribution."
 
+Other references
+- [bogleheads.org](https://www.bogleheads.org/forum/viewtopic.php?t=429477): Solo 401K: emplyer vs employee contribution
+- [mysolo401k.com](https://www.mysolo401k.net/how-to-report-solo-401k-contributions-on-your-tax-return-a-step-by-step-guide-for-sole-proprietor-1099-independent-contractor/): How to Report Solo 401k Contributions on Your 1040 Tax Return [refer to table]
+
 ---
 
 ### Q&A
