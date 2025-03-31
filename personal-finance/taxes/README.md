@@ -75,6 +75,35 @@ How much of the difference you may have to pay back through your taxes	$3,354
 
 ---
 
+### Solo 401k contributions
+
+[TurboTax Support](https://ttlc.intuit.com/turbotax-support/en-us/help-article/self-employed/enter-solo-401-k-turbotax/L5WISqn0G_US_en_US): How do I enter a Solo 401(k) in TurboTax?
+
+> Navigate to the self-employed retirement plans section:
+> TurboTax Online/Mobile: Go to self-employed retirement plans.
+> TurboTax Desktop: Search for self-employed retirement plans (be sure to include the hyphen) and select the Jump to link.
+> Answer Yes to the question, Did you make a 2024 self-employed retirement plan contribution?
+> Answer Yes to Did you contribute to an Individual or Roth 401(k) plan?
+> On the next screen, enter your Elective Deferrals and any Catch-Up Contributions you made in 2024.
+> Enter your Employer Matching (Profit Sharing) Contributions for 2024.
+> Note: There's no Employer Matching box for Roth 401(k)s because any matching employee contributions are pretax.
+> If you haven’t made all your contributions for the tax year and would like TurboTax to calculate your maximum contributions for the year, check the box next to Maximize Contribution to Individual 401(k) and Continue.
+> On the Adjusting Self-Employment Income screen, enter any changes you'd like to make to your self-employment income as it’s been calculated by TurboTax (this is rare). Enter a positive number if you’re adding an amount, and a negative number if you’re subtracting.
+> Select Continue.
+> If you checked the box next to Maximize Contribution to Individual 401(k), you’ll see Your Self-Employed Retirement Deduction. This screen shows the maximum amount you can contribute to your Solo 401(k) for the tax year.
+> Answer the questions on the following screens, until you reach Your Retirement Contributions. This is a summary of the contributions you’ve made to your Solo 401(k) during the tax year.
+> If this page shows an excess contribution, you must withdraw the amount listed by the plan due date or face a tax penalty from the IRS.
+> If this page shows an amount to contribute by plan due date, you can still contribute the amount listed to your retirement plan before you max out your contributions, provided the due date hasn't already passed.
+
+[TurboTax Community Topics](https://ttlc.intuit.com/community/retirement/discussion/i-have-entered-employer-contributions-for-a-solo-401k-but-they-are-not-being-deducted-as-a-business/00/2213774/page/2): Solo 401k contributions not being deducted as business expense
+- "all your business income, 1/2 self-employment tax, contributions to retirement plans, and health insurance is itemized separately on Schedule 1 rather than just reporting your total net income amount in line 3 Schedule 1. This is the way the IRS categorizes this type of reporting ..."
+- clarification: "employer contributions to a solo 401(k) are not deductible on Schedule C.  They only go on Schedule 1 line 16 as part of the self-employed retirement deduction, which you indicated.  Only employer contributions for non-owner employees are deductible on Schedule C, and a solo 401(k) is not permitted to have non-owner participants .... it is an adjustment to income on Schedule 1 line 16 which goes to 1040 line 10. That is for both the [employ-] EE & ER contributions.  No, it is not new."
+- '... This has never changed.  The sole proprietor gets the deduction on Schedule 1 line 16 for both the employee elective deferrals and the employer contribution to the sole proprietor's 401(k) account. See the [IRS instructions](https://www.irs.gov/instructions/i1040sc#en_US_2024_publink24329wd0e1604) for Schedule C line 19 ... If you file Schedule C, you are a sole proprietor. A single member LLC that has not made the election to be a corporation is a sole proprietorship. View on TurboTax's Keogh, SEP and SIMPLE Contribution Worksheet the calculation of your permissible solo 401(k) contribution."
+
+---
+
+### Q&A
+
 **Question**: suppose someone owes $10,000 in self-employment taxes to the IRS. is it possible for someone to have to pay that self-employment tax while at the same time be eligible for a refund on income tax through other credits / deductions?
 
 Response from Claude 3.7 Sonnet
