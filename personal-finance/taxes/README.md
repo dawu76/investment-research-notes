@@ -1,5 +1,22 @@
 ## Personal taxes filing notes
 
+---
+
+### Business inconme
+
+Your 2024 self-employed work summary
+- analytics contractor: $69,449.00
+- credit card incentives: $400.00
+
+California return notes
+- California wages reported as business income on your federal return: $83,760
+- California medical expenses reported as a SE health insurance deduction: $9,974
+- Self-employment tax deduction reported on your federal return: $4,907
+- Business Income or (Loss): $69,849
+- Capital Gain or (Loss): $2,082
+
+---
+
 ### Home office depreciation
 
 How was this calculated?
@@ -19,51 +36,43 @@ You have to have records and receipts of your home office expenses.
 Any home office expenses that were unallowed in a prior year can be taken when you choose the actual method.
 
 Computer deprecation
+- analytics contractor: computer
+- Years to fully depreciate	5.0 years
+- MACRS Convention	MQ
+- Depreciation Method	200DB
 
-analytics contractor: computer
-Show Details
-Years to fully depreciate	5.0 years
-MACRS Convention	MQ
-Depreciation Method	200DB
-
-Asset Information		
-Description	computer
-Cost / Cost basis	$696
-Date I started using it in this business	04/01/2023
-Business use percentage	70.00 % Business Use
-Sold / Retired from business use in 2024	No
+Asset Information
+description: computer
+- Cost / Cost basis	$696
+- Date I started using it in this business	04/01/2023
+- Business use percentage	70.00 % Business Use
+- Sold / Retired from business use in 2024	No
 
 Asset Category	A - Computer
+- Special Deductions		
+- Section 179 deduction	$0
+- Special Depreciation Allowance	$0
 
-Special Deductions		
-Section 179 deduction	$0
-Special Depreciation Allowance	$0
+Expenses
+- Expense Category	2023	2024	
+- Home office		    N/A   $8,841.00	
+- Communications		N/A   $1,234.00	
+- Assets		        N/A   $146.00
 
-Expense Category	2023	2024	
-Home office		    N/A   $8,841.00	
-Communications		N/A   $1,234.00	
-Assets		        N/A   $146.00
-
-Your taxable income is $10,221.00 lower!
-Add expenses to reduce it even more.
-Income for this work	$83,360.00
-Expenses	-$10,221.00
-Taxable Income	$73,139.00
+➡️ Your taxable income is $10,221.00 lower!
+- Income for this work: $83,360.00
+- Expenses: -$10,221.00
+- Taxable Income: $73,139.00
 
 How did you calculate the self-employment tax of $10,334?
-The self-employment tax came from self-employment income of $73,139 and a tax rate of 14.13%. This comes from taxes you pay for Medicare and Social Security.
-The $10,334 you owe in self-employment tax is included in your balance due amount of $10,026.
+- The self-employment tax came from self-employment income of $73,139 and a tax rate of 14.13%. This comes from taxes you pay for Medicare and Social Security.
+- The $10,334 you owe in self-employment tax is included in your balance due amount of $10,026.
 
 ---
 
 ### Health insurance
 
 > If you reported self-employment income on any of the schedules listed below and you used that income to buy health insurance through Healthcare.gov or your state Marketplace, you can deduct your premiums on your taxes. However, you need to tie that income to your 1095-A so we can properly calculate the deduction amount.
-
-Schedule C — Self-employed business income
-Schedule F—Farm income
-Schedule K-1 partnership—This only counts if you earned self-employment income from that partnership, which means you'd have an entry on Line 14 of your K-1 from that partnership.
-Schedule K-1 S corporation —This only counts if you have a W-2 from that S corporation and are an owner with more than 2% interest in the S corporation.
 
 Looks like you have to pay back some of your health insurance discount
 - How much you qualify for	$12,212
@@ -121,6 +130,61 @@ Other references
 
 ---
 
+Deductions for IRA
+- Traditional IRA contributions: $12,000 / deductible: $12,000
+- Roth IRA contributions: $2,000 / deductible: $0
+- Total retirement contributions: $14,000 / deductible: $12,000
+
+Self-employment retirement contribution deductions
+- Total retirement contributions: $17,000
+- Amount deductible: $17,000
+
+---
+
+Qualified Business Income deduction
+
+Congrats, you get a tax break. You get the Qualified Business Income deduction.
+- You just got a $7,611 deduction. This amount is based on the latest IRS guidance.
+
+The Qualified Business Income (QBI) deduction is based on the industry you work in and how much money you made.
+- Taxpayers that qualify for QBI can deduct 20% of their net self-employed income or 20% of their taxable income, whichever is lower. However, there are limits to how much you can deduct, depending on which industry you work in and how much money you made.
+- You automatically qualify for this deduction if you made $191,950 (single) or $383,900 (joint) or less in taxable income.
+- However, there are limits to how much you can deduct if your income is higher than the amounts listed previously and you work in a specific industry (listed below).
+
+---
+
+### Standard vs. itemized deduction
+
+Based on what you just told us: Standard Deduction is right for you. Since the Standard Deduction is a larger amount than your itemized deductions, it’ll lower your taxable income more and get you a bigger tax break.
+
+Itemized deduction: $27,716
+- Property, state, and local tax deduction (limited to $10,000)	$10,000.00
+- All Deductible Interest: $17,716.00
+
+Standard deduction: $29,000
+- Tax due with this deduction: $5,871
+
+The Standard Deduction is a fixed dollar amount set by the government that is based on things like your filing status and age.
+
+Your itemized deductions would be the total of all of your individual deductions. These include things like:
+- Car registration fees
+- Mortgage interest
+- Donations to charity
+- Medical expenses
+- Real estate taxes
+- Personal property tax
+- State income tax withholding or sales tax
+
+Your standard deduction depends on your filing status and age. Here's what you can expect:
+- Single: $14,600
+- Head of Household: $21,900
+- Married Filing Jointly: $29,200
+- Married Filing Separately: $14,600
+- Qualifying Surviving Spouse: $29,200
+- You can get a higher Standard Deduction amount if you're legally blind, or if you are age 65 or older.
+
+---
+
 ### Q&A
 
 **Question**: suppose someone owes $10,000 in self-employment taxes to the IRS. is it possible for someone to have to pay that self-employment tax while at the same time be eligible for a refund on income tax through other credits / deductions?
@@ -130,31 +194,31 @@ Response from Claude 3.7 Sonnet
 > Yes, this is absolutely possible. Self-employment taxes and income taxes are calculated separately on your tax return, and it's entirely possible to owe money for one while receiving a refund for the other.
 Here's how this can happen:
 
-Separate calculations: Self-employment tax (15.3% covering Social Security and Medicare) is calculated on Schedule SE based on your net self-employment earnings, regardless of other deductions or credits.
-Income tax calculation: Your income tax is calculated separately after accounting for all deductions and credits, which could include:
+Separate calculations:
+- Self-employment tax (15.3% covering Social Security and Medicare) is calculated on Schedule SE based on your net self-employment earnings, regardless of other deductions or credits.
 
-Business expense deductions
-Retirement contributions (IRA, Solo 401(k))
-Standard or itemized deductions
-Child tax credits
-Education credits
-Earned Income Tax Credit
-Stimulus credits
+Income tax calculation: Your income tax is calculated separately after accounting for all deductions and credits, which could include:
+- Business expense deductions
+- Retirement contributions (IRA, Solo 401(k))
+- Standard or itemized deductions
+- Child tax credits
+- Education credits
+- Earned Income Tax Credit
+- Stimulus credits
 
 Final tax bill: When you file your return, these calculations are combined:
 
-If your withholdings/estimated tax payments exceed your total tax liability (self-employment tax + income tax - credits), you get a refund
-If they're less, you owe the difference
+If your withholdings/estimated tax payments exceed your total tax liability (self-employment tax + income tax - credits), you get a refund. If they're less, you owe the difference.
 
 For example, someone might have:
-$10,000 in self-employment tax
-$3,000 in income tax before credits
-$5,000 in refundable tax credits
-$9,000 in withholdings/estimated payments
+- $10,000 in self-employment tax
+- $3,000 in income tax before credits
+- $5,000 in refundable tax credits
+- $9,000 in withholdings/estimated payments
 
 Final calculation: $10,000 + $3,000 - $5,000 = $8,000 total tax due
-With $9,000 already paid, they would receive a $1,000 refund despite owing self-employment tax.
-This scenario is particularly common for self-employed people with children who qualify for refundable credits like the Child Tax Credit or Earned Income Credit.RetryClaude can make mistakes. Please double-check responses.
+- With $9,000 already paid, they would receive a $1,000 refund despite owing self-employment tax.
+- This scenario is particularly common for self-employed people with children who qualify for refundable credits like the Child Tax Credit or Earned Income Credit.RetryClaude can make mistakes. Please double-check responses.
 
 **Question**: if i am self-employed, do my contributions to my personal IRA as well as solo 401K accounts reduce my tax bill for the year?
 
@@ -163,19 +227,17 @@ Response from Claude 3.7 Sonnet
 > Yes, if you're self-employed, contributions to both a personal IRA and a Solo 401(k) can reduce your tax bill for the year, though they affect different parts of your taxes:
 
 Solo 401(k) Contributions:
-Employer contributions (as your own employer) reduce your self-employment income, which lowers both your income tax and self-employment tax
-Employee contributions (as your own employee) reduce your income tax but not your self-employment tax
-For 2024, you can contribute up to $23,000 as an employee, plus an additional $7,500 if you're 50 or older
-As an employer, you can contribute up to 25% of your net self-employment income
+- Employer contributions (as your own employer) reduce your self-employment income, which lowers both your income tax and self-employment tax
+- Employee contributions (as your own employee) reduce your income tax but not your self-employment tax
+- For 2024, you can contribute up to $23,000 as an employee, plus an additional $7,500 if you're 50 or older
+- As an employer, you can contribute up to 25% of your net self-employment income
 
-Traditional IRA Contributions:
-Reduce your income tax but not your self-employment tax
-For 2024, you can contribute up to $7,000 ($8,000 if you're 50 or older)
-Deductibility may be limited if you or your spouse have a retirement plan at work and your income exceeds certain thresholds
+Traditional IRA Contributions reduce your income tax but not your self-employment tax
+- For 2024, you can contribute up to $7,000 ($8,000 if you're 50 or older)
+- Deductibility may be limited if you or your spouse have a retirement plan at work and your income exceeds certain thresholds
 
 Important Notes:
-You can contribute to both a Solo 401(k) and an IRA in the same year
-The tax benefits apply to traditional accounts, not Roth versions (which provide tax-free growth instead of immediate tax deductions)
-There are specific timing requirements for establishing and funding these accounts to count for the current tax year
-
-These retirement contributions can significantly reduce your overall tax bill while simultaneously building your retirement savings.
+- You can contribute to both a Solo 401(k) and an IRA in the same year
+- The tax benefits apply to traditional accounts, not Roth versions (which provide tax-free growth instead of immediate tax deductions)
+- There are specific timing requirements for establishing and funding these accounts to count for the current tax year
+- These retirement contributions can significantly reduce your overall tax bill while simultaneously building your retirement savings.
