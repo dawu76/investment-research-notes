@@ -185,6 +185,43 @@ Your standard deduction depends on your filing status and age. Here's what you c
 
 ---
 
+### Income summary
+
+Total income you reported
+2023 2024
+Adjusted gross income	$107,586	$89,914
+Standard Deduction	-$27,700	-$29,200
+Business Income Deduction	-$7,423	-$7,534
+Taxable income	$72,463	$53,180
+
+| Your Tax Breakdown | 2023 | 2024 |
+| ------------------ | ---- | ---- |
+| Total Income | $137,120 | $134,176 |
+| Deductions | -$27,700	| -$29,200 |
+| Taxable Income | $72,463 | $53,180 |
+| Blended Tax Rate | x 24.0% | x 28.8% |
+| Tax Liability | $17,380 | $15,298 |
+
+| Your eligible tax credits | 2023 | 2024 |
+| ------------------------- | ---- | ---- |
+| Child tax credit |$0 | $4,000 |
+| Other	| $4,131 | $851 |
+| Total | $4,131 | $4,851 |
+
+| Taxes you've already paid | 2023 | 2024 |
+| ------------------------- | ---- | ---- |
+| Estimated tax payments | $1,000 | $5,000 |
+| Refund carryover | $4,500 | $0 |
+| Total | $5,500 | $5,000 |
+
+| Taxes Paid | $5,500 | $5,000 |
+| ---------- | ------ | ------ |
+| Credits	| +$4,131	| + $4,851 |
+| Total Taxes Paid | $9,631 | $9,851 |
+| Refund (or Tax Due) | -$7,749 | -$5,795 |
+
+---
+
 ### Q&A
 
 **Question**: suppose someone owes $10,000 in self-employment taxes to the IRS. is it possible for someone to have to pay that self-employment tax while at the same time be eligible for a refund on income tax through other credits / deductions?
