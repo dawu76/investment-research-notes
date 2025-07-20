@@ -1,0 +1,8 @@
+[healthinsurance.org](https://www.healthinsurance.org/blog/one-big-beautiful-bill-act-brings-sweeping-changes-to-health-coverage/): More Marketplace plans can be used with health savings accounts (HSAs)" in 2026
+- Contributions to an HSA are pre-tax, investment gains or interest earned in the account are also not taxed, and HSA withdrawals are not taxed as long as the money is used for a qualified medical expense.
+- In addition, HSA contributions reduce a person’s ACA-specific modified adjusted gross income (MAGI), which can affect whether the person qualifies for Marketplace subsidies. This will be particularly important for people to understand starting with the 2026 plan year, as the **subsidy cliff** will return in 2026 unless Congress acts to extend the subsidy enhancements that are scheduled to sunset at the end of 2025.
+- So a person who is facing the loss of all subsidies in 2026 might find that _by contributing to an HSA, they can bring their MAGI into the subsidy-eligible range_. Marketplace enrollees should discuss this issue with a financial planner or accountant before selecting a plan for 2026. If contributing to an HSA makes financial sense for them, it will be important to select an HDHP during the open enrollment period, keeping in mind that Bronze and Catastrophic plans will be considered HDHPs as of 2026.
+
+[fidelity.com](https://www.fidelity.com/learning-center/smart-money/hsa-contribution-limits): HSA contribution limits in 2026
+- The HSA contribution limits for 2026 are $4,400 for self-only coverage and $8,750 for family coverage. Those 55 and older can contribute an additional $1,000 as a catch-up contribution.
+- To contribute to an HSA, you must be enrolled in an HSA-eligible health plan.
