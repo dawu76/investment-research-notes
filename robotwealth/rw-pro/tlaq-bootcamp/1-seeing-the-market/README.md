@@ -24,6 +24,6 @@ In your simulation you assumed you got everything at some price in your data fee
 - If you miss some trade, you’ll find that they’re nearly all the good ones, the competitive ones.
 - And you’ll find you take nearly all the bad trades. The uncompetitive ones.
 
-This impacts you in all kinds of ways that we’ll discuss throughout the course – but one obvious takeaway is “don’t be a dick for a tick”. If you’re doing a systematic trade then _missing trades tends to be more damaging than worrying about buying within the spread to save a little bit on the entry price_.
+So the 'bad' trades end up making up a larger proportion of your overall trades, while the 'good' trades make up a smaller proportion. This impacts you in all kinds of ways that we’ll discuss throughout the course – but one obvious takeaway is “don’t be a dick for a tick”. If you’re doing a systematic trade then _missing trades tends to be more damaging than worrying about buying within the spread to save a little bit on the entry price_.
 
 Just know that the highly competitive market environment impacts you in many ways, some of them not obvious. Little things like missing the odd trade to try to finesse price can hurt you in serious ways.
