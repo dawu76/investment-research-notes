@@ -1,4 +1,4 @@
-## Monetizing one's home equity in the retirement years
+## Monetizing one's home equity in retirement
 
 What would be the results of these two options for a retired couple:
 - option 1: selling the primary residence and living off of the proceeds, which have been invested in dividend and interest-yielding assets that earn ~5% per year (to be conservative)
