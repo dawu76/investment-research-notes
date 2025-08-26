@@ -6,8 +6,6 @@
 
 ## Candidate funds
 
----
-
 ### Multi-strategy
 
 <img src="https://user-images.githubusercontent.com/1627180/193396977-1faa550e-25da-4c92-958d-2c5f34ce2c93.png" alt="funds-tactical-metrics-comparison-20220930.png" width="50%" height="50%">
