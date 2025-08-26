@@ -1,14 +1,14 @@
-### Candidate fund shortlist
+## Candidate fund shortlist
 
 [Spreadsheet](https://docs.google.com/spreadsheets/d/14-pLsj-SJFZwOrFtgy1rjTPx8MgdiHWIJlg_QQigbIE/edit?usp=sharing) of candidate funds
 - includes Wisdom Tree efficient funds, DFA equity funds, equity income funds such as $JEPI, Managed Futures ETFs, and Global Macro and Managed Futures mutual funds.
 - The short-list includes 15 funds as of mid-November, 2022.
 
-### Candidate funds
+## Candidate funds
 
 ---
 
-#### Multi-strategy
+### Multi-strategy
 
 <img src="https://user-images.githubusercontent.com/1627180/193396977-1faa550e-25da-4c92-958d-2c5f34ce2c93.png" alt="funds-tactical-metrics-comparison-20220930.png" width="50%" height="50%">
 <img src="https://user-images.githubusercontent.com/1627180/193396746-808084d5-00cb-4b26-93f1-3608fb22f425.png" alt="funds-tactical-perf-comparison-20220930.png" width="50%" height="50%">
@@ -40,7 +40,7 @@
 
 ---
 
-#### Global Macro
+### Global Macro
 
 <img src="https://user-images.githubusercontent.com/1627180/193396453-a458b066-a23b-439a-8616-ac8f4eec0ca5.png" alt="funds-macro-tactical-metrics-comparison-20220930.png" width="50%" height="50%"/>
 <img src="https://user-images.githubusercontent.com/1627180/193397470-3b13aa85-d9c8-4f67-a8ac-7e9c7e47454d.png" alt="funds-macro-tactical-perf-comparison-20220930.png" width="50%" height="50%"/>
@@ -74,7 +74,7 @@
 
 ---
 
-#### Risk Parity
+### Risk Parity
 
 <img src="https://user-images.githubusercontent.com/1627180/193392561-a893c9b3-ff14-4f13-9732-891851d827b7.png" alt="fund-performance-risk-parity-20220930.png" width="50%" height="50%"/>
 
@@ -96,7 +96,7 @@ Risk Parity - [$AQRIX](https://funds.aqr.com/Funds/Multi-Asset/AQR-Multi-Asset-F
 
 ---
 
-#### Managed Futures
+### Managed Futures
 
 Managed Futures - [$DBMF](https://imgpfunds.com/im-dbi-managed-futures-strategy-etf/)
 - This is an actively managed futures ETF that has outperformed the SG CTA Index since inception. It uses long and short positions within derivatives, mostly futures contracts, and forward contracts. These contracts span domestic equities, fixed income, currencies, and commodities. $DBMFI tries to minimize single manager risk by targeting the performance of a diversified pool of managed futures managers while charging only a 0.85% expense ratio.
@@ -131,7 +131,7 @@ Various - Resolve asset management
 
 ---
 
-#### Equity income
+### Equity income
 
 $JEPI - [Seeking Alpha](https://archive.is/5QQvh#selection-1227.0-1227.56): JEPI: A 12% Yielding 'Retirement Dream ETF' With A Catch
 - JEPI was the 8th most popular ETF of 2022, and its 12% yield, paid monthly, has created a firestorm of investor interest. Since inception, JEPI has delivered an average yield of 9.3% and 13.4% annual returns, but with 37% less volatility than the S&P and with 50% smaller peak declines.
@@ -173,3 +173,9 @@ $PFL - [Seeking Alpha](https://archive.is/uJ6pM): PFL: A Few Reasons I Think Its
 - sector exposures: 43% in in high-yield credit, 15% in non-US developed, 10% in US government-related, 9.7% in mortgage bonds (mostly non-agency), 7.2% in EMs, 6.8% in IG credit, 2.1% in CMBS, 1.9% in munincipal
 - Thesis: "if we are at "peak" levels now, that bodes especially well for high yield credit and PLF by extension since it owns a lot of that type of debt." During the past few decades, this is an area that out-performed consistently after the central bank (the Fed) pauses its rate hiking. Also, it sits just over NAV - so those who prefer a discount may not love it - but it is still very reasonable.
 - Counter-arguments: "PFL is not earning enough in income to cover its current stated distribution level. Its coverage metrics are weak and the inverted yield curve continues to punish highly leveraged funds like PFL and others."
+
+$CDX - [simplify.us](https://www.simplify.us/etfs-use-case/credit-hedging-done-right-cdx-outperforms-defense): Credit-hedged high-yield bonds
+- The credit risk in high yield bonds tends to have more volatility and credit spreads can widen swiftly during periods of market stress, wiping out income quickly. Investors in this asset class can accept this risk and size their allocation accordingly or choose to hedge some of the risk to limit the downside when credit spreads widen.
+- Credit spreads can widen dramatically during times of market stress. After the banking crisis in March 2023, high yield credit spreads widened to over 530 basis points (bps). Many investors saw this as an opportunity to increase their allocations to high yield bonds at these wider spreads and more attractive yields. These credit spreads did come down by more than 100bps last summer then widened back out to over 520bps in the fall, highlighting the volatility in these bonds. Spreads again narrowed at the end of last year and reached a low of just above 310bps this year in March 2024
+- $CDX combines high yield bonds with credit hedge overlays to reduce risk. During each of these periods of credit spread widening, CDX held up well - outperforming the iBoxx High Yield Index due to the credit hedges in the portfolio.
+- $CDX has a full suite of credit hedges due to a complete ISDA agreement with prime brokers and will opportunistically use the following credit hedges: Credit Default Swaps (CDS), Credit Default Index options (CDX calls), equity puts, and a proprietary Quality-Junk factor-based hedging. The primary tool is our **Quality-Junk factor hedge**, utilizing a basket of long high quality equities while being short a sector and size matched basket of “Junk” equity names. Quality equities have high margins, profit stability, and strong balance sheets while junk names are generally those stocks with high sensitivity to an increase in debt refinancing costs. CDX also has the ability to deploy credit hedges with a direct tie to credit markets, like CDS, CDX and CDX options.
