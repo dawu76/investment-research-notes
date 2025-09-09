@@ -1,3 +1,5 @@
+## [Excel Edge Lab session 1](https://robotwealth.com/courses/excel-edge-lab/lessons/0-welcome-logistics-and-a-taster/topic/live-session-1-a-simple-seasonality-effect-in-gold/): Exploring a simple day of week effect in gold
+
 **Key idea**: Use quick and dirty analysis to disprove the idea that a strategy is easily tradeable. Don't waste time on a very precise, thorough analysis of a strategy that isn't reliably profitable.
 - Walkthrough of [Excel workbook](https://docs.google.com/spreadsheets/d/1BKycC7ivUsPX6MRcVNTgivI_irY5i5vK/edit?usp=sharing&ouid=110912496236866475625&rtpof=true&sd=true) from session 1.
 - Don't be prissy with your analysis.
