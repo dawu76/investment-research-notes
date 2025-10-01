@@ -91,15 +91,33 @@ Focus on short-term range expansion via executing trades that are trading at hig
 
 I genuinely believe that these rules hold merit and can enhance your profitability.
 
+## On the importance of high ADR% securities [[tweet](https://x.com/jfsrev/status/1856232860107350147)]
+
+Or 'Understanding the Infeasibility of '1% Risk to Equity' and Benefits of High ADR% Securities.
+
+In response to question:
+
+```
+Is your position size based on the average exit price based on the 3 size out - stop levels.
+
+Also, with these kind of trades is it advisable to keep the % risk below 1% or do you go way above the standard 1%?
+```
+
+I’d like to clarify why aiming for a 1% risk-to-equity ratio is often unrealistic due to position sizing constraints. I’ll also compare lower ADR% products, like $XRT at 1.41% ADR, with higher ADR% products, like $RETL (Direxion Daily Retail Bull 3X Shares) at 4.06% ADR (a 3x leverage of $XRT, sharing the same price structure on intraday timeframes).
+
+In the example below, I simulate an entry price and stop-loss price based on $XRT and $RETL high and low range and automate the calculation of position size % required for a “1% risk” approach relative to account equity (excluding existing unrealized gains/losses of other positions).
+
 ## ADR stats
 
 Per [tweet](https://x.com/jfsrev/status/1852549220307468302): Top 100 Performing Stocks YTD (ADR%)
 
+```
 97% have ADR% >2%
 89% have ADR% > 3%
 70% have ADR% >4%
 47% have ADR% >5%
 30% have ADR% >6%
+```
 
 ## References
 - https://jfsrev.substack.com/p/my-trading-tools-process-routine
