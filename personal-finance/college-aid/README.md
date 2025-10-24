@@ -2,10 +2,8 @@
 
 The financial aid is usually like a sliding scale, so even if your income is above the threshold, you can get part of the costs covered. *BUT* those big announcements about free tuition for incomes less than $150K or $200K ignore one big thing -- the schools do not actually just use income to decide how much financial aid to give. They also look at overall household assets, so if you make less than $200K but more than "typical assets" for a family that makes that much, then you will still have to pay part of the tuition.
 
-This was a good discussion thread about how colleges use your household assets to determine financial aid.
-
-It turns out some of the bigger schools like Harvard have "net price calculators" that estimate what your family's contribution would be based on the annual income + assets you specify.
-- after playing with these calculators, i have to say, the big news headlines about "free tuition for families making under $X" are sort of dishonest. it's just marketing for the schools.
+Some of the bigger schools like Harvard have "net price calculators" that estimate what your family's contribution would be based on the annual income + assets you specify.
+- based on these calculators, the big news headlines about "free tuition for families making under $X" are sort of dishonest. it's just marketing for the schools.
 - the schools say that if your income falls below the threshold, then you'll get free tuition if your family has "typical assets". but the threshold for typical assets is so low. for example, the Columbia financial aid FAQ says, "For families with an income of $100,000, we would consider typical assets to be approximately $250,000." that's very low! they pretty much require you to NOT have any assets outside of your home and retirement accounts. if you saved wisely over your working years or if you own part of a business (like an auto repair shop or medical office), that's counted against you and heavily penalizes you in the financial aid calculations.
 - Even if you have very low income, any assets in your bank, non-retirement brokerage account, or your business will cause your tuition payments to increase a lot. 
 
@@ -28,8 +26,7 @@ if you play with Harvard's Net Price Calculator tool, you get these estimated fi
 - income: $100K, parent assets: $750K --> student pays $26,250
 - income: $100K, parent assets: $1M   --> student pays $35,000
 
-I copy / pasted the data above into one of the LLMs and asked it to plot it for me. 
-- basically, even if your household income is very low ($50K for a family of 4, which is not much above poverty level in many parts of CA), your expected tuition payment still goes up as your household assets go up.
+Even if your household income is very low ($50K for a family of 4, which is not much above poverty level in many parts of CA), your expected tuition payment still goes up as your household assets go up.
 
 <img src="https://github.com/user-attachments/assets/27cf7c8e-1a41-4fa4-9c87-fa094508074f" height=350 width=500>
 
