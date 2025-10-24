@@ -1,4 +1,4 @@
-# 2026 Kaiser Health Plan Comparison: Bronze 60 HMO vs Silver 70 HMO
+## 2026 Health Plan Comparison: Kaiser Bronze 60 HMO vs Silver 70 HMO
 
 ## Table of Contents
 
