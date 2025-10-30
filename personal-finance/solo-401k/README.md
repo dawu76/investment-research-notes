@@ -149,6 +149,18 @@ Example 2:  In Example 1, if Greg were 52 years old and eligible to make catch-u
 
 ---
 
+### Classifying contributions as employee vs. employer
+
+[reddit.com](https://www.reddit.com/r/etrade/comments/18sdcdd/solo_401k_contribution/): Solo 401k contribution
+- The plan administrator is responsible for creating the tax documentation and filing the tax paperwork and could address this. E-trade doesn’t get involved tax wise with solo 401k accounts. If it was meant for 2022 then you may have to amend your 2022 tax filing.
+- The $$ goes into the same account. What matters is what appears on your tax form which E-trade doesn’t have anything to do with. This is the nature of a non-custodial account. Talking to E-trade folks about this is like a deer in the headlights - this isn’t something they know and they cannot provide any guidance / take any actions.
+- Plan administrator, which is usually you yourself, reports the contributions both employee and employer for the year. E-trade told me they dont really report contributions to IRS and its handled by plan administrator. For employee contributions, you got to tell E-trade to reclassify it as employee contributions unless sending a paper check with a deposit slip where you can say its employee contribution. Online transfer and have them reclassify before end of year.
+
+[bogleheads.com](https://www.bogleheads.org/forum/viewtopic.php?t=380410): E*Trade Solo 401k - Employee vs Employer Contributions
+- It does not matter how E-Trade classifies plan contributions (i.e., as Employ/EE and/or Employ/ER). E-Trade does not report the contribution classification to the IRS. You (and not E-Trade) are the Solo 401k Plan Administrator. You as Plan Administrator are responsible for, among other things, calculating allowable E/EE and E/ER contributions. If the plan assets at December 31 are $250k+, you are required to file a Form 5500-EZ which does require breakout of Plan contributions between E/EE and E/ER.
+
+---
+
 ### Tax savings from Solo 401K contributions
 
 [reddit.com](https://www.reddit.com/r/tax/comments/111gkcz/please_help_me_to_understand_the_tax_benefit_of/): Please help me to understand the tax benefit of the Solo 401(k)
