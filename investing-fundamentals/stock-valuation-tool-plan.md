@@ -69,6 +69,568 @@ Side-by-side comparison enabling users to see:
 
 ---
 
+## API Integration & Data Auto-Population
+
+### Overview
+Rather than manually entering all company data, the tool can automatically fetch most financial metrics from public data sources, leaving users to focus only on their forward-looking assumptions and judgments.
+
+### What Can Be Auto-Populated
+
+#### ✅ Fully Automatable (High Confidence)
+These can be reliably fetched from APIs:
+
+1. **Current Stock Price & Market Data**
+   - Real-time or 15-min delayed price
+   - Shares outstanding
+   - Market capitalization
+   - Beta
+   - 52-week high/low
+
+2. **Historical Financials (from 10-K/10-Q filings)**
+   - Revenue (annual & quarterly)
+   - Operating income / EBIT
+   - Net income
+   - Free cash flow
+   - Total debt
+   - Cash & cash equivalents
+   - Operating cash flow
+   - Capital expenditures
+   - Depreciation & amortization
+
+3. **Balance Sheet Items**
+   - Total assets
+   - Total liabilities
+   - Shareholders' equity
+   - Working capital components
+
+4. **Key Metrics & Ratios**
+   - Operating margin (historical)
+   - Net margin
+   - ROE, ROIC
+   - Debt-to-equity ratio
+   - Current ratio
+
+5. **Company Information**
+   - Company name
+   - Sector/industry
+   - Description
+   - Number of employees
+   - Headquarters location
+
+#### ⚠️ Partially Automatable (User Verification Recommended)
+These can be fetched but may need adjustment:
+
+1. **Tax Rate**
+   - Can calculate from historical effective tax rate
+   - User may want to adjust for future changes
+
+2. **WACC Components**
+   - Risk-free rate: Auto-fetch 10-year Treasury yield
+   - Beta: Auto-fetch from financial APIs
+   - Market risk premium: Use standard 5-7% or user override
+   - Cost of debt: Calculate from interest expense / total debt
+   - Debt-to-equity: Auto-calculate from balance sheet
+   - **Final WACC**: Tool can calculate, user should review
+
+3. **Working Capital as % of Revenue**
+   - Calculate historical average
+   - User may want to adjust for future expectations
+
+#### ❌ Cannot Be Auto-Populated (Require User Judgment)
+These are forward-looking and require user assumptions:
+
+1. **Future Revenue Growth Rates**
+   - Historical growth can be shown for reference
+   - User must input their expectations
+
+2. **Future Operating Margin**
+   - Historical margins shown for context
+   - User decides on margin expansion/contraction path
+
+3. **Terminal Growth Rate**
+   - User judgment (typically 2-3%)
+
+4. **Future CapEx as % of Revenue**
+   - Historical average shown
+   - User adjusts based on business stage
+
+### Available Data Sources & APIs
+
+#### Free APIs (Good for MVP)
+
+**1. yfinance (Yahoo Finance) - BEST FREE OPTION**
+- **Cost**: Free, no API key required
+- **Python Library**: `pip install yfinance`
+- **Data Available**:
+  - Real-time stock prices
+  - Historical prices
+  - Financial statements (annual & quarterly)
+  - Balance sheet, income statement, cash flow
+  - Key statistics (beta, market cap, shares outstanding)
+  - Company info
+- **Limitations**:
+  - Unofficial API (relies on Yahoo Finance scraping)
+  - Rate limits (but generous for individual use)
+  - Occasional data inconsistencies
+  - May break if Yahoo changes their structure
+- **Best For**: Personal use, prototyping, testing
+
+**Example Code**:
+```python
+import yfinance as yf
+
+# Fetch company data
+ticker = yf.Ticker("AAPL")
+
+# Current price and market data
+current_price = ticker.info['currentPrice']
+shares_outstanding = ticker.info['sharesOutstanding']
+beta = ticker.info['beta']
+
+# Financial statements
+income_stmt = ticker.income_stmt  # Annual
+quarterly_income = ticker.quarterly_income_stmt
+balance_sheet = ticker.balance_sheet
+cash_flow = ticker.cashflow
+
+# Specific metrics
+revenue = income_stmt.loc['Total Revenue'][0]  # Most recent year
+operating_income = income_stmt.loc['Operating Income'][0]
+fcf = cash_flow.loc['Free Cash Flow'][0]
+```
+
+**2. Financial Modeling Prep (FMP) - Free Tier**
+- **Cost**: Free tier available (250 calls/day)
+- **API Key**: Required (sign up at financialmodelingprep.com)
+- **Data Available**:
+  - Stock prices
+  - Financial statements (3-5 years free)
+  - Company profiles
+  - Key metrics
+  - DCF calculations (can compare against your model)
+- **Limitations**:
+  - 250 API calls per day limit on free tier
+  - Limited historical data (5 years)
+- **Best For**: More reliable than yfinance, good for serious projects
+
+**Example Code**:
+```python
+import requests
+
+API_KEY = 'your_api_key'
+symbol = 'AAPL'
+
+# Income statement
+url = f'https://financialmodelingprep.com/api/v3/income-statement/{symbol}?apikey={API_KEY}'
+income_data = requests.get(url).json()
+
+# Get most recent annual data
+latest = income_data[0]
+revenue = latest['revenue']
+operating_income = latest['operatingIncome']
+```
+
+**3. Alpha Vantage - Free Tier**
+- **Cost**: Free tier (25 calls/day)
+- **API Key**: Required
+- **Data Available**:
+  - Stock prices
+  - Financial statements
+  - Company overview
+  - Earnings data
+- **Limitations**:
+  - Very restrictive rate limits (25/day)
+  - 5 calls per minute max
+- **Best For**: Backup option, limited use
+
+**4. SEC EDGAR API - Most Reliable**
+- **Cost**: Free, no key required
+- **Data Available**:
+  - All public company filings (10-K, 10-Q, etc.)
+  - Direct from the source (most reliable)
+  - Historical data going back decades
+- **Limitations**:
+  - Requires parsing XBRL/HTML documents
+  - More complex implementation
+  - No ready-made financial ratios
+- **Best For**: Production applications needing reliability
+
+#### Paid APIs (Professional Grade)
+
+**1. Financial Modeling Prep - Paid**
+- **Cost**: $30-50/month
+- **Features**: Unlimited calls, more historical data, real-time data
+
+**2. Polygon.io**
+- **Cost**: $29-199/month
+- **Features**: Real-time market data, extensive historical data
+
+**3. Quandl/Nasdaq Data Link**
+- **Cost**: Varies by dataset
+- **Features**: Premium financial data, economic indicators
+
+**4. Bloomberg API / FactSet**
+- **Cost**: $$$$ (enterprise level)
+- **Features**: Institutional-grade data
+- **Best For**: Professional financial firms only
+
+### Recommended Implementation Strategy
+
+#### Phase 1: Start with yfinance (Free)
+**Pros:**
+- Zero cost
+- Very easy to implement
+- No API key management
+- Good enough for 95% of use cases
+
+**Cons:**
+- Unofficial API
+- Could break in future
+
+#### Phase 2: Add FMP as Fallback (Freemium)
+**Implementation:**
+```python
+def get_company_data(ticker):
+    """Fetch data with fallback logic"""
+    try:
+        # Try yfinance first (free, no rate limits)
+        data = fetch_from_yfinance(ticker)
+        if data_is_valid(data):
+            return data
+    except Exception as e:
+        print(f"yfinance failed: {e}")
+
+    try:
+        # Fallback to FMP
+        data = fetch_from_fmp(ticker)
+        return data
+    except Exception as e:
+        print(f"FMP failed: {e}")
+
+    # Last resort: manual input
+    return None
+```
+
+### Auto-Population User Experience
+
+#### Input Flow
+
+**Step 1: Ticker Entry**
+```
+Enter stock ticker: AAPL
+[Fetch Data Button]
+
+Fetching data for Apple Inc. (AAPL)...
+✓ Current price: $178.45
+✓ Market data retrieved
+✓ Financial statements loaded (last 5 years)
+✓ Cash flow data retrieved
+```
+
+**Step 2: Data Review & Adjustment**
+```
+COMPANY FINANCIALS (Auto-Populated)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Current Stock Price: $178.45
+Shares Outstanding: 15.55B
+Market Cap: $2.77T
+Beta: 1.29
+
+FINANCIAL METRICS (TTM)
+Revenue: $383.3B
+Operating Income: $114.3B
+Operating Margin: 29.8%
+Free Cash Flow: $99.6B
+Net Debt: -$51.0B (net cash position)
+
+[Edit Values] [Refresh Data]
+```
+
+**Step 3: User Assumptions**
+```
+YOUR ASSUMPTIONS (Manual Input Required)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Historical Revenue Growth (for reference):
+  3-Year CAGR: 7.8%
+  5-Year CAGR: 9.2%
+
+Your Revenue Growth Assumptions:
+  Years 1-5: [8.0]% per year
+  Years 6-10: [5.0]% per year
+  Terminal: [2.5]%
+
+Operating Margin Trajectory:
+  Current: 29.8% (auto-filled)
+  Target (Year 10): [30.0]%
+
+[Historical margins shown in chart for reference]
+```
+
+### Implementation Code Structure
+
+```python
+# data_fetcher.py
+
+import yfinance as yf
+from dataclasses import dataclass
+from typing import Optional
+
+@dataclass
+class CompanyData:
+    """Auto-populated company data"""
+    ticker: str
+    company_name: str
+    current_price: float
+    shares_outstanding: float
+    beta: float
+
+    # Financials (most recent year/TTM)
+    revenue: float
+    operating_income: float
+    free_cash_flow: float
+    total_debt: float
+    cash: float
+    net_debt: float
+
+    # Calculated metrics
+    operating_margin: float
+    market_cap: float
+
+    # Historical context
+    revenue_growth_3y: float
+    revenue_growth_5y: float
+    historical_margins: list
+
+def fetch_company_data(ticker: str) -> Optional[CompanyData]:
+    """
+    Fetch all auto-populatable data for a company
+
+    Args:
+        ticker: Stock ticker symbol
+
+    Returns:
+        CompanyData object or None if fetch fails
+    """
+    try:
+        stock = yf.Ticker(ticker)
+        info = stock.info
+
+        # Get financial statements
+        income_stmt = stock.income_stmt
+        balance_sheet = stock.balance_sheet
+        cash_flow = stock.cashflow
+
+        # Extract key metrics
+        data = CompanyData(
+            ticker=ticker.upper(),
+            company_name=info.get('longName', ''),
+            current_price=info.get('currentPrice', 0),
+            shares_outstanding=info.get('sharesOutstanding', 0),
+            beta=info.get('beta', 1.0),
+
+            revenue=income_stmt.loc['Total Revenue'][0],
+            operating_income=income_stmt.loc['Operating Income'][0],
+            free_cash_flow=cash_flow.loc['Free Cash Flow'][0],
+
+            total_debt=balance_sheet.loc['Total Debt'][0],
+            cash=balance_sheet.loc['Cash'][0],
+            net_debt=balance_sheet.loc['Total Debt'][0] - balance_sheet.loc['Cash'][0],
+
+            operating_margin=calculate_margin(income_stmt),
+            market_cap=info.get('marketCap', 0),
+
+            revenue_growth_3y=calculate_cagr(income_stmt, years=3),
+            revenue_growth_5y=calculate_cagr(income_stmt, years=5),
+            historical_margins=calculate_historical_margins(income_stmt)
+        )
+
+        return data
+
+    except Exception as e:
+        print(f"Error fetching data for {ticker}: {e}")
+        return None
+
+def calculate_suggested_wacc(ticker: str) -> dict:
+    """
+    Auto-calculate WACC components
+
+    Returns dict with all components and final WACC
+    """
+    stock = yf.Ticker(ticker)
+    info = stock.info
+
+    # Get current 10-year Treasury rate (risk-free rate)
+    treasury = yf.Ticker("^TNX")
+    risk_free_rate = treasury.info['regularMarketPrice'] / 100
+
+    # Get beta
+    beta = info.get('beta', 1.0)
+
+    # Use standard equity risk premium
+    equity_risk_premium = 0.065  # 6.5%
+
+    # Calculate cost of equity (CAPM)
+    cost_of_equity = risk_free_rate + beta * equity_risk_premium
+
+    # Get debt information
+    balance_sheet = stock.balance_sheet
+    total_debt = balance_sheet.loc['Total Debt'][0]
+
+    # Calculate cost of debt from interest expense
+    income_stmt = stock.income_stmt
+    interest_expense = income_stmt.loc['Interest Expense'][0]
+    cost_of_debt = abs(interest_expense) / total_debt if total_debt > 0 else 0.04
+
+    # Get market values
+    market_cap = info.get('marketCap', 0)
+
+    # Calculate weights
+    total_value = market_cap + total_debt
+    weight_equity = market_cap / total_value
+    weight_debt = total_debt / total_value
+
+    # Tax rate
+    tax_rate = 0.21  # Standard corporate tax rate
+
+    # Calculate WACC
+    wacc = (weight_equity * cost_of_equity) + (weight_debt * cost_of_debt * (1 - tax_rate))
+
+    return {
+        'wacc': wacc,
+        'cost_of_equity': cost_of_equity,
+        'cost_of_debt': cost_of_debt,
+        'risk_free_rate': risk_free_rate,
+        'beta': beta,
+        'equity_risk_premium': equity_risk_premium,
+        'weight_equity': weight_equity,
+        'weight_debt': weight_debt,
+        'tax_rate': tax_rate,
+        'components_breakdown': f"""
+        WACC Calculation:
+
+        Cost of Equity (CAPM): {cost_of_equity:.2%}
+          = {risk_free_rate:.2%} + {beta:.2f} × {equity_risk_premium:.2%}
+
+        Cost of Debt (after-tax): {cost_of_debt * (1-tax_rate):.2%}
+          = {cost_of_debt:.2%} × (1 - {tax_rate:.1%})
+
+        Capital Structure:
+          Equity: {weight_equity:.1%}
+          Debt: {weight_debt:.1%}
+
+        WACC = {wacc:.2%}
+        """
+    }
+```
+
+### Data Validation & Quality Checks
+
+#### Automatic Validation
+```python
+def validate_fetched_data(data: CompanyData) -> dict:
+    """
+    Check data quality and flag potential issues
+
+    Returns dict of warnings/issues
+    """
+    issues = []
+
+    # Check for missing critical data
+    if data.current_price <= 0:
+        issues.append("WARNING: Invalid stock price")
+
+    if data.shares_outstanding <= 0:
+        issues.append("WARNING: Invalid shares outstanding")
+
+    if data.revenue <= 0:
+        issues.append("WARNING: Invalid revenue data")
+
+    # Check for suspicious values
+    if data.operating_margin > 0.60:
+        issues.append("INFO: Very high operating margin (>60%). Verify data.")
+
+    if data.operating_margin < 0:
+        issues.append("INFO: Company is currently unprofitable")
+
+    # Calculate implied market cap and compare
+    implied_market_cap = data.current_price * data.shares_outstanding
+    if abs(implied_market_cap - data.market_cap) / data.market_cap > 0.05:
+        issues.append("WARNING: Market cap mismatch. Data may be stale.")
+
+    return {
+        'is_valid': len([i for i in issues if 'WARNING' in i]) == 0,
+        'issues': issues
+    }
+```
+
+### Caching Strategy
+
+To minimize API calls and improve performance:
+
+```python
+import json
+from datetime import datetime, timedelta
+from pathlib import Path
+
+class DataCache:
+    """Cache fetched data to minimize API calls"""
+
+    def __init__(self, cache_dir='.cache'):
+        self.cache_dir = Path(cache_dir)
+        self.cache_dir.mkdir(exist_ok=True)
+        self.cache_duration = timedelta(hours=4)  # Refresh every 4 hours
+
+    def get(self, ticker: str) -> Optional[CompanyData]:
+        """Get cached data if available and fresh"""
+        cache_file = self.cache_dir / f"{ticker}.json"
+
+        if not cache_file.exists():
+            return None
+
+        with open(cache_file) as f:
+            cached = json.load(f)
+
+        cached_time = datetime.fromisoformat(cached['timestamp'])
+
+        if datetime.now() - cached_time < self.cache_duration:
+            return CompanyData(**cached['data'])
+
+        return None
+
+    def set(self, ticker: str, data: CompanyData):
+        """Cache data"""
+        cache_file = self.cache_dir / f"{ticker}.json"
+
+        with open(cache_file, 'w') as f:
+            json.dump({
+                'timestamp': datetime.now().isoformat(),
+                'data': data.__dict__
+            }, f)
+```
+
+### User Control & Override
+
+Always allow users to:
+1. **Review auto-populated data** before proceeding
+2. **Manually override any value** if they have better information
+3. **Refresh data** to get latest values
+4. **See data source & timestamp** for transparency
+5. **Save/load scenarios** with specific data snapshots
+
+Example UI:
+```
+APPLE INC (AAPL)
+Data fetched: 2025-11-07 10:30 AM
+Source: Yahoo Finance
+
+Revenue (TTM): $383.3B [Edit] [Info]
+  ℹ️ From: Most recent 10-K filing
+  📊 Historical: $365B (2023), $394B (2022)
+```
+
+---
+
 ## Calculation Methodology
 
 ### Forward DCF Process
