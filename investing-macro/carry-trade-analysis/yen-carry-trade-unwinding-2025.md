@@ -646,4 +646,517 @@ The yen carry trade unwind is not a matter of "if"—it's a matter of "how fast"
 
 ---
 
-**Disclaimer:** This analysis is for informational purposes only and does not constitute investment advice. Markets are inherently uncertain, and outcomes may differ materially from forecasts. Consult with a qualified financial advisor before making investment decisions. Past performance is not indicative of future results.
+## Appendix B: Japanese Equity ETFs - Implementation Guide
+
+### Overview: Should You Own Japanese Equities During the Unwind?
+
+The yen carry trade unwind creates a **nuanced paradox** for Japanese equities:
+
+**Positive Forces:**
+- Repatriation flows from Japanese institutions returning capital
+- Domestic buying as JPY assets become more attractive
+- Beneficiary of relative flows vs. US equities
+
+**Negative Forces:**
+- Strong JPY crushes export competitiveness (Nikkei ~50% exporters)
+- Toyota, Sony, Honda margins compressed by currency headwinds
+- Global risk-off sentiment impacts all equities
+
+**Net Assessment:** Likely **modest positive** in JPY terms, but **significantly positive** in USD terms due to currency appreciation.
+
+---
+
+### The Key Decision: Currency-Hedged vs. Unhedged
+
+#### **Unhedged ETFs (Recommended)**
+
+**What You Get:**
+- Japanese equity exposure + JPY currency appreciation
+- Total return = Nikkei performance + JPY strength
+
+**Example Math:**
+- Nikkei performance in JPY: -3% (hurt by strong yen)
+- JPY appreciation vs. USD: +12%
+- **Total USD return: ~+9%**
+
+**Why Unhedged Makes Sense:**
+1. **JPY appreciation is the primary benefit** (10-15% expected)
+2. Even if Nikkei falls modestly, currency gain dominates
+3. **Acts as hedge** against USD asset weakness
+4. Diversifies away from dollar exposure
+5. Aligns with core "Long JPY" thesis
+
+**Best For:** Investors who want to profit from carry trade unwind and diversify from USD assets
+
+---
+
+#### **Currency-Hedged ETFs (Not Recommended for This Trade)**
+
+**What You Get:**
+- Pure Japanese equity exposure
+- No JPY currency impact (hedged to USD)
+
+**Example Math:**
+- Nikkei performance in JPY: -3%
+- Currency impact: 0% (hedged)
+- **Total USD return: -3%**
+
+**Why Hedging Removes the Benefit:**
+- You **miss the 10-15% JPY appreciation** (the main thesis!)
+- Pure equity exposure likely negative due to strong yen hurting exporters
+- No portfolio diversification benefit
+
+**Best For:** Traders with separate JPY hedges or pure Japan equity conviction (not this scenario)
+
+---
+
+### Recommended ETFs
+
+#### **Primary Recommendation: EWJ (Unhedged)**
+
+**iShares MSCI Japan ETF (EWJ)**
+
+| Attribute | Details |
+|-----------|---------|
+| **Ticker** | EWJ |
+| **AUM** | ~$15 billion |
+| **Expense Ratio** | 0.50% |
+| **Liquidity** | Excellent (avg volume: 5M+ shares/day) |
+| **Currency** | **Unhedged** (full JPY exposure) |
+| **Index** | MSCI Japan Index |
+| **Holdings** | 228 stocks (large/mid-cap) |
+| **Top 5 Holdings** | Toyota (4%), Sony (3%), Mitsubishi UFJ (2.5%), Keyence (2%), SoftBank (2%) |
+
+**Why EWJ is the Top Choice:**
+- ✅ Most liquid Japanese equity ETF in the US
+- ✅ Broad diversification across sectors
+- ✅ **Captures full JPY appreciation** (unhedged)
+- ✅ Low tracking error to MSCI Japan
+- ✅ Tight bid-ask spreads for easy entry/exit
+
+**Expected 12-Month Performance:**
+- **Nikkei in JPY:** -3% to +2% (exporters hurt by strong yen, but repatriation flows help)
+- **JPY appreciation:** +10% to +15%
+- **Total USD return:** **+7% to +17%**
+
+**Position Sizing:**
+- **Conservative:** 5-7% of portfolio
+- **Moderate:** 8-12% of portfolio
+- **Aggressive:** 15-20% of portfolio (if paired with US equity shorts)
+
+**Entry Strategy:**
+- **50% Position Now:** Don't try to time it perfectly; December Fed/BOJ meetings are imminent catalysts
+- **25% on Dips:** Add if Nikkei falls to 36,000-37,000 (currently ~38,500)
+- **25% Reserve:** Final tranche if Phase 1 volatility creates opportunity
+
+**Exit Strategy:**
+- **Target Exit:** Q3-Q4 2026 when USD/JPY stabilizes around 130-135
+- **Stop Loss:** -12% from entry (would indicate thesis is broken)
+- **Monitoring:** Track USD/JPY, Japanese MOF flow data, and BOJ policy signals
+
+---
+
+#### **Alternative 1: DBJP (Unhedged, Slightly Lower Cost)**
+
+**Xtrackers MSCI Japan Hedged Equity ETF (DBJP)**
+
+| Attribute | Details |
+|-----------|---------|
+| **Ticker** | DBJP |
+| **AUM** | ~$500 million |
+| **Expense Ratio** | 0.45% (5 bps cheaper than EWJ) |
+| **Currency** | **Unhedged** |
+| **Liquidity** | Moderate (lower than EWJ) |
+
+**Pros:**
+- Marginally lower fees than EWJ
+- Same unhedged exposure to JPY
+
+**Cons:**
+- **Lower liquidity** → wider bid-ask spreads
+- Less institutional adoption
+- May have slightly higher tracking error
+
+**Verdict:** Only choose over EWJ if you're a buy-and-hold investor not concerned about liquidity. For most, EWJ's superior liquidity outweighs the 5 bps fee difference.
+
+---
+
+#### **Alternative 2: JPXN (Nikkei 400 Quality Focus, Unhedged)**
+
+**iShares JPX-Nikkei 400 ETF (JPXN)**
+
+| Attribute | Details |
+|-----------|---------|
+| **Ticker** | JPXN |
+| **AUM** | ~$300 million |
+| **Expense Ratio** | 0.48% |
+| **Currency** | **Unhedged** |
+| **Index** | JPX-Nikkei 400 (quality/governance screen) |
+
+**What Makes JPX-Nikkei 400 Different:**
+- Screens for **ROE, corporate governance, investor engagement**
+- Emphasizes shareholder-friendly companies
+- More mid-caps vs. MSCI Japan
+
+**Why Consider:**
+- Higher quality companies may be **more resilient** to yen strength
+- Better positioned for domestic consumption (less export-dependent)
+- Strong corporate governance = better capital allocation during stress
+
+**Expected Performance:** Similar to EWJ (+7% to +17%) with potentially lower volatility
+
+**Verdict:** Viable alternative if you prefer quality/governance tilt. Slightly less liquid than EWJ.
+
+---
+
+#### **Not Recommended: DXJ (Currency-Hedged)**
+
+**WisdomTree Japan Hedged Equity Fund (DXJ)**
+
+| Attribute | Details |
+|-----------|---------|
+| **Ticker** | DXJ |
+| **AUM** | ~$4 billion |
+| **Expense Ratio** | 0.48% |
+| **Currency** | **Fully hedged to USD** |
+| **Focus** | Export-oriented companies |
+
+**Why Avoid for This Trade:**
+- ❌ **Misses the 10-15% JPY appreciation** (the entire point!)
+- ❌ Export focus = maximum pain from strong yen
+- ❌ No hedge/diversification benefit for USD-based investors
+- ❌ Expected return: +2-5% (just equity, likely negative after strong yen impact)
+
+**When DXJ Makes Sense:** Only if you believe:
+- JPY will weaken (opposite of our thesis)
+- Japanese exporters will thrive despite strong yen (unlikely)
+- You're hedging JPY exposure elsewhere (niche case)
+
+**Verdict for Carry Unwind Trade:** **Avoid.** You'd be hedging away the entire benefit.
+
+---
+
+### Advanced Strategy: The Nikkei/SPX Pair Trade
+
+For sophisticated investors, **maximize relative value** by pairing Japanese equities with short US equities.
+
+**Structure:**
+
+| Position | ETF | Allocation | Rationale |
+|----------|-----|------------|-----------|
+| **Long** | EWJ | $10,000 | Captures JPY strength + repatriation flows |
+| **Short** | SPY or QQQ | $10,000 | Hedges against US equity selling from Japanese liquidation |
+
+**Expected Outcomes:**
+
+| Scenario | EWJ | SPY | Net P&L |
+|----------|-----|-----|---------|
+| **Base Case** | +12% | -10% | **+22%** |
+| **Stress Case** | +17% | -15% | **+32%** |
+| **Upside Scenario** | +7% | -5% | **+12%** |
+
+**Advantages:**
+- ✅ **Market-neutral structure** → less dependent on overall equity direction
+- ✅ Isolates the **repatriation flow dynamic**
+- ✅ Lower volatility than outright long EWJ
+- ✅ Works even if global equities rise (spread capture)
+
+**Disadvantages:**
+- ⚠️ Requires margin or portfolio margin account
+- ⚠️ Short borrowing costs on SPY/QQQ (though minimal)
+- ⚠️ More complex execution and monitoring
+
+**Recommended Ratio:**
+- **Dollar-neutral:** $1 long EWJ for every $1 short SPY/QQQ
+- **Beta-adjusted:** Can increase short SPY/QQQ to 1.2x if you believe US will underperform more severely
+
+**Risk Management:**
+- **Stop loss on spread:** If EWJ underperforms SPY by -8%, re-evaluate thesis
+- **Monitor correlation:** If EWJ and SPY move together (global risk-off), adjust position
+- **Time horizon:** 9-12 months minimum for trade to play out
+
+---
+
+### Sizing and Risk Management
+
+#### **How Much Should You Allocate?**
+
+**Portfolio Role: Tactical Hedge + Return Enhancer**
+
+| Investor Profile | Allocation | Rationale |
+|------------------|------------|-----------|
+| **Conservative** | 5-7% | Meaningful hedge without overconcentration |
+| **Moderate** | 8-12% | Material position to benefit from unwind |
+| **Aggressive** | 15-20% | High conviction, possibly paired with US equity shorts |
+
+**Guidelines:**
+- Don't exceed **20%** in a single country equity bet (concentration risk)
+- Treat as **tactical position** (9-18 month hold), not core portfolio allocation
+- Rebalance as position appreciates (trim if it grows to >25% of target size)
+
+---
+
+#### **Entry Timing: When to Buy**
+
+**Recommended Approach: Tranched Entry**
+
+| Tranche | Timing | % of Total | Entry Trigger |
+|---------|--------|------------|---------------|
+| **1** | Immediately (Dec 2025) | 50% | Don't wait; catalysts are imminent |
+| **2** | Q1 2026 | 25% | On weakness (Nikkei <37,000 or USD/JPY <145) |
+| **3** | Q1-Q2 2026 | 25% | Phase 2 volatility spike or final reserve |
+
+**Why Not All At Once?**
+- Carry unwind plays out over **quarters, not weeks**
+- Volatility creates better entry points
+- Preserve dry powder for potential capitulation moments
+
+**Why Not Wait?**
+- December Fed/BOJ meetings could trigger **immediate 3-5% JPY spike**
+- Missing the initial move = missing 30-40% of total expected gain
+- Opportunity cost of waiting often exceeds benefit of "perfect" entry
+
+---
+
+#### **Exit Strategy: When to Sell**
+
+**Primary Exit Signals (Q3-Q4 2026):**
+
+1. **USD/JPY Stabilization**
+   - Trades in 130-135 range for **3+ consecutive months**
+   - Volatility (1M implied vol) normalizes to <10%
+
+2. **Policy Convergence**
+   - Fed pauses cutting campaign (terminal rate reached)
+   - BOJ signals end of hiking cycle (terminal rate reached)
+
+3. **Flow Reversal**
+   - Japanese MOF data shows **neutral to positive** flows into foreign assets for 6+ weeks
+   - Indicates repatriation complete
+
+4. **Profit Target Hit**
+   - Position reaches **+15-20%** total return
+   - Consider trimming 50% and letting remainder run
+
+**Forced Exit Signals (Thesis Broken):**
+
+1. **BOJ Pivot**
+   - BOJ unexpectedly pauses or reverses hiking campaign
+   - JPY weakens back above 150
+   - **Exit immediately** if USD/JPY >152
+
+2. **Position Decline >12%**
+   - Indicates fundamental misread of situation
+   - Stop loss to preserve capital
+
+3. **Nikkei Collapse >20%**
+   - Even if JPY strengthens, equity losses dominating
+   - Re-evaluate if strong yen impact is worse than expected
+
+**Tax Considerations:**
+- Hold >12 months if possible for long-term capital gains treatment (US investors)
+- Consider tax-loss harvesting opportunities in other positions if EWJ appreciates significantly
+
+---
+
+### Monthly Monitoring Checklist
+
+**Track these metrics to stay ahead of the trade:**
+
+| Indicator | Frequency | What to Watch | Action Threshold |
+|-----------|-----------|---------------|------------------|
+| **USD/JPY** | Daily | Trend direction | <140 = add more; >152 = exit |
+| **Nikkei 225** | Daily | Price level | <36K = add; <33K = re-evaluate |
+| **EWJ Price** | Daily | P&L tracking | +20% = trim 50%; -12% = stop out |
+| **BOJ Policy** | Monthly (meetings) | Rate decision + guidance | Pause = exit; accelerate = add |
+| **Fed Policy** | Monthly (meetings) | Rate decision + guidance | Pause = reduce benefit by 30% |
+| **MOF Flow Data** | Weekly | Japanese foreign investment | Large negative = confirming; positive = unwind ending |
+| **JPY Vol** | Weekly | Implied volatility | >15% = crisis; <10% = normalizing |
+| **Nikkei/SPX Ratio** | Weekly | Relative performance | Rising = thesis working |
+
+**Monthly Review Questions:**
+1. Is USD/JPY moving toward 130-135 target?
+2. Are Japanese institutions repatriating capital (MOF data)?
+3. Is BOJ still on hiking path?
+4. Is Fed still cutting?
+5. Is the position size still appropriate (hasn't grown too large)?
+
+---
+
+### Tax and Account Considerations
+
+#### **Tax Treatment (US Investors)**
+
+**Dividends:**
+- EWJ pays **quarterly dividends** (~1.5-2% annual yield)
+- Subject to **foreign tax withholding** (~10-15% by Japan)
+- Can claim **foreign tax credit** on US return
+- Dividends taxed as **qualified dividends** if held >60 days
+
+**Capital Gains:**
+- Short-term (<12 months): Ordinary income rates (up to 37%)
+- Long-term (>12 months): Preferential rates (0%, 15%, 20%)
+- **Recommendation:** Try to hold >12 months if thesis plays out (Q3-Q4 2026 = 9-12 month hold)
+
+**PFIC Considerations:**
+- EWJ is a **US-domiciled ETF**, NOT a PFIC (no PFIC reporting required)
+- If you're considering Japanese-domiciled funds, beware of punitive PFIC taxation
+
+---
+
+#### **Best Account Types**
+
+| Account Type | Suitability | Notes |
+|--------------|-------------|-------|
+| **Taxable Brokerage** | ✅ Good | Full flexibility; tax-loss harvest if needed |
+| **IRA (Traditional/Roth)** | ✅ Excellent | Tax-deferred growth; no dividend tax drag |
+| **401(k)** | ⚠️ Limited | Only if plan offers EWJ (most don't) |
+| **Margin Account** | ✅ Good | Needed for pair trade (long EWJ/short SPY) |
+
+**Recommendation:**
+- Use **IRA** if available (tax-deferred compounding on JPY gains + dividends)
+- Use **taxable + margin** if doing pair trade strategy
+- Avoid short-term trading to minimize tax drag
+
+---
+
+### Risks and Mitigation
+
+#### **Key Risks to Japanese Equity ETF Position**
+
+| Risk | Probability | Impact | Mitigation |
+|------|-------------|--------|------------|
+| **BOJ Doesn't Hike** | 20% | High (thesis broken) | Stop loss at -12%; monitor BOJ signals |
+| **Nikkei Crashes on Strong Yen** | 30% | Medium (JPY gain offsets equity loss) | Pair trade to hedge; accept volatility |
+| **Global Risk-Off** | 25% | Medium (all equities fall) | Size appropriately (5-10%); maintain diversification |
+| **Geopolitical Shock** | 10% | High (JPY surges, stocks crash) | Actually helps JPY trade; accept equity volatility |
+| **Liquidity Crunch** | 5% | Low (EWJ is highly liquid) | Use EWJ not smaller ETFs |
+
+---
+
+#### **Mitigation Strategies**
+
+1. **Size Appropriately**
+   - Don't exceed 10-15% of portfolio (concentration risk)
+   - Maintain overall diversification
+
+2. **Use Unhedged ETF**
+   - EWJ (not DXJ) to capture JPY appreciation
+   - Currency gain cushions equity volatility
+
+3. **Set Strict Stop Loss**
+   - Exit if position falls -12% (thesis likely wrong)
+   - Don't "hope and hold" if fundamentals change
+
+4. **Consider Pair Trade**
+   - Long EWJ / Short SPY reduces directional equity risk
+   - Isolates repatriation flow dynamic
+
+5. **Monitor Catalysts**
+   - Track BOJ/Fed meetings monthly
+   - Watch Japanese MOF flow data weekly
+   - Stay flexible; exit if thesis breaks
+
+---
+
+### Frequently Asked Questions
+
+#### **Q: Why not just buy FXY (JPY currency ETF) instead of EWJ?**
+
+**A: You can, but EWJ offers better risk/reward.**
+
+**FXY (CurrencyShares Japanese Yen Trust):**
+- Pure JPY exposure (no equity risk/return)
+- Expected return: +10-15% (just currency)
+- No dividends (actually costs ~0.40% ER + carry cost)
+
+**EWJ:**
+- JPY exposure + equity exposure
+- Expected return: +7-17% (currency + equity, even if equity is slightly negative)
+- Pays ~1.5-2% dividend yield
+- Better risk-adjusted return if Nikkei doesn't crash >10%
+
+**Verdict:** EWJ is superior unless you want pure currency exposure (in which case FXY or JPY futures are valid).
+
+---
+
+#### **Q: What about Japanese small-cap ETFs?**
+
+**A: Viable for higher risk/reward, but less liquidity.**
+
+**Options:**
+- **DXJS (WisdomTree Japan SmallCap Hedged):** Currency-hedged, avoid for this trade
+- **SCJ (iShares MSCI Japan Small-Cap):** Unhedged, only $500M AUM (low liquidity)
+
+**Small-Cap Advantages:**
+- Less export-dependent (more domestic focus)
+- May benefit more from repatriation (less foreign ownership)
+- Higher beta to Nikkei moves
+
+**Small-Cap Disadvantages:**
+- **Much lower liquidity** (wider spreads, harder to exit)
+- Higher volatility (not ideal for macro trade)
+- Less analyst coverage (information disadvantage)
+
+**Verdict:** Stick with EWJ (large/mid-cap) for better liquidity and execution. Small-cap is unnecessary complexity for this trade.
+
+---
+
+#### **Q: Should I hedge the currency if I'm worried about JPY volatility?**
+
+**A: No. That defeats the entire purpose.**
+
+The **JPY appreciation (10-15%) IS the main benefit** of this trade. Hedging the currency means you:
+- Miss the 10-15% gain (the whole point!)
+- Are left with pure Nikkei exposure (likely negative due to strong yen hurting exporters)
+- Remove the portfolio diversification/hedge benefit
+
+**If you're worried about volatility:**
+1. Size the position smaller (5% instead of 10%)
+2. Use a tranched entry (spread purchases over time)
+3. Accept volatility as part of the trade
+
+**Don't hedge away the benefit you're trying to capture.**
+
+---
+
+### Summary: The Playbook
+
+#### **Bottom Line Recommendation**
+
+**ETF:** EWJ (iShares MSCI Japan ETF)
+**Position Size:** 5-10% of portfolio
+**Entry:** 50% now (Dec 2025), 50% over Q1 2026 on dips
+**Expected Return:** +7% to +17% over 12 months
+**Hold Period:** 9-15 months (through Q3-Q4 2026)
+**Exit Triggers:** USD/JPY stabilizes 130-135, BOJ/Fed policy convergence, or +15-20% profit target
+**Stop Loss:** -12% from entry (thesis broken)
+
+#### **Why This Works**
+
+✅ **Captures JPY strength:** 10-15% currency appreciation expected
+✅ **Benefits from repatriation:** Japanese institutions returning capital
+✅ **Hedges USD weakness:** Diversifies away from dollar exposure
+✅ **Liquid and low-cost:** EWJ is the most efficient vehicle
+✅ **Aligns with macro thesis:** Yen carry trade unwind is structural, not transient
+
+#### **What Could Go Wrong**
+
+⚠️ BOJ pivots (doesn't hike) → Exit immediately
+⚠️ Nikkei crashes >15% on strong yen → JPY gain may not fully offset
+⚠️ Global risk-off → All equities fall (size appropriately)
+
+#### **The Disciplined Approach**
+
+1. **Buy EWJ in tranches** (50% now, 25% Q1, 25% reserve)
+2. **Monitor monthly** (USD/JPY, BOJ/Fed policy, MOF flows)
+3. **Trim at +15-20%** or when stabilization signals emerge (Q3-Q4 2026)
+4. **Stop out at -12%** if thesis breaks
+
+**Expected Outcome:** EWJ becomes a top-performing position in 2026 as the yen carry trade unwind plays out. The combination of JPY appreciation + repatriation flows should deliver solid returns while hedging USD asset weakness.
+
+**This is the practical, actionable way to profit from the carry trade unwind thesis.**
+
+---
+
+**Disclaimer:** This ETF analysis is for informational purposes only and does not constitute investment advice. ETF investments carry market risk, including possible loss of principal. Japanese equity ETFs are subject to foreign market risk, currency risk, and concentration risk. Past performance is not indicative of future results. Consult with a qualified financial advisor before making investment decisions.
