@@ -756,28 +756,31 @@ The yen carry trade unwind creates a **nuanced paradox** for Japanese equities:
 
 ---
 
-#### **Alternative 1: DBJP (Unhedged, Slightly Lower Cost)**
+#### **Alternative 1: BBJP (Unhedged, Much Lower Cost)**
 
-**Xtrackers MSCI Japan Hedged Equity ETF (DBJP)**
+**JPMorgan BetaBuilders Japan ETF (BBJP)**
 
 | Attribute | Details |
 |-----------|---------|
-| **Ticker** | DBJP |
-| **AUM** | ~$500 million |
-| **Expense Ratio** | 0.45% (5 bps cheaper than EWJ) |
-| **Currency** | **Unhedged** |
-| **Liquidity** | Moderate (lower than EWJ) |
+| **Ticker** | BBJP |
+| **AUM** | ~$1.5 billion |
+| **Expense Ratio** | 0.19% (31 bps cheaper than EWJ) |
+| **Currency** | **Unhedged** (full JPY exposure) |
+| **Liquidity** | Good (lower than EWJ but acceptable) |
+| **Index** | Morningstar Japan Target Market Exposure Index |
 
 **Pros:**
-- Marginally lower fees than EWJ
+- **Significantly lower fees** than EWJ (0.19% vs 0.50%)
 - Same unhedged exposure to JPY
+- Good liquidity for most investors
+- Saves ~$310/year per $100K invested
 
 **Cons:**
-- **Lower liquidity** → wider bid-ask spreads
+- **Lower liquidity** than EWJ (wider bid-ask spreads)
 - Less institutional adoption
-- May have slightly higher tracking error
+- Tracks different index (Morningstar vs MSCI)
 
-**Verdict:** Only choose over EWJ if you're a buy-and-hold investor not concerned about liquidity. For most, EWJ's superior liquidity outweighs the 5 bps fee difference.
+**Verdict:** Excellent choice for buy-and-hold investors focused on minimizing costs. The 31 bps fee savings is material over multi-year holds. However, for traders or those making frequent adjustments, EWJ's superior liquidity may justify the higher fee.
 
 ---
 
@@ -809,9 +812,13 @@ The yen carry trade unwind creates a **nuanced paradox** for Japanese equities:
 
 ---
 
-#### **Not Recommended: DXJ (Currency-Hedged)**
+#### **Not Recommended: Currency-Hedged ETFs**
 
-**WisdomTree Japan Hedged Equity Fund (DXJ)**
+**⚠️ CRITICAL: Avoid These Currency-Hedged ETFs**
+
+The following ETFs hedge out JPY currency exposure, defeating the entire purpose of this trade:
+
+**1. DXJ - WisdomTree Japan Hedged Equity Fund**
 
 | Attribute | Details |
 |-----------|---------|
@@ -821,18 +828,38 @@ The yen carry trade unwind creates a **nuanced paradox** for Japanese equities:
 | **Currency** | **Fully hedged to USD** |
 | **Focus** | Export-oriented companies |
 
-**Why Avoid for This Trade:**
+**Why Avoid:**
 - ❌ **Misses the 10-15% JPY appreciation** (the entire point!)
 - ❌ Export focus = maximum pain from strong yen
 - ❌ No hedge/diversification benefit for USD-based investors
 - ❌ Expected return: +2-5% (just equity, likely negative after strong yen impact)
 
-**When DXJ Makes Sense:** Only if you believe:
+---
+
+**2. DBJP - Xtrackers MSCI Japan Hedged Equity ETF**
+
+| Attribute | Details |
+|-----------|---------|
+| **Ticker** | DBJP |
+| **AUM** | ~$500 million |
+| **Expense Ratio** | 0.45% |
+| **Currency** | **Fully hedged to USD** (despite the name!) |
+
+**Why Avoid:**
+- ❌ The name says "Hedged" - it's currency-hedged to USD
+- ❌ Removes all JPY appreciation benefit
+- ❌ Same problem as DXJ
+
+**⚠️ Common Mistake:** Don't be fooled by the lower expense ratio. Hedging away the currency defeats the thesis.
+
+---
+
+**When These Make Sense:** Only if you believe:
 - JPY will weaken (opposite of our thesis)
 - Japanese exporters will thrive despite strong yen (unlikely)
 - You're hedging JPY exposure elsewhere (niche case)
 
-**Verdict for Carry Unwind Trade:** **Avoid.** You'd be hedging away the entire benefit.
+**Verdict for Carry Unwind Trade:** **Avoid both DXJ and DBJP.** You'd be hedging away the entire 10-15% benefit we're targeting.
 
 ---
 
