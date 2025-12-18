@@ -104,9 +104,11 @@ The calculation is nuanced for self-employed individuals. Here's how it works:
 
 **Step 3: Calculate Employer Contribution**
 - Take your net self-employment income (from Step 1)
-- Subtract your employee contribution amount
-- Multiply by approximately 20% (technically 25% of "plan compensation")
+- Multiply by approximately 20%
+- **Important**: Do NOT subtract the employee contribution first
 - The IRS provides worksheets in [Publication 560](https://www.irs.gov/publications/p560) for precise calculations
+
+**Why ~20%?** The IRS rule states employer contributions can be up to 25% of "plan compensation," but for self-employed individuals, "plan compensation" is defined as net earnings from self-employment MINUS the plan contribution itself. This creates a circular calculation that resolves to approximately 20% of net self-employment income (technically: 25% ÷ 1.25 = 20%).
 
 ### Example Calculation
 
@@ -116,17 +118,27 @@ Let's use a hypothetical scenario where a sole proprietor has $60,000 in busines
 Gross Business Income:                           $60,000
 Less: Business Expenses:                         -$5,000
 Net Profit (Schedule C):                         $55,000
-Less: 1/2 Self-Employment Tax (~7.65%):          -$4,208
-Net Self-Employment Income:                      $50,792
 
-Employee Contribution (planned):                 $18,000
-Remaining income for employer calculation:       $32,792
-Employer Contribution (~20% of remaining):       ~$6,558
+Self-Employment Tax Calculation:
+  Net Profit × 92.35%*:                          $50,793
+  Self-Employment Tax (15.3%):                   $7,771
+  Deductible Portion (50%):                      $3,886
 
-Total Solo 401k Contribution:                    $24,558
+Net Self-Employment Income:
+  Net Profit - (1/2 SE Tax):                     $51,114
+
+Solo 401k Contributions:
+  Employee Contribution (planned):               $8,000
+  Employer Contribution (example):               $10,000
+  (Maximum for this example is ~$10,223)
+
+Total Solo 401k Contribution:                    $18,000
 ```
 
-**Note**: This is illustrative. Always use IRS Publication 560 worksheets or consult a tax professional for exact calculations.
+**Notes**:
+- *The 92.35% multiplier accounts for the deductible portion of self-employment tax. This is the amount subject to self-employment tax calculation per IRS rules.
+- This is illustrative. Always use IRS Publication 560 worksheets or consult a tax professional for exact calculations.
+- The employee and employer contributions are calculated independently - do NOT subtract the employee contribution before calculating the employer contribution.
 
 ### Do You Need to "Declare" Employee vs. Employer Amounts?
 
@@ -155,15 +167,15 @@ Create a simple spreadsheet or document:
 2025 Solo 401k Contributions - [Your Name]
 
 Employee Deferrals (Traditional):
-- Date: 2025-03-15 | Amount: $10,000
-- Date: 2025-12-30 | Amount: $8,000
-- Total Employee: $18,000
+- Date: 2025-03-15 | Amount: $5,000
+- Date: 2025-12-30 | Amount: $3,000
+- Total Employee: $8,000
 
 Employer Contributions:
-- Date: 2026-04-10 | Amount: $6,558
-- Total Employer: $6,558
+- Date: 2026-04-10 | Amount: $10,000
+- Total Employer: $10,000
 
-Total 2025 Contributions: $24,558
+Total 2025 Contributions: $18,000
 ```
 
 ---
@@ -211,7 +223,7 @@ Both employee and employer contributions are deducted on **Schedule 1, Line 16**
   - Premium tax credits (ACA)
   - Other income-based tax benefits
 
-**Example**: If your AGI before Solo 401k contributions is $55,000 and you contribute $24,558 to your Solo 401k, your AGI drops to approximately $30,442, which may help you qualify for additional tax benefits.
+**Example**: If your AGI before Solo 401k contributions is $55,000 and you contribute $18,000 to your Solo 401k, your AGI drops to approximately $37,000, which may help you qualify for additional tax benefits.
 
 ---
 
@@ -370,11 +382,11 @@ Most states follow federal treatment:
 - Combined MAGI (before contributions): ~$50,000
 
 **Planned Contributions**:
-- Solo 401k employee: $18,000
-- Solo 401k employer: ~$6,000-7,000 (calculated)
+- Solo 401k employee: $8,000
+- Solo 401k employer: $10,000 (20% of net self-employment income)
 - Your Traditional IRA: $7,000
 - Spouse's Traditional IRA: $7,000
-- **Total**: ~$38,000-39,000 in tax-advantaged savings
+- **Total**: $32,000 in tax-advantaged savings
 
 **Tax Calculation** (simplified):
 
@@ -392,27 +404,28 @@ Self-Employment Tax (Schedule SE):
 Form 1040:
   Schedule C Net Profit:                        $55,000
   Less: 1/2 SE Tax (Schedule 1, Line 15):       -$3,886
-  Less: Solo 401k Contributions (Line 16):      -$24,000
+  Less: Solo 401k Contributions (Line 16):      -$18,000
   Less: Traditional IRA (you & spouse):         -$14,000
-  Adjusted Gross Income:                        $13,114
+  Adjusted Gross Income:                        $19,114
 
 Federal Income Tax:
-  AGI:                                          $13,114
+  AGI:                                          $19,114
   Standard Deduction (married):                 -$30,000
   Taxable Income:                               $0
   Federal Income Tax:                           $0
 
 Total Tax Savings:
   Self-Employment Tax:                          $7,771 (required)
-  Federal Income Tax:                           $0 (was ~$3,000 without contributions)
-  Tax Savings from Contributions:               ~$3,000+
+  Federal Income Tax:                           $0 (was ~$2,200 without contributions)
+  Tax Savings from Contributions:               ~$2,200+
 ```
 
 **Key Takeaways**:
 - Solo 401k contributions reduced federal income tax significantly
 - Self-employment tax still owed regardless of contributions
-- Combined retirement savings: ~$38,000
+- Combined retirement savings: $32,000
 - Effective tax rate dropped substantially
+- Remember: Employer contribution is 20% of net self-employment income, NOT reduced by employee contribution
 
 ---
 
