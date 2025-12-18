@@ -129,8 +129,8 @@ Net Self-Employment Income:
 
 Solo 401k Contributions:
   Employee Contribution (planned):               $8,000
-  Employer Contribution (20% × $51,114):         $10,223
-  (Using $10,000 for simplicity in this example)
+  Employer Contribution (example):               $10,000
+  (Maximum for this example is ~$10,223)
 
 Total Solo 401k Contribution:                    $18,000
 ```
