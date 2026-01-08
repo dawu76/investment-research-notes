@@ -16,8 +16,7 @@ Goal: "get paid doing useful stuff in an uncompetitive environment" (just like i
 - strong programming skills are 'neither necessary nor sufficient' for trading success
 
 The most important mistake to avoid: trading too big
-- a sequence of returns of -X%, +X% results in a loss
-- lose 50%, need to gain 100% to get back to even
+- a sequence of returns of -X%, +X% results in a loss - e.g. lose 50%, need to gain 100% to get back to even
 
 Being profitable in your trading requires a plan
 - understand what types of edges you'll pursue
@@ -37,7 +36,7 @@ Executing your edge
 Start with the simple and obvious
 - simple, mostly systematic strategies
 - exploit big high-probability edges
-- can be executed manually or minimum automation 
+- can be executed manually or minimum automation
 
 Question: is there a reliable way to predict market direction beyond big events like central bank activity, pandemics, etc?
 
