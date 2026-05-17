@@ -13,7 +13,7 @@
 
 | Risk | Consequence | Mitigation |
 |---|---|---|
-| Cannot confirm pre/post-2016 purchase date | Wrong tax regime applied; potentially large rate difference | Title deed search (地政事務所) |
+| Cannot confirm original purchase date (pre-2016 / 2016–Jun 2021 / Jul 2021+) | Three distinct regimes: pre-Jan 2016 = Old System (LVIT + building income); Jan 2016–Jun 2021 = HSTT 1.0 (>2yr hold = flat **20%**, no 15% bracket); Jul 2021+ = HSTT 2.0 (>10yr = **15%**). HSTT 1.0 vs. 2.0 rate difference alone: ~NT$470K (~$15K) on a NT$14.5M sale. Given 1999 construction, pre-2016 is almost certain — but confirm | Title deed search (地政事務所) |
 | No 2022 FMV appraisal exists | IRS may challenge stepped-up basis | Commission retroactive qualified appraisal now |
 | 戶籍 not registered at subject property | Self-use HSTT exemption (NT$4M deduction, 10% rate) unavailable — **affects property sales tax only** | Likely a closed issue: even with active 戶籍, it must be registered at *this property* for 6+ years of combined holding period; physical residency requirement also unmet |
 | Taiwan tax non-resident (<183 days/year in TW) | Buyer withholds tax at closing; flat withholding rate applies to building gain if Old System — **affects income tax and withholding mechanism** | Treat as confirmed given US-based living; plan for withholding at closing |
@@ -226,6 +226,11 @@ If time or cost is a constraint, Method 1 alone (with a well-documented spreadsh
 
 ---
 
+- [ ] **Confirm Property Use History (Personal Use vs. Rental):**
+    - Determine whether the property was rented out — either by the decedent before May 2022 or by the heir after inheritance.
+    - **Taiwan side:** Rental income received by a non-resident is subject to 20% withholding; if rental income went unreported, there may be outstanding Taiwan tax liability. Confirm with Taiwan CPA that all prior filings are current before closing — unresolved obligations can delay the title transfer.
+    - **US side:** If the heir received rental income after May 2022, the property is investment/rental property for US tax purposes. In that case: (a) depreciation deductions should have been claimed on the US return since 2022 (reducing the current basis below the stepped-up FMV), and (b) §1250 unrecaptured depreciation is taxed at 25% rather than the preferential long-term rate on any gain. If the property has been entirely personal-use since inheritance with no rental income, neither of these applies — confirm this with your US CPA and note it in your permanent tax file.
+
 - [ ] **Gather Deductible Expense Records:**
     - Taiwan-deductible: original acquisition cost (government-assessed value at inheritance), deed tax (契稅), stamp duty, notary fees, agent commissions (both buy and sell side), and major capital improvement receipts (post-inheritance renovations).
     - US-deductible: selling expenses (commissions, legal fees) reduce the capital gain.
@@ -265,9 +270,11 @@ If time or cost is a constraint, Method 1 alone (with a well-documented spreadsh
 ## Phase 2: Taiwan Tax Analysis (Local Liability)
 *Goal: Calculate the net tax owed to the Taiwan Ministry of Finance.*
 
-- [ ] **Determine the Tax Regime (Old vs. New System):**
-    - **Old System (property purchased before Jan 1, 2016):** Building gain only is taxed as ordinary income (separate from land); land gain is subject to Land Value Increment Tax (LVIT / 土地增值稅), administered by local government — these are two separate taxes filed with separate authorities.
-    - **New System / HSTT 2.0 (property purchased on or after Jan 1, 2016):** Unified tax on combined house+land gain based on actual transaction price. A single filing with the national tax authority within 30 days of transfer.
+- [ ] **Determine the Tax Regime (Old System / HSTT 1.0 / HSTT 2.0):**
+    - **Old System (original purchase before Jan 1, 2016):** Building gain only is taxed as ordinary income (separate from land); land gain is subject to Land Value Increment Tax (LVIT / 土地增值稅), administered by local government — these are two separate taxes filed with separate authorities.
+    - **HSTT 1.0 (original purchase Jan 1, 2016 – Jun 30, 2021):** Unified tax on combined house+land gain. Rate schedule differs from HSTT 2.0: ≤1yr 45%; >1–2yr 35%; **>2yr combined hold = flat 20%** — no 15% bracket exists. A combined hold of 14+ years still applies at 20%. On the NT$9.45M illustrative gain, this equals ~NT$1.89M (~$61K) vs. NT$1.42M (~$46K) under HSTT 2.0 — a NT$470K (~$15K) difference.
+    - **HSTT 2.0 (original purchase Jul 1, 2021 or later):** Unified tax at the 45%/35%/20%/15% schedule below. A single filing with the national tax authority within 30 days of transfer.
+    - **For this property:** Given the 1999 construction, the original purchase is almost certainly pre-2016 (Old System). The HSTT 1.0 scenario applies only if the mother sold and rebought, or gifted and rebought, between 2016 and June 2021. Confirm the exact acquisition date via title deed search.
 
 - [ ] **Map the Full HSTT Rate Schedule (New System):**
     - ≤2 years combined holding: **45%**
@@ -288,12 +295,13 @@ If time or cost is a constraint, Method 1 alone (with a well-documented spreadsh
     - Note: this exemption is a function of 戶籍 and occupancy — **not** of Taiwan tax residency (the 183-day rule). A Taiwan tax non-resident cannot claim the self-use exemption regardless.
 
 - [ ] **Old System — Building Gain Income Tax Modeling:**
-    - If Old System applies, the building gain is added to *all* your other income for 2026 and taxed at progressive Taiwan rates (up to ~40%).
-    - Model this with your expected total 2026 income — the interaction matters if you have significant US-source income in the same year.
+    - If Old System applies and you are a **Taiwan tax resident** (≥183 days in 2026 — treat as inapplicable given US-based living): the building gain is added to all other income and taxed at progressive Taiwan rates (up to ~40%); the interaction with US-source income matters.
+    - As a **Taiwan tax non-resident** (<183 days — confirmed scenario): the building gain is instead subject to a flat withholding rate (~20% — see Phase 1 ⚠ flag for CPA confirmation on 財產交易所得). This is the scenario to model and is more favorable than progressive rates.
 
 - [ ] **Old System — LVIT Estimation:**
     - Calculate the Land Value Increment Tax on the land portion based on the change in government-assessed land value (公告地價) from the inheritance date (2022) to the 2026 sale date.
     - Self-use LVIT rate is 10% flat; general rates are tiered (20%–40%). Administered by local government, not national tax authority.
+    - **Self-use LVIT rate is unavailable here** — it requires 戶籍 registered at this specific property with evidence of physical occupancy, the same conditions that make the HSTT self-use exemption unavailable (see Phase 1 and Phase 2 above). Plan on **general tiered rates (20%–40%)**.
 
 ---
 
@@ -333,17 +341,17 @@ Under the Old System, the tax bases are far smaller because both the building ga
 
 #### Illustrative Side-by-Side (~NT$14.5M sale)
 
-*Assumptions: assessed values at inheritance = NT$4.2M (NT$3.5M land + NT$700K building); CPI-adjusted basis = NT$4.7M; deductible expenses = NT$700K; non-resident flat rate ~20% for building gain (pending CPA confirmation).*
+*Assumptions: assessed values at inheritance = NT$4.2M (NT$3.5M land + NT$700K building); CPI-adjusted basis = NT$4.7M; deductible expenses = NT$350K (seller-side agent commission ~1.5% + stamp duty + 代書 + notary; buyer's commission is paid by the buyer); non-resident flat rate ~20% for building gain (pending CPA confirmation).*
 
 **New System (HSTT):**
 | Item | Amount |
 |---|---|
 | Sale price | NT$14.5M |
 | Less: CPI-adjusted cost basis | (NT$4.7M) |
-| Less: deductible expenses | (NT$700K) |
-| **Taxable gain** | **NT$9.1M** |
+| Less: deductible expenses | (NT$350K) |
+| **Taxable gain** | **NT$9.45M** |
 | Rate (>10yr combined hold) | 15% |
-| **HSTT due** | **~NT$1.37M (~$42K USD)** |
+| **HSTT due** | **~NT$1.42M (~$46K USD at NT$31/USD; ~$48K at NT$29.5/USD)** |
 
 **Old System — Building Income Tax:**
 
@@ -356,10 +364,10 @@ Under the Old System, the tax bases are far smaller because both the building ga
 | Building % of 2026 assessed (NT$650K / NT$4.25M) | ~15% |
 | Building allocation of sale price (NT$14.5M × 15%) | NT$2.175M |
 | Less: adjusted building cost basis (NT$700K × 1.12 CPI) | (NT$784K) |
-| Less: building-apportioned deductibles (~15% × NT$700K) | (NT$105K) |
-| **Building taxable gain** | **~NT$1.29M** |
+| Less: building-apportioned deductibles (~15% × NT$350K) | (NT$53K) |
+| **Building taxable gain** | **~NT$1.338M** |
 | Rate (non-resident flat, ~20%) | ~20% |
-| **Building income tax** | **~NT$258K (~$8K USD)** |
+| **Building income tax** | **~NT$268K (~$9K USD at NT$31/USD)** |
 
 **Old System — LVIT (the swing factor):**
 
@@ -378,14 +386,14 @@ LVIT depends heavily on how much 公告地價 has risen since the *original purc
 
 | Scenario | Building tax | LVIT | **Old System total** | **HSTT (New System)** | **Difference** |
 |---|---|---|---|---|---|
-| Purchased 2014 | ~$8K | ~$9K | **~$17K** | **~$42K** | Old saves ~$25K |
-| Purchased 2010 | ~$8K | ~$18K | **~$26K** | **~$42K** | Old saves ~$16K |
-| Purchased 2005 | ~$8K | ~$26K | **~$34K** | **~$42K** | Old saves ~$8K |
-| Purchased 2000 | ~$8K | ~$31K | **~$39K** | **~$42K** | Old saves ~$3K |
+| Purchased 2014 | ~$9K | ~$10K | **~$19K** | **~$46K** | Old saves ~$27K |
+| Purchased 2010 | ~$9K | ~$18K | **~$27K** | **~$46K** | Old saves ~$19K |
+| Purchased 2005 | ~$9K | ~$27K | **~$36K** | **~$46K** | Old saves ~$10K |
+| Purchased 2000 | ~$9K | ~$33K | **~$42K** | **~$46K** | Old saves ~$4K |
 
 #### Rules of Thumb
 
-1. **Old System is likely $3–25K cheaper** for this property profile, depending entirely on how long ago the mother originally purchased. The advantage shrinks the further back the original purchase date, because LVIT accumulates on a larger 公告地價 increment. The 2014 vintage shows the largest Old System advantage (~$25K savings); the 2000 vintage almost closes the gap (~$3K savings).
+1. **Old System is likely $4–27K cheaper** for this property profile, depending entirely on how long ago the mother originally purchased. The advantage shrinks the further back the original purchase date, because LVIT accumulates on a larger 公告地價 increment. The 2014 vintage shows the largest Old System advantage (~$27K savings); the 2000 vintage almost closes the gap (~$4K savings). *(All USD conversions at NT$31/USD; deductible expenses = NT$350K seller-side only.)*
 
 2. **LVIT is the swing factor.** Building income tax (~$8K) is relatively stable regardless of original purchase date. What varies is LVIT — which scales with 公告地價 appreciation since the *original* (pre-2016) purchase. If the mother purchased in 2014 vs. 2000, the LVIT difference alone is ~$22K. Sources for LVIT rate tiers: [財政部稅務入口網 — 貳](https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/local/land-value-increment-tax/noaGA0q); [LVIT trial calculation tool](https://www.etax.nat.gov.tw/etwmain/etw158w/51)
 
@@ -393,7 +401,7 @@ LVIT depends heavily on how much 公告地價 has risen since the *original purc
 
 4. **Non-resident status is an Old System advantage.** Building gain for a non-resident is taxed at ~20% flat rather than the progressive resident rate (up to ~40%). At the same building gain amount, a US-resident-in-Taiwan would pay roughly double the building income tax. This makes the Old System comparatively more attractive for US-based owners than it would be for Taiwan residents. (Source: [財政部 — 非居住者扣繳率](https://www.etax.nat.gov.tw/etwmain/alien-tax-service/alien-individual-income-tax/vV8Z3o9) — confirms 20% flat withholding for most non-resident income categories; see Phase 1 ⚠ flag re: 財產交易所得 confirmation with CPA)
 
-5. **HSTT has a "big base, low rate" problem.** Even at 15%, taxing NT$9M (the market/assessed gap) produces NT$1.37M in tax. The Old System avoids this by never putting market value appreciation into the tax base directly.
+5. **HSTT has a "big base, low rate" problem.** Even at 15%, taxing NT$9.45M (the market/assessed gap) produces NT$1.42M (~$46K at NT$31/USD) in tax. The Old System avoids this by never putting market value appreciation into the tax base directly.
 
 6. **For New System (HSTT), the holding period bracket matters enormously.** If the combined holding period somehow fell into the 5–10yr bracket (20% rate), the HSTT would be ~NT$1.82M (~$56K) — a large jump. At 35% (2–5yr), it would be ~NT$3.19M (~$98K). Confirming a combined hold >10 years is essential before planning around the 15% rate. ([HSTT rate schedule — NTBT English](https://www.ntbt.gov.tw/english/multiplehtml/cd61d91304fc4fb194571fea1d82ba35); [NTBT — 繼承接計持有期間](https://www.ntbt.gov.tw/singlehtml/41ae3594197f4f69b47753ce08188516?cntId=cdeb372790044547ad6a8749ae975e4a))
 
@@ -401,8 +409,8 @@ LVIT depends heavily on how much 公告地價 has risen since the *original purc
 
 #### What to Do With This
 
-- **If title search confirms pre-2016 purchase → budget ~$25–35K USD in Taiwan tax** (Old System, depending on purchase vintage); plan for ~$40–45K in the worst case
-- **If title search confirms post-2016 purchase → budget ~$40–45K USD in Taiwan tax** (New System at 15%), assuming >10yr combined hold still applies via tack-on rule
+- **If title search confirms pre-2016 purchase → budget ~$19–42K USD in Taiwan tax** (Old System at NT$31/USD; 2014 purchase = ~$19K, 2010 = ~$27K, 2005 = ~$36K, 2000 = ~$42K)
+- **If title search confirms post-2016 purchase → budget ~$46–48K USD in Taiwan tax** (HSTT 2.0 at 15% if original purchase was Jul 2021+; NT$31–29.5/USD), assuming >10yr combined hold still applies via tack-on rule. **If original purchase was Jan 2016–Jun 2021 (HSTT 1.0), budget ~$61K instead** — the 15% bracket does not exist under HSTT 1.0, and a combined hold of any length >2yr applies at 20% flat
 - **In either case:** engage a Taiwan CPA to (a) confirm the non-resident 20% flat rate for building gain, (b) apply the CPI adjustment to cost basis, and (c) calculate actual 公告地價 at original purchase year for LVIT estimation
 
 **Key Terms for Online Research:**
@@ -630,6 +638,11 @@ Capital Gain = $453,226 − $440,678 = $12,548 USD
 - [ ] **Taiwan Filing Deadlines:**
     - **New System (HSTT 2.0):** File and pay within **30 days** of transfer registration. This is a hard deadline — missing it triggers penalties.
     - **Old System:** Building gain is added to your annual income tax return, filed in May of the following year (May 2027 for a 2026 sale). LVIT is filed separately with the local government at time of sale.
+
+- [ ] **Designate a Taiwan-based authorized representative (代理人) before closing:**
+    - As a non-resident, you will almost certainly not be physically present in Taiwan during the 30-day HSTT filing window after closing. The deadline runs regardless of your location.
+    - Engage your Taiwan CPA or the handling 代書 (title transfer notary) as your designated 代理人 to: (a) receive the buyer's withholding certificate, (b) file the HSTT return within 30 days of transfer registration, (c) remit any balance due or file for a refund if withholding exceeded actual tax owed.
+    - Confirm the 代理人 designation in writing before the sale closes. Without a local representative, the hard 30-day deadline creates a practical compliance risk that cannot be resolved remotely after the fact.
 
 - [ ] **Non-Resident Withholding at Closing — triggered by tax residency (183-day rule), not 戶籍:**
     - Because you are a Taiwan tax non-resident (<183 days/year in Taiwan), the buyer is typically required to withhold a portion of the purchase price at closing and remit it directly to the tax authority on your behalf.
