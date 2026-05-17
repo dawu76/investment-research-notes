@@ -1,10 +1,12 @@
 # ServiceNow, Inc. (NYSE: NOW) — Investment Memo
 
-**Date:** April 2026
+**Date:** April 2026 | **Last Updated:** May 10, 2026 (Financial Analyst Day)
 **Ticker:** NYSE: NOW
 **Sector:** Enterprise Software / Workflow Automation
-**Most Recent Financials:** FY2025 (year ended Dec 31, 2025); Q1 2026 results (April 22, 2026)
-**Note:** ServiceNow completed a 5-for-1 stock split effective December 17, 2025. All per-share figures reflect post-split shares.
+**Most Recent Financials:** FY2025 (year ended Dec 31, 2025); Q1 2026 results (April 22, 2026); Financial Analyst Day (May 4–6, 2026)
+**Note:** ServiceNow completed a 5-for-1 stock split effective December 17, 2025. All per-share figures reflect post-split shares. Post-split shares outstanding: ~1.03 billion.
+
+> **⚠ STOCK PRICE CORRECTION:** The original April 2026 draft incorrectly cited the post-Q1 2026 stock price as ~$875–920/share, which were pre-split prices. The correct post-split prices are approximately **$108–115 at the time of Q1 2026 earnings** (April 22, 2026), declining to **~$88–91** at the intraday low before recovering to **~$94** following the Analyst Day (May 7, 2026). Market cap as of May 10, 2026: ~$97B. The valuation bridge section below has been revised accordingly.
 
 ---
 
@@ -12,13 +14,13 @@
 
 ### Investment Thesis
 
-ServiceNow is the dominant enterprise workflow automation platform, controlling ~40% of the ITSM market while expanding into HR, customer service, and AI-driven enterprise automation. The company has built a platform with near-insurmountable switching costs: once embedded as the operational backbone of a Fortune 500 enterprise, displacement requires years of re-implementation and organizational change. With $13.3B in FY2025 revenue (+21% YoY), $28.2B in total RPO backlog, and FCF margins of ~34%, ServiceNow demonstrates the rare combination of compounding growth and elite profitability. The AI monetization cycle (Now Assist approaching $500M in ACV, Pro Plus tier at ~60% premium pricing) is early-stage and represents a material upside driver over the next 3-5 years. Following a 14-17% stock decline post-Q1 2026 earnings (attributed to geopolitical headwinds in the Middle East affecting deal timing), the investment case warrants fresh evaluation.
+ServiceNow is the dominant enterprise workflow automation platform, controlling ~40% of the ITSM market while expanding into HR, customer service, and AI-driven enterprise automation. The company has built a platform with near-insurmountable switching costs: once embedded as the operational backbone of a Fortune 500 enterprise, displacement requires years of re-implementation and organizational change. With $13.3B in FY2025 revenue (+21% YoY), $28.2B in total RPO backlog, and FCF margins of ~34%, ServiceNow demonstrates the rare combination of compounding growth and elite profitability. The AI monetization cycle has accelerated materially: Now Assist ACV reached $750M in Q1 2026 (up from ~$600M at year-end FY2025), and management raised the 2026 AI ACV target to $1.5B. With the stock now at ~$94/share (down 55% from its July 2025 high of ~$209) following a post-Q1 2026 earnings selloff driven by geopolitical deal timing headwinds, the investment case warrants careful re-evaluation — specifically whether the discount reflects permanent growth deceleration or a temporary dislocation.
 
 ### Bull Case
-AI monetization accelerates beyond current trajectory: Now Assist ACV doubles to $1B+ by FY2027, Pro Plus adoption drives durable 200-300bps annual margin expansion, and ServiceNow becomes the primary "system of action" layer for enterprise AI agents, pushing total revenue past $20B by FY2028.
+AI monetization is tracking well ahead of original projections: Now Assist ACV reached $750M in Q1 2026 (vs. the original memo's "approaching $500M" for all of FY2025), and management raised the 2026 target to $1.5B. The "AI Control Tower" positions ServiceNow as the governance layer for ALL enterprise AI agents — including those from Microsoft, OpenAI, and Anthropic — a role competitors literally cannot fill. The $30B+ 2030 subscription target combined with FCF margin expansion of ~900bps by 2030 and SBC declining to <10% of revenue by 2029 creates a compounding FCF story that could support a significant stock re-rating from the current ~55% below 52-week highs.
 
-### Bear Case
-Microsoft Copilot Studio and Salesforce Agentforce reduce the number of discrete workflow tools enterprises need, compressing ServiceNow's TAM in adjacent use cases; combined with macro-driven IT spending caution and delayed deal closures (as seen in Q1 2026), growth decelerates toward 15%, triggering valuation multiple compression from elevated levels.
+### Bear Case *(updated: Analyst Day added a new dimension)*
+The $30B 2030 subscription target implies a ~17–18% revenue CAGR from the ~$15.5B 2026 base — confirming that the era of 20%+ growth is ending. A SaaS company decelerating to mid-teens growth historically trades at 10–14x NTM revenue, not 18–25x. Combined with macro-driven IT spending caution, the stock (down 54% from its 52-week high of ~$209, now at ~$94) may not re-rate until the growth-to-margin trade-off story matures — a multi-year wait that may disappoint investors expecting a near-term recovery.
 
 ### Target Investor Profile
 - **Primary:** Long-duration growth investors (5+ year horizon) comfortable with premium SaaS valuations and SBC-adjusted analysis
@@ -102,38 +104,44 @@ Stock-Based Compensation (SBC) is a material consideration for ServiceNow: at ~$
 
 ---
 
-## 2b. Valuation Bridge
+## 2b. Valuation Bridge *(revised May 10, 2026)*
 
 ### Current Multiple vs. Historical Context
 
-The post-Q1 2026 earnings decline (14-17%) reset ServiceNow's valuation from historically elevated levels. At an approximate share price of ~$875-920 (post-split, post-selloff):
+The post-Q1 2026 earnings decline (14–17%), followed by a partial recovery after the Financial Analyst Day, leaves ServiceNow trading at a severe discount to historical norms. At the current share price of ~$94 (post-split; ~1.03B shares; market cap ~$97B):
 
-| Metric | Current (Approx.) | 3-Year Historical Median | 5-Year Historical Median |
-|--------|-------------------|--------------------------|--------------------------|
-| EV/NTM Revenue | ~13-15x | ~18x | ~20x |
-| EV/NTM FCF | ~38-42x | ~55x | ~60x |
-| NTM Revenue (consensus) | ~$16.5B | — | — |
+| Metric | Current (May 10, 2026) | 3-Year Historical Median | 5-Year Historical Median |
+|--------|------------------------|--------------------------|--------------------------|
+| EV/NTM Revenue | ~6x | ~18x | ~20x |
+| EV/NTM FCF | ~22x | ~55x | ~60x |
+| NTM Revenue (FY2026 consensus/guidance) | ~$16.5B | — | — |
+| 52-week high | ~$209 (Jul 2025) | — | — |
+| Decline from 52-week high | ~55% | — | — |
+| Consensus analyst price target | ~$184 (avg of 32 analysts) | — | — |
+| Bernstein price target (post-Analyst Day) | $236 (Outperform) | — | — |
 
-*Note: Precise current EV/NTM multiples depend on real-time share price and street consensus estimates. The figures above are directional estimates based on public data as of late April 2026. The 3-year and 5-year historical medians are approximations derived from analyst commentary; authoritative figures require a Bloomberg or FactSet pull.*
+*Note: EV calculations assume ~$97B market cap plus net debt from the Moveworks acquisition. Precise net debt figures require the Q1 2026 balance sheet.*
 
-**Interpretation:** At ~14x NTM revenue, ServiceNow is trading at a ~22% discount to its 3-year historical median — a material compression that historically has been a reasonable entry point for long-horizon investors. The prior comparable discount window (late 2022) preceded a ~150% recovery over 18 months.
+**Interpretation:** At ~6x NTM revenue, ServiceNow is trading at a ~67% discount to its 3-year historical median. This level of multiple compression has historically represented the most asymmetric entry points — but it also reflects genuine concern about growth deceleration to mid-teens by 2030, as implied by the Analyst Day targets. The key question is whether this is a permanent re-rating (business slowing) or a temporary dislocation (macro + geopolitics masking durable fundamentals).
 
-### 12-18 Month Price Target Framework
+The wide dispersion between current price (~$94) and consensus ($184) / Bernstein ($236) targets suggests the market has not yet resolved the bull vs. bear debate.
 
-Using the base-case scenario (FY2026 subscription revenue ~$15.75B, ~22.5% growth) and a range of exit multiples:
+### 12-18 Month Price Target Framework *(revised with post-split prices)*
 
-| Exit Multiple (EV/NTM Rev) | Implied Price Target | Return from ~$900 | Rationale |
-|---------------------------|---------------------|-------------------|-----------|
-| 12x (de-rating continues) | ~$700 | -22% | Bear case: growth decelerates to <17% |
-| 15x (current trading range) | ~$875 | flat | Base case if multiple stays compressed |
-| 18x (revert to 3yr median) | ~$1,050 | +17% | Base case if AI monetization lands on track |
-| 21x (premium re-rate) | ~$1,225 | +36% | Bull case: Now Assist hits $1B+ ACV, AI growth accelerates |
+Using FY2026 subscription revenue guidance of ~$15.75B and a range of exit multiples:
 
-**Expected IRR (base case, 12-month):** ~15-20%, assuming reversion from ~14x to ~16-17x NTM revenue as Q2 2026 results confirm Middle East deal catch-up and Now Assist trajectory.
+| Exit Multiple (EV/NTM Rev) | Implied Price Target | Return from ~$94 | Rationale |
+|---------------------------|---------------------|------------------|-----------|
+| 5x (de-rating continues) | ~$80 | -15% | Bear case: mid-teens growth confirmed, margin story insufficient |
+| 7x (stable at current compression) | ~$112 | +19% | Base case if AI monetization story takes time to be proven |
+| 10x (partial re-rating) | ~$160 | +70% | Base case if Now Assist $1.5B ACV lands and Q2 deal catch-up confirmed |
+| 14x (revert toward 3yr median) | ~$224 | +138% | Bull case: AI Control Tower gains traction; $30B 2030 path derisked |
 
-**Expected IRR (base case, 3-year):** ~18-22% annualized, driven by ~20% revenue CAGR and moderate multiple expansion as AI monetization matures.
+**Expected IRR (base case, 12-month):** ~20–70%, depending on which scenario resolves — a wide range that reflects genuine binary uncertainty in the market right now.
 
-*Note: These are directional estimates, not formal price targets. A rigorous DCF model accounting for SBC-adjusted FCF would provide a more defensible intrinsic value. The framework above is intended to pressure-test whether current multiples offer a margin of safety relative to historical norms.*
+**Expected IRR (base case, 3-year):** ~20–30% annualized if the FCF margin expansion story ($34% → $43% by 2030) combined with ~17–20% revenue CAGR supports a recovery to 10–14x NTM revenue.
+
+*Note: These are directional estimates, not formal price targets. The consensus target of $184 implies ~96% upside — a sign that professional analysts see significant undervaluation at current levels, though consensus has historically been too optimistic on high-growth software.*
 
 ---
 
@@ -218,19 +226,21 @@ The Moveworks founding team (Bhavin Shah, CEO; other co-founders) represents a c
 
 ### Growth Driver 1: AI Monetization (Now Assist & Pro Plus)
 
-**Description:** ServiceNow is monetizing AI through a Pro Plus tier (~60% price premium over standard Pro) and Now Assist generative AI features embedded across all workflows. Now Assist ACV was approaching $500M in FY2025, having seen net new ACV "more than double YoY" in Q4 2025. Management expects 6 products to exceed $1B in ACV by 2026 (vs. 3 in 2024).
+**Description:** ServiceNow is monetizing AI through a Pro Plus tier (~60% price premium) and AI-native bundles driving an additional 20–30% price lift. Now Assist ACV crossed $600M at year-end FY2025 and reached **$750M in Q1 2026** — well ahead of the original memo's "approaching $500M" assumption. Management raised the 2026 AI ACV target from $1B to **$1.5B**, with 50% of net new ACV already on non-seat-based pricing. Management expects 6 products to exceed $1B in ACV by 2026 (vs. 3 in 2024); security & risk has already crossed $1B CACV.
 
-**TAM Impact:** Pro Plus upsell on the ~8,700 customer base could add $1-2B in incremental ACV over 3-5 years without a single new logo. If Now Assist reaches $1B in ACV by FY2027, it would contribute ~7% of total revenue.
+**TAM Impact:** Pro Plus plus AI-native bundle upsell across ~8,700 customers could add $2–3B in incremental ACV over 3-5 years without a single new logo. If Now Assist reaches the $1.5B 2026 target and 30% of ACV is AI-sourced by 2030, AI products alone represent ~$9B of the $30B 2030 revenue target.
 
-**Scenario Analysis:**
+**Scenario Analysis (updated from Analyst Day):**
 
-| Scenario | Now Assist ACV (FY2027) | Implied Rev Impact vs. Base | Probability |
-|---------- |------------------------|------------------------------|-------------|
-| Bull | $1.5B | +$500M vs. base | 25% |
-| Base | $1.0B | — | 50% |
-| Bear | $400M (deceleration) | -$600M vs. base | 25% |
+| Scenario | Now Assist ACV (FY2026E) | Now Assist ACV (FY2027E) | Probability |
+|---------- |--------------------------|--------------------------|-------------|
+| Bull | $1.8B+ (exceeds raised target) | $3B+ | 30% |
+| Base | $1.5B (hits raised target) | $2.2B | 50% |
+| Bear | $1.1B (misses raised target) | $1.5B | 20% |
 
-**Milestones to watch:** Q-o-Q Now Assist ACV growth (must exceed 15% per quarter to hit bull case); Pro Plus adoption % of total subscription base.
+*Note: Probabilities revised upward for bull/base after Q1 2026 tracking well ahead of original projections.*
+
+**Milestones to watch:** Q-o-Q Now Assist ACV growth; management's first formal disclosure of AI ACV as a GAAP metric; conversion rate of free AI Control Tower tier to paid; AI-native bundle adoption rate vs. standard Pro Plus.
 
 ---
 
@@ -254,7 +264,7 @@ The Moveworks founding team (Bhavin Shah, CEO; other co-founders) represents a c
 
 ### Growth Driver 3: Agentic AI / Enterprise AI Orchestration
 
-**Description:** The emergence of large-language-model-based AI agents (OpenAI, Anthropic, Google) creates demand for an enterprise "system of action" that can execute multi-step workflows across enterprise systems. ServiceNow's pre-built integrations with SAP, Workday, Salesforce, Microsoft, and 2,800+ partner applications positions the Now Platform as the natural orchestration layer. Management disclosed that internal AI agent deployment delivered $350M in enterprise value in FY2025.
+**Description (updated post-Analyst Day):** The emergence of agentic AI creates demand for an enterprise governance and orchestration layer. ServiceNow has positioned its AI Control Tower as the definitive answer — not just for its own agents but for ALL enterprise AI agents from any vendor (OpenAI, Anthropic, Google, Microsoft, AWS). The Action Fabric gives any third-party AI agent access to ServiceNow's full workflow system via Model Context Protocol. The Veza acquisition (mapping 30B+ permissions across human and machine identities) and Armis acquisition (OT/IoT infrastructure) have deepened the governance moat. Management disclosed $300M in annualized cost savings from internal agentic AI deployment, providing a customer-proof-point for the ROI narrative. FedEx is running "every key business process" on ServiceNow's agentic platform.
 
 **TAM Impact:** Enterprise agentic AI market is nascent but growing rapidly; if ServiceNow captures the "orchestration layer" role, it could represent a net-new revenue stream ($1-3B annual by FY2028-2030).
 
@@ -329,11 +339,12 @@ A key second-order risk embedded in this growth driver: if AI agents perform tas
 - **Mitigation:** FY2026 guidance raised despite Q1 headwind — management is already baking in prudent geopolitical assumptions.
 - **"Timing vs. Trend" Question:** The critical unresolved question is whether Q1 2026's deal slippage is ServiceNow-specific or part of a broader enterprise software deal-close deceleration. CRM (Salesforce), MSFT, and INTU have all reported varying degrees of large-deal elongation in recent quarters. *Until Q2 2026 results are available (July 2026), this cannot be definitively resolved.* Investors should monitor peer earnings for similar commentary on large-deal timing — if CRM and MSFT report similar patterns, this is a sector-wide macro signal, not a ServiceNow-specific problem. If peers report clean pipelines, the risk of a ServiceNow-specific demand issue rises. **Note: Cross-peer Q1 2026 deal slippage data is not yet available as of this memo's writing and should be incorporated once peer earnings are reviewed.**
 
-**Risk 5: Moveworks Integration Execution**
-- **Description:** ServiceNow acquired Moveworks (AI employee assistant) in December 2025, a material deal. Integration of a 700-person AI startup into an 8,000+ enterprise software company carries execution, cultural, and technical risk.
-- **Trigger:** Key Moveworks AI talent departure; product roadmap delays >2 quarters; customer churn in Moveworks-acquired accounts.
-- **Impact:** $100-200M revenue headwind if integration stumbles; reputational risk if AI employee assistant capabilities underperform.
-- **Mitigation:** ServiceNow has a track record of absorbing AI acquisitions (Element AI in 2021, Lightstep); Moveworks' employee experience focus is core to HRSD expansion strategy.
+**Risk 5: Moveworks Integration Execution** *(risk materially reduced post-Analyst Day)*
+- **Description:** ServiceNow acquired Moveworks (AI employee assistant) in December 2025, a material deal.
+- **Updated:** At the May 2026 Analyst Day, management disclosed that **EmployeeWorks (the rebranded Moveworks product) beat Q1 2026 expectations by 5x**. This is a significant integration de-risking signal. The product is now live and performing above plan.
+- **Residual risk:** Talent retention of the Moveworks AI engineering team remains important. No public departures disclosed as of May 2026.
+- **Updated probability:** Reduced from 3/5 to 2/5; severity maintained at 3/5. Score drops from 9 to 6.
+- **What to watch:** Q2 2026 EmployeeWorks ACV disclosure; any talent departure announcements.
 
 ---
 
@@ -355,7 +366,65 @@ Microsoft successfully leverages its M365/Azure dominance to route enterprise wo
 
 ---
 
-## 6. 12-Month KPI Watch List
+## 6. Financial Analyst Day 2026 — Key Developments (May 4–6, 2026)
+
+*This section captures material new information from ServiceNow's Knowledge 2026 / Financial Analyst Day event and assesses its impact on the bull/bear thesis.*
+
+### 6a. Headline Updates
+
+| Topic | Original Memo Assumption | Analyst Day Disclosure | Bull/Bear Signal |
+|-------|--------------------------|------------------------|-----------------|
+| Now Assist ACV (2025 year-end) | "approaching $500M" | **Crossed $600M** | ↑ Bull (ahead of estimate) |
+| Now Assist ACV (Q1 2026) | Not disclosed | **$750M** | ↑ Strong bull |
+| 2026 AI ACV target | $1B (original memo base case) | **Raised to $1.5B** | ↑ Bull |
+| 2030 AI as % of ACV | Not quantified | **30% of ACV by 2030** | ↑ Bull (structural) |
+| 2026 subscription revenue | ~$15.75B guidance | **Beat by ~$500M organically** → implies ~$16.25B+ possible | ↑ Bull |
+| 2030 subscription target | Not modeled | **$30B+ (upside: $32B)** | ↔ Mixed (growth decelerates to mid-teens) |
+| Non-GAAP op margin (2027E) | ~31.5–32% | **100bps expansion committed** → ~32–33% | ↑ Bull |
+| FCF margin by 2030 | Not modeled | **~900bps expansion** vs. 2025's 34% → ~43% by 2030 | ↑ Strong bull |
+| SBC as % of revenue | ~17% (FY2025) | **Target: <10% by 2029** (already below 15% in 2025) | ↑ Strong bull on dilution |
+| Share dilution (2026) | Net reduction expected | **"Dilution net neutral for 2026"** confirmed | ↑ Bull |
+| Non-seat-based pricing | Transitioning; 60% Pro Plus premium | **50% of net new ACV already non-seat-based** | ↑ Bull (seat deflation risk partially mitigated) |
+| EmployeeWorks (Moveworks) | Integration risk flagged | **Beat Q1 expectations by 5x** | ↑ Strong bull (integration derisk) |
+| AI-native bundle price lift | ~60% Pro Plus premium | **20–30% price lift across AI-native bundles** | ↑ Bull |
+| Agentic AI cost savings | Not quantified | **$300M annualized** ($100M in 2025, $200M in 2026) | ↑ Bull (internal proof of value) |
+| Competitive moat vs. Microsoft | Switching costs + CMDB | **"We manage everyone else's agents; they can't manage ours"** — AI Control Tower | ↑ Bull (thesis strengthened) |
+| Security & risk segment | Growing | **Crossed $1B CACV** | ↑ Bull |
+| CRM segment (new) | Not a focus | **Targeting $2B in ACV** — new product category | ↑ Bull (incremental TAM) |
+| Rule of 40 | ~55 (estimated) | **Target: Rule of 60+ by 2030** | ↑ Bull |
+
+### 6b. The AI Control Tower — Strategic Implications
+
+The most significant strategic development from the Analyst Day was the framing of ServiceNow as the **governance layer for all enterprise AI agents**, not just its own. This is a materially different competitive positioning than the original memo captured.
+
+**What the AI Control Tower does:**
+1. **Discovers and catalogs** all AI assets across every cloud provider (AWS, Azure, Google, Anthropic, OpenAI)
+2. **Governs in real-time**: detects hallucinations, bias, and policy violations across all agents
+3. **Kill switch capability**: can pause/stop/redirect any AI agent enterprise-wide with one button
+4. **ROI tracking**: provides CFO-level dashboards on AI adoption, cost, and productivity
+5. **Action Fabric**: any third-party AI agent can access ServiceNow's full workflow system (flows, approvals, catalogs) via MCP — with identity verification, permission control, and full auditability
+
+**The key strategic insight:** McDermott stated: *"We manage everyone else's agents. They can't manage ours."* Workday governs HR agents; Salesforce governs CRM agents; ServiceNow governs everything that spans departmental boundaries.
+
+**Impact on the Microsoft threat assessment:**
+The original memo noted Microsoft Copilot Studio as the top competitive risk. The AI Control Tower inverts this dynamic: ServiceNow is not competing with Microsoft to build agents, but is *becoming the platform Microsoft agents run on in the enterprise*. ServiceNow offered enterprises 1 year of AI Control Tower free (stated value: $2M) to accelerate adoption — a land-grab strategy analogous to how it initially expanded ITSM into HRSD.
+
+**Gartner validation:** Gartner projects 40% of agentic AI projects will fail by 2027 due to insufficient governance. ServiceNow is building the exact product category that addresses this failure mode — and doing so from a position of deep enterprise trust and CMDB integration that no AI-native startup can replicate.
+
+### 6c. The Bear Case — What the Analyst Day Also Revealed
+
+The $30B 2030 subscription target is a double-edged sword:
+
+- From the 2026 base (~$15.5B), $30B by 2030 implies a **~18% 4-year CAGR** — below the current 20–21% growth rate. This is management implicitly guiding that deceleration is coming.
+- Bears read the Analyst Day as a "margin story pivot" — when growth slows, companies pivot to talking about margins. The ~900bps FCF expansion by 2030 is a compelling story, but it is not the same as 20%+ revenue compounding.
+- The stock is down **54% from its 52-week high** and down **36% YTD** despite the Q1 beat-and-raise. This degree of market skepticism is unusual for a business with >99% renewal rates and 22% growth.
+- Bernstein's $236 target is ~150% above current price — a wide gap that suggests even the bulls need to model a significant multiple re-rating that the current market is not pricing in.
+
+**Net assessment from Analyst Day:** The event was a net positive for the bull thesis, particularly on AI monetization velocity and dilution management. The bear case is now more precisely defined: it is not about the *quality* of the business but about whether a high-growth SaaS company decelerating to 17% by 2030 can sustain a premium multiple, especially if macro/geopolitical deal timing continues to obscure the underlying pipeline.
+
+---
+
+## 7. 12-Month KPI Watch List
 
 | KPI | Current Value | Target Range | Red Flag Threshold | Frequency | Source |
 |-----|--------------|--------------|-------------------|-----------|--------|
@@ -364,11 +433,16 @@ Microsoft successfully leverages its M365/Azure dominance to route enterprise wo
 | Total RPO | $28.2B (Q4 2025) | Growing >20% YoY | <15% growth | Quarterly | SEC 8-K |
 | Non-GAAP Operating Margin | ~31% (FY2025) | 31-33% | <30% (margin degradation) | Quarterly | Earnings release |
 | Free Cash Flow Margin | ~34% (FY2025) | 33-36% | <30% | Quarterly | 10-Q / 10-K |
-| Now Assist / AI ACV | ~$500M (FY2025) | Growing >80% YoY | Flat or declining QoQ | Quarterly (management commentary) | Earnings call transcript |
+| Now Assist / AI ACV | **$750M (Q1 2026)** | $1.5B by end of FY2026 | <$1B by Q4 2026 (miss of raised target) | Quarterly (management commentary) | Earnings call transcript |
 | Customers with ACV >$5M | 603 (Dec 2025) | +15-20% YoY | <+10% YoY | Quarterly | SEC 8-K |
 | Deals >$5M Net New ACV | 16 (Q1 2026) | >15/quarter | <10/quarter | Quarterly | Earnings call |
 | Professional Services % of Revenue | ~3.3% (FY2025) | 3-4% | >5% (would signal core platform stalling) | Quarterly | Earnings release |
 | FY2026 Full-Year Guidance (Subscription) | $15,735-15,775M | Raised or maintained | Guidance cut >$200M | At each earnings | Earnings release |
+| Non-seat-based ACV % of net new | ~50% (Analyst Day disclosure) | Increasing toward 60%+ by FY2027 | <40% (seat deflation risk resurfacing) | Annually / Analyst Day | Management commentary |
+| SBC as % of revenue | ~15% (FY2025) | Declining toward <10% by 2029 | >17% or plateau | Annually | 10-K |
+| EmployeeWorks / Moveworks revenue | Beat Q1 expectations by 5x | Sustained outperformance | Any disclosure of product delay or customer churn | Quarterly | Earnings call |
+| AI Control Tower adoption | Free tier launched (May 2026) | First paid customers by Q3 2026 | No paid conversions by year-end | Quarterly | Management commentary |
+| Middle East deal catch-up | 75bps headwind in Q1 2026 | Full catch-up by Q2-Q3 2026 | Headwind persists or widens in Q2 2026 | Q2 2026 earnings (July 2026) | SEC 8-K |
 
 ### Monitoring Notes
 
