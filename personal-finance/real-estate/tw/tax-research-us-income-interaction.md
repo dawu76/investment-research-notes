@@ -99,7 +99,7 @@ If the Form 1116 passive basket limitation in the sale year is expected to be lo
 
 The property sale's US tax exposure is fixed and small regardless of investment choices. The decisions that move the needle materially are:
 
-1. **Confirm the original purchase date** (title deed search at the local 地政事務所). This determines Old System vs. HSTT — a difference of ~$16,800 USD in Taiwan tax for a 30坪 unit. Nothing in the US investment portfolio comes close to this.
+1. **Confirm the original purchase date** — approximate month confirmed as **April 2012** (exact day TBD via title deed search at the local 地政事務所). Pre-Jan 2016 → Old System applies (~$20,700 vs. ~$38,000 under HSTT). Nothing in the US investment portfolio comes close to this lever.
 
 2. **Confirm the actual registered area (登記面積)** from the 謄本 or 房屋稅籍證明書. The market value estimates span NT$3–4M depending on unit size; this is the largest single unknown in the total tax estimate.
 

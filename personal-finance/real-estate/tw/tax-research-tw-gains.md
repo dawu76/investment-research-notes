@@ -9,7 +9,7 @@
 | Field | Detail |
 |---|---|
 | Address (English) | No. 31-25, Minzu Road, Zhuwei Village, Tamsui District, New Taipei City 251 |
-| Address (Chinese) | 新北市淡水區民族路31之25號（飛歌段） |
+| Address (Chinese) | 新北市淡水區民族路31之25號, 飛歌段, Unit 22-D |
 | Building name | 觀海極品 (Guanhai Jipin) — 乙種工業區 / 工業宅 |
 | Developer | 關平建設 (Guanping Construction) |
 | Completed | 1999 (~23 years old in 2022; ~27 years old as of 2026) |
@@ -133,7 +133,7 @@ The government-assessed values (公告現值 + 房屋評定現值) used for HSTT
 
 Brief the appraiser as follows:
 1. **Effective date:** May 2022 (date of decedent's death)
-2. **Subject property:** 民族路31之25號, 淡水區, 新北市 — 工業宅 zoning
+2. **Subject property:** 民族路31之25號, Unit 22-D, 淡水區飛歌段, 新北市 — 工業宅 zoning
 3. **Primary anchor comparable:** 民族路31之25號 19樓之1, March 8, 2025, NT$39.34万/坪 — use this as the post-effective-date anchor and interpolate backward to May 2022 using contemporaneous 工業宅 transactions from 實價登錄 (2021–2022 vintage)
 4. **Use same-building comparables** (other 民族路31之X號 transactions) as the primary comp set — within-building transactions control for floor and orientation variation far better than complex-wide averages
 5. **Separate parking from unit value** — if a parking space is included in the inherited property, provide a separate opinion of value for the parking space as of May 2022. The March 2025 same-building transaction recorded a parking space at NT$1.5M; the appraiser should estimate the May 2022 equivalent. Do not fold parking value into the unit's price-per-ping calculation.
@@ -158,7 +158,7 @@ Brief the appraiser as follows:
 | Taiwan cost basis (公告現值 + 房屋評定現值) | **NT$4.2M** at inheritance | Illustrative: NT$3.5M land + NT$700K building; confirm from 謄本 / 稅籍 |
 | CPI adjustment (2022 → 2026) | +12% → **NT$4.7M** | Required by HSTT rules; approximate |
 | Deductible selling expenses | **NT$300K** | Seller-side agent commission (~1.5% of sale price = NT$189K) + stamp duty + 代書 registration fee + notary (~NT$110K); buyer's agent commission is normally paid by the buyer and is not deductible by the seller |
-| Combined holding period (tack-on rule) | >10 years | Assumed; confirm original purchase date |
+| Combined holding period (tack-on rule) | >10 years | April 2012 (exact date TBD); pre-Jan 2016 → Old System applies |
 | HSTT rate | **15%** | Applies if combined holding >10 years |
 
 ---
@@ -179,11 +179,11 @@ Brief the appraiser as follows:
 
 ---
 
-### Taiwan Side: Old System (2012 Purchase)
+### Taiwan Side: Old System (April 2012 Purchase)
 
 If the property was purchased in 2012, the **Old System applies** (pre-Jan 1, 2016 acquisition). Two separate taxes replace HSTT: (1) building income tax on the building's share of the gain, and (2) Land Value Increment Tax (LVIT / 土地增值稅) on the government-assessed land appreciation since the original purchase date. Neither tax touches the full market-vs.-assessed gap that drives HSTT's large base.
 
-*Combined holding period: 2012 purchase → May 2022 death (~10 years) + post-inheritance hold ~2022–2026 (~4 years) = **~14 years** via the tack-on rule. The 20-year long-hold discount does not apply.*
+*Combined holding period: April 2012 purchase → May 2022 death (~10 years) + post-inheritance hold ~2022–2026 (~4 years) = **~14 years** via the tack-on rule. The 20-year long-hold discount does not apply.*
 
 **Building income tax** (split uses 2026 assessed values at time of sale — not inheritance values):
 
@@ -283,9 +283,9 @@ The Foreign Tax Credit (FTC) from Taiwan HSTT (~$37,500) far exceeds any plausib
 
 ### Summary: Tax by Jurisdiction and Taiwan Regime
 
-Two Taiwan tax scenarios, depending on the original purchase date (to be confirmed via title search):
+Two Taiwan tax scenarios based on original purchase date (April 2012, exact date TBD — pre-Jan 2016 confirmed, Old System applies):
 
-| Jurisdiction | **New System / HSTT** (post-2016 purchase, or pre-2016 if tack-on hold <10yr) | **Old System** (2012 purchase assumed) |
+| Jurisdiction | **New System / HSTT** (post-2016 purchase, or pre-2016 if tack-on hold <10yr) | **Old System** (April 2012 purchase, exact date TBD) |
 |---|---|---|
 | Taiwan property tax | ~NT$1,140K **($38,000)** | ~NT$622K **($20,700)** |
 | US federal income tax | $0 (FTC from HSTT eliminates it) | $0 (FTC from Old System taxes still exceeds income tax) |
@@ -302,7 +302,7 @@ Two Taiwan tax scenarios, depending on the original purchase date (to be confirm
 
 ## Action Items
 
-- [ ] **Confirm original purchase date (母親購入日期)** via title deed search at the 地政事務所 — this determines Old System vs. New System (HSTT), a difference of ~$16,100 USD in Taiwan tax at the 30坪 baseline. Pre-Jan 1, 2016 = Old System; Jan 1, 2016–Jun 30, 2021 = HSTT 1.0 (>2yr hold = 20% flat, no 15% bracket — ~$61K vs. ~$38K); Jul 1, 2021+ = HSTT 2.0 (>10yr = 15%).
+- [ ] **Confirm original purchase date (母親購入日期)** — approximate month confirmed as **April 2012**; exact day TBD. Retrieve via title deed search at the 地政事務所. April 2012 is pre-Jan 1, 2016 → Old System applies (~$20,700 Taiwan tax vs. ~$38,000 under HSTT). Confirm exact day for precise combined holding period and LVIT calculation.
 - [ ] **Confirm property use history** — verify no rental income was received after May 2022 (or by the decedent before). If any rental income was received post-inheritance, notify your US CPA: depreciation recapture (§1250, 25% rate) may apply to any US gain, and prior-year US return amendments may be needed.
 - [ ] **Confirm 登記面積 (坪數) of unit 31之25號** — obtain from 謄本 or 房屋稅籍證明書. This is the single most important missing input; total value estimates span NT$3–4M depending on size.
 - [ ] **Commission retroactive 不動產估價師 appraisal** with May 2022 effective date. Use the March 2025 same-building transaction at NT$39.34万/坪 as the primary anchor. Specify 工業宅 comparables only.
@@ -369,7 +369,7 @@ The following prompt is optimized to reproduce this document's analysis in a sin
 
 > I need a market value research document for a Taiwan condo I inherited in May 2022 and plan to sell in Summer 2026. The purpose is dual: (1) establish FMV at date of death (May 2022) for US tax purposes under IRC §1014 stepped-up basis, and (2) contextualize current market value (2026) for planning. Taiwan's 房地合一稅 (HSTT) uses government-assessed values (公告現值 + 房屋評定現值) as cost basis — not FMV — so the FMV research is relevant only to the US side.
 >
-> **Property:** 民族路31之25號, 新北市淡水區, 觀海極品 complex (near MRT 竹圍站, ~4 min walk). The entire 觀海極品 complex is 乙種工業區 (工業宅) — all 9 buildings. This is critical: buyers cannot get standard residential mortgages (limited to 50–60% LTV vs. 70–80% for residential), which suppresses market prices relative to conventional condos. Do not treat any part of this complex as residential-zoned.
+> **Property:** 民族路31之25號, Unit 22-D, 新北市淡水區飛歌段, 觀海極品 complex (near MRT 竹圍站, ~4 min walk). The entire 觀海極品 complex is 乙種工業區 (工業宅) — all 9 buildings. This is critical: buyers cannot get standard residential mortgages (limited to 50–60% LTV vs. 70–80% for residential), which suppresses market prices relative to conventional condos. Do not treat any part of this complex as residential-zoned.
 >
 > **Key caveats to address explicitly:**
 > 1. **Parking bundling:** Underground parking spaces (停車位) are sometimes sold with the unit and sometimes not. Under 實價登錄 v2.0 (effective July 2021), parking area and price must be reported separately. However, third-party aggregators (5168, 591, Rakuya) may not consistently strip parking from their per-ping averages. For every data point, note whether parking is included or excluded from the price. Prefer same-building transactions that explicitly separate parking. Where parking separation is unclear, flag it.

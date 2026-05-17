@@ -13,7 +13,7 @@
 
 | Risk | Consequence | Mitigation |
 |---|---|---|
-| Cannot confirm original purchase date (pre-2016 / 2016–Jun 2021 / Jul 2021+) | Three distinct regimes: pre-Jan 2016 = Old System (LVIT + building income); Jan 2016–Jun 2021 = HSTT 1.0 (>2yr hold = flat **20%**, no 15% bracket); Jul 2021+ = HSTT 2.0 (>10yr = **15%**). HSTT 1.0 vs. 2.0 rate difference alone: ~NT$470K (~$15K) on a NT$14.5M sale. Given 1999 construction, pre-2016 is almost certain — but confirm | Title deed search (地政事務所) |
+| Original purchase date: approximate month **April 2012**, exact day TBD | Pre-Jan 2016 confirmed → Old System (LVIT + building income) applies. Exact day needed for precise LVIT calculation and combined holding period verification. | Confirm exact day via title deed search (地政事務所) |
 | No 2022 FMV appraisal exists | IRS may challenge stepped-up basis | Commission retroactive qualified appraisal now |
 | 戶籍 not registered at subject property | Self-use HSTT exemption (NT$4M deduction, 10% rate) unavailable — **affects property sales tax only** | Likely a closed issue: even with active 戶籍, it must be registered at *this property* for 6+ years of combined holding period; physical residency requirement also unmet |
 | Taiwan tax non-resident (<183 days/year in TW) | Buyer withholds tax at closing; flat withholding rate applies to building gain if Old System — **affects income tax and withholding mechanism** | Treat as confirmed given US-based living; plan for withholding at closing |
@@ -274,7 +274,7 @@ If time or cost is a constraint, Method 1 alone (with a well-documented spreadsh
     - **Old System (original purchase before Jan 1, 2016):** Building gain only is taxed as ordinary income (separate from land); land gain is subject to Land Value Increment Tax (LVIT / 土地增值稅), administered by local government — these are two separate taxes filed with separate authorities.
     - **HSTT 1.0 (original purchase Jan 1, 2016 – Jun 30, 2021):** Unified tax on combined house+land gain. Rate schedule differs from HSTT 2.0: ≤1yr 45%; >1–2yr 35%; **>2yr combined hold = flat 20%** — no 15% bracket exists. A combined hold of 14+ years still applies at 20%. On the NT$9.45M illustrative gain, this equals ~NT$1.89M (~$61K) vs. NT$1.42M (~$46K) under HSTT 2.0 — a NT$470K (~$15K) difference.
     - **HSTT 2.0 (original purchase Jul 1, 2021 or later):** Unified tax at the 45%/35%/20%/15% schedule below. A single filing with the national tax authority within 30 days of transfer.
-    - **For this property:** Given the 1999 construction, the original purchase is almost certainly pre-2016 (Old System). The HSTT 1.0 scenario applies only if the mother sold and rebought, or gifted and rebought, between 2016 and June 2021. Confirm the exact acquisition date via title deed search.
+    - **For this property:** Original purchase confirmed as **April 2012** (exact day TBD, pre-Jan 2016) → Old System applies. Confirm exact day via title deed search for precise LVIT and combined holding period calculations.
 
 - [ ] **Map the Full HSTT Rate Schedule (New System):**
     - ≤2 years combined holding: **45%**
@@ -286,7 +286,7 @@ If time or cost is a constraint, Method 1 alone (with a well-documented spreadsh
 - [ ] **Calculate Combined Holding Period (Tack-On Rule):**
     - Apply the "inheritance bridge": [Mother's holding years from purchase date] + [Your holding years: 登記日 through sale date in 2026].
     - This is the single most consequential calculation — model it with the exact 登記日 and the confirmed purchase date.
-    - Example: If mother purchased in 2012 and you register sale in August 2026, combined hold ≈ 14 years → **15% bracket**.
+    - With confirmed April 2012 purchase and sale registered August 2026, combined hold ≈ 14 years → **15% bracket**.
 
 - [ ] **Evaluate Self-Use Exemption (戶籍 Residency Requirement) — affects property sales tax (HSTT) only:**
     - Requires 戶籍 registered *at this property specifically* for at least 6 of the combined holding years, with no rental or business use and evidence of physical occupancy.
