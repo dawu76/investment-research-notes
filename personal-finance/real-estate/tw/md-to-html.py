@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Convert a Markdown file to a styled HTML document with CJK font support."""
 
+import re
 import sys
 import argparse
 from pathlib import Path
@@ -135,9 +136,97 @@ EXTRAS = [
 ]
 
 
+def preprocess_markdown(text: str) -> str:
+    """De-indent <details> blocks nested inside list items.
+
+    markdown2 mishandles block-level HTML that is indented inside list items:
+    it prematurely closes the list item, leaving the details content outside
+    the collapsible block. De-indenting to column 0 lets markdown2 treat the
+    block as top-level HTML, which it handles correctly.
+    """
+    lines = text.split("\n")
+    result = []
+    indent = 0
+    in_details = False
+
+    for line in lines:
+        if not in_details:
+            m = re.match(r"^( +)<details>", line)
+            if m:
+                in_details = True
+                indent = len(m.group(1))
+                # Ensure a blank line precedes <details> so markdown2 closes the
+                # current list context and treats <details> as a block element.
+                if result and result[-1] != "":
+                    result.append("")
+                result.append(line[indent:])
+            else:
+                result.append(line)
+        else:
+            de_indented = line[indent:] if line.startswith(" " * indent) else line
+            result.append(de_indented)
+            if de_indented.strip() == "</details>":
+                in_details = False
+                result.append("")  # blank line after </details> for block separation
+
+    return "\n".join(result)
+
+
+def postprocess_html(html: str) -> str:
+    """Wrap bare text lines that markdown2 failed to process.
+
+    After an <hr /> block, markdown2 with break-on-newline fails to wrap the
+    following text in <p> tags or convert inline **bold** / *italic* markup.
+    This pass detects bare text lines (not starting with an HTML tag) and
+    wraps them with proper <p> elements, also handling ordered-list sequences.
+    """
+    def convert_inline(text: str) -> str:
+        text = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", text)
+        text = re.sub(r"\*([^*\n]+?)\*", r"<em>\1</em>", text)
+        return text
+
+    # markdown2 splits task lists around <details> blocks, producing bare <ul>
+    # elements that lack class="task-list". Re-attach the class so the existing
+    # CSS rules (flex layout, no bullet, correct spacing) apply consistently.
+    html = re.sub(
+        r"<ul>(\n<li><input type=\"checkbox\")",
+        r'<ul class="task-list">\1',
+        html,
+    )
+
+    lines = html.split("\n")
+    result: list[str] = []
+    ol_items: list[str] = []
+
+    def flush_ol() -> None:
+        if ol_items:
+            result.append("<ol>")
+            for item in ol_items:
+                result.append(f"<li>{convert_inline(item)}</li>")
+            result.append("</ol>")
+            ol_items.clear()
+
+    for line in lines:
+        stripped = line.strip()
+        ol_match = re.match(r"^(\d+)\.\s+(.+)$", stripped)
+        if ol_match and not stripped.startswith("<"):
+            ol_items.append(ol_match.group(2))
+        else:
+            flush_ol()
+            if stripped and not stripped.startswith("<") and not stripped.startswith("&"):
+                result.append(f"<p>{convert_inline(stripped)}</p>")
+            else:
+                result.append(line)
+
+    flush_ol()
+    return "\n".join(result)
+
+
 def convert(src: Path, dst: Path) -> None:
     md_text = src.read_text(encoding="utf-8")
+    md_text = preprocess_markdown(md_text)
     body_html = markdown2.markdown(md_text, extras=EXTRAS)
+    body_html = postprocess_html(body_html)
 
     title = src.stem.replace("-", " ").replace("_", " ")
 
