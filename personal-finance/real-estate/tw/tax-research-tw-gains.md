@@ -211,6 +211,84 @@ If the property was purchased in 2012, the **Old System applies** (pre-Jan 1, 20
 | **Total LVIT** | **~NT$410K (~$13,700 USD)** |
 | Long-hold discount | None — 14-year combined hold does not reach the 20-year threshold |
 
+---
+
+### Payment Process and Timing (Old System)
+
+The two old-system taxes follow completely different procedural tracks and are settled at different points in the conveyancing timeline. Both must be coordinated by the 代書 (land scrivener / conveyancer).
+
+#### 土地增值稅 (LVIT) — Blocking prerequisite for title transfer
+
+LVIT must be **paid in full before the 地政事務所 will accept the 所有權移轉登記 (title transfer registration)**. It is a local tax administered by the county/city tax bureau (地方稅稽徵機關) — for 新北市淡水區, that is the New Taipei City Revenue Service (新北市政府稅捐稽徵處).
+
+| Step | Action | Deadline / Notes |
+|---|---|---|
+| 1. Sign contract | Execute 買賣契約書 | Day 0 |
+| 2. File LVIT declaration | Seller and buyer (or 代書 on their behalf) submit 土地增值稅(土地現值)申報書 + contract copy to 地方稅稽徵機關 | Within **30 days** of contract signing — if late, the public land value on the filing receipt date is used instead of the contract date, potentially increasing the tax |
+| 3. Tax authority issues 繳款書 | Standard rate: ~7 business days; preferential self-use rate (自用住宅): ~14 business days | — |
+| 4. Pay LVIT | Seller pays at a financial institution, convenience store, or online (地方稅網路申報繳款) | Must be paid before step 5 |
+| 5. Register title transfer | Bring LVIT 繳款書 (and 契稅 receipt paid by buyer) to 地政事務所 to complete 所有權移轉登記 | Within **1 month** of contract signing; late registration incurs a penalty surcharge |
+
+Statutory basis: 土地稅法第49條 (30-day declaration obligation); 不動產買賣流程慣例 (tax clearance prerequisite for 地政 registration).
+
+**Important:** For this property, the self-use residential preferential rate (自用住宅用地稅率 10%) does not apply because 觀海極品 is 工業宅 (乙種工業區). The general progressive rate applies: 20% on the first 100% of original 公告地價, 30% on 100–200%, and 40% above 200%.
+
+**Does LVIT require the seller to pre-fund from outside the transaction?** No. Taiwan real estate transactions use a standard multi-stage payment ladder: the buyer pays roughly 10% at signing (簽約), 10% at 用印, 10% at 完稅, and the remaining 70% at closing (交屋). The seller has already received approximately 20% of the purchase price by the time LVIT is due at the 完稅 stage — far more than the ~NT$410K LVIT on a ~NT$12.6M sale (~3.3% of total). Two funded mechanisms are standard:
+
+| Mechanism | How it works |
+|---|---|
+| **From early installments** | The seller uses 簽約款 + 用印款 already received (typically ~20% of total, ~NT$2.5M on this transaction) to pay LVIT directly |
+| **From 履保 escrow** | If the contract uses a 履約保證 (履保) escrow account, the 代書 deducts LVIT from the buyer's deposited installment and remits it to the tax bureau on the seller's behalf — the seller never handles the cash |
+
+The 代書 confirms which mechanism applies. Either way, the seller does not need to transfer funds from abroad before the sale proceeds. Source: [2026最新房屋買賣流程全解析 — mywu35.com](https://www.mywu35.com/allarticle02/); [不動產買賣流程 — 潤泰心代書事務所](https://www.luntaixin.com/edcontent_d.php?lang=tw&tb=4&id=61).
+
+#### 房屋財產交易所得稅 (Building income tax) — Non-resident withholding at 20%
+
+As a US-based non-resident (非中華民國境內居住之個人), the building income tax is taxed at a flat **20%** withholding rate — not the progressive 5–40% scale that applies to Taiwan residents. Source: 財政部各類所得扣繳率標準; 財政部稅務入口網非居住者扣繳率Q&A.
+
+Two procedural routes exist in practice:
+
+| Route | Mechanism | Timing |
+|---|---|---|
+| **A. Buyer withholds (扣繳)** | The buyer (買受人) acts as 扣繳義務人 and withholds 20% of the building-portion gain from the final payment (尾款) to the seller; remits to the National Tax Bureau within **10 days** of payment; issues a 扣繳憑單 to the seller | At time of final payment (尾款交付日) |
+| **B. Seller self-reports** | The non-resident seller (or an appointed 稅務代理人) files and pays directly to the National Tax Bureau — either before departing Taiwan (if attending closing in person), or through a Taiwan-based representative within the prescribed window (Income Tax Act Article 73) | Before departure from Taiwan, or through representative post-transaction |
+
+Route A (buyer withholding) is the default rule under the Income Tax Act for payments to non-residents; Route B is used when both parties agree, or when the seller has a 稅務代理人 who can handle filing. The 代書 typically coordinates this alongside the LVIT filing and confirms the chosen route before closing.
+
+**Does building income tax require the seller to pre-fund from outside the transaction?** No — and critically, it is **not a prerequisite for title transfer**. The 地政事務所 requires only LVIT and 契稅 receipts before registering the title transfer; building income tax is never part of the 完稅 blocking requirement. This means:
+
+- **Route A (buyer withholds):** The buyer deducts the withholding amount from the final payment (尾款, ~70% of total). The tax comes directly from the sale proceeds — the seller never needs to pre-fund it.
+- **Route B (seller self-reports):** The seller (through a 稅務代理人) pays after receiving the full proceeds, within the statutory deadline. Again no pre-funding required.
+
+**Is building income tax covered by 履保 escrow?** No — income-type taxes (both 房地合一稅 under the new system and 財產交易所得稅 under the old system) are explicitly excluded from 履保 disbursements. The standard 履約保證 contract covers LVIT, 地價稅, 房屋稅, and 工程受益費, but not income taxes on the gain. Source: [2026最新房屋買賣流程全解析 — mywu35.com](https://www.mywu35.com/allarticle02/) ("賣方稅費...均可由專戶扣繳，但不包括房地合一稅").
+
+> **Practical note:** Because you are US-based and unlikely to be physically present at closing, the recommended approach is to appoint a Taiwan-based 稅務代理人 before the transaction closes. The representative coordinates the building income tax payment (Route B) and ensures it does not block the title transfer sequence. Confirm the route with the 代書 early — ideally at the 用印 (contract sealing) stage.
+
+#### Post-Transaction Filing Obligations
+
+**Taiwan annual filing season (May–June of the following year) — does NOT apply to non-residents**
+
+Taiwan's annual 綜合所得稅結算申報 is an obligation for Taiwan *residents* only. As a US-based non-resident (non-ROC resident), you do not participate in it. Per the MoF's guidance for non-residents, property transaction income (財產交易所得) falls in the **self-report category** — it is handled at the time of the transaction (via Route A buyer withholding or Route B representative filing), not deferred to a May-June annual return. Source: [財政部稅務入口網 — 非居住者如何報繳綜合所得稅](https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-q-and-a/national/individual-income-tax/alien-tax-question/taxation-scope/OQ0DQxJ).
+
+*Exception:* If you were to spend >183 days in Taiwan in the calendar year of the sale and thereby become a Taiwan tax resident for that year, the rules flip: the old-system building income would then be included in the annual 綜合所得稅 return filed the following May-June, using the **登記日 (title registration date)** as the income recognition date. Source: [全謹代書事務所 — 財產交易所得以登記日為申報基準日](https://www.lystudio.com.tw/article_detail/1128.htm).
+
+**US annual filing season (April of the following year) — YES, required**
+
+The sale creates a mandatory US federal income tax filing obligation in the year following the sale. If the title is registered in 2026 (登記日 in 2026), the gain is recognized in the 2026 tax year and must be reported on the return due April 15, 2027 (extendable to October 15, 2027):
+
+| Form | Purpose | Notes |
+|---|---|---|
+| **Schedule D (Form 1040)** | Report capital gain or loss on sale of inherited foreign property | Gain/loss computed in USD; basis locked at May 2022 FMV at NT$29.5/USD; proceeds converted at 2026 closing rate |
+| **Form 1116** | Foreign Tax Credit for Taiwan taxes paid | Offsets US federal income tax on the gain; see FTC note below |
+| **Form 8938** | FATCA reporting of foreign financial assets | Consult CPA — typically triggered if foreign accounts/assets exceed thresholds |
+
+**FTC creditability of old-system Taiwan taxes — an important nuance:** Not both Taiwan taxes necessarily qualify for the US Foreign Tax Credit:
+
+- **Building income tax (財產交易所得稅, ~$7,100):** Clearly qualifies — it is a tax on net income (the building portion gain) computed in a manner substantially equivalent to a US income tax.
+- **LVIT (土地增值稅, ~$13,700):** Creditability is uncertain. The IRS may characterize LVIT as a tax on gross receipts or a property transfer tax rather than a net income tax, potentially disqualifying it from the FTC. This is a material point: if LVIT does not qualify, the creditable FTC drops from ~$20,700 to ~$7,100. Discuss with your US CPA before filing. (At the actual income profile, the Form 1116 limit ~$1,500 is the binding constraint — well below both $7,100 and $20,700 — so LVIT creditability does not affect the residual federal tax calculation. See the US tax section below for the full analysis.)
+
+---
+
 **Old System total:**
 
 | Tax | NT$ | USD (at NT$30/USD) |
@@ -230,7 +308,7 @@ If the property was purchased in 2012, the **Old System applies** (pre-Jan 1, 20
 
 **Why Old System saves money:** HSTT taxes the full NT$7.6M market-vs.-assessed gap at 15%. The Old System never touches that gap — it only taxes the much smaller building gain (~NT$1.06M) and the government-assessed land increment (NT$1.9M), for a combined Old System base of ~NT$3.0M versus NT$7.6M under HSTT. Even at similar or slightly higher marginal rates on those smaller bases, the Old System total is far lower.
 
-**FTC implication:** With Old System total Taiwan tax at ~$20,700 USD, the Foreign Tax Credit is smaller than under HSTT. However, at all plausible US gain levels for a 30坪 unit, the FTC still fully covers the federal income tax (see US side below).
+**FTC implication:** With Old System total Taiwan tax at ~$20,700 USD, the Foreign Tax Credit is smaller than under HSTT. However, at all plausible US gain levels for a 30坪 unit, the Form 1116 limit is the binding constraint — the FTC partially (not fully) offsets federal income tax regardless of whether the available amount is $7K or $20,700 (see US side below).
 
 ---
 
@@ -262,22 +340,89 @@ The US gain/loss is acutely sensitive to the 2026 TWD/USD rate because the cost 
 
 ---
 
+### Extended Sensitivity: Unit Size × 2026 Sale Price
+
+*Extends the FX sensitivity above across the realistic range of unit sizes (30–38坪) and 2026 sale prices (NT$38万–NT$48万/坪). Unit only; parking excluded (adds ~NT$1.25M to proceeds and ~$35,600 to US basis, shifting gains by roughly +$5K–$10K depending on FX rate). Central case shown in **bold**.*
+
+*"NTD gain vs. 2022 FMV" = net sale proceeds after expenses minus the May 2022 FMV used as US cost basis, measured in NT$. A negative value means the NTD price net of expenses is below the inherited cost base — the USD gain can still be positive or negative depending on the 2026 exchange rate, because the basis was locked at NT$29.5/USD while proceeds convert at the 2026 rate.*
+
+#### 30坪 (US basis: $406,780)
+
+| 2026 price/坪 | NTD gain vs. 2022 FMV | NT$29/USD | **NT$30/USD** | NT$31/USD | NT$32/USD |
+|---|---|---|---|---|---|
+| NT$38万 | −NT$881K | −$23K | −$36K | −$48K | −$59K |
+| NT$40万 | −NT$290K | −$3K | −$16K | −$29K | −$41K |
+| **NT$42万** | **+NT$301K** | **+$17K** | **+$3K** | **−$10K** | **−$22K** |
+| NT$44万 | +NT$892K | +$38K | +$23K | +$9K | −$4K |
+| NT$46万 | +NT$1.48M | +$58K | +$43K | +$28K | +$15K |
+| NT$48万 | +NT$2.07M | +$79K | +$62K | +$47K | +$33K |
+
+#### 34坪 (US basis: $461,017)
+
+| 2026 price/坪 | NTD gain vs. 2022 FMV | NT$29/USD | **NT$30/USD** | NT$31/USD | NT$32/USD |
+|---|---|---|---|---|---|
+| NT$38万 | −NT$984K | −$26K | −$40K | −$54K | −$67K |
+| NT$40万 | −NT$314K | −$3K | −$18K | −$32K | −$46K |
+| **NT$42万** | **+NT$356K** | **+$20K** | **+$4K** | **−$11K** | **−$25K** |
+| NT$44万 | +NT$1.03M | +$43K | +$27K | +$11K | −$4K |
+| NT$46万 | +NT$1.70M | +$67K | +$49K | +$32K | +$17K |
+| NT$48万 | +NT$2.37M | +$90K | +$71K | +$54K | +$38K |
+
+#### 38坪 (US basis: $515,254)
+
+| 2026 price/坪 | NTD gain vs. 2022 FMV | NT$29/USD | **NT$30/USD** | NT$31/USD | NT$32/USD |
+|---|---|---|---|---|---|
+| NT$38万 | −NT$1.09M | −$29K | −$45K | −$60K | −$74K |
+| NT$40万 | −NT$338K | −$3K | −$20K | −$36K | −$51K |
+| **NT$42万** | **+NT$411K** | **+$23K** | **+$5K** | **−$12K** | **−$27K** |
+| NT$44万 | +NT$1.16M | +$49K | +$30K | +$12K | −$4K |
+| NT$46万 | +NT$1.91M | +$75K | +$55K | +$37K | +$19K |
+| NT$48万 | +NT$2.66M | +$100K | +$80K | +$61K | +$43K |
+
+*Formula: US basis = 坪 × NT$40万 ÷ NT$29.5. Selling expenses = 1.5% × gross proceeds + NT$110K. NTD gain vs. 2022 FMV = net proceeds − (坪 × NT$40万). USD gain = net NTD proceeds ÷ 2026 FX rate − US basis. Rounded to nearest $1K.*
+
+*Breakeven FX rate (US gain = $0) by sale price — approximately the same for all unit sizes because both basis and proceeds scale with 坪:*
+
+| 2026 price/坪 | NT$38万 | NT$40万 | NT$42万 | NT$44万 | NT$46万 | NT$48万 |
+|---|---|---|---|---|---|---|
+| Breakeven FX | NT$27.3 | NT$28.8 | NT$30.2 | NT$31.7 | NT$33.1 | NT$34.6 |
+
+*At sale prices ≤ NT$40万/坪 the TWD must strengthen substantially from current levels to produce any USD gain. At NT$44万/坪+ the TWD can weaken noticeably (to NT$31.7+) before a USD gain disappears.*
+
+#### US Tax on Positive Gains
+
+*Income profile: MFJ, $156K base income ($4K foreign ETF dividends). Numbers below match the 30坪 central-case scenarios in the Combined Burden table in [tax-research-us-income-interaction.md](tax-research-us-income-interaction.md).*
+
+| 2026 price/坪 | FX rate | USD gain | Net federal¹ | NIIT | CA (9.3%) | Total US |
+|---|---|---|---|---|---|---|
+| NT$42万 | NT$30/USD | ~$3K | ~$275 | $0 | ~$280 | ~$555 |
+| NT$42万 | NT$29/USD | ~$17K | ~$1,380 | $0 | ~$1,580 | ~$2,960 |
+| NT$44万 | NT$30/USD | ~$23K | ~$1,935 | $0 | ~$2,140 | ~$4,075 |
+| NT$44万 | NT$29/USD | ~$38K | ~$2,795 | $0 | ~$3,535 | ~$6,330 |
+| NT$46万 | NT$30/USD | ~$43K | ~$2,915 | $0 | ~$4,000 | ~$6,915 |
+| NT$46万 | NT$29/USD | ~$58K | ~$3,045 | $0 | ~$5,395 | ~$8,440 |
+
+*¹Net federal = (gain × 15%) − FTC to property. The Form 1116 passive basket limit caps usable FTC at roughly (foreign passive income / total income) × US federal tax — approximately $400–$6,000 at these gain levels. This limit is binding regardless of the available Taiwan FTC amount ($7K building-only, $20,700 Old System, or $38,000 HSTT); LVIT creditability affects the available FTC but not the usable amount. NIIT = $0 throughout: at $156K base income (MFJ), NIIT does not trigger until the gain exceeds ~$94K. For negative USD gains: no US income tax; capital loss offsets other gains or up to $3,000/year of ordinary income.*
+
+---
+
 ### Federal Tax on US Gain (Where Gain Is Positive)
 
-The Foreign Tax Credit (FTC) from Taiwan HSTT (~$37,500) far exceeds any plausible federal income tax on the gain, so the FTC eliminates federal income tax in all positive-gain scenarios. Residual US exposure is limited to NIIT and California state tax.
+The Foreign Tax Credit (FTC) from Taiwan taxes **partially** offsets US federal income tax on the gain but does not eliminate it. The usable FTC is constrained by the Form 1116 passive basket limit — approximately (foreign passive income / total income) × US federal tax — which at the actual income profile caps the credit at roughly ~$1,500 for the NT$42万/NT$29 central scenario. This limit is binding regardless of whether the available Taiwan FTC is $7K, $20,700 (Old System), or $38,000 (HSTT).
 
-*Illustration: NT$29/USD scenario, unit only, $17,358 USD gain:*
+*Illustration: NT$42万/NT$29/USD, unit only, $17,358 USD gain (MFJ, $156K base income, $4K foreign ETF dividends):*
 
 | Layer | Rate | Amount |
 |---|---|---|
 | Long-term capital gains tax | 15% | $2,604 |
-| Foreign Tax Credit (FTC from HSTT ~$38K) | Offsets income tax | ($2,604) — FTC eliminates this entirely |
-| **Net federal income tax** | | **$0** |
-| Net Investment Income Tax (NIIT) | 3.8% | **$660** — not offset by FTC |
-| California (if CA resident, ~10% ordinary rate) | ~10% | **$1,736** — no CA foreign tax credit |
-| **Total US tax (positive-gain scenario)** | | **~$2,396** |
+| Form 1116 FTC limit: (~$21K / $173K) × ~$12,500 | — | ~$1,517 usable |
+| FTC to property: ($17K / $21K) × $1,517 | — | ($1,228) |
+| **Net federal income tax** | | **~$1,376 ≈ $1,380** |
+| Net Investment Income Tax (NIIT) | 3.8% | **$0** — MAGI ~$173K < $250K MFJ threshold |
+| California (9.3% MFJ rate) | 9.3% | **$1,614** — no CA foreign tax credit |
+| **Total US tax** | | **~$3,000** |
 
-*If the 2026 rate is NT$30.2+ (unit only) or NT$30.6+ (with parking) and results in a USD loss: no federal or California income tax is owed. A capital loss can offset other capital gains; up to $3,000/year can offset ordinary income, with any balance carrying forward.*
+*If the 2026 rate is NT$30.2+ (unit only) or NT$30.6+ (with parking): USD loss → no federal or California income tax owed. Capital loss offsets other gains; up to $3,000/year can offset ordinary income, with any balance carrying forward. Confirm LVIT creditability with a US CPA; it affects available FTC but not the usable amount at this income level.*
 
 ---
 
@@ -288,20 +433,21 @@ Two Taiwan tax scenarios based on original purchase date (April 2012, exact date
 | Jurisdiction | **New System / HSTT** (post-2016 purchase, or pre-2016 if tack-on hold <10yr) | **Old System** (April 2012 purchase, exact date TBD) |
 |---|---|---|
 | Taiwan property tax | ~NT$1,140K **($38,000)** | ~NT$622K **($20,700)** |
-| US federal income tax | $0 (FTC from HSTT eliminates it) | $0 (FTC from Old System taxes still exceeds income tax) |
-| US NIIT (3.8%) | ~$0–$950 (only if USD gain > $0) | ~$0–$950 (same; US gain unchanged by Taiwan regime) |
-| California (~10%) | ~$0–$2,500 (only if USD gain > $0) | ~$0–$2,500 (same) |
-| **Total estimated burden** | **~$38,000–$41,450 USD** | **~$20,700–$24,150 USD** |
+| US federal income tax | ~$0 (USD loss) to ~$1,380 (NT$42万/NT$29) | ~$0 (USD loss) to ~$1,380 (NT$42万/NT$29) |
+| US NIIT (3.8%) | **$0** (MAGI stays below $250K MFJ at all gain levels shown) | **$0** (same) |
+| California (9.3%) | ~$0–$1,580 (only if USD gain > $0) | ~$0–$1,580 (same) |
+| **Total estimated burden** | **~$38,000–$41,000 USD** | **~$20,700–$23,700 USD** |
 | **Taiwan tax savings vs. HSTT** | — | **~$17,300 USD** |
 
 *US-side exposure (NIIT + California) is identical across both Taiwan regimes because the US gain depends only on the 2022 FMV and the 2026 exchange rate — not on whether mother bought in 2012 or 2015. The regime choice affects only the FTC amount available to offset federal income tax (and both exceed the federal tax regardless).*
 
-**Central conclusion:** For a 30坪 unit with a 2012 purchase date, the **Old System saves ~$17,300 USD** in Taiwan tax relative to HSTT. In either scenario, Taiwan tax is the dominant liability; US federal exposure is eliminated by the FTC; and total US exposure reduces to NIIT + California — owed only if the TWD strengthens past ~NT$30.2/USD (unit only) or ~NT$30.6/USD (with parking) by closing.
+**Central conclusion:** For a 30坪 unit with a 2012 purchase date, the **Old System saves ~$17,300 USD** in Taiwan tax relative to HSTT. In either scenario, Taiwan tax is the dominant liability. US federal income tax is partially offset by the FTC but not eliminated — residual ~$1,380 at the NT$42万/NT$29 central positive-gain scenario. NIIT = $0 at this income level (MFJ, $156K base). Total US exposure (federal + California) of ~$3,000 at the central positive-gain scenario is owed only if the TWD strengthens past ~NT$30.2/USD (unit only) or ~NT$30.6/USD (with parking) by closing.
 
 ---
 
 ## Action Items
 
+- [ ] **Appoint a 稅務代理人 (tax representative) in Taiwan** before the sale closes. As a US-based non-resident, you need someone to handle the building income tax declaration (Route B self-report) and coordinate with the 代書 on the overall tax-payment-then-registration sequence. Confirm with the 代書 at the 用印 stage whether the buyer will withhold (Route A) or your representative will self-report (Route B) — the answer affects how the final payment (尾款) is structured.
 - [ ] **Confirm original purchase date (母親購入日期)** — approximate month confirmed as **April 2012**; exact day TBD. Retrieve via title deed search at the 地政事務所. April 2012 is pre-Jan 1, 2016 → Old System applies (~$20,700 Taiwan tax vs. ~$38,000 under HSTT). Confirm exact day for precise combined holding period and LVIT calculation.
 - [ ] **Confirm property use history** — verify no rental income was received after May 2022 (or by the decedent before). If any rental income was received post-inheritance, notify your US CPA: depreciation recapture (§1250, 25% rate) may apply to any US gain, and prior-year US return amendments may be needed.
 - [ ] **Confirm 登記面積 (坪數) of unit 31之25號** — obtain from 謄本 or 房屋稅籍證明書. This is the single most important missing input; total value estimates span NT$3–4M depending on size.
@@ -324,6 +470,17 @@ Two Taiwan tax scenarios based on original purchase date (April 2012, exact date
 | NOWnews 竹圍房市 (2025/06) | [nownews.com/news/6696561](https://www.nownews.com/news/6696561) | Zhuwei area current pricing; 關渡大國 50.67万, 南加州 50–53.5万 |
 | 自由地產天下 — 淡水房價 (2025/07) | [estate.ltn.com.tw/article/24915](https://estate.ltn.com.tw/article/24915) | H2 2022 market: "價穩量縮"; Tamsui prices +3.1% post-Sept 2024 controls |
 | 內政部實價登錄 (官方) | [lvr.land.moi.gov.tw](https://lvr.land.moi.gov.tw/) | Official query interface; use directly for unit-level 2022 records by entering 淡水區 + 民族路31 |
+| 財政部稅務入口網 — 土地增值稅課徵 | [etax.nat.gov.tw — 土地增值稅課徵](https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/local/land-value-increment-tax/noaGA0q) | LVIT filing obligation: 30-day declaration deadline, late-filing consequences (公告現值 resets to filing date), progressive rate tiers |
+| 財政部稅務入口網 — 非居住者扣繳率 | [etax.nat.gov.tw — 非居住者扣繳率](https://www.etax.nat.gov.tw/etwmain/alien-tax-service/alien-tax-faq/KK9Y76o) | Non-resident withholding rates: 財產交易所得按20%扣繳率申報納稅; buyer is 扣繳義務人 for payments to non-residents |
+| 財政部稅務入口網 — 非居住者如何報繳綜合所得稅 | [etax.nat.gov.tw — 非居住者報繳](https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-q-and-a/national/individual-income-tax/alien-tax-question/taxation-scope/OQ0DQxJ) | Non-resident filing obligation: income subject to withholding vs. self-reporting; 20% flat rate for 財產交易所得 |
+| 臺北市政府地政局 — 不動產買賣移轉登記流程 | [land.gov.taipei — 所有權移轉登記](https://land.gov.taipei/News_Content.aspx?n=96A86576275AC2D2&sms=87415A8B9CE81B16&s=40FF7E7EAB6B04B5) | Conveyancing sequence: LVIT + 契稅 must be paid before 地政事務所 accepts title transfer; 1-month registration deadline from contract signing |
+| 財政部臺北國稅局 — 舊制房屋財產交易所得Q&A | [ntbt.gov.tw — 舊制財產交易所得Q&A](https://www.ntbt.gov.tw/singlehtml/9de2c2c966cb4fb48aca9dddf1fcae9c?cntId=fb1eaa593cfc4072954312284580cc3b) | Old-system calculation rules: building-only taxation, income split formula using 房屋評定現值 ÷ (公告土地現值 + 房屋評定現值) |
+| 蔡佳峻會計師 — 出售舊制房地財產交易所得稅 | [cpacorey.com — 舊制財產交易所得](https://cpacorey.com/old-property-transaction/) | CPA explainer: actual cost method vs. MoF standard rate method; deductible expense categories; why land gain is income-tax exempt under old system |
+| 2026最新房屋買賣流程全解析 | [mywu35.com — 買賣流程全解析](https://www.mywu35.com/allarticle02/) | Payment ladder (10%/10%/10%/70%); LVIT paid from 履保 escrow ("賣方可自行繳納，或由履保專戶內代為扣繳"); income taxes explicitly excluded from 履保 ("不包括房地合一稅") |
+| 不動產買賣流程說明 — 潤泰心代書事務所 | [luntaixin.com — 買賣流程](https://www.luntaixin.com/edcontent_d.php?lang=tw&tb=4&id=61) | Full 簽約→用印→完稅→交屋 stage breakdown; LVIT and 契稅 as prerequisites for title transfer registration |
+| 臺北市政府地政局 — 不動產買賣所有權移轉登記流程 | [land.gov.taipei — 所有權移轉登記](https://land.gov.taipei/News_Content.aspx?n=96A86576275AC2D2&sms=87415A8B9CE81B16&s=40FF7E7EAB6B04B5) | Confirms LVIT and 契稅 are the only taxes blocking title registration; building income tax not required for 地政 filing |
+| 全謹代書事務所 — 財產交易所得以登記日為申報基準 | [lystudio.com.tw — 登記日申報基準](https://www.lystudio.com.tw/article_detail/1128.htm) | 登記日 (title registration date) — not contract signing or handover date — determines which tax year old-system building income falls into; example: Nov 2023 contract but Jan 2024 登記 → income reported in 2024 filing |
+| 全謹代書事務所 — 如何網路申報財產交易所得(舊制) | [lystudio.com.tw — 網路申報舊制](https://www.lystudio.com.tw/article_detail/812.htm) | Step-by-step guide to online annual filing of old-system building income in the 綜合所得稅 return (resident pathway) |
 
 ---
 

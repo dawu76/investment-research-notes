@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tax research plan</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, "PingFang TC", "Hiragino Sans GB",
+                 "Microsoft JhengHei", "Noto Sans CJK TC", sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #24292e;
+    background: #fff;
+    padding: 48px 24px;
+}
+
+.page {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    padding-bottom: 0.3em;
+}
+h1 { font-size: 1.9em; border-bottom: 2px solid #e1e4e8; }
+h2 { font-size: 1.4em; border-bottom: 1px solid #e1e4e8; }
+h3 { font-size: 1.15em; }
+h4 { font-size: 1em; color: #444; }
+
+p { margin: 0.8em 0; }
+
+a { color: #0366d6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr { border: none; border-top: 1px solid #e1e4e8; margin: 2em 0; }
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2em 0;
+    font-size: 0.92em;
+}
+th, td {
+    border: 1px solid #dfe2e5;
+    padding: 8px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    background: #f6f8fa;
+    font-weight: 600;
+}
+tr:nth-child(even) td { background: #fafbfc; }
+
+/* Task list checkboxes */
+ul.task-list { list-style: none; padding-left: 0; }
+ul.task-list li { display: flex; align-items: flex-start; gap: 8px; margin: 0.5em 0; }
+input[type="checkbox"] {
+    margin-top: 5px;
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    accent-color: #0366d6;
+}
+
+/* Regular lists */
+ul:not(.task-list), ol {
+    padding-left: 1.8em;
+    margin: 0.6em 0;
+}
+li { margin: 0.25em 0; }
+li > ul, li > ol { margin-top: 0.2em; }
+
+/* Nested lists inside task-list items */
+ul.task-list li > ul { padding-left: 1.6em; list-style: disc; }
+ul.task-list li > ul li { display: list-item; }
+
+/* Code */
+code {
+    font-family: "SF Mono", Menlo, Consolas, monospace, "PingFang TC";
+    font-size: 0.88em;
+    background: #f3f4f6;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+pre {
+    background: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 16px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+pre code { background: none; padding: 0; }
+
+/* Blockquote */
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 1em;
+    color: #6a737d;
+    margin: 1em 0;
+}
+
+/* Bold / italic */
+strong { font-weight: 600; }
+
+/* Warning callouts — ⚠ lines */
+p:has(> strong:first-child) { margin-top: 1em; }
+
+@media print {
+    body { padding: 0; font-size: 13px; }
+    a { color: #24292e; }
+    a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+}
+</style>
+</head>
+<body>
+  <div class="page">
+<h1 id="taiwan-us-property-tax-research-plan-inherited-property-sale">Taiwan &amp; US Property Tax Research Plan: Inherited Property Sale</h1>
+
+<h2 id="project-background">Project Background</h2>
+
+<ul>
+<li><strong>Property Location:</strong> New Taipei City, Taiwan</li>
+<li><strong>Inheritance Date:</strong> May 2022 (Mother deceased)</li>
+<li><strong>Target Sale Date:</strong> Summer 2026</li>
+<li><strong>Objective:</strong> Determine the applicable tax regimes, cost basis, tax brackets, and total liability for both Taiwan and the US.</li>
+</ul>
+
+<hr />
+
+<h2 id="summary-of-key-findings">Summary of Key Findings</h2>
+
+<ol>
+<li><strong>The "Tack-on" Rule:</strong> You can add your mother's holding years to yours for HSTT bracket purposes. If mother purchased pre-2016 but the New System still applies (edge case to confirm), a combined hold exceeding 10 years puts you in the 15% bracket.</li>
+<li><strong>The "Step-up" Basis:</strong> For US purposes, you are taxed only on gain since May 2022, not since mother's original purchase — but you need a documented FMV appraisal to defend this.</li>
+<li><strong>Double Tax Protection:</strong> The US Foreign Tax Credit <strong>partially</strong> offsets federal income tax but is not a complete shield. The binding constraint is the Form 1116 passive basket limit — capped at roughly (foreign income / total income) × US federal tax ≈ <strong>$1,000–$1,600</strong> at the actual income profile, leaving residual federal tax of similar magnitude regardless of how large the available Taiwan FTC is. NIIT (3.8%) is separately uncreditable — but at the actual income profile (MFJ, ~$160K base income), <strong>NIIT = $0</strong> (MAGI well below $250K MFJ threshold). California tax (~9.3% at this income level) is unrelieved by any mechanism.</li>
+<li><strong>Two Distinct Residency Concepts — Different Tax Consequences:</strong>
+<ul>
+<li><strong>戶籍 (household registration)</strong> → affects <em>property sales tax</em> (HSTT self-use exemption eligibility only). The self-use exemption is almost certainly unavailable: even with active 戶籍, it must be registered at <em>this property</em> for 6+ years with physical occupancy. Close this out and plan on the standard HSTT rate schedule.</li>
+<li><strong>Taiwan tax residency (183-day rule)</strong> → affects <em>income tax treatment</em> (flat 20% withholding vs. progressive rates under the Old System) and the <em>withholding mechanism at closing</em> (buyer withholds on behalf of non-resident sellers). Treat non-resident status as confirmed given US-based living.</li>
+</ul></li>
+</ol>
+
+<hr />
+
+<h2 id="risk-register">Risk Register</h2>
+
+<p><em>These unknowns gate other calculations — resolve before proceeding to Phase 2.</em></p>
+
+<table>
+<thead>
+<tr>
+  <th>Risk</th>
+  <th>Consequence</th>
+  <th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Original purchase date: approximate month <strong>April 2012</strong>, exact day TBD</td>
+  <td>Pre-Jan 2016 confirmed → Old System (LVIT + building income) applies. Exact day needed for precise LVIT calculation and combined holding period verification.</td>
+  <td>Confirm exact day via title deed search (地政事務所)</td>
+</tr>
+<tr>
+  <td>No 2022 FMV appraisal exists</td>
+  <td>IRS may challenge stepped-up basis</td>
+  <td>Commission retroactive qualified appraisal now</td>
+</tr>
+<tr>
+  <td>戶籍 not registered at subject property</td>
+  <td>Self-use HSTT exemption (NT$4M deduction, 10% rate) unavailable — <strong>affects property sales tax only</strong></td>
+  <td>Likely a closed issue: even with active 戶籍, it must be registered at <em>this property</em> for 6+ years of combined holding period; physical residency requirement also unmet</td>
+</tr>
+<tr>
+  <td>Taiwan tax non-resident (&lt;183 days/year in TW)</td>
+  <td>Buyer withholds tax at closing; flat withholding rate applies to building gain if Old System — <strong>affects income tax and withholding mechanism</strong></td>
+  <td>Treat as confirmed given US-based living; plan for withholding at closing</td>
+</tr>
+<tr>
+  <td>NIIT applies</td>
+  <td>Extra 3.8% on US side — not offset by Foreign Tax Credit</td>
+  <td>Model this scenario regardless</td>
+</tr>
+<tr>
+  <td>Old System applies + high US income year</td>
+  <td>Taiwan building gain stacked on top of all other income, taxed at 40%+</td>
+  <td>Model both regimes with your expected 2026 income</td>
+</tr>
+<tr>
+  <td>Registration date later than date of death</td>
+  <td>Holding period clock starts later than expected</td>
+  <td>Confirm actual 登記日 from title records</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Key Terms for Online Research:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Chinese</th>
+  <th>Pinyin</th>
+  <th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>地政事務所</td>
+  <td>Dìzhèng Shìwùsuǒ</td>
+  <td>Land Administration Office</td>
+</tr>
+<tr>
+  <td>戶籍</td>
+  <td>Hùjí</td>
+  <td>Household Registration</td>
+</tr>
+<tr>
+  <td>登記日</td>
+  <td>Dēngjì Rì</td>
+  <td>Date of Ownership Transfer Registration</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="phase-1-data-gathering-document-verification">Phase 1: Data Gathering &amp; Document Verification</h2>
+
+<p><em>Goal: Establish the legal and financial foundation for tax calculations.</em></p>
+
+<ul>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Confirm Original Acquisition Date:</strong></p>
+
+<ul>
+<li>Verify when the property was first purchased by the decedent (mother).</li>
+<li><strong>Threshold:</strong> Pre-Jan 1, 2016 vs. Post-Jan 1, 2016 determines which tax regime applies.</li>
+<li><p>Source: title deed search at the local 地政事務所 (Land Administration Office).<br />
+<details><summary>Sources</summary></p></li>
+<li><p><a href="https://www.land.moi.gov.tw/enhtml/index">Department of Land Administration (地政司), MOI</a> — central authority governing Taiwan's land registration system</p></li>
+<li><a href="https://www.land.moi.gov.tw/enhtml/enlawdet/29?elid=113">Regulations of the Land Registration</a> — MOI regulation governing registration procedures and timelines</li>
+<li><a href="https://eng.land.ntpc.gov.tw/">New Taipei City Land Administration Department</a> — local office for New Taipei City property records (English interface)</li>
+<li>中文：<a href="https://ep.land.nat.gov.tw/">全國地政電子謄本系統（內政部地政司）</a> — 線上申請土地及建物謄本，可查詢原始登記資料</li>
+<li>中文：<a href="https://www.gov.tw/News3_Content.aspx?n=2&s=381320">我的E政府——各類地籍謄本申請</a></li>
+<li>中文：<a href="https://www.land.moi.gov.tw/chhtml/content/64?mcid=3490">內政部地政司——土地登記</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Confirm Actual Registration Date (登記日):</strong></p>
+
+<ul>
+<li>The HSTT holding period clock starts at the date of ownership transfer <em>registration</em>, not the date of death.</li>
+<li><p>If registration was delayed past May 2022, your holding period is shorter than expected — confirm the exact 登記日 from title records.<br />
+<details><summary>Sources</summary></p></li>
+<li><p><a href="https://www.mof.gov.tw/eng/singlehtml/f48d641f159a4866b1d31c0916fbcc71?cntId=27ddb5dd2413423b895ffd3a3341dfb4">MOF — Heirs Can Now Register Inherited Property Under Collective Joint-Ownership</a> — confirms inheritance registration date governs holding period</p></li>
+<li><a href="https://www.ntbk.gov.tw/eng/singlehtml/c19e2cba4e6f4d43ba7b15040c8dbe50?cntId=e478e2564ad74cd697a9289141c2e8f5">National Taxation Bureau of Kaohsiung — Holding Period Starts at Completion of Registration</a> — explicit bureau guidance on acquisition date</li>
+<li><a href="https://www.land.moi.gov.tw/enhtml/enlawdet/29?elid=113">Regulations of the Land Registration</a> — legal basis for registration timing</li>
+<li>中文：<a href="https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=6d27fbf173364c3aa0d3e9f0d25e57ca">財政部——出售因繼承取得之房地，應依新制申報房地合一稅嗎？</a> — 確認以被繼承人取得日判斷新/舊制；取得日以完成所有權移轉登記之日為準</li>
+<li>中文：<a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-q-and-a/national/profit-seeking-enterprise-income-tax/house-tax-and-land-tax-consolidation/nDRr1Gm">財政部稅務入口網——房屋、土地取得日之認定（問答2911）</a></li>
+<li>中文：<a href="https://www.ntbt.gov.tw/singlehtml/41ae3594197f4f69b47753ce08188516?cntId=cdeb372790044547ad6a8749ae975e4a">財政部臺北國稅局——接計持有期間計算</a></li>
+<li>中文：<a href="https://land.tycg.gov.tw/News_Content.aspx?n=3946&s=688348">桃園市政府地政局——繼承登記</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Verify 戶籍 (Household Registration) Status — affects HSTT self-use exemption (property sales tax only):</strong></p>
+
+<ul>
+<li>Having a Taiwan national ID card does <em>not</em> automatically mean active 戶籍 — the ID is issued at registration but the registration itself can be cancelled later. However, if you never formally emigrated or deregistered, your 戶籍 likely still exists at its last recorded address.</li>
+<li>To confirm: request a 戶籍謄本 (household registration extract) from any 戶政事務所 or via the Taiwan e-government portal.</li>
+<li><strong>Practical conclusion for this sale:</strong> Even if your 戶籍 is active, the self-use exemption requires it to be registered <em>at this specific property</em> for at least 6 of the combined holding years — with no rental or business use and evidence of actual physical occupancy. Given that you have lived in the US for most of the year, this requirement is almost certainly unmet. The self-use exemption can be treated as <strong>unavailable</strong> for planning purposes.</li>
+<li>戶籍 status does <strong>not</strong> affect the standard HSTT tax rates (15%/20%/35%/45%) — those apply regardless.</li>
+<li><strong>⚠ Partially unsourced:</strong> The assertion that "having a Taiwan national ID card does not automatically mean active 戶籍" is a practical interpretation of how cancellation (廢止登記) works under the Household Registration Act — confirm directly with the local 戶政事務所 or a Taiwan CPA.</li>
+</ul>
+
+<p><details><summary>Sources</summary></p>
+
+<ul>
+<li><a href="https://www.ris.gov.tw/app/en">Department of Household Registration (戶政司), MOI</a> — central authority for 戶籍 status and 戶籍謄本 applications</li>
+<li><a href="https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=D0030006">Household Registration Act (戶籍法)</a> — statute governing registration, cancellation (廢止登記), and address changes</li>
+<li><a href="https://www.ntbt.gov.tw/english/multiplehtml/cd61d91304fc4fb194571fea1d82ba35">NTBT — 房地合一 (HSTT) English Overview</a> — self-use exemption eligibility criteria</li>
+<li>中文：<a href="https://www.ris.gov.tw/app/portal/16">內政部戶政司——電子戶籍謄本申辦作業</a> — 免費線上申請（需自然人憑證）</li>
+<li>中文：<a href="https://www.ris.gov.tw/app/portal/481">內政部戶政司——紙本戶籍謄本申請</a></li>
+<li>中文：<a href="https://www.gov.tw/News_Content_2_371532">我的E政府——電子戶籍謄本申辦及驗證</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Determine Taiwan Tax Residency Status — affects income tax rates and withholding mechanism:</strong></p>
+
+<ul>
+<li>Taiwan tax residency is determined separately from 戶籍, based solely on physical presence: <strong>≥183 days in Taiwan in the calendar year = resident; &lt;183 days = non-resident.</strong></li>
+<li>Given that you live in the US for most of the year, you are almost certainly a <strong>Taiwan tax non-resident</strong> in the year of sale. Treat this as confirmed unless you expect an unusually extended Taiwan stay in 2026.</li>
+<li>Consequence for <strong>property sales tax (HSTT, New System):</strong> The HSTT rate schedule (15%/20%/35%/45%) is the same for residents and non-residents. However, non-residents are subject to <strong>withholding at the source by the buyer</strong> at closing rather than self-filing. See Phase 4.</li>
+<li>Consequence for <strong>income tax (Old System only):</strong> If the Old System applies, non-residents are taxed on building gain at a <strong>flat 20% withholding rate</strong> rather than progressive rates — which may actually be favorable compared to stacking the gain on top of other income.</li>
+<li><strong>✓ Resolved:</strong> The 20% flat rate for 財產交易所得 paid to non-residents is confirmed. The MoF tax portal's non-resident FAQ explicitly lists "財產交易所得按20%扣繳率申報納稅." Critically, property transaction income is a <strong>self-report</strong> category — the buyer is the nominal 扣繳義務人 but the non-resident seller or their representative must actively file.</li>
+</ul>
+
+<p><details><summary>Sources</summary></p>
+
+<ul>
+<li><a href="https://www.mof.gov.tw/eng/singlehtml/f48d641f159a4866b1d31c0916fbcc71?cntId=b8ae2181a22146fdaccfe0aaff391b39">MOF — 183-day resident/non-resident threshold</a></li>
+<li><a href="https://www.ntbt.gov.tw/English/htmlList/bfc158abe6fe4e43b301e491263e7fee">NTBT — Resident Status (≥183 days)</a></li>
+<li><a href="https://www.ntbt.gov.tw/English/multiplehtml/06922971ae7e48d18d2902dfa6ebfcea">NTBT — Computing Period of Stay</a></li>
+<li><a href="https://www.ntbt.gov.tw/English/htmlList/d8fa239122dc4d14989884c1ded43df8">NTBT — Non-Resident Status</a></li>
+<li>中文：<a href="https://www.etax.nat.gov.tw/etwmain/alien-tax-service/alien-tax-faq/KK9Y76o">財政部稅務入口網——非居住者扣繳率規定（問答）</a> — 明確列明財產交易所得按20%扣繳率</li>
+<li>中文：<a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-q-and-a/national/individual-income-tax/alien-tax-question/taxation-scope/OQ0DQxJ">財政部稅務入口網——非居住者如何報繳綜合所得稅</a></li>
+<li>中文：<a href="https://www.etax.nat.gov.tw/etwmain/alien-tax-service/alien-individual-income-tax/15r2N1n">財政部稅務入口網——外僑所得稅與居留期間的關係</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Retrieve Inheritance Tax Records:</strong></p>
+
+<ul>
+<li>Confirm whether Taiwan inheritance tax (遺產稅) was filed and paid in 2022.</li>
+<li>The inheritance tax clearance certificate (遺產稅免稅證明書 or 完稅證明書) is typically required before property transfer can be registered.</li>
+<li>The government-assessed values used in that filing are the same values establishing your Taiwan cost basis — obtain a copy.</li>
+<li><strong>⚠ Partially resolved:</strong> HSTT cost basis for inherited property = 繼承時房屋評定現值及公告土地現值（CPI調整後）— the same values used in the 遺產稅 filing. The national tax authority sources them from 公告現值 records, not the filing documents themselves; confirm with Taiwan CPA which documents are accepted as cost basis proof.</li>
+</ul>
+
+<p><details><summary>Sources</summary></p>
+
+<ul>
+<li><a href="https://www.mof.gov.tw/Eng/Detail/Index?nodeid=319&pid=80678">MOF — E-tax Portal: Online Reissue of Estate Tax Certificates</a> — for re-issuing 完稅證明書 and 免稅證明書</li>
+<li><a href="https://law-out.mof.gov.tw/EngLawContent.aspx?lan=E&id=20472&KW=Estate+Tax">MOF — Estate and Gift Tax Act</a></li>
+<li>中文：<a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-q-and-a/national/estate-tax/certification/QN716Kb">財政部稅務入口網——如何申領遺產稅證明書？</a> — 申請流程及所需文件</li>
+<li>中文：<a href="https://www.ntbca.gov.tw/singlehtml/73956170c8c84f6caf14e77161f938ab?cntId=30e3cea4885c4f89a8f33a9d3b0ad44f">財政部中區國稅局——遺產繼承流程（步驟三）</a></li>
+<li>中文：<a href="https://www.ntbca.gov.tw/singlehtml/73956170c8c84f6caf14e77161f938ab?cntId=e0e1f999b51b4d67be1a5e7be204aa5d">財政部中區國稅局——遺產繼承流程（步驟四）</a> — 完稅/免稅證明書為辦理產權移轉登記先決條件</li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Retrieve 2022 Government-Assessed Values:</strong></p>
+
+<ul>
+<li>Obtain the "Assessed Current Land Value" (公告現值) and "House Value" (房屋評定現值) from May 2022.</li>
+<li>These serve as the <strong>Taiwan cost basis</strong> under the New System.</li>
+<li><strong>⚠ Resolved (房屋評定現值):</strong> 房屋現值 is confidential tax data (稅捐稽徵法§33) — must be obtained by requesting a <strong>房屋稅籍證明書</strong> from the 稅捐稽徵處 (online, by mail, or in person). No public self-service lookup exists.</li>
+</ul>
+
+<p><details><summary>Sources</summary></p>
+
+<ul>
+<li><a href="https://www.land.moi.gov.tw/chhtml/landvalue/42">MOI — 公告現值 National Online Lookup</a> — historical assessed land values by parcel and year</li>
+<li><a href="https://pqt.ttt.nat.gov.tw/landprice.jsp">Land Price Inquiry Network (地政資訊網路服務e點通)</a> — 公告現值 and 公告地價 by district, section, parcel</li>
+<li><a href="https://www.land.ntpc.gov.tw/cl.aspx?n=20">New Taipei City Land Administration Bureau — Land Price Section</a></li>
+<li>中文：<a href="https://www.tax.ntpc.gov.tw/cp-2158-1225-7f578-1.html">新北市政府稅捐稽徵處——如何查詢房屋現值？</a> — 房屋稅籍證明書申請方式</li>
+<li>中文：<a href="https://www.tax.ntpc.gov.tw/np-7-1.html">新北市政府稅捐稽徵處——線上申辦服務入口</a></li>
+<li>中文：<a href="https://www.land.moi.gov.tw/chhtml/content/65?mcid=2942&qitem=1">公告地價歷年調整表（內政部地政司）</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Obtain 2022 Fair Market Value (FMV):</strong></p>
+
+<ul>
+<li>Source a professional appraisal or historical market data for the property's FMV in May 2022.</li>
+<li>This serves as the <strong>US cost basis</strong> (stepped-up basis under IRC §1014).</li>
+<li><strong>Risk:</strong> If no appraisal was done at the time of inheritance, establishing defensible FMV retroactively is harder and may require a qualified appraisal — the IRS can challenge an undocumented step-up. Address this sooner rather than later.</li>
+<li><strong>⚠ Note on §1014(f) and Form 706:</strong> §1014(f) basis-consistency rules do not apply here — the decedent was a US citizen whose estate was well below the 2022 exclusion threshold (~$12,060,000), so no Form 706 was required. The stepped-up basis is FMV at date of death, documented by whatever evidence is available.</li>
+<li>Taiwan's <strong>實價登錄</strong> database is the primary source for May 2022 FMV comparables (see "Establishing FMV" section below).</li>
+</ul>
+
+<p><details><summary>Sources</summary></p>
+
+<ul>
+<li><a href="https://www.irs.gov/publications/p551">IRS Publication 551 — Basis of Assets</a> — authoritative source on stepped-up basis for inherited property</li>
+<li><a href="https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances">IRS FAQ — Gifts &amp; Inheritances</a></li>
+<li><a href="https://www.irs.gov/publications/p561">IRS Publication 561 — Determining the Value of Donated Property</a> — qualified appraisal standards and FMV methodology</li>
+</ul>
+
+<p></details></p></li>
+</ul>
+
+<h3 id="establishing-may-2022-fmv-valid-methods">Establishing May 2022 FMV: Valid Methods</h3>
+
+Because no formal appraisal was commissioned at the time of inheritance, FMV must be established retroactively. The IRS accepts any methodology that a qualified appraiser would accept, provided it is documented, internally consistent, and grounded in objective data. Four methods are available, listed in order of IRS defensibility:
+
+
+<hr />
+
+
+**Method 1 — Comparable Sales Analysis (實價登錄 / Actual Price Registration)**
+
+Taiwan's Ministry of the Interior (MOI) operates the **實価登錄** (Actual Price Registration) database, which records every real estate transaction in Taiwan at the actual contract price, unit, and floor level. The 2.0 version (launched July 2021) includes building-specific data (unit number, floor, area, price per ping, and transaction date).
+
+<ul>
+<li><strong>How to use it:</strong> Search for transactions in the same building or the immediate neighborhood (within 500 meters, same building age and type) from <strong>March–August 2022</strong> (±3 months from date of death). Calculate a price-per-ping (坪) range from those comparables and apply it to the subject property's area to derive an estimated FMV.</li>
+<li><strong>IRS mapping:</strong> This method corresponds to the <strong>Sales Comparison Approach</strong> described in IRS Publication 561 and IRS Internal Revenue Manual (IRM) 4.48.6 (Real Property Valuation Guidelines). The IRS uses this approach as its primary method for residential real property.</li>
+<li><strong>Strength:</strong> Objective, government-recorded, publicly accessible data — extremely difficult for the IRS to dispute if comparables are close in time, location, and property type.</li>
+<li><strong>Limitation:</strong> Comparable transactions may be sparse for the specific building during a narrow time window; if &lt;3 comparables exist, supplement with Method 2 or 4.</li>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://lvr.land.moi.gov.tw/">MOI 實價登錄 Query Portal (lvr.land.moi.gov.tw)</a> — the official government database for actual transaction prices; supports searches by district, building address, and time period</li>
+<li><a href="https://www.irs.gov/publications/p561">IRS Publication 561 — Determining the Value of Donated Property</a> — IRS qualified appraisal standards and FMV methodology; Sales Comparison Approach is explicitly described</li>
+<li><a href="https://www.irs.gov/irm/part4/irm_04-048-006">IRS IRM 4.48.6 — Real Property Valuation Guidelines</a> — IRS examiner guidance on how real property FMV is assessed; the three approaches (Sales Comparison, Income, Cost) are described; Sales Comparison is the primary residential method</li>
+</ul></li>
+</ul>
+
+<hr />
+
+
+**Method 2 — Retroactive Qualified Appraisal (不動産估価師)**
+
+A **不動産估価師** (licensed real estate appraiser, Ministry of Interior) can produce a retroactive appraisal using historical market data as of May 2022. This is the strongest FMV documentation available because it satisfies the IRS "qualified appraisal" standard under IRC §170(f)(11) and Treasury Regulation §1.170A-17.
+
+<ul>
+<li><strong>How to use it:</strong> Engage a licensed 不動産估価師 now (before the sale, ideally). Provide the property details and specify the <strong>effective date of valuation: May [date], 2022</strong>. The appraiser will use 実価登録 data, government-assessed values, and their professional judgment to produce a formal report with an as-of-date opinion of value.</li>
+<li><strong>IRS mapping:</strong> A qualified appraisal completed by a qualified appraiser and attached (in summary form) to the return is the highest tier of documentation under IRS Pub 561 and IRM 4.48.6.</li>
+<li><strong>Strength:</strong> A signed appraisal report by a licensed professional with an explicit effective date shifts the burden of proof significantly toward the taxpayer in any IRS examination.</li>
+<li><strong>Limitation:</strong> Costs NT$15,000–NT$50,000+ depending on complexity; turnaround 2–6 weeks. Retroactive appraisals are accepted but may receive more IRS scrutiny than a contemporaneous appraisal (i.e., one done at the time of death).</li>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://www.twarea.org.tw/">不動産估価師公會全國聯合會 (Taiwan Association of Real Estate Appraisers)</a> — the national association of licensed real estate appraisers; maintains a searchable directory of licensed 不動産估価師</li>
+<li><a href="https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=D0060049">不動産估価師法 (Real Estate Appraiser Act)</a> — MOI statute governing licensing, professional standards, and scope of work for 不動産估価師</li>
+<li><a href="https://www.irs.gov/publications/p561">IRS Publication 561</a> — defines "qualified appraisal" and "qualified appraiser" for IRS purposes; a Taiwan-licensed appraiser generally meets the qualification standard if their credentials are described in the appraisal report</li>
+</ul></li>
+</ul>
+
+<hr />
+
+
+**Method 3 — Government-Assessed Values as a Conservative Floor**
+
+The **公告現值** (Assessed Current Land Value) and **房屋評定現值** (House Assessed Value) for May 2022 are government-published figures that establish a documentable minimum basis. These are the same values used for Taiwan inheritance tax (遺產稅) purposes.
+
+<ul>
+<li><strong>How to use it:</strong> Retrieve the May 2022 公告現值 (from the MOI online system) and the 房屋評定現值 (from the 稅捐稽徵處 via a 房屋稅籍證明書). Convert both to USD at the May 2022 TWD/USD spot rate. Use as a conservative floor estimate if no market data is available.</li>
+<li><strong>IRS mapping:</strong> Government-assessed values are relevant supporting data but are not equivalent to FMV under US tax law. The IRS will accept them as one data point, but the agent or examiner will typically expect market-based corroboration. Using assessed values alone without comparables is the weakest FMV documentation.</li>
+<li><strong>Strength:</strong> Entirely objective government data; essentially zero cost to obtain; useful as a sanity check and minimum bound.</li>
+<li><strong>Limitation:</strong> As discussed in Phase 2, 房屋評定現值 can be <strong>70–90% below market value</strong> due to Taiwan's depreciation formula. Using assessed values as FMV will likely <strong>understate</strong> the US basis — resulting in higher US capital gains tax than necessary. Use this method only if market data is unavailable.</li>
+<li><strong>Sources:</strong>
+<ul>
+<li><a href="https://www.land.moi.gov.tw/chhtml/landvalue/42">MOI 全國公告土地現值查詢系統</a> — national system for querying historical 公告現值 by parcel and year</li>
+<li><a href="https://www.tax.ntpc.gov.tw/cp-2158-1225-7f578-1.html">新北市政府稅捐稽徵處——房屋稅籍證明書</a> — how to obtain the 房屋評定現值 via a 房屋稅籍證明書</li>
+</ul></li>
+</ul>
+
+<hr />
+
+
+**Method 4 — Broker Opinion of Value (經紀人市場行情意見書)**
+
+A licensed Taiwan real estate broker or agent can provide a written **市場行情意見書** (market opinion letter or broker price opinion) estimating the property's value as of May 2022, based on their knowledge of local market conditions and transaction history.
+
+<ul>
+<li><strong>How to use it:</strong> Contact an established broker in the New Taipei City area (particularly the district where the property is located). Request a written opinion dated to May 2022, referencing specific comparables they are aware of. This is often obtainable at low cost or as part of a listing agreement.</li>
+<li><strong>IRS mapping:</strong> A broker opinion is not a "qualified appraisal" under IRC §170(f)(11) because brokers are not "qualified appraisers" in the IRS sense. However, it is accepted as supporting documentation in an audit context and is useful as corroborating evidence alongside Method 1 or Method 2.</li>
+<li><strong>Strength:</strong> Low cost, easily obtained, provides market-based context; particularly useful if the broker has specific knowledge of transactions in the same building.</li>
+<li><strong>Limitation:</strong> Not a qualified appraisal; treated as secondary documentation only. A sophisticated IRS examiner will discount it if no comparables are cited.</li>
+</ul>
+
+<hr />
+
+
+**Comparison Table**
+
+<table>
+<thead>
+<tr>
+  <th>Method</th>
+  <th>IRS Strength</th>
+  <th>Cost</th>
+  <th>Time</th>
+  <th>Taiwan Government Source?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1. 実価登録 Comparables</td>
+  <td>High (Sales Comparison Approach)</td>
+  <td>Free</td>
+  <td>1–2 hours</td>
+  <td>Yes (MOI database)</td>
+</tr>
+<tr>
+  <td>2. 不動産估価師 Appraisal</td>
+  <td>Highest (Qualified Appraisal)</td>
+  <td>NT$15K–50K+</td>
+  <td>2–6 weeks</td>
+  <td>Yes (MOI-licensed)</td>
+</tr>
+<tr>
+  <td>3. Government Assessed Values</td>
+  <td>Low (floor only, understates FMV)</td>
+  <td>Free</td>
+  <td>1–2 weeks</td>
+  <td>Yes (官方數據)</td>
+</tr>
+<tr>
+  <td>4. Broker Opinion</td>
+  <td>Low-Medium (supporting only)</td>
+  <td>Free–Low</td>
+  <td>1 week</td>
+  <td>No</td>
+</tr>
+</tbody>
+</table>
+
+
+<hr />
+
+
+**Practical Recommendation**
+
+Use **Method 1 + Method 2 together** for the strongest documentation package:
+1. Pull 実価登録 comparables for March–August 2022 for the same building and surrounding area.
+2. Commission a retroactive 不動産估価師 appraisal with an effective date of May 2022, referencing those same comparables.
+3. The appraiser's report anchored to government-recorded transaction data gives you both a qualified appraisal (highest IRS tier) and objective data support (hard to dispute).
+
+If time or cost is a constraint, Method 1 alone (with a well-documented spreadsheet of comparables including registration numbers from 実価登録) is likely sufficient for an estate of this size. Retain screenshots/exports from the MOI database as part of your permanent tax file.
+
+<details><summary>Sources</summary>
+
+<ul>
+<li><a href="https://www.irs.gov/publications/p561">IRS Publication 561 — Qualified Appraisal Standards &amp; FMV Methodology</a></li>
+<li><a href="https://www.irs.gov/irm/part4/irm_04-048-006">IRS IRM 4.48.6 — Real Property Valuation Guidelines</a></li>
+<li><a href="https://www.irs.gov/publications/p551">IRS Publication 551 — Basis of Assets</a></li>
+<li><a href="https://lvr.land.moi.gov.tw/">MOI 實価登錄 Query Portal</a></li>
+<li><a href="https://www.twarea.org.tw/">不動産估価師公會全國聯合會</a></li>
+</ul>
+
+</details>
+
+
+<hr />
+
+
+<ul>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Confirm Property Use History (Personal Use vs. Rental):</strong></p>
+
+<ul>
+<li>Determine whether the property was rented out — either by the decedent before May 2022 or by the heir after inheritance.</li>
+<li><strong>Taiwan side:</strong> Rental income received by a non-resident is subject to 20% withholding; if rental income went unreported, there may be outstanding Taiwan tax liability. Confirm with Taiwan CPA that all prior filings are current before closing — unresolved obligations can delay the title transfer.</li>
+<li><strong>US side:</strong> If the heir received rental income after May 2022, the property is investment/rental property for US tax purposes. In that case: (a) depreciation deductions should have been claimed on the US return since 2022 (reducing the current basis below the stepped-up FMV), and (b) §1250 unrecaptured depreciation is taxed at 25% rather than the preferential long-term rate on any gain. If the property has been entirely personal-use since inheritance with no rental income, neither of these applies — confirm this with your US CPA and note it in your permanent tax file.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Gather Deductible Expense Records:</strong></p>
+
+<ul>
+<li>Taiwan-deductible: original acquisition cost (government-assessed value at inheritance), deed tax (契稅), stamp duty, notary fees, agent commissions (both buy and sell side), and major capital improvement receipts (post-inheritance renovations).</li>
+<li>US-deductible: selling expenses (commissions, legal fees) reduce the capital gain.</li>
+<li><strong>⚠ CPI adjustment required:</strong> The 繼承時房屋評定現值及公告土地現值 must be <strong>adjusted by the CPI as of the month of sale</strong> before use as the HSTT cost basis. This is a documented common error — omitting it under-claims cost basis and overpays tax. Ensure your Taiwan CPA applies this adjustment.</li>
+</ul>
+
+<p><details><summary>Sources</summary></p>
+
+<ul>
+<li><a href="https://www.ntbt.gov.tw/english/multiplehtml/cd61d91304fc4fb194571fea1d82ba35">NTBT — 房地合一 (HSTT) English Overview</a> — eligible deduction categories</li>
+<li><a href="https://www.ntbt.gov.tw/english/htmlList/88c7365da64c421c8455d20116172462">NTBT — Filing 房地合一所得稅 (HSTT Return)</a> — documentation required for each deduction</li>
+<li><a href="https://www.dot.gov.tw/Eng/singlehtml/en_143">Taxation Administration, MOF — LVIT</a> — Old System LVIT reference</li>
+<li>中文：<a href="https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=4f67457f68ee4c5ea98bad28127d4584">財政部——繼承取得房地HSTT成本計算規則（CPI調整）</a> — 核心法源：確認CPI調整為必要步驟</li>
+<li>中文：<a href="https://www.etax.nat.gov.tw/etwmain/web/ETW118W/CON/904/5887006684254281366">財政部稅務入口網——房地合一課徵個人所得稅相關問題</a> — 可減除費用認定標準</li>
+<li>中文：<a href="https://www.etax.nat.gov.tw/etwmain/alien-tax-service/alien-tax-faq/05KVgzL">財政部稅務入口網——申報房地合一稅應如何申報及檢附文件</a></li>
+</ul>
+
+<p></details></p></li>
+</ul>
+
+**Key Terms for Online Research:**
+
+<table>
+<thead>
+<tr>
+  <th>Chinese</th>
+  <th>Pinyin</th>
+  <th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>地政事務所</td>
+  <td>Dìzhèng Shìwùsuǒ</td>
+  <td>Land Administration Office</td>
+</tr>
+<tr>
+  <td>登記日</td>
+  <td>Dēngjì Rì</td>
+  <td>Date of Ownership Transfer Registration</td>
+</tr>
+<tr>
+  <td>戶籍</td>
+  <td>Hùjí</td>
+  <td>Household Registration</td>
+</tr>
+<tr>
+  <td>戶籍謄本</td>
+  <td>Hùjí Téngběn</td>
+  <td>Household Registration Extract</td>
+</tr>
+<tr>
+  <td>戶政事務所</td>
+  <td>Hùzhèng Shìwùsuǒ</td>
+  <td>Household Registration Office</td>
+</tr>
+<tr>
+  <td>居住者 / 非居住者</td>
+  <td>Jūzhùzhě / Fēi Jūzhùzhě</td>
+  <td>Resident / Non-Resident (Taiwan Tax Status)</td>
+</tr>
+<tr>
+  <td>遺產稅</td>
+  <td>Yíchǎn Shuì</td>
+  <td>Inheritance Tax</td>
+</tr>
+<tr>
+  <td>遺產稅免稅證明書</td>
+  <td>Yíchǎn Shuì Miǎnshuì Zhèngmíngshū</td>
+  <td>Inheritance Tax Exemption Certificate</td>
+</tr>
+<tr>
+  <td>完稅證明書</td>
+  <td>Wánshuì Zhèngmíngshū</td>
+  <td>Tax Payment Completion Certificate</td>
+</tr>
+<tr>
+  <td>公告現值</td>
+  <td>Gōnggào Xiànzhí</td>
+  <td>Assessed Current Land Value</td>
+</tr>
+<tr>
+  <td>房屋評定現值</td>
+  <td>Fángwū Píngdìng Xiànzhí</td>
+  <td>House Assessed Value</td>
+</tr>
+<tr>
+  <td>契稅</td>
+  <td>Qìshuì</td>
+  <td>Deed Tax</td>
+</tr>
+</tbody>
+</table>
+
+
+<hr />
+
+
+<h2 id="phase-2-taiwan-tax-analysis-local-liability">Phase 2: Taiwan Tax Analysis (Local Liability)</h2>
+
+*Goal: Calculate the net tax owed to the Taiwan Ministry of Finance.*
+
+<ul>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Determine the Tax Regime (Old System / HSTT 1.0 / HSTT 2.0):</strong></p>
+
+<ul>
+<li><strong>Old System (original purchase before Jan 1, 2016):</strong> Building gain only is taxed as ordinary income (separate from land); land gain is subject to Land Value Increment Tax (LVIT / 土地增值稅), administered by local government — these are two separate taxes filed with separate authorities.</li>
+<li><strong>HSTT 1.0 (original purchase Jan 1, 2016 – Jun 30, 2021):</strong> Unified tax on combined house+land gain. Rate schedule differs from HSTT 2.0: ≤1yr 45%; &gt;1–2yr 35%; <strong>&gt;2yr combined hold = flat 20%</strong> — no 15% bracket exists. A combined hold of 14+ years still applies at 20%. On the NT$9.45M illustrative gain, this equals ~NT$1.89M (~$61K) vs. NT$1.42M (~$46K) under HSTT 2.0 — a NT$470K (~$15K) difference.</li>
+<li><strong>HSTT 2.0 (original purchase Jul 1, 2021 or later):</strong> Unified tax at the 45%/35%/20%/15% schedule below. A single filing with the national tax authority within 30 days of transfer.</li>
+<li><strong>For this property:</strong> Original purchase confirmed as <strong>April 2012</strong> (exact day TBD, pre-Jan 2016) → Old System applies. Confirm exact day via title deed search for precise LVIT and combined holding period calculations.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Map the Full HSTT Rate Schedule (New System):</strong></p>
+
+<ul>
+<li>≤2 years combined holding: <strong>45%</strong></li>
+<li>&gt;2 and ≤5 years: <strong>35%</strong></li>
+<li>&gt;5 and ≤10 years: <strong>20%</strong></li>
+<li>&gt;10 years: <strong>15%</strong></li>
+<li>Self-use exemption pathway: <strong>10% flat</strong> after NT$4 million deduction (residency requirements apply — see below)</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Calculate Combined Holding Period (Tack-On Rule):</strong></p>
+
+<ul>
+<li>Apply the "inheritance bridge": [Mother's holding years from purchase date] + [Your holding years: 登記日 through sale date in 2026].</li>
+<li>This is the single most consequential calculation — model it with the exact 登記日 and the confirmed purchase date.</li>
+<li>With confirmed April 2012 purchase and sale registered August 2026, combined hold ≈ 14 years → <strong>15% bracket</strong>.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Evaluate Self-Use Exemption (戶籍 Residency Requirement) — affects property sales tax (HSTT) only:</strong></p>
+
+<ul>
+<li>Requires 戶籍 registered <em>at this property specifically</em> for at least 6 of the combined holding years, with no rental or business use and evidence of physical occupancy.</li>
+<li><strong>Assessment: likely unavailable.</strong> Even if your 戶籍 is still active, it is probably not registered at this property, and the physical residency requirement is unmet given your US-based living situation. Confirm with Taiwan CPA, but do not plan on this exemption applying.</li>
+<li>If somehow eligible: 10% flat rate on gain above NT$4 million; gain below NT$4M is exempt.</li>
+<li>Note: this exemption is a function of 戶籍 and occupancy — <strong>not</strong> of Taiwan tax residency (the 183-day rule). A Taiwan tax non-resident cannot claim the self-use exemption regardless.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Old System — Building Gain Income Tax Modeling:</strong></p>
+
+<ul>
+<li>If Old System applies and you are a <strong>Taiwan tax resident</strong> (≥183 days in 2026 — treat as inapplicable given US-based living): the building gain is added to all other income and taxed at progressive Taiwan rates (up to ~40%); the interaction with US-source income matters.</li>
+<li>As a <strong>Taiwan tax non-resident</strong> (&lt;183 days — confirmed scenario): the building gain is instead subject to a confirmed <strong>flat 20% rate</strong> (財產交易所得按20%扣繳率申報納稅). This is the scenario to model and is more favorable than progressive rates.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Old System — LVIT Estimation:</strong></p>
+
+<ul>
+<li>Calculate the Land Value Increment Tax on the land portion based on the change in government-assessed land value (公告地價) from the inheritance date (2022) to the 2026 sale date.</li>
+<li>Self-use LVIT rate is 10% flat; general rates are tiered (20%–40%). Administered by local government, not national tax authority.</li>
+<li><strong>Self-use LVIT rate is unavailable here</strong> — it requires 戶籍 registered at this specific property with evidence of physical occupancy, the same conditions that make the HSTT self-use exemption unavailable (see Phase 1 and Phase 2 above). Plan on <strong>general tiered rates (20%–40%)</strong>.</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h3 id="regime-comparison-which-system-yields-higher-tax">Regime Comparison: Which System Yields Higher Tax?</h3>
+
+<p><em>Context: ~$450K USD (~NT$14.5M) New Taipei City property, US-based non-resident seller, combined holding period likely &gt;10 years.</em></p>
+
+<p><strong>Note on the Phase 2 building gain bullet above:</strong> That bullet describes progressive Taiwan resident rates (up to ~40%). For a confirmed non-resident (&lt;183 days/year), the building gain is instead subject to a <strong>confirmed flat rate of 20%</strong> (財產交易所得按20%扣繳率申報納稅). This non-resident treatment is actually <em>more favorable</em> than resident progressive rates and is a key input to the comparison below.</p>
+
+<h4 id="the-core-structural-difference">The Core Structural Difference</h4>
+
+<p>The two systems tax fundamentally different things:</p>
+
+<table>
+<thead>
+<tr>
+  <th></th>
+  <th>New System (HSTT)</th>
+  <th>Old System</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>What is taxed</strong></td>
+  <td>Actual market gain: sale price minus government-assessed cost basis at inheritance</td>
+  <td>Government-assessed changes only: building gain (small) + land 公告地價 increment (moderate)</td>
+</tr>
+<tr>
+  <td><strong>Why the base differs</strong></td>
+  <td>Land 公告現值 is only ~8–15% below market land value nationally (MOI 2019: 91.64% avg). The large gap is in building 房屋評定現值, which can be 70–90% below building market value due to Taiwan's assessed-value depreciation formula. For older properties, total assessed value is far below total market — HSTT taxes the full gap.</td>
+  <td>Building values <em>depreciate</em> in assessed terms; LVIT is measured in 公告地價 units (which closely track market land value) rather than actual sale price</td>
+</tr>
+<tr>
+  <td><strong>Rate(s)</strong></td>
+  <td>15% flat for &gt;10yr combined holding</td>
+  <td>Building income: ~20% flat (non-resident); LVIT: 20–40% tiered</td>
+</tr>
+<tr>
+  <td><strong># of tax authorities</strong></td>
+  <td>One (national, MOF)</td>
+  <td>Two (national for building, local government for LVIT)</td>
+</tr>
+<tr>
+  <td><strong>Filing deadline</strong></td>
+  <td>30 days from transfer registration</td>
+  <td>Building: handled at time of transaction (buyer withholds from 尾款, or representative self-reports); LVIT: filed within 30 days of contract signing, paid before title transfer</td>
+</tr>
+</tbody>
+</table>
+
+<p><details><summary>Sources for table above</summary></p>
+
+<ul>
+<li><a href="https://www.ntbt.gov.tw/english/multiplehtml/cd61d91304fc4fb194571fea1d82ba35">HSTT rate schedule &amp; 30-day deadline (NTBT English)</a></li>
+<li><a href="https://law.moj.gov.tw/ENG/LawClass/LawAll.aspx?pcode=G0340096">Land Tax Act — LVIT rate tiers</a></li>
+<li><a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/local/land-value-increment-tax/noaGA0q">LVIT rate tiers 貳 (財政部稅務入口網)</a></li>
+<li><a href="https://www.mof.gov.tw/singlehtml/384fb3077bb349ea973e7fc6f13b6974?cntId=684c43657d2f44779b94ee3fe0838529">Old System building gain — annual income return (財政部)</a></li>
+<li><a href="https://www.gov.tw/News_Content_2_378930">LVIT filed at time of sale — 我的E政府</a></li>
+<li><a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-q-and-a/national/individual-income-tax/taxation-scope/which-income/r8q3EDv">Building/land split uses time-of-sale assessed values Q1142</a></li>
+</ul>
+
+<p></details></p>
+
+<h4 id="why-assessed-values-are-the-critical-lever">Why Assessed Values Are the Critical Lever</h4>
+
+<p>For a NT$14.5M (~$450K) property in New Taipei City, the government-assessed values at inheritance are a small fraction of market:</p>
+
+<ul>
+<li><strong>Land 公告現值:</strong> NT$3–4.5M is a reasonable range. Land 公告現值 nationally averages ~91.64% of market land value (MOI 2019 press release), so the land assessed/market gap is only ~8–15%. The large understatement is in the building value below.</li>
+<li><strong>Building 房屋評定現值:</strong> NT$500K–800K (buildings depreciate heavily under Taiwan's assessed-value formula: 房屋現值 = 核定單價 × 面積 × (1 − 折舊率 × 年數) × 地段等級率; a 15–20 year old unit may retain only 10–30% of its original assessed cost basis, making the building assessed value a small fraction of market)</li>
+<li><strong>Total assessed at 2022 inheritance:</strong> NT$3.5–5.3M range, vs. market value of NT$14.5M — the gap is dominated by building depreciation, not land undervaluation</li>
+<li><strong>After CPI adjustment (+~12% for 2022→2026):</strong> ~NT$4–6M</li>
+</ul>
+
+<p>This means the <strong>HSTT taxable gain is NT$8–10M on a NT$14.5M sale</strong> — the full market-vs.-assessed gap becomes the tax base, even at the low 15% rate.</p>
+
+<p>Under the Old System, the tax bases are far smaller because both the building gain and LVIT are measured in government-assessed terms, not market terms.</p>
+
+<p><strong>Sources:</strong> <a href="https://www.land.moi.gov.tw/chhtml/content/10?mcid=3834">MOI 2019 press release — 公告現值 national avg = 91.64% of market</a>; <a href="https://ilanland.e-land.gov.tw/chaspx/Faq_Detail.aspx?web=178&id=1462">宜蘭地政事務所 FAQ Q5 — 公告現值為何低於市價</a>; <a href="https://land.tainan.gov.tw/11/QADetailC115400.aspx?Cond=117e0a12-202e-44b8-a7a6-4e9e0a02d403">台南市地政局 FAQ — 公告現值為何比市價低</a>; <a href="https://www.etax.nat.gov.tw/etwmain/announcement/news/Pq5xPN9">財政部 — 房屋現值如何核定（折舊公式）</a></p>
+
+<h4 id="illustrative-side-by-side-nt145m-sale">Illustrative Side-by-Side (~NT$14.5M sale)</h4>
+
+<p><em>Assumptions: assessed values at inheritance = NT$4.2M (NT$3.5M land + NT$700K building); CPI-adjusted basis = NT$4.7M; deductible expenses = NT$350K (seller-side agent commission ~1.5% + stamp duty + 代書 + notary; buyer's commission is paid by the buyer); non-resident flat rate confirmed 20% for building gain.</em></p>
+
+<p><strong>New System (HSTT):</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Item</th>
+  <th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Sale price</td>
+  <td>NT$14.5M</td>
+</tr>
+<tr>
+  <td>Less: CPI-adjusted cost basis</td>
+  <td>(NT$4.7M)</td>
+</tr>
+<tr>
+  <td>Less: deductible expenses</td>
+  <td>(NT$350K)</td>
+</tr>
+<tr>
+  <td><strong>Taxable gain</strong></td>
+  <td><strong>NT$9.45M</strong></td>
+</tr>
+<tr>
+  <td>Rate (&gt;10yr combined hold)</td>
+  <td>15%</td>
+</tr>
+<tr>
+  <td><strong>HSTT due</strong></td>
+  <td><strong>~NT$1.42M (~$46K USD at NT$31/USD; ~$48K at NT$29.5/USD)</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Old System — Building Income Tax:</strong></p>
+
+<p><em>Correction applied: Taiwan law (所得稅法施行細則) requires the building/land split to use assessed values at the time of SALE ("按出售時之房屋評定現值占公告土地現值及房屋評定現值總額之比例"), not at inheritance. By 2026 the building is ~4 years further depreciated; land 公告現值 may also have been reassessed upward. Sources: <a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-q-and-a/national/individual-income-tax/taxation-scope/which-income/r8q3EDv">財政部稅務入口網 Q1142</a>; <a href="https://www.ntbt.gov.tw/singlehtml/9de2c2c966cb4fb48aca9dddf1fcae9c?cntId=fb1eaa593cfc4072954312284580cc3b">NTBT Old System Q&amp;A</a></em></p>
+
+<table>
+<thead>
+<tr>
+  <th>Item</th>
+  <th>Amount</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>2026 building 房屋評定現值 (est., further depreciated from NT$700K)</td>
+  <td>~NT$650K</td>
+</tr>
+<tr>
+  <td>2026 land 公告現值 (est., slightly increased from NT$3.5M)</td>
+  <td>~NT$3.6M</td>
+</tr>
+<tr>
+  <td>Building % of 2026 assessed (NT$650K / NT$4.25M)</td>
+  <td>~15%</td>
+</tr>
+<tr>
+  <td>Building allocation of sale price (NT$14.5M × 15%)</td>
+  <td>NT$2.175M</td>
+</tr>
+<tr>
+  <td>Less: adjusted building cost basis (NT$700K × 1.12 CPI)</td>
+  <td>(NT$784K)</td>
+</tr>
+<tr>
+  <td>Less: building-apportioned deductibles (~15% × NT$350K)</td>
+  <td>(NT$53K)</td>
+</tr>
+<tr>
+  <td><strong>Building taxable gain</strong></td>
+  <td><strong>~NT$1.338M</strong></td>
+</tr>
+<tr>
+  <td>Rate (non-resident flat, confirmed 20%)</td>
+  <td>20%</td>
+</tr>
+<tr>
+  <td><strong>Building income tax</strong></td>
+  <td><strong>~NT$268K (~$9K USD at NT$31/USD)</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Old System — LVIT (the swing factor):</strong></p>
+
+<p>LVIT depends heavily on how much 公告地價 has risen since the <em>original purchase</em> — making the original purchase date the single most important variable in the old system calculation.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Assumed purchase year</th>
+  <th>Combined hold</th>
+  <th>Original 公告地價 (est.)</th>
+  <th>2026 公告地價 (est.)</th>
+  <th>LVIT base</th>
+  <th>Approx. LVIT (after tiering)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>2014</td>
+  <td>~12yr</td>
+  <td>NT$2.0M</td>
+  <td>NT$3.5M</td>
+  <td>NT$1.5M</td>
+  <td>~NT$300K (~$9K USD)</td>
+</tr>
+<tr>
+  <td>2010</td>
+  <td>~16yr</td>
+  <td>NT$1.2M</td>
+  <td>NT$3.5M</td>
+  <td>NT$2.3M</td>
+  <td>~NT$570K (~$18K USD)</td>
+</tr>
+<tr>
+  <td>2005</td>
+  <td>~21yr</td>
+  <td>NT$700K</td>
+  <td>NT$3.5M</td>
+  <td>NT$2.8M</td>
+  <td>~NT$840K (~$26K USD)</td>
+</tr>
+<tr>
+  <td>2000</td>
+  <td>~26yr</td>
+  <td>NT$400K</td>
+  <td>NT$3.5M</td>
+  <td>NT$3.1M</td>
+  <td>~NT$1.02M (~$31K USD)</td>
+</tr>
+</tbody>
+</table>
+
+<p><em>LVIT tiering: 20% on the first 100% of the original 公告地價, 30% on the next 100%, 40% above 200%. <strong>No long-hold discount applies for combined holdings under 20 years.</strong> Discount triggers only at &gt;20yr (20% reduction on excess above the 20% floor rate), &gt;30yr (30% reduction), &gt;40yr (40% reduction) — using: discounted<em>rate = original</em>rate − [(original_rate − 20%) × reduction%]. The 2005 vintage (~21yr) benefits from the &gt;20yr discount in Tiers 2 and 3; the 2000 vintage (~26yr) also qualifies. Sources: <a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/local/land-value-increment-tax/noaGA0q">LVIT rate tiers — 貳 (財政部稅務入口網)</a>; <a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/local/land-value-increment-tax/VGE8YNL">Long-hold discount formula — 參 (財政部稅務入口網)</a>; <a href="https://investtaiwan.nat.gov.tw/showPage?lang=eng&search=68">LVIT overview — Invest Taiwan (English)</a>; <a href="https://www.tax.ntpc.gov.tw/cp-131-3180-19226-2.html">New Taipei City LVIT (English)</a></em></p>
+
+<p><strong>Summary comparison:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Scenario</th>
+  <th>Building tax</th>
+  <th>LVIT</th>
+  <th><strong>Old System total</strong></th>
+  <th><strong>HSTT (New System)</strong></th>
+  <th><strong>Difference</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Purchased 2014</td>
+  <td>~$9K</td>
+  <td>~$10K</td>
+  <td><strong>~$19K</strong></td>
+  <td><strong>~$46K</strong></td>
+  <td>Old saves ~$27K</td>
+</tr>
+<tr>
+  <td>Purchased 2010</td>
+  <td>~$9K</td>
+  <td>~$18K</td>
+  <td><strong>~$27K</strong></td>
+  <td><strong>~$46K</strong></td>
+  <td>Old saves ~$19K</td>
+</tr>
+<tr>
+  <td>Purchased 2005</td>
+  <td>~$9K</td>
+  <td>~$27K</td>
+  <td><strong>~$36K</strong></td>
+  <td><strong>~$46K</strong></td>
+  <td>Old saves ~$10K</td>
+</tr>
+<tr>
+  <td>Purchased 2000</td>
+  <td>~$9K</td>
+  <td>~$33K</td>
+  <td><strong>~$42K</strong></td>
+  <td><strong>~$46K</strong></td>
+  <td>Old saves ~$4K</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="rules-of-thumb">Rules of Thumb</h4>
+
+<ol>
+<li><p><strong>Old System is likely $4–27K cheaper</strong> for this property profile, depending entirely on how long ago the mother originally purchased. The advantage shrinks the further back the original purchase date, because LVIT accumulates on a larger 公告地價 increment. The 2014 vintage shows the largest Old System advantage (~$27K savings); the 2000 vintage almost closes the gap (~$4K savings). <em>(All USD conversions at NT$31/USD; deductible expenses = NT$350K seller-side only.)</em></p></li>
+<li><p><strong>LVIT is the swing factor.</strong> Building income tax (~$8K) is relatively stable regardless of original purchase date. What varies is LVIT — which scales with 公告地價 appreciation since the <em>original</em> (pre-2016) purchase. If the mother purchased in 2014 vs. 2000, the LVIT difference alone is ~$22K. Sources for LVIT rate tiers: <a href="https://www.etax.nat.gov.tw/etwmain/tax-info/understanding/tax-saving-manual/local/land-value-increment-tax/noaGA0q">財政部稅務入口網 — 貳</a>; <a href="https://www.etax.nat.gov.tw/etwmain/etw158w/51">LVIT trial calculation tool</a></p></li>
+<li><p><strong>Old System becomes more expensive than New System</strong> only if original purchase was very early AND 公告地價 has risen very sharply — roughly: pre-1995 vintage + heavy urban appreciation. For a 2000s purchase, Old System still saves meaningfully at this price point.</p></li>
+<li><p><strong>Non-resident status is an Old System advantage.</strong> Building gain for a non-resident is taxed at 20% flat rather than the progressive resident rate (up to ~40%). At the same building gain amount, a Taiwan resident would pay roughly double the building income tax. This makes the Old System comparatively more attractive for US-based owners than it would be for Taiwan residents. (Sources: <a href="https://www.etax.nat.gov.tw/etwmain/alien-tax-service/alien-individual-income-tax/vV8Z3o9">財政部 — 非居住者扣繳率</a>; <a href="https://www.etax.nat.gov.tw/etwmain/alien-tax-service/alien-tax-faq/KK9Y76o">財政部稅務入口網 — 非居住者扣繳率規定</a> — explicitly lists 財產交易所得按20%扣繳率申報納稅)</p></li>
+<li><p><strong>HSTT has a "big base, low rate" problem.</strong> Even at 15%, taxing NT$9.45M (the market/assessed gap) produces NT$1.42M (~$46K at NT$31/USD) in tax. The Old System avoids this by never putting market value appreciation into the tax base directly.</p></li>
+<li><p><strong>For New System (HSTT), the holding period bracket matters enormously.</strong> If the combined holding period somehow fell into the 5–10yr bracket (20% rate), the HSTT would be ~NT$1.82M (~$56K) — a large jump. At 35% (2–5yr), it would be ~NT$3.19M (~$98K). Confirming a combined hold &gt;10 years is essential before planning around the 15% rate. (<a href="https://www.ntbt.gov.tw/english/multiplehtml/cd61d91304fc4fb194571fea1d82ba35">HSTT rate schedule — NTBT English</a>; <a href="https://www.ntbt.gov.tw/singlehtml/41ae3594197f4f69b47753ce08188516?cntId=cdeb372790044547ad6a8749ae975e4a">NTBT — 繼承接計持有期間</a>)</p></li>
+<li><p><strong>US tax is largely symmetric across both Taiwan regimes.</strong> Because the US stepped-up basis resets to FMV at May 2022 (not the original purchase date), US capital gain = price appreciation since 2022 only. The Taiwan regime choice does not change the US gain calculation; it only affects the Foreign Tax Credit available to offset US tax. Higher Taiwan tax → larger FTC → lower net US tax (up to the FTC limitation). NIIT (3.8%) is not offset by FTC — but at the actual income profile (~$160K base income, MFJ), NIIT = $0: MAGI stays well below the $250K MFJ threshold for all positive-gain scenarios shown. NIIT becomes relevant only if non-property MAGI grows to ~$236K+. (<a href="https://www.irs.gov/publications/p551">IRS Pub 551 — Inherited Property stepped-up basis</a>; <a href="https://www.irs.gov/forms-pubs/about-form-1116">IRS — About Form 1116, Foreign Tax Credit</a>)</p></li>
+</ol>
+
+<h4 id="what-to-do-with-this">What to Do With This</h4>
+
+<ul>
+<li><strong>If title search confirms pre-2016 purchase → budget ~$19–42K USD in Taiwan tax</strong> (Old System at NT$31/USD; 2014 purchase = ~$19K, 2010 = ~$27K, 2005 = ~$36K, 2000 = ~$42K)</li>
+<li><strong>If title search confirms post-2016 purchase → budget ~$46–48K USD in Taiwan tax</strong> (HSTT 2.0 at 15% if original purchase was Jul 2021+; NT$31–29.5/USD), assuming &gt;10yr combined hold still applies via tack-on rule. <strong>If original purchase was Jan 2016–Jun 2021 (HSTT 1.0), budget ~$61K instead</strong> — the 15% bracket does not exist under HSTT 1.0, and a combined hold of any length &gt;2yr applies at 20% flat</li>
+<li><strong>In either case:</strong> engage a Taiwan CPA to (a) apply the CPI adjustment to cost basis, (b) calculate actual 公告地價 at original purchase year for LVIT estimation, and (c) coordinate Old System payment logistics (LVIT timing at 完稅, building income tax withholding from 尾款 or representative self-report)</li>
+</ul>
+
+<p><strong>Key Terms for Online Research:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Chinese</th>
+  <th>Pinyin</th>
+  <th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>房地合一稅</td>
+  <td>Fángdì Héyī Shuì</td>
+  <td>House and Land Unified Transaction Tax (HSTT)</td>
+</tr>
+<tr>
+  <td>土地增值稅</td>
+  <td>Tǔdì Zēngzhí Shuì</td>
+  <td>Land Value Increment Tax (LVIT)</td>
+</tr>
+<tr>
+  <td>持有期間</td>
+  <td>Chíyǒu Qījiān</td>
+  <td>Holding Period</td>
+</tr>
+<tr>
+  <td>繼承取得</td>
+  <td>Jìchéng Qǔdé</td>
+  <td>Acquisition by Inheritance (Tack-On Rule)</td>
+</tr>
+<tr>
+  <td>公告地價</td>
+  <td>Gōnggào Dìjià</td>
+  <td>Government-Assessed Land Price</td>
+</tr>
+<tr>
+  <td>自住</td>
+  <td>Zìzhù</td>
+  <td>Self-Use / Owner-Occupancy</td>
+</tr>
+<tr>
+  <td>自住優惠稅率</td>
+  <td>Zìzhù Yōuhuì Shuìlǜ</td>
+  <td>Self-Use Preferential Tax Rate</td>
+</tr>
+<tr>
+  <td>財政部</td>
+  <td>Cáizhèng Bù</td>
+  <td>Ministry of Finance</td>
+</tr>
+<tr>
+  <td>國稅局</td>
+  <td>Guóshuì Jú</td>
+  <td>National Taxation Bureau</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="phase-3-us-tax-analysis-worldwide-liability">Phase 3: US Tax Analysis (Worldwide Liability)</h2>
+
+<p><em>Goal: Calculate IRS liability and identify double-taxation relief.</em></p>
+
+<ul>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Confirm Stepped-Up Basis Eligibility (IRC §1014):</strong></p>
+
+<ul>
+<li>US citizens and residents inheriting foreign real estate are entitled to a stepped-up basis to FMV at the date of death.</li>
+<li>Basis = FMV as of the date of death (May 2022), not the original purchase price.</li>
+<li>Documentation risk: ensure a defensible appraisal exists (see Phase 1).</li>
+<li><p><strong>Note on §1014(f):</strong> The basis-consistency rules (which require the heir to use the same value reported on Form 706) do not apply here. For a US citizen dying in 2022, Form 706 was only required if the gross estate exceeded $12,060,000 — far above the value of this property alone. If the mother's total estate was below that threshold, no Form 706 was filed and §1014(f) imposes no constraint. ⚠ If she had other significant assets that pushed her total estate above ~$12M, confirm with a US CPA whether Form 706 was required.<br />
+<details><summary>Sources</summary></p></li>
+<li><p><a href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes">IRS — Estate Tax FAQ (Form 706 filing threshold)</a></p></li>
+<li><a href="https://www.irs.gov/publications/p551">IRS Publication 551 — Basis of Assets</a> — stepped-up basis for inherited property</li>
+<li><a href="https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances">IRS FAQ — Gifts &amp; Inheritances</a></li>
+<li><a href="https://www.irs.gov/taxtopics/tc703">IRS Topic 703 — Basis of Assets</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Calculate US Capital Gain:</strong></p>
+
+<ul>
+<li><code>[2026 Sale Price] - [2022 FMV (stepped-up basis)] - [Selling Expenses]</code></li>
+<li>Gain since 2022 only — not since mother's original purchase date.</li>
+<li>Report the sale on Form 8949 (enter "INHERITED" in column (b)) and carry to Schedule D.</li>
+<li><p><strong>Currency conversion required:</strong> All amounts must be reported in USD. Use the TWD/USD spot exchange rate on the date of each transaction: (a) for the stepped-up basis, use the rate as of the date of death (May 2022); (b) for the sale price and selling expenses, use the rate on the closing date (2026). The IRS has no official exchange rate and accepts any consistently-used posted rate (e.g., Federal Reserve, OANDA, XE). USD/TWD exchange rate fluctuation between 2022 and 2026 is therefore a separate variable in the gain calculation, independent of the property's local-currency price change.<br />
+<details><summary>Sources</summary></p></li>
+<li><p><a href="https://www.irs.gov/publications/p544">IRS Publication 544 — Sales and Other Dispositions of Assets</a> — gain computation including foreign real estate</p></li>
+<li><a href="https://www.irs.gov/forms-pubs/about-form-8949">IRS — About Form 8949</a> — "INHERITED" in column (b) gives automatic long-term treatment</li>
+<li><a href="https://www.irs.gov/instructions/i1040sd">IRS Instructions for Schedule D</a></li>
+<li><a href="https://www.irs.gov/individuals/international-taxpayers/foreign-currency-and-currency-exchange-rates">IRS — Foreign Currency and Currency Exchange Rates</a> — spot rate on transaction date</li>
+<li><a href="https://www.irs.gov/individuals/international-taxpayers/yearly-average-currency-exchange-rates">IRS — Yearly Average Currency Exchange Rates</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Apply Long-Term Capital Gains Rate:</strong></p>
+
+<ul>
+<li>Long-term rates apply (0% / 15% / 20% depending on taxable income).</li>
+<li><strong>Correction from original note:</strong> For inherited property, IRC §1223(11) provides that the holding period is <em>automatically</em> treated as long-term, regardless of how long you actually held the property — even if you sold the day after registration. You do not need to confirm that the hold exceeds 12 months. Report the gain in Part II (long-term) of Form 8949 with "INHERITED" in column (b).</li>
+<li><p>For 2026 income thresholds (inflation-adjusted annually): consult the IRS's current-year tax rate schedules. As a reference point, for 2025 the 0% bracket applies below ~$48,350 (single) / ~$96,700 (MFJ); 20% applies above ~$533,400 (single) / ~$600,050 (MFJ); 15% applies in between.<br />
+<details><summary>Sources</summary></p></li>
+<li><p><a href="https://www.irs.gov/taxtopics/tc409">IRS Topic no. 409 — Capital Gains and Losses</a> — inherited property is automatically long-term</p></li>
+<li><a href="https://www.irs.gov/instructions/i1040sd">IRS Instructions for Schedule D</a> — Part II (long-term) for inherited property, IRC §1223(11)</li>
+<li><a href="https://www.irs.gov/filing/federal-income-tax-rates-and-brackets">IRS — Federal Income Tax Rates and Brackets</a></li>
+<li><a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill">IRS — Tax Inflation Adjustments for Tax Year 2026</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Check Net Investment Income Tax (NIIT):</strong></p>
+
+<ul>
+<li>If your MAGI exceeds $200K (single) or $250K (MFJ), an additional <strong>3.8% NIIT</strong> applies to the lesser of (a) net investment income or (b) the MAGI excess above the threshold.</li>
+<li><strong>This is not offset by the Foreign Tax Credit</strong> — the FTC is only allowed against Chapter 1 income tax; NIIT is a separate Chapter 2A tax. IRS explicitly confirms: "foreign income tax credits may not be used to reduce NIIT liability." Model this separately.</li>
+<li>The MAGI thresholds ($200K/$250K) are <strong>not inflation-adjusted</strong> — they are fixed by statute and have not changed since NIIT was enacted in 2013.</li>
+<li><p>Gain from the sale of investment real estate is unambiguously subject to NIIT.<br />
+<details><summary>Sources</summary></p></li>
+<li><p><a href="https://www.irs.gov/taxtopics/tc559">IRS Topic no. 559 — Net Investment Income Tax</a> — NIIT rate, MAGI thresholds, what counts as NII</p></li>
+<li><a href="https://www.irs.gov/newsroom/questions-and-answers-on-the-net-investment-income-tax">IRS — Q&amp;A on the Net Investment Income Tax</a> — confirms investment real estate gain is subject to NIIT; FTC cannot reduce NIIT</li>
+<li><a href="https://www.irs.gov/forms-pubs/about-form-8960">IRS — About Form 8960</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Apply Foreign Tax Credit (Form 1116):</strong></p>
+
+<ul>
+<li>Taiwan HSTT or building income tax paid may be applied as a credit against US income tax liability (not NIIT — see above).</li>
+<li>Key limitation: FTC is subject to income basket rules. Capital gains from foreign real estate generally fall into the <strong>passive category</strong> basket on Form 1116. Unused credits in one basket cannot offset tax in another basket.</li>
+<li>Additionally: because the Taiwan gain is taxed in the US at a preferential long-term rate (15% or 20%), the Form 1116 instructions require a <strong>rate-differential adjustment</strong> — you must reduce the foreign-source income reported on Line 1a by multiplying by 0.4054 (15% rate group) or 0.5405 (20% rate group). This adjustment reduces the FTC limitation and may leave residual US tax even when Taiwan tax nominally exceeds US tax on the same gain.</li>
+<li>FTC coverage is unlikely to be 1:1 for this transaction. Model residual US tax after FTC application and rate-differential adjustment.</li>
+<li><p><strong>⚠ LVIT creditability question:</strong> The FTC requires the foreign tax to be an income tax (or excess profits tax). Taiwan HSTT — a tax on capital gain income — clearly qualifies. However, <strong>LVIT (土地增值稅)</strong> is administered by local government and measured on land value increments, which the IRS could potentially characterize as a property transfer tax rather than an income tax. Confirm LVIT creditability with your US CPA before claiming it as FTC.<br />
+<details><summary>Sources</summary></p></li>
+<li><p><a href="https://www.irs.gov/publications/p514">IRS Publication 514 — Foreign Tax Credit for Individuals</a> — basket categories, limitation computation, rate-differential adjustment</p></li>
+<li><a href="https://www.irs.gov/instructions/i1116">IRS Instructions for Form 1116</a> — rate-differential adjustment: 0.4054 (15% group) or 0.5405 (20% group)</li>
+<li><a href="https://www.irs.gov/taxtopics/tc856">IRS Topic no. 856 — Foreign Tax Credit</a></li>
+<li><a href="https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit">IRS — Foreign Tax Credit (eligibility overview)</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Identify Informational Filing Requirements:</strong></p>
+
+<ul>
+<li><strong>Form 3520:</strong> <strong>Not applicable in this situation.</strong> Form 3520 Part IV is triggered only by bequests from a <em>nonresident alien individual</em> or a <em>foreign estate</em> (IRC §6039F; Form 3520 instructions). The decedent was a US citizen — US citizenship is permanent regardless of physical residence, so living in Taiwan does not make a US citizen a "nonresident alien." Her estate is also not a "foreign estate": under IRC §7701(a)(31), a foreign estate is one whose foreign-source income is <em>not</em> subject to US income tax; a US citizen's estate is taxable on worldwide income and therefore does not qualify. No Form 3520 obligation arose from this inheritance. Confirm with your US CPA that no Taiwan trust structure was involved in the estate administration that could alter this analysis.</li>
+<li><strong>FBAR (FinCEN 114):</strong> Required if the aggregate value of all foreign financial accounts exceeds $10,000 at <strong>any point</strong> during the calendar year — including momentarily while sale proceeds sit in a Taiwan bank account. Filed with FinCEN (not IRS), due April 15 (auto-extended to October 15).</li>
+<li><p><strong>FATCA (Form 8938):</strong> Required if total specified foreign financial assets exceed the applicable threshold. For a US-resident individual filing single: $50,000 at year-end or $75,000 at any point during the year; for MFJ: $100,000 / $150,000. <strong>Note:</strong> The IRS explicitly states that foreign real property held directly is <strong>not</strong> a specified foreign financial asset — "a personal residence or a rental property does not have to be reported" on Form 8938. However, a Taiwan bank account holding the sale proceeds <strong>would</strong> be a specified foreign financial asset and would trigger Form 8938 once it exceeds the threshold (in addition to FBAR). If the property was held through any foreign entity (trust, company), that entity interest would be reportable.<br />
+<details><summary>Sources</summary></p></li>
+<li><p><a href="https://www.irs.gov/forms-pubs/about-form-3520">IRS — About Form 3520</a> — required for bequests from foreign estates &gt;$100K (not applicable here)</p></li>
+<li><a href="https://www.fincen.gov/report-foreign-bank-and-financial-accounts">FinCEN — FBAR (FinCEN Form 114)</a> — $10,000 aggregate threshold, April 15 due date</li>
+<li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar">IRS — FBAR</a> — penalty framework and BSA e-filing</li>
+<li><a href="https://www.irs.gov/forms-pubs/about-form-8938">IRS — About Form 8938</a> — FATCA thresholds and what counts as "specified foreign financial assets"</li>
+<li><a href="https://www.irs.gov/businesses/corporations/basic-questions-and-answers-on-form-8938">IRS — Basic Q&amp;A on Form 8938</a> — confirms foreign real property held directly is NOT reportable</li>
+<li><a href="https://www.irs.gov/businesses/comparison-of-form-8938-and-fbar-requirements">IRS — Comparison of Form 8938 and FBAR Requirements</a></li>
+</ul>
+
+<p></details></p></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Check State Income Tax:</strong></p>
+
+<ul>
+<li>Depending on your state of residence, the capital gain may be taxable at the state level.</li>
+<li>Some states (e.g., California) tax all capital gains as ordinary income with no preferential long-term rate and no state-level foreign tax credit — meaning the full gain is stacked on top of other income and taxed at up to 13.3% (California's top marginal rate, including the 1% Mental Health Services Tax on income over $1M; most taxpayers will be in the 9.3%–12.3% range) with no credit for Taiwan taxes paid.</li>
+<li>Other states have no income tax (TX, FL, NV, WA, etc.) or provide a state-level FTC (varies by state).</li>
+<li>Confirm your state's treatment before projecting total tax.</li>
+<li><strong>⚠ California foreign tax credit:</strong> California's credits are limited to taxes paid to other US states — no credit for Taiwan taxes. Confirm with FTB or a California CPA.</li>
+<li>For all other states: consult your state tax authority's website or a state-tax-experienced CPA.</li>
+</ul>
+
+<p><details><summary>California sources</summary></p>
+
+<ul>
+<li><a href="https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html">California FTB — Capital Gains and Losses</a> — all capital gains taxed as ordinary income; no preferential rate</li>
+<li><a href="https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf">California FTB — 2025 Tax Rate Schedules</a> — rates 1%–13.3%</li>
+</ul>
+
+<p></details></p></li>
+</ul>
+
+<hr />
+
+
+<h3 id="gain-calculation-methodology-federal-irs-california-ftb">Gain Calculation Methodology (Federal IRS &amp; California FTB)</h3>
+
+*Both the Internal Revenue Service (IRS) and the California Franchise Tax Board (FTB) start from the same capital gain figure — the same basis, the same amount realized, the same dollar gain. They diverge only in the tax rate applied and the relief available for Taiwan taxes paid.*
+
+<h4 id="step-1-establish-the-us-dollar-usd-cost-basis">Step 1 — Establish the US Dollar (USD) Cost Basis</h4>
+
+Under Internal Revenue Code (IRC) §1014, the basis of inherited property is its fair market value (FMV) at the date of death. California conforms to this rule.
+
+
+
+<pre><code>Basis (USD) = Property FMV in New Taiwan Dollars (TWD) as of May 2022
+              ÷ TWD/USD spot exchange rate on the date of death
+</code></pre>
+
+
+<ul>
+<li>The FMV must be documented by a qualified appraisal or defensible comparable-sales data as of May 2022 (see Phase 1 bullet on FMV appraisal).</li>
+<li>The IRS has no official exchange rate. Any consistently-used posted rate is acceptable (e.g., Federal Reserve, OANDA, XE).</li>
+<li><strong>No depreciation is deducted from basis</strong> — the property was held as personal (non-rental, non-business) real estate.</li>
+</ul>
+
+**Sources:** [IRS Publication 551 — Basis of Assets](https://www.irs.gov/publications/p551); [IRS FAQ — Gifts & Inheritances](https://www.irs.gov/faqs/interest-dividends-other-types-of-income/gifts-inheritances/gifts-inheritances); [California FTB — Schedule D (540) Instructions 2025](https://www.ftb.ca.gov/forms/2025/2025-540-d-instructions.html) (California conforms to IRC §1014)
+
+<h4 id="step-2-establish-amount-realized">Step 2 — Establish Amount Realized</h4>
+
+<pre><code>Amount Realized (USD) = [Gross sale price in TWD ÷ TWD/USD spot rate on closing date]
+                        − Seller-paid selling expenses converted at the same closing-date rate
+</code></pre>
+
+
+Seller-paid selling expenses that reduce the amount realized include: real estate agent commissions (both sides if paid by seller), legal/notary fees, deed tax (契稅), and stamp duty (印花稅) paid by seller. These are deducted here.
+
+**Taiwan HSTT (House and Land Transaction Tax / 房地合一稅) and LVIT (Land Value Increment Tax / 土地增值稅) are NOT deducted from the amount realized.** These are income taxes handled separately — either as a Foreign Tax Credit (FTC) on the federal return, or potentially as a foreign tax deduction. Subtracting them here would be double-counting.
+
+**Sources:** [IRS Publication 544 — Sales and Other Dispositions of Assets](https://www.irs.gov/publications/p544); [IRS — Foreign Currency and Currency Exchange Rates](https://www.irs.gov/individuals/international-taxpayers/foreign-currency-and-currency-exchange-rates); [IRS Topic 503 — Deductible Taxes](https://www.irs.gov/taxtopics/tc503) (confirms foreign income taxes are not deducted as selling expenses; the FTC or deduction election applies instead)
+
+<h4 id="step-3-compute-capital-gain">Step 3 — Compute Capital Gain</h4>
+
+<pre><code>Capital Gain (USD) = Amount Realized (USD) − Basis (USD)
+</code></pre>
+
+
+This figure is the **same on both your federal return and your California return.** It is automatically long-term — inherited property is treated as held longer than one year regardless of actual holding period under IRC §1223(11), so there is no holding-period test to satisfy.
+
+Report on Form 8949 (enter "INHERITED" in column (b)) and carry to Schedule D.
+
+**Source:** [IRS Instructions for Schedule D (Form 1040)](https://www.irs.gov/instructions/i1040sd)
+
+<h4 id="step-4-currency-effect-a-separate-variable">Step 4 — Currency Effect: A Separate Variable</h4>
+
+Because the basis is converted at the **2022 exchange rate** and the sale price at the **2026 rate**, TWD/USD fluctuation is an independent variable in the gain calculation — separate from whether the property appreciated in local-currency terms.
+
+If TWD weakens against USD between 2022 and 2026 (e.g., NT$29/USD → NT$32/USD), the USD gain will be **smaller** than the NT$ gain — potentially significantly so. Conversely, if TWD strengthens, the USD gain is larger. This effect can make a material difference in whether you owe federal/California tax at all, independent of Taiwan's tax outcome.
+
+**Source:** [IRS — Yearly Average Currency Exchange Rates](https://www.irs.gov/individuals/international-taxpayers/yearly-average-currency-exchange-rates)
+
+<h4 id="step-5-federal-tax-on-the-gain">Step 5 — Federal Tax on the Gain</h4>
+
+<table>
+<thead>
+<tr>
+  <th>Layer</th>
+  <th>Rate</th>
+  <th>Applied to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Long-term capital gains</td>
+  <td>0% / 15% / 20%</td>
+  <td>Gain amount; rate bracket based on total taxable income</td>
+</tr>
+<tr>
+  <td>Net Investment Income Tax (NIIT)</td>
+  <td>3.8%</td>
+  <td>Gain amount, if Modified Adjusted Gross Income (MAGI) &gt; $200K (single) / $250K (married filing jointly / MFJ)</td>
+</tr>
+<tr>
+  <td><strong>Less: Foreign Tax Credit (FTC)</strong></td>
+  <td>Reduces income tax dollar-for-dollar</td>
+  <td>Taiwan HSTT paid (creditable); LVIT creditability uncertain — confirm with CPA</td>
+</tr>
+</tbody>
+</table>
+
+Key FTC constraint: the credit is computed on Form 1116 with a **rate-differential adjustment** — foreign-source income in the 15% long-term rate group is multiplied by 0.4054, and in the 20% group by 0.5405, before computing the FTC limitation. This adjustment reduces the allowable credit below the face amount of Taiwan tax paid, and may leave residual US income tax even when Taiwan tax exceeds the nominal US rate. The FTC does **not** offset NIIT.
+
+**Sources:** [IRS Publication 514 — Foreign Tax Credit for Individuals](https://www.irs.gov/publications/p514); [IRS Instructions for Form 1116](https://www.irs.gov/instructions/i1116); [IRS — Questions and Answers on the Net Investment Income Tax](https://www.irs.gov/newsroom/questions-and-answers-on-the-net-investment-income-tax) (confirms FTC cannot offset NIIT); [IRS — Foreign Tax Credit: Choosing Credit or Deduction](https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit-choosing-to-take-credit-or-deduction)
+
+<h4 id="step-6-california-ftb-tax-on-the-same-gain">Step 6 — California FTB Tax on the Same Gain</h4>
+
+California uses the **identical gain figure** from Step 3 but applies different rules:
+
+<table>
+<thead>
+<tr>
+  <th>Item</th>
+  <th>California treatment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Tax rate</td>
+  <td>Ordinary income rates — 1% to 13.3% (no preferential long-term rate)</td>
+</tr>
+<tr>
+  <td>NIIT</td>
+  <td>Not applicable — California has no equivalent</td>
+</tr>
+<tr>
+  <td>Foreign Tax Credit</td>
+  <td><strong>Not available</strong> — California provides no credit for taxes paid to foreign countries</td>
+</tr>
+<tr>
+  <td>Foreign tax as itemized deduction</td>
+  <td><strong>Likely unavailable</strong> — California does not conform to the federal Schedule A deduction for foreign income taxes; confirm with a California CPA</td>
+</tr>
+</tbody>
+</table>
+
+**Net result:** California taxes the full gain at ordinary income rates with zero relief for Taiwan taxes paid. This is the layer of double taxation that neither the FTC nor any other federal mechanism can offset.
+
+**Sources:** [California FTB — Capital Gains and Losses](https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html); [California FTB — 2025 Tax Rate Schedules](https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf); [California FTB — 2025 Instructions for Schedule CA (540)](https://www.ftb.ca.gov/forms/2025/2025-540-ca-instructions.html)
+
+<h4 id="illustrative-example">Illustrative Example</h4>
+
+*Assumptions: FMV at death May 2022 = NT$13M; TWD/USD rate May 2022 = NT$29.5/USD → basis = $440,678 USD. Sale price 2026 = NT$14.5M; TWD/USD rate closing 2026 = NT$31/USD → gross proceeds = $467,742 USD. Seller-paid selling expenses = NT$450K → $14,516 USD. Amount realized = $453,226 USD.*
+
+
+
+<pre><code>Capital Gain = $453,226 − $440,678 = $12,548 USD
+</code></pre>
+
+
+*At 15% federal long-term rate: ~$1,882 federal income tax on the gain. Taiwan HSTT paid ≈ $42K USD — but the usable FTC is capped by the Form 1116 passive basket limit, not the absolute size of Taiwan tax. At the actual income profile (~$172K total income, $16.5K foreign passive income including $4K ETF dividends): FTC limit ≈ ($16.5K / $172K) × $10,500 ≈ **$1,005**; property-allocated portion ≈ ($12.5K / $16.5K) × $1,005 ≈ **$761** → net federal income tax ≈ **$1,121** (not zero; excess FTC carries forward 10 years). NIIT: **$0** — MAGI ~$172K is well below the $250K MFJ threshold. California at **9.3%** (MFJ marginal rate at this income level): ~**$1,167** with no relief.*
+
+*Note: The small USD gain (~$12.5K) on a NT$1.5M TWD gain is entirely due to TWD depreciation from NT$29.5 to NT$31 between 2022 and 2026. Had the TWD held at NT$29.5, the USD gain would have been ~$50K — materially larger federal and California tax.*
+
+<h4 id="what-you-need-to-complete-this-calculation">What You Need to Complete This Calculation</h4>
+
+<ul>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> Documented FMV appraisal (or comparable sales evidence) for the property as of May 2022</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> Confirmed TWD/USD spot rate on date of death (May 2022) — from Federal Reserve H.10 release or similar</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> Confirmed TWD/USD spot rate on closing date (2026)</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> Itemized seller-paid closing costs in TWD (from the closing statement)</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> Total Taiwan HSTT or Old System taxes paid in TWD (for FTC conversion to USD)</li>
+</ul>
+
+**Sources:** [IRS — Foreign Currency and Currency Exchange Rates](https://www.irs.gov/individuals/international-taxpayers/foreign-currency-and-currency-exchange-rates); [Federal Reserve — Foreign Exchange Rates (H.10)](https://www.federalreserve.gov/releases/h10/)
+
+
+<hr />
+
+
+**Key Terms for Online Research:**
+
+<table>
+<thead>
+<tr>
+  <th>Chinese</th>
+  <th>Pinyin</th>
+  <th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>外國稅額抵免</td>
+  <td>Wàiguó Shuì'é Dǐmiǎn</td>
+  <td>Foreign Tax Credit (FTC) — Taiwan-side term for the credit mechanism</td>
+</tr>
+<tr>
+  <td>—</td>
+  <td>IRC §1014</td>
+  <td>Stepped-Up Basis Rule (Inherited Property)</td>
+</tr>
+<tr>
+  <td>—</td>
+  <td>Form 1116</td>
+  <td>US Foreign Tax Credit Claim</td>
+</tr>
+<tr>
+  <td>—</td>
+  <td>Form 3520</td>
+  <td>Annual Return to Report Foreign Inheritance / Trust Transactions — <strong>not applicable here</strong> (decedent was a US citizen, not a nonresident alien)</td>
+</tr>
+<tr>
+  <td>—</td>
+  <td>FBAR / FinCEN 114</td>
+  <td>Foreign Bank Account Report</td>
+</tr>
+<tr>
+  <td>—</td>
+  <td>Form 8938 / FATCA</td>
+  <td>Statement of Specified Foreign Financial Assets</td>
+</tr>
+<tr>
+  <td>—</td>
+  <td>NIIT</td>
+  <td>Net Investment Income Tax (3.8%)</td>
+</tr>
+<tr>
+  <td>—</td>
+  <td>MAGI</td>
+  <td>Modified Adjusted Gross Income</td>
+</tr>
+</tbody>
+</table>
+
+
+<hr />
+
+
+<h2 id="phase-4-logistics-deadlines-payment">Phase 4: Logistics, Deadlines &amp; Payment</h2>
+
+*Goal: Ensure compliance with filing timelines and manage cash flow.*
+
+<ul>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Taiwan Filing Deadlines:</strong></p>
+
+<ul>
+<li><strong>New System (HSTT 2.0):</strong> File and pay within <strong>30 days</strong> of transfer registration. This is a hard deadline — missing it triggers penalties.</li>
+<li><strong>Old System — LVIT:</strong> Declare with the local tax bureau (新北市政府稅捐稽徵處 for this property) within <strong>30 days</strong> of contract signing (土地稅法第49條). LVIT must be <strong>paid in full before the 地政事務所 accepts the title transfer registration</strong> — it is a blocking prerequisite for closing.</li>
+<li><strong>Old System — Building income tax:</strong> There is <strong>no annual income tax return filing</strong> for non-residents. Property transaction income (財產交易所得) is a self-report category handled at the time of transaction via one of two routes: (Route A) buyer withholds 20% of the building gain from the final payment (尾款) and remits to the National Taxation Bureau within 10 days; or (Route B) seller's 稅務代理人 files and pays before the seller departs Taiwan or within the statutory window (所得稅法§73). The 登記日 (title registration date) determines which tax year the income falls into, but no May-June annual return is required for non-residents.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Designate a Taiwan-based authorized representative (稅務代理人) before closing:</strong></p>
+
+<ul>
+<li>As a non-resident, you will almost certainly not be physically present in Taiwan during the filing windows after closing. Deadlines run regardless of your location.</li>
+<li>For <strong>New System (HSTT)</strong>: the 代理人 receives the buyer's withholding certificate, files the HSTT return within 30 days of transfer registration, and remits any balance due or files for a refund.</li>
+<li>For <strong>Old System — Building income tax</strong>: if using Route B (representative self-report rather than buyer withholding), the 稅務代理人 must file and pay 20% of the building gain before the seller departs Taiwan or within the statutory window under 所得稅法§73.</li>
+<li>For <strong>Old System — LVIT</strong>: the handling 代書 coordinates the LVIT declaration and payment as part of the 完稅 stage; this is procedurally standard and does not require separate engagement, but confirm the 代書 is handling it.</li>
+<li>Confirm the 稅務代理人 designation in writing before the sale closes. Without a local representative, hard filing deadlines create a practical compliance risk that cannot be resolved remotely after the fact.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Non-Resident Withholding at Closing — triggered by tax residency (183-day rule), not 戶籍:</strong></p>
+
+<ul>
+<li><strong>New System (HSTT):</strong> The buyer is required to withhold a portion of the purchase price and remit it to the tax authority on your behalf. The withheld amount is credited against your final HSTT liability; if withholding exceeds actual tax, file for a refund.</li>
+<li><strong>Old System — Building income tax (Route A):</strong> The buyer (as 扣繳義務人) withholds 20% of the <em>building-gain portion only</em> from the final payment (尾款, typically ~70% of the total price), and remits to the National Taxation Bureau within 10 days. This is not a withholding of the full purchase price — only the income gain on the building allocation.</li>
+<li><strong>Old System — Building income tax (Route B):</strong> If the parties agree to Route B instead, the seller's 稅務代理人 self-reports and pays directly. In this case no buyer withholding occurs at closing.</li>
+<li>Confirm which route (A or B) the buyer and 代書 will use before closing, and ensure the 稅務代理人 is briefed accordingly.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Payment from Sale Proceeds — Old System:</strong></p>
+
+<ul>
+<li><strong>LVIT</strong> is paid from early installments or directly from the 履保 (履約保證) escrow account at the 完稅 stage — before the final 尾款 is released. The 代書 can deduct LVIT from the buyer's deposited installment in the escrow account. The standard payment ladder (10% at signing / 10% at 用印 / 10% at 完稅 / 70% at 交屋) means the seller has received ~20% (~NT$2.9M on a NT$14.5M sale) before LVIT falls due, more than sufficient to cover ~NT$410K–570K in estimated LVIT.</li>
+<li><strong>Building income tax</strong> is explicitly <strong>excluded</strong> from 履保 disbursements (履保accounts do not cover income-type taxes, whether 房地合一稅 or 財產交易所得稅). Under Route A it is withheld from the 尾款 before release to the seller; under Route B the seller's representative pays after the full proceeds have been received.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Wire Transfer &amp; Currency Reporting:</strong></p>
+
+<ul>
+<li>Wiring large proceeds from Taiwan to the US: amounts over $10,000 trigger Bank Secrecy Act reporting at the receiving US bank.</li>
+<li>Taiwan banks may require documentation of the source of funds (sale contract, tax clearance) before releasing an international wire.</li>
+<li>Factor in wire timing when planning cash flow around US filing deadlines.</li>
+</ul></li>
+<li><p><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>US Filing Deadline:</strong></p>
+
+<ul>
+<li>The sale will be reported on your 2026 US federal return, due April 2027 (or October 2027 with extension).</li>
+<li>Form 3520 is not required (decedent was a US citizen — see Phase 3 notes).</li>
+</ul></li>
+</ul>
+
+<p><strong>Key Terms for Online Research:</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Chinese</th>
+  <th>Pinyin</th>
+  <th>English</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>申報</td>
+  <td>Shēnbào</td>
+  <td>Tax Declaration / Filing</td>
+</tr>
+<tr>
+  <td>扣繳</td>
+  <td>Kòujiǎo</td>
+  <td>Tax Withholding at Source</td>
+</tr>
+<tr>
+  <td>代扣稅款</td>
+  <td>Dài Kòu Shuìkuǎn</td>
+  <td>Withholding Tax Remitted by Buyer</td>
+</tr>
+<tr>
+  <td>結匯</td>
+  <td>Jiéhuì</td>
+  <td>Foreign Exchange Settlement (Wire Transfer of Proceeds)</td>
+</tr>
+<tr>
+  <td>外匯申報</td>
+  <td>Wàihuì Shēnbào</td>
+  <td>Foreign Exchange Declaration</td>
+</tr>
+<tr>
+  <td>國稅局</td>
+  <td>Guóshuì Jú</td>
+  <td>National Taxation Bureau</td>
+</tr>
+<tr>
+  <td>財政部電子申報</td>
+  <td>Cáizhèng Bù Diànzǐ Shēnbào</td>
+  <td>Ministry of Finance e-Filing Portal</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="professional-resources-to-engage">Professional Resources to Engage</h2>
+
+<ul>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>Taiwan CPA or tax attorney</strong> with HSTT expertise — to confirm regime, calculate LVIT if applicable, and advise on non-resident withholding.</li>
+<li><input type="checkbox" class="task-list-item-checkbox" disabled> <strong>US CPA or tax attorney</strong> with foreign real estate experience — specifically: IRC §1014 stepped-up basis for foreign inherited property, Form 1116 basket analysis, Form 3520, FBAR/FATCA.</li>
+</ul>
+
+  </div>
+</body>
+</html>

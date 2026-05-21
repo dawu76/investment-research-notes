@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>tax research us income interaction</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, "PingFang TC", "Hiragino Sans GB",
+                 "Microsoft JhengHei", "Noto Sans CJK TC", sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #24292e;
+    background: #fff;
+    padding: 48px 24px;
+}
+
+.page {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.4;
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    padding-bottom: 0.3em;
+}
+h1 { font-size: 1.9em; border-bottom: 2px solid #e1e4e8; }
+h2 { font-size: 1.4em; border-bottom: 1px solid #e1e4e8; }
+h3 { font-size: 1.15em; }
+h4 { font-size: 1em; color: #444; }
+
+p { margin: 0.8em 0; }
+
+a { color: #0366d6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr { border: none; border-top: 1px solid #e1e4e8; margin: 2em 0; }
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2em 0;
+    font-size: 0.92em;
+}
+th, td {
+    border: 1px solid #dfe2e5;
+    padding: 8px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+th {
+    background: #f6f8fa;
+    font-weight: 600;
+}
+tr:nth-child(even) td { background: #fafbfc; }
+
+/* Task list checkboxes */
+ul.task-list { list-style: none; padding-left: 0; }
+ul.task-list li { display: flex; align-items: flex-start; gap: 8px; margin: 0.5em 0; }
+input[type="checkbox"] {
+    margin-top: 5px;
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    accent-color: #0366d6;
+}
+
+/* Regular lists */
+ul:not(.task-list), ol {
+    padding-left: 1.8em;
+    margin: 0.6em 0;
+}
+li { margin: 0.25em 0; }
+li > ul, li > ol { margin-top: 0.2em; }
+
+/* Nested lists inside task-list items */
+ul.task-list li > ul { padding-left: 1.6em; list-style: disc; }
+ul.task-list li > ul li { display: list-item; }
+
+/* Code */
+code {
+    font-family: "SF Mono", Menlo, Consolas, monospace, "PingFang TC";
+    font-size: 0.88em;
+    background: #f3f4f6;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+pre {
+    background: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 16px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+pre code { background: none; padding: 0; }
+
+/* Blockquote */
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 1em;
+    color: #6a737d;
+    margin: 1em 0;
+}
+
+/* Bold / italic */
+strong { font-weight: 600; }
+
+/* Warning callouts — ⚠ lines */
+p:has(> strong:first-child) { margin-top: 1em; }
+
+@media print {
+    body { padding: 0; font-size: 13px; }
+    a { color: #24292e; }
+    a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+}
+</style>
+</head>
+<body>
+  <div class="page">
+<h1 id="us-tax-interaction-property-sale-vs-other-investment-income">US Tax Interaction: Property Sale vs. Other Investment Income</h1>
+
+<p><em>Research date: May 2026 | Related documents: tax-research-plan.md, tax-research-tw-gains.md</em></p>
+
+<hr />
+
+<h2 id="motivating-questions">Motivating Questions</h2>
+
+<ol>
+<li><p>For a representative unit in the 觀海極品 condo community (30坪 baseline), the US federal and state taxes on the property capital gain appear to be quite low as a percentage of the overall sale price — and much lower than the taxes owed to the Taiwanese government. To what extent would the US taxes be affected by non-real estate income in the same year as the property sale — specifically income from short-term vs. long-term stock and options gains, US Treasuries, and municipal bonds?</p></li>
+<li><p>If the property is likely to sell in August of a given year, should investment strategies in the time leading up to that date be adjusted to favor more income from long-term capital gains and tax-exempt bonds/bond funds? Or would it not make much of a difference?</p></li>
+</ol>
+
+<hr />
+
+<h2 id="short-answer">Short Answer</h2>
+
+<p>The composition of other US investment income in the sale year <strong>matters very little</strong> for the property-specific US tax exposure, and restructuring a portfolio specifically around the property sale is not worth the effort. The Taiwan tax (~$21K depending on Old System regime) is the dominant liability.</p>
+
+<p><strong>Filing status and income profile assumed throughout this document:</strong> Married Filing Jointly (MFJ); 2026 total income ~$156K consisting of short- and long-term capital gains from US-listed stocks/options, US bond fund dividends, and <strong>$4K in dividends from foreign-market ETFs</strong>. The $4K foreign ETF dividends are foreign-sourced passive income and share the Form 1116 passive basket with the Taiwan property gain. All other income is domestic-sourced.</p>
+
+<p>Key consequences of this income profile:</p>
+
+<ul>
+<li><strong>NIIT = $0</strong>: MAGI (~$156K + property gain, at most ~$170K) stays well below the $250K MFJ threshold.</li>
+<li><strong>California marginal rate ≈ 9.3%</strong> at this income level (MFJ).</li>
+<li><strong>FTC limit</strong>: foreign passive income = $4K (ETF) + ~$14K (property gain) = ~$18K out of ~$170K total → FTC usable in year 1 ≈ ~$1,100.</li>
+</ul>
+
+<p>The total US exposure (net federal + NIIT + California) ranges from $0 in USD-loss scenarios to ~$2,500 at the 30坪 central case (NT$42万/坪, NT$29/USD). See the Scenario Analysis section for quantified breakdowns.</p>
+
+<hr />
+
+<h2 id="why-other-income-barely-affects-the-propertys-us-tax-exposure">Why Other Income Barely Affects the Property's US Tax Exposure</h2>
+
+<h3 id="layer-1-federal-income-tax-on-the-capital-gain-ftc-partially-offsets-it-residual-expected">Layer 1: Federal Income Tax on the Capital Gain → FTC Partially Offsets It; Residual Expected</h3>
+
+<p>The inherited property gain is automatically long-term (IRC §1223(11)), taxed at 0%/15%/20% based on MFJ taxable income. At MFJ, the 0% bracket applies up to ~$97K taxable income, 15% up to ~$600K, and 20% above that. At the actual income profile (~$170K total including the property gain), the property gain falls squarely in the <strong>15% bracket</strong>. The 20% rate would not apply unless total taxable income exceeded ~$600K — far above any scenario here.</p>
+
+<p>Federal income tax on the 30坪 central-case gain (~$14K) at 15%: <strong>~$2,100</strong>.</p>
+
+<p>The Foreign Tax Credit (FTC) from Taiwan taxes (Old System: ~$20,700) is <strong>10× that amount in absolute size</strong> — but the amount usable in the sale year is capped by the Form 1116 passive basket limitation:</p>
+
+<pre><code>FTC limit = (Foreign passive income / Total passive income) × US federal tax
+</code></pre>
+
+<p>Foreign passive income includes <strong>both</strong> the Taiwan property gain (~$14K) and the foreign ETF dividends ($4K), since both are foreign-sourced and in the same passive basket. For the actual income profile (non-property income ~$156K, of which $4K is foreign ETF dividends):</p>
+
+<ul>
+<li>Total income including property: ~$170K; taxable income ~$140K after $30K MFJ standard deduction. LTCG above the 0% bracket (~$97K): ~$43K × 15% = $6,450; plus ~$4,000 estimated ordinary income tax (short-term gains + bond dividends) → total federal tax: ~<strong>$10,500</strong>. <em>(Caveat: if income is predominantly LTCG/qualified dividends with little ordinary income, federal tax could be $6,500–$8,500 and the FTC limit would scale proportionally — e.g., FTC limit ≈ ($18K / $170K) × $7,500 ≈ $795 at the low end vs. ~$1,110 at midpoint.)</em></li>
+<li>Foreign passive income: $4K (ETF) + $14K (property) = $18K</li>
+<li>FTC limit: ($18K / $170K) × $10,500 ≈ <strong>$1,110</strong></li>
+<li>FTC attributable to property gain: ($14K / $18K) × $1,110 ≈ <strong>$862</strong></li>
+<li>FTC attributable to ETF dividends: ($4K / $18K) × $1,110 ≈ <strong>$247</strong></li>
+<li>Total FTC used in year 1: ~$1,110 (limit-constrained)</li>
+<li>Carryforward: ~$19,890 of the $20,700 Taiwan FTC</li>
+</ul>
+
+<p>The FTC therefore <strong>does not fully eliminate</strong> the federal income tax on the property gain. Residual federal tax on the property ≈ $2,100 − $862 = <strong>~$1,240</strong>.</p>
+
+<p><strong>Note on ETF dividend foreign withholding:</strong> If the foreign ETF itself passed through foreign tax withholding to the shareholder (e.g., country-level dividend WHT), those credits would also fall in the same passive basket — increasing total available FTC slightly, but the FTC limit remains the binding constraint and the additional credits simply increase the carryforward.</p>
+
+<p><strong>LVIT creditability caveat (Old System):</strong> The ~$20,700 total FTC assumes the Land Value Increment Tax (~$13,700) qualifies as a creditable foreign tax under IRC §901. This is uncertain. However, for the actual income and gain levels here, the FTC limit (~$1,110) is well below both the building-only FTC (~$7K) and the combined FTC (~$21K), so LVIT creditability does not affect the residual federal tax calculation — the limit is binding regardless. It only matters at gains above ~$70K where the FTC limit exceeds the building income tax FTC. Confirm LVIT creditability with a US CPA regardless.</p>
+
+<p><strong>Practical implication:</strong> LTCG bracket management is irrelevant — at $170K total income (MFJ), all gains fall in the 15% bracket. The FTC carryforward question (see FTC Utilization below) and the NIIT non-triggering are the two most significant income-specific findings.</p>
+
+<p><strong>Legislative note (May 2026):</strong> The <em>United States-Taiwan Expedited Double-Tax Relief Act</em> (H.R. 33) passed the House in early 2026 but explicitly excludes real estate capital gains. The FTC remains the sole mechanism for double taxation relief on this transaction — this legislation does not change the analysis.</p>
+
+<p><strong>FTC carryforward note:</strong> If Taiwan taxes generate FTC credits in excess of the Form 1116 limitation in the sale year, excess credits carry forward <strong>10 years</strong> (and back 1 year). Whether the carryforward has practical value depends critically on future years' foreign income and the foreign WHT rates — at the current $4K/year foreign ETF income level, carryforward absorption is likely zero at typical WHT rates (see FTC Utilization section for the full absorption analysis). The carryforward only becomes valuable if foreign income increases substantially or is in a low-WHT country. Discuss with a US CPA.</p>
+
+<p><strong>Timing caution — cash-basis FTC mismatch:</strong> Most individuals claim FTC in the year the foreign tax is <strong>paid</strong> (cash basis, IRC §905(b)). If the sale closes in late December 2026 but Taiwan tax is not remitted until January 2027, US income tax on the 2026 gain will be owed on the 2026 return with no credit to offset it — the credit would only appear on the 2027 return. Practical fix: ensure Taiwan taxes are paid before December 31 of the closing year. Alternatively, the <strong>Accrual Election (IRC §905(a))</strong> allows claiming FTC in the year the liability arises rather than the year paid, but this election is irrevocable for all future years and requires discussion with a CPA before making it.</p>
+
+<hr />
+
+<h3 id="layer-2-niit-38-not-triggered-at-this-income-level">Layer 2: NIIT (3.8%) → <strong>Not Triggered</strong> at This Income Level</h3>
+
+<p>NIIT applies to MFJ filers if MAGI &gt; $250K. With total non-property income of ~$156K and the property gain adding at most ~$14K (central case), MAGI in the sale year peaks at ~$170K — well below $250K.</p>
+
+<p><strong>NIIT = $0</strong> on the property gain and on all portfolio NII in the sale year.</p>
+
+<p>NIIT would only begin to apply if the property gain were large enough to push MAGI above $250K, which would require a USD gain of ~$94K or more ($250K threshold − $156K base income). At any gain shown in the tw-gains.md sensitivity tables (maximum ~$58K for 30坪 at NT$46万/NT$29), NIIT remains zero.</p>
+
+<p><strong>If income rises in future years:</strong> The NIIT threshold is worth monitoring. If non-property income grows above ~$236K in the sale year (leaving <$14K of headroom before the $250K cliff), the portfolio composition could start to matter for NIIT purposes. But at the described $156K income profile, it is not relevant.</p>
+
+<hr />
+
+<h3 id="layer-3-california-state-tax-real-exposure-but-small-and-not-sensitive-to-income-composition">Layer 3: California State Tax → Real Exposure, but Small and Not Sensitive to Income Composition</h3>
+
+<p>California taxes the property gain as ordinary income at up to 13.3%, with no preferential LTCG rate and no foreign tax credit for Taiwan taxes paid. This is the one layer where other income genuinely interacts with the property — higher total California income pushes the marginal rate on the property gain upward:</p>
+
+<table>
+<thead>
+<tr>
+  <th>CA taxable income</th>
+  <th>Marginal rate</th>
+  <th>Tax on ~$14K gain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>~$100K–$300K</td>
+  <td>9.3%</td>
+  <td>$1,294</td>
+</tr>
+<tr>
+  <td>~$300K–$500K</td>
+  <td>10.3%</td>
+  <td>$1,433</td>
+</tr>
+<tr>
+  <td>~$500K–$1M</td>
+  <td>11.3%</td>
+  <td>$1,572</td>
+</tr>
+<tr>
+  <td>&gt;$1M</td>
+  <td>13.3%</td>
+  <td>$1,850</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>At the described income level (~$156K total, MFJ):</strong> California taxable income after the CA standard deduction (~$10,726 MFJ) is approximately $145K–$159K (before and after the property gain). The MFJ 9.3% bracket begins at approximately $142K of CA taxable income and extends to ~$700K+. California tax on the property gain = <strong>$14K × 9.3% ≈ $1,302</strong>.</p>
+
+<p>The full range across income levels is $1,294–$1,850 — a spread of only ~$556. That does not justify restructuring a portfolio or timing the sale for California income reasons. Of the three US tax layers, California is the only one where income level directly sets the marginal rate on the property gain — federal income tax is partially offset by the FTC (residual ~$1,200–$1,300 at this income level), and NIIT = $0 at this income level.</p>
+
+<p><em>Note: if the sale produces a USD loss (2026 exchange rate ≥ NT$30/USD, which the sensitivity analysis shows is a meaningful probability), California tax on the property gain is $0 regardless.</em></p>
+
+<hr />
+
+<h2 id="analysis-by-income-type">Analysis by Income Type</h2>
+
+<p>All of the described income (US stock/option gains, US bond/bond fund dividends) is <strong>domestic-sourced</strong> for Form 1116 purposes — none of it affects the FTC limitation. The $4K in foreign ETF dividends is the sole exception: it expands the foreign income numerator in the Form 1116 limit calculation.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Income type</th>
+  <th>Sourcing</th>
+  <th>Effect on property sale's US tax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Long-term stock/options gains</strong></td>
+  <td>Domestic</td>
+  <td>Increases total income denominator, negligibly reducing FTC limit %. Property gain at 15% LTCG at all income levels here (&lt;~$600K taxable MFJ)</td>
+</tr>
+<tr>
+  <td><strong>Short-term stock/options gains</strong></td>
+  <td>Domestic</td>
+  <td>Taxed as ordinary income; does not push the property gain (LTCG per IRC §1223(11)) into a higher LTCG bracket unless total taxable income exceeds ~$600K (MFJ) — not the case here</td>
+</tr>
+<tr>
+  <td><strong>US bond/bond fund dividends</strong></td>
+  <td>Domestic</td>
+  <td>Ordinary income; adds to MAGI. At $156K total income, NIIT = $0 regardless</td>
+</tr>
+<tr>
+  <td><strong>Foreign-market ETF dividends ($4K)</strong></td>
+  <td>Foreign</td>
+  <td><strong>Increases FTC limit</strong> — expands the foreign income numerator from $14K to $18K, improving FTC utilization by ~$250 in year 1. Also generates additional FTC if the ETF passes through foreign WHT. Most important income type for FTC optimization</td>
+</tr>
+<tr>
+  <td><strong>Municipal bonds</strong></td>
+  <td>Domestic</td>
+  <td>Reduces NII (IRC §1411). At this income level NIIT = $0, so NIIT-related benefit is zero. No FTC impact</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2 id="should-investment-strategy-be-adjusted-in-the-year-of-the-sale">Should Investment Strategy Be Adjusted in the Year of the Sale?</h2>
+
+<p><strong>No, not specifically for the property sale.</strong> The total US tax exposure from this transaction (net federal + NIIT + California combined: ~$2,500 at the 30坪 central case, with NIIT = $0) is too small to justify portfolio decisions. The Taiwan Old System tax ($20,700) is ~8× larger.</p>
+
+<h3 id="two-genuine-exceptions-worth-discussing-with-a-us-cpa">Two Genuine Exceptions Worth Discussing With a US CPA</h3>
+
+<p><strong>1. NIIT threshold — not relevant at this income level</strong><br />
+At ~$156K base income, NIIT does not apply even after adding the property gain. NIIT only becomes relevant if non-property income grows above ~$236K in the sale year (bringing total MAGI within $14K of the $250K cliff). The muni bond amplifier discussed elsewhere does not apply here.</p>
+
+<p><strong>2. FTC carryforward — a structural issue, not a one-time exception</strong><br />
+With the actual income profile, the FTC limit in the sale year is ~$1,110 (see FTC Utilization table), leaving a carryforward of ~$19–20K (10-year window). This carryforward only has value if future years have foreign-source passive income (e.g., from direct ownership of foreign stocks or international funds that generate foreign-source dividends). If all future income remains domestic-sourced, the carryforward may expire unused. This is the most significant tax planning question specific to this income profile — discuss with a US CPA before the sale.</p>
+
+<hr />
+
+<h2 id="scenario-analysis-us-tax-exposure">Scenario Analysis: US Tax Exposure</h2>
+
+<h3 id="us-tax-by-gain-level">US Tax by Gain Level</h3>
+
+<p>Three layers apply: net federal income tax (after partial FTC offset), NIIT, and California. Numbers use the actual income profile: MFJ, base income $156K (including $4K foreign ETF dividends), CA marginal rate 9.3%.</p>
+
+<table>
+<thead>
+<tr>
+  <th>USD gain</th>
+  <th>Net federal¹</th>
+  <th>NIIT</th>
+  <th>CA @ 9.3%</th>
+  <th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>$5K</td>
+  <td>~$435</td>
+  <td>$0</td>
+  <td>$465</td>
+  <td>~$900</td>
+</tr>
+<tr>
+  <td>$10K</td>
+  <td>~$845</td>
+  <td>$0</td>
+  <td>$930</td>
+  <td>~$1,775</td>
+</tr>
+<tr>
+  <td>$14K (30坪 central)</td>
+  <td>~$1,240</td>
+  <td>$0</td>
+  <td>$1,302</td>
+  <td>~$2,542</td>
+</tr>
+<tr>
+  <td>$20K</td>
+  <td>~$1,595</td>
+  <td>$0</td>
+  <td>$1,860</td>
+  <td>~$3,455</td>
+</tr>
+<tr>
+  <td>$30K</td>
+  <td>~$2,265</td>
+  <td>$0</td>
+  <td>$2,790</td>
+  <td>~$5,055</td>
+</tr>
+<tr>
+  <td>$50K</td>
+  <td>~$3,410</td>
+  <td>$0</td>
+  <td>$4,650</td>
+  <td>~$8,060</td>
+</tr>
+<tr>
+  <td>$75K</td>
+  <td>~$4,565</td>
+  <td>$0</td>
+  <td>$6,975</td>
+  <td>~$11,540</td>
+</tr>
+<tr>
+  <td>$100K²</td>
+  <td>~$4,315</td>
+  <td>~$228</td>
+  <td>$9,300</td>
+  <td>~$13,843</td>
+</tr>
+</tbody>
+</table>
+
+<p><em>¹Net federal = (gain × 15%) − FTC to property, where FTC to property = (G / ($4K+G)) × FTC limit. FTC limit = (($4K+G) / ($156K+G)) × US federal tax. FTC limit is the binding constraint throughout (Taiwan FTC &gt; FTC limit). Gains up to ~$14K reflect the 30坪 baseline; $30K–$75K correspond to 34–38坪 under favorable price/FX scenarios.</em></p>
+
+<p><em>²G=$100K: total MAGI = $256K, which exceeds $250K (MFJ NIIT threshold) by $6K → NIIT = 3.8% × $6K = $228 (not $3,800 as would apply if threshold were already exceeded). Net federal assumes LVIT creditability; without LVIT the net federal rises to ~$8,270 and total to ~$17,798. This gain level is far above any realistic 30–38坪 scenario.</em></p>
+
+<hr />
+
+<h3 id="niit-threshold-sensitivity">NIIT Threshold Sensitivity</h3>
+
+<p>NIIT = 3.8% × min(net investment income, MAGI − $250K). If non-property MAGI is already at or above $250K, the full property gain (~$14K × 3.8% ≈ $532) is subject to NIIT. If the property gain is what pushes MAGI over the threshold, only the portion above $250K is taxed.</p>
+
+<table>
+<thead>
+<tr>
+  <th>Scenario</th>
+  <th>Non-property MAGI</th>
+  <th>MAGI with property gain</th>
+  <th>NIIT on property gain</th>
+  <th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Actual profile</strong></td>
+  <td>~$156K</td>
+  <td>~$170K</td>
+  <td><strong>$0</strong></td>
+  <td>Well below $250K threshold</td>
+</tr>
+<tr>
+  <td>At breakeven</td>
+  <td>~$236K</td>
+  <td>~$250K</td>
+  <td><strong>$0</strong></td>
+  <td>Property gain brings MAGI exactly to $250K; NIIT = $0</td>
+</tr>
+<tr>
+  <td>Cliff triggered (hypothetical)</td>
+  <td>~$250K</td>
+  <td>~$264K</td>
+  <td><strong>~$532</strong></td>
+  <td>Non-property income would need to grow to ~$250K; NIIT = 3.8% × (MAGI − $250K)</td>
+</tr>
+</tbody>
+</table>
+
+<p>NIIT begins to apply to the property gain only if the USD gain is large enough to push total MAGI above $250K. At $156K base income, that requires a property gain of ~$94K or more — far above any scenario in the tw-gains.md tables (max ~$58K at NT$46万/NT$29).</p>
+
+<p><strong>The muni bond amplifier</strong> does not apply here. It would only matter if MAGI were near the $250K cliff, which requires income growth far beyond the current profile.</p>
+
+<hr />
+
+<h3 id="ftc-utilization-current-year-vs-carryforward">FTC Utilization: Current Year vs. Carryforward</h3>
+
+<p>The actual income profile: non-property income ~$156K (of which $4K is foreign ETF dividends, $152K is domestic). Both the $4K ETF dividends and the Taiwan property gain occupy the same Form 1116 passive basket.</p>
+
+<pre><code>FTC limit = (Foreign passive income / Total income) × US federal tax
+         = ($4K ETF + G) / ($156K + G) × US federal tax
+</code></pre>
+
+<table>
+<thead>
+<tr>
+  <th>Property gain (G)</th>
+  <th>Total income</th>
+  <th>Foreign income ($4K+G)</th>
+  <th>FTC limit (approx.)</th>
+  <th>FTC to property¹</th>
+  <th>Net federal on property</th>
+  <th>Carryforward ($21K)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>loss</td>
+  <td>$156K</td>
+  <td>$4K</td>
+  <td>~$375</td>
+  <td>—</td>
+  <td>$0</td>
+  <td>~$20,625</td>
+</tr>
+<tr>
+  <td>$3K</td>
+  <td>$159K</td>
+  <td>$7K</td>
+  <td>~$410</td>
+  <td>~$175</td>
+  <td>~$275</td>
+  <td>~$20,590</td>
+</tr>
+<tr>
+  <td>$14K</td>
+  <td>$170K</td>
+  <td>$18K</td>
+  <td>~$1,110</td>
+  <td>~$862</td>
+  <td>~$1,240</td>
+  <td>~$19,890</td>
+</tr>
+<tr>
+  <td>$23K</td>
+  <td>$179K</td>
+  <td>$27K</td>
+  <td>~$1,780</td>
+  <td>~$1,515</td>
+  <td>~$1,935</td>
+  <td>~$19,220</td>
+</tr>
+<tr>
+  <td>$38K</td>
+  <td>$194K</td>
+  <td>$42K</td>
+  <td>~$3,215</td>
+  <td>~$2,906</td>
+  <td>~$2,795</td>
+  <td>~$17,785</td>
+</tr>
+<tr>
+  <td>$58K</td>
+  <td>$214K</td>
+  <td>$62K</td>
+  <td>~$6,040</td>
+  <td>~$5,650</td>
+  <td>~$3,050</td>
+  <td>~$14,960</td>
+</tr>
+</tbody>
+</table>
+
+<p><em>¹FTC to property = (G / ($4K+G)) × FTC limit. Assumes MFJ, standard deduction ~$30K, mostly 15% LTCG rate, representative total federal tax of ~$9,300–$20,850 depending on G. FTC limit is the binding constraint throughout (available Taiwan FTC = $21K or $7K building-only, both exceed FTC limit in all rows). Loss rows show FTC limit for the base $4K ETF income only; the ETF-only FTC share reduces domestic tax but is irrelevant to the property.</em></p>
+
+<p><strong>Effect of the $4K foreign ETF dividends:</strong> Compared to zero foreign non-property income, the $4K ETF dividends increase the FTC limit by roughly ($4K / $170K) × $10,500 ≈ <strong>$247</strong> on a $14K gain scenario — a modest improvement in FTC utilization.</p>
+
+<p><strong>Carryforward and future foreign income:</strong> At G = $14K the carryforward is ~$19,890. Whether any of it is absorbed each year depends on the relationship between the FTC limit and the foreign taxes actually paid:</p>
+
+<pre><code>Annual carryforward absorbed = FTC limit (ETF only) − Current-year ETF withholding tax (WHT) paid
+</code></pre>
+
+<p>In years without a property sale, the FTC limit is determined solely by the ETF dividends: (~$4K / ~$156K) × ~$10,000 ≈ <strong>$256/year</strong>. Carryforward absorption only occurs when this limit <em>exceeds</em> the WHT already paid on those dividends:</p>
+
+<table>
+<thead>
+<tr>
+  <th>ETF effective WHT rate</th>
+  <th>ETF WHT on $4K</th>
+  <th>FTC limit</th>
+  <th>Annual absorption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>0% (no WHT)</td>
+  <td>$0</td>
+  <td>$256</td>
+  <td>$256 → clears in ~78 years</td>
+</tr>
+<tr>
+  <td>5%</td>
+  <td>$200</td>
+  <td>$256</td>
+  <td>$56/year → clears in ~355 years</td>
+</tr>
+<tr>
+  <td><strong>~6.4% (breakeven)</strong></td>
+  <td><strong>$256</strong></td>
+  <td><strong>$256</strong></td>
+  <td><strong>$0</strong></td>
+</tr>
+<tr>
+  <td>7% (typical)</td>
+  <td>$280</td>
+  <td>$256</td>
+  <td><strong>$0</strong> (WHT exceeds limit)</td>
+</tr>
+<tr>
+  <td>15% (high WHT)</td>
+  <td>$600</td>
+  <td>$256</td>
+  <td><strong>$0</strong> (WHT exceeds limit)</td>
+</tr>
+</tbody>
+</table>
+
+<p>Most internationally diversified equity ETFs pass through foreign WHT at 7–15% effective rates. At 7% WHT on $4K, the ETF WHT = $280 &gt; $256 FTC limit — absorption is zero and the full ~$19,890 carryforward likely expires unused after 10 years.</p>
+
+<p><strong>The key condition for any carryforward absorption:</strong> The effective US tax rate on foreign income must exceed the effective foreign WHT rate:</p>
+
+<pre><code>(US federal tax / Total income) &gt; (ETF WHT paid / ETF dividends)
+        ~6.4%                  &gt;  ETF effective WHT rate
+</code></pre>
+
+<p>This condition is rarely met with typical international equity ETFs. The primary lever to absorb the carryforward is substantially more foreign income — a larger international ETF allocation or direct foreign stock holdings — which expands the FTC limit above the WHT paid. Increasing foreign income from $4K to ~$20K/year (at 7% WHT and same income level) would produce an annual limit of ~$1,235 vs. WHT of ~$1,400 — still zero absorption. Absorption requires either very low WHT rates (tax-treaty countries) or sufficiently high foreign income that the limit-to-WHT ratio flips positive.</p>
+
+<hr />
+
+<h3 id="combined-taiwan-us-burden">Combined Taiwan + US Burden</h3>
+
+<p>This table maps the tw-gains.md gain scenarios to total tax burden (Taiwan + US). Uses the actual income profile: MFJ, $156K base income ($4K foreign ETF dividends), NIIT = $0 throughout, CA at 9.3%.</p>
+
+<p><strong>Old System (April 2012 purchase → ~$20,700 Taiwan tax):</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Price/坪</th>
+  <th>2026 FX rate</th>
+  <th>USD gain</th>
+  <th>Taiwan tax</th>
+  <th>Net federal</th>
+  <th>NIIT</th>
+  <th>CA (9.3%)</th>
+  <th>Total US</th>
+  <th>Grand total</th>
+  <th>US %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>NT$42万</td>
+  <td>NT$32/USD</td>
+  <td>loss</td>
+  <td>$20,700</td>
+  <td>$0</td>
+  <td>$0</td>
+  <td>$0</td>
+  <td>$0</td>
+  <td>$20,700</td>
+  <td>0%</td>
+</tr>
+<tr>
+  <td>NT$42万</td>
+  <td>NT$31/USD</td>
+  <td>loss</td>
+  <td>$20,700</td>
+  <td>$0</td>
+  <td>$0</td>
+  <td>$0</td>
+  <td>$0</td>
+  <td>$20,700</td>
+  <td>0%</td>
+</tr>
+<tr>
+  <td>NT$42万</td>
+  <td>NT$30/USD</td>
+  <td>~$3K</td>
+  <td>$20,700</td>
+  <td>~$275</td>
+  <td>$0</td>
+  <td>~$280</td>
+  <td>~$555</td>
+  <td>~$21,255</td>
+  <td>~3%</td>
+</tr>
+<tr>
+  <td>NT$42万</td>
+  <td>NT$29/USD</td>
+  <td>~$17K</td>
+  <td>$20,700</td>
+  <td>~$1,380</td>
+  <td>$0</td>
+  <td>~$1,580</td>
+  <td>~$2,960</td>
+  <td>~$23,660</td>
+  <td>~13%</td>
+</tr>
+<tr>
+  <td>NT$44万</td>
+  <td>NT$30/USD</td>
+  <td>~$23K</td>
+  <td>$20,700</td>
+  <td>~$1,935</td>
+  <td>$0</td>
+  <td>~$2,140</td>
+  <td>~$4,075</td>
+  <td>~$24,775</td>
+  <td>~16%</td>
+</tr>
+<tr>
+  <td>NT$44万</td>
+  <td>NT$29/USD</td>
+  <td>~$38K</td>
+  <td>$20,700</td>
+  <td>~$2,795</td>
+  <td>$0</td>
+  <td>~$3,535</td>
+  <td>~$6,330</td>
+  <td>~$27,030</td>
+  <td>~23%</td>
+</tr>
+<tr>
+  <td>NT$46万</td>
+  <td>NT$30/USD</td>
+  <td>~$43K</td>
+  <td>$20,700</td>
+  <td>~$2,915</td>
+  <td>$0</td>
+  <td>~$4,000</td>
+  <td>~$6,915</td>
+  <td>~$27,615</td>
+  <td>~25%</td>
+</tr>
+<tr>
+  <td>NT$46万</td>
+  <td>NT$29/USD</td>
+  <td>~$58K</td>
+  <td>$20,700</td>
+  <td>~$3,045</td>
+  <td>$0</td>
+  <td>~$5,395</td>
+  <td>~$8,440</td>
+  <td>~$29,140</td>
+  <td>~29%</td>
+</tr>
+</tbody>
+</table>
+
+<p><em>30坪 unit throughout. NIIT = $0 in all rows (total MAGI peaks at ~$214K at G=$58K, well below $250K MFJ threshold). Net federal after FTC partial offset; loss scenarios have $0 US tax.</em></p>
+
+<p><strong>The key structural insight:</strong> Taiwan tax is fixed at ~$20,700 (Old System) regardless of exchange rate or sale price. US taxes are variable but zero in loss scenarios and at most ~$8,440 in the worst case shown ($58K gain, NT$29/USD) — 29% of the total burden. The absence of NIIT at this income level, and the 9.3% CA rate, make the total US exposure noticeably lower than it would be at higher income levels.</p>
+
+<hr />
+
+<h2 id="where-to-actually-focus-planning-energy">Where to Actually Focus Planning Energy</h2>
+
+<p>The property sale's US tax exposure is fixed and small regardless of investment choices. The decisions that move the needle materially are:</p>
+
+<ol>
+<li><p><strong>Confirm the original purchase date</strong> — approximate month confirmed as <strong>April 2012</strong> (exact day TBD via title deed search at the local 地政事務所). Pre-Jan 2016 → Old System applies (~$20,700 vs. ~$38,000 under HSTT). Nothing in the US investment portfolio comes close to this lever.</p></li>
+<li><p><strong>Confirm the actual registered area (登記面積)</strong> from the 謄本 or 房屋稅籍證明書. The market value estimates span NT$3–4M depending on unit size; this is the largest single unknown in the total tax estimate.</p></li>
+<li><p><strong>Commission the 不動產估價師 retroactive appraisal</strong> now (effective date May 2022) to lock in the highest defensible US stepped-up basis before the property is sold and memories fade.</p></li>
+<li><p><strong>Monitor the TWD/USD rate</strong> as the sale approaches. The breakeven rate is approximately NT$30/USD (unit only). If the rate is above NT$30 at closing, the sale produces a USD loss and the US income tax exposure on the property is zero. This is a larger lever than any investment portfolio adjustment.</p></li>
+</ol>
+
+<hr />
+
+<p><em>All estimates based on 30坪 baseline and central 2026 price assumption of NT$42万/坪. See tax-research-tw-gains.md for full sensitivity analysis and assumptions. Confirm all tax positions with a US CPA and Taiwan CPA before the sale.</em></p>
+
+  </div>
+</body>
+</html>
