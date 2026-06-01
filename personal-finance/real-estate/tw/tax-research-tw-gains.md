@@ -4,6 +4,32 @@
 
 ---
 
+## Executive Summary
+
+This document covers market value research for the 觀海極品 condo at 民族路31之25號 (Tamsui, New Taipei City), and provides the Taiwan and US tax calculations based on that market value. Key conclusions:
+
+1. **Entire complex is 工業宅 (乙種工業區).** All 9 buildings of 觀海極品 are on industrial-zoned land. Buyers cannot obtain standard residential mortgages (limited to 50–60% LTV), which structurally suppresses prices relative to comparable conventional condos. Use same-building (民族路31之25號) comparables only — complex-wide aggregates from 5168, 591, and Rakuya are less reliable anchors for this specific unit.
+
+2. **Best comparable: same building, March 2025 at NT$39.34万/坪 (parking-adjusted).** The 19th-floor unit at 民族路31之25號 sold March 8, 2025 for NT$13,500,000 (net of NT$1,500,000 parking), or NT$393,400/坪 for 34.3坪. This is the single most defensible anchor for the retroactive appraisal.
+
+3. **May 2022 FMV estimate: ~NT$40万/坪 (central); 30坪 unit ≈ NT$12.0M (~$406K USD at NT$29.5/USD).** The Tamsui 工業宅 market was stable in H2 2022 ("價穩量縮"), so the May 2022 FMV is consistent with the 登記日 estimate. 34坪 comparable-implied central FMV: ~NT$13.6M (~$460K USD).
+
+4. **2026 market estimate: ~NT$42万/坪 (central); modest ~5% appreciation since 2022.** 工業宅 properties appreciate more slowly than conventional condos (restricted buyer pool). Current listings and 2025 transaction data support a 2026 range of NT$40–44万/坪.
+
+5. **Old System Taiwan tax: ~NT$622K (~$20,700 USD) for a 30坪 unit.** Building income tax (~NT$212K / ~$7,100) + LVIT (~NT$410K / ~$13,700). This is ~$17,300 less than the HSTT alternative (~NT$1,140K / ~$38,000). The Old System advantage arises because it never taxes the large market-vs.-assessed-value gap.
+
+6. **US capital gain is acutely sensitive to the TWD/USD rate.** The stepped-up basis is locked at NT$29.5/USD (May 2022); proceeds convert at the 2026 closing rate. Breakeven: ~NT$30.2/USD (unit only), ~NT$30.6/USD (with parking). At NT$31/USD or weaker, the sale produces a USD loss and zero US income tax on the property.
+
+7. **NIIT = $0 throughout all scenarios shown** (MFJ, ~$156K base income). NIIT would only apply if the USD gain exceeded ~$94K, far above any realistic scenario for a 30–38坪 unit.
+
+8. **Confirm 登記面積 — the single most important missing input.** Unit area (坪) is unconfirmed from public data; the March 2025 comparable implies ~34坪 for a 19th-floor unit. Retrieve from 謄本 or 房屋稅籍證明書 before finalizing any calculation. Total value estimates span NT$3–4M depending on size.
+
+9. **Do not fold parking into the unit price.** If a parking space is included in the inherited property (verify via 謄本 停車位 registration), value it separately: ~NT$1.05M for May 2022; ~NT$1.25M for 2026.
+
+10. **Immediate action: Commission retroactive 不動產估價師 appraisal** with May 2022 effective date, using the March 2025 same-building transaction as the primary anchor. This is the highest-priority step to establish a defensible US tax basis.
+
+---
+
 ## Property Identification
 
 | Field | Detail |

@@ -4,6 +4,30 @@
 
 ---
 
+## Executive Summary
+
+This document analyzes how other US investment income in the year of the property sale interacts with the property's US tax exposure, and whether portfolio composition should be adjusted before the sale. Key conclusions:
+
+1. **Other US investment income composition barely matters.** The property's US tax exposure is small and insensitive to the mix of short-term gains, long-term gains, bond dividends, or muni bonds in the same year. Portfolio restructuring specifically for the property sale is not recommended.
+
+2. **Taiwan tax is the dominant liability.** At ~$20,700 USD under the Old System, Taiwan tax is approximately 8× the total US tax exposure (~$2,500 at the 30坪 central case with NT$42万/坪 and NT$29/USD).
+
+3. **NIIT = $0 throughout all shown scenarios.** With ~$156K base income (MFJ), adding the property gain keeps MAGI well below the $250K MFJ NIIT threshold. NIIT would only apply if non-property income grew above ~$236K — far above the current profile.
+
+4. **FTC limit is the binding constraint, capping usable credit at ~$1,110 (central case).** The Form 1116 passive basket limitation — not the absolute size of Taiwan taxes — determines how much FTC is usable. The ~$19–20K FTC carryforward that results will likely expire unused given current foreign income levels (~$4K/year from ETFs). Effective carryforward absorption requires substantially more foreign income or very low withholding-rate ETFs.
+
+5. **Residual US federal income tax on the property is ~$1,240 (central case).** Federal income tax on the ~$14K gain at 15% is ~$2,100; partial FTC offset reduces net federal to ~$1,240. This is a fixed structural outcome — changing the investment portfolio does not meaningfully alter it.
+
+6. **California is the only layer where other income interacts with property tax.** Higher California income pushes the marginal rate on the property gain (9.3% to 13.3% range). But the spread is only ~$550 across realistic income levels — not worth portfolio decisions. No CA foreign tax credit applies.
+
+7. **The TWD/USD rate is the biggest lever.** Breakeven is ~NT$30.2/USD (unit only). If the TWD weakens past that level by closing, the sale produces a USD loss and US income tax exposure on the property is zero — a far larger lever than any investment portfolio decision.
+
+8. **The $4K foreign ETF dividends provide marginal FTC benefit.** They expand the foreign income numerator in the Form 1116 limit calculation, increasing usable FTC by ~$247 in the sale year. This is the only portfolio variable with any FTC relevance.
+
+9. **One genuine planning consideration: FTC carryforward.** The ~$19–20K carryforward generated in the sale year has value only if future years produce sufficient foreign-sourced passive income. Discuss with a US CPA whether increasing international ETF allocation before or after the sale would help absorb it.
+
+---
+
 ## Motivating Questions
 
 1. For a representative unit in the 觀海極品 condo community (30坪 baseline), the US federal and state taxes on the property capital gain appear to be quite low as a percentage of the overall sale price — and much lower than the taxes owed to the Taiwanese government. To what extent would the US taxes be affected by non-real estate income in the same year as the property sale — specifically income from short-term vs. long-term stock and options gains, US Treasuries, and municipal bonds?

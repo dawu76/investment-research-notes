@@ -1,5 +1,31 @@
 # Taiwan & US Property Tax Research Plan: Inherited Property Sale
 
+## Executive Summary
+
+This document is the master research plan and tax analysis framework for the sale of an inherited New Taipei City condo (觀海極品, 民族路31之25號) inherited in May 2022, with a target sale in Summer 2026. Key conclusions for readers:
+
+1. **Old System applies — confirmed.** The property was purchased in approximately April 2012 (pre-January 1, 2016), so the pre-HSTT Old System governs Taiwan taxation: two separate taxes replace HSTT — (1) building income tax on the building's share of the gain, and (2) Land Value Increment Tax (LVIT / 土地增值稅) on the government-assessed land appreciation since the original purchase.
+
+2. **Old System saves ~$17,300 USD vs. HSTT.** For a 30坪 unit, the Old System total is estimated at ~NT$622K (~$20,700 USD) versus ~NT$1,140K (~$38,000 USD) under HSTT. The advantage arises because the Old System never taxes the large market-vs.-assessed-value gap that drives HSTT's large tax base.
+
+3. **Non-resident status (flat 20% rate) is confirmed and favorable.** As a US-based owner spending fewer than 183 days/year in Taiwan, building income is taxed at a flat 20% withholding rate rather than progressive resident rates (up to ~40%). Self-use exemptions are unavailable — physical occupancy requirements are not met.
+
+4. **US stepped-up basis resets to May 2022 FMV (IRC §1014).** US capital gain is measured only from May 2022, not from the original purchase date. A retroactive 不動產估價師 appraisal with a May 2022 effective date is the highest-priority action item to take now.
+
+5. **Foreign Tax Credit (FTC) partially but not fully offsets US federal tax.** The binding constraint is the Form 1116 passive basket limitation — approximately (foreign income / total income) × US federal tax — capping usable FTC at ~$1,000–$1,600 at the actual income profile, leaving a residual federal tax of similar magnitude regardless of Taiwan taxes paid. Excess FTC carries forward 10 years but is likely to expire unused at current foreign income levels (~$4K/year from ETFs).
+
+6. **NIIT = $0 at this income level.** At MFJ with ~$160K base income, MAGI stays well below the $250K MFJ threshold across all property gain scenarios shown. NIIT is separately uncreditable but irrelevant here.
+
+7. **California provides zero relief.** California taxes the full capital gain as ordinary income (~9.3% at this income level) with no foreign tax credit and no preferential long-term rate. This layer of double taxation cannot be offset by any mechanism.
+
+8. **LVIT creditability for US FTC is uncertain.** The IRS may characterize LVIT as a property transfer tax rather than an income tax, potentially disqualifying it from the FTC. At the actual income level the FTC limit is binding regardless, so this does not affect net residual federal tax — but confirm with a US CPA.
+
+9. **TWD/USD rate is a major swing factor on the US side.** The stepped-up basis is locked at the May 2022 rate (~NT$29.5/USD); proceeds are converted at the 2026 closing rate. A breakeven rate of ~NT$30.2/USD means a USD loss — and zero US income tax — if the TWD weakens past that level by closing.
+
+10. **Immediate action items:** (a) Commission retroactive 不動産估価師 appraisal now; (b) confirm exact purchase date and 登記日 via title deed search; (c) appoint a Taiwan-based 稅務代理人 before closing; (d) file LVIT within 30 days of contract signing (blocks title transfer if missed).
+
+---
+
 ## Project Background
 - **Property Location:** New Taipei City, Taiwan
 - **Inheritance Date:** May 2022 (Mother deceased)
