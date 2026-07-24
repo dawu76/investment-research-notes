@@ -76,3 +76,32 @@
 - "In 2021, Novo Nordisk got approval from the F.D.A. to market the same drug for obesity with a weekly injection at a higher maximum dose. It named the drug Wegovy... Wegovy is in such demand, though, that the company is unable to make enough, its spokeswoman Ambre James-Brown said. So for now, while it ramps up production, the company sells the drug only in Norway, Denmark, Germany and the United States. And at pharmacies in those countries, shortages are frequent."
 - The drugs, said Randy Seeley, an obesity researcher at the University of Michigan, are not correcting for a lack of GLP-1 in the body — people with obesity make plenty of GLP-1. Instead, the drugs are exposing the brain to hormone levels never seen in nature. Patients taking Wegovy are getting five times the amount of GLP-1 that they would produce in response to a Thanksgiving dinner, Dr. Seeley said. And in the brain, “the drugs go to unusual places.” They are not just going to areas thought to control overeating... GLP-1, because of its chemical structure, should not even get into some areas of the brain where it slips in. “Nobody understands that,” Dr. Seeley said.
 - Lilly’s diabetes drug, tirzepatide or Mounjaro, is expected to get F.D.A. approval for obesity this year. It hooks GLP-1 to another gut hormone, GIP. GIP, on its own, produces, at best, a modest weight loss. But the two-hormone combination can allow people to lose a median of about 20 percent of their weight ... Lilly has another drug, retatrutide, that, while still in early stages of testing, seems to elicit a median 24 percent weight loss. Amgen’s experimental drug, AMG 133, could be even better, but is even more of a puzzle. It hooks GLP-1 to a molecule that blocks GIP. There is no logical explanation for why seemingly opposite approaches would work.
+
+---
+
+#### $MSFT
+
+[Moats & Multiples Substack](https://moatsandmultiples.substack.com/p/inside-tcis-conference-the-anti-ai): "Inside TCI’s Conference: The Anti-AI Portfolio" [2026-06]
+- **TCI's Exit (Chris Hohn):** Exited Microsoft due to competitive pressure on Office/Azure, seat-growth compression from knowledge workforce reductions, and lack of confidence in native innovation.
+  - *Azure Commoditization:* Azure is shifting from a differentiated enterprise cloud to a low-margin GPU rental business.
+  - *Office Disruption:* AI tools from OpenAI and Anthropic are augmenting workflows, creating competitive alternatives to the Office suite.
+  - *Headcount Reductions:* Many enterprises are at "peak employment" and will rationalize headcounts, reducing seat counts and growth.
+  - *Innovation Lag:* Microsoft lacks the native capability to stay ahead in innovation, relying on external models (e.g. Claude inside Excel).
+- **Author's Disagreement:** Arguments that Hohn's exit is shortsighted and undervalues Microsoft's structural moats.
+  - *Office as a Standard:* Office acts as a global protocol for work. Free competitors (like Google Workspace) exist, yet Office seat counts and revenues continue to grow.
+  - *LLMs as Partners:* OpenAI and Anthropic want to increase token consumption within the massive Office ecosystem via plugins, not replace it.
+  - *The Bundle Moat:* Office integrates workflow, communications (Teams), and security into a single, cost-effective bundle. Unwinding this platform from enterprise architecture would take decades.
+
+---
+
+#### $SPGI
+
+[Moats & Multiples Substack](https://moatsandmultiples.substack.com/p/inside-tcis-conference-the-anti-ai): "Inside TCI’s Conference: The Anti-AI Portfolio" [2026-06]
+- **The Case AGAINST $SPGI (Market/Bear Fears):**
+  - *Market Intelligence Disruption:* Investors fear the largest division by revenue (Market Intelligence), specifically products like CapIQ (Bloomberg equivalent), will be disrupted because they feed publicly available data to customers, which LLMs can easily replicate/source.
+- **The Case FOR $SPGI (TCI / CEO Martina Cheung Arguments):**
+  - *Irreplaceability of Standards:* Much of S&P's business represents standards or benchmarks upon which global markets operate (Ratings for debt markets, Platt's for oil contracts). Throughout human history, rarely has a standard or benchmark been disrupted; they reinforce trust and liquidity over time, making them harder to replace.
+  - *Zero AI Disruption in Core Franchises:* Over 80% of S&P's profits are generated from Ratings, Indices, and Platt's, which face no AI disruption risk.
+  - *Proprietary Datasets:* In an absolute worst-case scenario, only 5% of S&P's revenue is at risk from AI. CapIQ is only a small part of Market Intelligence; the majority of revenues are tied to proprietary, contributory, or hard-to-source datasets (e.g. physical records).
+  - *Data Defense:* S&P limits LLM data sharing only to public datasets. LLMs will act as a distribution channel; they are not allowed to train on or acquire S&P's proprietary data. To date, no customer has found an AI alternative to S&P's offerings.
+  - *Compelling Valuation Arbitrage:* At 19x forward earnings, the market is offering a major discount relative to Moody's and MSCI. Applying Moody's multiple to S&P's ratings and MSCI's multiple to S&P's index business means investors effectively get the rest of S&P's business (Platt's, Market Intelligence) for free.
