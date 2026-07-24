@@ -17,6 +17,7 @@
 8. [Impact on Everyday People](#8-impact-on-everyday-people)
 9. [Alternative Routing and Mitigation](#9-alternative-routing-and-mitigation)
 10. [Investment Implications](#10-investment-implications)
+11. [Real-World Case Study: 2026 Iran War and Market Reaction](#11-real-world-case-study-2026-iran-war-and-market-reaction)
 
 ---
 
@@ -470,6 +471,49 @@ The most interesting asymmetric trade in a Hormuz closure scenario:
 **Long VLCC tankers + Short airlines** as a spread trade captures the core supply chain disruption: tanker rates spike as ships reroute and war premiums inflate, while airlines face fuel cost destruction with limited ability to pass costs through (demand elasticity + competition). This spread has historically been among the most reliable expressions of oil supply shock scenarios.
 
 **Long energy infrastructure (pipelines, LNG terminals) outside the Persian Gulf** benefits from the long-term structural signal: every major energy importer accelerates diversification investment after a Hormuz event, regardless of outcome. Australian LNG terminal operators, US Gulf Coast LNG exporters, and non-Hormuz pipeline operators see sustained investment and demand.
+
+---
+
+## 11. Real-World Case Study: 2026 Iran War and Market Reaction
+
+In the first half of 2026, the theoretical risk of a Strait of Hormuz disruption became a reality. The conflict between the U.S. and Iran began on February 28, 2026, leading to a temporary closure of the Strait, a spike in Brent crude prices, and significant macroeconomic friction. 
+
+However, the actual market reaction diverged sharply from conventional geopolitical panic models:
+
+### Macro and Price Realizations
+- **Oil Prices:** Brent crude rose from its pre-crisis level of ~$75–80/barrel to peak between **$80 and $117/barrel**, matching the lower range of Scenario A/B pricing rather than the extreme $150+ scenarios.
+- **Rates and Inflation:** The 30-year Treasury yield rose to **5.2%**, and the Consumer Price Index (CPI) printed at **4.2%**, reflecting acute stagflationary pressures.
+- **Equity Markets:** Despite the severity of the geopolitical backdrop—which many commentators compared to the high-uncertainty phase of the COVID-19 pandemic—the S&P 500 experienced only a brief **9.7% correction** (drawdown).
+
+### The Post-Crisis Recovery
+Following the initial correction, the S&P 500 staged one of the most aggressive recoveries in financial history. By late June 2026, the index was trading **9% higher** than its level prior to the outbreak of the conflict.
+
+### The Liquidity Thesis: How Liquidity Drives the S&P 500
+As analyzed by Beth Kindig ^[investing-macro/market-newsletter-digest-2026-06-24.md], this resilience highlights a core market tenet: global liquidity, rather than geopolitical headlines, dictates intermediate and long-term market trends. 
+- **The Refinancing Engine:** In a highly financialized global economy, market risk appetite is governed by the ease and cost of refinancing existing corporate and sovereign debt.
+- **The U.S. Dollar (DXY) Squeeze:** Approximately 64% of global debt is denominated in U.S. dollars. When the dollar weakens, foreign borrowers require less local currency to service their dollar debt, freeing up capital to flow into risk assets. Conversely, a strengthening dollar index (DXY) drains global liquidity. The market shrugged off the war because underlying global liquidity flows remained stable during the initial shock.
+
+### Oil Trade and the Flow of U.S. Dollars
+The 2026 conflict highlighted the vulnerabilities of the **petrodollar recycling loop**:
+- **The Recycling Loop:** Invoicing approximately 80% of global oil sales in USD creates a continuous global demand for the currency. Oil exporters recycle their surplus revenues back into U.S. financial assets, primarily U.S. Treasuries, which helps fund the federal debt and keeps borrowing costs low.
+- **The Disruption Mechanism:** The Strait of Hormuz blockade threatened to sever this flow by reducing transaction volume and accelerating de-dollarization (oil trade shifting to alternative currencies and payment systems). This reduction in recycled flows contributed directly to the spike in the 30-year yield to **5.2%**, illustrating how energy trade disruptions transmit directly into domestic financial conditions.
+
+### Warning Signs and Sector Divergences
+Despite the S&P 500's aggressive recovery, several notable divergences and warning signs emerged in mid-2026:
+1. **Semiconductor vs. Transportation Divergence:** The Philadelphia Semiconductor Index (SOX) surged by **43%**, driven by the AI capex boom, while the Dow Jones Transportation Average (DJTA) declined by **10%**. This modern Dow Theory divergence indicates that speculative technology concentration is masking underlying industrial and logistics contraction.
+2. **Fed Rate-Expectations Decoupling:** A bearish decoupling occurred where the S&P 500 declined even as rate-cut probabilities increased, signaling that the market is beginning to fear economic recession more than inflation.
+3. **DXY Technical Breakout:** The U.S. Dollar Index (DXY) began making higher highs and higher lows, threatening a breakout that could drain international liquidity.
+
+### Historical Precedents of Warning Signs
+Similar divergences and dollar breakouts have historically marked major market peaks rather than sustainable expansions:
+- **1999–2000 (Dot-Com Peak):** Parabolic tech and semiconductor surges diverged from weak transport and financial sectors. This concentration ended in the **78% Nasdaq drawdown** and a tech-led recession.
+- **2007 (GFC Lead-Up):** The S&P 500 reached new highs driven by a narrowing group of mega-caps, while transports and financials broke down early under credit stress. This preceded a **57% S&P 500 drawdown** and a global credit freeze.
+- **2021 (Post-COVID Peak):** Indices reached all-time highs while market breadth collapsed (over 60% of Nasdaq stocks in individual bear markets) and the DXY began a major breakout, foreshadowing the **25% S&P 500** and **35% Nasdaq** drawdowns of 2022.
+
+### Forward Technical Outlook (as of June 2026)
+Following the recovery, the technical structure of the S&P 500 presents two primary scenarios:
+- **Bullish (Green Scenario):** A 2nd-wave consolidation that must hold support at **7238**. A successful hold and breakout on expanding volume points to a 3rd-wave advance targeting the **9000s**.
+- **Bearish (Blue Scenario):** A break below **7238** leads to a test of **6965**. A further breach of **6965** would indicate institutional distribution, opening the door to a 4th-wave corrective phase targeting **6000 to 5700**, with a potential bottom in the autumn of 2026.
 
 ---
 
