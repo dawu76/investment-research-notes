@@ -3,8 +3,8 @@
 **Ticker:** INTU (Nasdaq Global Select Market)  
 **Sector:** Technology / Financial Technology  
 **Fiscal Year End:** July 31  
-**Report Date:** April 2026  
-**Primary Sources:** FY2025 10-K (filed Sep 2025), FY2025 Q4 Earnings Release (Aug 21, 2025), Q2 FY2026 Earnings Release (Feb 2026), Investor Day FY26 Presentation (Sep 18, 2025)
+**Report Date:** April 2026 | **Revised:** May 26, 2026 (Q3 FY2026 earnings update)  
+**Primary Sources:** FY2025 10-K (filed Sep 2025), FY2025 Q4 Earnings Release (Aug 21, 2025), Q2 FY2026 Earnings Release (Feb 2026), **Q3 FY2026 Earnings Release (May 20, 2026)**, Investor Day FY26 Presentation (Sep 18, 2025)
 
 ---
 
@@ -14,7 +14,9 @@ Intuit is an AI-driven financial platform company serving approximately 100 mill
 
 In FY2025 (ended July 31, 2025), Intuit reported total revenue of $18.8 billion, up 16%, with GAAP operating income of $4.9 billion and non-GAAP operating income of $7.6 billion. The company generated $6.2 billion in operating cash flow. Its gross margin stands at approximately 79.6%, and its GAAP operating margin has improved to approximately 26.7%. Intuit has dominant market positions: QuickBooks holds roughly 80%+ share in U.S. small business accounting software, and TurboTax commands approximately 60% of the U.S. consumer tax-preparation market.
 
-In plain terms: **Intuit is the dominant software monopoly for how American small businesses do their books and how millions of Americans file their taxes — with a growing AI-powered platform that makes both stickier every year.**
+**Q3 FY2026 Update (May 20, 2026):** Q3 revenue of $8.56B (+10% YoY; tax season quarter), non-GAAP EPS of $12.80 (beat). FY2026 guidance raised to $21.341–$21.374B (+13–14% revenue), non-GAAP EPS $23.80–$23.85 (+18%). TurboTax Live now 53% of franchise revenue at an expected $2.8B (+36% FY2026). IES + QBO Advanced grew 38% in Q3. Simultaneously: 17% workforce reduction (~3,000 jobs; $300–$340M charges in Q4 FY2026), CEO acknowledged "lost on price" for the price-sensitive DIY filer segment (<$50K income), and total TurboTax online units declined 2% — the key new risk to monitor. Stock at ~$307 (down ~20% on earnings day; ~55–60% from 2025 highs).
+
+In plain terms: **Intuit is the dominant software monopoly for how American small businesses do their books and how millions of Americans file their taxes — with a growing AI-powered platform that makes both stickier every year, though Q3 FY2026 revealed that the lowest-income filer segment is now vulnerable to price competition.**
 
 ---
 

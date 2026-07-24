@@ -2,12 +2,12 @@
 
 **Ticker:** INTU (Nasdaq)  
 **Sector:** Financial Technology / Enterprise Software  
-**Market Cap:** ~$115–130B (April 21, 2026, approx. — down 30–50% from 2025 highs)  
-**Forward P/E:** ~20–30x (compressed from ~35–40x at original memo date)  
+**Market Cap:** ~$84–86B (May 26, 2026, approx. — stock at ~$307 post Q3 earnings; down ~55–60% from 2025 highs)  
+**Forward P/E:** ~12.9x (at $307 / FY2026 non-GAAP EPS guide midpoint $23.82; extreme multi-year compression from ~35–40x)  
 **Fiscal Year End:** July 31  
-**Memo Date:** April 2026 | **Revised:** April 21, 2026 (incorporating post-tax-season and macro-sector developments)  
-**Last Financials:** Q2 FY2026 (ended Jan 31, 2026); FY2025 Annual (ended Jul 31, 2025)  
-**Next Catalyst:** Q3 FY2026 earnings (expected late May 2026) — first post-IRS-Direct-File-cancellation tax season results
+**Memo Date:** April 2026 | **Revised:** May 26, 2026 (Q3 FY2026 earnings update — tax season actuals, 17% workforce cut, consumption-based pricing launch)  
+**Last Financials:** Q3 FY2026 (ended Apr 30, 2026; reported May 20, 2026); FY2025 Annual (ended Jul 31, 2025)  
+**Next Catalyst:** Q4 FY2026 earnings (expected August 2026); FY2026 Investor Day (September 2026) — first expected IES customer count disclosure; consumption-based pricing launch (August 2026)
 
 ---
 
@@ -15,13 +15,15 @@
 
 ### Investment Thesis
 
-Intuit is the dominant financial software platform for American small businesses and individual taxpayers, with structural moats derived from deep switching costs, a proprietary accountant referral network, and a growing AI-native data advantage across 100 million customers. The company is executing a deliberate transition from a multi-product vendor into an AI-powered expert platform — one where software agents and human experts work in tandem to handle the financial complexity that 30 million small businesses and 40 million individual taxpayers cannot manage on their own. Revenue is predominantly subscription-based, highly recurring, and expanding in ARPU through platform attach rates and mix shift toward higher-value assisted services (TurboTax Live, QuickBooks Live). With FY2026 guidance of $20.997B–$21.186B (+12–13%) and non-GAAP EPS growing 14–15%, Intuit offers durable double-digit compounding with improving margins. The stock is appropriate for long-term growth investors willing to pay a premium for quality and durability.
+Intuit is the dominant financial software platform for American small businesses and individual taxpayers, with structural moats derived from deep switching costs, a proprietary accountant referral network, and a growing AI-native data advantage across 100 million customers. The company is executing a deliberate transition from a multi-product vendor into an AI-powered expert platform — one where software agents and human experts work in tandem to handle the financial complexity that 30 million small businesses and 40 million individual taxpayers cannot manage on their own. Revenue is predominantly subscription-based, highly recurring, and expanding in ARPU through platform attach rates and mix shift toward higher-value assisted services (TurboTax Live, QuickBooks Live).
+
+**Q3 FY2026 Update (May 20, 2026):** Intuit reported Q3 revenue of $8.56B (+10% YoY; slight miss on $8.61B estimate) and non-GAAP EPS of $12.80 (beat $12.57 estimate). The company raised FY2026 guidance to $21.341B–$21.374B (+13–14% revenue) and non-GAAP EPS of $23.80–$23.85 (+18%). Simultaneously, Intuit announced a 17% workforce reduction (~3,000 jobs across 7 countries), primarily targeting management layers, coordination-heavy roles, and post-integration duplicative positions; restructuring charges of $300–$340M are expected in Q4 FY2026. CEO Goodarzi stated this "had nothing to do with AI" (CNBC) but confirmed capital is being reallocated toward Anthropic and OpenAI partnerships. Critically, management acknowledged the company "did not have the overall tax season we expected" among the most price-sensitive DIY filers (<$50K income). The stock fell ~20% on May 21, now at ~$307, bringing the total decline from 2025 highs to ~55–60% and compressing the forward P/E to ~12.9x. Consumption-based pricing for AI and human intelligence services is launching in August 2026. At this valuation, the stock is appropriate for contrarian long-term investors who believe the moat is intact despite a structurally challenging near-term.
 
 ### Bull Case
-Intuit's AI agent platform succeeds in expanding SMB wallet share and automating the cost of expert delivery — simultaneously growing ARPU and compressing COGS, driving a multi-year re-rating in non-GAAP operating margins toward 45%+. IRS Direct File cancellation (OBBBA, July 2025) removes the largest TAM risk for the Consumer segment, creating a structural Q3 FY2026 tailwind as ~30M displaced filers return to commercial tax software. Successful pivot to outcome-based pricing (token/agent-outcome billing) defuses the "SaaSpocalypse" re-rating risk, and the stock re-rates from a compressed 20–30x forward P/E back toward 35x+.
+Intuit's 17% workforce restructuring proves to be a true efficiency inflection: headcount reduction combined with consumption-based pricing launch (August 2026) drives non-GAAP operating margins toward 43–45% in FY2027. TurboTax Live's 36% growth and 53% franchise share trajectory continues, with the low-income filer loss a one-time competitive failure that is corrected through price strategy. IES contract growth (+37% QoQ) accelerates into a durable $500M–$1B annual revenue stream by FY2028. At ~12.9x forward non-GAAP P/E, the stock re-rates to 20–25x as the earnings compounding story becomes undeniable, delivering 50–100% upside from ~$307.
 
 ### Bear Case
-AI-native agentic tools (deployed by hyperscalers or vertical AI entrants) disrupt the per-seat SaaS pricing model for SMB accounting, compressing QuickBooks ARPU as businesses reduce seat counts in favor of AI automation. Simultaneously, Intuit's pivot to outcome-based pricing proves slower and more margin-dilutive than expected; Credit Karma faces credit delinquency headwinds in a stressed consumer environment; and IES mid-market traction remains limited. Revenue growth decelerates to high single digits with multiple compression persisting.
+"Lost on price" in the <$50K TurboTax filer segment reflects a structural competitive deterioration, not a one-time execution miss — FreeTaxUSA, H&R Block, and AI-native filing tools continue to erode the price-sensitive low end. The 17% workforce cut triggers talent attrition in product and engineering, degrading the AI platform roadmap at the worst possible time. Consumption-based pricing arrives too late and cannibalizes subscription revenue before the replacement economics are proven. Credit Karma faces a consumer credit delinquency spike. The stock, already at ~12.9x forward P/E, fails to re-rate as growth decelerates to high single digits, and securities fraud litigation (filed May 2026) generates ongoing headline risk.
 
 ### Target Investor Profile
 **Contrarian growth investors and quality-compounder holders** with a 3–7 year horizon who can look past the current sector-wide valuation compression ("SaaSpocalypse"). The risk/reward at 20–30x forward P/E is meaningfully more attractive than at the original memo's implied 35–40x. Not appropriate for deep-value or income investors. Current setup is **opportunistically bullish**: the market is discounting near-term AI pricing model uncertainty while the business is still delivering 17%+ revenue growth.
@@ -32,15 +34,17 @@ AI-native agentic tools (deployed by hyperscalers or vertical AI entrants) disru
 
 ### Revenue Breakdown by Segment (FY2025, ended Jul 31, 2025)
 
-| Segment | Revenue | % Total | YoY Growth | Q2 FY2026 | Q2 YoY |
-|---------|---------|---------|------------|-----------|--------|
-| Global Business Solutions Group | $11.1B | 59% | +16% | $3.2B | +18% |
-| — Online Ecosystem (QB Online, QB Payroll, QB Payments) | $8.3B | 44% | +20% | $2.5B | +21% |
-| Consumer (TurboTax) | $4.9B | 26% | +10% | $1.5B | +15% |
-| — TurboTax Live (assisted) | $2.0B | 11% | +47% | N/A | N/A |
-| Credit Karma | $2.3B | 12% | +32% | $616M | +23% |
-| ProTax | $621M | 3% | +4% | N/A | N/A |
-| **Total** | **$18.8B** | **100%** | **+16%** | **$4.7B** | **+17%** |
+| Segment | FY2025 Revenue | % Total | FY2025 YoY | Q2 FY2026 | Q2 YoY | **Q3 FY2026** | **Q3 YoY** |
+|---------|---------|---------|------------|-----------|--------|-----------|--------|
+| Global Business Solutions Group | $11.1B | 59% | +16% | $3.2B | +18% | **$3.3B** | **+15%** |
+| — Online Ecosystem (QB Online, QB Payroll, QB Payments) | $8.3B | 44% | +20% | $2.5B | +21% | **$2.5B** | **+19% (+22% ex-Mailchimp)** |
+| Consumer (TurboTax + Credit Karma + ProTax) | $4.9B | 26% | +10% | $1.5B | +15% | **$5.3B** | **+8%** |
+| — TurboTax (standalone) | $2.0B Live (FY25) | 11% | +47% (Live) | N/A | N/A | **$4.4B (TurboTax total Q3)** | **+7%** |
+| Credit Karma | $2.3B | 12% | +32% | $616M | +23% | **$631M** | **+15%** |
+| ProTax | $621M | 3% | +4% | N/A | N/A | **$278M** | **flat** |
+| **Total** | **$18.8B** | **100%** | **+16%** | **$4.7B** | **+17%** | **$8.56B** | **+10%** |
+
+*Note: Q3 is Intuit's largest revenue quarter (tax season). FY2026 full-year guidance: $21.341B–$21.374B (+13–14%). TurboTax Live full-year guidance raised to ~$2.8B (+36%; 53% of TurboTax franchise, up from 41% in FY2025). Credit Karma full-year guide: +19%. GBSG full-year guide: ~+16%.*
 
 ### Key Unit Economics
 
@@ -62,14 +66,16 @@ AI-native agentic tools (deployed by hyperscalers or vertical AI entrants) disru
 
 ### Operating Leverage Dynamics
 
-| Metric | FY2023 | FY2024 | FY2025 | Q2 FY2026 |
-|--------|--------|--------|--------|-----------|
-| Revenue | ~$14.4B | $16.3B | $18.8B | $4.7B (Q) |
-| GAAP Op. Margin | ~23% | 24.3% | 26.7% | ~18% (Q, seasonally low) |
-| Non-GAAP Op. Margin | ~36% | ~38% | ~40% | ~32% (Q) |
-| GAAP Op. Income | ~$3.3B | ~$3.9B | $4.9B | $855M (Q) |
-| Non-GAAP Op. Income | ~$5.2B | ~$6.2B | $7.6B | $1.5B (Q) |
-| Op. Cash Flow | ~$4.0B | ~$5.0B | $6.2B | N/A |
+| Metric | FY2023 | FY2024 | FY2025 | Q2 FY2026 | **Q3 FY2026** | **FY2026 Guide** |
+|--------|--------|--------|--------|-----------|-----------|---------|
+| Revenue | ~$14.4B | $16.3B | $18.8B | $4.7B (Q) | **$8.56B (Q)** | **$21.34–$21.37B** |
+| GAAP Op. Margin | ~23% | 24.3% | 26.7% | ~18% (Q) | **~47% (Q; tax-season peak)** | **~26.7%** |
+| Non-GAAP Op. Margin | ~36% | ~38% | ~40% | ~32% (Q) | **~54.7% (Q)** | **~41.2%** |
+| GAAP Op. Income | ~$3.3B | ~$3.9B | $4.9B | $855M (Q) | **$4.0B (Q)** | **$5.705–$5.725B** |
+| Non-GAAP Op. Income | ~$5.2B | ~$6.2B | $7.6B | $1.5B (Q) | **$4.68B (Q)** | **$8.784–$8.804B** |
+| GAAP Diluted EPS | N/A | N/A | $13.67 | N/A | **$11.09** | **$15.79–$15.84** |
+| Non-GAAP Diluted EPS | N/A | N/A | N/A | N/A | **$12.80** | **$23.80–$23.85** |
+| Op. Cash Flow | ~$4.0B | ~$5.0B | $6.2B | N/A | N/A | **$7.0B+ (est.)** |
 
 Revenue growth consistently outpaces operating cost growth — each 1% point of revenue growth converts to ~2% point of operating income growth, reflecting fixed-cost leverage in R&D and G&A.
 
@@ -130,17 +136,27 @@ TurboTax and QuickBooks are the default brand choices in their categories. 34% o
 
 **Description:** TurboTax Live is the assisted tax preparation offering where Intuit pairs its software with on-demand human tax experts. Revenue per filer is 3–5x higher than self-serve. In FY2025, Live grew 47% to $2.0B and now represents 41% of Consumer Group revenue.
 
-**TAM Impact:** ~40M TurboTax annual filers. Live penetration at ~20–25% today. Each 10pp penetration increase at $250 average revenue uplift = ~$1B incremental annual revenue for Consumer alone.
+**Q3 FY2026 Tax Season Actual Results (May 2026 Update):**
+- **TurboTax Live FY2026 guidance raised to $2.8B (+36%)** — significantly exceeded the prior memo's base target of >$2.5B / >25% growth; bull case on Live penetration trajectory is playing out
+- **TurboTax Live now 53% of TurboTax franchise revenue** (up from 41% in FY2025; up 11 points in one year)
+- **TurboTax Live customer growth: +38%**; new customer acquisition +29%, with 36% of new customers acquired through local channels being entirely new to TurboTax
+- **Filers from Credit Karma origin: +54%** — the cross-platform flywheel is functioning
+- **TurboTax ARPU: +11%** (driven by assisted offering mix shift and faster refund access)
+- **RISK FLAG: TurboTax total online units: −2%** — the filer volume base is shrinking as price-sensitive self-filers exit
+- **CEO: "We lost on price"** for DIY filers earning under $50K annually; company "did not have the overall tax season we expected" in this cohort
+- **Strategic response:** Shift from complexity-based to value-based pricing; accelerating bundled-service monetization beyond tax for the under-$50K segment
 
-**Probability-Weighted Scenarios:**
+**TAM Impact:** ~40M TurboTax annual filers. Live penetration now at ~53% of franchise revenue. Each further 10pp penetration increase at current pricing generates ~$1B+ incremental revenue. However, the DIY base is eroding at the low end — the net effect depends on whether ARPU expansion from Live outpaces volume loss in self-serve.
 
-| Scenario | Live Penetration (FY2028) | Consumer Revenue Impact |
-|----------|--------------------------|------------------------|
-| Bull | 40% | +$4–5B vs. FY2025 Consumer rev |
-| Base | 30% | +$1.5–2B |
-| Bear | 20% (flat) | No incremental |
+**Probability-Weighted Scenarios (Updated May 2026):**
 
-**Timeline:** Already in motion; key milestone is Q3 FY2026 (Jan–Apr 2026) tax season results.
+| Scenario | TurboTax Live Revenue (FY2028) | TurboTax DIY Volume | Net Consumer Impact |
+|----------|-------------------------------|--------------------|--------------------|
+| Bull | $4.0B+ (50% franchise) | Stable; value-based pricing retains low-end | +$3–4B vs. FY2025 Consumer |
+| Base | $3.2–3.5B (continuing ~20% CAGR from $2.8B) | −2 to −3% annually (low-income attrition) | +$1.5–2B |
+| Bear | $2.5B (growth stalls as AI filing tools commoditize assisted) | −5%+ annually | Flat to down vs. FY2025 |
+
+**Timeline:** Q3 FY2026 actual results are in — Live dramatically outperformed. The open question is whether the −2% total online unit count is cyclical (one-time competitive loss) or structural (low-income filer base permanently eroding). Q3 FY2027 tax season (reported May 2027) is the next comparator.
 
 ---
 
@@ -168,13 +184,26 @@ TurboTax and QuickBooks are the default brand choices in their categories. 34% o
 | Base | 18–20% | Steady ARPU; IES adds 1–2% incremental; Construction Edition modest success |
 | Bear | 12–14% | ARPU plateaus due to "pricing fatigue" at low-end QuickBooks; IES slow ramp; macro SMB pressure |
 
-**Timeline:** IES Construction Edition in active beta; watch Q3 FY2026 earnings (May 2026) for first IES traction commentary, and FY2026 Investor Day (Sep 2026) for customer count disclosure. Key open question: is low-end QuickBooks experiencing churn from "pricing fatigue," or are those users being absorbed into AI-automated tiers?
+**Q3 FY2026 Update (May 2026):**
+- **QBO Advanced + IES grew ~38% in Q3** — the fastest-growing GBSG component
+- **IES contract growth: +37% QoQ** — accelerating sequential momentum; direct sales team expanded ~30%
+- **Online Ecosystem: +19% in Q3 (+22% ex-Mailchimp)** — core QB+payroll+payments business strengthening
+- **Consumption-based pricing launching August 2026** — management announced usage-based pricing for AI and human intelligence services; strongest adoption expected in Advanced/Plus tiers. This directly addresses the SaaSpocalypse concern and represents Intuit's transition from per-seat subscription toward AI-outcome monetization. Q4 FY2026 will be first data point on consumption pricing adoption.
+- Key open question answered partially: low-end QuickBooks pressure is real (confirmed by TurboTax "lost on price" parallel), but IES high-end is more than offsetting. Waiting on explicit QB subscriber count at Investor Day (Sep 2026) to determine net subscriber trajectory.
+
+**Timeline:** IES Q3 FY2026 commentary confirmed strong. Next milestones: (1) consumption-based pricing launch August 2026, (2) IES customer count at FY2026 Investor Day (September 2026), (3) Q4 FY2026 earnings (August 2026) for first post-restructuring efficiency data.
 
 ---
 
 ### Growth Driver 3: Credit Karma Revenue Recovery and Platform Integration
 
 **Description:** Credit Karma recovered strongly in FY2025 (+32% to $2.3B) after a ~30% decline in FY2023 during the rate-hike cycle. As consumer credit markets normalize and interest rates decline, Credit Karma's financial marketplace revenue (credit card, personal loan, auto loan referrals) should continue recovering. Longer term, Intuit is building Credit Karma into a cross-platform financial health hub, connecting TurboTax refund data, Credit Karma credit scores, and personalized financial product recommendations.
+
+**Q3 FY2026 Update (May 2026):**
+- **Q3 actual: $631M (+15%)** — growth decelerated from Q2's +23%, but still healthy; personal loans contributed +9 points, auto insurance +5 points, home loans +1 point
+- **Full-year FY2026 guidance: +19%** — implies full-year Credit Karma of ~$2.73–$2.75B
+- Cross-platform ARPU is ~30% higher for dual TurboTax/Credit Karma users vs. single-product customers — TurboTax origin filers to Credit Karma growing +54% in tax season
+- Note: Q2's +23% was a peak; Q3's +15% reflects seasonal normalization (tax refund activity peaks in Q3, then credit marketplace activity normalizes)
 
 **TAM Impact:** U.S. consumer financial services marketplace is a $50B+ revenue pool. Credit Karma's current ~$2.3B revenue captures a fraction. AI-driven personalization could meaningfully increase conversion rates.
 
@@ -190,15 +219,17 @@ TurboTax and QuickBooks are the default brand choices in their categories. 34% o
 
 ### Sensitivity Table: Revenue and Earnings Impact
 
-*(Updated April 21, 2026: Bull case raised on IRS Direct File cancellation Consumer tailwind; Q3 FY2026 consensus non-GAAP EPS ~$12.50)*
+*(Updated May 26, 2026: Q3 FY2026 actual results incorporated; FY2026 guidance raised by management; stock at ~$307)*
+
+**Q3 FY2026 Actuals:** Revenue $8.56B (+10% YoY; slight miss on $8.61B estimate); Non-GAAP EPS $12.80 (beat $12.57 estimate; beat prior memo $12.50 consensus benchmark).
 
 | Scenario | FY2026 Revenue | FY2026 Non-GAAP EPS | FY2027 Revenue | FY2027 Non-GAAP EPS | Key Driver vs. Prior |
 |----------|---------------|--------------------|--------------|--------------------|---------------------|
-| Bull | $21.8–22.0B | $25.00+ | $26B+ | $30+ | IRS Direct File cancellation boosts Consumer 5–8% above prior guide; IES Construction wins; Anthropic integration accelerates mid-market |
-| Base (Guidance) | $21.0–21.2B | $22.98–$23.18 | $23.5B | $26–27 | Company guidance reiterated Q2 FY2026; MS estimate $23.10 vs. consensus $23.22 (FY2026) |
-| Bear | $19.5B | $20.50 | $20.5B | $22 | AI-native pricing disruption compresses QuickBooks ARPU; Credit Karma delinquency headwinds; low-end churn from pricing fatigue |
+| Bull | $21.5–22.0B | $25.00–$26.00 | $25B+ | $30+ | Consumption-based pricing accelerates margin; IES 38% growth sustains; workforce restructuring delivers 200–300bps margin improvement; stock re-rates to 18–22x as earnings compounding validates |
+| Base (Guidance) | **$21.341–$21.374B** | **$23.80–$23.85** | **$23.5–24.0B** | **$27–28** | **Management guidance raised May 20, 2026**; 17% workforce cut generates $300–340M in FY2026 charges but ~$400–500M in ongoing cost savings; consumption pricing adds minimal revenue in FY2026 but meaningful in FY2027 |
+| Bear | $20.5B | $22.00 | $21B | $23 | "Lost on price" in TurboTax DIY proves structural (−5%+ annual unit decline); consumption pricing cannibalizes subscription faster than anticipated; Credit Karma delinquency headwinds; securities fraud litigation adds overhang |
 
-*Morgan Stanley scenario pricing (March 23, 2026; stock at $455.56): Bull $730 (+60% from $455), Base $580 (+27%), Bear $300 (−34%). Options-implied 12-month probabilities: Prob(>$730) ~15%, Prob(>$580) ~35%, Prob(<$300) ~15%. MS key driver assumptions: Online Ecosystem growth 23% (FY2026e), GBSG segment +17.3% (FY2026e), non-GAAP operating margin 40.9% (FY2026e), QBO subscriber growth 5.3% (FY2026e).*
+*Stock at ~$307 (May 26, 2026) represents 12.9x FY2026 non-GAAP EPS guide midpoint. Prior MS scenario pricing (March 23, 2026; stock at $455.56): Bull $730, Base $580, Bear $300. Post-Q3 analyst consensus price target: fell 11% to ~$525. Notable post-earnings PT cuts: BMO $550→$412 (Outperform); Truist $500→$410 (Buy); Argus $580→$480 (Buy); RBC $600→$500 (Outperform); Freedom Broker downgraded to Hold at $430.*
 
 ---
 
@@ -213,12 +244,13 @@ TurboTax and QuickBooks are the default brand choices in their categories. 34% o
 
 ---
 
-**Risk 1 (New Primary): AI-Driven Pricing Model Disruption — "SaaSpocalypse" (Severity: High | Probability: Medium)**  
-- **Description:** Since February 2026, the software sector has repriced sharply on fears that AI agents reduce human-seat demand for SaaS tools. If AI automation causes SMBs to consolidate or eliminate QuickBooks user seats, Intuit's per-seat subscription model faces structural revenue headwinds — not from competitors, but from the productivity gains of AI itself. This risk has already manifested in the stock (down ~30–50% from 2025 highs) and is the dominant investor concern as of April 2026.
-- **Trigger:** Businesses publicly disclosing seat reductions tied to AI agent adoption; QuickBooks ARPU declining YoY; Intuit's own AI agents cannibalizing subscription revenue
-- **Impact:** Multiple compression (already partly occurring at 20–30x forward P/E vs. prior 35–40x); potential revenue growth deceleration from 18–20% to 10–12% if ARPU contracts while customer count stagnates
-- **Mitigation:** Intuit is proactively pivoting to **outcome-based and token-based pricing** models that monetize AI usage rather than human seats. FedNow certification (April 2026) signals a strategic shift toward monetizing "instant cash flow" and financial outcomes. The Anthropic partnership in IES is an early example of charging for AI-delivered outcomes (multi-entity consolidation, CFO-level automation). If Intuit successfully transitions its pricing model before per-seat erosion materializes, this risk becomes a catalyst rather than a headwind. Importantly, the March 2026 MS channel check with an early IES customer provided the clearest independent counter-evidence to the SaaSpocalypse thesis: the customer (CFO of a 9-entity real estate firm) stated explicitly that customers are not going to "vibe code" their general ledger — they would rather pay Intuit for a trusted, low-cost system of record than build and maintain one themselves, especially when accounting workflows carry audit, compliance, and regulatory consequences. AI is more likely to sit *on top of* the core ledger than replace it. This is customer-revealed preference, not management positioning.
-- **Open Question:** Does Intuit's outcome-based pricing pivot arrive fast enough to offset any near-term ARPU pressure from AI-driven seat reduction? Q3 FY2026 earnings (May 21) will be the first data point. Jordan Fladdell (Aprio) adds a useful nuance: pricing durability is strong while Intuit is eliminating labor and consolidating spend, but future price increases will require continued product innovation — pricing power becomes harder to sustain once the initial ROI wave has been realized.
+**Risk 1 (New Primary): AI-Driven Pricing Model Disruption + "Lost on Price" in TurboTax DIY — "SaaSpocalypse" (Severity: High | Probability: Medium)**  
+- **Description:** Since February 2026, the software sector has repriced sharply on fears that AI agents reduce human-seat demand for SaaS tools. If AI automation causes SMBs to consolidate or eliminate QuickBooks user seats, Intuit's per-seat subscription model faces structural revenue headwinds — not from competitors, but from the productivity gains of AI itself. This risk has already manifested in the stock (down ~55–60% from 2025 highs to ~$307 as of May 26, 2026).
+- **Q3 FY2026 Update — New Data Point:** CEO Goodarzi stated on the Q3 FY2026 earnings call that Intuit "lost on price" in the DIY filer segment earning under $50K annually, and that the company "did not have the overall tax season we expected." Total TurboTax online units declined 2% YoY. This is the first explicit management acknowledgment of competitive pricing pressure eroding the low-income DIY filer base — likely to competitors including FreeTaxUSA and H&R Block's free tier — and validates the low-end vulnerability concern that was a bear case thesis. Separately, the 17% workforce cut adds ambiguity: CEO told CNBC it "had nothing to do with AI" while also confirming capital reallocation toward Anthropic and OpenAI partnerships. Market reaction: stock fell ~20% on May 21, 2026, triggering securities fraud investigations by BFA and other law firms citing the "pricing issues" disclosure.
+- **Trigger:** Continued TurboTax DIY unit declines YoY in tax season 2027; QuickBooks ARPU declining YoY; Intuit's own AI agents cannibalizing subscription revenue; consumption-based pricing cannibalizing subscription before replacement economics proven
+- **Impact:** Multiple compression (already at ~12.9x forward non-GAAP P/E vs. prior 35–40x); revenue growth deceleration confirmed to 10% in Q3 FY2026 (slowest since 2024); securities litigation overhang
+- **Mitigation:** Consumption-based pricing launching August 2026 directly addresses the pricing model transition. IES and QuickBooks Advanced still growing 38% — pricing pressure is concentrated in low-income TurboTax DIY, not the high-value segments. TurboTax Live's 36% growth to $2.8B (53% of franchise) is the offsetting tailwind — revenue is shifting from commoditized DIY to premium assisted, which is a higher-margin, higher-retention outcome. The IES customer channel check (March 2026) confirmed high-end customers do not "vibe code" their general ledger — AI sits on top of the core ledger, not replacing it.
+- **Open Question:** Is the −2% total TurboTax online unit count cyclical (one-time) or structural (persistent)? Tax season 2027 (Q3 FY2027, reported May 2027) is the definitive test. If units decline again, the low-income filer loss is structural and the bear case tightens significantly.
 
 **Risk 2: AI-Native Competitive Disruption from Outside (Severity: High | Probability: Low-Medium)**  
 - **Description:** A well-funded AI-native challenger (or existing tech giant) builds a compelling LLM-based accounting/tax tool that matches TurboTax or QuickBooks UX at a fraction of the cost — attacking from outside Intuit's ecosystem rather than through internal pricing dynamics.
@@ -249,38 +281,40 @@ TurboTax and QuickBooks are the default brand choices in their categories. 34% o
 ### Pre-Mortem
 
 **"If this investment fails in 3 years, the most likely reason is:"**  
-*(Updated April 2026: IRS Direct File no longer the primary failure mode)*
+*(Updated May 26, 2026: Q3 FY2026 earnings incorporated; "lost on price" admission added as the critical new failure signal)*
 
-The "SaaSpocalypse" proves not to be a temporary sentiment overhang but a structural disruption: AI agents genuinely reduce the number of QuickBooks seats SMBs require, and Intuit's pivot to outcome-based pricing arrives too late or at margins too low to compensate. Simultaneously, Credit Karma faces a consumer credit delinquency spike that causes financial institution partners to cut referral marketing budgets sharply, taking Credit Karma revenue back toward $1.5–1.8B and triggering a goodwill impairment discussion on the $7.1B acquisition. The IES mid-market expansion — despite the Anthropic partnership and Construction Edition — fails to generate meaningful revenue at scale by FY2028 because NetSuite and Sage Intacct defend their installed base. With the high-margin Consumer segment and the high-growth Online Ecosystem both underperforming expectations, the premium multiple of 35x+ that Intuit commanded in 2024–2025 does not return, and the stock compounds at 3–5% annually rather than 15–20%.
+The "lost on price" admission in Q3 FY2026 proves to be the leading indicator of a structural moat erosion in TurboTax's low-income DIY segment: total online filer units continue declining 3–5% annually through FY2027–2028 as AI-native filing tools (and incumbents with aggressive free tiers) permanently capture the under-$50K income cohort. TurboTax Live's revenue growth offsets this loss for 1–2 years, but growth decelerates as the Live market matures and AI commoditizes even assisted tax preparation. Simultaneously, the 17% workforce cut creates unexpected product and engineering talent attrition that delays the consumption-based pricing transition past FY2027, while Credit Karma faces a consumer credit delinquency event that pushes its revenue back below $2.0B. Intuit's stock, already at a compressed ~12.9x forward non-GAAP P/E, never re-rates as growth decelerates to high single digits by FY2028, and the securities fraud litigation adds legal cost and management distraction. The result: the stock delivers 0–5% total returns from the current ~$307 level over three years, compounding at roughly the rate of its dividend, not its earnings growth.
 
 ### Key Assumptions That Must Hold
 
 1. ~~U.S. tax code remains complex enough to require software/expert assistance (IRS Direct File remains limited)~~ **→ RESOLVED: IRS Direct File cancelled (OBBBA, July 2025). Tax complexity moat remains intact.**
-2. QuickBooks' switching costs and accountant ecosystem remain intact against AI-native competitors through at least 2028 — and Intuit's outcome-based pricing pivot succeeds before per-seat erosion materially impacts ARPU
-3. Credit Karma recovers to $2.8–3.0B in revenue by FY2027; subprime delinquency risk does not cause partner marketing budget collapse
-4. Intuit's AI agent investments reduce the marginal cost of TurboTax Live and QuickBooks Live delivery, expanding non-GAAP margins toward 42–43% by FY2027 — and AI-delivered expert services are not themselves disrupted by the same AI that is disrupting Intuit's customers
-5. IES achieves meaningful customer traction (50,000+ customers) by end of FY2027; Construction Edition and Anthropic integration become reference cases that accelerate mid-market conversion. *Early validation: Aprio (top-20 CPA firm) launched its IES practice September 2025 and generated north of seven figures in services revenue in under six months from ~12,000 Intuit-related clients; MS Q2 earnings call confirmed IES is adding net new customers outside the installed base — both signal the defensive-to-offensive transition is beginning.*
+2. The "lost on price" admission in Q3 FY2026 (−2% total TurboTax online units) is cyclical, not structural — Intuit successfully defends the under-$50K filer segment through value-based pricing adjustments announced for FY2027 filing season. **→ CRITICAL WATCH: Tax season 2027 (Q3 FY2027) is the test.**
+3. QuickBooks' switching costs and accountant ecosystem remain intact against AI-native competitors through at least 2028 — and consumption-based pricing pivot (launching August 2026) succeeds before per-seat erosion materially impacts ARPU
+4. Credit Karma recovers to $2.73–$2.75B in FY2026 (per guidance: +19%) and continues to ~$3.0B by FY2027; subprime delinquency risk does not cause partner marketing budget collapse
+5. The 17% workforce restructuring generates $400–500M in annualized cost savings beginning FY2027, driving non-GAAP operating margins toward 42–43% by FY2027 — without causing material product engineering talent attrition
+6. IES achieves meaningful customer traction (50,000+ customers) by end of FY2027; QBO Advanced + IES growth (+38% in Q3 FY2026) is disclosed as a standalone IES customer count at Investor Day (Sep 2026) that validates the mid-market thesis. *Early validation: IES contract growth +37% QoQ in Q3 FY2026; direct sales team +30%; Aprio (top-20 CPA) generated seven figures in IES services revenue in under six months.*
 
 ---
 
 ## 6. 12-Month KPI Watch List
 
-*(Reporting periods: Q3 FY2026 ends Apr 30, 2026 — earnings expected late May 2026; Q4 FY2026 ends Jul 31, 2026; FY2026 Annual Aug 2026)*
-*(Updated April 21, 2026: KPI #10 retired; new KPI #10 added; Q3 FY2026 consensus non-GAAP EPS ~$12.50 added as near-term benchmark)*
+*(Reporting periods: Q3 FY2026 ended Apr 30, 2026 — **earnings reported May 20, 2026**; Q4 FY2026 ends Jul 31, 2026; FY2026 Annual Aug 2026; Investor Day Sep 2026)*
+*(Updated May 26, 2026: Q3 FY2026 actuals incorporated; KPIs updated with GREEN/YELLOW/RED status)*
 
-| # | KPI | Current Value | Target Range (Next 12M) | Red Flag Threshold | Source / Frequency |
-|---|-----|--------------|------------------------|-------------------|-------------------|
-| 1 | **TurboTax Live Revenue (Consumer Group)** | $2.0B (FY2025); ~41% of Consumer | >$2.5B for FY2026 (25%+ growth — raised on Direct File cancellation tailwind) | <20% growth (implies Direct File tailwind not materializing) | Q3 FY2026 earnings (May 2026); Annual |
-| 2 | **Online Ecosystem Revenue Growth** | +20% YoY (FY2025); +21% (Q2 FY2026) | 18–22% YoY | <13% YoY for two consecutive quarters (SaaSpocalypse signal) | Quarterly earnings |
-| 3 | **Global Business Solutions Total Revenue** | $11.1B (FY2025); +18% Q2 FY2026 | $12.9–13.2B (FY2026) | <10% YoY deceleration | Quarterly earnings |
-| 4 | **Credit Karma Revenue** | $2.3B (FY2025); $616M Q2 FY2026 (+23%) | $2.7–3.0B (FY2026) | <10% annual growth; sequential decline in Q3 or Q4 FY2026 (delinquency signal) | Quarterly earnings |
-| 5 | **Non-GAAP Operating Margin** | ~40% (FY2025) | 41–42% (FY2026) | <39% (signals AI cost investments outpacing revenue or ARPU erosion) | Annual; Q4 FY2026 |
-| 6 | **IES (Intuit Enterprise Suite) Customer Count & Partner Revenue** | Construction Edition in Beta (early 2026); count not yet disclosed. *Reference benchmark: Aprio (top-20 CPA firm) generated north of seven figures in IES services revenue in under six months from ~12,000 client base (launched Sep 2025)* | First public disclosure at FY2026 Investor Day (Sep 2026); target >15,000 customers; watch for partner-ecosystem services revenue disclosures as a leading indicator | No customer count disclosure at Investor Day; or qualitative commentary citing slow adoption outside installed base | Investor Day Sep 2026; Q3/Q4 FY2026 earnings call commentary |
-| 7 | **GAAP EPS (diluted)** | $13.67 (FY2025); FY2026 guided $15.49–$15.69; Q3 FY2026 consensus non-GAAP ~$12.50 | $15.49–$15.69 full-year | Miss by >5% on annual guidance; or Q3 FY2026 non-GAAP EPS <$11.50 | Q3 FY2026 earnings (May 2026); Annual (Aug 2026) |
-| 8 | **Operating Cash Flow** | $6.2B (FY2025) | $7.0B+ (FY2026) | <$6.0B | Annual earnings |
-| 9 | **TurboTax Total Filer Count (Tax Season Metric)** | ~40M (FY2025 est.) | +3–7% YoY (raised: Direct File cancellation should boost commercial filer pool) | Flat or decline YoY (signals Direct File tailwind not captured, or competitor share gains) | Q3 FY2026 earnings (May 2026) |
-| 10 | **Outcome-Based / Token-Based Pricing Revenue Contribution** | Not yet broken out; FedNow certified April 2026; pivot announced | Management commentary on outcome-based revenue at Q3 FY2026 earnings and Investor Day | No update or abandonment of outcome-based pricing pivot by Sep 2026 | Q3 FY2026 earnings (May 2026); Investor Day (Sep 2026) |
+| # | KPI | Q3 FY2026 Actual | Target Range | Status | Red Flag Threshold | Next Update |
+|---|-----|----------------|-------------|--------|-------------------|-------------|
+| 1 | **TurboTax Live Revenue** | FY2026 guide raised to ~$2.8B (+36%); now 53% of franchise (was 41%) | >$2.5B for FY2026 | **GREEN ✓** (exceeded) | <20% growth | Q4 FY2026 annual |
+| 2 | **Online Ecosystem Revenue Growth** | +19% Q3 FY2026 (+22% ex-Mailchimp) | 18–22% YoY | **GREEN ✓** | <13% YoY for two consecutive quarters | Q4 FY2026 earnings (Aug 2026) |
+| 3 | **Global Business Solutions Total Revenue** | $3.3B (+15% Q3); FY2026 guide ~+16% | $12.9–13.2B FY2026 | **GREEN ✓** | <10% YoY deceleration | Q4 FY2026 earnings (Aug 2026) |
+| 4 | **Credit Karma Revenue** | $631M Q3 (+15%); FY2026 guide +19% (~$2.73B) | $2.7–3.0B FY2026 | **GREEN ✓** | <10% annual; sequential declines (delinquency signal) | Q4 FY2026 earnings (Aug 2026) |
+| 5 | **Non-GAAP Operating Margin** | ~54.7% Q3 (peak tax season); FY2026 guide implies ~41.2% full year | 41–42% FY2026 | **GREEN ✓** | <39% FY2026 | Q4 FY2026 / Annual (Aug 2026) |
+| 6 | **IES Customer Count & Growth** | QBO Advanced + IES +38% Q3; IES contract growth +37% QoQ; direct sales +30% | First IES count at Investor Day (Sep 2026); target >15,000 | **YELLOW** (no count yet; growth signals strong) | No count at Investor Day; commentary citing slow adoption outside base | Investor Day Sep 2026 |
+| 7 | **EPS (Non-GAAP diluted)** | Q3 actual: $12.80 (beat $12.57); FY2026 guide raised to $23.80–$23.85 | $23.80–$23.85 FY2026 | **GREEN ✓** (raised from $22.98–$23.18) | Miss by >5% on FY2026 guide | Annual (Aug 2026) |
+| 8 | **Operating Cash Flow** | $6.2B (FY2025); Q3 not yet reported full year | $7.0B+ FY2026 | **PENDING** | <$6.0B | Annual (Aug 2026) |
+| 9 | **TurboTax Total Online Filer Count** | −2% online units in tax season (paying units +2%; total online −2%) | +3–7% YoY (Direct File tailwind) | **RED ⚠** (unit decline despite tailwind; CEO: "lost on price" in <$50K segment) | Continued decline in FY2027 tax season = structural erosion | Q3 FY2027 (May 2027) |
+| 10 | **Consumption-Based / Outcome-Based Pricing Launch** | Announced August 2026 launch; consumption pricing for AI + human intelligence services | Management commentary at Investor Day; August 2026 launch | **YELLOW → Watch** (announced, not yet live) | No launch by Sep 2026 or abandonment | Aug 2026 launch; Investor Day Sep 2026 |
+| 11 | **17% Workforce Restructuring — Cost Savings vs. Attrition** | NEW KPI: $300–$340M charges in Q4 FY2026; estimated $400–500M ongoing savings | Non-GAAP margin expansion to 42%+ by FY2027; Q4 FY2026 commentary on talent retention | **NEW — WATCH** | Elevated voluntary attrition in product/engineering; margin expansion <1pp in FY2027 | Q4 FY2026 earnings (Aug 2026) |
 
 ---
 
-*Sources: Intuit FY2025 10-K (Sep 2025); Intuit Q4 FY2025 Earnings Release (Aug 21, 2025); Intuit Q2 FY2026 Earnings Release (Feb 2026); Investor Day FY26 Presentation (Sep 18, 2025); Citi 2025 Consumer Tax Survey; 6sense QuickBooks Market Share Data; MacroTrends INTU Operating Margin; GuruFocus INTU ROIC Data; BTIG Analyst Notes (April 2026); Axios Market Reports (April 2026); intu-3-memo-assessment.md (April 21, 2026); Morgan Stanley "Delivering 20% Growth Unlocks the 'Triple Double' Bull Case" (Keith Weiss et al., January 21, 2026); Morgan Stanley "Mid-Market Check-In: Takeaways from our Conversation with IES Customer and Partner" (Keith Weiss et al., March 23, 2026).*
+*Sources: Intuit FY2025 10-K (Sep 2025); Intuit Q4 FY2025 Earnings Release (Aug 21, 2025); Intuit Q2 FY2026 Earnings Release (Feb 2026); **Intuit Q3 FY2026 Press Release and 8-K (May 20, 2026)**; **Intuit Q3 FY2026 Form 10-Q (filed May 2026)**; Investor Day FY26 Presentation (Sep 18, 2025); Citi 2025 Consumer Tax Survey; 6sense QuickBooks Market Share Data; MacroTrends INTU Operating Margin; GuruFocus INTU ROIC Data; BTIG Analyst Notes (April 2026); Axios Market Reports (April 2026); intu-3-memo-assessment.md (April 21, 2026); Morgan Stanley "Delivering 20% Growth Unlocks the 'Triple Double' Bull Case" (Keith Weiss et al., January 21, 2026); Morgan Stanley "Mid-Market Check-In: Takeaways from our Conversation with IES Customer and Partner" (Keith Weiss et al., March 23, 2026); **CNBC "Intuit CEO says company's 17% workforce cut had 'nothing to do with AI'" (May 20, 2026)**; **Seeking Alpha "Intuit outlines $21.341B–$21.374B FY2026 revenue as it cuts workforce 17%" (May 20, 2026)**; **Motley Fool Q3 FY2026 Earnings Call Transcript (May 20, 2026)**; **Analyst PT changes post-Q3: BMO $550→$412 (Outperform), Truist $500→$410 (Buy), Argus $580→$480 (Buy), RBC $600→$500 (Outperform), Freedom Broker downgrade to Hold at $430; consensus PT fell 11% to ~$525**; BusinessWire / PRNewswire INTU Securities Fraud Investigation notices (May 22, 2026); Yahoo Finance / GuruFocus post-earnings analysis.*
