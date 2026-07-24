@@ -1,8 +1,9 @@
 # Zscaler, Inc. (NASDAQ: ZS) — Equity Analyst Report
 
 **Prepared for:** Long-Term Investors
-**Data as of:** Q2 FY2026 (January 31, 2026); FY2025 10-K filed September 11, 2025
+**Data as of:** Q3 FY2026 (April 30, 2026); FY2025 10-K filed September 11, 2025
 **Fiscal Year:** August 1 – July 31
+**Revised:** May 28, 2026 — Q3 FY2026 earnings update
 
 ---
 
@@ -10,9 +11,11 @@
 
 Zscaler is the dominant pure-play provider of cloud-native Zero Trust network security, operating a globally distributed platform — the **Zero Trust Exchange** — that secures internet and application access for enterprise users, devices, and workloads without traditional network perimeters. Revenue is almost entirely subscription-based SaaS, with ~80% gross margins and rapidly improving profitability: the company posted a GAAP net loss of only $41.5M in FY2025 on $2.67B in revenue, down sharply from $202M in losses in FY2023.
 
-Revenue has compounded at roughly 37% annually over the past five years (FY2020–FY2025), decelerating to 23% in FY2025 and sustaining at 26% in both Q1 and Q2 FY2026. Annual Recurring Revenue (ARR) reached $3.36B as of Q2 FY2026 (January 31, 2026), with a net revenue retention rate of 115%. The company processes nearly 1 trillion AI transactions annually and over 500 billion total daily transactions through 160+ globally distributed data centers, generating a proprietary threat intelligence advantage that compounds with scale.
+Revenue has compounded at roughly 37% annually over the past five years (FY2020–FY2025), decelerating to 23% in FY2025 and re-accelerating to 26% in Q1–Q2 FY2026. Annual Recurring Revenue (ARR) reached $3.525B as of Q3 FY2026 (April 30, 2026; +25% YoY), with a net revenue retention rate of 115%. The company processes nearly 1 trillion AI transactions annually and over 500 billion total daily transactions through 160+ globally distributed data centers, generating a proprietary threat intelligence advantage that compounds with scale.
 
-Key risks include intensifying competition from Palo Alto Networks and Microsoft, valuation premium, and potential macro-driven elongation of enterprise sales cycles. **In plain English: Zscaler sells the cybersecurity equivalent of a toll highway that replaces corporate firewalls — the more enterprises shift to cloud and remote work, the more essential the platform becomes.**
+**Q3 FY2026 Update (May 26–27, 2026):** Q3 revenue $850.5M (+25% YoY, beat); non-GAAP EPS $1.08 (beat); RPO $6.5B (+30%); non-GAAP operating margin 23% (all-time high). However, two critical negative surprises: (1) FCF margin guidance cut to 22.8–23.3% (from 26.5–27%) due to CapEx running "in the high single digits as % of revenue" for AI infrastructure pull-forward; (2) FY2027 initial ARR/revenue growth guide of only 16–17%, far below Street's 20%+ expectation, attributable to two undisclosed senior sales leadership departures. Stock fell 31.3% on May 27 to ~$127 — its worst single-day decline ever. The core platform franchise remains healthy (NRR 115%, RPO +30%); the risk is the new-logo sales pipeline under disrupted leadership.
+
+Key risks include intensifying competition from Palo Alto Networks and Microsoft, permanent CapEx model shift (from <3% to ~8–9% of revenue), sales leadership continuity, and the possibility that FY2027 16–17% growth reflects structural deceleration rather than conservative guidance. **In plain English: Zscaler sells the cybersecurity equivalent of a toll highway that replaces corporate firewalls — the platform remains essential infrastructure for cloud-first enterprises, but a sudden management disruption has raised legitimate questions about how fast the new-logo pipeline can refill.**
 
 ---
 

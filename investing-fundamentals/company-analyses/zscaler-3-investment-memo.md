@@ -1,9 +1,10 @@
 # Zscaler, Inc. (NASDAQ: ZS) — Investment Memo
 
 **Prepared for:** Long-Term Growth Investors
-**Data as of:** Q2 FY2026 (January 31, 2026), reported February 26, 2026
+**Data as of:** Q3 FY2026 (April 30, 2026), reported May 26, 2026
 **Most Recent Annual Report:** 10-K FY2025 (filed September 11, 2025)
 **Fiscal Year End:** July 31
+**Revised:** May 28, 2026 — Q3 FY2026 earnings update (stock −31% on May 27; FY2027 guidance shock; FCF model revision; sales leadership departures)
 
 ---
 
@@ -11,13 +12,21 @@
 
 ### Investment Thesis
 
-Zscaler is the structurally advantaged leader in cloud-native Zero Trust network security, operating a platform that has become mission-critical infrastructure for the world's largest enterprises. As organizations permanently shift to cloud-first, hybrid-work architectures, traditional perimeter-based network security (firewalls, VPNs) becomes technically inadequate and economically wasteful. Zscaler's Zero Trust Exchange — routing 500+ billion daily transactions (nearly 1 trillion AI transactions in calendar 2025) through 160+ global Points of Presence — is the most mature, data-rich, and deeply embedded alternative. With $3.36B in ARR growing 25% YoY (Q2 FY2026), 80% non-GAAP gross margins, 22% non-GAAP operating margins, a 115% Net Revenue Retention rate, and raised FY2026 revenue guidance of $3.309–$3.322B (+24%), Zscaler is transitioning from a high-growth story to a durable compounder. The $692M acquisition of Red Canary and SPLX in Q1 FY2026 extends the platform into MDR/SOC and AI security — expanding TAM beyond the core SSE/SASE market. A $6.1B RPO (+31% YoY) and $2.4B deferred revenue base provide multi-year revenue visibility. The core thesis: Zscaler is replacing entire categories of legacy security products at the world's largest enterprises, and switching costs make departure structurally unlikely once a customer is live at scale.
+Zscaler is the structurally advantaged leader in cloud-native Zero Trust network security, operating a platform that has become mission-critical infrastructure for the world's largest enterprises. As organizations permanently shift to cloud-first, hybrid-work architectures, traditional perimeter-based network security (firewalls, VPNs) becomes technically inadequate and economically wasteful. Zscaler's Zero Trust Exchange — routing 500+ billion daily transactions through 160+ global Points of Presence — is the most mature, data-rich, and deeply embedded alternative. With $3.525B in ARR growing 25% YoY (Q3 FY2026), record 23% non-GAAP operating margins (all-time high), and a $6.5B RPO (+30% YoY), the platform's installed-base strength remains exceptional.
+
+**Q3 FY2026 Update (May 26–27, 2026) — Material Guidance Revision:** Zscaler delivered Q3 beats across revenue ($850.5M vs. $835.4M estimate, +25% YoY) and EPS ($1.08 vs. $1.01 estimate), but simultaneously delivered two critical negative surprises that sent the stock down 31.3% on May 27 — its worst single day ever:
+
+1. **FCF margin guidance cut**: Full-year FCF margin guidance slashed to 22.8–23.3% from prior 26.5–27% — a 370–380bps reduction — as CFO Kevin Rubin disclosed CapEx is running "in the high single digits as a percentage of revenue." The company is pulling forward purchases of memory, storage, and processors to lock in prices ahead of anticipated cost inflation. This fundamentally disrupts the capital-light narrative that underpinned Zscaler's premium valuation.
+
+2. **FY2027 ARR guide of only 16–17%**: Management issued the first FY2027 outlook call of 16–17% ARR and revenue growth — well below Street's 20%+ expectation. The stated reason: two senior sales leadership departures (names not yet disclosed), with CFO Rubin citing a "prudent approach" to guidance amid the team transitions. Jefferies called this a "much-needed (and attainable) reset"; Macquarie adopted a cautious stance.
+
+At $126.80 (May 27, 2026 close, down from ~$184 pre-earnings), the thesis requires reassessment: is the FY2027 growth deceleration a temporary management reset around sales transitions, or does it signal the start of a structural TAM penetration plateau? The core thesis — switching costs make departure structurally unlikely — remains intact from the installed base. The question is the *new-logo pipeline* health under a disrupted sales leadership team.
 
 ### Bull Case
-Zscaler captures a disproportionate share of the $96B TAM as the secular shift to zero trust accelerates; emerging platforms (Zero Trust Everywhere, AI Protect, ZFlex) drive ARR re-acceleration above 25%; the stock re-rates as investors price in a durable 24–26% compounder with expanding margins.
+The FY2027 16–17% ARR guide is a deliberately conservative sandbagging reset around transient sales leadership transitions; new sales leadership is hired within 6 months and pipeline recovers; CapEx pull-forward normalizes after Q4 FY2026 and FCF margins recover to 25%+ by FY2027; the stock re-rates from the post-crash ~$127 toward $180–200 as FY2027 ARR growth outperforms the lowered bar.
 
 ### Bear Case
-Palo Alto Networks and Microsoft commoditize SSE through aggressive bundling, compressing Zscaler's net new ARR growth; organic core (ex-Red Canary) ARR growth stalls around 20%; Red Canary integration churn proves sticky, undermining the expansion narrative; revenue growth decelerates to sub-18%, causing significant multiple compression.
+The FY2027 16–17% ARR guide is accurate and signals structural deceleration: sales leadership departures expose a deeper pipeline health issue, CapEx inflation is permanent (not a one-quarter pull-forward), and Palo Alto Networks continues commoditizing SSE. The stock, down 31% to ~$127, fails to re-rate because the FCF multiple re-expansion requires FCF margin recovery that doesn't materialize; ZS trades toward $90–100 as growth settles at 15–18% with a permanently higher CapEx base.
 
 ### Target Investor Profile
 **Growth investors** with a 3–5 year time horizon; comfortable owning a premium-valuation SaaS compounder in a mission-critical, regulated category. Not suitable for income investors (no dividend) or value investors (trades at a significant revenue multiple). Suitable for technology-focused growth funds, quality-growth crossover investors, and hedge funds with long-biased mandates.
@@ -45,28 +54,37 @@ Palo Alto Networks and Microsoft commoditize SSE through aggressive bundling, co
 
 ### Key Unit Economics
 
-| Metric | Value | Period |
-|--------|-------|--------|
-| Total ARR | $3,359M | Q2 FY2026 (Jan 31, 2026) |
-| ARR excl. Red Canary | $3,245M | Q2 FY2026 |
-| ARR Growth (YoY) | +25% total / +21% ex-Red Canary | Q2 FY2026 |
-| Net New ARR (quarter) | $155.5M | Q2 FY2026 |
-| Net Revenue Retention (NRR) | 115% | FY2025 / Q2 FY2026 |
-| Customers > $1M ARR | **728** | Q2 FY2026 (up from 664 at FY2025) |
-| Customers > $100K ARR | 3,494 | FY2025 |
-| Total Customers | ~9,400+ | FY2025 |
-| Implied ARPU (Total) | ~$284K | FY2025 (revenue / customers) |
-| Non-GAAP Gross Margin | 80% | Q2 FY2026 |
-| Non-GAAP Operating Margin | 22.2% | Q2 FY2026 (+50bps YoY) |
-| Non-GAAP EPS | $1.01 | Q2 FY2026 (+29% YoY) |
-| Free Cash Flow | $169.1M | Q2 FY2026 (+18% YoY) |
-| FCF Margin | 21% (quarter) / ~27% (FY2025 annual) | Q2 FY2026 / FY2025 |
-| RPO (Remaining Perf. Obligation) | **$6.1B (+31% YoY)** | Q2 FY2026 |
-| Deferred Revenue (Q2 FY2026, total) | $2,355.4M (+25% YoY vs Q2 FY2025) | Q2 FY2026 |
-| Deferred Revenue — FY2025 year-end (total) | $2,468M (+30.3% YoY vs FY2024 year-end) | Jul 31, 2025 |
-| Deferred Revenue — FY2024 year-end (current + non-current) | $1,644M current + $251M non-current = **$1,895M** | Jul 31, 2024 |
-| Deferred Revenue — FY2025 year-end (current + non-current) | $2,054M current + $414M non-current = **$2,468M** | Jul 31, 2025 |
-| Red Canary ARR | ~$114M → guided $130M | Q2 FY2026 |
+| Metric | Q2 FY2026 (Jan 31) | **Q3 FY2026 (Apr 30)** | YoY Change |
+|--------|-------|--------|--------|
+| Total ARR | $3,359M | **$3,525M** | +25% YoY |
+| Net New ARR (quarter) | $155.5M | **$166M** | +7% YoY |
+| Net Revenue Retention (NRR) | 115% | 115% (est.) | Stable |
+| Customers > $1M ARR | 728 | *not yet updated* | — |
+| Non-GAAP Gross Margin | 80% | **~80%** | Stable |
+| Non-GAAP Operating Margin | 22.2% | **23.0% (all-time high, +140bps YoY)** | Expanding |
+| Non-GAAP EPS | $1.01 | **$1.08 (beat $1.01–$1.04 est.)** | +7% QoQ |
+| GAAP EPS | — | **−$0.09** | — |
+| Revenue (quarterly) | $816M | **$850.5M (+25% YoY; beat $835M est.)** | +4% QoQ |
+| Free Cash Flow | $169.1M (+18%) | **$136M (+14% YoY)** | Decelerating |
+| FCF Margin (quarterly) | 21% | **~16% (quarter)** | Declining |
+| RPO | $6.1B (+31% YoY) | **$6.5B (+30% YoY)** | Healthy |
+| Deferred Revenue — FY2025 year-end | — | $2,468M (+30.3% YoY) | Historical |
+| Red Canary ARR | ~$114M | *Not updated Q3* | Guided $130M FY2026 |
+
+**FY2026 Full-Year Guidance (updated Q3):**
+
+| Metric | Prior Guidance | **Raised Guidance** | Change |
+|--------|---------------|--------------------|----|
+| Revenue | $3.309–$3.322B | **$3.330–$3.333B** | +$21M raised |
+| Non-GAAP EPS | $3.99–$4.02 | **$4.10–$4.11** | +$0.09 raised |
+| FCF Margin | **26.5–27%** | **22.8–23.3%** | **−370–380bps CUT** |
+
+**FY2027 Initial Guidance (MAJOR MISS vs. Street):**
+
+| Metric | Street Expectation | **Zscaler Guide** | Delta |
+|--------|-------------------|-------------------|-------|
+| ARR Growth | ~20%+ | **16–17%** | ~−400bps below consensus |
+| Revenue Growth | ~20%+ | **16–17%** | ~−400bps below consensus |
 
 **LTV / CAC Dynamics:** Zscaler does not disclose LTV or CAC explicitly. However, 115% NRR with high gross margins implies extraordinarily favorable unit economics — a customer who initially buys ZIA at $200K/year is likely worth $400–600K+ ARR within 5 years through module expansion, with minimal incremental cost to serve. The 728 customers at $1M+ ARR vs. 3,494 at $100K+ illustrates a large pipeline of customers on the path to $1M+.
 
@@ -79,9 +97,10 @@ Non-GAAP operating margin trajectory:
 - FY2024: ~19%
 - FY2025: 22%
 - Q2 FY2026: 22.2% (+50bps YoY)
-- FY2026 Guidance (Non-GAAP operating income): $742–$748M (+28–29% YoY)
+- **Q3 FY2026: 23.0% — all-time high (+140bps YoY)** ← new record
+- FY2026 Guidance (Non-GAAP operating income): ~$765M implied on $3.33B revenue midpoint (~23.0% margin)
 
-The FY2026 guidance implies ~22.3–22.5% non-GAAP operating margin on $3.31–3.32B revenue — demonstrating continued leverage while absorbing Red Canary/SPLX integration costs.
+**Critical FCF divergence from operating margin:** Despite record non-GAAP operating margins, FCF margin is declining because CapEx is now running at "high single digits as a percentage of revenue" (CFO Rubin, Q3 earnings call) for AI data center infrastructure. Historically Zscaler was capital-light with CapEx <3% of revenue. The pull-forward of memory, storage, and processor purchases for AI threat monitoring workloads means FCF is being suppressed by a structural increase in infrastructure investment — not a temporary distortion. This changes the FCF/revenue relationship permanently until the AI infrastructure build completes.
 
 ### Calculated Billings — Metric Status and History
 
@@ -101,7 +120,11 @@ The Q1 FY2026 implied billings acceleration to ~+30% is encouraging. The Q2 FY20
 
 ### Working Capital & Cash Conversion
 
-Zscaler benefits from a **favorable cash conversion cycle**: enterprise customers pay annual subscriptions upfront, generating large deferred revenue balances. RPO of $6.1B (+31% YoY) — approximately 1.8x forward annual revenue — provides exceptional multi-year revenue visibility. Q2 FY2026 FCF was $169.1M (+18% YoY), with FY2026 FCF margin guidance raised to 26.5–27%.
+Zscaler benefits from a **favorable cash conversion cycle**: enterprise customers pay annual subscriptions upfront, generating large deferred revenue balances. RPO of $6.5B (+30% YoY, Q3 FY2026) — approximately 1.9x forward annual revenue — provides exceptional multi-year revenue visibility. Q3 FY2026 FCF was $136M (+14% YoY); FY2026 FCF margin guidance was cut to 22.8–23.3% (from 26.5–27% at Q2).
+
+**Valuation context at ~$127 (May 27, 2026):** ~150M diluted shares → market cap ~$19B; net cash ~$2.5B → EV ~$16.5B. EV/NTM Revenue: ~4.9x on FY2026 guided $3.33B, or ~4.2x on FY2027 base-case $3.90B. EV/NTM FCF: ~21x (FY2027 FCF est. ~$800M at 20.5% margin). Bull target $180–200 implies ~5–6x FY2027 revenue and requires a growth re-acceleration narrative. Bear target $90–100 implies ~3x FY2027 revenue, consistent with mature-growth SaaS at 14–15% growth.
+
+**Stock-based compensation (SBC) disclosure:** Q3 FY2026 non-GAAP EPS was $1.08 vs. GAAP EPS of −$0.09 — a ~$1.17/share gap implying approximately $175–180M in annualized SBC (~150M shares × $1.17 × 4 quarters). ZS remains GAAP-unprofitable primarily due to SBC. All FCF and non-GAAP margin figures exclude SBC, which represents real economic dilution to shareholders. Investors should track SBC as a percentage of revenue (declining over time is a positive signal; rising is dilutive).
 
 ---
 
@@ -124,18 +147,18 @@ Zscaler operates at the network layer — all user and workload traffic is route
 **Secondary Moat: Scale + Data Network Effect (High)**
 500+ billion daily transactions processed; nearly 1 trillion AI-specific transactions in calendar 2025; 3,400+ unique enterprise AI applications detected within the customer base. This proprietary threat intelligence dataset improves detection models for all customers. Competitors with smaller transaction volumes cannot match the breadth of behavioral anomaly detection.
 
-**Tertiary Moat: Regulatory (Moderate)**
-FedRAMP High and DoD certifications take 3–5+ years to obtain and are essential for U.S. federal government business. This effectively locks out new entrants from a significant and growing government vertical.
+**Tertiary Moat: Regulatory (Moderate — limited vs. apex competitors)**
+FedRAMP High and DoD certifications take 3–5+ years to obtain and are essential for U.S. federal government business. This effectively locks out *new entrants* from a significant and growing government vertical. However, this moat offers no protection against the named apex competitors — Palo Alto Networks, Microsoft, and Cisco all hold equivalent FedRAMP High and DoD IL certifications. The regulatory barrier is a startup filter, not a defense against the companies actually threatening ZS's market share.
 
 ### Moat Durability Evidence
 
 | Indicator | Value | Signal |
 |-----------|-------|--------|
-| NRR | 115% | Customers expanding, not churning |
+| NRR | 115% (historically 125%+; multi-year structural decline) | Customers expanding, not churning — but the trajectory warrants watching given PANW bundling pressure |
 | Gross Margin | ~80% | Pricing power; customers not rebidding aggressively |
 | $1M+ ARR Customer Growth | 664 → 728 in one quarter (+10%) | Accelerating enterprise platform depth |
 | Fortune 500 penetration | 45%+ | Brand and trust validation at the most demanding tier |
-| RPO | $6.1B (+31% YoY) | 1.8x forward revenue locked in multi-year commitments |
+| RPO | $6.5B (+30% YoY, Q3 FY2026) | 1.9x forward revenue locked in multi-year commitments |
 
 ### Key Competitors & Differentiation
 
@@ -205,31 +228,49 @@ FedRAMP High and DoD certifications take 3–5+ years to obtain and are essentia
 
 ---
 
-### Sensitivity Table — FY2027 Revenue Estimates
+### Sensitivity Table — FY2027 Revenue Estimates (Updated May 28, 2026)
 
-| Scenario | ARR Growth Rate | Revenue Estimate | Non-GAAP OM | FCF Margin |
-|----------|----------------|------------------|-------------|------------|
-| **Bull** | 26–30% | $4.8–5.2B | 25–28% | 30–35% |
-| **Base** | 21–24% | $4.0–4.3B | 23–25% | 27–30% |
-| **Bear** | 14–18% | $3.3–3.6B | 20–22% | 23–26% |
+*Note: Management issued initial FY2027 guidance of 16–17% ARR/revenue growth on the Q3 FY2026 call (May 26). Prior base case assumed 21–24% growth. The base case is now re-anchored to management's guide.*
+
+| Scenario | ARR Growth Rate | Revenue Estimate | Non-GAAP OM | FCF Margin | Key Driver vs. Prior |
+|----------|----------------|------------------|-------------|------------|---------------------|
+| **Bull** | 20–22% (guide proves conservative) | $4.1–4.3B | 24–26% | 25–28% | New sales leadership hired quickly; pipeline recovery faster than expected; CapEx pull-forward normalizes after Q4 FY2026 |
+| **Base** | **16–17% (management guide)** | **$3.87–3.92B** | **22–23%** | **22–24%** | Sales transition takes 2–3 quarters; CapEx stays elevated but stable; FCF margins remain structurally lower |
+| **Bear** | 12–15% | $3.3–3.6B | 19–21% | 18–21% | Sales leadership transitions drag into FY2028; PANW bundling accelerates share loss; CapEx inflation structural and persistent |
+
+*Prior base case (Q2 FY2026 memo): 21–24% ARR growth → $4.0–4.3B FY2027 revenue. New base: $3.87–3.92B — approximately 10% below prior base.*
 
 ---
 
 ## 5. Risk Framework with Failure Modes
 
-### Risk Matrix
+### Risk Matrix (Updated May 28, 2026)
 
 | Risk | Severity (1–5) | Probability (1–5) | Score | Mitigation |
 |------|---------------|-------------------|-------|------------|
+| **Sales leadership departure + pipeline disruption** | **5** | **4** | **20** | New hires; Q4 FY2026 as first test; management "prudent approach" may be sandbagging |
+| **CapEx model shift — permanent FCF compression** | **4** | **4** | **16** | Normalizes if AI infra pull-forward is a one-time event; but consensus has not yet modeled structural high-single-digit CapEx |
 | Competitive bundling (PANW/MSFT) | 5 | 4 | **20** | Architecture differentiation; government moat; platform breadth |
-| Core organic ARR deceleration (ex-Red Canary) | 4 | 3 | 12 | ZFlex, Zero Trust Everywhere accelerating; H2 seasonality |
-| Red Canary integration / elevated churn | 3 | 3 | 9 | ARR guidance raised to $130M; renewal push in Feb 2026 |
+| Core organic ARR deceleration | 4 | 4 | 16 | FY2027 guide confirmed 16–17%; Q4 FY2026 net new ARR is next test |
+| Red Canary integration / elevated churn | 3 | 3 | 9 | ARR guidance raised to $130M; renewal push Feb 2026 |
 | Macro/enterprise budget compression | 4 | 3 | 12 | Recurring revenue model; security is last cut in IT budgets |
 | AI disruption to security architecture | 4 | 2 | 8 | Zscaler is embedding AI natively; acquired SPLX to address |
 
 ### Top 5 Risks in Detail
 
-**Risk 1: Competitive Bundling — Palo Alto Networks**
+**Risk 1 (NEW — May 2026): Sales Leadership Departures + Pipeline Disruption**
+- **Description:** Two senior sales executives departed in the period leading to Q3 FY2026 earnings. Management cited "caution surrounding recent changes within the sales leadership team" as the primary reason for the conservative FY2027 ARR guidance of 16–17%. Sales leadership transitions at enterprise security companies typically take 3–6 quarters to fully recover: new leaders need to rebuild relationships, re-qualify pipeline, and re-engage channel partners. **Causality caveat:** The standard framing assumes the departures *caused* the pipeline drop. The sharper read is the opposite: the leaders may have left (or been fired) *because* the forward pipeline had already deteriorated from competitive or structural causes — making the guidance miss a symptom of a deeper problem, not an artifact of personnel turnover. The distinction matters for how quickly a recovery is realistic.
+- **Trigger:** Q4 FY2026 net new ARR misses the prior year comparable; management confirms further sales team restructuring on the Q4 FY2026 call; FY2027 ARR confirmed at the low end (16%) rather than rebounding
+- **Impact:** Material: if FY2027 ARR growth comes in at 16% vs. the prior 25% trajectory, that is approximately $330–340M of foregone ARR vs. the prior base case (9% growth delta × $3.74B FY2026 exit ARR ≈ $337M) — roughly $300–320M in foregone FY2027 revenue. At any software revenue multiple, this is a sustained re-rating.
+- **Mitigation:** If the FY2027 guide is deliberate sandbagging around a transient disruption (Jefferies' "attainable reset" thesis), Q4 FY2026 net new ARR could surprise positively. Key question: were the departures voluntary or forced, and how quickly can replacement leadership ramp?
+
+**Risk 1b (NEW — May 2026): CapEx Model Shift — Permanent FCF Compression**
+- **Description:** CFO Kevin Rubin disclosed CapEx is running "in the high single digits as a percentage of revenue" — a 3–5x increase from Zscaler's historical <3% CapEx/revenue ratio. The company is pulling forward purchases of memory, storage, and processors for AI threat-monitoring infrastructure. This disrupts the capital-light narrative that supported premium valuation on FCF multiples.
+- **Trigger:** Q4 FY2026 CapEx confirms high-single-digit % of revenue; FY2027 FCF margin guidance issued in August comes in below 22%; no management guidance on when CapEx normalizes
+- **Impact:** FCF margin compression from 26–27% to 22–23% represents approximately $120–130M of annual FCF foregone at FY2026 guided revenue of $3.33B (~370bps × $3.33B ≈ $123M). At the $850M quarterly revenue run rate, that is ~$30–35M per quarter of FCF that investors had priced in.
+- **Mitigation:** Management framed Q4 FY2026 as the peak pull-forward quarter; if CapEx normalizes in FY2027 H1, FCF margins could recover. But the AI infrastructure investment is structural — Zscaler is no longer a pure-software cloud business; it is building AI inference and threat-monitoring infrastructure that requires ongoing hardware investment. **Unresolved contradiction to watch:** By accounting definition, a true "pull-forward" means buying FY2027 hardware early — which mathematically implies FY2027 CapEx should plummet and FCF recovers sharply. If instead FY2027 CapEx guidance (August 2026 call) comes in flat or higher, the pull-forward framing is definitively false and the implication is that AI threat monitoring inherently requires structurally more compute per transaction — a permanent degradation of ZS's unit economics rather than a timing distortion.
+
+**Risk 2: Competitive Bundling — Palo Alto Networks**
 - **Trigger:** PANW offers zero-cost or heavily discounted Prisma SASE bundles to win or retain ZS accounts; CyberArk integration gives PANW cross-sell leverage into identity + network security
 - **Impact:** Slows net new ARR growth; forces price concessions in renewals; NRR declines below 110%
 - **Mitigation:** ZS's pure-cloud architecture remains technically superior for cloud-first enterprises; government certifications limit PANW substitution in federal; ZS's data scale is not replicable in the near term; Q2 FY2026 competitive commentary was stable
@@ -256,55 +297,70 @@ FedRAMP High and DoD certifications take 3–5+ years to obtain and are essentia
 
 ### Pre-Mortem
 
-> *"If this investment fails over the next 3 years, the most likely reason is: Palo Alto Networks successfully convinced enterprise customers that a single integrated SASE+NGFW+Identity platform from an incumbent is cheaper and less complex to operate than Zscaler's pure-play approach — combined with organic core ARR growth failing to re-accelerate from the 7% YoY level seen in Q2 FY2026 — resulting in ZS ARR growth decelerating to 12–15% and multiple compression from ~12x revenue to 6–7x, causing significant stock underperformance."*
+> *"If this investment fails over the next 3 years, the most likely reason is: the two senior sales leadership departures disclosed at Q3 FY2026 earnings reflect a deeper organizational or competitive health issue that takes 6–12 quarters — not 2 — to fully recover. During that recovery period, Palo Alto Networks leverages the disrupted Zscaler sales motion to accelerate bundling penetration, net new ARR settles in the 14–17% range throughout FY2027–FY2028, and the CapEx model shift to high-single-digit % of revenue proves permanent (not a pull-forward), compressing FCF margins to 20–22% structurally. The result: ZS fails to return to 20%+ ARR growth, the FCF narrative that justified a premium multiple is broken, and the stock — already down 31% to ~$127 — never recovers to the $180+ level, compounding at 0–5% annually as the Street continually trims growth estimates."*
 
 ### Key Assumptions That Must Hold
 
 1. **NRR sustains at 110%+** — if it falls below 105% for two consecutive quarters, the land-and-expand model is breaking down
-2. **Net new ARR ex-Red Canary re-accelerates in H2 FY2026** — Q2's 7% was a trough; management guidance implies H2 improvement; any further deceleration challenges the thesis
-3. **Non-GAAP operating margins expand or hold at 22%+** — FY2026 guidance implies 22.3–22.5%; margin compression would signal pricing erosion or inefficient investment
-4. **ARR growth rate holds at 20%+** — deceleration below 18% would raise questions about TAM saturation or competitive displacement
-5. **Red Canary / SPLX integration normalizes** — elevated churn is acknowledged but should decline through FY2026 H2 per management guidance
+2. **New sales leadership is hired and ramped within 2 quarters** — Q3 FY2026 disclosed two departures; replacement hires must be confirmed on the Q4 FY2026 call (August 2026) and pipeline recovery evidenced by Q1 FY2027. **This is now the #1 thesis-level assumption.** → WATCH: Q4 FY2026 net new ARR vs. prior-year Q4 ($245M net new ARR in Q4 FY2025)
+3. **FY2027 16–17% ARR guidance proves to be sandbagging** — Jefferies' "attainable reset" thesis requires ZS to actually outperform 16–17% in Q1–Q2 FY2027. If Q1 FY2027 (reported November 2026) comes in at the low end of 16%, the guide was accurate and the structural deceleration thesis is correct.
+4. **CapEx normalization in FY2027** — FCF margin must recover toward 24–26% in FY2027 for the FCF narrative to re-engage. If Q4 FY2026 CapEx is confirmed as the peak and management guides FY2027 FCF margin above 24% at the August 2026 earnings call, the capital model disruption is transient.
+5. **Non-GAAP operating margins sustain at 22%+** — Q3's record 23% is constructive; margin compression would signal pricing erosion or structural cost inefficiency
+6. **ARR growth recovers to 20%+ by H2 FY2027** — the FY2027 16–17% guide is the new trough expectation; any recovery above 20% by H2 FY2027 is a re-rating catalyst
+7. **Red Canary / SPLX integration normalizes** — ARR guided to $130M for FY2026; cross-sell into ZS installed base must accelerate post-integration
 
 ---
 
 ## 6. 12-Month KPI Watch List
 
-Zscaler reports quarterly earnings ~5–6 weeks after each fiscal quarter end. Fiscal quarters end: Oct 31, Jan 31, Apr 30, Jul 31.
+Zscaler reports quarterly earnings ~5–6 weeks after each fiscal quarter end. Fiscal quarters end: Oct 31, Jan 31, Apr 30, Jul 31. **Status reflects Q3 FY2026 actuals (April 30, 2026, reported May 26, 2026).**
 
-| # | KPI | Most Recent Value | Target Range (Green) | Red Flag Threshold | Source / Frequency |
-|---|-----|------------------|----------------------|--------------------|-------------------|
-| 1 | **ARR (Annual Recurring Revenue)** | $3,359M (+25% YoY, Q2 FY2026) | 22–28% YoY growth | <18% YoY growth | Quarterly earnings press release |
-| 2 | **ARR excl. Red Canary (organic core)** | $3,245M (+21% YoY, Q2 FY2026) | 20–25% YoY | <17% YoY — signals core competitive pressure | Quarterly earnings commentary |
-| 3 | **Net New ARR (quarterly)** | $155.5M (+19% YoY, Q2 FY2026) | $160–200M/qtr | <$140M — below prior year comparable | Quarterly earnings press release |
-| 4 | **Net Revenue Retention (NRR)** | 115% (FY2025) | ≥113% | <108% for 2 consecutive quarters | Quarterly / annually confirmed |
-| 5 | **Non-GAAP Operating Margin** | 22.2% (Q2 FY2026) | 22–26% | <20% | Quarterly earnings press release |
-| 6 | **Free Cash Flow Margin** | ~21% (Q2 FY2026 qtr); guided 26.5–27% FY2026 | 25–32% annualized | <20% sustained | Quarterly earnings; cash flow statement |
-| 7 | **RPO (Remaining Performance Obligation)** | $6.1B (+31% YoY, Q2 FY2026) | 25–35% YoY growth | <18% YoY — signals demand softening | Quarterly earnings press release |
-| 7b | **Implied Billings (inferred — no longer officially reported)** | ~$671M Q1 FY2026 (~+30% YoY implied); FY2025 full year $3,246M (+24%) | 20–30% YoY implied | <15% sustained — signals demand deceleration | Calculated: Revenue + ΔTotal Deferred Revenue (balance sheet); Zscaler stopped officially reporting Q1 FY2026 onward |
-| 8 | **$1M+ ARR Customer Count** | 728 (Q2 FY2026, up from 664 at FY2025 year-end) | 15–20% QoQ growth rate in cohort | Stagnation or decline | Quarterly earnings press release |
-| 9 | **Zero Trust Everywhere Customer Count** | 550 enterprise customers (Q2 FY2026) | Continued sequential acceleration toward 1,000 by FY2027 | Growth stalling below 50 adds/quarter | Earnings calls; management commentary |
-| 10 | **Red Canary ARR & Churn Trajectory** | ~$114M ARR; churn elevated but normalizing; guidance raised to $130M | Churn normalizing; cross-sell rate >20% into ZS installed base | Churn remains elevated through Q4 FY2026; ARR misses $120M | Earnings calls; management commentary |
+| # | KPI | Most Recent Value | Target Range (Green) | Red Flag Threshold | Status | Source / Frequency |
+|---|-----|------------------|----------------------|--------------------|--------|-------------------|
+| 1 | **ARR (Annual Recurring Revenue)** | $3,525M (+25% YoY, Q3 FY2026) | 22–28% YoY growth | <18% YoY — **FY2027 initial guide of 16–17% is already below this threshold** | YELLOW | Quarterly earnings press release |
+| 2 | **ARR excl. Red Canary (organic core)** | ~$3,390M est. (+21% YoY, Q3 FY2026) | 20–25% YoY | <17% YoY — signals core competitive pressure | YELLOW | Quarterly earnings commentary |
+| 3 | **Net New ARR (quarterly)** | $166M (Q3 FY2026); critical test: Q4 FY2026 vs. Q4 FY2025 (typically the strongest quarter) | $160–210M/qtr | <$150M — below prior year comparable; Q4 FY2026 will be first full quarter under disrupted sales leadership | YELLOW | Quarterly earnings press release |
+| 4 | **Net Revenue Retention (NRR)** | 115% (FY2025 annual) | ≥113% | <108% for 2 consecutive quarters | GREEN | Annually confirmed in 10-K (next: Sep 2026) |
+| 5 | **Non-GAAP Operating Margin** | 23.0% (Q3 FY2026, all-time high) | 22–26% | <20% | GREEN | Quarterly earnings press release |
+| 6 | **Free Cash Flow Margin** | ~16% (Q3 FY2026 qtr); **FY2026 guide cut to 22.8–23.3% (from 26.5–27%)** | 22–26% annualized (revised down from 25–32%) | <20% FY2026 actual; or FY2027 FCF guide <21% on Aug 2026 call | RED | Quarterly earnings; cash flow statement; CFO commentary |
+| 7 | **RPO (Remaining Performance Obligation)** | $6.5B (+30% YoY, Q3 FY2026) | 25–35% YoY growth | <18% YoY — signals demand softening | GREEN | Quarterly earnings press release |
+| 7b | **Implied Billings (inferred — no longer officially reported)** | FY2025 full year $3,246M (+24%); Q3 FY2026 inferred from balance sheet | 20–30% YoY implied | <15% sustained — signals demand deceleration | YELLOW | Calculated: Revenue + ΔTotal Deferred Revenue; Zscaler stopped officially reporting Q1 FY2026 onward |
+| 8 | **$1M+ ARR Customer Count** | 728 (Q2 FY2026); Q3 FY2026 not separately highlighted — watch Q4 call | 15–20% YoY growth | Stagnation or sequential decline | YELLOW | Quarterly earnings press release |
+| 9 | **Zero Trust Everywhere Customer Count** | 550 enterprise customers (Q2 FY2026); Q3 trajectory not separately flagged | Sequential acceleration toward 1,000 by FY2027 | Growth stalling below 50 net adds/quarter | YELLOW | Earnings calls; management commentary |
+| 10 | **Red Canary ARR & Churn Trajectory** | Raised to ~$130M target; churn still normalizing as of Q3 FY2026 | Churn fully normalized; cross-sell rate >20% into ZS installed base | Churn remains elevated through Q1 FY2027; ARR below $125M | YELLOW | Earnings calls; management commentary |
+| 11 | **FY2027 ARR Growth — Initial Guide vs. Street** | **16–17% initial FY2027 guide (May 2026) vs. Street's prior 20%+ expectation** | Initial guide ≥19%, OR Q4 FY2026 ARR beat triggers upward revision before official FY2027 guide | FY2027 guide confirmed ≤15% on Q4 FY2026 call (Aug 2026); no upward revision language | RED | Q4 FY2026 earnings call (August 2026) — binary catalyst |
+| 12 | **Sales Leadership Transition** | Two senior departures confirmed May 2026; replacement names not yet disclosed | Replacements named and onboarded before Q4 FY2026 earnings call (Aug 2026); pipeline continuity affirmed | No confirmed hires named on Q4 FY2026 call; pipeline disruption explicitly cited | RED | Q4 FY2026 earnings call; Zscaler press releases and IR commentary |
+| 13 | **CapEx as % of Revenue** | "High single digits" (~8–9% est., Q3 FY2026); historical baseline <3% | Returns to <5% by H1 FY2027 as pull-forward normalizes | Remains >7% through Q1–Q2 FY2027 — signals permanent model shift, not transient | RED | Quarterly cash flow statement; CFO commentary on CapEx cadence |
+
+### Status Summary (Q3 FY2026)
+- **GREEN (2):** NRR 115%, Non-GAAP Op Margin 23% (record)
+- **YELLOW (7):** ARR growth 25% but FY2027 guide already at red-flag level; net new ARR; organic ARR; billings; $1M+ customer count; Zero Trust Everywhere; Red Canary churn
+- **RED (3):** FCF margin guidance cut; FY2027 ARR initial guide 16–17%; sales leadership vacancies; CapEx elevation
 
 ### Monitoring Framework
 
+**Q4 FY2026 Call (August 2026) — Binary Catalyst:**
+- KPI 11: FY2027 ARR growth guide — if 19%+ the thesis reset is complete; if ≤15% the bear case accelerates
+- KPI 12: Sales leadership replacement confirmation — the single most important management update
+- KPI 13: CFO guidance on CapEx trajectory for FY2027 — normalization language is essential for FCF re-rating
+- KPI 6: FY2027 FCF margin initial guide — compare to revised FY2026 22.8–23.3% baseline
+
 **Quarterly (each earnings release):**
-- KPIs 1, 3, 5, 6, 7, 8: Update values and compare to red flag thresholds
-- Specifically track organic ARR (KPI 2) vs. total ARR — the most important current diagnostic
-- Review management commentary on competitive dynamics and deal win rates
+- KPIs 1, 3, 5, 6, 7, 8: Update values and compare to thresholds
+- Track organic ARR (KPI 2) vs. total ARR — most important ongoing diagnostic for core competitive health
+- Q4 FY2026 net new ARR vs. Q4 FY2025 — first full quarter reflecting sales leadership disruption
+- Monitor PANW Prisma SASE and MSFT Entra/Defender commentary in competitor earnings
 
 **Annually (following 10-K filing, typically September):**
-- KPI 4 (NRR): Full annual disclosure
+- KPI 4 (NRR): Full annual disclosure — watch for any degradation below 113%
 - Annual GAAP net income trend — path to GAAP profitability is a re-rating catalyst
-- Review 10-K for any changes to customer concentration, deferred revenue trends, and geographic mix
-- Infer full-year calculated billings from (Revenue + ΔTotal Deferred Revenue) — compare to prior year to detect billings momentum shifts not visible from ARR alone
-- Note: Zscaler discontinued official calculated billings reporting starting Q1 FY2026 (fiscal year ending July 31, 2026); the metric remains inferable from public balance sheet data
+- Infer full-year calculated billings from (Revenue + ΔTotal Deferred Revenue) — compare to prior year to detect demand shifts not visible from ARR alone
 
 **Event-Driven:**
-- Zenith Live Investor Briefing (typically June): New product announcements, multi-year financial targets, TAM updates
+- Zenith Live Investor Briefing (typically June): New product announcements, multi-year financial targets, TAM updates; particularly relevant given FY2027 guidance reset
 - Material M&A announcements: Re-evaluate thesis and integration risk
-- Competitor earnings (Palo Alto Networks, CrowdStrike, Microsoft): Cross-reference competitive win/loss commentary
+- Competitor earnings (Palo Alto Networks, CrowdStrike, Microsoft): Cross-reference competitive win/loss commentary; PANW results most critical for SSE competitive dynamics
 
 ---
 
-*This memo is prepared for analytical and educational purposes. It does not constitute investment advice. All financial figures sourced from Zscaler's SEC filings (10-K FY2025, filed September 11, 2025), quarterly earnings press releases (Q2 FY2026, reported February 26, 2026), and Q2 FY2026 earnings call transcript. Data current as of Q2 FY2026 (January 31, 2026).*
+*This memo is prepared for analytical and educational purposes. It does not constitute investment advice. All financial figures sourced from Zscaler's SEC filings (10-K FY2025, filed September 11, 2025), Q2 FY2026 earnings press release (February 26, 2026), Q3 FY2026 earnings press release (May 26, 2026), and Q3 FY2026 earnings call transcript. Data current as of Q3 FY2026 (April 30, 2026). Material updates: FCF margin guide cut 370–380bps; FY2027 initial ARR/revenue guide 16–17%; two senior sales leadership departures; stock −31.3% on May 27, 2026.*
