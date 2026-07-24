@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "codebase-search": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp",
+        "python",
+        "tooling/codebase_search.py"
+      ]
+    }
+  }
+}

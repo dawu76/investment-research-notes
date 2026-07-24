@@ -1,0 +1,5 @@
+.DS_Store
+.gitignore
+.claude/sdd-cache/
+.claude/.claude-md-review-state
+.claude/.simplify-ignore-cache
