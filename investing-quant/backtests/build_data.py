@@ -1,14 +1,16 @@
-# Run from this directory:  uv run --with xlrd build_data.py
+# Run from this directory:  uv run --with xlrd --with openpyxl build_data.py
 """Build data/annual_returns.csv and data/monthly_returns.csv from data/raw/ (no network access)."""
 
 import csv
 import html
 import json
 import io
+import math
 import re
 import zipfile
 from pathlib import Path
 
+import openpyxl
 import xlrd
 
 HERE = Path(__file__).resolve().parent
@@ -20,6 +22,8 @@ LAST_YEAR = 2025
 FIRST_MONTH = "1971-01"
 
 COLUMNS = ["us_stocks", "intl_stocks", "us_small_value", "tsy_10y", "tbill", "gold", "cpi"]
+# Layer-2 trend sources. Blank before each series starts.
+TREND_COLUMNS = ["cta_index", "aqr_tsmom"]
 
 
 def damodaran_annual():
@@ -123,6 +127,21 @@ def lbma_gold_daily():
     return {r["d"]: r["v"][0] for r in rows if r["v"][0]}
 
 
+def barclay_cta_annual():
+    """Barclay CTA Index annual returns (net of fees). Negative years are wrapped in a red <font> tag."""
+    text = (RAW / "barclay_cta_index.html").read_text(encoding="utf-8", errors="replace")
+    rows = re.findall(r"<tr><td>(\d{4})</td><td>(?:<font[^>]*>)?(-?[\d.]+)(?:</font>)?</td></tr>", text)
+    return {int(y): float(v) / 100 for y, v in rows if int(y) <= LAST_YEAR}
+
+
+def aqr_tsmom_monthly_excess():
+    """AQR TSMOM factor (all assets), monthly excess return over T-bills, gross of fees."""
+    ws = openpyxl.load_workbook(RAW / "aqr_tsmom.xlsx", read_only=True, data_only=True)["TSMOM Factors"]
+    rows = list(ws.iter_rows(values_only=True))
+    col = next(r for r in rows if r[1] == "TSMOM").index("TSMOM")
+    return {r[0].strftime("%Y-%m"): float(r[col]) for r in rows if hasattr(r[0], "strftime") and r[col] is not None}
+
+
 def gold_monthly_avg():
     with open(RAW / "gold_monthly.csv") as f:
         return {row["Date"][:7]: float(row["Price"]) for row in csv.DictReader(f)}
@@ -149,9 +168,26 @@ def tsy10_monthly_tr(gs10):
     return out
 
 
+def compound_year(monthly, year):
+    months = [f"{year}-{m:02d}" for m in range(1, 13)]
+    if not all(m in monthly for m in months):
+        return None
+    return math.prod(1 + monthly[m] for m in months) - 1
+
+
+def fmt(v):
+    return f"{v:.6f}" if isinstance(v, float) else ("" if v is None else v)
+
+
 def pct_change(levels):
-    months = sorted(levels)
-    return {cur: levels[cur] / levels[prev] - 1 for prev, cur in zip(months, months[1:])}
+    """Month-over-month change. Skipped when the prior calendar month is missing (e.g. no Oct 2025 CPI)."""
+    out = {}
+    for cur in sorted(levels):
+        year, month = int(cur[:4]), int(cur[5:])
+        prev = f"{year - 1}-12" if month == 1 else f"{year}-{month - 1:02d}"
+        if prev in levels:
+            out[cur] = levels[cur] / levels[prev] - 1
+    return out
 
 
 def main():
@@ -160,6 +196,9 @@ def main():
     sv_annual, sv_monthly = french_small_value()
     cpi_levels = fred("CPIAUCNS")
     gold_levels = gold_monthly_avg()
+    tb3 = fred("TB3MS")
+    cta = barclay_cta_annual()
+    aqr = {m: x + tb3[m] / 1200 for m, x in aqr_tsmom_monthly_excess().items()}
 
     annual_rows = []
     for year in range(FIRST_YEAR, LAST_YEAR + 1):
@@ -176,27 +215,28 @@ def main():
             "gold": dam[year]["gold"],
             "cpi": cpi,
             "gold_annual_avg": gold_avg / gold_avg_prev - 1,
+            "cta_index": cta.get(year),
+            "aqr_tsmom": compound_year(aqr, year),
         })
 
     with open(OUT / "annual_returns.csv", "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["year"] + COLUMNS + ["gold_annual_avg"])
+        w = csv.DictWriter(f, fieldnames=["year"] + COLUMNS + ["gold_annual_avg"] + TREND_COLUMNS)
         w.writeheader()
         for row in annual_rows:
-            w.writerow({k: (f"{v:.6f}" if isinstance(v, float) else v) for k, v in row.items()})
+            w.writerow({k: fmt(v) for k, v in row.items()})
 
     mkt = french_market_monthly()
     tsy = tsy10_monthly_tr(month_end(fred_daily("DGS10")))
-    tb3 = fred("TB3MS")
     cpi_m = pct_change(cpi_levels)
     gold_m = pct_change(month_end(lbma_gold_daily()))
-    months = sorted(m for m in mkt if m >= FIRST_MONTH and all(m in s for s in (tsy, tb3, cpi_m, gold_m, sv_monthly)))
+    months = sorted(m for m in mkt if m >= FIRST_MONTH and all(m in s for s in (tsy, tb3, gold_m, sv_monthly)))
 
     with open(OUT / "monthly_returns.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["month"] + COLUMNS)
+        w.writerow(["month"] + COLUMNS + ["aqr_tsmom"])
         for m in months:
             w.writerow([m, f"{mkt[m]:.6f}", "", f"{sv_monthly[m]:.6f}", f"{tsy[m]:.6f}",
-                        f"{tb3[m] / 1200:.6f}", f"{gold_m[m]:.6f}", f"{cpi_m[m]:.6f}"])
+                        f"{tb3[m] / 1200:.6f}", f"{gold_m[m]:.6f}", fmt(cpi_m.get(m)), fmt(aqr.get(m))])
 
     print(f"annual: {len(annual_rows)} rows {FIRST_YEAR}-{LAST_YEAR}; monthly: {len(months)} rows {months[0]}..{months[-1]}")
 

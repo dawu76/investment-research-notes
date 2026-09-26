@@ -13,6 +13,8 @@ All files fetched 2026-09-25 into `raw/`. `build_data.py` rebuilds both CSVs fro
 | `tbill` | Damodaran `histretSP.xls` | "3-month T.Bill" | Average annual 3-month rate used as the return |
 | `gold` | Damodaran `histretSP.xls` | "Gold*" (price sheet cites LBMA from 1970) | **Year-end to year-end** price change. Checked: 1979 +126.5%, 1980 +15.2%, 1981 -32.6%. No yield, storage, or fund costs |
 | `cpi` | FRED `CPIAUCNS` (https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCNS) | CPI-U, not seasonally adjusted | Dec-to-Dec change |
+| `cta_index` | Barclay CTA Index, BarclayHedge (now ION Analytics), https://portal.barclayhedge.com/cgi-bin/indices/displayCtaIndex.cgi?indexCat=Barclay-CTA-Indices&indexName=Barclay-CTA-Index, saved as `raw/barclay_cta_index.html` | Annual returns, 1980-2025 (2026 YTD dropped). Net of fees. Equal-weighted average of reporting CTA programs: 15 programs in 1980, 356 in 2025 (`raw/barclay_cta_program_counts.xlsx`). Early years carry survivorship and backfill bias. Not directly investable. www.barclayhedge.com returns 403 to scripts; the portal page above works |
+| `aqr_tsmom` | AQR, "Time Series Momentum: Factors, Monthly" (https://www.aqr.com/-/media/AQR/Documents/Insights/Data-Sets/Time-Series-Momentum-Factors-Monthly.xlsx), saved as `raw/aqr_tsmom.xlsx` | `TSMOM` (all assets) column, 1985-01 to 2026-05. The file reports excess returns; T-bill return (`TB3MS` / 1200) is added back each month, then compounded to calendar years. **Gross of fees and trading costs**: a research portfolio, not a fund. `backtest.py` subtracts a flat drag (`--aqr-cost`, default 3%/yr) |
 | `gold_annual_avg` | datasets/gold-prices (https://raw.githubusercontent.com/datasets/gold-prices/main/data/monthly.csv), World Bank Pink Sheet from 1960 | Mean of 12 monthly averages, year over year | Diagnostic only, reproduces the first-pass (annual-average) gold timing |
 
 ## monthly_returns.csv (1971-01 to 2026-08)
@@ -25,10 +27,12 @@ All files fetched 2026-09-25 into `raw/`. `build_data.py` rebuilds both CSVs fro
 | `tsy_10y` | FRED `DGS10` daily (https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10), fetched 2026-09-25 | Last daily yield of each month. Constant-maturity approximation: buy a 10y par bond at last month-end's yield, reprice at this month-end's yield with 10 - 1/12 years left, plus one month of coupon |
 | `tbill` | FRED `TB3MS` (https://fred.stlouisfed.org/graph/fredgraph.csv?id=TB3MS) | Rate / 1200. Monthly average rate, which is fine for a rate earned over the month |
 | `gold` | LBMA Gold Price PM, USD, daily (https://prices.lbma.org.uk/json/gold_pm.json), fetched 2026-09-25 | Last PM fix of each month, month over month. Year-end values reproduce Damodaran's annual gold returns (max gap 3.1 points, in 2011) |
-| `cpi` | FRED `CPIAUCNS` | Month-over-month change |
+| `cpi` | FRED `CPIAUCNS` | Month-over-month change. Blank for 2025-10 and 2025-11: BLS published no October 2025 CPI (government shutdown). Not used by the backtests; annual CPI uses December levels only |
+| `aqr_tsmom` | AQR TSMOM (see annual table) | Monthly total return, gross of fees. Blank before 1985-01 and after 2026-05 |
 
 ## Known quality issues
 
 - Monthly gold and Treasuries originally came from monthly averages (World Bank gold, FRED `GS10`). Averaging produced fake month-to-month momentum (lag-1 autocorrelation 0.26 for gold, 0.31 for yield changes). Replaced with month-end series on 2026-09-25: autocorrelation is now 0.04 for gold and 0.11 for yield changes. The World Bank file stays in `raw/` only for the `gold_annual_avg` diagnostic.
 - Shiller's `ie_data.xls` was fetched but ends at 2023-09, so it was dropped in favor of the Fama-French market factor for monthly US stocks.
+- The missing October 2025 CPI value used to drop that month from `monthly_returns.csv` entirely, which silently removed 2025 from the simulated trend sleeve. Fixed 2026-09-25: a missing CPI value now leaves a blank cell, and `backtest.py` raises an error if a return series has gaps.
 - Mixed index definitions: annual US stocks are the S&P 500, monthly US stocks are the CRSP total market.

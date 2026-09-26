@@ -8,7 +8,7 @@ Trend sleeve is **simulated**: monthly 12-month time-series momentum on us_stock
 |---|---|---|---|---|---|---|---|
 | P1 20 gold / 20 tsy / 60 US | 10.54% | 6.40% | 10.96% | -17.0% | -25.9% | -17.0% (2008) | 100% |
 | P2 20 gold / 20 tsy / 30 US / 30 intl | 10.16% | 6.02% | 11.60% | -19.0% | n/a | -19.0% (2008) | 100% |
-| P4 candidate mix (layer 1) | 9.97% | 5.90% | 9.85% | -17.0% | n/a | -17.0% (2008) | 100% |
+| P4 candidate mix (layer 1) | 10.42% | 6.28% | 9.94% | -17.0% | n/a | -17.0% (2008) | 100% |
 | P5 Golden Butterfly (layer 1) | 10.03% | 5.90% | 8.38% | -8.9% | -17.5% | -8.9% (2008) | 100% |
 | P3a stocks 100 US / 0 intl | 10.54% | 6.40% | 10.96% | -17.0% | -25.9% | -17.0% (2008) | 100% |
 | P3b stocks 75 / 25 | 10.37% | 6.23% | 11.03% | -18.0% | n/a | -18.0% (2008) | 100% |
@@ -28,7 +28,7 @@ Monthly max drawdown is only computed where every sleeve has monthly data (there
 | tsy_10y | 5.90% | 1.93% | 9.79% | -21.5% | -17.8% (2022) |
 | tbill | 4.45% | 0.53% | 3.39% | 0.0% | 0.0% (2014) |
 | gold | 8.89% | 4.81% | 27.31% | -53.5% | -32.6% (1981) |
-| trend | 8.17% | 4.16% | 11.39% | -18.7% | -11.8% (2016) |
+| trend | 8.57% | 4.49% | 11.42% | -18.7% | -11.8% (2016) |
 | trend_annual_signal | 4.04% | 0.13% | 12.33% | -32.8% | -18.9% (1975) |
 
 ## Start-date sensitivity (nominal / real CAGR through end year)
@@ -37,7 +37,7 @@ Monthly max drawdown is only computed where every sleeve has monthly data (there
 |---|---|---|---|---|---|
 | P1 20 gold / 20 tsy / 60 US | 10.54% / 6.40% | 10.11% / 6.71% | 9.40% / 6.57% | 8.43% / 5.73% | 11.09% / 8.31% |
 | P2 20 gold / 20 tsy / 30 US / 30 intl | 10.16% / 6.02% | 9.36% / 5.98% | 7.96% / 5.16% | 7.60% / 4.92% | 9.09% / 6.35% |
-| P4 candidate mix (layer 1) | 9.97% / 5.90% | 9.08% / 5.78% | 7.68% / 4.97% | 6.73% / 4.18% | 7.44% / 4.92% |
+| P4 candidate mix (layer 1) | 10.42% / 6.28% | 9.60% / 6.22% | 8.34% / 5.53% | 7.64% / 4.96% | 8.92% / 6.19% |
 
 ## Trend sleeve in crisis years (simulated)
 

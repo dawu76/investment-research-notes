@@ -1,5 +1,7 @@
-# Layer-1 backtest on the cached CSVs (no network). Investable assets since 1972, plus a labeled simulated trend sleeve.
-# Usage: uv run --with pandas backtest.py [--trend-cost 0.02] [--start 1972] [--end 2025] [--out results/layer1_results.md]
+# Portfolio backtests on the cached CSVs (no network).
+# Layer 1: investable assets since 1972, plus a labeled simulated trend sleeve.
+# Layer 2: adds real trend-following records (Barclay CTA Index from 1980, AQR TSMOM from 1985).
+# Usage: uv run --with pandas backtest.py [--layer 1|2] [--trend-cost 0.02] [--aqr-cost 0.03] [--start YEAR] [--end 2025]
 
 import argparse
 from pathlib import Path
@@ -8,6 +10,9 @@ import numpy as np
 import pandas as pd
 
 HERE = Path(__file__).resolve().parent
+
+# P4 without its 10% trend-following sleeve. Layer 2 swaps in different trend sources.
+P4_CORE = {"us_stocks": 0.30, "intl_stocks": 0.15, "us_small_value": 0.10, "gold": 0.15, "tsy_10y": 0.10, "tbill": 0.10}
 
 # Weights per portfolio. "trend" is the monthly-signal sleeve built in trend_monthly().
 PORTFOLIOS = {
@@ -18,13 +23,14 @@ PORTFOLIOS = {
     "P3c stocks 50 / 50": {"gold": 0.20, "tsy_10y": 0.20, "us_stocks": 0.30, "intl_stocks": 0.30},
     "P3d stocks 25 / 75": {"gold": 0.20, "tsy_10y": 0.20, "us_stocks": 0.15, "intl_stocks": 0.45},
     "P3e stocks 0 US / 100 intl": {"gold": 0.20, "tsy_10y": 0.20, "intl_stocks": 0.60},
-    "P4 candidate mix (layer 1)": {
-        "us_stocks": 0.30, "intl_stocks": 0.15, "us_small_value": 0.10, "gold": 0.15,
-        "tsy_10y": 0.10, "tbill": 0.10, "trend": 0.10,
-    },
+    "P4 candidate mix (layer 1)": {**P4_CORE, "trend": 0.10},
     "P5 Golden Butterfly (layer 1)": {
         "us_stocks": 0.20, "us_small_value": 0.20, "tsy_10y": 0.20, "tbill": 0.20, "gold": 0.20,
     },
+    "P4 no trend (extra 10% T-bills)": {**P4_CORE, "tbill": 0.20},
+    "P4 + simulated trend": {**P4_CORE, "trend": 0.10},
+    "P4 + Barclay CTA Index": {**P4_CORE, "cta_index": 0.10},
+    "P4 + AQR TSMOM (net)": {**P4_CORE, "aqr_net": 0.10},
 }
 
 HEADLINE = ["P1 20 gold / 20 tsy / 60 US", "P2 20 gold / 20 tsy / 30 US / 30 intl",
@@ -36,6 +42,14 @@ TREND_ASSETS_MONTHLY = ["us_stocks", "tsy_10y", "gold"]  # no monthly EAFE in th
 TREND_ASSETS_ANNUAL = ["us_stocks", "intl_stocks", "tsy_10y", "gold"]
 CRISIS_YEARS = [1973, 1974, 2008, 2022]
 STANDALONE = ["us_stocks", "intl_stocks", "us_small_value", "tsy_10y", "tbill", "gold", "trend", "trend_annual_signal"]
+
+DEFAULT_START = {1: 1972, 2: 1980}
+L2_TREND = ["trend", "cta_index", "aqr_net"]
+L2_PORTFOLIOS = ["P1 20 gold / 20 tsy / 60 US", "P5 Golden Butterfly (layer 1)", "P4 no trend (extra 10% T-bills)",
+                 "P4 + simulated trend", "P4 + Barclay CTA Index", "P4 + AQR TSMOM (net)"]
+L2_START_YEARS = [1980, 1985, 1990, 2000, 2010]
+L2_CRISIS_YEARS = [1987, 2001, 2002, 2008, 2020, 2022]
+L2_DECADES = [(1980, 1989), (1990, 1999), (2000, 2009), (2010, 2019), (2020, 2025)]
 
 
 def load():
@@ -70,6 +84,8 @@ def to_annual(monthly_returns):
 
 
 def cagr(r):
+    if r.isna().any():
+        raise ValueError(f"missing returns in {r.name!r} for {list(r.index[r.isna()])}")
     return (1 + r).prod() ** (1 / len(r)) - 1
 
 
@@ -87,6 +103,8 @@ def port_returns(weights, frame):
 
 def monthly_drawdown(weights, monthly, start, end):
     """Monthly path, rebalanced each January. None if any sleeve lacks monthly data."""
+    if not set(weights) <= set(monthly.columns):
+        return None
     m = monthly.loc[str(start):str(end), list(weights)]
     if m.isna().any().any():
         return None
@@ -121,20 +139,26 @@ def table(headers, rows):
     return "\n".join(lines)
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--trend-cost", type=float, default=0.02, help="annual drag on the trend sleeve (fees + trading costs)")
-    ap.add_argument("--start", type=int, default=1972)
-    ap.add_argument("--end", type=int, default=2025)
-    ap.add_argument("--out", default="results/layer1_results.md")
-    args = ap.parse_args()
+def excess_cagr(r, tbill):
+    """Annualized geometric return over T-bills."""
+    return ((1 + r) / (1 + tbill)).prod() ** (1 / len(r)) - 1
 
-    annual, monthly = load()
-    monthly["trend"] = trend_monthly(monthly, args.trend_cost)
-    annual["trend"] = to_annual(monthly["trend"].dropna())
-    annual["trend_annual_signal"] = trend_annual(annual, args.trend_cost)
 
-    a = annual.loc[args.start:args.end]
+def portfolio_table(names, a, monthly):
+    first, last = a.index[0], a.index[-1]
+    rows = []
+    for name in names:
+        r = port_returns(PORTFOLIOS[name], a)
+        m = metrics(r, a["cpi"])
+        mdd_m = monthly_drawdown(PORTFOLIOS[name], monthly, first, last)
+        rows.append([name, pct(m["cagr"]), pct(m["real"]), pct(m["vol"]), pct(m["mdd"], 1),
+                     pct(mdd_m, 1) if mdd_m is not None else "n/a",
+                     f"{pct(m['worst'][0], 1)} ({m['worst'][1]})", pct(m["beat10"], 0)])
+    return table(["Portfolio", "CAGR", "Real CAGR", "Vol", "Max DD (annual)", "Max DD (monthly)",
+                  "Worst year", "10y windows beating CPI"], rows)
+
+
+def layer1_report(a, monthly, args):
     first, last = a.index[0], a.index[-1]
     out = [f"# Layer 1 backtest results ({first}-{last}, annual rebalance, nominal USD)", "",
            f"Trend sleeve is **simulated**: monthly 12-month time-series momentum on {', '.join(TREND_ASSETS_MONTHLY)}, "
@@ -143,17 +167,7 @@ def main():
            "Treasuries; the 10y Treasury stands in for long Treasuries. US small value is a Fama-French paper "
            "portfolio before investable funds existed (early 1990s).", ""]
 
-    rows = []
-    for name in HEADLINE + SPLITS:
-        r = port_returns(PORTFOLIOS[name], a)
-        m = metrics(r, a["cpi"])
-        mdd_m = monthly_drawdown(PORTFOLIOS[name], monthly, first, last)
-        rows.append([name, pct(m["cagr"]), pct(m["real"]), pct(m["vol"]), pct(m["mdd"], 1),
-                     pct(mdd_m, 1) if mdd_m is not None else "n/a",
-                     f"{pct(m['worst'][0], 1)} ({m['worst'][1]})", pct(m["beat10"], 0)])
-    out += ["## Portfolios", "",
-            table(["Portfolio", "CAGR", "Real CAGR", "Vol", "Max DD (annual)", "Max DD (monthly)",
-                   "Worst year", "10y windows beating CPI"], rows),
+    out += ["## Portfolios", "", portfolio_table(HEADLINE + SPLITS, a, monthly),
             "", "Monthly max drawdown is only computed where every sleeve has monthly data (there is no monthly EAFE). "
             "Monthly US stocks use the CRSP total market, not the S&P 500. Monthly gold and Treasuries use month-end prices and yields.", ""]
 
@@ -207,9 +221,91 @@ def main():
             "Rebalancing bonus = portfolio CAGR minus the weighted average of the sleeves' own CAGRs.", "",
             table(["Split", "CAGR (year-end gold)", "Bonus (year-end)", "CAGR (avg gold)", "Bonus (avg gold)"], rows), ""]
 
-    text = "\n".join(out)
+    return out
+
+
+def layer2_report(a, monthly, args):
+    first, last = a.index[0], a.index[-1]
+    common = a.loc[a["aqr_net"].first_valid_index():]
+    out = [f"# Layer 2 backtest results ({first}-{last}, annual rebalance, nominal USD)", "",
+           "Adds real-world trend-following records next to the simulated sleeve from layer 1:", "",
+           "- `cta_index`: Barclay CTA Index, net of fees, from 1980. Equal-weighted average of the CTA programs "
+           "reporting to BarclayHedge (15 programs in 1980, 356 in 2025), so the early years reflect a small group of "
+           "managers that survived long enough to report. You could not buy the index itself.",
+           f"- `aqr_net`: AQR's time-series momentum factor from 1985, a research portfolio across roughly 60 futures "
+           f"markets, reported gross of fees. Shown after a flat {pct(args.aqr_cost, 1)}/yr drag.",
+           f"- `trend`: the layer-1 simulated sleeve (US stocks, 10y Treasury, gold; monthly signal; "
+           f"{pct(args.trend_cost, 1)}/yr drag).", ""]
+
+    rows = []
+    for col in L2_TREND + ["tbill", "us_stocks"]:
+        r = common[col]
+        m = metrics(r, common["cpi"])
+        rows.append([col, pct(m["cagr"]), pct(excess_cagr(r, common["tbill"])), pct(m["vol"]), pct(m["mdd"], 1),
+                     f"{pct(m['worst'][0], 1)} ({m['worst'][1]})"])
+    corr = common[L2_TREND + ["us_stocks", "tsy_10y", "gold"]].corr()
+    out += [f"## Trend sources compared ({common.index[0]}-{last}, the years all three cover)", "",
+            table(["Series", "CAGR", "Excess over T-bills", "Vol", "Max DD (annual)", "Worst year"], rows), "",
+            "Correlation of annual returns:", "",
+            table([""] + list(corr.columns), [[i] + [f"{v:.2f}" for v in row] for i, row in corr.iterrows()]), ""]
+
+    rows = []
+    for col in L2_TREND:
+        cells = [col]
+        for s, e in L2_DECADES:
+            sub = a.loc[s:e]
+            cells.append(pct(excess_cagr(sub[col], sub["tbill"]), 1) if sub[col].notna().all() else "n/a")
+        rows.append(cells)
+    out += ["## Excess return over T-bills by decade (annualized)", "",
+            table(["Series"] + [f"{s}-{e}" for s, e in L2_DECADES], rows), ""]
+
+    crisis = a.loc[a.index.intersection(L2_CRISIS_YEARS)]
+    fmt = lambda v: "n/a" if pd.isna(v) else pct(v, 1)
+    out += ["## Crisis years", "",
+            table(["Year", "Simulated trend", "Barclay CTA", "AQR TSMOM (net)", "US stocks", "10y Treasury"],
+                  [[y, fmt(r.trend), fmt(r.cta_index), fmt(r.aqr_net), fmt(r.us_stocks), fmt(r.tsy_10y)]
+                   for y, r in crisis.iterrows()]), ""]
+
+    full = [n for n in L2_PORTFOLIOS if a[list(PORTFOLIOS[n])].notna().all().all()]
+    out += [f"## Portfolios ({first}-{last})", "", portfolio_table(full, a, monthly), "",
+            f"## Portfolios ({common.index[0]}-{last}, adds the AQR version)", "",
+            portfolio_table(L2_PORTFOLIOS, common, monthly), "",
+            "The P4 variants differ only in their 10% trend sleeve; \"P4 no trend\" puts that 10% in T-bills.", ""]
+
+    rows = []
+    for name in L2_PORTFOLIOS[2:]:
+        cells = [name]
+        for s in L2_START_YEARS:
+            sub = a.loc[s:]
+            r = port_returns(PORTFOLIOS[name], sub)
+            cells.append("n/a" if r.isna().any() else f"{pct(cagr(r))} / {pct(metrics(r, sub['cpi'])['real'])}")
+        rows.append(cells)
+    out += ["## Start-date sensitivity (nominal / real CAGR through end year)", "",
+            table(["Portfolio"] + [f"from {s}" for s in L2_START_YEARS], rows), ""]
+    return out
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--layer", type=int, choices=[1, 2], default=1)
+    ap.add_argument("--trend-cost", type=float, default=0.02, help="annual drag on the simulated trend sleeve")
+    ap.add_argument("--aqr-cost", type=float, default=0.03, help="annual fee drag applied to the gross AQR factor")
+    ap.add_argument("--start", type=int, help="first year (default 1972 for layer 1, 1980 for layer 2)")
+    ap.add_argument("--end", type=int, default=2025)
+    ap.add_argument("--out", help="output path (default results/layer<N>_results.md)")
+    args = ap.parse_args()
+
+    annual, monthly = load()
+    monthly["trend"] = trend_monthly(monthly, args.trend_cost)
+    annual["trend"] = to_annual(monthly["trend"].dropna())
+    annual["trend_annual_signal"] = trend_annual(annual, args.trend_cost)
+    annual["aqr_net"] = annual["aqr_tsmom"] - args.aqr_cost
+
+    a = annual.loc[args.start or DEFAULT_START[args.layer]:args.end]
+    report = layer1_report if args.layer == 1 else layer2_report
+    text = "\n".join(report(a, monthly, args))
     print(text)
-    path = HERE / args.out
+    path = HERE / (args.out or f"results/layer{args.layer}_results.md")
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text + "\n")
 
