@@ -8,6 +8,7 @@ import io
 import math
 import re
 import zipfile
+from datetime import datetime, timezone
 from pathlib import Path
 
 import openpyxl
@@ -24,6 +25,8 @@ FIRST_MONTH = "1971-01"
 COLUMNS = ["us_stocks", "intl_stocks", "us_small_value", "tsy_10y", "tbill", "gold", "cpi"]
 # Layer-2 trend sources. Blank before each series starts.
 TREND_COLUMNS = ["cta_index", "aqr_tsmom"]
+# Layer-3 TIPS series: modeled from market real yields, synthetic from estimated real yields, and an actual fund.
+TIPS_COLUMNS = ["tips_10y", "tips_synth", "tips_fund"]
 
 
 def damodaran_annual():
@@ -168,6 +171,69 @@ def tsy10_monthly_tr(gs10):
     return out
 
 
+def prev_month(m):
+    year, month = int(m[:4]), int(m[5:])
+    return f"{year - 1}-12" if month == 1 else f"{year}-{month - 1:02d}"
+
+
+def next_month(m):
+    year, month = int(m[:4]), int(m[5:])
+    return f"{year + 1}-01" if month == 12 else f"{year}-{month + 1:02d}"
+
+
+def fill_single_gaps(levels):
+    """Geometric midpoint for one missing month between two present months (BLS never published Oct 2025 CPI)."""
+    out = dict(levels)
+    for m in sorted(levels):
+        gap, after = next_month(m), next_month(next_month(m))
+        if gap not in levels and after in levels:
+            out[gap] = (levels[m] * levels[after]) ** 0.5
+    return out
+
+
+def tips_monthly_tr(real_yields, cpi_m):
+    """Constant-maturity 10y TIPS: par real bond at last month's real yield, repriced at this month's, principal times CPI."""
+    out = {}
+    for cur, y1 in real_yields.items():
+        prev = prev_month(cur)
+        if prev in real_yields and cur in cpi_m:
+            y0 = real_yields[prev]
+            out[cur] = (bond_price(y0, y1, 10 - 1 / 12) + y0 / 12) / 100 * (1 + cpi_m[cur]) - 1
+    return out
+
+
+def gsw_tips_par10_daily():
+    with open(RAW / "feds200805_tipspy10.csv") as f:
+        return {r["Date"]: float(r["TIPSPY10"]) for r in csv.DictReader(f)}
+
+
+def livingston_expected_cpi():
+    """Median CPI inflation forecast (% a year, base period to 12 months ahead), keyed by June/December survey month."""
+    ws = openpyxl.load_workbook(RAW / "livingston_median_growth.xlsx", read_only=True, data_only=True)["CPI"]
+    rows = list(ws.iter_rows(values_only=True))
+    col = rows[0].index("G_BP_To_12M")
+    return {r[0].strftime("%Y-%m"): float(r[col]) for r in rows[1:]
+            if hasattr(r[0], "strftime") and isinstance(r[col], (int, float))}
+
+
+def synthetic_real_yields(nominal):
+    """Month-end nominal 10y yield minus expected inflation: Livingston (carried forward) before 1982, Cleveland Fed after."""
+    liv, cle = livingston_expected_cpi(), fred("EXPINF10YR")
+    out, expected = {}, None
+    for m in sorted(nominal):
+        expected = cle.get(m) if m >= "1982-01" else liv.get(m, expected)
+        if expected is not None:
+            out[m] = nominal[m] - expected
+    return out
+
+
+def yahoo_monthly_tr(ticker):
+    """Month-over-month change in Yahoo's dividend-adjusted close."""
+    r = json.loads((RAW / f"yahoo_{ticker}.json").read_text())["chart"]["result"][0]
+    months = [datetime.fromtimestamp(t, timezone.utc).strftime("%Y-%m") for t in r["timestamp"]]
+    return pct_change({m: v for m, v in zip(months, r["indicators"]["adjclose"][0]["adjclose"]) if v is not None})
+
+
 def compound_year(monthly, year):
     months = [f"{year}-{m:02d}" for m in range(1, 13)]
     if not all(m in monthly for m in months):
@@ -181,13 +247,7 @@ def fmt(v):
 
 def pct_change(levels):
     """Month-over-month change. Skipped when the prior calendar month is missing (e.g. no Oct 2025 CPI)."""
-    out = {}
-    for cur in sorted(levels):
-        year, month = int(cur[:4]), int(cur[5:])
-        prev = f"{year - 1}-12" if month == 1 else f"{year}-{month - 1:02d}"
-        if prev in levels:
-            out[cur] = levels[cur] / levels[prev] - 1
-    return out
+    return {m: levels[m] / levels[prev_month(m)] - 1 for m in sorted(levels) if prev_month(m) in levels}
 
 
 def main():
@@ -199,6 +259,13 @@ def main():
     tb3 = fred("TB3MS")
     cta = barclay_cta_annual()
     aqr = {m: x + tb3[m] / 1200 for m, x in aqr_tsmom_monthly_excess().items()}
+    dgs10 = month_end(fred_daily("DGS10"))
+    cpi_filled = pct_change(fill_single_gaps(cpi_levels))
+    tips = {
+        "tips_10y": tips_monthly_tr(month_end(gsw_tips_par10_daily()), cpi_filled),
+        "tips_synth": tips_monthly_tr(synthetic_real_yields(dgs10), cpi_filled),
+        "tips_fund": yahoo_monthly_tr("VIPSX"),
+    }
 
     annual_rows = []
     for year in range(FIRST_YEAR, LAST_YEAR + 1):
@@ -217,26 +284,28 @@ def main():
             "gold_annual_avg": gold_avg / gold_avg_prev - 1,
             "cta_index": cta.get(year),
             "aqr_tsmom": compound_year(aqr, year),
+            **{col: compound_year(series, year) for col, series in tips.items()},
         })
 
     with open(OUT / "annual_returns.csv", "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["year"] + COLUMNS + ["gold_annual_avg"] + TREND_COLUMNS)
+        w = csv.DictWriter(f, fieldnames=["year"] + COLUMNS + ["gold_annual_avg"] + TREND_COLUMNS + TIPS_COLUMNS)
         w.writeheader()
         for row in annual_rows:
             w.writerow({k: fmt(v) for k, v in row.items()})
 
     mkt = french_market_monthly()
-    tsy = tsy10_monthly_tr(month_end(fred_daily("DGS10")))
+    tsy = tsy10_monthly_tr(dgs10)
     cpi_m = pct_change(cpi_levels)
     gold_m = pct_change(month_end(lbma_gold_daily()))
     months = sorted(m for m in mkt if m >= FIRST_MONTH and all(m in s for s in (tsy, tb3, gold_m, sv_monthly)))
 
     with open(OUT / "monthly_returns.csv", "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["month"] + COLUMNS + ["aqr_tsmom"])
+        w.writerow(["month"] + COLUMNS + ["aqr_tsmom"] + TIPS_COLUMNS)
         for m in months:
             w.writerow([m, f"{mkt[m]:.6f}", "", f"{sv_monthly[m]:.6f}", f"{tsy[m]:.6f}",
-                        f"{tb3[m] / 1200:.6f}", f"{gold_m[m]:.6f}", fmt(cpi_m.get(m)), fmt(aqr.get(m))])
+                        f"{tb3[m] / 1200:.6f}", f"{gold_m[m]:.6f}", fmt(cpi_m.get(m)), fmt(aqr.get(m))]
+                       + [fmt(tips[col].get(m)) for col in TIPS_COLUMNS])
 
     print(f"annual: {len(annual_rows)} rows {FIRST_YEAR}-{LAST_YEAR}; monthly: {len(months)} rows {months[0]}..{months[-1]}")
 
