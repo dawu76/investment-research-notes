@@ -2,6 +2,8 @@
 
 Annually rebalanced portfolio backtests on a local cache of historical returns. Layer 1 uses assets an investor could hold since 1972 (stocks, Treasuries, T-bills, gold), plus a simulated trend-following sleeve that is labeled as simulated. Layer 2 adds real trend-following records: the Barclay CTA Index (from 1980) and AQR's time-series momentum factor (from 1985). Layer 3 adds TIPS: the VIPSX fund (from 2001), a model based on market real yields (from 2000), and a synthetic series back to 1972.
 
+Findings write-up: `investing-quant/strategies/balanced-portfolios/diversified-portfolio-backtests-1972-2025.md`.
+
 Caveat on synthetic TIPS: it tracks the actual fund poorly year by year (0.58 correlation over 2001-2025, and it gets 2008-09 backwards), so pre-1997 TIPS results are a rough sketch.
 
 Caveat on the trend sleeve: most of its return comes from the gold leg in 1972-81 (about 30%/yr over T-bills, riding gold's 1970s bull market and then shorting the 1981 crash). From 1982 on, the sleeve beat T-bills by about 2.5%/yr after costs, and by about 0.7%/yr in 2013-25.
