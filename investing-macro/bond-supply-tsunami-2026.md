@@ -58,8 +58,10 @@ Foreign holders own approximately 30% of outstanding US Treasuries (~$8T). The m
 - **China**: Has been systematically reducing Treasury holdings (from ~$1.3T peak to ~$750bn) for strategic de-dollarization reasons. This trend likely continues regardless of macro conditions
 - **Oil exporters**: Dollar recycling via Treasuries depends on oil prices and domestic fiscal needs — less reliable than historical patterns
 - **Net result**: The domestic US buyer base (pension funds, insurers, banks, retail) must absorb a larger share at higher yields
+- **The Policy Response — Shadow Financial Repression**: To counter this structural demand shortfall and suppress the term premium without explicit QE, the Treasury is leaning on **bank deregulation (SLR/eSLR exemptions)** to expand dealer balance-sheet capacity for off-the-run bonds, and **statutory stablecoin adoption (GENIUS/CLARITY Acts)** to absorb $500B–$1T+ in T-bills. See [[treasury-financial-repression-slr-stablecoins]] for complete mechanics, regulatory milestones, and banking risks.
 
 ---
+
 
 ## 3. Second-Order: Credit Spread Widening Mechanics
 
@@ -124,6 +126,8 @@ At 5% yields, modified duration creates severe mark-to-market sensitivity:
 **Bond mutual fund holders**: Retail investors in bond mutual funds bear mark-to-market losses and often sell during drawdowns — creating the reflexive selling pressure described below.
 
 **Banks**: Post-SVB, banks dramatically reduced hold-to-maturity long-duration portfolios. Most have repositioned into short-duration. This removes a historically large buyer from the long end.
+
+**Individual long-bond holders**: unlike fund holders, someone holding an individual Treasury to maturity is contractually guaranteed nominal principal back regardless of interim mark-to-market moves — but this doesn't make them whole in real terms if inflation runs above the coupon rate they locked in. See [[individual-bonds-vs-bond-funds]] for the mark-to-market vs. hold-to-maturity distinction and the real-return math.
 
 ---
 
