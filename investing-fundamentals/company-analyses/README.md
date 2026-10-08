@@ -105,3 +105,14 @@
   - *Proprietary Datasets:* In an absolute worst-case scenario, only 5% of S&P's revenue is at risk from AI. CapIQ is only a small part of Market Intelligence; the majority of revenues are tied to proprietary, contributory, or hard-to-source datasets (e.g. physical records).
   - *Data Defense:* S&P limits LLM data sharing only to public datasets. LLMs will act as a distribution channel; they are not allowed to train on or acquire S&P's proprietary data. To date, no customer has found an AI alternative to S&P's offerings.
   - *Compelling Valuation Arbitrage:* At 19x forward earnings, the market is offering a major discount relative to Moody's and MSCI. Applying Moody's multiple to S&P's ratings and MSCI's multiple to S&P's index business means investors effectively get the rest of S&P's business (Platt's, Market Intelligence) for free.
+
+---
+
+#### $MOS
+
+[The Mosaic Company Equity & Credit Research Report](file:///Users/howardwu/dev/investment-research-notes/investing-fundamentals/company-analyses/mos-2-equity-report.md) [2026-08]
+- **Full Pipeline:** [`mos-1-document-sources.md`](file:///Users/howardwu/dev/investment-research-notes/investing-fundamentals/company-analyses/mos-1-document-sources.md) | [`mos-2-equity-report.md`](file:///Users/howardwu/dev/investment-research-notes/investing-fundamentals/company-analyses/mos-2-equity-report.md) | [`mos-3-investment-memo.md`](file:///Users/howardwu/dev/investment-research-notes/investing-fundamentals/company-analyses/mos-3-investment-memo.md)
+- **Why $MOS Fell:** Plunged to multi-year lows due to an acute phosphate stripping-margin squeeze, geopolitical sulfur supply disruptions (Strait of Hormuz), and plant curtailments (Faustina idled, Bartow throttled to 40%).
+- **Solvency & Credit Health:** Bankruptcy risk is very low (<1%). Mosaic maintains an investment-grade rating (BBB), $2.5B undrawn revolver, and world-class low-cost potash assets in Saskatchewan.
+- **August 2026 Debt Refinancing:** Proactively issued $2.0B in senior unsecured notes (due 2031, 2034, 2036) and completed a $1.4B cash tender offer retiring 2027–2029 maturities, extending its debt maturity runway and adding ~$500M+ in surplus liquidity.
+
