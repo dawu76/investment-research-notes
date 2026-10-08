@@ -2,7 +2,7 @@
 
 > Content catalog. Every wiki page listed under its type with a one-line summary.
 > Read this first to find relevant pages before any query or ingest operation.
-> Last updated: 2026-07-23 | Total pages: 178
+> Last updated: 2026-10-04 | Total pages: 228
 
 ---
 
@@ -12,10 +12,12 @@
 
 | Ticker | Company | Pipeline stages | Notes |
 |---|---|---|---|
+| [[afrm]] | Affirm | 1–3 | Next-gen point-of-sale consumer payments, Affirm Card, and two-sided installment lending platform |
 | [[alab]] | Astera Labs | 1–3 | AI infrastructure connectivity chips (PCIe/CXL) for hyperscalers |
-| [[app]] | AppLovin | 1–4 + assessment | AI-driven mobile advertising platform and gaming publisher |
-| [[crcl]] | Circle | standalone | USDC stablecoin issuer and web3 financial infrastructure |
+| [[app]] | AppLovin | 1–4 + assessment | AI-powered programmatic advertising and e-commerce infrastructure platform (pure-play software post-gaming divestiture) |
+| [[crcl]] | Circle | 1–3 | Regulated digital dollar (USDC/EURC) issuer and institutional blockchain infrastructure (Arc L1) |
 | [[crwd]] | CrowdStrike | 1–3 | Cloud-native cybersecurity platform (endpoint, identity, cloud) |
+| [[dave]] | Dave Inc. | 1–4 + HTML suite | Neobanking, CashAI liquidity advances (ExtraCash), and high-velocity consumer fintech platform (`dave-investment-research.html`) |
 | [[ddog]] | Datadog | 1–3 | Cloud observability, monitoring, and security SaaS |
 | [[ftnt]] | Fortinet | 1–3 | Network security appliances and SASE platform |
 | [[gtlb]] | GitLab | 1–3 | DevSecOps platform (SCM, CI/CD, security scanning) |
@@ -23,10 +25,12 @@
 | [[ibkr]] | Interactive Brokers | 1–3 | Institutional and active-trader brokerage |
 | [[intu]] | Intuit | 1–4 + assessment | Consumer and SMB financial software (TurboTax, QuickBooks, Credit Karma) |
 | [[jfrog]] | JFrog | 1–4 | Software supply chain and artifact management platform |
+| [[mos]] | The Mosaic Company | 1–3 | Integrated phosphate and potash crop nutrient producer; credit and margin-squeeze analysis |
 | [[net]] | Cloudflare | 1–4 + assessment | Network security, CDN, zero-trust (SASE), and edge compute |
 | [[now]] | ServiceNow | 1–4 + assessment | Enterprise IT and business workflow automation |
 | [[panw]] | Palo Alto Networks | 1–4 | Cybersecurity platform (NGFW, Prisma, Cortex XDR) |
 | [[rbrk]] | Rubrik | 1–3 | Data security and ransomware recovery platform |
+| [[sezl]] | Sezzle | 1–4 + HTML suite | Subscriber-gated BNPL, Sezzle Anywhere omnichannel virtual card, and high-velocity micro-liquidity platform (`sezl-investment-research.html`) |
 | [[shop]] | Shopify | 1–5 + assessment | E-commerce platform and merchant financial services |
 | [[zscaler]] | Zscaler | 1–4 | Zero-trust network access and cloud security proxy |
 
@@ -36,13 +40,22 @@
 - [[zero-trust]] — Zero-trust security architecture: landscape, vendors, and adoption dynamics
 - [[cyber-saas-seat-risk]] — Thesis on cybersecurity SaaS seat contraction risk (equity report + memo)
 - [[cpo-and-npo-optics]] — Analysis of Co-packaged Optics (CPO) vs. Near-packaged Optics (NPO), Silicon Photonics transitions (TSMC vs. Tower), UHP lasers (Lumentum vs. Coherent), and VCSEL CPO packaging
+- [[deepseek-v4-1-flash-memory-bottlenecks]] — DeepSeek V4.1 Flash: Causal Encoder-Decoder (CED), 890 B/token KV cache, resolution of AI memory bandwidth/capacity bottlenecks, and equity impact across GPUs, HBM, enterprise NAND, and host DRAM (September 2026)
+- [[burry-ai-capital-cycle-oracle-jupiter-2026-09]] — Burry's AI capital cycle warning ($3T hyperscaler commitments, net investment 2.07% of GDP, write-offs 2028-2029, Oracle prepayment accounting) and Oracle's Project Jupiter force majeure notice (Morningstar: $25B+ revenue at risk, $220 FV held), plus his "Trump cannot afford to let it fail" post and disclosed shorts (September 2026)
 - [[lakewatch-siem-threat]] — Lakewatch SIEM threat analysis and competitive implications (equity report + memo)
 - [[ai-labs-smb-push-vs-incumbents-2026]] — AI labs entering SMB market vs. incumbents: competitive dynamics (2026)
+- [[uber-robotaxi-aggregator-thesis-2026-09]] — BNP Paribas bull case for Uber as robotaxi aggregator ($0.16-0.42/mile long-run AV cost, $106 PT) vs. disintermediation risk (Waymo's own app in Austin/Atlanta from Jan 2028, Tesla Cybercab, BofA's 18-24 month head start); utilization-vs-platform-fee crux and watch list (September 2026)
+- [[ubp-financing-ai-build-out-2026-09]] — UBP fixed income report on financing the AI build-out: hyperscaler capex vs cash flow, $2.9T off-balance-sheet obligations, $2.3T backlog ~40% owed by OpenAI/Anthropic, IG/HY index crowding, project and chip-backed bonds; with arithmetic checks, cross-checks against wiki data, historical comparisons (railways, telecom, shale), and a comparison section against the identically-titled Brookings/Van Nieuwerburgh paper (September 2026)
+- [[brookings-financing-ai-buildout-van-nieuwerburgh-2026-09]]: Brookings/Van Nieuwerburgh BPEA paper on financing the AI buildout: $10.3T/3.63%-of-GDP investment estimate from a project-level capacity model, Meta Hyperion/Beignet SPV case study, and a formal revenue-required-to-pencil-out calculation ($3.725T mature annual revenue by 2032, ~80%/year growth needed from OpenAI/Anthropic); arithmetic independently verified, cross-checked against UBP/Burry/digest data, and historical comparisons to canal/railroad/electrification/highway/telecom booms (September 2026)
+- [[sage-road-ai-trade-2026-09]]: Sage Road Research "The AI Trade" executive summary (paywalled report): bearish thesis on enterprise adoption, unit economics, overextension and circular dealmaking, with a "market rupture" hedge-now call; claims checked against UBP/Brookings/Burry/digests (data mostly holds, off-balance-sheet figure understated, Meta SBC claim likely misquoted) and assessed as stronger on facts than on its contagion conclusion (September 2026)
 - [[saaspocalypse-dispersion-2026-04-09]] — SaaS valuation dispersion thesis (April 2026)
 
 ### Comparisons
 *In `investing-fundamentals/company-analyses/comparisons/`*
 
+- [[fintech-usury-tila-regulatory-exposure-2026]] — FinTech Regulatory & Usury Risk: TILA Regulation Z, True Lender Exposure, and Downside Valuation Bridges ($DAVE, $SEZL, $AFRM, $SOFI, $ML) (September 2026)
+- [[fintech-business-models-dave-vs-peers.html]] — Consumer FinTech Business Model, Valuation, Solvency & Cash Flow Architecture: $DAVE vs. $SEZL (Sezzle), $AFRM (Affirm), $XYZ (Block/Cash App), $SOFI (SoFi), $CHYM (Chime), $KLAR (Klarna), $BFH (Bread Financial), and $ML (MoneyLion) (August 2026)
+- [[google-marvell-broadcom-optical-20260819]] — Custom AI Silicon & Optical Networking: Google-Marvell $120B Deal, Broadcom ($AVGO) ASIC Share Shift, and Optical Supply Chain Matrix ($AAOI, $LITE, $COHR, $FN) (August 2026)
 - [[crwd-vs-panw-vs-zs-20260315]] — Three-way comparison: CrowdStrike vs. Palo Alto vs. Zscaler (March 2026)
 - [[panw-vs-zs-20260302]] — Head-to-head: Palo Alto Networks vs. Zscaler (March 2026)
 
@@ -87,13 +100,40 @@
 
 *In `investing-macro/`*
 
+- [[ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001]] (`podcasts/`): Podcast discussion, Alpha Exchange with Brij Khurana (Wellington) on the investment/rates decoupling thesis, wealth-effect-driven inflation, growth headwinds (tight policy plus oil shock), AI capex crowding out bonds two ways (hyperscaler issuance, rising stock-bond correlation), circular chip financing and NDFI lending, and three areas of excitement: TIPS (with a growth-slowdown caveat), Australia/NZ hiking "mistakes," and EM local bonds; no explicit US duration call (October 1, 2026)
+- [[market-newsletter-digest-2026-09-25]]: Digest of key themes: the 10Y at 5.18-5.23% and the 30Y at a 22-year high (5.47-5.5%) on the weakest 7Y auction yield since 1993, with TIPS selling off alongside nominals (a real-yield move) and MOVE jumping from 78.6 to 104.6 in three sessions; credit stress confined to CCC (spread 10.93%, widest since Liberation Day) while HY sits 13bp off its tights; Project Jupiter details ($165B campus, $18B loan, pipeline delayed to Feb 2027) against Anthropic's $11.6B Akamai deal; JPMorgan's "no baseline view" on oil and the paper ($90) vs. physical ($120) gap; S&P near a record with 51.2% of members above their 200-day (last seen March 27, 2000); Ramp data showing frontier-model share of AI spend falling from 53% to 45% in a month alongside Muse's thin usage and revenue; the "consumer inertia" selloff; FUNDA's enterprise AI survey; SemiAnalysis's 24GW China datacenter count; Alibaba FY1Q27; and Adyen (September 25, 2026)
+- [[market-newsletter-digest-2026-09-24]]: Digest of key themes: the 10Y clearing its last cap since 2007 at 5.11-5.14% on a weak 5Y "tail" auction and October hike odds at 71%, Oracle's force majeure notice on its 2.45GW Project Jupiter data center with AI CDS widening (Oracle ~224bp, CoreWeave >850bp), the Brent/WTI divergence with a crack spread at the 99.8th percentile since 2006, Michael Parekh's $10.3T/3.6%-of-GDP AI buildout estimate vs. Michael Burry's dot-com-matching capex/GDP ratio, DeepSeek's $1B ARR and $75B raise, Meta's Muse monetization disclosure and Cloudflare's agent-traffic-exceeds-human-traffic results, Broadcom/Micron multiple-gap and Intuitive Surgical's competitive-threat compression, and Baiguan's 25-case US/China regulatory-blowup framework (September 24, 2026)
+- [[market-newsletter-digest-2026-09-23]]: Digest of key themes: a 58.4 flash PMI pushing the 10Y to its highest close since July 2007 (5Y auction at highest yield since 2006, October hike odds ~70% from <10% a month ago, 30Y through its multi-decade cap, VIX/MOVE still suppressed), diesel export-ban talk at a $6.52 record with Brent back above $100, the "Consumer Inertia" selloff in banks, insurers and subscriptions after Meta's Muse launch, the Opus 5.5 / GPT-6 Sol-Luna price war and Jevons evidence (DeepSeek V4.1 Flash +170% on OpenRouter), CoreWeave's balance sheet ($103.7B RPO, $46B net debt, A3 SPV debt vs. B+ corporate) with SemiAnalysis ClusterMAX 3.0 on Nvidia backstops and the FT's $300B of off-balance-sheet residual value guarantees, AWS insiders on 4-5 year AI server paybacks, Alibaba's 20GW/T-Head bet and Xi's Washington visit, Kalshi event-contract margin and $117B/month RWA perps (September 23, 2026)
+- [[market-newsletter-digest-2026-09-22]] — Digest of key themes: Lead-Lag Report on the Fed's copper-confirmed supply shock (25bp hike to 3.75-4.00%, copper within 1.1% of record, VIX at 14.81) & its Weekly Signals framework losing its risk-on majority for the first time since July, Ed Zitron's capacity forensics arguing <50% of $1.2T+ hyperscaler capex has become operational AI capacity ($390B+ uninstalled) vs. Michael Parekh's gigawatt/token-loop economics, Mostly Metrics' Nscale $35B IPO S-1 breakdown ($103.4B contracted value, only $2.6B live, CoreWeave comp), Amazon blocking Meta's Muse from shopping & Citrini's "Agentic Reality" disintermediation framework, Jordi Visser's "Wealth Becomes Money" tokenization-liquidity thesis & Coin Metrics on the SEC's Innovation Exemption for tokenized stocks, Matt Levine on Silver Lake's bid to kill Delaware appraisal rights in the Endeavor/TKO case, and Doomberg on Ukrainian refinery strikes amid the European diesel crisis (September 22, 2026)
+- [[market-newsletter-digest-2026-09-21]] — Digest of key themes: TSCS Research on 10Y TIPS real yield auction stress (2.2% dealer share, lowest in 14 years) and buyer-base forensics (Japan cash paydown vs. dumping, insurer Treasury buying), Lead-Lag Report on XLK/SPY +2.65σ vs. XLU/SPY -3.01σ dispersion, Arthur Hayes on AI-debt captive-insurance bailout mechanics ($1.54T "Affil Reins" asset) & Bitcoin transmission channel, Stratechery's Four Overhangs framework (Capability/Product/Pricing/Capital) on the "Pacing the Frontier" narrative, Diligence Stack CPU:GPU scale-up domain ratios & Irrational Analysis's Coherent/Cerebras optical teardown, Adam Tooze on the dollar as "portfolio currency" not reserve currency, and Agility Robotics' first humanoid-robot SPAC financials ($1.8M revenue vs. $140M operating loss) (September 21, 2026)
+- [[market-newsletter-digest-2026-09-20]] — Digest of key themes: Lehman-era real yields (10Y TIPS at 2.68%, nominal 10Y at 5.01%), Michael Howell on 70–80% refinancing machine, Torsten Slok on 18-year copper mine lead time vs. 2-year AI datacenter cycles, SpotGamma on $100 oil / record $6.31 diesel with suppressed OVX, OnlyCFO on ICONIQ Pacesetters ($100M ARR in quarters, T2D3 obsolete, 3.4x software multiple spread), Jordi Visser on 10,000 agents solving Navier-Stokes & crypto ghost rails, and The Bear Cave #344 forensic short audits (September 20, 2026)
+- [[market-newsletter-digest-2026-09-19]] — Digest of key themes: Hyperscaler semi bifurcation (SpaceX 16GW as Nvidia's 35% revenue anchor vs. Broadcom 17–19GW sandbagged guidance across Anthropic, OpenAI, Meta), OpenAI $278B burn vs. Anthropic operating profit & second IPO delay, Amodei tabloid storm & Trump "hoax" attack, Huawei Ascend 960 swapping 48k optics for 5,500 NPO engines, Kevin Warsh's unanimous 12-0 Fed rate hike, and tech ETF 50% AUM concentration (September 19, 2026)
+- [[market-newsletter-digest-2026-09-18]] — Digest of key themes: Pacing the frontier & "AI Three Mile Island" governance panic (Amodei, Altman, Hugging Face agent breakout, recursive self-improvement time constraints, open-weight margin compression), SemiAnalysis on DeepSeek V4.1 Flash Day 7 serving benchmarks (Nvidia CUDA vs. AMD ROCm, host DRAM UVA offload vs. SSD offloading fallacy, 4-hi HBM & TSMC Baipu Plan), 75GW behind-the-meter power orders & Middle East datacenter drone strikes, Michael Howell & Andy Constan on the normal bond cycle vs. $1.5T Treasury basis trade panic, and gold revaluation mechanics (September 18, 2026)
+- [[market-newsletter-digest-2026-08-20]] — Digest of key themes: The 2/28 ARM compute reset wall ($2.3T RPO backlog, 24–36mo construction teaser lag, OpenAI >200% revenue coverage deficit), Nvidia as Fannie Mae for compute ($6B Poolside deal, $12B valuation, Stripe buys OpenRouter), Unitree $50B STAR Market IPO (1,190x P/E, 3–5yr commercial timeline reset, FCC robotics bans), $40T national debt milestone & Michael Howell on "Treasury QE" vs Fed rate transmission ($4B long-end buybacks, "Bills Are The Pills"), and The Bear Cave on Guggenheim GOF's 125-month ATM issuance machine breakdown (August 20, 2026)
+- [[market-newsletter-digest-2026-08-19]] — Digest of key themes: Ben Thompson & Michael Parekh on AI capital curve exhaustion (Nvidia $500B Wall Street consortium, OpenAI $7B tender, Anthropic $9.1B Riot compute deal), Treasury long-end buybacks & Bessent-put steepener (George Noble bond short, $1.44B crypto squeeze), Custom AI Silicon & Memory crunch (Google $120B Marvell deal, Cerebras CS-4, 500% memory surge), and Alexander Stahel on China as the new oil swing producer (August 19, 2026)
+- [[market-newsletter-digest-2026-08-14]] — Digest of key themes: Bob Elliott on the AI "expectations mania", margin expansion paradox, $5T circular financing loop, -15% household savings math, and TIPS/gold portfolio defense (August 14, 2026)
+- [[market-newsletter-digest-2026-08-13]] — Digest of key themes: Robotti & Company Q2 2026 (real assets vs. AI mania, Subsea 7/Saipem merger, Builders FirstSource reset) and MacroVoices #545 with Michael Howell (65-month liquidity cycle rollover into 2027, 2-year yield vs SOFR rate hike signals, China's $4,000+ gold floor, and $135–$200 oil ratio) (August 13, 2026)
+- [[market-newsletter-digest-2026-07-28]] — Digest of key themes: $275B+ hyperscaler CapEx & FCF margin collapse, why Nvidia/Microsoft counter Anthropic with open-weights, Kospi 11% circuit breaker & memory bullwhip, pre-FOMC FCI loosening, and $200M multi-agent AI investing (July 28, 2026)
+- [[market-newsletter-digest-2026-07-27]] — Digest of key themes and observations from investment-related newsletters (July 27, 2026)
+- [[jv-short-term-ai-fear-long-term-compute-scarcity-20260726]] (`podcasts/`) — Podcast discussion: Jordi Visser on 86% Q2 earnings beats, China's $9B state AI support, Jevons paradox in compute scarcity, Vera Rubin optical step-functions, and agentic AI memory (July 26, 2026)
+- [[wnfm-softwares-ai-reckoning-20260726]] (`podcasts/`) — Podcast discussion: What's Next for Markets with Billy Fitzsimmons on enterprise software valuation collapse, seat cannibalization vs. vibe coding threats, hyperscaler CapEx wars ($250B), and OpenAI/Anthropic IPO catalysts (July 26, 2026)
+- [[market-newsletter-digest-2026-07-26]] — Digest of key themes and observations from investment-related newsletters (July 26, 2026)
+- [[22v-ais-speed-crash-structural-bull-market-20260725]] (`podcasts/`) — Podcast discussion: 22V Research with Jordi Visser on AI speed crashes vs. structural bull markets, algorithmic volatility compression, ~16% Q2 earnings beats, and HBM memory scarcity through 2030 (July 25, 2026)
+- [[market-newsletter-digest-2026-07-25]] — Digest of key themes and observations from investment-related newsletters (July 25, 2026)
+- [[bp-google-crushes-earnings-capex-debate-20260724]] (`podcasts/`) — Podcast discussion: Basis Points on Google Q2 earnings ($24.8B GCP at 36% margin), SpaceX compute rental, Mag 7 vs. semis CapEx debate, Tesla Q2 margin collapse, and MSFT FY27 CapEx guide ($220B–$240B) (July 24, 2026)
+- [[rr-this-is-how-the-ai-bubble-actually-pops-20260724]] (`podcasts/`) — Podcast discussion: RiskReversal Media on the hyperscaler CapEx prisoner's dilemma, semiconductor bullwhip effect, Nifty Fifty bubble parallels, and technical overextension (July 24, 2026)
+- [[fs-golds-next-leg-oil-and-climbing-bond-yields-20260724]] (`podcasts/`) — Podcast discussion: Financial Sense with Jim Welsh on gold's 12-to-16 month Wave 4 consolidation before Wave 5 record highs, 10-year yields climbing past 5.0%+, and energy shock risks (July 24, 2026)
+- [[market-newsletter-digest-2026-07-24]] — Digest of key themes and observations from investment-related newsletters (July 24, 2026)
 - [[market-newsletter-digest-2026-07-23]] — Digest of key themes and observations from investment-related newsletters (July 23, 2026)
+- [[mv-next-financial-crisis-unlikely-to-start-in-private-markets-20260723]] (`podcasts/`) — Podcast discussion: Monetary Matters with Nicholas Brooks on why the next financial crisis won't start in private credit, conservative 40-50% LTVs, PE sponsor dry powder ($1.2T+), and capital lockup stability (July 23, 2026)
 - [[market-newsletter-digest-2026-07-22]] — Digest of key themes and observations from investment-related newsletters (July 22, 2026)
 - [[market-newsletter-digest-2026-07-21]] — Digest of key themes and observations from investment-related newsletters (July 21, 2026)
+- [[er-we-asked-the-man-who-mapped-the-ai-economy-20260721]] (`podcasts/`) — Podcast discussion: Excess Returns with Kai Wu & Azeem Azhar on mapping the AI value chain, hardware gross profit capture (70%+), hyperscaler ROIC lag, and open-source commoditization (July 21, 2026)
 - [[market-newsletter-digest-2026-07-20]] — Digest of key themes and observations from investment-related newsletters (July 20, 2026)
 - [[market-newsletter-digest-2026-07-19]] — Digest of key themes and observations from investment-related newsletters (July 19, 2026)
 - [[semianalysis-research-2026-07]] — Synthesis of SemiAnalysis July 2026 research themes (Nvidia debt backstop, Anthropic IPO, Claude Code SaaS threat) and market implications
 - [[jlr-wrap-bank-earnings-and-oil-prices-soar-20260718]] (`podcasts/`) — Podcast discussion: Chris Whalen on bank earnings disconnect, systemic risks in private credit, and upcoming inflation spikes driven by diesel shortages (July 18, 2026)
+- [[er-options-extreme-at-the-highs-20260718]] (`podcasts/`) — Podcast discussion: Excess Returns with Andy Constan on options market skew extremes at all-time highs, short dealer gamma squeezes, the "Size of the Pie" macro limit, and zero-cost collar hedging (July 18, 2026)
 - [[market-newsletter-digest-2026-07-18]] — Digest of key themes and observations from investment-related newsletters (July 18, 2026)
 - [[tcaf-real-ai-winners-stand-up-20260717]] (`podcasts/`) — Podcast discussion: TCAF 251 with Jonathan Thomas on the active ETF structural tailwind, the shift from AI creators to adopters, capex bubble lessons (Pets.com), and American Century's philanthropic model (July 17, 2026)
 - [[market-newsletter-digest-2026-07-17]] — Digest of key themes and observations from investment-related newsletters (July 17, 2026)
@@ -159,6 +199,9 @@
 - [[hormuz-closure-scenarios-2026]] — Geopolitical risk scenarios around Strait of Hormuz closure
 - [[yen-carry-trade-unwinding-2025]] (`carry-trade-analysis/`) — Yen carry trade unwinding analysis (2025) — **1,189 lines, candidate for splitting**
 - [[macro-frameworks]] (`macro-frameworks/README.md`) — Macro analytical frameworks and reference
+- [[global-liquidity-framework]] (`macro-frameworks/global-liquidity-framework.md`) — Global Liquidity Framework: the 15–18 month asynchronous business cycle lag, empirical evidence, and cross-asset allocation
+- [[treasury-financial-repression-slr-stablecoins]] (`macro-frameworks/treasury-financial-repression-slr-stablecoins.md`) — Treasury Financial Repression: SLR/eSLR bank deregulation, stablecoins as captive T-bill sinks, off-the-run liquidity discounts, and shadow yield curve control
+- [[ai-compute-commencement-wall-and-refinancing-trap]] (`macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md`) — AI Compute Commencement Wall: Take-or-pay contract mechanics, 24–36 month construction teaser lags, circular vendor financing reflexivity, and 2027–2028 payment shock scenarios. **Re-assessed 2026-09-01** — verdicts re-graded, coverage-deficit arithmetic corrected to 120–330%, gray areas flagged, ~80% probability mass shown on multiple compression
 - [[tariff-talk]] (`tariff-talk/README.md`) — Tariff policy analysis and trade implications
 
 ---
@@ -173,10 +216,12 @@
 - [[rebalancing]] (`concepts/`) — Rebalancing theory, frequency, and implementation
 - [[sequence-of-returns-risk]] (`concepts/`) — Sequence of returns risk in retirement contexts
 - [[trend-following-concept]] (`concepts/trend-following.md`) — Trend following: theory and evidence
+- [[individual-bonds-vs-bond-funds]] (`concepts/`) — Individual Treasuries vs. bond funds (TLT/IEF): mark-to-market vs. hold-to-maturity, nominal vs. real returns, and the PV annuity factor
 
 ### Strategies
 - [[adaptive-allocation]] (`strategies/`) — Adaptive allocation strategy notes
 - [[balanced-portfolios]] (`strategies/`) — Balanced portfolio construction approaches
+- [[diversified-portfolio-backtests-1972-2025]] (`strategies/balanced-portfolios/`) — Backtests of 20/20/60 gold/Treasury/stock, US vs. international splits, trend-following (simulated, Barclay CTA, AQR), TIPS (synthetic and VIPSX), and the Golden Butterfly across 1972, 1985, and 2001 windows; code and data in `backtests/`
 - [[carry-strategy]] (`strategies/carry/`) — Carry strategy notes and implementation
 - [[factor-strategies]] (`strategies/`) — Factor investing (value, momentum, quality, etc.)
 - [[portable-alpha]] (`strategies/`) — Portable alpha strategy notes
@@ -250,6 +295,7 @@
 
 - [[crowdfunding-platforms]] — Survey of real estate crowdfunding platforms and their trade-offs
 - [[monetizing-home-value]] — Strategies for accessing home equity without selling
+- [[multifamily-credit-stress-and-rem-2026-09]] — Fact-check of a multifamily distress claim (loan terms, cap rates, extend-and-pretend, vacancy, heating costs) against Sept 2026 data, REM's holdings split (~53% agency, ~24% commercial), historical drawdowns, and scenario math for further downside (September 2026)
 
 ---
 
