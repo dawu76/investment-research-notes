@@ -16,6 +16,19 @@
 
 ---
 
+### Sovereign Debt & Liquidity Frameworks
+
+- [[global-liquidity-framework]] — Synthesized framework on global liquidity, the 15–18 month asynchronous business cycle lag, empirical evidence, and cross-asset allocation.
+- [[treasury-financial-repression-slr-stablecoins]] — Framework on Treasury financial repression, SLR/eSLR bank deregulation, stablecoins as captive T-bill sinks, and shadow yield curve control.
+
+---
+
+### AI Infrastructure, Capital Cycles & Valuation Frameworks
+
+- [[ai-compute-commencement-wall-and-refinancing-trap]] — Synthesized structural framework on the AI compute commencement wall, take-or-pay contract mechanics, 24–36 month construction teaser lags, circular vendor financing reflexivity, and 2027–2028 payment shock scenarios. Includes a statement-by-statement accuracy audit with explicit gray-area flags on contested interpretations.
+
+---
+
 ### Michael Howell @Cross-border Capital's liquidity framework
 
 [Blockworks Macro](https://www.youtube.com/watch?v=5nZwrE_uNcg): The U.S. Treasury Is Neutralizing The Fed's Quantitative Tightening | Michael Howell & Andy Constan
