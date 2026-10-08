@@ -1,13 +1,31 @@
 # AppLovin Corporation (NASDAQ: APP) — Bull/Bear Stress-Test
 
-**Format:** Adversarial debate — independent bull analyst, independent bear analyst, arbitrator
-**Data as of:** Q1 2026 Earnings (May 7, 2026)
-**Recent developments through:** May 8, 2026
-**Companion files:** `app-2-equity-report.md`, `app-3-investment-memo.md`
+**Format:** Adversarial debate — independent bull analyst, independent bear analyst, arbitrator  
+**Data as of:** Q2 2026 Earnings (August 5, 2026) | **Last Updated:** August 14, 2026  
+**Companion files:** `app-1-document-sources.md`, `app-2-equity-report.md`, `app-3-investment-memo.md`
 
 ---
 
-## Recent Developments
+## Post-Arbitration Update: August 2026 Key Resolutions
+
+> [!IMPORTANT]
+> **1. SEC Investigation Formally Closed Without Action (August 5, 2026):**  
+> On August 5, 2026, AppLovin confirmed that the SEC Division of Enforcement's inquiry into Axon's identifier bridging and device data practices was **officially closed with NO enforcement action taken**. This definitively resolves the central regulatory risk (Assumption 1) in the Bull's favor, eliminating the primary thesis overhang.
+>
+> **2. Q2 2026 Results & Self-Serve Launch:**  
+> - Q2 2026 Revenue reached $1.92B (+53% YoY) with an 84% Adjusted EBITDA margin ($1.61B) and $863.3M Free Cash Flow.  
+> - Axon Ads Manager opened to global public self-serve in June 2026 for e-commerce and DTC merchants.  
+> - Q3 2026 Guidance: $2.055B–$2.085B revenue (~43% YoY) and $1.71B–$1.74B Adjusted EBITDA.
+>
+> **3. JPMorgan Coverage Assumption (August 14, 2026):**  
+> - **Rating:** Neutral | **Dec 2027 PT:** $400 (18x 2028E GAAP EPS of $22.42).  
+> - **Market Share Validation:** MAX holds **>70%** of mobile gaming mediation; AppDiscovery holds **>40%** of mobile gaming DSP demand.  
+> - **Consumer Ad Forecasts:** Models $777M in 2026 (+63% YoY) and $1.4B in 2027 (+75% YoY; 14% of net revenue) against a $335B U.S. online ad market ($140B Retail/CPG).  
+> - **Key Debates:** Highlights gaming growth durability, Unity Vector AI platform resurgence, and Meta competition, while projecting 2026 net ad revenue of $8.1B, 84% EBITDA margin, $5.2B FCF, and $1.8B remaining buyback authorization.
+
+---
+
+## Prior Recent Developments (May 2026 Baseline)
 
 *(Web search conducted May 8, 2026 — one day after Q1 2026 earnings)*
 
