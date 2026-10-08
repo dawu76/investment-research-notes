@@ -100,4 +100,4 @@ S&P Global has been hit by the "AI loser trade" on fears of disruption, but TCI 
 ## Cross-References
 *   Synthesis of SemiAnalysis June 2026 themes is in [[semianalysis-research-2026-06]].
 *   [[bond-supply-tsunami-2026]] — Impact of fiscal deficits on treasury market liquidity and interest rates.
-*   [[macro-frameworks]] — Central bank frameworks, Fed balance sheet dynamics, and monetary policy mechanisms.
+*   [[investing-macro/macro-frameworks/README|macro-frameworks]] — Central bank frameworks, Fed balance sheet dynamics, and monetary policy mechanisms.

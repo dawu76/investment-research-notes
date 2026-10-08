@@ -89,5 +89,5 @@ Following recent sell-offs, Belski sees significant value in financial exchanges
 
 ### VI. Cross-References
 *   [[valuations]]
-*   [[small-cap-breakouts]]
-*   [[banking-sector-consolidation]]
+*   small-cap-breakouts
+*   banking-sector-consolidation

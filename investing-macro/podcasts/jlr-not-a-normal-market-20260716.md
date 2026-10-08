@@ -77,5 +77,5 @@ Oakley emphasizes that a handful of semiconductor and tech stocks have hijacked 
 
 ### VI. Cross-References
 *   [[valuations]]
-*   [[energy-sector-underinvestment]]
-*   [[macro-bear-markets]]
+*   energy-sector-underinvestment
+*   macro-bear-markets

@@ -149,4 +149,4 @@ See [[equity-return-components]] for the broader decomposition of TSR that PVGO 
 - [[valuations]] — General valuation methodology notes and market valuation reference
 - [[equity-risk-premium]] — ERP framework; Damodaran estimates used as cost of equity input here
 - [[equity-return-components]] — PVGO realization is a component of long-run TSR decomposition
-- [[factor-strategies]] — Value factor (HML) context and factor investing evidence
+- [[investing-quant/strategies/factor-strategies/README|factor-strategies]] — Value factor (HML) context and factor investing evidence

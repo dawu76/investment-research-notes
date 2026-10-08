@@ -81,6 +81,6 @@ McDonald argues that the massive spending on AI and data centers by the "Magnifi
 ---
 
 ### VI. Cross-References
-*   [[stagflation-playbook]]
-*   [[treasury-market-financial-repression]]
-*   [[gold-mining-equities]]
+*   stagflation-playbook
+*   [[treasury-financial-repression-slr-stablecoins]]
+*   gold-mining-equities

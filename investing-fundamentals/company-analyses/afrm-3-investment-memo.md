@@ -77,7 +77,7 @@ Affirm Holdings, Inc. is executing a structural transition from a point-of-sale 
 
 ### Moat Durability Scorecard (8.5 / 10)
 1. **Proprietary SKU Data Underwriting (9.0/10):** Machine-learning models evaluate line-item merchant data in real-time (<100ms), delivering lower loss volatility than bureau-reliant revolving lenders.
-2. **Checkout Integration Lock-In (8.5/10):** Exclusive or primary status across Shopify (`[[shop]]`), Amazon, and Apple Pay embeds Affirm into >65% of US e-commerce checkouts.
+2. **Checkout Integration Lock-In (8.5/10):** Exclusive or primary status across Shopify ([[shop-2-equity-report|shop]]), Amazon, and Apple Pay embeds Affirm into >65% of US e-commerce checkouts.
 3. **Consumer Trust & NPS (9.0/10):** Net Promoter Score >75 (vs ~25 for legacy credit cards) drives organic customer acquisition and high Repeat Transaction Rates (94%).^[investing-fundamentals/company-analyses/afrm-1-document-sources.md]
 
 ---
@@ -115,7 +115,7 @@ Affirm Holdings, Inc. is executing a structural transition from a point-of-sale 
 | **Base** | **+23.6%**    | **$6.50 Billion**| **28.0%**          | **$4.80**     | **$5.20**        | **26.0x (25.0x)**  | **$130.00**  | **+30.4%**       | **+19.4%**       |
 | **Bull** | +35.5%        | $7.80 Billion    | 34.0%              | $7.00         | $7.50            | 34.0x (32.0x)      | **$240.00**  | **+77.1%**       | +46.4%           |
 
-*Valuation Methodology Note:* Drawing from `[[valuations]]`, `[[pvgo]]`, and fintech peers (`[[hood]]`, `[[crcl]]`), Affirm warrants a 26.0x forward P/E multiple in the Base case given its 20%+ secular top-line growth, proprietary data moat, and high ROTE.
+*Valuation Methodology Note:* Drawing from [[valuations]], [[pvgo]], and fintech peers ([[hood-2-equity-report|hood]], [[CRCL|crcl]]), Affirm warrants a 26.0x forward P/E multiple in the Base case given its 20%+ secular top-line growth, proprietary data moat, and high ROTE.
 
 ---
 
@@ -148,7 +148,7 @@ Affirm Holdings, Inc. is executing a structural transition from a point-of-sale 
    - *Impact:* Temporary disruption in nationwide interest rate exportation under FDIA Section 27.
    - *Mitigation:* Multi-bank origination redundancy and state lending license backup infrastructure.
 4. **Partner Take-Rate Compression & Big Tech Disintermediation:**
-   - *Trigger:* Amazon or Shopify (`[[shop]]`) demanding lower MDR fees upon contract renewals.
+   - *Trigger:* Amazon or Shopify ([[shop-2-equity-report|shop]]) demanding lower MDR fees upon contract renewals.
    - *Impact:* Merchant network take rate contracts 20–40 bps.
    - *Mitigation:* Affirm Card directly bypasses checkout exclusivity by operating everywhere Visa is accepted.
 5. **CFPB BNPL Rulemaking & Compliance Overhead:**

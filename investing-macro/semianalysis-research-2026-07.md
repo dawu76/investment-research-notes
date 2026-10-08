@@ -77,7 +77,7 @@ The release and rapid growth of **Claude Code** (representing 4% of all public G
 | **Mega-Cap Software (e.g., Microsoft, Salesforce)** | High initial distribution and API cloud revenues (Azure, AWS). | Collapse of seat-based Office 365 and CRM seat counts; high CapEx required just to maintain product parity. |
 | **AI Hardware & Foundries (TSMC, SK Hynix)** | TSMC's Q2 gross margin hitting **68.4%** with pricing power; HBM memory selling at **5x DRAM price** premium (SK Hynix Nasdaq ADR listing). | SK Hynix's extreme revenue concentration (HBM is 8% of bits but 40% of revenue) exposes it to severe downside if GPU CapEx slows. |
 | **Custom Silicon (ASICs)** | DeepSeek and Zhipu building internal ASIC teams for **low-cost inference**, creating cheaper alternatives to general-purpose GPUs. | High design and manufacturing execution risk; dependency on TSMC advanced node capacity. |
-| **Enterprise SaaS Upstarts** | Verticalized AI agents (like [[app\|AppLovin's]] ad-engine or Samsara's physical ops labels) driving massive cash generation. | Legacy SaaS lacking proprietary data flywheels face severe multiple compression. |
+| **Enterprise SaaS Upstarts** | Verticalized AI agents (like [[app-2-equity-report\|AppLovin's]] ad-engine or Samsara's physical ops labels) driving massive cash generation. | Legacy SaaS lacking proprietary data flywheels face severe multiple compression. |
 
 ---
 

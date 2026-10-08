@@ -76,7 +76,7 @@ Military operations between the U.S. and Iran have intensified, shutting down th
 *   **Strategic Reserves:** The U.S. Strategic Petroleum Reserve (SPR) has declined close to the **300 million barrel** level, approaching the statutory congressional minimum floor of 254 million barrels.
 *   **Algos & Volatility Capping:** Despite the escalation, oil prices remain capped below $100 due to extreme volatility (high OVX). The high volatility triggers Value-at-Risk (VaR) limits, forcing quantitative algos to de-gross their oil exposure, limiting immediate price rises.
 
-*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[macro-frameworks]]
+*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *MacroEdge Research* — War Note: War is Inflationary, Latest War Updates, Energy Markets Review
     *   *MacroVisor* — Breakfast Bites: The Disinflation Head Fake?
@@ -94,7 +94,7 @@ The macro markets are attempting to price a temporary drop in headline inflation
 *   **China Disappointment:** China's Q2 GDP grew **4.3% YoY**, missing the 4.5% consensus and target range. First-half property investment fell **18%**, the steepest decline on record since 1992.
 *   **Market Breadth:** S&P 500 rose 0.4% to 7,543, but breadth was exceptionally narrow. **312 S&P names fell on the day**, and the index excluding AI names was down 0.6%. S&P 500 EPS consensus growth is set at 22% YoY, but the median stock is expected to grow only 9% (and only 17% excluding Amazon, Google, and Nvidia).
 
-*   **Cross-references:** [[macro-frameworks]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *The Lead-Lag Report* — The Contradiction: Cool CPI, Hot Oil, Korean Bear & The Rotation Confirmed
     *   *MacroVisor* — Breakfast Bites: The Disinflation Head Fake?

@@ -118,7 +118,7 @@ Strait Transits: ~25/day ===> 2-3/day (-90.0%)
 
 - **Options Market Positioning:** SpotGamma and Stochastic Volatility data show traders positioning for a controlled pullback into VIXpiration rather than an unhedged crash, with heavy put-buying concentrated at SPX 7,400.
 - **Sources:** *James Lavish (The Informationist)*, *SpotGamma*, *Stochastic Volatility*, *Topdown Charts*.
-- **Cross-References:** See [[trend-following-strategy]] and [[funding-short-squeeze]].
+- **Cross-References:** See [[investing-quant/strategies/trend-following/README|trend-following-strategy]] and [[funding-short-squeeze]].
 
 ---
 
@@ -139,4 +139,4 @@ Strait Transits: ~25/day ===> 2-3/day (-90.0%)
 - [[bond-supply-tsunami-2026]] — Treasury issuance, yields, and macro debt dynamics
 - [[funding-short-squeeze]] — Market positioning, leverage stress, and short unwind mechanics
 - [[cpo-and-npo-optics]] — Optical transceiver and silicon photonics hardware transitions
-- [[trend-following-strategy]] — Technical trend frameworks and moving average breakdown signals
+- [[investing-quant/strategies/trend-following/README|trend-following-strategy]] — Technical trend frameworks and moving average breakdown signals

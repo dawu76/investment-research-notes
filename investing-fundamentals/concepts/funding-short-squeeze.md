@@ -17,7 +17,7 @@ broader trade unwinds, both legs reverse simultaneously — producing sharp, fun
 unexplained price moves. This is one of the cleaner explanations for violent sector rotations
 that don't correspond to fundamental news.
 
-Related: [[yen-carry-trade-unwinding-2025]], [[factor-strategies]], [[saaspocalypse-dispersion-2026-04-09]]
+Related: [[yen-carry-trade-unwinding-2025]], [[investing-quant/strategies/factor-strategies/README|factor-strategies]], [[saaspocalypse-dispersion-2026-04-09]]
 
 ---
 
@@ -81,7 +81,7 @@ When funds reduce the AI trade — valuation pressure, macro concerns, profit-ta
 both legs unwind simultaneously. Semis get sold (closing the long); SaaS gets bought (covering
 the short). The two legs move inversely because they're two sides of the same trade.
 
-See also: [[ddog]], [[now]], [[crwd]] for company-level context on the SaaS short thesis.
+See also: [[ddog-2-equity-report|ddog]], [[now-2-equity-report|now]], [[crwd-2-equity-report|crwd]] for company-level context on the SaaS short thesis.
 
 ---
 

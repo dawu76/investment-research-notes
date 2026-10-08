@@ -91,5 +91,5 @@ A key differentiator for American Century Investments is its unique ownership st
 
 ### VI. Cross-References
 *   [[valuations]]
-*   [[small-cap-breakouts]]
-*   [[banking-sector-consolidation]]
+*   small-cap-breakouts
+*   banking-sector-consolidation

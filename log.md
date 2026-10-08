@@ -4,6 +4,14 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-07] lint | Fixed broken wikilinks across the wiki
+
+- Retargeted 138 wikilinks whose page exists under another name, keeping the original display text: ticker links (`afrm`, `hood`, `shop`, `ddog`, `now`, etc.) now point to `<ticker>-2-equity-report` (`crcl` to the `CRCL` hub); folder-name links (`macro-frameworks`, `carry-strategy`, `trend-following-strategy`, `solo-401k`, `rise-of-carry`, etc.) point to the folder's README by path; the TW tax research, lakewatch and cyber-saas-seat-risk index entries point to their actual files; fixed the `tm-great-` typo in a Thoughtful Money cross-reference; `treasury-market-financial-repression` now points to `treasury-financial-repression-slr-stablecoins`.
+- Converted 23 links to pages that were never written (17 speculative topic links in the JLR/TCAF podcast notes, plus `IWM`) to plain text.
+- Removed backticks from 36 wikilinks in company analyses and the August 19 digest; backticks rendered them as code instead of links.
+- Added the missing `https://` to a YouTube link in a RobotWealth Discord note.
+- Left as is: wikilink syntax examples in SCHEMA.md, skills and earlier log entries; bracket-wrapped markdown links like `[[12](url)]`; scraped source HTML under `investing-quant/backtests/data/raw/`.
+
 ## [2026-10-07] update | Moved newsletter digests to reading-list/notes
 
 - Moved all 50 `market-newsletter-digest-*` files (49 `.md` digests from 2026-06-02 to 2026-09-25, plus the 2026-09-25 `.html` companion) from `investing-macro/` to `reading-list/notes/` with `git mv`.
@@ -827,7 +835,7 @@
 - Created: `investing-fundamentals/concepts/pvgo.md`
 - Source: Counterpoint Global Insights, Morgan Stanley Investment Management, June 18, 2026
 - Includes full text of 7 Readwise notebook highlights as illustrative quotes
-- Cross-links: [[valuations]], [[equity-risk-premium]], [[equity-return-components]], [[factor-strategies]]
+- Cross-links: [[valuations]], [[equity-risk-premium]], [[equity-return-components]], [[investing-quant/strategies/factor-strategies/README|factor-strategies]]
 - Updated: `index.md` (total pages: 128)
 - Updated: `log.md`
 

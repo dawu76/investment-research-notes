@@ -22,7 +22,7 @@ The last trading session of Q2 closed with a strong headline scoreboard masking 
 *   **Record Rebalance Volume:** Friday's Russell rebalance generated the largest single-day trading volume in US equity market history — notional volume surpassed $2 trillion for the first time (5% above the prior record), with the closing auction seeing 8.3 billion shares change hands (25% above the previous record).
 *   **Labor Market Setup:** Ahead of the June jobs report, Ironsides Macroeconomics flagged conflicting signals — manufacturing hiring picking up (defense spending, data center demand) while services data is shaky and the job-openings rebound looks concentrated in small businesses with weak underlying indicators (NFIB, Indeed postings). Wage growth is decelerating across every major series, and the Conference Board's Labor Differential points to a higher "true" unemployment/underemployment rate than headline BLS figures capture. Ironsides expects the Fed's Phillips Curve inflation model to be dropped under Warsh and sees labor slack as abundant, not inflationary.
 
-*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[macro-frameworks]]
+*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *MacroVisor* — Breakfast Bites: Quarter Closed at a High
     *   *Ironsides Macroeconomics* — June Payroll Preview
@@ -147,6 +147,6 @@ Danielle DiMartino Booth (QI Research), interviewed by Thoughtful Money, argued 
 
 *   **The K-Shape:** Headline averages look resilient — Q2 GDP is tracking 2.5% growth and retail sales surprised to the upside — but hard data shows roughly 600,000 full-time jobs lost over the past year and bankruptcies running 40% above last year's pace. Much of recent corporate spending is characterized as defensive inventory rebuilding rather than productive capex, with benefits heavily concentrated among top earners and AI-related sectors — consistent with the same labor-market softness Ironsides flagged ahead of the June payroll report (see Section 1).
 
-*   **Cross-references:** [[macro-frameworks]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *Danielle DiMartino Booth (QI Research), via Thoughtful Money (Adam Taggart)* — Top of the K-Shaped Economy Starting to Crack?

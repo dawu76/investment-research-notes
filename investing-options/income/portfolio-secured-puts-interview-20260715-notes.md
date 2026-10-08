@@ -169,4 +169,4 @@ Use multiple independent models to establish a margin of safety:
 ## Related Notes & Cross-References
 * Full transcript of the interview is located in [[portfolio-secured-puts-interview-20260715-transcript]].
 * Details on macroeconomic indicators and cash drag comparisons are available in [[valuations]].
-* Guidelines on options risk management are located in [[trading-approaches]] and [[options-concepts]].
+* Guidelines on options risk management are located in [[trading-approaches]] and [[investing-options/concepts/README|options-concepts]].

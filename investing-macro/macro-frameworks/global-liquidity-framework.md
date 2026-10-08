@@ -107,7 +107,7 @@ Asset valuations and risk premia are priced on the **second derivative (momentum
 ---
 
 ## Related Notes & Cross-References
-* [[macro-frameworks]] — Macro analytical frameworks overview
+* [[investing-macro/macro-frameworks/README|macro-frameworks]] — Macro analytical frameworks overview
 * [[market-newsletter-digest-2026-08-13]] — Michael Howell MacroVoices #545 liquidity cycle analysis
 * [[bond-supply-tsunami-2026]] — US Treasury issuance oversupply and duration risk
 * [[yen-carry-trade-unwinding-2025]] — Global leverage, cross-border flows, and liquidity shocks

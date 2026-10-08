@@ -232,4 +232,4 @@ Q2 2026 Financial Waterfall ($701M Total Revenue & Reserve Income)
 3. **Tokenized Money Market Fund (MMF) Substitution:** Yield-seeking corporate treasuries shifting from zero-yield USDC to yield-bearing tokenized funds (BlackRock BUIDL, Ondo USDY).
 4. **Coinbase Channel Conflict:** Coinbase operates **Base**, a competing Layer-2 settlement environment, creating channel competition with Circle's Arc L1.
 5. **21-Bank Consortium Disintermediation:** Commercial banks launching internal GENIUS-compliant clearing in H1 2027 could commoditize third-party stablecoins for wholesale settlement.
-6. **Cross-References:** Stage 4 Bull/Bear Stress-Test & Arbitration in [[crcl-4-stress-test]]; macro and liquidity frameworks in `[[treasury-financial-repression-slr-stablecoins]]`, `[[bond-supply-tsunami-2026]]`, `[[global-liquidity-framework]]`, `[[valuations]]`, and `[[pvgo]]`.
+6. **Cross-References:** Stage 4 Bull/Bear Stress-Test & Arbitration in [[crcl-4-stress-test]]; macro and liquidity frameworks in [[treasury-financial-repression-slr-stablecoins]], [[bond-supply-tsunami-2026]], [[global-liquidity-framework]], [[valuations]], and [[pvgo]].

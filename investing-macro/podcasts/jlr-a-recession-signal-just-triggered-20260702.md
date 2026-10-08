@@ -85,6 +85,6 @@ Before the final crash, Zeberg expects capital to rotate from big tech into smal
 ---
 
 ### VI. Cross-References
-*   [[recession-indicators]]
-*   [[labor-market-weakness]]
-*   [[gold-monetary-hedges]]
+*   recession-indicators
+*   labor-market-weakness
+*   gold-monetary-hedges

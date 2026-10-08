@@ -144,7 +144,7 @@ While headline economic indicators and credit indexes appear stable, underlying 
 * Synthesis of SemiAnalysis July 2026 themes is in [[semianalysis-research-2026-07]].
 * Historical valuation multiples, CAPE ratios, and EV/Sales indicators are referenced in [[valuations]].
 * Analysis of security agent integrations and enterprise SASE trends is logged in [[zero-trust]].
-* The investment thesis and cash flow decomposition of AppLovin is outlined in [[app]].
+* The investment thesis and cash flow decomposition of AppLovin is outlined in [[app-2-equity-report|app]].
 * Company research pipeline and execution for CrowdStrike is documented in [[crwd-3-investment-memo]].
 * Passive flow dynamics and active manager performance indices are in [[active-vs-passive]].
 * Prior digest: [[market-newsletter-digest-2026-07-07]].

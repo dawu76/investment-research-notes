@@ -108,7 +108,7 @@ A comprehensive synthesis of macroeconomic developments, technology infrastructu
 - **Defense Spending & Treasury Supply:** Pentagon cost for the Iran conflict reached $37.5 billion, with an $87.6 billion total defense funding request ($67 billion new supplemental), putting upward pressure on long-end US Treasury yields (10-year yield 4.55%, USD/JPY past ¥163).
 
 - **Sources:** *Tim Culpan (Culpium)* ("The US-China AI Battle is About Economics, Not Technology"), *MacroVisor*, *Adam Taggart (Thoughtful Money)*, *MacroEdge Research*.
-- **Cross-References:** See [[bond-supply-tsunami-2026]] and [[trend-following-strategy]].
+- **Cross-References:** See [[bond-supply-tsunami-2026]] and [[investing-quant/strategies/trend-following/README|trend-following-strategy]].
 
 ---
 
@@ -128,4 +128,4 @@ A comprehensive synthesis of macroeconomic developments, technology infrastructu
 - [[cpo-and-npo-optics]] — Optical transceiver and silicon photonics hardware transitions
 - [[bond-supply-tsunami-2026]] — Treasury issuance, yields, and macro debt dynamics
 - [[funding-short-squeeze]] — Market positioning, leverage stress, and short unwind mechanics
-- [[trend-following-strategy]] — Technical trend frameworks and moving average breakdown signals
+- [[investing-quant/strategies/trend-following/README|trend-following-strategy]] — Technical trend frameworks and moving average breakdown signals

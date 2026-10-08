@@ -76,6 +76,6 @@ Whalen warns that cooler CPI prints are temporary, and double-digit inflation wi
 ---
 
 ### VI. Cross-References
-*   [[private-credit-systemic-risk]]
-*   [[inflation-resurgence-2026]]
-*   [[housing-market-dynamics]]
+*   private-credit-systemic-risk
+*   inflation-resurgence-2026
+*   housing-market-dynamics

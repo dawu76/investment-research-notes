@@ -48,7 +48,7 @@ Production inference is the variable cost incurred to deliver a product to a cus
 
 ### The Impact: Gross Margin Compression
 The strict classification of production inference under COGS has forced a structural shift in software unit economics:
-*   **Legacy SaaS:** Historically enjoyed gross margins of **70% to 80%+** because serving code and database queries was cheap (see [[ddog]] or [[now]] for examples of high-margin legacy architectures).
+*   **Legacy SaaS:** Historically enjoyed gross margins of **70% to 80%+** because serving code and database queries was cheap (see [[ddog-2-equity-report|ddog]] or [[now-2-equity-report|now]] for examples of high-margin legacy architectures).
 *   **AI-Native SaaS:** Typically operates at gross margins of **50% to 60%** (and sometimes lower) due to the significant variable costs of running LLM inference. Failing to put these costs in COGS artificially inflates gross margin and distorts the true profitability of the software.
 
 ---

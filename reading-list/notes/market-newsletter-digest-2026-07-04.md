@@ -64,7 +64,7 @@ Ironsides Macroeconomics marked its 2026 outlook to market at the year's halfway
 *   **Divergent Central Bank Starting Points:** Warsh's Sintra comments (also covered in the July 1–2 digests) point toward a more classical-liberal monetary policy approach — less forward guidance, a smaller balance-sheet footprint, and likely balance-sheet reduction including an end to Reserve Management Purchases and potentially outright MBS sales. The Fed, ECB, BOE, BOC, and BOJ face genuinely different inflation, energy, fiscal, and policy-rate starting points; Ironsides singles out Japan as the "poster child" for the central-banking blind spot around bank profitability after decades of overly accommodative policy degrading economic dynamism.
 *   **A Softening Labor Market:** June labor data was weak — household employment contracted sharply, labor force participation fell, and unemployment declined for the "wrong" reason (workers leaving the labor force). Wage growth concentrated in services/healthcare is read as compelling evidence of abundant labor-market slack; healthcare is adding low-wage jobs while technology and finance show employment contraction alongside stronger wages, consistent with productivity/AI adoption reshaping labor demand. Ironsides' conviction: the Fed cuts rates in both September and December as core disinflation reemerges.
 
-*   **Cross-references:** [[macro-frameworks]], [[bond-supply-tsunami-2026]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]], [[bond-supply-tsunami-2026]]
 *   **Sources:**
     *   *Ironsides Macroeconomics* — Halfway There
 
@@ -92,7 +92,7 @@ Quartz Sea Research's weekly European brief documented a compressed burst of maj
 *   **Saab's Record Week:** Saab AB booked over SEK 71.6bn (€6.44bn) in new orders in a single week — a SEK 47bn (€4.23bn) contract with Poland's Armaments Agency for three A26-class submarines under the Orka program (beating German and South Korean competitors, delivery by 2038, plus a joint venture with Poland's PGZ for domestic maintenance/repair/overhaul), and a separate SEK 24.6bn (€2.21bn) FMV contract for 16 Gripen E fighters destined for Ukraine (deliveries 2029–2030).
 *   **Other Moves:** BAE Systems' Royal Navy completed its first at-sea strike-drone launch (a Callen-Lenz "Nyan" one-way effector) following the UK's pivot to a "Hybrid Navy" and cancellation of the Type 83 destroyer program — validating BAE's autonomous-systems roadmap as a hedge against lost traditional surface-combatant programs. KNDS NV postponed its planned €12bn Paris/Frankfurt dual-listing IPO (floating up to 20% of capital) citing sudden European defense-sector volatility, despite a record €33.1bn backlog and intact structural agreements including KfW's 40% stake acquisition — a sign institutional investors are reassessing defense-equity valuation premiums even amid strong fundamentals. Rheinmetall secured a several-hundred-million-euro Skynex air-defense order but also flagged a potential €300mn 2026 revenue hit from the F126 frigate program's cancellation.
 
-*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[macro-frameworks]]
+*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *Quartz Sea Research* — Weekly Euro Brief (Week 27, 2026)
 

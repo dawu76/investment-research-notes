@@ -105,6 +105,6 @@ Summary of key themes and observations extracted from investment-related newslet
 - Synthesis of SemiAnalysis June 2026 themes is in [[semianalysis-research-2026-06]].
 - Evaluated market valuation frameworks and software multiples benchmarks in [[valuations]].
 - Optical interconnect architectures (CPO/NPO) and laser vendor comparisons are detailed in [[cpo-and-npo-optics]].
-- Analyzed macro growth trajectories and interest rate dynamics in [[macro-frameworks]].
-- For context on historical portfolio allocations and systematic overlays, see [[trend-following-strategy]] and [[principles]].
+- Analyzed macro growth trajectories and interest rate dynamics in [[investing-macro/macro-frameworks/README|macro-frameworks]].
+- For context on historical portfolio allocations and systematic overlays, see [[investing-quant/strategies/trend-following/README|trend-following-strategy]] and [[principles]].
 - Previous digests: [[market-newsletter-digest-2026-06-21]] and [[market-newsletter-digest-2026-06-20]].

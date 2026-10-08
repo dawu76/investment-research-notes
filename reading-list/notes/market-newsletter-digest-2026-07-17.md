@@ -83,7 +83,7 @@ The financial relationship between frontier AI labs and public cloud hyperscaler
 *   **The Korean Kospi Crash:** The Korean index is a pure proxy for this supplier-leverage loop. The Kospi plunged **25%** from its June 22 record peak of 9,114 as retail margin loans (38.6tn won) and leveraged single-stock ETFs on Samsung and SK Hynix unwound. The Bank of Korea hiked interest rates for the first time in 3.5 years.
 *   **The Trade Action:** The deflation is in the software layer, not the hardware or energy layer: *"You can open source a model and you can’t open source a substation."* The highest-conviction trade is to bypass model companies and buy the commodity layer: **copper, power grid hardware, uranium, and energy infrastructure**.
 
-*   **Cross-references:** [[carry-strategy]], [[valuations]]
+*   **Cross-references:** [[investing-quant/strategies/carry/README|carry-strategy]], [[valuations]]
 *   **Sources:**
     *   *TSCS Research* — Seoul Was First
 
@@ -130,7 +130,7 @@ Federal Reserve Chair Kevin Warsh faced Congress, while geopolitical tensions fl
 *   **Hike Expectations:** Geopolitical oil price inflation moved Fed hike expectations to **43% for July** and **80% for September**, ahead of Warsh's testimony.
 *   *Gromen's Fed Trilemma:* The Fed faces a structural trilemma: (1) hike rates and foreign holders sell Treasuries; (2) cut rates and AI-buildout inflation reaccelerates; (3) hold rates and government interest expense compounds.
 
-*   **Cross-references:** [[macro-frameworks]], [[hormuz-closure-scenarios-2026]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]], [[hormuz-closure-scenarios-2026]]
 *   **Sources:**
     *   *Podcast Alpha* — Warsh's First Testimony Was Steady. The Trilemma Underneath It Wasn't.
     *   *MacroVisor* — Breakfast Bites: The Chip Unwind Deepens

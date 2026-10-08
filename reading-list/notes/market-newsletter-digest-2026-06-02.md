@@ -32,7 +32,7 @@ Summary of key themes and observations extracted from investment-related newslet
 
 ## 2. Quantitative Strategies & Trading: Systems vs. Predictions
 
-1. **Trend-Following as Pressure Detection:** A trend-following model is not a prediction engine but a pressure-detection system that identifies when price action shifts from random noise to persistent pressure (flows, positioning squeezes, liquidity cascades, or macro repricing). This aligns with the mechanics in [[trend-following-strategy]].
+1. **Trend-Following as Pressure Detection:** A trend-following model is not a prediction engine but a pressure-detection system that identifies when price action shifts from random noise to persistent pressure (flows, positioning squeezes, liquidity cascades, or macro repricing). This aligns with the mechanics in [[investing-quant/strategies/trend-following/README|trend-following-strategy]].
 2. **Components of a True Trend System:** Successful systematic trend trading requires clear predefined rules on:
    * *Trend Definition:* Price relative to moving averages, range breakouts, or slope changes.
    * *Regime Constraints:* Distinguishing breakouts in low-volatility compressions vs. post-panic regimes.

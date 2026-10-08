@@ -92,6 +92,6 @@ Summary of key themes and observations extracted from investment-related newslet
 
 ## Related Notes & Cross-References
 - Evaluated market valuation frameworks and software multiples benchmarks in [[valuations]].
-- Analyzed macro growth trajectories and interest rate dynamics in [[macro-frameworks]].
-- For context on historical portfolio allocations and systematic overlays, see [[trend-following-strategy]] and [[principles]].
+- Analyzed macro growth trajectories and interest rate dynamics in [[investing-macro/macro-frameworks/README|macro-frameworks]].
+- For context on historical portfolio allocations and systematic overlays, see [[investing-quant/strategies/trend-following/README|trend-following-strategy]] and [[principles]].
 - Previous digests: [[market-newsletter-digest-2026-06-20]] and [[market-newsletter-digest-2026-06-03]].

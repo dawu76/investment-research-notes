@@ -121,7 +121,7 @@ Global Liquidity Index (CrossBorder Capital):
 - **USD/JPY:** ¥162 (35-year low)
 - **US 10-Year Yield:** 4.55% | **2-Year Yield:** 4.18%
 - **Sources:** *Podcast Alpha / Michael Howell*, *PauloMacro*, *QTR (Fringe Finance)*.
-- **Cross-References:** See [[bond-supply-tsunami-2026]] and [[trend-following-strategy]].
+- **Cross-References:** See [[bond-supply-tsunami-2026]] and [[investing-quant/strategies/trend-following/README|trend-following-strategy]].
 
 ---
 
@@ -141,4 +141,4 @@ Global Liquidity Index (CrossBorder Capital):
 - [[cpo-and-npo-optics]] — Optical transceiver and silicon photonics hardware transitions
 - [[bond-supply-tsunami-2026]] — Treasury issuance, yields, and macro debt dynamics
 - [[funding-short-squeeze]] — Market positioning, leverage stress, and short unwind mechanics
-- [[trend-following-strategy]] — Technical trend frameworks and moving average breakdown signals
+- [[investing-quant/strategies/trend-following/README|trend-following-strategy]] — Technical trend frameworks and moving average breakdown signals

@@ -120,7 +120,7 @@ Inflation prints fell while analysts highlighted the systemic risks of historica
 *   **The BoJ Reverse Carry Trade:** Michael Gayed analyzed the Bank of Japan's 2006 rate hike exit. The yield gap between the 0.25% BoJ rate and the 5.25% Fed rate funded a **$1.0tn carry trade**. The subsequent unwind caused USD/JPY to appreciate 30% (from 124 to 87), triggering a global deleveraging where US stocks fell 57%, EM fell 67%, and Japanese exports collapsed 45%.
 *   **Bank of Korea:** Hiked **25 bps** (first hike in 3.5 years) citing AI growth, while the KOSPI plummeted 6% on leveraged ETF speculation.
 
-*   **Cross-references:** [[carry-strategy]], [[macro-frameworks]]
+*   **Cross-references:** [[investing-quant/strategies/carry/README|carry-strategy]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *The Lead-Lag Report* — The Reverse Carry Trade That Broke 2008
     *   *MacroVisor* — Breakfast Bites: Soft Prices, Strong Chips

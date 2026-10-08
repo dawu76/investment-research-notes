@@ -22,7 +22,7 @@ Fed Chair Kevin Warsh made his first international policymaker appearance the sa
 *   **The Yen:** USD/JPY sat at its weakest level in more than 40 years (~162.7, grinding toward Goldman's 162.40 marker). Japan's currency chief Mimura stayed quiet, noting the US has raised no objection to intervention — read as tolerance of yen weakness for now, with any actual intervention backloaded to after Thursday's payrolls once holiday liquidity improves.
 *   **Seasonality:** Goldman's desk flagged that while the S&P has historically ramped in early July, the Nasdaq 100 tends to trade sideways to start the month before picking up steam mid-month, peaking around the 17th. With volumes already 20% below the 20-day average into the holiday week, any move this week is likely to be larger than the news justifies.
 
-*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[macro-frameworks]]
+*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *MacroVisor* — Breakfast Bites: Warsh's Sintra Debut
 
@@ -134,7 +134,7 @@ EPB Research argues America's housing affordability crisis is a symptom of a muc
 *   **The Structures-to-Intangibles Shift:** In the 1960s, real net investment in physical structures ran 7–9% of GDP while equipment/IP investment ran under 1%; today they're roughly equal at ~2.1% each. EPB frames this as a distributional problem as much as a technological one — returns to intangible capital flow to a shrinking share of the population, while the physical infrastructure most people depend on for productivity is depreciating faster than it's being replaced.
 *   **Housing Specifically:** Real net residential investment has dropped from ~5% of GDP in the 1970s to ~1% today. The price index for residential investment has run ~4%/year above consumer inflation for decades — explaining why personal inflation "feels" higher than headline CPI, which blends in categories with falling prices. Adjusted for inflation, depreciation, and household growth, the US now adds under $2,000 of real housing per household per year, versus $3,000–$4,000 historically — meaning the country adds less housing per household today than it did 57 years ago.
 
-*   **Cross-references:** [[bond-supply-tsunami-2026]], [[macro-frameworks]]
+*   **Cross-references:** [[bond-supply-tsunami-2026]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *EPB Research* — Build Less, Pay More: What Happened to American Housing
 
@@ -147,6 +147,6 @@ A speculative but distinctive piece from Dr. Pippa's Pen & Podcast used Alan Gre
 *   **The Greenspan Thesis:** The author (a former White House economic staffer who worked alongside Greenspan through the dot-com crash and 9/11) argues Greenspan's edge was never pure economic theory — it was information arbitrage, built on an informal network spanning intelligence, foreign policy, and tech, plus unorthodox real-time indicators like tracking corporate cardboard-box production as an early demand signal (Greenspan's famous "Cardboard Box Index").
 *   **The AI Argument:** The piece argues that the human information-network Greenspan mastered is being condensed into modern AI compute infrastructure (citing Nvidia's Blackwell NVL72 rack architecture, HBM3e bandwidth, and high-speed optical interconnects as the technical substrate), enabling near-real-time simulation of macroeconomic conditions that could eventually make discretionary central-banker forward guidance as anachronistic as a human-driven car. The framing draws on Hayek's 1945 "The Use of Knowledge in Society" — the market's core function is aggregating distributed information no central planner can hold — extending it to argue that sufficiently capable AI could eventually let "money price itself" without FOMC intervention.
 
-*   **Cross-references:** [[macro-frameworks]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *Dr. Pippa's Pen & Podcast* — Intelligent Monetary Policy: Greenspan and the End of Forward Guidance (Part One of Three)

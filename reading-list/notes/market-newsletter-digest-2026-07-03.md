@@ -88,7 +88,7 @@ James Wang (Weighty Thoughts) used the July 4th anniversary to examine unusually
 *   **The Data:** Americans filed 5.67 million business applications in 2025 (a record, with 2026 running ahead of pace); the pre-pandemic monthly rate of ~292,000 has risen to ~524,000 as of this May, with two distinct step-changes — one starting mid-2020 (pandemic-driven: remote work, stimulus, the "quits wave," not AI-attributable) and a second starting mid-2025. Actual business *establishment births* (not just applications, most of which never become real businesses) are running ~45% above pre-pandemic rates — a figure the Economic Innovation Group calls the largest increase in American economic dynamism in at least 30 years, and one that skeptical labor economist John Haltiwanger (who has spent two decades documenting declining US business dynamism) has conceded is genuine.
 *   **Torsten Slok's Attribution:** Apollo's chief economist attributes the boom to AI/LLMs "dramatically reducing the cost and complexity of launching a company" — Wang agrees directionally but notes this continues a much longer trend of software (mainframes → PCs → early internet → SaaS → cloud → AI) progressively lowering the cost of starting a business, rather than representing something entirely new. Wang cites personal observation of ~20 companies he knows running $10–100M in annual recurring revenue with only 3–5 employees as anecdotal confirmation of the trend's real economic bite.
 
-*   **Cross-references:** [[macro-frameworks]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *James Wang (Weighty Thoughts)* — America Turns 250. Its Biggest Companies Never Do—And That's Great!
 
@@ -102,7 +102,7 @@ Michael Gayed profiled a structured-credit ETF designed to benefit from exactly 
 *   **The Rate Sensitivity (Inverted):** Because CLOZ's holdings pay a floating rate tied to SOFR, a Fed under Kevin Warsh holding rates or hiking further translates directly into *more* income for shareholders — the mirror image of rate-sensitive REIT and preferred-stock funds, which suffer in the same higher-for-longer scenario.
 *   **Fund Specifics:** NYSE Arca: CLOZ; ~$816M AUM across 203 individual CLO tranches; 0.50% expense ratio; inception January 2023; 30-day SEC yield 6.85%, distribution yield 7.46% (monthly distributions ~$0.171/share); trades essentially at NAV (active ETF structure, not a closed-end fund); benchmarked to the JPMorgan CLO High Quality Mezzanine Index.
 
-*   **Cross-references:** [[macro-frameworks]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *Lead-Lag Report (Michael Gayed)* — The CLO Income Play That Doesn't Blow Up
 
@@ -127,7 +127,7 @@ Asia Tech Review detailed Shopee's expanding partnership strategy to defend its 
 *   **TSOH (Alex Morris):** Flagged Comcast's NBCUniversal spinoff (covered in the June 30 digest) as a strategic move he'd been waiting "more than five years" for; noted Nestlé executives observing consumer pack-size polarization amid inflation (shoppers moving to either the smallest or largest pack sizes, squeezing mid-sized formats) as directly relevant to value retailers like Dollar Tree/Ollie's versus warehouse clubs like BJ's/Costco; and flagged Meta's compute-resale plans (Section 1) as evidence that "blurring lines" in mega-cap tech business models are making position-sizing decisions harder given a materially different long-term risk/reward profile than five years ago.
 *   **Torsten Slok (Apollo):** More than 40% of Russell 2000 companies are currently unprofitable, meaning a higher-for-longer rate environment directly threatens middle-market firms as debt-servicing costs consume a growing share of thin or negative earnings — a data point that sits in tension with the small-cap earnings-strength narrative highlighted in this digest series' July 2 edition (Section 1's Russell 2000 discussion), underscoring that small-cap performance likely masks meaningful dispersion between profitable and unprofitable constituents.
 
-*   **Cross-references:** [[valuations]], [[macro-frameworks]]
+*   **Cross-references:** [[valuations]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *TSOH Investment Research (Alex Morris)* — TSOH Weekly Roundup (07/03/26)
     *   *Torsten Slok (Apollo)* — Middle Market Investing: When Higher Rates Meet Thin Earnings

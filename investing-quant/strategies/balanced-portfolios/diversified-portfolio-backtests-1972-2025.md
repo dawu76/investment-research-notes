@@ -90,7 +90,7 @@ The last column is the annualized real return across the 11 years with CPI above
 - AQR's research factor beat the average real CTA by about 6 points a year even after an assumed 3% fee drag. Published research backtests are an upper bound on what funds deliver.
 - Every trend version improved P4 versus holding T-bills in that slot and reduced the 2008 loss: +0.3 points a year for the simulated rule and +0.5 for the CTA index over 1980-2025, and +1.0 for AQR over 1985-2025. ^[investing-quant/backtests/results/layer2_results.md]
 - The simulated sleeve's full-period 8.6% CAGR came mostly from one decade: its gold leg earned about 30% a year over T-bills in 1972-81 (long through the 1970s bull market, short into the 1981 crash). After 1982 the sleeve beat T-bills by about 2.5% a year. ^[investing-quant/backtests/results/layer1_results.md]
-- See [[trend-following-concept]] and [[trend-following-strategy]].
+- See [[investing-quant/concepts/trend-following|trend-following-concept]] and [[investing-quant/strategies/trend-following/README|trend-following-strategy]].
 
 ### TIPS
 

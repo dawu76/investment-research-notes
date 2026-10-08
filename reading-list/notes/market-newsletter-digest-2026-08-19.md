@@ -112,7 +112,7 @@ Synthesized analysis of key themes, market data, and strategic insights from fin
   * **Alexander Stahel: "China Is the New OPEC" (The Commodity Compass):**
     * *Swing Demand Dominance:* Alexander Stahel details how Beijing has effectively replaced OPEC as the global marginal price setter for crude oil. By orchestrating a massive **6 million barrel-per-day (mbpd)** flexible demand buffer—alternating between aggressive commercial Strategic Petroleum Reserve (SPR) stockpiling during price dips and throttling independent "teapot" refinery export quotas during price spikes—China establishes an artificial floor/ceiling collar on Brent crude ($70–$85/bbl).
   * **QTR's Fringe Finance: "Buying Bullshit In 4 Easy Payments":**
-    * *Subprime Credit Exhaustion:* Quoth the Raven analyzes the deteriorating credit profile of the low-income U.S. consumer, highlighting the rapid expansion of Buy-Now-Pay-Later (BNPL) platforms (`[[afrm]]`) and micro-cash advance apps (`[[dave]]`) into non-discretionary micro-purchases (fast food, groceries, rideshares).
+    * *Subprime Credit Exhaustion:* Quoth the Raven analyzes the deteriorating credit profile of the low-income U.S. consumer, highlighting the rapid expansion of Buy-Now-Pay-Later (BNPL) platforms ([[afrm-2-equity-report|afrm]]) and micro-cash advance apps ([[dave-2-equity-report|dave]]) into non-discretionary micro-purchases (fast food, groceries, rideshares).
     * *Economic Signal:* When consumers finance $12 lunches across four installment payments, it signals the final phase of liquidity buffer depletion, preceding a sharp surge in credit card, auto loan, and unsecured installment delinquencies.
 * **Sources:** Alexander Stahel (*The Commodity Compass — "Episode 8: China Is the New OPEC", Aug 19, 2026*); QTR's Fringe Finance (*"Buying Bullshit In ‘4 Easy Payments’", Aug 19, 2026*).
 
@@ -121,8 +121,8 @@ Synthesized analysis of key themes, market data, and strategic insights from fin
 ### Cross-References
 
 * [[google-marvell-broadcom-optical-20260819]] — Detailed structural comparison and supply chain exposure matrix for Google, Marvell, Broadcom, and the optical networking cohort.
-* [[afrm]] — Fundamental research, balance sheet capital marketplace, and credit loss analysis for Affirm Holdings.
-* [[dave]] — Comprehensive analysis of Dave Inc., CashAI cash-flow underwriting, and >35x capital velocity economics.
+* [[afrm-2-equity-report|afrm]] — Fundamental research, balance sheet capital marketplace, and credit loss analysis for Affirm Holdings.
+* [[dave-2-equity-report|dave]] — Comprehensive analysis of Dave Inc., CashAI cash-flow underwriting, and >35x capital velocity economics.
 * [[market-newsletter-digest-2026-08-14]] — Bob Elliott on the $5T circular tech financing loop, expectations mania, and real-economy consumption limits.
 * [[market-newsletter-digest-2026-08-13]] — Robotti & Company on real assets vs. AI mania (atoms vs. bits) and Michael Howell on global liquidity rollover into 2027.
 * [[global-liquidity-framework]] — Global liquidity transmission, capital absorption between financial and real circuits, and multi-year infrastructure cycles.

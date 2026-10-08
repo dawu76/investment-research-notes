@@ -24,7 +24,7 @@ Geopolitical hostilities between the U.S. and Iran have re-escalated, spilling d
 > [!IMPORTANT]
 > The Strait of Hormuz remains the single most critical global oil transit bottleneck; any disruptions will immediately re-ignite global inflation through diesel and feedstock channels.
 
-*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[macro-frameworks]]
+*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *Le Shrub from Reminiscences of a Shrub Operator* — "Aya-Toll" vs "Trump-Toll"
     *   *MacroVisor* — Breakfast Bites: A Big Day and a Big Blockade
@@ -45,7 +45,7 @@ The ongoing Ukrainian drone campaign targeting Russian energy infrastructure has
     *   Diesel prices on the SPIMEX commodity exchange have doubled from winter levels to **148,000 roubles per tonne** (128 roubles/liter). 
     *   Spot road freight requests quadrupled in a week, and truck transport tariffs jumped **10%** in seven days. Farmers are driving combines directly to retail stations as agricultural depots run dry.
 
-*   **Cross-references:** [[macro-frameworks]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *The Commodity Compass* — Episode 5: Running on Empty - The Russian Endgame Is Here to Stay
     *   *EPB Research* — Every Economic Number Is Either Early or Late. Most of the Famous Ones Are Late.

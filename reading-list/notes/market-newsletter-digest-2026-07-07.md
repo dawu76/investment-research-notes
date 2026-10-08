@@ -127,7 +127,7 @@ Legendary Fundsmith manager Terry Smith, known for his long-term buy-and-hold qu
 
 ## Related Notes & Cross-References
 * For details on passive indexing flows and active manager dynamics, see [[active-vs-passive]].
-* The competitive dynamics of AppLovin and Intuit are detailed in [[app]] and [[intu-3-investment-memo]] respectively.
+* The competitive dynamics of AppLovin and Intuit are detailed in [[app-2-equity-report|app]] and [[intu-3-investment-memo]] respectively.
 * Historical multiples and CAPE trend data are indexed in [[valuations]].
 * Macro deficit-driven credit scenarios are analyzed in [[bond-supply-tsunami-2026]].
 * Prior digest: [[market-newsletter-digest-2026-07-06]].

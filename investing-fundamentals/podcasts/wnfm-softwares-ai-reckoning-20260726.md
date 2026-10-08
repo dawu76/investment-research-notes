@@ -120,8 +120,8 @@ Expected public listings for Anthropic (signaled for 2026/2027) and OpenAI (sign
 ### VI. Cross-References
 
 *   [[saaspocalypse-dispersion-2026-04-09]] — Analysis of SaaS valuation dispersion, multiple compression, and seat-based pricing friction.
-*   [[now]] — ServiceNow company assessment, financial breakdown, and enterprise AI workflow automation.
-*   [[ddog]] — Datadog fundamental profile and consumption-based business model mechanics.
+*   [[now-2-equity-report|now]] — ServiceNow company assessment, financial breakdown, and enterprise AI workflow automation.
+*   [[ddog-2-equity-report|ddog]] — Datadog fundamental profile and consumption-based business model mechanics.
 *   [[valuations]] — Valuation methodologies, post-SBC earnings adjustments, and software multiple frameworks.
 *   [[funding-short-squeeze]] — Software vs. semiconductor pair trading dynamics and short financing mechanics.
 *   [[ai-labs-smb-push-vs-incumbents-2026]] — Strategic analysis of frontier AI labs expanding into enterprise workflow software vs. SaaS incumbents.

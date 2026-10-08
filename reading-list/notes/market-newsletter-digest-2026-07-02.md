@@ -21,7 +21,7 @@ With markets closed Friday for July 4th, June payrolls landed a day early into a
 *   **Japan Risk:** The MOF is reportedly moving away from telegraphing FX intervention in advance in favor of surprise timing designed to punish yen shorts — with New York closed Friday and holiday liquidity thin, MacroVisor explicitly warns against being short yen into the weekend. A weak 10-year JGB auction (following a soft 20-year sale) is pushing JGB yields higher, pulling capital home and tightening global liquidity at the margin. MacroEdge separately flags AI/semi/RAM names making up ~75% of the KOSPI as a concentration risk that could make Korean and Japanese downside "more severe than here in the US."
 *   **Small Caps:** Russell 2000 has been beating large caps on expected Fed easing, tax-refund tailwinds, and the largest upward earnings-growth revision (+40%) in a long time — MacroVisor notes IWN (small-cap value) is up 18% since being added to its tactical list on Dec 15, 2025.
 
-*   **Cross-references:** [[macro-frameworks]], [[hormuz-closure-scenarios-2026]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]], [[hormuz-closure-scenarios-2026]]
 *   **Sources:**
     *   *MacroVisor* — Breakfast Bites: Payrolls Before the Fireworks
     *   *MacroEdge Research* — Midweek Macro Note: Nonfarm Preview, Latest Energy Data, Asian Risks Part 2
@@ -36,7 +36,7 @@ Michael Gayed's quarter-close recap ties together the winners and losers of Q2 2
 *   **The Contradiction at the Center:** The "Magnificent Seven" are down ~4% YTD (Microsoft -24%, Meta -~15%) while chip suppliers doubled — Gayed reads this as the market betting the near-term monopoly on AI cash flow belongs to whoever sells the shovels, not whoever digs with them, a bet against $754 billion of projected hyperscaler capex "with no clean line of sight to return." JPMorgan had penciled in up to $165 billion of quarter-end pension rebalancing pressure into June 30 (one of the largest such mechanical events on record); the market absorbed it entirely, with Alphabet (freshly added to the Dow) jumping 4.8% on its first day as a component.
 *   **Global Sync:** Asian equities ran even hotter — the Nikkei 225 closed at 70,062.32 (+~37% on the quarter, its best ever), Korea's KOSPI printed a ~67.77% quarterly gain (biggest since Q4 1998), and Taiwan's Taiex ran ~46%. Europe was comparatively muted (STOXX 600 +~9.7%, best since 2020). This is happening alongside synchronized global tightening: the ECB's first hike since September 2023 (deposit rate to 2.25%, June 11), the BOJ's hike to 1.00% (a 31-year high, June 16), and the BOE holding at 3.75% on a 7-2 vote with dissenters wanting a hike. Gayed's read: "that combination does not usually end with everyone getting paid." The Nikkei's record quarter alongside the yen's 40-year low (162.42/dollar, weakest since December 1986) is flagged as the single most instructive divergence of the quarter.
 
-*   **Cross-references:** [[valuations]], [[macro-frameworks]]
+*   **Cross-references:** [[valuations]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *Lead-Lag Report (Michael Gayed)* — A Record Quarter, a 40-Year Yen Low, and a Refuted Peace Trade: Q3 Has Begun
 

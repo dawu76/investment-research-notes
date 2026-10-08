@@ -217,7 +217,7 @@ Dave Inc. (NASDAQ: DAVE) has achieved the rarest combination in consumer financi
   - Classification: Mid-Cap growth fintech (~$4.35B market cap, graduated from S&P SmallCap 600 inclusion).
 - **Execution & Entry Staging:**
   - Accumulate in **3 staged tranches** (e.g. 40% initial position at market ~$335, 30% on pullbacks to the 50-day moving average ~$300–$315, and 30% post-earnings confirmation).
-- **Valuation Anchor:** At ~19.4x FY2026E Adjusted Diluted EPS with 44% EBITDA margins and ROTE >65%, Dave trades at a steep discount to high-growth peers (`[[afrm]]`, `[[hood]]`, `[[shop]]`).
+- **Valuation Anchor:** At ~19.4x FY2026E Adjusted Diluted EPS with 44% EBITDA margins and ROTE >65%, Dave trades at a steep discount to high-growth peers ([[afrm-2-equity-report|afrm]], [[hood-2-equity-report|hood]], [[shop-2-equity-report|shop]]).
 - **Thesis Invalidation Trigger:** 28-day past-due rate breaching 2.80% for two consecutive quarters, or customer acquisition cost (CAC) exceeding $30.00.
 
 ---

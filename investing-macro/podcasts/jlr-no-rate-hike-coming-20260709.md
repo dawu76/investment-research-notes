@@ -80,6 +80,6 @@ DiMartino Booth argues that the headline unemployment rate of 4.2% hides structu
 ---
 
 ### VI. Cross-References
-*   [[fed-policy-and-forward-guidance]]
-*   [[wealth-inequality-k-shaped-economy]]
-*   [[labor-market-weakness]]
+*   fed-policy-and-forward-guidance
+*   wealth-inequality-k-shaped-economy
+*   labor-market-weakness

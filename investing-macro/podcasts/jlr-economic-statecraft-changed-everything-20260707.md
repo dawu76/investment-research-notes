@@ -82,6 +82,6 @@ Every expects conflicts, particularly involving Iran, to escalate post-US midter
 ---
 
 ### VI. Cross-References
-*   [[geopolitical-risk-premiums]]
-*   [[onshoring-and-supply-chains]]
-*   [[commodity-supercycle-2026]]
+*   geopolitical-risk-premiums
+*   onshoring-and-supply-chains
+*   commodity-supercycle-2026

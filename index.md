@@ -12,37 +12,37 @@
 
 | Ticker | Company | Pipeline stages | Notes |
 |---|---|---|---|
-| [[afrm]] | Affirm | 1–3 | Next-gen point-of-sale consumer payments, Affirm Card, and two-sided installment lending platform |
-| [[alab]] | Astera Labs | 1–3 | AI infrastructure connectivity chips (PCIe/CXL) for hyperscalers |
-| [[app]] | AppLovin | 1–4 + assessment | AI-powered programmatic advertising and e-commerce infrastructure platform (pure-play software post-gaming divestiture) |
-| [[crcl]] | Circle | 1–3 | Regulated digital dollar (USDC/EURC) issuer and institutional blockchain infrastructure (Arc L1) |
-| [[crwd]] | CrowdStrike | 1–3 | Cloud-native cybersecurity platform (endpoint, identity, cloud) |
-| [[dave]] | Dave Inc. | 1–4 + HTML suite | Neobanking, CashAI liquidity advances (ExtraCash), and high-velocity consumer fintech platform (`dave-investment-research.html`) |
-| [[ddog]] | Datadog | 1–3 | Cloud observability, monitoring, and security SaaS |
-| [[ftnt]] | Fortinet | 1–3 | Network security appliances and SASE platform |
-| [[gtlb]] | GitLab | 1–3 | DevSecOps platform (SCM, CI/CD, security scanning) |
-| [[hood]] | Robinhood | 1–3 | Retail brokerage and crypto trading app |
-| [[ibkr]] | Interactive Brokers | 1–3 | Institutional and active-trader brokerage |
-| [[intu]] | Intuit | 1–4 + assessment | Consumer and SMB financial software (TurboTax, QuickBooks, Credit Karma) |
-| [[jfrog]] | JFrog | 1–4 | Software supply chain and artifact management platform |
-| [[mos]] | The Mosaic Company | 1–3 | Integrated phosphate and potash crop nutrient producer; credit and margin-squeeze analysis |
-| [[net]] | Cloudflare | 1–4 + assessment | Network security, CDN, zero-trust (SASE), and edge compute |
-| [[now]] | ServiceNow | 1–4 + assessment | Enterprise IT and business workflow automation |
-| [[panw]] | Palo Alto Networks | 1–4 | Cybersecurity platform (NGFW, Prisma, Cortex XDR) |
-| [[rbrk]] | Rubrik | 1–3 | Data security and ransomware recovery platform |
-| [[sezl]] | Sezzle | 1–4 + HTML suite | Subscriber-gated BNPL, Sezzle Anywhere omnichannel virtual card, and high-velocity micro-liquidity platform (`sezl-investment-research.html`) |
-| [[shop]] | Shopify | 1–5 + assessment | E-commerce platform and merchant financial services |
-| [[zscaler]] | Zscaler | 1–4 | Zero-trust network access and cloud security proxy |
+| [[afrm-2-equity-report\|afrm]] | Affirm | 1–3 | Next-gen point-of-sale consumer payments, Affirm Card, and two-sided installment lending platform |
+| [[alab-2-equity-report\|alab]] | Astera Labs | 1–3 | AI infrastructure connectivity chips (PCIe/CXL) for hyperscalers |
+| [[app-2-equity-report\|app]] | AppLovin | 1–4 + assessment | AI-powered programmatic advertising and e-commerce infrastructure platform (pure-play software post-gaming divestiture) |
+| [[CRCL\|crcl]] | Circle | 1–3 | Regulated digital dollar (USDC/EURC) issuer and institutional blockchain infrastructure (Arc L1) |
+| [[crwd-2-equity-report\|crwd]] | CrowdStrike | 1–3 | Cloud-native cybersecurity platform (endpoint, identity, cloud) |
+| [[dave-2-equity-report\|dave]] | Dave Inc. | 1–4 + HTML suite | Neobanking, CashAI liquidity advances (ExtraCash), and high-velocity consumer fintech platform (`dave-investment-research.html`) |
+| [[ddog-2-equity-report\|ddog]] | Datadog | 1–3 | Cloud observability, monitoring, and security SaaS |
+| [[ftnt-2-equity-report\|ftnt]] | Fortinet | 1–3 | Network security appliances and SASE platform |
+| [[gtlb-2-equity-report\|gtlb]] | GitLab | 1–3 | DevSecOps platform (SCM, CI/CD, security scanning) |
+| [[hood-2-equity-report\|hood]] | Robinhood | 1–3 | Retail brokerage and crypto trading app |
+| [[ibkr-2-equity-report\|ibkr]] | Interactive Brokers | 1–3 | Institutional and active-trader brokerage |
+| [[intu-2-equity-report\|intu]] | Intuit | 1–4 + assessment | Consumer and SMB financial software (TurboTax, QuickBooks, Credit Karma) |
+| [[jfrog-2-equity-report\|jfrog]] | JFrog | 1–4 | Software supply chain and artifact management platform |
+| [[mos-2-equity-report\|mos]] | The Mosaic Company | 1–3 | Integrated phosphate and potash crop nutrient producer; credit and margin-squeeze analysis |
+| [[net-2-equity-report\|net]] | Cloudflare | 1–4 + assessment | Network security, CDN, zero-trust (SASE), and edge compute |
+| [[now-2-equity-report\|now]] | ServiceNow | 1–4 + assessment | Enterprise IT and business workflow automation |
+| [[panw-2-equity-report\|panw]] | Palo Alto Networks | 1–4 | Cybersecurity platform (NGFW, Prisma, Cortex XDR) |
+| [[rbrk-2-equity-report\|rbrk]] | Rubrik | 1–3 | Data security and ransomware recovery platform |
+| [[sezl-2-equity-report\|sezl]] | Sezzle | 1–4 + HTML suite | Subscriber-gated BNPL, Sezzle Anywhere omnichannel virtual card, and high-velocity micro-liquidity platform (`sezl-investment-research.html`) |
+| [[shop-2-equity-report\|shop]] | Shopify | 1–5 + assessment | E-commerce platform and merchant financial services |
+| [[zscaler-2-equity-report\|zscaler]] | Zscaler | 1–4 | Zero-trust network access and cloud security proxy |
 
 ### Themes
 *Cross-company thematic analyses in `investing-fundamentals/company-analyses/themes/`*
 
 - [[zero-trust]] — Zero-trust security architecture: landscape, vendors, and adoption dynamics
-- [[cyber-saas-seat-risk]] — Thesis on cybersecurity SaaS seat contraction risk (equity report + memo)
+- [[cyber-saas-seat-risk-2-equity-report|cyber-saas-seat-risk]] — Thesis on cybersecurity SaaS seat contraction risk (equity report + memo)
 - [[cpo-and-npo-optics]] — Analysis of Co-packaged Optics (CPO) vs. Near-packaged Optics (NPO), Silicon Photonics transitions (TSMC vs. Tower), UHP lasers (Lumentum vs. Coherent), and VCSEL CPO packaging
 - [[deepseek-v4-1-flash-memory-bottlenecks]] — DeepSeek V4.1 Flash: Causal Encoder-Decoder (CED), 890 B/token KV cache, resolution of AI memory bandwidth/capacity bottlenecks, and equity impact across GPUs, HBM, enterprise NAND, and host DRAM (September 2026)
 - [[burry-ai-capital-cycle-oracle-jupiter-2026-09]] — Burry's AI capital cycle warning ($3T hyperscaler commitments, net investment 2.07% of GDP, write-offs 2028-2029, Oracle prepayment accounting) and Oracle's Project Jupiter force majeure notice (Morningstar: $25B+ revenue at risk, $220 FV held), plus his "Trump cannot afford to let it fail" post and disclosed shorts (September 2026)
-- [[lakewatch-siem-threat]] — Lakewatch SIEM threat analysis and competitive implications (equity report + memo)
+- [[lakewatch-siem-threat-2-equity-report|lakewatch-siem-threat]] — Lakewatch SIEM threat analysis and competitive implications (equity report + memo)
 - [[ai-labs-smb-push-vs-incumbents-2026]] — AI labs entering SMB market vs. incumbents: competitive dynamics (2026)
 - [[uber-robotaxi-aggregator-thesis-2026-09]] — BNP Paribas bull case for Uber as robotaxi aggregator ($0.16-0.42/mile long-run AV cost, $106 PT) vs. disintermediation risk (Waymo's own app in Austin/Atlanta from Jan 2028, Tesla Cybercab, BofA's 18-24 month head start); utilization-vs-platform-fee crux and watch list (September 2026)
 - [[ubp-financing-ai-build-out-2026-09]] — UBP fixed income report on financing the AI build-out: hyperscaler capex vs cash flow, $2.9T off-balance-sheet obligations, $2.3T backlog ~40% owed by OpenAI/Anthropic, IG/HY index crowding, project and chip-backed bonds; with arithmetic checks, cross-checks against wiki data, historical comparisons (railways, telecom, shale), and a comparison section against the identically-titled Brookings/Van Nieuwerburgh paper (September 2026)
@@ -84,9 +84,9 @@
 
 - [[vix-ratios-gamma-regimes-expiration]] — VIX ratios, gamma exposure regimes, and expiration dynamics
 - [[trading-approaches]] (`options/notes/`) — Options trading approach notes and methodology
-- [[options-concepts]] (`options/concepts/README.md`) — Options concepts overview and reference
-- [[moontower-analyses]] (`options/moontower/analyses.md`) — Moontower options research and analysis notes
-- [[outlier-trading]] (`options/outlier-trading/README.md`) — Outlier Trading strategy notes
+- [[investing-options/concepts/README|options-concepts]] (`options/concepts/README.md`) — Options concepts overview and reference
+- [[investing-options/moontower/analyses|moontower-analyses]] (`options/moontower/analyses.md`) — Moontower options research and analysis notes
+- [[investing-options/outlier-trading/README|outlier-trading]] (`options/outlier-trading/README.md`) — Outlier Trading strategy notes
 
 ### Options Income
 *In `investing-options/income/` — note: transcript files are raw source material*
@@ -149,11 +149,11 @@
 - [[bond-supply-tsunami-2026]] — 2026 thesis on structural oversupply of US Treasury issuance and market impact
 - [[hormuz-closure-scenarios-2026]] — Geopolitical risk scenarios around Strait of Hormuz closure
 - [[yen-carry-trade-unwinding-2025]] (`carry-trade-analysis/`) — Yen carry trade unwinding analysis (2025) — **1,189 lines, candidate for splitting**
-- [[macro-frameworks]] (`macro-frameworks/README.md`) — Macro analytical frameworks and reference
+- [[investing-macro/macro-frameworks/README|macro-frameworks]] (`macro-frameworks/README.md`) — Macro analytical frameworks and reference
 - [[global-liquidity-framework]] (`macro-frameworks/global-liquidity-framework.md`) — Global Liquidity Framework: the 15–18 month asynchronous business cycle lag, empirical evidence, and cross-asset allocation
 - [[treasury-financial-repression-slr-stablecoins]] (`macro-frameworks/treasury-financial-repression-slr-stablecoins.md`) — Treasury Financial Repression: SLR/eSLR bank deregulation, stablecoins as captive T-bill sinks, off-the-run liquidity discounts, and shadow yield curve control
 - [[ai-compute-commencement-wall-and-refinancing-trap]] (`macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md`) — AI Compute Commencement Wall: Take-or-pay contract mechanics, 24–36 month construction teaser lags, circular vendor financing reflexivity, and 2027–2028 payment shock scenarios. **Re-assessed 2026-09-01** — verdicts re-graded, coverage-deficit arithmetic corrected to 120–330%, gray areas flagged, ~80% probability mass shown on multiple compression
-- [[tariff-talk]] (`tariff-talk/README.md`) — Tariff policy analysis and trade implications
+- [[investing-macro/tariff-talk/README|tariff-talk]] (`tariff-talk/README.md`) — Tariff policy analysis and trade implications
 
 ---
 
@@ -222,28 +222,28 @@
 - [[geometric-vs-average-returns]] (`concepts/`) — Geometric mean vs. arithmetic mean return distinctions
 - [[rebalancing]] (`concepts/`) — Rebalancing theory, frequency, and implementation
 - [[sequence-of-returns-risk]] (`concepts/`) — Sequence of returns risk in retirement contexts
-- [[trend-following-concept]] (`concepts/trend-following.md`) — Trend following: theory and evidence
+- [[investing-quant/concepts/trend-following|trend-following-concept]] (`concepts/trend-following.md`) — Trend following: theory and evidence
 - [[individual-bonds-vs-bond-funds]] (`concepts/`) — Individual Treasuries vs. bond funds (TLT/IEF): mark-to-market vs. hold-to-maturity, nominal vs. real returns, and the PV annuity factor
 
 ### Strategies
-- [[adaptive-allocation]] (`strategies/`) — Adaptive allocation strategy notes
-- [[balanced-portfolios]] (`strategies/`) — Balanced portfolio construction approaches
+- [[investing-quant/strategies/adaptive-allocation/README|adaptive-allocation]] (`strategies/`) — Adaptive allocation strategy notes
+- [[investing-quant/strategies/balanced-portfolios/README|balanced-portfolios]] (`strategies/`) — Balanced portfolio construction approaches
 - [[diversified-portfolio-backtests-1972-2025]] (`strategies/balanced-portfolios/`) — Backtests of 20/20/60 gold/Treasury/stock, US vs. international splits, trend-following (simulated, Barclay CTA, AQR), TIPS (synthetic and VIPSX), and the Golden Butterfly across 1972, 1985, and 2001 windows; code and data in `backtests/`
-- [[carry-strategy]] (`strategies/carry/`) — Carry strategy notes and implementation
-- [[factor-strategies]] (`strategies/`) — Factor investing (value, momentum, quality, etc.)
-- [[portable-alpha]] (`strategies/`) — Portable alpha strategy notes
-- [[retirement-planning-strategy]] (`strategies/`) — Retirement planning strategy and withdrawal frameworks
-- [[return-stacking]] (`strategies/`) — Return stacking / capital efficiency strategies
-- [[risk-parity-strategy]] (`strategies/risk-parity/`) — Risk parity construction and implementation
+- [[investing-quant/strategies/carry/README|carry-strategy]] (`strategies/carry/`) — Carry strategy notes and implementation
+- [[investing-quant/strategies/factor-strategies/README|factor-strategies]] (`strategies/`) — Factor investing (value, momentum, quality, etc.)
+- [[investing-quant/strategies/portable-alpha/README|portable-alpha]] (`strategies/`) — Portable alpha strategy notes
+- [[investing-quant/strategies/retirement-planning/README|retirement-planning-strategy]] (`strategies/`) — Retirement planning strategy and withdrawal frameworks
+- [[investing-quant/strategies/return-stacking/README|return-stacking]] (`strategies/`) — Return stacking / capital efficiency strategies
+- [[investing-quant/strategies/risk-parity/README|risk-parity-strategy]] (`strategies/risk-parity/`) — Risk parity construction and implementation
 - [[tips-how-they-work]] (`strategies/risk-parity/`) — TIPS mechanics and inflation protection
-- [[trend-following-strategy]] (`strategies/trend-following/`) — Trend following strategy implementation
+- [[investing-quant/strategies/trend-following/README|trend-following-strategy]] (`strategies/trend-following/`) — Trend following strategy implementation
 - [[auto-correlation-in-markets]] (`strategies/trend-following/`) — Autocorrelation in markets and its exploitation
 
 ### Funds
-- [[allocate-smartly]] (`funds/`) — Allocate Smartly platform and strategy coverage
-- [[picture-perfect-portfolios]] (`funds/`) — Picture Perfect Portfolios notes
-- [[risk-parity-funds]] (`funds/picture-perfect-portfolios/risk-parity/`) — Risk parity fund analysis
-- [[resolve-asset-management]] (`funds/`) — Resolve Asset Management notes and strategies
+- [[investing-quant/funds/allocate-smartly/README|allocate-smartly]] (`funds/`) — Allocate Smartly platform and strategy coverage
+- [[investing-quant/funds/picture-perfect-portfolios/README|picture-perfect-portfolios]] (`funds/`) — Picture Perfect Portfolios notes
+- [[investing-quant/funds/picture-perfect-portfolios/risk-parity/README|risk-parity-funds]] (`funds/picture-perfect-portfolios/risk-parity/`) — Risk parity fund analysis
+- [[investing-quant/funds/resolve-asset-management/README|resolve-asset-management]] (`funds/`) — Resolve Asset Management notes and strategies
 
 ---
 
@@ -263,10 +263,10 @@
 ### Taxes & Retirement
 - [[2024-returns]] (`taxes/`) — 2024 tax return notes and calculations
 - [[health-insurance-hsa-2026]] (`taxes/`) — Health insurance and HSA strategy for 2026
-- [[solo-401k]] (`solo-401k/README.md`) — Solo 401(k) overview and setup notes — **461 lines, candidate for splitting**
-- [[solo-401k-opening-account]] (`solo-401k/opening-account/`) — Solo 401(k) account opening process
-- [[solo-401k-self-employment-taxes]] (`solo-401k/self-employment-taxes/`) — Self-employment tax implications for solo 401(k)
-- [[college-aid]] (`college-aid/README.md`) — College financial aid notes
+- [[personal-finance/solo-401k/README|solo-401k]] (`solo-401k/README.md`) — Solo 401(k) overview and setup notes — **461 lines, candidate for splitting**
+- [[personal-finance/solo-401k/opening-account/README|solo-401k-opening-account]] (`solo-401k/opening-account/`) — Solo 401(k) account opening process
+- [[personal-finance/solo-401k/self-employment-taxes/README|solo-401k-self-employment-taxes]] (`solo-401k/self-employment-taxes/`) — Self-employment tax implications for solo 401(k)
+- [[personal-finance/college-aid/README|college-aid]] (`college-aid/README.md`) — College financial aid notes
 
 ### Insurance
 - [[japan-travel-insurance-comparison]] (`insurance/`) — Japan travel insurance plan comparison
@@ -279,12 +279,12 @@
 - [[credit-cards]] (`loans/`) — Credit card strategy and optimization notes
 
 ### Real Estate (Taiwan)
-- [[tw-tax-research-plan]] (`real-estate/tw/`) — Taiwan real estate tax research plan
-- [[tw-tax-research-tw-gains]] (`real-estate/tw/`) — Taiwan capital gains tax research
-- [[tw-tax-research-us-income-interaction]] (`real-estate/tw/`) — US income + Taiwan tax interaction analysis
-- [[zh-tw-tax-research-plan]] (`real-estate/tw/`) — Taiwan tax research plan (Chinese)
-- [[zh-tw-tax-research-tw-gains]] (`real-estate/tw/`) — Taiwan capital gains tax research (Chinese)
-- [[zh-tw-tax-research-us-income-interaction]] (`real-estate/tw/`) — US income + Taiwan tax interaction (Chinese)
+- [[personal-finance/real-estate/tw/tax-research-plan|tw-tax-research-plan]] (`real-estate/tw/`) — Taiwan real estate tax research plan
+- [[personal-finance/real-estate/tw/tax-research-tw-gains|tw-tax-research-tw-gains]] (`real-estate/tw/`) — Taiwan capital gains tax research
+- [[personal-finance/real-estate/tw/tax-research-us-income-interaction|tw-tax-research-us-income-interaction]] (`real-estate/tw/`) — US income + Taiwan tax interaction analysis
+- [[personal-finance/real-estate/tw/zh-tax-research-plan|zh-tw-tax-research-plan]] (`real-estate/tw/`) — Taiwan tax research plan (Chinese)
+- [[personal-finance/real-estate/tw/zh-tax-research-tw-gains|zh-tw-tax-research-tw-gains]] (`real-estate/tw/`) — Taiwan capital gains tax research (Chinese)
+- [[personal-finance/real-estate/tw/zh-tax-research-us-income-interaction|zh-tw-tax-research-us-income-interaction]] (`real-estate/tw/`) — US income + Taiwan tax interaction (Chinese)
 
 ---
 
@@ -310,15 +310,15 @@
 
 *In `investing-books/`*
 
-- [[rise-of-carry]] — Notes on *The Rise of Carry* (Lee, Lee, Coldiron) — carry trades and systemic risk
-- [[smart-portfolios]] — Notes on *Smart Portfolios* (Carver) — systematic portfolio construction
+- [[investing-books/rise-of-carry/README|rise-of-carry]] — Notes on *The Rise of Carry* (Lee, Lee, Coldiron) — carry trades and systemic risk
+- [[investing-books/smart-portfolios/README|smart-portfolios]] — Notes on *Smart Portfolios* (Carver) — systematic portfolio construction
 
 ---
 
 ## Miscellaneous
 
 - [[stock-valuation-tool-plan]] (`investing-fundamentals/`) — Plan for a stock valuation tool — **1,102 lines, candidate for splitting**
-- [[trading-backtesting]] (`trading/backtesting/README.md`) — Backtesting methodology and notes
+- [[trading/backtesting/README|trading-backtesting]] (`trading/backtesting/README.md`) — Backtesting methodology and notes
 
 ---
 

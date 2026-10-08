@@ -102,4 +102,4 @@ Cembalest disproves the popular theory that global investors are on a buyer stri
 ### VI. Cross-References
 *   [[valuations]]
 *   [[bond-supply-tsunami-2026]]
-*   [[banking-sector-consolidation]]
+*   banking-sector-consolidation

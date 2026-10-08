@@ -142,7 +142,7 @@ Despite weekly market weakness in the SOXX (-10% weekly loss, breaking its 50-da
 
 - **Breadth:** 64.6% of S&P 500 stocks remain above their 50-day moving average.
 - **Sources:** *SixSigmaCapital* ("Preview of the Week Ahead"), *The Data-Driven Investor*.
-- **Cross-References:** See [[trend-following-strategy]].
+- **Cross-References:** See [[investing-quant/strategies/trend-following/README|trend-following-strategy]].
 
 ---
 
@@ -162,5 +162,5 @@ Despite weekly market weakness in the SOXX (-10% weekly loss, breaking its 50-da
 - [[bond-supply-tsunami-2026]] — US Treasury issuance dynamics and rate pressures
 - [[funding-short-squeeze]] — Short interest unwinds, pairs trades, and market positioning
 - [[cpo-and-npo-optics]] — Optical packaging transitions in hyperscaler data centers
-- [[trend-following-strategy]] — Trend following rules and moving average breakdown signals
+- [[investing-quant/strategies/trend-following/README|trend-following-strategy]] — Trend following rules and moving average breakdown signals
 - [[pvgo]] — Present Value of Growth Opportunities and expectations pricing

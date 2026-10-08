@@ -172,7 +172,7 @@ Dave features an extraordinary working capital velocity model unmatched in tradi
 ```
 
 1. **Velocity Multiplier (35x–45x Annual Turnover):** 
-   - While traditional consumer installment loans have multi-year durations and BNPL platforms like `[[afrm]]` (Affirm) turn over ~2.3x per year, Dave advances turn over every **7 to 10 days**.
+   - While traditional consumer installment loans have multi-year durations and BNPL platforms like [[afrm-2-equity-report|afrm]] (Affirm) turn over ~2.3x per year, Dave advances turn over every **7 to 10 days**.
    - Consequently, Dave requires only **~$200M–$250M of working capital** to support **>$9.0B in annual origination volume**, generating an astronomical Return on Tangible Equity (ROTE) exceeding **65%**.
 2. **Sponsor Bank Architecture & BaaS Migration History:**
    - Dave historically partnered with Evolve Bank & Trust. Following regulatory consent orders across BaaS sponsor banks in 2023–2024, Dave strategically migrated core deposit accounts and card programs to **Coastal Community Bank (CCB)**, fortifying its regulatory posture.^[investing-fundamentals/company-analyses/dave-1-document-sources.md]
@@ -230,14 +230,14 @@ Dave competes across four distinct industry segments, each presenting unique ope
 │ **Legacy Banks**      │ JPMorgan Chase, BofA,    │ $35 overdraft fee /  │ **$15 fee cap; real-time**   │
 │                       │ Wells Fargo              │ Small-dollar lines   │ **cash-flow vs credit deny** │
 ├───────────────────────┼──────────────────────────┼──────────────────────┼──────────────────────────────┤
-│ **Emerging Threats**  │ Intuit (`[[intu]]`),     │ Tax refund advance / │ **Dedicated brand trust and**│
+│ **Emerging Threats**  │ Intuit ([[intu-2-equity-report|intu]]),     │ Tax refund advance / │ **Dedicated brand trust and**│
 │                       │ Walmart (ONE neobank)    │ Retail point-of-sale │ **automated payroll capture**│
 └───────────────────────┴──────────────────────────┴──────────────────────┴──────────────────────────────┘
 ```
 
 ### Core Operational & Service Differentiators
 1. **CashAI Proprietary Cash-Flow Telemetry:** Traditional banks rely on FICO scores that miss real-time cash flow volatility. CashAI v6.0 analyzes direct deposit timing and liquidity velocity, enabling Dave to underwrite consumers traditional banks reject while keeping past-due rates at ~2.12%.
-2. **Structural Acquisition Cost Advantage ($19 CAC):** Organic word-of-mouth and optimized app store acquisition deliver an insurmountable CAC advantage over peers (`[[hood]]`, Chime, SoFi).
+2. **Structural Acquisition Cost Advantage ($19 CAC):** Organic word-of-mouth and optimized app store acquisition deliver an insurmountable CAC advantage over peers ([[hood-2-equity-report|hood]], Chime, SoFi).
 3. **Capital Velocity Advantage (>35x):** 7–10 day duration turns working capital 35x–45x annually, generating >65% ROTE.
 4. **Transparent 5% Fee Architecture:** Proactive early 2025 shift to a flat 5% service fee ($5 min / $15 cap) with no late fees provides complete pricing transparency, avoiding the tip-shaming friction of EarnIn or the steep forced $10–$15/month subscription costs of Brigit and Cleo.
 5. **Moat Vulnerabilities & Regulatory / Legal Litigation Risks:**
@@ -245,4 +245,4 @@ Dave competes across four distinct industry segments, each presenting unique ope
    - *City of Baltimore Predatory Lending Lawsuit (Dec 2025):* Filed under Maryland Consumer Loan Law, alleging ExtraCash advances function as unlicensed payday loans with effective APRs exceeding 2,500%.
    - *TILA / Reg Z & State Usury Exposure:* See [[fintech-usury-tila-regulatory-exposure-2026]] for complete cross-fintech legal analysis and quantitative downside valuation bridges.
    - *Sponsor Bank Dependency:* Reliance on Coastal Community Bank requires ongoing compliance with 2023/2024 FDIC and OCC Interagency Third-Party Lending Guidance.
-6. **Valuation & Cross-Reference:** Connected to analytical frameworks on `[[valuations]]`, `[[pvgo]]`, `[[funding-short-squeeze]]`, and `[[fintech-usury-tila-regulatory-exposure-2026]]`, Dave represents an extraordinary combination of high return on capital, GAAP profitability, and secular share gain from legacy bank overdraft models, counterbalanced by active federal court litigation.
+6. **Valuation & Cross-Reference:** Connected to analytical frameworks on [[valuations]], [[pvgo]], [[funding-short-squeeze]], and [[fintech-usury-tila-regulatory-exposure-2026]], Dave represents an extraordinary combination of high return on capital, GAAP profitability, and secular share gain from legacy bank overdraft models, counterbalanced by active federal court litigation.

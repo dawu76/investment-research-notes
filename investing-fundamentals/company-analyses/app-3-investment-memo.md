@@ -89,7 +89,7 @@ Growth in the core mobile gaming vertical moderates to ~15% due to saturation, c
 | **Incremental Operating Margin** | **>85%** | >80% | 35–45% | 30–40% | 45–55% |
 
 ### Operating Leverage & Cash Conversion Dynamics
-AppLovin's marginal unit economics represent a masterclass in software scalability. Because AXON's neural models operate on optimized GPU clusters where marginal inference costs are fractions of a cent per auction, every incremental $100M in revenue drops **$85M directly to Adjusted EBITDA**. Working capital requirements are effectively flat: advertiser receivables match publisher payables, enabling nearly **100% net income-to-FCF conversion**. For foundational principles on these capital efficiency dynamics, refer to `[[ai-inference-costs-accounting]]` and `[[equity-return-components]]`.
+AppLovin's marginal unit economics represent a masterclass in software scalability. Because AXON's neural models operate on optimized GPU clusters where marginal inference costs are fractions of a cent per auction, every incremental $100M in revenue drops **$85M directly to Adjusted EBITDA**. Working capital requirements are effectively flat: advertiser receivables match publisher payables, enabling nearly **100% net income-to-FCF conversion**. For foundational principles on these capital efficiency dynamics, refer to [[ai-inference-costs-accounting]] and [[equity-return-components]].
 
 ---
 
@@ -154,7 +154,7 @@ AppLovin's marginal unit economics represent a masterclass in software scalabili
 | **Our Bull Case** | 45% ($16.7B Rev) | 82% (86% EBITDA) | $42.10 | 28x P/FCF | **$1,178.00** | **+55.6%** | 25% |
 
 **Expected Value (Probability-Weighted Target Price):** **$695.00** (Implied 3-Year IRR: **+30.6%**).  
-*See `[[valuations]]` and `[[pvgo]]` for structural DCF and economic value-added comparisons.*
+*See [[valuations]] and [[pvgo]] for structural DCF and economic value-added comparisons.*
 
 ---
 

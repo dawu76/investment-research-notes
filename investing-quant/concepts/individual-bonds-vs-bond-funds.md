@@ -57,7 +57,7 @@ The "you get 100% back" framing only holds if you never need to sell before the 
 final maturity. Retirees who need to rebalance or draw on the position before maturity
 realize close to the same mark-to-market loss as a fund holder would. The real fix is
 matching bond maturities to actual spending/rebalancing horizons (see
-[[retirement-planning-strategy]]), not concluding individual bonds are loss-proof.
+[[investing-quant/strategies/retirement-planning/README|retirement-planning-strategy]]), not concluding individual bonds are loss-proof.
 
 ## Worked example: real loss including coupons
 

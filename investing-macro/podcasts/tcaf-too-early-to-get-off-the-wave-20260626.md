@@ -60,7 +60,7 @@ Hyperscaler capital expenditures (Capex) are driving structural, high-margin rev
 
 #### 4. Credit Markets and Small Caps
 A key thesis of Carson Group is that credit indicators and small-cap breakouts are flashing green lights for economic expansion.
-*   **Small-Cap Breakout:** The iShares Russell 2000 ETF ([[IWM]]) is breaking out, signaling that liquidity is rotating into broader, economically sensitive segments of the market.
+*   **Small-Cap Breakout:** The iShares Russell 2000 ETF (IWM) is breaking out, signaling that liquidity is rotating into broader, economically sensitive segments of the market.
 *   **Regional Banks as a Lifeline:** Regional banks are the credit lifelines for small-and-medium businesses. Their stabilization and relative strength indicate that credit is flowing smoothly.
 *   **Credit Spreads:** Credit spreads remain tight and stable. If there were a systemic macroeconomic contraction on the horizon, spreads would be widening. 
 
@@ -72,9 +72,9 @@ A key thesis of Carson Group is that credit indicators and small-cap breakouts a
 ### IV. Portfolio Positioning & Action Items
 
 1.  **Maintain Equity Exposure:** Avoid the temptation to time the market top or exit equities. The fundamental earnings wave remains intact.
-2.  **Diversify Into Cyclicals:** Implement "judicious diversification" by rotating a portion of mega-cap tech gains into small caps ([[IWM]]), industrials, and financials (specifically regional banks).
+2.  **Diversify Into Cyclicals:** Implement "judicious diversification" by rotating a portion of mega-cap tech gains into small caps (IWM), industrials, and financials (specifically regional banks).
 3.  **Focus on Credit and Breadth:** Monitor [[credit-spread-investing-guide-20251019-notes]] and market breadth rather than focusing solely on inflation headlines. Tight spreads and widening market participation suggest that pullbacks are buying opportunities.
-4.  **Be Selective in AI:** Look for structural "choke points" in the AI supply chain (like DRAM/HBM connectivity, similar to the connectivity thesis for [[alab]]) rather than speculative SaaS plays.
+4.  **Be Selective in AI:** Look for structural "choke points" in the AI supply chain (like DRAM/HBM connectivity, similar to the connectivity thesis for [[alab-2-equity-report|alab]]) rather than speculative SaaS plays.
 
 ---
 

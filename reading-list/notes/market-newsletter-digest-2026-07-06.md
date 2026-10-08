@@ -129,5 +129,5 @@ A comparative historical study of the S&P 500 and VIX indicates that optimizing 
 * Synthesis of SemiAnalysis July 2026 themes is in [[semianalysis-research-2026-07]].
 * Structural Treasury issuance dynamics and the supply pressures mentioned by Lead-Lag are detailed in [[bond-supply-tsunami-2026]].
 * For historical multiples, valuation ranges, and ERP calculations, see [[valuations]].
-* For execution of systematic allocation and risk-adjusted scaling, see [[trend-following-strategy]].
+* For execution of systematic allocation and risk-adjusted scaling, see [[investing-quant/strategies/trend-following/README|trend-following-strategy]].
 * Prior digest: [[market-newsletter-digest-2026-06-24]].

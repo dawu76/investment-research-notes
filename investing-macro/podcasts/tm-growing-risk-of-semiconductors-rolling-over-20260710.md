@@ -108,7 +108,7 @@ Roberts rails against the U.S. government's fiscal management, noting that the f
 
 ### VI. Cross-References
 
-*   [[tm-great-stock-and-earnings-bubble-in-us-history-20260712]] — Thoughtful Money interview with Fred Hickey discussing the S&P 500 earnings valuations, capex constraints, and gold.
+*   [[tm-greatest-stock-and-earnings-bubble-in-us-history-20260712]] — Thoughtful Money interview with Fred Hickey discussing the S&P 500 earnings valuations, capex constraints, and gold.
 *   [[tm-theres-going-to-be-one-hell-of-a-hangover-20260628]] — Thoughtful Money interview with Louis Gave analyzing the 4-quadrant macro framework, bank relative strength, and the new 60/20/20 portfolio rules.
 *   [[tm-longtime-bull-warns-high-risk-of-market-correction-soon-20260702]] — Thoughtful Money interview with Darius Dale detailing the 5 task forces, bank financial repression, and short-term correction risks.
 *   [[semianalysis-research-2026-07]] — Deep dive on tech capex ROI, datacenter building constraints, and AI token pricing dynamics.

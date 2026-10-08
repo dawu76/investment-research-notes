@@ -216,5 +216,5 @@ $$\text{Memory}_{\text{KV}} = 2 \times n_{\text{layers}} \times d_{\text{head}} 
 * Hyperscaler CapEx commitments, take-or-pay structures, and refinancing risks are mapped in [[ai-compute-commencement-wall-and-refinancing-trap]].
 * Custom AI silicon partnerships and optical networking shifts (Broadcom, Marvell) are analyzed in [[google-marvell-broadcom-optical-20260819]].
 * High-power laser and optical packaging constraints are evaluated in [[cpo-and-npo-optics]].
-* CXL connectivity and retimer positioning for hyperscale servers is detailed in [[alab]].
+* CXL connectivity and retimer positioning for hyperscale servers is detailed in [[alab-2-equity-report|alab]].
 * Fundamental equity valuation methodologies and multiples are tracked in [[valuations]].

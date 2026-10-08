@@ -23,7 +23,7 @@ The weekend before this digest saw the most intense military exchange since the 
 *   **EM/DM Positioning:** Variant Perception is short CHF/long JPY (BoJ "at a breaking point" on fiscal and inflation pressure), shifted short EUR to fund a long AUD position, and flags South Korea's semi/AI boom as narrow — not yet broadening into the rest of the economy.
 *   **Trump Tariff Threat:** Trump threatened the EU and UK with 100% tariffs on any country imposing a Digital Services Tax on US firms — notable timing given Warsh, Lagarde, and Bailey share a stage Wednesday. JPMorgan upgraded EU equity targets on Strait-of-Hormuz reopening and PMI normalization.
 
-*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[macro-frameworks]]
+*   **Cross-references:** [[hormuz-closure-scenarios-2026]], [[investing-macro/macro-frameworks/README|macro-frameworks]]
 *   **Sources:**
     *   *MacroVisor* — Breakfast Bites: Ceasefire on a Knife's Edge
     *   *MacroEdge Research* — Weekly Macro Note: The Asian Risk, Pre-4th Macro Week
@@ -57,7 +57,7 @@ SpearPoint Management's mid-year read argues the AI capex boom and wealth-effect
 *   **Fed Bind:** The Fed under Warsh is "essentially at its employment goal" (4.3% unemployment) but overshooting on inflation (PCE near 4%), yet SpearPoint doubts a hike given the likely-fading energy-driven inflation and "the most acute threat to Fed independence in the central bank's history."
 *   **AI Bleeding into Bonds:** The technology weighting of the investment-grade bond index has risen roughly 5x since 2006; hyperscaler net debt/EBITDA sits at ~0.3x versus the 2.6x IG average, quietly concentrating AI-theme exposure inside fixed income portfolios too.
 
-*   **Cross-references:** [[macro-frameworks]], [[bond-supply-tsunami-2026]]
+*   **Cross-references:** [[investing-macro/macro-frameworks/README|macro-frameworks]], [[bond-supply-tsunami-2026]]
 *   **Sources:**
     *   *SpearPoint Management (SpearPoint Equity Alpha)* — The AI Surge Has Defied All of 2026's Geopolitical Turmoil: Our 2026 Mid-Year Read
 

@@ -133,7 +133,7 @@ Q2 2026 Revenue Composition & Margin Bridge ($1.92B Revenue)
 
 ### Unit Economic Analysis
 
-1.  **COGS & Compute Costs:** Primary COGS consists of third-party public cloud infrastructure (AWS and Google Cloud Platform) and GPU clusters for AI model training and inference. Because AXON's algorithms optimize inference latency and data caching, compute costs scale sub-linearly with impression volume. Refer to `[[ai-inference-costs-accounting]]` for detailed treatment of adtech inference capitalization vs. OpEx models.
+1.  **COGS & Compute Costs:** Primary COGS consists of third-party public cloud infrastructure (AWS and Google Cloud Platform) and GPU clusters for AI model training and inference. Because AXON's algorithms optimize inference latency and data caching, compute costs scale sub-linearly with impression volume. Refer to [[ai-inference-costs-accounting]] for detailed treatment of adtech inference capitalization vs. OpEx models.
 2.  **R&D Leverage:** Core engineering teams focus on neural network architecture, bidding algorithms, and data pipelines. Headcount is lean (~1,000 total employees globally), generating an exceptional **>$7.5 million in revenue per employee**.
 3.  **S&M Efficiency:** S&M is remarkably low (~3% of revenue) because AXON's value proposition is mathematically proven via direct ROAS attribution. AppLovin does not rely on extensive enterprise sales forces; the launch of the public self-serve portal in June 2026 further lowers customer acquisition friction for SMBs.
 4.  **Operating Leverage:** Incremental revenue converts to Adjusted EBITDA at an **85–90% conversion rate**.
@@ -164,7 +164,7 @@ Q2 2026 Revenue Composition & Margin Bridge ($1.92B Revenue)
 *   **Asset-Light Software Model:** Capital expenditures remain below 2% of revenue. All server infrastructure is leased or consumed via hyperscaler cloud instances.
 *   **Free Cash Flow Conversion:** Paces at ~70% of gross revenue and ~76–88% of Adjusted EBITDA (JPMorgan projects **$5.2B in 2026 FCF**). Working capital needs are minimal, as advertiser receivable collections (30–60 days) closely mirror publisher disbursement schedules.
 *   **Balance Sheet Strength:** Post-Q2 2026, AppLovin holds ~$1.8 billion in cash and equivalents against long-term debt of ~$3.2 billion, representing a conservative net debt-to-EBITDA ratio of **<0.25x**.
-*   **Capital Allocation Strategy:** Management prioritizes aggressive share repurchases over dividends or dilutive M&A. AppLovin has **$1.8 billion remaining in buyback authorization**, continuously reducing diluted share count and concentrating per-share compounding (`[[equity-return-components]]`).
+*   **Capital Allocation Strategy:** Management prioritizes aggressive share repurchases over dividends or dilutive M&A. AppLovin has **$1.8 billion remaining in buyback authorization**, continuously reducing diluted share count and concentrating per-share compounding ([[equity-return-components]]).
 
 ---
 
@@ -251,4 +251,4 @@ On **August 5, 2026**, AppLovin disclosed that the **SEC Division of Enforcement
 3.  **Consumer Vertical Execution Hurdle:** To reach $1.4B in consumer e-commerce net revenue by 2027, AppLovin must prove it can build advertiser density, optimize models for catalog SKUs, and sustain ROAS against Meta Advantage+ and Google PMAX outside walled gardens.
 4.  **Platform OS Policy Changes:** Unilateral policy changes by Apple (iOS ATT enhancements) or Google (Android Privacy Sandbox enforcement) could restrict device telemetry, though AXON's reliance on contextual auction signals within MAX provides strong structural resilience.
 
-*Refer to `[[valuations]]` and `[[pvgo]]` for structural framework models on AppLovin's Present Value of Growth Opportunities.*
+*Refer to [[valuations]] and [[pvgo]] for structural framework models on AppLovin's Present Value of Growth Opportunities.*
