@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sage Road AI Trade</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%234d6b33'/%3E%3Cpath d='M5 24 L12 14 L17 19 L22 10 L27 16' fill='none' stroke='%23fff' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --surface-2: #eef2f7;
+  --border: #d6dde8;
+  --text: #16202d;
+  --text-dim: #536175;
+  --ubp: #1d4f91;
+  --ubp-soft: #e3ecf8;
+  --brk: #a8570f;
+  --brk-soft: #f8ecdf;
+  --both: #2f6b4f;
+  --both-soft: #e2f0e8;
+  --warn: #b03a2e;
+  --warn-soft: #f8e5e2;
+  --bar-bg: #e4e9f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e141d;
+    --surface: #151d29;
+    --surface-2: #1b2534;
+    --border: #2a3648;
+    --text: #e3e9f1;
+    --text-dim: #9aa8bb;
+    --ubp: #74a8eb;
+    --ubp-soft: #1a2c45;
+    --brk: #e3a660;
+    --brk-soft: #3a2a19;
+    --both: #74c49a;
+    --both-soft: #183326;
+    --warn: #ee8a7d;
+    --warn-soft: #3d1f1c;
+    --bar-bg: #232f40;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e141d; --surface: #151d29; --surface-2: #1b2534; --border: #2a3648;
+  --text: #e3e9f1; --text-dim: #9aa8bb; --ubp: #74a8eb; --ubp-soft: #1a2c45;
+  --brk: #e3a660; --brk-soft: #3a2a19; --both: #74c49a; --both-soft: #183326;
+  --warn: #ee8a7d; --warn-soft: #3d1f1c; --bar-bg: #232f40;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 17px; scroll-behavior: smooth; scroll-padding-top: 4rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif; line-height: 1.55;
+  overflow-wrap: break-word;
+}
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 1rem 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+h1 { font-family: "IBM Plex Serif", Georgia, serif; font-size: 2.2rem; margin: 0 0 .6rem; }
+h2 { font-size: 1.5rem; margin: 0 0 .4rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; }
+p { max-width: 68ch; margin: .5rem 0; }
+.mono, .num { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+.dim { color: var(--text-dim); }
+.small { font-size: .85rem; }
+a { color: var(--ubp); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--ubp); outline-offset: 2px; }
+
+/* tags for which source a fact comes from */
+.tag { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .7rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; padding: .1rem .45rem; border-radius: 3px; vertical-align: .1em; white-space: nowrap; }
+.tag.ubp { background: var(--ubp-soft); color: var(--ubp); }
+.tag.brk { background: var(--brk-soft); color: var(--brk); }
+.tag.both { background: var(--both-soft); color: var(--both); }
+.tag.chk { background: var(--warn-soft); color: var(--warn); }
+.tag.wiki { background: var(--surface-2); color: var(--text-dim); border: 1px solid var(--border); }
+
+/* header */
+header.top { padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 0; }
+.eyebrow { font-family: "IBM Plex Mono", monospace; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); }
+.lede { font-size: 1.12rem; max-width: 62ch; }
+
+/* nav */
+nav.toc { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--border);
+  overflow-x: auto; white-space: nowrap; margin: 0 -1rem; padding: 0 1rem; }
+nav.toc a { display: inline-block; padding: .65rem .7rem; font-size: .85rem; color: var(--text-dim); text-decoration: none; }
+nav.toc a:hover { color: var(--text); }
+
+section { padding-top: 2.6rem; }
+.section-lede { color: var(--text-dim); max-width: 66ch; margin-bottom: 1.2rem; }
+
+/* cards */
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1rem; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.grid2 > *, .grid3 > * { min-width: 0; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.1rem 1.2rem; }
+.card.ubp { border-top: 3px solid var(--ubp); }
+.card.brk { border-top: 3px solid var(--brk); }
+.card.both { border-top: 3px solid var(--both); }
+.card h3 { margin-top: 0; }
+.card .who { font-size: .85rem; color: var(--text-dim); margin: 0 0 .6rem; }
+.question { font-family: "IBM Plex Serif", Georgia, serif; font-size: 1.15rem; margin: .3rem 0 .8rem; }
+ol.tight, ul.tight { padding-left: 1.2rem; margin: .4rem 0; }
+ol.tight li, ul.tight li { margin: .35rem 0; }
+
+/* KPI tiles */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .8rem; margin: 1rem 0; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .9rem 1rem; min-width: 0; }
+.kpi .v { font-family: "IBM Plex Mono", monospace; font-size: 1.5rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.kpi .l { font-size: .85rem; color: var(--text-dim); }
+
+/* bar charts */
+figure { margin: 1rem 0; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1rem 1.2rem; }
+figcaption { font-weight: 600; margin-bottom: .8rem; }
+figcaption .dim { font-weight: 400; display: block; font-size: .85rem; }
+.bars { display: grid; grid-template-columns: minmax(6rem, max-content) 1fr minmax(4rem, max-content); gap: .45rem .7rem; align-items: center; }
+.bars .lab { font-size: .88rem; }
+.bars .track { background: var(--bar-bg); height: 1.1rem; border-radius: 2px; position: relative; overflow: hidden; }
+.bars .fill { height: 100%; width: var(--w); background: var(--ubp); border-radius: 2px; }
+.bars .fill.brk { background: var(--brk); }
+.bars .fill.alt { background: var(--text-dim); }
+.bars .fill.hot { background: var(--warn); }
+.bars .val { font-family: "IBM Plex Mono", monospace; font-size: .85rem; font-variant-numeric: tabular-nums; text-align: right; }
+.legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .8rem; color: var(--text-dim); margin-top: .7rem; }
+.legend i { display: inline-block; width: .8rem; height: .8rem; border-radius: 2px; margin-right: .3rem; vertical-align: -.1em; }
+
+/* stacked bar */
+.stack { display: flex; height: 2.2rem; border-radius: 3px; overflow: hidden; }
+.stack > div { display: flex; align-items: center; justify-content: center; color: #fff; font-family: "IBM Plex Mono", monospace; font-size: .8rem; min-width: 0; overflow: hidden; }
+
+/* chain (required revenue walk) */
+.chain { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: .6rem; counter-reset: step; }
+.step { background: var(--brk-soft); border-radius: 6px; padding: .8rem .9rem; position: relative; min-width: 0; }
+.step .v { font-family: "IBM Plex Mono", monospace; font-size: 1.25rem; font-weight: 600; color: var(--brk); }
+.step .l { font-size: .85rem; }
+.step .op { font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .05em; }
+
+/* tables */
+.tbl-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; vertical-align: top; padding: .6rem .8rem; border-bottom: 1px solid var(--border); }
+th { background: var(--surface-2); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-dim); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+td:first-child { font-weight: 500; }
+
+/* fragility ladder */
+.ladder { display: grid; gap: .35rem; margin: 1rem 0; }
+.rung { display: grid; grid-template-columns: 2.2rem 1fr; gap: .7rem; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: .55rem .8rem; border-left: 5px solid color-mix(in srgb, var(--warn) var(--h), var(--both)); }
+.rung .n { font-family: "IBM Plex Mono", monospace; font-weight: 600; color: var(--text-dim); }
+
+/* callouts */
+.note { border-left: 4px solid var(--ubp); background: var(--surface); padding: .8rem 1rem; border-radius: 0 6px 6px 0; margin: 1rem 0; }
+.note.brk { border-color: var(--brk); }
+.note.warn { border-color: var(--warn); }
+.note.both { border-color: var(--both); }
+.note p { margin: .3rem 0; }
+
+/* checks list */
+.checks { list-style: none; padding: 0; margin: .6rem 0; display: grid; gap: .55rem; }
+.checks li { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: .65rem .9rem; display: grid; grid-template-columns: 5.5rem 1fr; gap: .8rem; }
+.checks li > * { min-width: 0; }
+.verdict { font-family: "IBM Plex Mono", monospace; font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding-top: .15rem; }
+.verdict.ok { color: var(--both); }
+.verdict.bad { color: var(--warn); }
+.verdict.mid { color: var(--brk); }
+
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .2rem 1rem; margin: .6rem 0; }
+details > summary { cursor: pointer; padding: .6rem 0; font-weight: 600; }
+details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: .5rem; }
+
+dl.gloss { display: grid; grid-template-columns: minmax(9rem, max-content) 1fr; gap: .5rem 1.2rem; margin: 0; }
+dl.gloss dt { font-weight: 600; }
+dl.gloss dd { margin: 0; color: var(--text-dim); }
+
+@media (max-width: 40rem) {
+  html { font-size: 16px; }
+  h1 { font-size: 1.75rem; }
+  .bars { grid-template-columns: minmax(4.5rem, max-content) 1fr minmax(3.5rem, max-content); }
+  .checks li { grid-template-columns: 1fr; gap: .2rem; }
+  dl.gloss { grid-template-columns: 1fr; }
+  dl.gloss dd { margin-bottom: .5rem; }
+}
+footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: .85rem; color: var(--text-dim); }
+
+:root { --acc: #4d6b33; --acc-soft: #e9f0df; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --acc: #a9c98a; --acc-soft: #22301a; } }
+:root[data-theme="dark"] { --acc: #a9c98a; --acc-soft: #22301a; }
+
+/* extra components for the single-paper pages */
+.accent { color: var(--acc); }
+.card.acc { border-top: 3px solid var(--acc); }
+.bars .fill.acc { background: var(--acc); }
+.big-num { font-family: "IBM Plex Mono", monospace; font-size: 2rem; font-weight: 600; color: var(--acc); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.argument { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .8rem; }
+.argument .card { display: grid; gap: .4rem; align-content: start; }
+.argument .n { font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: var(--text-dim); letter-spacing: .08em; }
+.plain { font-size: .85rem; color: var(--text-dim); border-top: 1px dashed var(--border); padding-top: .5rem; margin-top: .3rem; }
+.plain b { color: var(--text); font-weight: 600; }
+.vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: .8rem; align-items: center; text-align: center; }
+.vs .side { background: var(--surface-2); border-radius: 6px; padding: .8rem; min-width: 0; }
+.vs .mid { font-family: "IBM Plex Mono", monospace; color: var(--text-dim); font-size: .85rem; }
+.timeline { position: relative; margin: 1rem 0 .5rem; padding-left: 1.4rem; border-left: 2px solid var(--border); display: grid; gap: .9rem; }
+.tl-item { position: relative; }
+.tl-item::before { content: ""; position: absolute; left: -1.82rem; top: .35rem; width: .75rem; height: .75rem; border-radius: 50%; background: var(--acc); border: 2px solid var(--bg); }
+.tl-item.warn::before { background: var(--warn); }
+.tl-item.dim::before { background: var(--text-dim); }
+.tl-date { font-family: "IBM Plex Mono", monospace; font-size: .8rem; font-weight: 600; color: var(--acc); }
+.tl-item.warn .tl-date { color: var(--warn); }
+.pill { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .75rem; padding: .1rem .5rem; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); white-space: nowrap; }
+.pill.ig { color: var(--both); border-color: var(--both); }
+.pill.hy { color: var(--warn); border-color: var(--warn); }
+.sigs { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .7rem; }
+.sig { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .8rem .9rem; min-width: 0; }
+.sig .from-to { font-family: "IBM Plex Mono", monospace; font-size: 1.05rem; font-weight: 600; }
+.sig .from-to .arrow { color: var(--text-dim); margin: 0 .3rem; }
+.sig .l { font-size: .85rem; color: var(--text-dim); }
+.flag { border: 1px dashed var(--warn); background: var(--warn-soft); border-radius: 6px; padding: .6rem .9rem; font-size: .85rem; margin: .8rem 0; }
+.flag strong { color: var(--warn); }
+.checkbox-list { list-style: none; padding: 0; margin: .5rem 0; display: grid; gap: .45rem; }
+.checkbox-list li { display: grid; grid-template-columns: 1.6rem 1fr; gap: .4rem; }
+.checkbox-list .box { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+.box.y { color: var(--warn); }
+.box.p { color: var(--brk); }
+.split { display: flex; height: 1.6rem; border-radius: 3px; overflow: hidden; margin: .4rem 0; }
+.split > div { display: flex; align-items: center; padding: 0 .5rem; color: #fff; font-family: "IBM Plex Mono", monospace; font-size: .75rem; white-space: nowrap; overflow: hidden; min-width: 0; }
+.xref { columns: 2 18rem; column-gap: 1.5rem; padding-left: 1.1rem; font-size: .9rem; }
+.xref li { break-inside: avoid; margin: .3rem 0; }
+.links { display: grid; gap: .6rem; }
+.link { background: var(--surface); border: 1px solid var(--border); border-left: 5px solid var(--both); border-radius: 5px; padding: .7rem 1rem; }
+.link.mid { border-left-color: var(--brk); }
+.link.weak { border-left-color: var(--warn); }
+.link p { margin: .3rem 0; max-width: none; }
+.lk-head { display: grid; grid-template-columns: 1.6rem 1fr auto; gap: .6rem; align-items: center; }
+.lk-n { font-family: "IBM Plex Mono", monospace; font-weight: 600; color: var(--text-dim); }
+.lk-t { font-weight: 600; }
+.rate { font-family: "IBM Plex Mono", monospace; font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: .15rem .5rem; border-radius: 3px; white-space: nowrap; }
+.rate.strong { background: var(--both-soft); color: var(--both); }
+.rate.mid { background: var(--brk-soft); color: var(--brk); }
+.rate.weak { background: var(--warn-soft); color: var(--warn); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Thesis assessment · Sage Road Research · September 2026</div>
+  <h1>Sage Road: The AI Trade</h1>
+  <p class="lede">A paid research shop argues the AI trade is heading for a "market rupture" and investors should hedge now. This page lays out its case, checks the evidence against the wiki's other sources, and rates how well each step holds up.</p>
+  <p class="small dim">Trevor Noren, Sage Road Research. Only the 7-page executive summary is public; the full report and its trade ideas are paywalled, so this assesses the summary alone. The summary also works as marketing for the report.
+  <span class="tag wiki">Wiki</span> marks checks and estimates made in these notes. Notes confidence: medium.<br>
+  Related pages: <a href="ubp-financing-ai-build-out-2026-09.html">UBP credit note</a> · <a href="brookings-financing-ai-buildout-van-nieuwerburgh-2026-09.html">Brookings paper</a> · <a href="ai-buildout-financing-ubp-vs-brookings-2026-09.html">UBP vs Brookings</a></p>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#verdict">Verdict</a>
+  <a href="#thesis">The thesis</a>
+  <a href="#chain">The argument, link by link</a>
+  <a href="#evidence">The evidence</a>
+  <a href="#checks">Fact checks</a>
+  <a href="#weak">Weaknesses</a>
+  <a href="#strong">Strengths</a>
+  <a href="#use">How to use it</a>
+</nav>
+
+<section id="verdict">
+  <div class="card acc">
+    <div class="eyebrow">Verdict</div>
+    <p class="question" style="margin-top:.4rem">The facts it cites are mostly right. The conclusion goes further than those facts support.</p>
+    <p>The spending, cash flow and bond issuance data match UBP and Brookings. What's missing is any showing of how stress would spread from weak borrowers to the whole market, which the "rupture with severe contagion" claim needs. The careful sources point the other way: Brookings says it is "premature to conclude that AI infrastructure already poses systemic risk," and UBP puts the fragility in leveraged single-contract structures, not AA-rated hyperscalers.</p>
+  </div>
+</section>
+
+<section id="thesis">
+  <h2>The thesis</h2>
+  <div class="grid2">
+    <div class="card acc">
+      <p class="question">"We have high conviction concerns about AI's enterprise adoption, unit economics, and overextension risk will only intensify moving forward, dragging on the performance of AI stakeholders."</p>
+      <ul class="tight small">
+        <li>A sentiment dip could become "a true market rupture with severe contagion potential."</li>
+        <li>Circular dealmaking is "clearly the key systemic vulnerability of the AI trade."</li>
+        <li>"AI enthusiasm is poised to deflate and if you're not hedging that risk today, you're likely to sustain avoidable losses tomorrow."</li>
+      </ul>
+    </div>
+    <div class="card">
+      <strong>Not an AI skeptic</strong>
+      <p class="small">Sage Road calls AI "the definitional technology of the next half century and beyond" and cites its own healthcare research ("The Medical Innovation Inflection") as proof the value is real. The worry is the trade, not the technology.</p>
+      <strong>Track record claim</strong>
+      <p class="small">Continues its December 2025 "GenAI &amp; Productivity" report, and says its hedge ideas since "have outperformed the AI trade." No figures given.</p>
+      <strong>The full report promises to answer</strong>
+      <ol class="tight small">
+        <li>How is enterprise adoption taking shape?</li>
+        <li>How will AI's unit economics evolve?</li>
+        <li>Does the data center buildout reach equilibrium, or does overcapacity derail profit expectations?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="chain">
+  <h2>The argument, link by link</h2>
+  <p class="section-lede">The case is a chain. A chain is only as strong as its weakest link, and here the facts get thinner as the conclusions get bigger.</p>
+  <div class="links">
+    <div class="link strong"><div class="lk-head"><span class="lk-n">1</span><span class="lk-t">The market is already nervous</span><span class="rate strong">Holds</span></div>
+      <p class="small">Mag 7 trails the Russell 3000 by ~8pp and MSCI ACWI by ~9pp YTD. Nasdaq volatility hit its highest level relative to the VIX since the dotcom era. AI shares are down 20% from a June high.</p>
+      <p class="plain"><b>But:</b> nervousness that has already happened is partly priced. It doesn't by itself predict more downside.</p></div>
+    <div class="link strong"><div class="lk-head"><span class="lk-n">2</span><span class="lk-t">Spending keeps outrunning expectations</span><span class="rate strong">Holds</span></div>
+      <p class="small">2026 capex consensus rose from $527B to ~$800B. 2027 hyperscaler capex ≈ 3% of GDP vs telecom's 1.2% peak. Matches UBP ($820B) and Brookings ($800.5B, 3.63% of GDP average).</p></div>
+    <div class="link strong"><div class="lk-head"><span class="lk-n">3</span><span class="lk-t">It's increasingly funded by debt, and cash flow has collapsed</span><span class="rate strong">Holds</span></div>
+      <p class="small">$225B of bonds through June (+973.7%). Combined FCF of Meta, Microsoft, Alphabet and Amazon fell to $7B in 2Q26 from a $45B quarterly average. Matches the capex-exceeds-cash-flow crossover in both papers.</p>
+      <p class="plain"><b>But:</b> low FCF is partly a choice. UBP says the four AA names can add ~$400B of debt without a downgrade.</p></div>
+    <div class="link mid"><div class="lk-head"><span class="lk-n">4</span><span class="lk-t">Enterprise ROI and unit economics are weak</span><span class="rate mid">Mixed</span></div>
+      <p class="small">Open-weight models trail the frontier by ~4 months, which pressures lab pricing (well supported). Employee AI usage caps at Uber, Amazon, Meta and Walmart are offered as proof of weak ROI, but caps mean usage outran budgets, which fits a demand story too.</p></div>
+    <div class="link mid"><div class="lk-head"><span class="lk-n">5</span><span class="lk-t">Circular deals tie everyone together</span><span class="rate mid">Partly</span></div>
+      <p class="small">The labs will be 18% of AWS revenue and 48% of Google Cloud's next year. Microsoft owns 27% of OpenAI. NVIDIA is "the banker to the AI boom." Concentration is real; it isn't the same as circularity, and the summary misses the clearest quantified case (NVIDIA's $500B backstopped facility).</p></div>
+    <div class="link weak"><div class="lk-head"><span class="lk-n">6</span><span class="lk-t">So a dip becomes a market-wide rupture, soon</span><span class="rate weak">Not shown</span></div>
+      <p class="small">No mechanism for stress moving from Oracle, neoclouds and project vehicles into AA hyperscalers and banks. The timing ("months to come") also runs ahead of when contracts start billing (2027-28).</p></div>
+  </div>
+</section>
+
+<section id="evidence">
+  <h2>The evidence, visualized</h2>
+
+  <h3>The market signals</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v">-8pp</div><div class="l">Mag 7 vs Russell 3000, YTD (-9pp vs MSCI ACWI)</div></div>
+    <div class="kpi"><div class="v">-20%</div><div class="l">AI shares from a June 52-week high</div></div>
+    <div class="kpi"><div class="v">Dotcom-era</div><div class="l">NDX volatility index vs VIX in July (CBOE)</div></div>
+    <div class="kpi"><div class="v">+5% in 4 days</div><div class="l">Nasdaq rebound after a correction, "rarely seen outside of the dotcom bubble" (BTIG)</div></div>
+  </div>
+  <p class="small dim">The BTIG chart is actually the S&amp;P 500 in 1999-2000, flagging two instances (4/23/99 and 3/21/00). Two data points from one episode don't establish a pattern.</p>
+
+  <div class="grid2">
+    <figure>
+      <figcaption>2026 AI capex consensus, $B <span class="dim">Wall Street estimates for the same year, six months apart</span></figcaption>
+      <div class="bars">
+        <span class="lab">At year-end 2025</span><div class="track"><div class="fill alt" style="--w:65.9%"></div></div><span class="val">527</span>
+        <span class="lab">By mid-2026</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">~800</span>
+      </div>
+    </figure>
+    <figure>
+      <figcaption>Hyperscaler capex as % of US GDP (Apollo)</figcaption>
+      <div class="bars">
+        <span class="lab">Telecom/fiber peak, late 1990s</span><div class="track"><div class="fill alt" style="--w:40%"></div></div><span class="val">1.2%</span>
+        <span class="lab">Hyperscalers, 2027E</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">3%</span>
+      </div>
+      <p class="small dim">Allianz adds a ~46% gap between AI investment growth and sales growth, vs 32% in the 2001 telecom bust (metric not defined; unverified).</p>
+    </figure>
+  </div>
+
+  <div class="grid2">
+    <figure>
+      <figcaption>Combined quarterly free cash flow, $B <span class="dim">Meta, Microsoft, Alphabet, Amazon (FT)</span></figcaption>
+      <div class="bars">
+        <span class="lab">Post-pandemic average</span><div class="track"><div class="fill alt" style="--w:100%"></div></div><span class="val">45</span>
+        <span class="lab">2Q26</span><div class="track"><div class="fill hot" style="--w:15.6%"></div></div><span class="val">7</span>
+      </div>
+      <p class="small dim">An LSEG chart in the summary shows operating cash flow and capex for the five hyperscalers converging in 2026-27, with FCF near zero (forecast cash flow is derived as FCF plus capex).</p>
+    </figure>
+    <figure>
+      <figcaption>Off-balance-sheet obligations: Sage Road's figure is the lowest, $T</figcaption>
+      <div class="bars">
+        <span class="lab">Nikkei (Sage Road)</span><div class="track"><div class="fill acc" style="--w:55%"></div></div><span class="val">1.65</span>
+        <span class="lab">WSJ via Brookings</span><div class="track"><div class="fill alt" style="--w:80%"></div></div><span class="val">2.4</span>
+        <span class="lab">UBP</span><div class="track"><div class="fill alt" style="--w:96.7%"></div></div><span class="val">2.9</span>
+        <span class="lab">Burry</span><div class="track"><div class="fill alt" style="--w:100%"></div></div><span class="val">~3.0</span>
+      </div>
+      <p class="small dim">Nikkei says the total is up eightfold in four years. Bond issuance: $225B through June, +973.7% YoY (S&amp;P Global), close to UBP's $212B for H1.</p>
+    </figure>
+  </div>
+
+  <h3>How dependent the clouds are on two labs</h3>
+  <figure>
+    <figcaption>OpenAI + Anthropic as a share of cloud revenue <span class="dim">AWS per Barclays; Google Cloud per UBS</span></figcaption>
+    <div class="bars">
+      <span class="lab">AWS, this year</span><div class="track"><div class="fill acc" style="--w:27.1%"></div></div><span class="val">13%</span>
+      <span class="lab">AWS, next year</span><div class="track"><div class="fill acc" style="--w:37.5%"></div></div><span class="val">18%</span>
+      <span class="lab">Google Cloud, this year</span><div class="track"><div class="fill hot" style="--w:56.3%"></div></div><span class="val">27%</span>
+      <span class="lab">Google Cloud, next year</span><div class="track"><div class="fill hot" style="--w:100%"></div></div><span class="val">48%</span>
+    </div>
+    <p class="small">Plausible against UBP: ~40% of the $2.34T cloud backlog is owed by the two labs, including $200B of Anthropic commitments at Google. Other links cited: Microsoft owns 27% of OpenAI; Meta and OpenAI are large AMD shareholders; NVIDIA backstops loans and capacity for OpenAI, CoreWeave and others; the FT's $200B "Wall Street finance machine for Anthropic" ties Google, Broadcom, Apollo, Blackstone, Morgan Stanley and crypto miners together.</p>
+  </figure>
+
+  <div class="grid2">
+    <figure>
+      <figcaption>The fastest investment boom on record <span class="dim">BIS via FT: investment as a multiple of its pre-boom trough</span></figcaption>
+      <div class="bars">
+        <span class="lab">AI, year 3</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">~4.5x</span>
+        <span class="lab">Canal mania, peak (~year 5)</span><div class="track"><div class="fill alt" style="--w:91%"></div></div><span class="val">~4x</span>
+        <span class="lab">Dotcom, by year 10</span><div class="track"><div class="fill alt" style="--w:40%"></div></div><span class="val">under 2x</span>
+      </div>
+      <p class="small dim">Approximate, read from the chart. Railway mania and the Roaring 20s also stayed below ~3x, and canal mania crashed after its peak. Fair point, and it fits Brookings' finding that AI is the largest US capex boom by GDP share.</p>
+    </figure>
+    <figure>
+      <figcaption>The valuation argument can't lose</figcaption>
+      <div class="tbl-wrap" style="margin:0;border:none">
+        <table>
+          <thead><tr><th>If the top-5 P/E premium is…</th><th>Sage Road's reading</th></tr></thead>
+          <tbody>
+            <tr><td>High</td><td>Bubble</td></tr>
+            <tr><td>Gone (today, per Goldman)</td><td>"As much evidence of intertwined vulnerability as it is evidence of market discipline"</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="plain"><b>In plain terms:</b> when both outcomes support the thesis, valuation can't count as evidence for it.</p>
+    </figure>
+  </div>
+
+  <div class="note">
+    <p><strong>Voices quoted:</strong> Jim Chanos ("AI is a much worse bubble than the dotcom bubble"), Steve Eisman (the market is "all one trade"), Ed Zitron ("Everyone has been sold [an AI] lie"). These tell you who is worried, not what is true. Chanos's stronger, quantified point (hyperscaler incremental ROIC down from 40% to ~20% in 18 months, heading to 10%) isn't used.</p>
+  </div>
+</section>
+
+<section id="checks">
+  <h2>Fact checks</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Claim</th><th>Source cited</th><th>Check against the wiki</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>2026 capex consensus $527B → ~$800B</td><td>Wall Street consensus</td><td>UBP ~$820B; Brookings $800.5B</td><td><span class="pill ig">Holds</span></td></tr>
+        <tr><td>2027 capex ≈ 3% of GDP vs telecom's 1.2% peak</td><td>Apollo</td><td>Brookings: telecom 1.10% (1996-2003 avg), AI 3.63% (2025-32 avg); UBP's $1.0-1.3T is ~3-4% of GDP</td><td><span class="pill ig">Holds</span></td></tr>
+        <tr><td>$7B combined FCF in 2Q26 vs $45B average</td><td>FT</td><td>Consistent with the 2026 capex/cash-flow crossover in both papers</td><td><span class="pill ig">Holds</span></td></tr>
+        <tr><td>$225B bonds through June, +973.7%</td><td>S&amp;P Global</td><td>UBP: $212B H1 bonds. Big percentage reflects a low 2025 base</td><td><span class="pill ig">Holds</span></td></tr>
+        <tr><td>Open-weight models ~4 months behind</td><td>Epoch via Apollo</td><td>Sept 18 digest agrees; Jul 13: frontier labs' OpenRouter token share fell 72% → 33%</td><td><span class="pill ig">Holds</span></td></tr>
+        <tr><td>Labs 13%/18% of AWS, 27%/48% of Google Cloud</td><td>Barclays, UBS</td><td>Fits UBP's ~40% lab share of backlog</td><td><span class="pill ig">Plausible</span></td></tr>
+        <tr><td>BIS: fastest investment boom</td><td>BIS via FT</td><td>Fits Brookings' GDP-share table</td><td><span class="pill ig">Holds</span></td></tr>
+        <tr><td>Off-balance-sheet $1.65T, up 8x</td><td>Nikkei Asia</td><td>Below UBP $2.9T, WSJ $2.4T, Burry ~$3T. Calling it all "hidden debt" is loose: purchase commitments overlap with capex, and unstarted leases aren't debt yet</td><td><span class="pill">Understated</span></td></tr>
+        <tr><td>"Nvidia is the banker to the AI boom"</td><td>WSJ</td><td>True, but misses the $500B NVIDIA-backstopped facility with a 25% residual-value guarantee (up to $125B) from Brookings</td><td><span class="pill">Understated</span></td></tr>
+        <tr><td>Meta's 2025 OCF "would have been 96% lower" with SBC</td><td>WSJ, Jonathan Weil</td><td>Meta's stock comp is far smaller than its operating cash flow (general knowledge, not checked against filings in the wiki). May refer to FCF after buybacks</td><td><span class="pill hy">Likely misquoted</span></td></tr>
+        <tr><td>Tech giants "exclude SBC from reported FCF"; bill comes due in "deferred taxes"</td><td>Sage Road</td><td>GAAP requires the add-back, so it's not a choice. SBC creates tax deductions; the cash cost is buybacks to offset dilution. The point that SBC is a real cost stands</td><td><span class="pill hy">Wrong mechanics</span></td></tr>
+        <tr><td>Employee AI usage limits show weak ROI</td><td>Not stated</td><td>Jun 29 digest: "spent my entire 2026 budget in Q1" went from rare to common. Supports demand as much as weak ROI</td><td><span class="pill">Ambiguous</span></td></tr>
+        <tr><td>46% investment-vs-sales gap vs 32% in 2001</td><td>Allianz Research</td><td>Not in the wiki; metric undefined</td><td><span class="pill">Unverified</span></td></tr>
+        <tr><td>5% four-day rally "rarely seen outside the dotcom bubble"</td><td>BTIG</td><td>Two instances from one episode</td><td><span class="pill">Anecdotal</span></td></tr>
+        <tr><td>Hedge ideas "have outperformed the AI trade"</td><td>Sage Road</td><td>No figures; marketing copy</td><td><span class="pill">Unverifiable</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="weak">
+  <h2>Weaknesses</h2>
+
+  <h3>1. It doesn't separate who bears the risk</h3>
+  <div class="grid2">
+    <div class="card acc">
+      <span class="tag" style="background:var(--surface-2)">Sage Road</span>
+      <p class="small">"AI stakeholders" as one block. It asks when "one or more hyperscalers" will retreat for balance-sheet reasons without telling them apart.</p>
+      <div class="rung" style="--h:70%;margin-top:.5rem"><span class="n">?</span><span><strong>Every AI name, every lender</strong></span></div>
+    </div>
+    <div class="card ubp">
+      <span class="tag ubp">UBP's ranking</span>
+      <div class="ladder" style="margin:.5rem 0 0">
+        <div class="rung" style="--h:100%"><span class="n">1</span><span>Single-site HY vehicles, neoclouds</span></div>
+        <div class="rung" style="--h:80%"><span class="n">2</span><span>Private credit construction loans</span></div>
+        <div class="rung" style="--h:60%"><span class="n">3</span><span>Oracle: BBB-, 4.3x leverage, FY26 FCF -$24B</span></div>
+        <div class="rung" style="--h:35%"><span class="n">4</span><span>Meta</span></div>
+        <div class="rung" style="--h:0%"><span class="n">5</span><span>Microsoft (0.6x), Alphabet, Amazon</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="small">All the stress actually realized in the wiki sits in the weak tier: Oracle's Project Jupiter force majeure notice, record Oracle CDS, Jupiter loans trading at 89-91 cents.</p>
+
+  <h3>2. The timing doesn't match</h3>
+  <div class="timeline">
+    <div class="tl-item warn"><div class="tl-date">Late 2026 / early 2027</div>Sage Road: vulnerability "in the months to come"</div>
+    <div class="tl-item"><div class="tl-date">2027-28</div>Take-or-pay contracts start billing (UBP)</div>
+    <div class="tl-item"><div class="tl-date">2028-29</div>Burry's write-off window</div>
+    <div class="tl-item"><div class="tl-date">~2029</div>Brookfield's default pattern: defaults peak about three years after the capex ramp, negative FCF and low-rated issuance appear</div>
+  </div>
+
+  <h3>Other weaknesses</h3>
+  <div class="grid2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr))">
+    <div class="card"><strong>3. The valuation argument can't lose.</strong> <span class="small">See the table above. With the Mag 7 already ~8pp behind and AI stocks down 20%, some of the de-rating it warns about has already happened.</span></div>
+    <div class="card"><strong>4. Open-weight competition hurts the labs more than the buildout.</strong> <span class="small">Cheap open models still run on GPUs; NVIDIA and Microsoft back open weights to drive compute use (Jul 26 digest). The chain that matters, lab margins shrink → labs can't meet take-or-pay → hyperscaler backlog suffers, is UBP's thesis. The summary never lays it out.</span></div>
+    <div class="card"><strong>5. It quotes people instead of showing evidence.</strong> <span class="small">Chanos, Eisman and Zitron show who is worried. Chanos's quantified ROIC point (Jul 19 digest) isn't used.</span></div>
+    <div class="card"><strong>6. It reads one financing structure in one direction only.</strong> <span class="small">It treats the FT's $200B Anthropic financing as contagion. UBP reads Anthropic's structures as credit protection: an IG balance sheet (Alphabet guarantees Fluidstack leases; Broadcom backstop) sits between lender and lab, unlike OpenAI's deals. Both can be true: risk moves onto Google's and Broadcom's balance sheets rather than disappearing.</span></div>
+  </div>
+</section>
+
+<section id="strong">
+  <h2>Strengths</h2>
+  <div class="grid2">
+    <div class="card acc"><strong>Current, sourced numbers</strong> <span class="small">Spending, FCF and issuance data that match independent sources.</span></div>
+    <div class="card acc"><strong>Lab pricing pressure is well supported</strong> <span class="small">Linking the open-weight capability gap to lab pricing matches the digests.</span></div>
+    <div class="card acc"><strong>Fair use of history</strong> <span class="small">The BIS comparison fits Brookings.</span></div>
+    <div class="card acc"><strong>Takes the bull case seriously</strong> <span class="small">It doesn't call AI fake; it separates the technology from the trade.</span></div>
+  </div>
+</section>
+
+<section id="use">
+  <h2>How to use it</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">As a sentiment piece and citation source, not as analysis</h3>
+      <p class="small">The hedge-now case would only hold up if the paywalled report shows how stress moves from the weak tier into AA names and the banks.</p>
+      <div class="vs" style="margin:.8rem 0">
+        <div class="side"><div class="small dim">What the summary implies</div><strong>Hedge AI broadly</strong></div>
+        <div class="mid">→</div>
+        <div class="side" style="background:var(--acc-soft)"><div class="small dim">What the evidence supports</div><strong>Underweight or hedge Oracle, neoclouds, single-site project debt</strong></div>
+      </div>
+      <p class="small"><strong>Signals to watch</strong> (UBP's): the new-issue concession on the next jumbo deal, Oracle's rating, and Microsoft backlog growth excluding OpenAI (25% vs 84% headline).</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">What would make Sage Road right</h3>
+      <ul class="checkbox-list small">
+        <li><span class="box">[ ]</span><span>Lab revenue growth falls well short of the ~80% a year Brookings says is needed</span></li>
+        <li><span class="box">[ ]</span><span>A hyperscaler cuts capex guidance for balance-sheet reasons</span></li>
+        <li><span class="box">[ ]</span><span>Spread widening spreads from Oracle to Meta or the AA names</span></li>
+        <li><span class="box">[ ]</span><span>A lab renegotiates or defers a take-or-pay contract</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Related wiki pages:</strong></p>
+  <ul class="xref">
+    <li><a href="ubp-financing-ai-build-out-2026-09.html">UBP: Financing the AI Build-out</a> (HTML): fragility ranking, backlog concentration, Anthropic vs OpenAI structures</li>
+    <li><a href="brookings-financing-ai-buildout-van-nieuwerburgh-2026-09.html">Brookings: Financing the AI Buildout</a> (HTML): 3.63% of GDP, $3.725T revenue bar, NVIDIA's backstop</li>
+    <li><span class="mono">burry-ai-capital-cycle-oracle-jupiter-2026-09</span>: ~$3T off-balance-sheet tally, Oracle Jupiter</li>
+    <li><span class="mono">ai-compute-commencement-wall-and-refinancing-trap</span>: commencement timing and where losses land</li>
+    <li><span class="mono">ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001</span>: AI capex and bond-market crowding</li>
+    <li><span class="mono">market-newsletter-digest-2026-07-19</span>: Chanos and the ROIIC collapse</li>
+    <li><span class="mono">market-newsletter-digest-2026-09-18</span>: Epoch open-weight lag; closed models' &gt;90% revenue share</li>
+    <li><span class="mono">ai-inference-costs-accounting</span>: AI cost accounting</li>
+  </ul>
+  <p>Originals: <a href="https://sageroadresearch.com/products/the-ai-trade">Product page</a> · <a href="https://sageroadresearch.com/pages/the-ai-trade-executive-summary">Executive summary</a>.</p>
+  <p>Built from <span class="mono">sage-road-ai-trade-2026-09.md</span>. Generated October 2, 2026.</p>
+</footer>
+</div>
+
+</body>
+</html>

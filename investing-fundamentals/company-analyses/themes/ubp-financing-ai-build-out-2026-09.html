@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UBP AI Build-out</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d4f91'/%3E%3Crect x='7' y='17' width='4' height='9' fill='%23fff'/%3E%3Crect x='14' y='11' width='4' height='15' fill='%23fff'/%3E%3Crect x='21' y='6' width='4' height='20' fill='%23e0a458'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --surface-2: #eef2f7;
+  --border: #d6dde8;
+  --text: #16202d;
+  --text-dim: #536175;
+  --ubp: #1d4f91;
+  --ubp-soft: #e3ecf8;
+  --brk: #a8570f;
+  --brk-soft: #f8ecdf;
+  --both: #2f6b4f;
+  --both-soft: #e2f0e8;
+  --warn: #b03a2e;
+  --warn-soft: #f8e5e2;
+  --bar-bg: #e4e9f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e141d;
+    --surface: #151d29;
+    --surface-2: #1b2534;
+    --border: #2a3648;
+    --text: #e3e9f1;
+    --text-dim: #9aa8bb;
+    --ubp: #74a8eb;
+    --ubp-soft: #1a2c45;
+    --brk: #e3a660;
+    --brk-soft: #3a2a19;
+    --both: #74c49a;
+    --both-soft: #183326;
+    --warn: #ee8a7d;
+    --warn-soft: #3d1f1c;
+    --bar-bg: #232f40;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e141d; --surface: #151d29; --surface-2: #1b2534; --border: #2a3648;
+  --text: #e3e9f1; --text-dim: #9aa8bb; --ubp: #74a8eb; --ubp-soft: #1a2c45;
+  --brk: #e3a660; --brk-soft: #3a2a19; --both: #74c49a; --both-soft: #183326;
+  --warn: #ee8a7d; --warn-soft: #3d1f1c; --bar-bg: #232f40;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 17px; scroll-behavior: smooth; scroll-padding-top: 4rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif; line-height: 1.55;
+  overflow-wrap: break-word;
+}
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 1rem 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+h1 { font-family: "IBM Plex Serif", Georgia, serif; font-size: 2.2rem; margin: 0 0 .6rem; }
+h2 { font-size: 1.5rem; margin: 0 0 .4rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; }
+p { max-width: 68ch; margin: .5rem 0; }
+.mono, .num { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+.dim { color: var(--text-dim); }
+.small { font-size: .85rem; }
+a { color: var(--ubp); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--ubp); outline-offset: 2px; }
+
+/* tags for which source a fact comes from */
+.tag { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .7rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; padding: .1rem .45rem; border-radius: 3px; vertical-align: .1em; white-space: nowrap; }
+.tag.ubp { background: var(--ubp-soft); color: var(--ubp); }
+.tag.brk { background: var(--brk-soft); color: var(--brk); }
+.tag.both { background: var(--both-soft); color: var(--both); }
+.tag.chk { background: var(--warn-soft); color: var(--warn); }
+.tag.wiki { background: var(--surface-2); color: var(--text-dim); border: 1px solid var(--border); }
+
+/* header */
+header.top { padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 0; }
+.eyebrow { font-family: "IBM Plex Mono", monospace; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); }
+.lede { font-size: 1.12rem; max-width: 62ch; }
+
+/* nav */
+nav.toc { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--border);
+  overflow-x: auto; white-space: nowrap; margin: 0 -1rem; padding: 0 1rem; }
+nav.toc a { display: inline-block; padding: .65rem .7rem; font-size: .85rem; color: var(--text-dim); text-decoration: none; }
+nav.toc a:hover { color: var(--text); }
+
+section { padding-top: 2.6rem; }
+.section-lede { color: var(--text-dim); max-width: 66ch; margin-bottom: 1.2rem; }
+
+/* cards */
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1rem; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.grid2 > *, .grid3 > * { min-width: 0; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.1rem 1.2rem; }
+.card.ubp { border-top: 3px solid var(--ubp); }
+.card.brk { border-top: 3px solid var(--brk); }
+.card.both { border-top: 3px solid var(--both); }
+.card h3 { margin-top: 0; }
+.card .who { font-size: .85rem; color: var(--text-dim); margin: 0 0 .6rem; }
+.question { font-family: "IBM Plex Serif", Georgia, serif; font-size: 1.15rem; margin: .3rem 0 .8rem; }
+ol.tight, ul.tight { padding-left: 1.2rem; margin: .4rem 0; }
+ol.tight li, ul.tight li { margin: .35rem 0; }
+
+/* KPI tiles */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .8rem; margin: 1rem 0; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .9rem 1rem; min-width: 0; }
+.kpi .v { font-family: "IBM Plex Mono", monospace; font-size: 1.5rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.kpi .l { font-size: .85rem; color: var(--text-dim); }
+
+/* bar charts */
+figure { margin: 1rem 0; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1rem 1.2rem; }
+figcaption { font-weight: 600; margin-bottom: .8rem; }
+figcaption .dim { font-weight: 400; display: block; font-size: .85rem; }
+.bars { display: grid; grid-template-columns: minmax(6rem, max-content) 1fr minmax(4rem, max-content); gap: .45rem .7rem; align-items: center; }
+.bars .lab { font-size: .88rem; }
+.bars .track { background: var(--bar-bg); height: 1.1rem; border-radius: 2px; position: relative; overflow: hidden; }
+.bars .fill { height: 100%; width: var(--w); background: var(--ubp); border-radius: 2px; }
+.bars .fill.brk { background: var(--brk); }
+.bars .fill.alt { background: var(--text-dim); }
+.bars .fill.hot { background: var(--warn); }
+.bars .val { font-family: "IBM Plex Mono", monospace; font-size: .85rem; font-variant-numeric: tabular-nums; text-align: right; }
+.legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .8rem; color: var(--text-dim); margin-top: .7rem; }
+.legend i { display: inline-block; width: .8rem; height: .8rem; border-radius: 2px; margin-right: .3rem; vertical-align: -.1em; }
+
+/* stacked bar */
+.stack { display: flex; height: 2.2rem; border-radius: 3px; overflow: hidden; }
+.stack > div { display: flex; align-items: center; justify-content: center; color: #fff; font-family: "IBM Plex Mono", monospace; font-size: .8rem; min-width: 0; overflow: hidden; }
+
+/* chain (required revenue walk) */
+.chain { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: .6rem; counter-reset: step; }
+.step { background: var(--brk-soft); border-radius: 6px; padding: .8rem .9rem; position: relative; min-width: 0; }
+.step .v { font-family: "IBM Plex Mono", monospace; font-size: 1.25rem; font-weight: 600; color: var(--brk); }
+.step .l { font-size: .85rem; }
+.step .op { font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .05em; }
+
+/* tables */
+.tbl-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; vertical-align: top; padding: .6rem .8rem; border-bottom: 1px solid var(--border); }
+th { background: var(--surface-2); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-dim); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+td:first-child { font-weight: 500; }
+
+/* fragility ladder */
+.ladder { display: grid; gap: .35rem; margin: 1rem 0; }
+.rung { display: grid; grid-template-columns: 2.2rem 1fr; gap: .7rem; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: .55rem .8rem; border-left: 5px solid color-mix(in srgb, var(--warn) var(--h), var(--both)); }
+.rung .n { font-family: "IBM Plex Mono", monospace; font-weight: 600; color: var(--text-dim); }
+
+/* callouts */
+.note { border-left: 4px solid var(--ubp); background: var(--surface); padding: .8rem 1rem; border-radius: 0 6px 6px 0; margin: 1rem 0; }
+.note.brk { border-color: var(--brk); }
+.note.warn { border-color: var(--warn); }
+.note.both { border-color: var(--both); }
+.note p { margin: .3rem 0; }
+
+/* checks list */
+.checks { list-style: none; padding: 0; margin: .6rem 0; display: grid; gap: .55rem; }
+.checks li { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: .65rem .9rem; display: grid; grid-template-columns: 5.5rem 1fr; gap: .8rem; }
+.checks li > * { min-width: 0; }
+.verdict { font-family: "IBM Plex Mono", monospace; font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding-top: .15rem; }
+.verdict.ok { color: var(--both); }
+.verdict.bad { color: var(--warn); }
+.verdict.mid { color: var(--brk); }
+
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .2rem 1rem; margin: .6rem 0; }
+details > summary { cursor: pointer; padding: .6rem 0; font-weight: 600; }
+details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: .5rem; }
+
+dl.gloss { display: grid; grid-template-columns: minmax(9rem, max-content) 1fr; gap: .5rem 1.2rem; margin: 0; }
+dl.gloss dt { font-weight: 600; }
+dl.gloss dd { margin: 0; color: var(--text-dim); }
+
+@media (max-width: 40rem) {
+  html { font-size: 16px; }
+  h1 { font-size: 1.75rem; }
+  .bars { grid-template-columns: minmax(4.5rem, max-content) 1fr minmax(3.5rem, max-content); }
+  .checks li { grid-template-columns: 1fr; gap: .2rem; }
+  dl.gloss { grid-template-columns: 1fr; }
+  dl.gloss dd { margin-bottom: .5rem; }
+}
+footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: .85rem; color: var(--text-dim); }
+
+:root { --acc: var(--ubp); }
+
+/* extra components for the single-paper pages */
+.accent { color: var(--acc); }
+.card.acc { border-top: 3px solid var(--acc); }
+.bars .fill.acc { background: var(--acc); }
+.big-num { font-family: "IBM Plex Mono", monospace; font-size: 2rem; font-weight: 600; color: var(--acc); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.argument { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .8rem; }
+.argument .card { display: grid; gap: .4rem; align-content: start; }
+.argument .n { font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: var(--text-dim); letter-spacing: .08em; }
+.plain { font-size: .85rem; color: var(--text-dim); border-top: 1px dashed var(--border); padding-top: .5rem; margin-top: .3rem; }
+.plain b { color: var(--text); font-weight: 600; }
+.vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: .8rem; align-items: center; text-align: center; }
+.vs .side { background: var(--surface-2); border-radius: 6px; padding: .8rem; min-width: 0; }
+.vs .mid { font-family: "IBM Plex Mono", monospace; color: var(--text-dim); font-size: .85rem; }
+.timeline { position: relative; margin: 1rem 0 .5rem; padding-left: 1.4rem; border-left: 2px solid var(--border); display: grid; gap: .9rem; }
+.tl-item { position: relative; }
+.tl-item::before { content: ""; position: absolute; left: -1.82rem; top: .35rem; width: .75rem; height: .75rem; border-radius: 50%; background: var(--acc); border: 2px solid var(--bg); }
+.tl-item.warn::before { background: var(--warn); }
+.tl-item.dim::before { background: var(--text-dim); }
+.tl-date { font-family: "IBM Plex Mono", monospace; font-size: .8rem; font-weight: 600; color: var(--acc); }
+.tl-item.warn .tl-date { color: var(--warn); }
+.pill { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .75rem; padding: .1rem .5rem; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); white-space: nowrap; }
+.pill.ig { color: var(--both); border-color: var(--both); }
+.pill.hy { color: var(--warn); border-color: var(--warn); }
+.sigs { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .7rem; }
+.sig { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .8rem .9rem; min-width: 0; }
+.sig .from-to { font-family: "IBM Plex Mono", monospace; font-size: 1.05rem; font-weight: 600; }
+.sig .from-to .arrow { color: var(--text-dim); margin: 0 .3rem; }
+.sig .l { font-size: .85rem; color: var(--text-dim); }
+.flag { border: 1px dashed var(--warn); background: var(--warn-soft); border-radius: 6px; padding: .6rem .9rem; font-size: .85rem; margin: .8rem 0; }
+.flag strong { color: var(--warn); }
+.checkbox-list { list-style: none; padding: 0; margin: .5rem 0; display: grid; gap: .45rem; }
+.checkbox-list li { display: grid; grid-template-columns: 1.6rem 1fr; gap: .4rem; }
+.checkbox-list .box { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+.box.y { color: var(--warn); }
+.box.p { color: var(--brk); }
+.split { display: flex; height: 1.6rem; border-radius: 3px; overflow: hidden; margin: .4rem 0; }
+.split > div { display: flex; align-items: center; padding: 0 .5rem; color: #fff; font-family: "IBM Plex Mono", monospace; font-size: .75rem; white-space: nowrap; overflow: hidden; min-width: 0; }
+.xref { columns: 2 18rem; column-gap: 1.5rem; padding-left: 1.1rem; font-size: .9rem; }
+.xref li { break-inside: avoid; margin: .3rem 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Credit research summary · Union Bancaire Privée · September 16, 2026</div>
+  <h1>UBP: Financing the AI Build-out</h1>
+  <p class="lede">A bond strategist's view of the AI spending boom. The question is never "does AI win." It is "do I get my money back, and who loses first if not."</p>
+  <p class="small dim">Filipe Alves da Silva, Head of Fixed Income Advisory &amp; Strategy, UBP. 27-page PDF; most tables sourced to CreditSights (Aug 20, 2026), Morgan Stanley, JPM and Bloomberg.
+  <span class="tag wiki">Wiki</span> marks checks and estimates made in these notes, not claims UBP makes. Notes confidence: medium.<br>
+  Companion pages: <a href="brookings-financing-ai-buildout-van-nieuwerburgh-2026-09.html">Brookings paper</a> · <a href="ai-buildout-financing-ubp-vs-brookings-2026-09.html">UBP vs Brookings side by side</a></p>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#argument">The argument</a>
+  <a href="#money">Spending vs cash</a>
+  <a href="#hidden">Hidden obligations</a>
+  <a href="#companies">Company by company</a>
+  <a href="#labs">The lab exposure</a>
+  <a href="#bonds">Bond market</a>
+  <a href="#losses">Who loses first</a>
+  <a href="#takeaways">Takeaways</a>
+  <a href="#checks">Fact checks</a>
+  <a href="#history">History</a>
+  <a href="#brookings">vs Brookings</a>
+  <a href="#verdict">Verdict</a>
+</nav>
+
+<section id="argument">
+  <h2>The argument in four lines</h2>
+  <div class="argument">
+    <div class="card acc"><span class="n">01 · THE GAP</span><div class="big-num">$820B vs $750B</div><div>The five hyperscalers (MSFT, AMZN, GOOGL, META, ORCL) now spend more than they generate: ~$820B capex vs ~$750B operating cash flow in 2026, and $1.0-1.3T vs ~$900B in 2027.</div></div>
+    <div class="card acc"><span class="n">02 · NOT THE BALANCE SHEET</span><div class="big-num">~$400B</div><div>The four AA-or-better names can add ~$400B of debt in 18 months without a downgrade, ~$600B before falling to single-A. The constraint is the <em>price</em> the bond market charges.</div></div>
+    <div class="card acc"><span class="n">03 · THE REAL RISK</span><div class="big-num">~40%</div><div>Of $2.3T in cloud backlog is owed by OpenAI and Anthropic, two private companies. The risk sits in the order book, not the borrowers.</div></div>
+    <div class="card acc"><span class="n">04 · THE BEAR CASE HAS A DATE</span><div class="big-num">2027-28</div><div>Signed leases and take-or-pay contracts start billing then, whatever lab revenue is by then, while capex growth slows: +111% (2026), +45% (2027), +11% (2028).</div></div>
+  </div>
+</section>
+
+<section id="money">
+  <h2>Spending has passed cash generation</h2>
+  <p class="section-lede">For the first time, the five largest cloud companies spend more on data centers than their businesses bring in. The difference has to come from borrowing, partners or equity.</p>
+  <div class="grid2">
+    <figure>
+      <figcaption>Capex vs operating cash flow, five hyperscalers, $B</figcaption>
+      <div class="bars">
+        <span class="lab">2026 capex</span><div class="track"><div class="fill acc" style="--w:63.1%"></div></div><span class="val">~820</span>
+        <span class="lab">2026 cash flow</span><div class="track"><div class="fill alt" style="--w:57.7%"></div></div><span class="val">~750</span>
+        <span class="lab">2027 capex</span><div class="track"><div class="fill acc" style="--w:100%;background:linear-gradient(90deg,var(--acc) 76.9%,color-mix(in srgb,var(--acc) 40%,transparent) 76.9%)"></div></div><span class="val">1,000-1,300</span>
+        <span class="lab">2027 cash flow</span><div class="track"><div class="fill alt" style="--w:69.2%"></div></div><span class="val">~900</span>
+      </div>
+      <p class="small dim">Lighter shading on 2027 capex is the range of estimates.</p>
+    </figure>
+    <figure>
+      <figcaption>But capex growth is slowing fast <span class="dim">UBP's year-over-year capex growth path</span></figcaption>
+      <div class="bars">
+        <span class="lab">2026</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">+111%</span>
+        <span class="lab">2027</span><div class="track"><div class="fill acc" style="--w:40.5%"></div></div><span class="val">+45%</span>
+        <span class="lab">2028</span><div class="track"><div class="fill acc" style="--w:9.9%"></div></div><span class="val">+11%</span>
+      </div>
+      <p class="small dim">This is why the bear case is dated: the bills start arriving just as spending growth flattens.</p>
+    </figure>
+  </div>
+  <figure>
+    <figcaption>Interest is not the constraint <span class="dim">$600B of new debt at ~5% versus the group's ~$790B EBITDA <span class="tag wiki">Wiki check</span></span></figcaption>
+    <div class="bars">
+      <span class="lab">EBITDA</span><div class="track"><div class="fill alt" style="--w:100%"></div></div><span class="val">~$790B</span>
+      <span class="lab">Interest on $600B</span><div class="track"><div class="fill acc" style="--w:3.8%"></div></div><span class="val">~$30B</span>
+    </div>
+    <p class="plain"><b>In plain terms:</b> the AA names could borrow far more and still pay the interest easily, under 4% of earnings. What changes is how much yield buyers demand to lend it.</p>
+  </figure>
+</section>
+
+<section id="hidden">
+  <h2>Most obligations are off the balance sheet</h2>
+  <p class="section-lede">Reported debt understates what these companies have committed to. Signed leases that haven't started, chip purchase deals and guarantees don't show up as debt yet.</p>
+  <div class="vs">
+    <div class="side"><div class="big-num" style="color:var(--text-dim)">~$0.9T</div><div class="small">On balance sheet<br>$566B debt + leases</div></div>
+    <div class="mid">vs<br>3.3x</div>
+    <div class="side"><div class="big-num">~$2.9T</div><div class="small">Off balance sheet<br>not yet counted as debt</div></div>
+  </div>
+  <figure>
+    <figcaption>What the $2.9T is made of, $B <span class="dim">UBP calls guarantees "the smallest and the most dangerous" category</span></figcaption>
+    <div class="bars">
+      <span class="lab">Purchase commitments</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">1,569</span>
+      <span class="lab">Leases signed, not started</span><div class="track"><div class="fill acc" style="--w:74.2%"></div></div><span class="val">1,164</span>
+      <span class="lab">Alphabet guarantees</span><div class="track"><div class="fill hot" style="--w:4.8%"></div></div><span class="val">75</span>
+      <span class="lab">Meta residual value guarantees</span><div class="track"><div class="fill hot" style="--w:2.6%"></div></div><span class="val">41</span>
+    </div>
+    <p class="small dim">Purchase commitments (55% of the total) overlap with capex forecasts, so adding them to capex double counts. UBP ranks them the least alarming for that reason.</p>
+  </figure>
+</section>
+
+<section id="companies">
+  <h2>Company by company</h2>
+  <p class="section-lede">Oracle stands apart on every measure. The other four look stretched compared with their own history, not compared with their ability to pay.</p>
+  <div class="grid2">
+    <figure>
+      <figcaption>Lease-adjusted gross leverage <span class="dim">(debt + leases) ÷ EBITDA</span></figcaption>
+      <div class="bars">
+        <span class="lab">MSFT</span><div class="track"><div class="fill acc" style="--w:14%"></div></div><span class="val">0.6x</span>
+        <span class="lab">GOOGL</span><div class="track"><div class="fill acc" style="--w:16.3%"></div></div><span class="val">0.7x</span>
+        <span class="lab">META</span><div class="track"><div class="fill acc" style="--w:18.6%"></div></div><span class="val">0.8x</span>
+        <span class="lab">AMZN</span><div class="track"><div class="fill acc" style="--w:32.6%"></div></div><span class="val">1.4x</span>
+        <span class="lab">ORCL</span><div class="track"><div class="fill hot" style="--w:100%"></div></div><span class="val">4.3x</span>
+      </div>
+    </figure>
+    <figure>
+      <figcaption>Capex as % of revenue, last 12 months <span class="dim">Was 10-15% five years ago</span></figcaption>
+      <div class="bars">
+        <span class="lab">AMZN</span><div class="track"><div class="fill acc" style="--w:26.5%"></div></div><span class="val">22%</span>
+        <span class="lab">GOOGL</span><div class="track"><div class="fill acc" style="--w:36.1%"></div></div><span class="val">30%</span>
+        <span class="lab">META</span><div class="track"><div class="fill acc" style="--w:49.4%"></div></div><span class="val">41%</span>
+        <span class="lab">MSFT</span><div class="track"><div class="fill acc" style="--w:53%"></div></div><span class="val">44%</span>
+        <span class="lab">ORCL</span><div class="track"><div class="fill hot" style="--w:100%"></div></div><span class="val">83%</span>
+      </div>
+    </figure>
+  </div>
+  <figure>
+    <figcaption>Cloud backlog (remaining performance obligations), $B <span class="dim">Total $2.34T, up from $2.1T a quarter earlier</span></figcaption>
+    <div class="bars">
+      <span class="lab">MSFT</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">684 · 6x since 2020</span>
+      <span class="lab">ORCL</span><div class="track"><div class="fill acc" style="--w:93.3%"></div></div><span class="val">638</span>
+      <span class="lab">GOOGL</span><div class="track"><div class="fill acc" style="--w:76%"></div></div><span class="val">520 · 17x</span>
+      <span class="lab">AMZN</span><div class="track"><div class="fill acc" style="--w:72.5%"></div></div><span class="val">496 · 10x</span>
+    </div>
+    <p class="small dim">Multiples are growth since end-2020.</p>
+  </figure>
+</section>
+
+<section id="labs">
+  <h2>The lab exposure</h2>
+  <p class="section-lede">Two private, cash-burning companies account for a large slice of what the cloud giants expect to earn.</p>
+  <figure>
+    <figcaption>Share of the $2.34T backlog owed by the two labs <span class="dim">Built from UBP's own counterparty table <span class="tag wiki">Wiki check</span></span></figcaption>
+    <div class="split" role="img" aria-label="OpenAI 688 billion, Anthropic 330 billion, everyone else about 1,320 billion">
+      <div style="width:29.4%;background:var(--warn)">OpenAI $688B</div>
+      <div style="width:14.1%;background:var(--brk)">Anthropic $330B</div>
+      <div style="width:56.5%;background:var(--text-dim)">Everyone else ~$1.32T</div>
+    </div>
+    <p class="small">~$1.02T, about 44% of backlog, which matches UBP's "~40%." Some announced commitments (e.g. Microsoft's "incremental" $250B) may not be booked in backlog yet, so the true share could be lower.</p>
+  </figure>
+  <div class="grid2">
+    <div class="tbl-wrap" style="margin:0">
+      <table>
+        <thead><tr><th>Lab</th><th class="num">Committed</th><th>Owed to</th><th>Revenue today</th></tr></thead>
+        <tbody>
+          <tr><td>OpenAI</td><td class="num">$750B+</td><td>Oracle 300, MSFT 250, AMZN 138</td><td>ARR $40B+; more than $200B of cash burn through 2029</td></tr>
+          <tr><td>Anthropic</td><td class="num">$500B+</td><td>GOOGL 200, AMZN 100+</td><td>ARR $65B (July); Q2 revenue $11.5B; adjusted operating profit</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure style="margin:0">
+      <figcaption>Commitments vs revenue <span class="dim">~$1.25T owed against ~$105B combined ARR</span></figcaption>
+      <div class="bars">
+        <span class="lab">Commitments</span><div class="track"><div class="fill hot" style="--w:100%"></div></div><span class="val">~$1.25T</span>
+        <span class="lab">Combined ARR</span><div class="track"><div class="fill acc" style="--w:8.4%"></div></div><span class="val">~$105B</span>
+      </div>
+      <p class="plain"><b>About 12x.</b> If rating agencies treated these take-or-pay contracts as debt, the way they do for pipelines and shipping, the labs would look highly leveraged.</p>
+    </figure>
+  </div>
+  <div class="note">
+    <p><strong>The cleanest demand signal in the report:</strong> Microsoft's backlog grew 84% year over year, but only 25% excluding OpenAI, close to its historical rate. That separates organic demand from lab commitments.</p>
+  </div>
+</section>
+
+<section id="bonds">
+  <h2>What the bond market is saying</h2>
+  <p class="section-lede">AI borrowers are a growing slice of the bond indices, and buyers are starting to ask for more yield to absorb the supply.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">4.6%</div><div class="l">AI share of the US investment-grade index (six names); ~8.0% broadly defined</div></div>
+    <div class="kpi"><div class="v">~4.5%</div><div class="l">AI share of the US high-yield index by end-2026, from negligible 18 months ago</div></div>
+    <div class="kpi"><div class="v">$212B</div><div class="l">H1 2026 bonds, plus $115B equity announced (~35% of capital raised)</div></div>
+    <div class="kpi"><div class="v">$62B</div><div class="l">Non-USD bonds in H1 2026, 4x 2025</div></div>
+  </div>
+  <h3>Signs buyers are getting full</h3>
+  <div class="sigs">
+    <div class="sig"><div class="from-to">~0<span class="arrow">→</span>mid-teens bp</div><div class="l">New-issue concession, February to July: the extra yield a new deal must offer</div></div>
+    <div class="sig"><div class="from-to">~5x<span class="arrow">→</span>&lt;2x</div><div class="l">Order-book coverage: how many times over each deal is bid</div></div>
+    <div class="sig"><div class="from-to">&gt;50%</div><div class="l">Of 2026 ORCL/META/AMZN/GOOGL bonds trade at least 5bp wider than where they were issued</div></div>
+    <div class="sig"><div class="from-to">Meta 2063 ≥ DR 2060</div><div class="l">Meta's 2063 bond yields as much as or more than the Dominican Republic 2060, rated BB</div></div>
+  </div>
+
+  <h3>The tenant sets the price</h3>
+  <p>Debt backed by chips or a single data center is priced on who rents it. Same kind of asset, very different yield.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Structure</th><th>Backed by</th><th>Price</th><th>Rating</th></tr></thead>
+      <tbody>
+        <tr><td>CoreWeave TL4</td><td>Meta contract</td><td class="mono">SOFR+225</td><td><span class="pill ig">A3</span></td></tr>
+        <tr><td>CoreWeave TL5</td><td>OpenAI / Cohere contracts</td><td class="mono">SOFR+450</td><td><span class="pill hy">Ba2</span></td></tr>
+        <tr><td>Broadcom AI XPV, guaranteed notes</td><td>Broadcom guarantee</td><td class="mono">~5.75%</td><td></td></tr>
+        <tr><td>Broadcom AI XPV, unguaranteed</td><td>Project alone</td><td class="mono">8.5%</td><td></td></tr>
+        <tr><td>Beignet (Meta/Blue Owl, Louisiana)</td><td>Meta lease, $27.3B</td><td class="mono">T+225</td><td><span class="pill ig">A+</span></td></tr>
+        <tr><td>Sopaipilla (Meta/BlackRock, Texas)</td><td>Meta lease, $12.6B</td><td class="mono">T+288</td><td></td></tr>
+        <tr><td>Unguaranteed single-site HY vehicles</td><td>One tenant, one site</td><td class="mono">150-340bp over the tenant</td><td><span class="pill hy">HY</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="plain"><b>In plain terms:</b> swapping Meta for OpenAI as the tenant roughly doubles the spread on CoreWeave's debt and drops it from investment grade to junk.</p>
+
+  <h3>When the bills start</h3>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-date">2027</div>Anthropic's Broadcom capacity and AMD chips commence</div>
+    <div class="tl-item"><div class="tl-date">Early 2028</div>Kentucky site</div>
+    <div class="tl-item"><div class="tl-date">Dec 2028</div>Sopaipilla</div>
+    <div class="tl-item"><div class="tl-date">Jun 2029</div>Beignet</div>
+    <div class="tl-item warn"><div class="tl-date">~2029</div>Where Brookfield's default pattern points (see <a href="#history">History</a>) <span class="tag wiki">Wiki</span></div>
+  </div>
+</section>
+
+<section id="losses">
+  <h2>Who loses first in an overbuild</h2>
+  <p>An overbuild "destroys the marginal builder and the operator that borrowed against a single contract," not an AA company with a second business.</p>
+  <div class="ladder" role="list">
+    <div class="rung" role="listitem" style="--h:100%"><span class="n">1</span><span><strong>Unguaranteed single-site HY vehicles and neoclouds</strong></span></div>
+    <div class="rung" role="listitem" style="--h:80%"><span class="n">2</span><span><strong>Private credit construction loans</strong></span></div>
+    <div class="rung" role="listitem" style="--h:60%"><span class="n">3</span><span><strong>Oracle</strong> <span class="dim small">BBB-, 4.3x leverage, FCF -$24B in FY26, roughly half its backlog owed by one loss-making customer</span></span></div>
+    <div class="rung" role="listitem" style="--h:35%"><span class="n">4</span><span><strong>Meta</strong></span></div>
+    <div class="rung" role="listitem" style="--h:0%"><span class="n">5</span><span><strong>Microsoft, Alphabet, Amazon</strong></span></div>
+  </div>
+  <p class="small dim">This matches the wiki's own <span class="mono">ai-compute-commencement-wall-and-refinancing-trap</span> view: solvency risk for neoclouds and private credit, valuation-multiple risk for tier-1 hyperscalers.</p>
+</section>
+
+<section id="takeaways">
+  <h2>Takeaways for investors</h2>
+  <div class="grid3">
+    <div class="card acc"><strong>1. Losses land on the leveraged edge.</strong> <span class="small">See the ladder above. The fragile layer is single-contract structures, not AA balance sheets.</span></div>
+    <div class="card acc"><strong>2. For shareholders the risk is margin, not default.</strong> <span class="small">Lab shortfalls will likely show up as "renegotiation dressed as partnership": deferrals called rephasing, and sub-leased capacity hitting a market sold as scarce.</span></div>
+    <div class="card acc"><strong>3. Equity and credit are one trade.</strong> <span class="small">~35% of 2026 funding came from equity, and the group holds $600B+ of stakes in OpenAI, Anthropic and SpaceX it could sell. If the equity de-rates, bonds must fund a bigger gap just as appetite is weakest. Six of these names are ~17% of MSCI ACWI, so most portfolios already own the equity that would need to be sold.</span></div>
+    <div class="card acc"><strong>4. Oracle is the pivot credit.</strong> <span class="small">The one name where a lab renegotiation reaches the rating. A downgrade to high yield would trigger forced selling by holders with index caps.</span></div>
+    <div class="card acc"><strong>5. OpenAI exposure is mostly indirect.</strong> <span class="small">It arrives through ORCL, CRWV and project paper for sites built for it. Anthropic's structures put an IG balance sheet between lender and lab (Alphabet guarantees Fluidstack leases; Broadcom backstop). OpenAI's do not.</span></div>
+    <div class="card acc"><strong>6. Watch the ex-OpenAI number.</strong> <span class="small">Microsoft backlog +84% y/y, but +25% excluding OpenAI, near its historical rate. The cleanest read on organic demand.</span></div>
+  </div>
+  <h3>7. What to watch (UBP's list)</h3>
+  <ul class="tight">
+    <li><strong>The new-issue concession on the next jumbo deal</strong> (UBP weights this most)</li>
+    <li>Microsoft's first bond in nine years</li>
+    <li>The Anthropic listing documents</li>
+    <li>Oracle's $20B at-the-market programme</li>
+    <li>Issuance should pause in H2 2026 and resume in H1 2027</li>
+  </ul>
+</section>
+
+<section id="checks">
+  <h2>Checking the claims</h2>
+  <p class="section-lede">The notes recomputed UBP's totals and checked them against other sources in the wiki. Most hold. The problems all point the same way: UBP is slightly too relaxed about Oracle and the guarantee layer.</p>
+
+  <h3>Internal arithmetic</h3>
+  <ul class="checks">
+    <li><span class="verdict ok">Checks</span><span>Off-balance-sheet total: 1,164 + 1,569 + 41 + 75 = $2,849B. On-balance-sheet debt + leases = $853B. Ratio 3.3x, matching "more than three times."</span></li>
+    <li><span class="verdict ok">Checks</span><span>Backlog: 496 + 684 + 520 + 638 = $2,338B.</span></li>
+    <li><span class="verdict ok">Checks</span><span>~40% lab share: OpenAI 300 + 250 + 138 = $688B; Anthropic 200 + 100 + 30 = $330B; ~$1.02T ≈ 44% of backlog (caveat above on unbooked commitments).</span></li>
+    <li><span class="verdict ok">Checks</span><span>Interest not the constraint: $600B × ~5% ≈ $30B vs ~$790B EBITDA, under 4%.</span></li>
+    <li><span class="verdict bad">Doesn't</span><span><strong>Cumulative capex.</strong> Page 4 says $6.5T "between now and 2030"; page 24 says $5.6T over 2026-30. See the table below.</span></li>
+    <li><span class="verdict bad">Overstated</span><span><strong>Oracle's index-cap headroom.</strong> UBP: "some USD 60 billion" of issuance from the 1.5% cap for low-IG names. Oracle has ~$130B of debt at a 1.17% index weight, implying an ~$11T index, so the 0.33pp gap is ~$35-40B. Forced selling may be closer than UBP implies. (Depends on how much of Oracle's debt is in the index.)</span></li>
+  </ul>
+
+  <div class="grid2">
+    <div class="tbl-wrap">
+      <table>
+        <caption class="small dim" style="text-align:left;padding:.6rem .8rem 0">Why the cumulative capex figures don't reconcile <span class="tag wiki">Wiki calc</span></caption>
+        <thead><tr><th>Year</th><th class="num">Implied capex</th></tr></thead>
+        <tbody>
+          <tr><td>2026</td><td class="num">$820B</td></tr>
+          <tr><td>2027 (+45%)</td><td class="num">~$1.19T</td></tr>
+          <tr><td>2028 (+11%)</td><td class="num">~$1.32T</td></tr>
+          <tr><td>2029-30 to reach $5.6T</td><td class="num">~$1.1T a year (a fall)</td></tr>
+          <tr><td>2029-30 to reach $6.5T</td><td class="num">~$1.6T a year (a re-acceleration)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure>
+      <figcaption>Oracle's room before the 1.5% index cap, $B</figcaption>
+      <div class="bars">
+        <span class="lab">UBP says</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">~60</span>
+        <span class="lab">Wiki estimate</span><div class="track"><div class="fill hot" style="--w:62.5%"></div></div><span class="val">35-40</span>
+      </div>
+      <p class="small dim">Likely a digit transposition on capex; the path is unexplained either way.</p>
+    </figure>
+  </div>
+
+  <h3>Against other data in the wiki</h3>
+  <figure>
+    <figcaption>Off-balance-sheet figures per company: UBP vs Burry, $B <span class="dim">Close agreement. Both use the same filings, so this confirms the arithmetic, not the interpretation.</span></figcaption>
+    <div class="bars">
+      <span class="lab">Alphabet · UBP</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">977</span>
+      <span class="lab">Alphabet · Burry</span><div class="track"><div class="fill alt" style="--w:92.1%"></div></div><span class="val">~900</span>
+      <span class="lab">Meta · UBP</span><div class="track"><div class="fill acc" style="--w:75.4%"></div></div><span class="val">737</span>
+      <span class="lab">Meta · Burry</span><div class="track"><div class="fill alt" style="--w:71.6%"></div></div><span class="val">~700</span>
+      <span class="lab">MSFT · UBP</span><div class="track"><div class="fill acc" style="--w:33.7%"></div></div><span class="val">329</span>
+      <span class="lab">MSFT · Burry</span><div class="track"><div class="fill alt" style="--w:30.7%"></div></div><span class="val">&gt;300</span>
+      <span class="lab">Amazon · UBP</span><div class="track"><div class="fill acc" style="--w:29.2%"></div></div><span class="val">285</span>
+      <span class="lab">Amazon · Burry</span><div class="track"><div class="fill alt" style="--w:27.3%"></div></div><span class="val">~267</span>
+    </div>
+  </figure>
+  <ul class="checks">
+    <li><span class="verdict mid">Undercount</span><span><strong>Guarantees.</strong> UBP tabulates $41B (Meta) + $75B (Alphabet) + $29B (Broadcom) because others don't quantify them. The FT puts Big Tech residual value guarantees at up to $300B in under a year. The category UBP calls most dangerous is also the least measured.</span></li>
+    <li><span class="verdict ok">Borne out</span><span><strong>Oracle stress arrived after publication.</strong> On Sept 24, eight days later, Oracle sent a force majeure notice on the 2.45GW Project Jupiter site; ~$18B of Jupiter loans traded at 89-91 cents and Oracle CDS hit a record. This is the "a delay means no rent and the debt is serviced from reserves" risk UBP describes.</span></li>
+    <li><span class="verdict mid">Rising</span><span><strong>OpenAI's burn.</strong> UBP: >$200B through 2029. Leaked planning documents show a revision from $180B to $278B through 2030. Different horizons, but the revisions are going up.</span></li>
+    <li><span class="verdict mid">Slipping</span><span><strong>Anthropic IPO timing.</strong> UBP treats an October listing as a near-term watch item. The Sept 19 digest reports a second delay; Sept 23 notes the IPO window narrowing (SB Energy slowed a ~$50B IPO).</span></li>
+    <li><span class="verdict mid">Adjusted</span><span><strong>Anthropic's profit.</strong> Positive operating income excluding stock comp in Q2, tracking to GAAP profit in Q3. The $65B ARR is a July exit rate; recognized Q2 revenue annualizes to ~$46B.</span></li>
+    <li><span class="verdict ok">Supported</span><span><strong>Power as the binding constraint.</strong> ~$130B of US data center projects blocked or delayed by local opposition this year; $374B+ of construction in progress (Zitron). Delays push the commencement wall later: good for lab cash flow, bad for single-site vehicles that get no rent until completion.</span></li>
+    <li><span class="verdict mid">Open</span><span><strong>Chip residual values.</strong> UBP: A100 rental rates rose; H100s re-contracted at ~90% of original rates; Oracle re-lets 4-year-old GPUs at a 20% premium. SemiAnalysis: "no one will take on the risk of assessing a residual value on 4, 5, or 6 year old GB300's today." UBP concedes its bullish data "was gathered amid a shortage."</span></li>
+  </ul>
+
+  <h3>Methodological points</h3>
+  <div class="grid2">
+    <div class="card"><strong>Backlog-to-lease coverage (1.5x-4.5x) looks safer than it is.</strong> <span class="small">It sets backlog against building lease payments only. Chips and servers, ~60% of site cost by UBP's own figure, aren't counted, nor are power and operating costs. Oracle's 2.0x coverage sits next to FCF of -$24B.</span></div>
+    <div class="card"><strong>"20bp on a 5.5% coupon changes very little" holds for the issuer, not the holder.</strong> <span class="small">On a 2063 bond with ~15 years of duration, 20bp of widening is a ~3% price loss. With the 10-year at its highest close since 2007, long AI paper carries both spread and rate risk.</span></div>
+    <div class="card"><strong>Purchase commitments overlap with capex forecasts.</strong> <span class="small">$1.57T, 55% of the $2.9T. Adding them to capex projections double counts.</span></div>
+    <div class="card"><strong>Treating take-or-pay as a loan book is the report's strongest idea.</strong> <span class="small">Rating agencies have done this for pipelines, shipping and power for 30 years, but not yet for compute. If they start, lab leverage (~$1.25T against ~$105B ARR, about 12x) looks very different.</span></div>
+  </div>
+</section>
+
+<section id="history">
+  <h2>Historical comparisons</h2>
+  <div class="grid2">
+    <figure>
+      <figcaption>How big vs past manias, investment as % of GDP</figcaption>
+      <div class="bars">
+        <span class="lab">UK railways, 1840s peak</span><div class="track"><div class="fill alt" style="--w:100%"></div></div><span class="val">~7%</span>
+        <span class="lab">AI capex, 2026</span><div class="track"><div class="fill acc" style="--w:37.1%"></div></div><span class="val">~2.6%</span>
+        <span class="lab">US telecom, 2000</span><div class="track"><div class="fill alt" style="--w:17.1%"></div></div><span class="val">~1.2%</span>
+      </div>
+      <p class="small dim">The AI figure is a wiki estimate ($820B ÷ ~$31T GDP), one year of hyperscaler capex only. UBP doesn't state a GDP share. Brookings' 3.63% measures something different (full buildout, 2025-32 average).</p>
+    </figure>
+    <figure>
+      <figcaption>Largest single issuers in the US IG index, % of index</figcaption>
+      <div class="bars">
+        <span class="lab">Ford, 2001</span><div class="track"><div class="fill hot" style="--w:100%"></div></div><span class="val">4.51%</span>
+        <span class="lab">GE, pre-GFC</span><div class="track"><div class="fill hot" style="--w:73.2%"></div></div><span class="val">3.30%</span>
+        <span class="lab">Average since 1997</span><div class="track"><div class="fill alt" style="--w:57.6%"></div></div><span class="val">2.6%</span>
+        <span class="lab">Amazon today</span><div class="track"><div class="fill acc" style="--w:26.6%"></div></div><span class="val">1.20%</span>
+      </div>
+      <p class="small dim">Ford and GE were both later downgraded or restructured. No single-name crowding yet.</p>
+    </figure>
+  </div>
+  <figure>
+    <figcaption>Sector crowding in the IG index, % of index <span class="dim">AI is large and rising (+2.2pp in two years) but not extreme</span></figcaption>
+    <div class="bars">
+      <span class="lab">Banks, pre-GFC</span><div class="track"><div class="fill alt" style="--w:100%"></div></div><span class="val">26%</span>
+      <span class="lab">Utilities</span><div class="track"><div class="fill alt" style="--w:57.7%;background:linear-gradient(90deg,var(--text-dim) 66.7%,color-mix(in srgb,var(--text-dim) 40%,transparent) 66.7%)"></div></div><span class="val">10-15%</span>
+      <span class="lab">AI, broad</span><div class="track"><div class="fill acc" style="--w:30.8%"></div></div><span class="val">~8.0%</span>
+      <span class="lab">AI, six names</span><div class="track"><div class="fill acc" style="--w:17.7%"></div></div><span class="val">4.6%</span>
+    </div>
+  </figure>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Episode</th><th>Scale and financing</th><th>Outcome</th><th>What carries over</th></tr></thead>
+      <tbody>
+        <tr><td>UK railway mania, 1840s</td><td>Investment peaked at ~7% of GDP (Odlyzko). Equity-led, partly-paid shares</td><td>Average dividends 1.83% in 1850 vs 10% expected; the network survived</td><td>Largest tech mania by GDP share. AI is large but well below it</td></tr>
+        <tr><td>Telecom/fiber, 1996-2002</td><td>US telecom capex ~$120B in 2000 (~$213B today), ~1.2% of GDP. Telecom went from 5% to 23% of HY 1995-99 (UBP); ~1/3 of HY by 2000 (AllianceBernstein)</td><td>Moody's HY default rate peaked at 10.7% in Jan 2002, driven by telecom; under 5% of fiber laid was ever lit</td><td>The glass lasted decades and demand grew into it, but the borrowers were gone first. GPUs last 3-7 years, so idle capacity expires instead of waiting</td></tr>
+        <tr><td>Shale/energy E&amp;P, 2009-17</td><td>Energy went from 10% to 17% of HY 2009-14 (UBP). HY and reserve-based loans</td><td>Double-digit sector defaults in 2015-16 and 2020</td><td>A hot theme let issuers into HY that normally couldn't get in</td></tr>
+        <tr><td>Largest single IG issuers</td><td>Ford 4.51% (2001), GE 3.30% pre-GFC, average 2.6% since 1997</td><td>Both later downgraded or restructured</td><td>Amazon is 1.20%: no single-name crowding yet</td></tr>
+        <tr><td>Sector crowding in IG</td><td>Banks 26% pre-GFC, utilities 10-15%</td><td></td><td>AI at 4.6-8.0% is large and rising, not extreme</td></tr>
+        <tr><td>US 5G build-out</td><td>Carriers spent to defend share; IG funded</td><td>Connected-device revenue never came</td><td>Hyperscalers may earn their return as defended share, not new revenue</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3 style="margin-top:0">A pattern worth tracking</h3>
+      <p class="small">Brookfield studied the three sector default cycles above 10% since 1997 (telecom 1998-2004, homebuilders 2006-11, energy E&amp;P 2014-17). Same three warning signs each time, with defaults spiking about <strong>three years later</strong>:</p>
+      <ul class="checkbox-list small">
+        <li><span class="box y">[x]</span><span><strong>Capex ramp.</strong> Here.</span></li>
+        <li><span class="box y">[x]</span><span><strong>Negative FCF.</strong> Arrived in 2026 at Meta, Oracle, Amazon (partly) and Alphabet (one quarter), and deeply at the labs and neoclouds.</span></li>
+        <li><span class="box p">[~]</span><span><strong>Growth of B- and lower issuance.</strong> Growing (AI ~4.5% of HY, CoreWeave B-rated), but much of it sits in private credit outside the index.</span></li>
+      </ul>
+      <p class="small">Three years from 2026 is 2029, which lines up with UBP's 2027-28 commencement wall and Burry's 2028-29 write-off window.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">How this cycle differs</h3>
+      <ul class="tight small">
+        <li>The central borrowers are AA/AAA with large non-AI cash flows. That wasn't true of WorldCom or Global Crossing.</li>
+        <li>Capacity is in use today (rental rates on old GPUs are rising). Fiber was mostly dark.</li>
+        <li>The risk has moved into structures (SPVs, guarantees, take-or-pay) that indices and rating agencies don't yet fully count.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="brookings">
+  <h2>Compared with Brookings' paper of the same title</h2>
+  <p class="section-lede">Stijn Van Nieuwerburgh's BPEA paper came out the same month. It's an academic model, not a credit note. The two complement each other rather than duplicate. <a href="brookings-financing-ai-buildout-van-nieuwerburgh-2026-09.html">Full Brookings page</a>.</p>
+  <div class="grid2">
+    <div class="card acc"><span class="tag ubp">UBP</span><p class="small">Sell-side-style credit note built from third-party data into a company-by-company fragility ranking. <strong>Asks: do I get par back, and who loses first?</strong></p></div>
+    <div class="card brk"><span class="tag brk">Brookings</span><p class="small">Academic paper built on original models: a project-level capacity estimate (Cleanview, 2,972 projects, ridge-regression imputation, R² = 0.846) and a formal required-return calculation. <strong>Asks: does the capex make economic sense?</strong></p></div>
+  </div>
+
+  <h3>Where they agree</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Point</th><th><span class="tag ubp">UBP</span></th><th><span class="tag brk">Brookings</span></th></tr></thead>
+      <tbody>
+        <tr><td>Beignet (Meta/Blue Owl)</td><td>$27.3B, T+225, A+</td><td>$27B, A+ (one notch below Meta), 90% debt-to-asset, 1.12x debt-service coverage, 6.58% (100bp+ over Meta's own debt, &gt;$5B extra interest over its life)</td></tr>
+        <tr><td>Sopaipilla (Meta/BlackRock)</td><td>$12.6B, T+288</td><td>$12.3B of bonds, July 2026</td></tr>
+        <tr><td>2026 capex vs cash flow</td><td>~$820B vs ~$750B</td><td>$800.5B vs $707.1B (first year capex exceeds OCF)</td></tr>
+        <tr><td>Off- vs on-balance-sheet</td><td>~$2.9T vs ~$0.9T, ~3.3x</td><td>WSJ tally, 4 firms: $2.4T ($904B leases + $1.52T purchase commitments) vs $604B ($356B debt + $248B leases), ~4x. "Only one-fifth of the $3T… currently recognized"</td></tr>
+        <tr><td>Where losses land</td><td colspan="2">Both put IG parents well down the list and locate the fragility in project SPVs, single-tenant vehicles and chip-collateral structures, where low reported hyperscaler leverage hides much higher asset-level leverage.</td></tr>
+        <tr><td>History</td><td>Railway mania, telecom/fiber</td><td>Same analogies, more rigorously sourced, as % of GDP: canals 0.66%, railroads 2.24%, electrification 0.50%, highways 1.13%, telecom 1.10%, AI 3.63%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Where they diverge</h3>
+  <div class="grid2">
+    <div class="card brk">
+      <strong>1. Only Brookings computes what has to be true.</strong>
+      <p class="small">Capital base of $9.61T for 182.7GW built by 2032. At a 10% return, with IT (68% of cost) on a 6-year life and buildings/power (32%) on 20 years, the annual capital charge is 19.37%: $1.86T of cash flow needed. At a 50% margin that's <strong>$3.725T of annual revenue by 2032</strong> (9.2% of GDP), vs ~$100B for OpenAI + Anthropic today. Range: $2.29T (5% return, 67% margin) to $6.72T (15%, 33%); $6.0T if GPUs last 3 years. As a price: $5.5/GPU-hour at full use, $6.9 at 80%, $7.9 at 70%, vs $6-10 market rates today, so the open question is utilization and pricing power across ~180GW of new supply.</p>
+      <p class="small">UBP has no equivalent. Its closest is the ~12x commitments-to-ARR ratio and spread widening as a market signal. This is the biggest gap in UBP.</p>
+      <div class="flag"><strong>Note on the source note:</strong> the UBP note says this implies "~80%/year revenue growth sustained for ~8 years." Going from ~$100B to $3.725T is ~37x: about 83% a year over 6 years (2026-32), or ~57% a year over 8. The Brookings note's "~80% a year through 2032" is the consistent reading. <span class="tag wiki">Wiki calc</span></div>
+    </div>
+    <div class="card">
+      <strong>2. Detail runs the other way.</strong>
+      <p class="small">UBP gives per-company leverage, backlog, capex/revenue and lab commitments. Brookings treats the five hyperscalers in aggregate, except for the Hyperion case, but supplies the national capacity and investment model UBP doesn't attempt.</p>
+      <strong>3. Only in Brookings.</strong>
+      <ul class="tight small">
+        <li>Data center REIT beta to the S&amp;P 500 rose from ~0.5 to ~1 since 2018. They no longer diversify.</li>
+        <li>A $500B NVIDIA-backstopped facility (Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR; Aug 2026) with a 25% residual-value guarantee (up to $125B): the chip supplier backstopping its customers' purchases of its own chips. A parallel Google/Broadcom TPU arrangement too.</li>
+        <li>The $10.3T headline excludes future GPU refreshes around 2030.</li>
+      </ul>
+      <strong>4. GDP shares aren't comparable.</strong>
+      <p class="small">Brookings' 3.63% is a 2025-32 average of the full buildout. The 2.6% shown on this page is a wiki estimate from one year of hyperscaler capex. Don't quote them against each other.</p>
+      <strong>5. Stance.</strong>
+      <p class="small">Brookings: "premature to conclude AI infrastructure already poses systemic risk," and asks for better disclosure. UBP ranks names by fragility and lists specific watch items.</p>
+    </div>
+  </div>
+  <div class="note both">
+    <p><strong>Net read:</strong> the two papers back each other up on the facts they share (Beignet economics, the 2026 capex/cash-flow crossover, the 3-4x off-balance-sheet multiple) while answering different questions. Applying Brookings' 10%-return, 50%-margin test to UBP's numbers turns UBP's ~12x commitments-to-ARR ratio from an informal red flag into a measurable distance from the $3.7T revenue bar.</p>
+  </div>
+</section>
+
+<section id="verdict">
+  <h2>Verdict</h2>
+  <div class="card acc">
+    <p>The core claims hold up. The balance-sheet, off-balance-sheet and backlog arithmetic reconciles, and events since publication (Oracle's Jupiter notice, rising OpenAI burn estimates) support UBP's risk map.</p>
+    <p>The weak spots: a cumulative capex figure that doesn't reconcile, a probably overstated Oracle index-cap buffer, undercounted guarantees, and a coverage metric that leaves out chip costs. All point the same way: <strong>if anything, the report is slightly too comfortable about Oracle and the guarantee layer.</strong></p>
+    <p>The main conclusion stands: hyperscaler IG is safe at wider spreads, and the fragile layer is leveraged single-contract structures. That matches the wiki's own commencement-wall assessment.</p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Related wiki pages:</strong></p>
+  <ul class="xref">
+    <li><a href="brookings-financing-ai-buildout-van-nieuwerburgh-2026-09.html">Brookings: Financing the AI Buildout</a> (HTML)</li>
+    <li><a href="ai-buildout-financing-ubp-vs-brookings-2026-09.html">UBP vs Brookings side by side</a> (HTML)</li>
+    <li><span class="mono">ai-compute-commencement-wall-and-refinancing-trap</span>: take-or-pay timing and where losses land</li>
+    <li><span class="mono">burry-ai-capital-cycle-oracle-jupiter-2026-09</span>: Burry's $3T tally and Oracle's Jupiter force majeure</li>
+    <li><span class="mono">sage-road-ai-trade-2026-09</span>: Sage Road's bearish thesis, assessed against this report</li>
+    <li><span class="mono">market-newsletter-digest-2026-09-19 / 22 / 23 / 24</span>: OpenAI burn, Anthropic IPO, CoreWeave, FT guarantees, blocked projects</li>
+    <li><span class="mono">ai-inference-costs-accounting</span>: accounting treatment of AI costs</li>
+  </ul>
+  <p>Originals: <a href="https://www.ubp.com/en/news-insights/newsroom/financing-the-ai-build-out">UBP article</a> · <a href="https://www.ubp.com/files/live/sites/ubp/files/documents/investment/headlines/20260916_ubp-headlines-financing-ai-build-out.pdf">UBP PDF</a>.
+  Historical sources: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1537338">Odlyzko</a> · <a href="https://www.alliancebernstein.com/us/en-us/investments/insights/investment-insights/the-high-yield-sell-off-more-like-2002-than-2008.html">AllianceBernstein</a> · <a href="https://www.econlib.org/library/Enc/JunkBonds.html">Econlib</a> · <a href="https://publicsecurities.brookfield.com/sites/brookfield-psg-v3/files/brookfield-psg/insights/real-assets/navigating-sector-default-risk-in-the-high-yield-market.pdf">Brookfield</a> · <a href="https://www.fabricatedknowledge.com/p/lessons-from-history-the-rise-and">Fabricated Knowledge</a> · <a href="https://cacm.acm.org/news/dark-fiber-is-lighting-p/">CACM</a>.</p>
+  <p>Built from <span class="mono">ubp-financing-ai-build-out-2026-09.md</span>. Generated October 2, 2026.</p>
+</footer>
+</div>
+
+</body>
+</html>

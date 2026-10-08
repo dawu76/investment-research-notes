@@ -1,7 +1,7 @@
 ---
 title: AI Inference Costs Accounting: R&D vs. COGS
 created: 2026-07-11
-updated: 2026-07-11
+updated: 2026-09-10
 type: concept
 tags: [saas, cloud, concept, valuation]
 sources: [investing-macro/market-newsletter-digest-2026-07-09.md]
@@ -93,3 +93,11 @@ To ensure audit readiness and protect financial integrity, companies should adop
 *   **Establish a Dedicated "AI COGS" Line Item:** Instead of burying AI costs in general "Hosting" or "Infrastructure," create a distinct line item on the P&L. This shows the board and investors exactly how AI usage scales relative to revenue.
 *   **Deploy Granular Cost Tagging:** Tag every model invocation or cloud compute instance by customer ID or feature. This allows for real-time monitoring of customer profitability and prevents high-volume users from eroding margins.
 *   **Document Accounting Policies Early:** Work with auditors to establish a clear policy document defining when a model transitions from "development" (R&D) to "production" (COGS), especially in continuous deployment environments.
+
+---
+
+## Cross-References
+* Analysis of architectural innovations cutting inference token COGS and memory bottlenecks (890 B/tok KV cache) is detailed in [[deepseek-v4-1-flash-memory-bottlenecks]].
+* The structural SaaS valuation dispersion and seat contraction headwinds are analyzed in [[saaspocalypse-dispersion-2026-04-09]] and [[cyber-saas-seat-risk-2-equity-report]].
+* Tech valuation methodologies and margin multiples are cataloged in [[valuations]].
+

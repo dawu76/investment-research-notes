@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brookings AI Buildout</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23a8570f'/%3E%3Crect x='7' y='17' width='4' height='9' fill='%23fff'/%3E%3Crect x='14' y='11' width='4' height='15' fill='%23fff'/%3E%3Crect x='21' y='6' width='4' height='20' fill='%2374a8eb'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --surface-2: #eef2f7;
+  --border: #d6dde8;
+  --text: #16202d;
+  --text-dim: #536175;
+  --ubp: #1d4f91;
+  --ubp-soft: #e3ecf8;
+  --brk: #a8570f;
+  --brk-soft: #f8ecdf;
+  --both: #2f6b4f;
+  --both-soft: #e2f0e8;
+  --warn: #b03a2e;
+  --warn-soft: #f8e5e2;
+  --bar-bg: #e4e9f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e141d;
+    --surface: #151d29;
+    --surface-2: #1b2534;
+    --border: #2a3648;
+    --text: #e3e9f1;
+    --text-dim: #9aa8bb;
+    --ubp: #74a8eb;
+    --ubp-soft: #1a2c45;
+    --brk: #e3a660;
+    --brk-soft: #3a2a19;
+    --both: #74c49a;
+    --both-soft: #183326;
+    --warn: #ee8a7d;
+    --warn-soft: #3d1f1c;
+    --bar-bg: #232f40;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e141d; --surface: #151d29; --surface-2: #1b2534; --border: #2a3648;
+  --text: #e3e9f1; --text-dim: #9aa8bb; --ubp: #74a8eb; --ubp-soft: #1a2c45;
+  --brk: #e3a660; --brk-soft: #3a2a19; --both: #74c49a; --both-soft: #183326;
+  --warn: #ee8a7d; --warn-soft: #3d1f1c; --bar-bg: #232f40;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 17px; scroll-behavior: smooth; scroll-padding-top: 4rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif; line-height: 1.55;
+  overflow-wrap: break-word;
+}
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 1rem 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+h1 { font-family: "IBM Plex Serif", Georgia, serif; font-size: 2.2rem; margin: 0 0 .6rem; }
+h2 { font-size: 1.5rem; margin: 0 0 .4rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; }
+p { max-width: 68ch; margin: .5rem 0; }
+.mono, .num { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+.dim { color: var(--text-dim); }
+.small { font-size: .85rem; }
+a { color: var(--ubp); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--ubp); outline-offset: 2px; }
+
+/* tags for which source a fact comes from */
+.tag { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .7rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; padding: .1rem .45rem; border-radius: 3px; vertical-align: .1em; white-space: nowrap; }
+.tag.ubp { background: var(--ubp-soft); color: var(--ubp); }
+.tag.brk { background: var(--brk-soft); color: var(--brk); }
+.tag.both { background: var(--both-soft); color: var(--both); }
+.tag.chk { background: var(--warn-soft); color: var(--warn); }
+.tag.wiki { background: var(--surface-2); color: var(--text-dim); border: 1px solid var(--border); }
+
+/* header */
+header.top { padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 0; }
+.eyebrow { font-family: "IBM Plex Mono", monospace; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); }
+.lede { font-size: 1.12rem; max-width: 62ch; }
+
+/* nav */
+nav.toc { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--border);
+  overflow-x: auto; white-space: nowrap; margin: 0 -1rem; padding: 0 1rem; }
+nav.toc a { display: inline-block; padding: .65rem .7rem; font-size: .85rem; color: var(--text-dim); text-decoration: none; }
+nav.toc a:hover { color: var(--text); }
+
+section { padding-top: 2.6rem; }
+.section-lede { color: var(--text-dim); max-width: 66ch; margin-bottom: 1.2rem; }
+
+/* cards */
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1rem; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.grid2 > *, .grid3 > * { min-width: 0; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.1rem 1.2rem; }
+.card.ubp { border-top: 3px solid var(--ubp); }
+.card.brk { border-top: 3px solid var(--brk); }
+.card.both { border-top: 3px solid var(--both); }
+.card h3 { margin-top: 0; }
+.card .who { font-size: .85rem; color: var(--text-dim); margin: 0 0 .6rem; }
+.question { font-family: "IBM Plex Serif", Georgia, serif; font-size: 1.15rem; margin: .3rem 0 .8rem; }
+ol.tight, ul.tight { padding-left: 1.2rem; margin: .4rem 0; }
+ol.tight li, ul.tight li { margin: .35rem 0; }
+
+/* KPI tiles */
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .8rem; margin: 1rem 0; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .9rem 1rem; min-width: 0; }
+.kpi .v { font-family: "IBM Plex Mono", monospace; font-size: 1.5rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.kpi .l { font-size: .85rem; color: var(--text-dim); }
+
+/* bar charts */
+figure { margin: 1rem 0; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1rem 1.2rem; }
+figcaption { font-weight: 600; margin-bottom: .8rem; }
+figcaption .dim { font-weight: 400; display: block; font-size: .85rem; }
+.bars { display: grid; grid-template-columns: minmax(6rem, max-content) 1fr minmax(4rem, max-content); gap: .45rem .7rem; align-items: center; }
+.bars .lab { font-size: .88rem; }
+.bars .track { background: var(--bar-bg); height: 1.1rem; border-radius: 2px; position: relative; overflow: hidden; }
+.bars .fill { height: 100%; width: var(--w); background: var(--ubp); border-radius: 2px; }
+.bars .fill.brk { background: var(--brk); }
+.bars .fill.alt { background: var(--text-dim); }
+.bars .fill.hot { background: var(--warn); }
+.bars .val { font-family: "IBM Plex Mono", monospace; font-size: .85rem; font-variant-numeric: tabular-nums; text-align: right; }
+.legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .8rem; color: var(--text-dim); margin-top: .7rem; }
+.legend i { display: inline-block; width: .8rem; height: .8rem; border-radius: 2px; margin-right: .3rem; vertical-align: -.1em; }
+
+/* stacked bar */
+.stack { display: flex; height: 2.2rem; border-radius: 3px; overflow: hidden; }
+.stack > div { display: flex; align-items: center; justify-content: center; color: #fff; font-family: "IBM Plex Mono", monospace; font-size: .8rem; min-width: 0; overflow: hidden; }
+
+/* chain (required revenue walk) */
+.chain { display: grid; grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr)); gap: .6rem; counter-reset: step; }
+.step { background: var(--brk-soft); border-radius: 6px; padding: .8rem .9rem; position: relative; min-width: 0; }
+.step .v { font-family: "IBM Plex Mono", monospace; font-size: 1.25rem; font-weight: 600; color: var(--brk); }
+.step .l { font-size: .85rem; }
+.step .op { font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: .05em; }
+
+/* tables */
+.tbl-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; vertical-align: top; padding: .6rem .8rem; border-bottom: 1px solid var(--border); }
+th { background: var(--surface-2); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-dim); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+td:first-child { font-weight: 500; }
+
+/* fragility ladder */
+.ladder { display: grid; gap: .35rem; margin: 1rem 0; }
+.rung { display: grid; grid-template-columns: 2.2rem 1fr; gap: .7rem; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: .55rem .8rem; border-left: 5px solid color-mix(in srgb, var(--warn) var(--h), var(--both)); }
+.rung .n { font-family: "IBM Plex Mono", monospace; font-weight: 600; color: var(--text-dim); }
+
+/* callouts */
+.note { border-left: 4px solid var(--ubp); background: var(--surface); padding: .8rem 1rem; border-radius: 0 6px 6px 0; margin: 1rem 0; }
+.note.brk { border-color: var(--brk); }
+.note.warn { border-color: var(--warn); }
+.note.both { border-color: var(--both); }
+.note p { margin: .3rem 0; }
+
+/* checks list */
+.checks { list-style: none; padding: 0; margin: .6rem 0; display: grid; gap: .55rem; }
+.checks li { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: .65rem .9rem; display: grid; grid-template-columns: 5.5rem 1fr; gap: .8rem; }
+.checks li > * { min-width: 0; }
+.verdict { font-family: "IBM Plex Mono", monospace; font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding-top: .15rem; }
+.verdict.ok { color: var(--both); }
+.verdict.bad { color: var(--warn); }
+.verdict.mid { color: var(--brk); }
+
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .2rem 1rem; margin: .6rem 0; }
+details > summary { cursor: pointer; padding: .6rem 0; font-weight: 600; }
+details[open] > summary { border-bottom: 1px solid var(--border); margin-bottom: .5rem; }
+
+dl.gloss { display: grid; grid-template-columns: minmax(9rem, max-content) 1fr; gap: .5rem 1.2rem; margin: 0; }
+dl.gloss dt { font-weight: 600; }
+dl.gloss dd { margin: 0; color: var(--text-dim); }
+
+@media (max-width: 40rem) {
+  html { font-size: 16px; }
+  h1 { font-size: 1.75rem; }
+  .bars { grid-template-columns: minmax(4.5rem, max-content) 1fr minmax(3.5rem, max-content); }
+  .checks li { grid-template-columns: 1fr; gap: .2rem; }
+  dl.gloss { grid-template-columns: 1fr; }
+  dl.gloss dd { margin-bottom: .5rem; }
+}
+footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: .85rem; color: var(--text-dim); }
+
+:root { --acc: var(--brk); }
+
+/* extra components for the single-paper pages */
+.accent { color: var(--acc); }
+.card.acc { border-top: 3px solid var(--acc); }
+.bars .fill.acc { background: var(--acc); }
+.big-num { font-family: "IBM Plex Mono", monospace; font-size: 2rem; font-weight: 600; color: var(--acc); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.argument { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .8rem; }
+.argument .card { display: grid; gap: .4rem; align-content: start; }
+.argument .n { font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: var(--text-dim); letter-spacing: .08em; }
+.plain { font-size: .85rem; color: var(--text-dim); border-top: 1px dashed var(--border); padding-top: .5rem; margin-top: .3rem; }
+.plain b { color: var(--text); font-weight: 600; }
+.vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: .8rem; align-items: center; text-align: center; }
+.vs .side { background: var(--surface-2); border-radius: 6px; padding: .8rem; min-width: 0; }
+.vs .mid { font-family: "IBM Plex Mono", monospace; color: var(--text-dim); font-size: .85rem; }
+.timeline { position: relative; margin: 1rem 0 .5rem; padding-left: 1.4rem; border-left: 2px solid var(--border); display: grid; gap: .9rem; }
+.tl-item { position: relative; }
+.tl-item::before { content: ""; position: absolute; left: -1.82rem; top: .35rem; width: .75rem; height: .75rem; border-radius: 50%; background: var(--acc); border: 2px solid var(--bg); }
+.tl-item.warn::before { background: var(--warn); }
+.tl-item.dim::before { background: var(--text-dim); }
+.tl-date { font-family: "IBM Plex Mono", monospace; font-size: .8rem; font-weight: 600; color: var(--acc); }
+.tl-item.warn .tl-date { color: var(--warn); }
+.pill { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .75rem; padding: .1rem .5rem; border-radius: 999px; border: 1px solid var(--border); background: var(--surface-2); white-space: nowrap; }
+.pill.ig { color: var(--both); border-color: var(--both); }
+.pill.hy { color: var(--warn); border-color: var(--warn); }
+.sigs { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .7rem; }
+.sig { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .8rem .9rem; min-width: 0; }
+.sig .from-to { font-family: "IBM Plex Mono", monospace; font-size: 1.05rem; font-weight: 600; }
+.sig .from-to .arrow { color: var(--text-dim); margin: 0 .3rem; }
+.sig .l { font-size: .85rem; color: var(--text-dim); }
+.flag { border: 1px dashed var(--warn); background: var(--warn-soft); border-radius: 6px; padding: .6rem .9rem; font-size: .85rem; margin: .8rem 0; }
+.flag strong { color: var(--warn); }
+.checkbox-list { list-style: none; padding: 0; margin: .5rem 0; display: grid; gap: .45rem; }
+.checkbox-list li { display: grid; grid-template-columns: 1.6rem 1fr; gap: .4rem; }
+.checkbox-list .box { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+.box.y { color: var(--warn); }
+.box.p { color: var(--brk); }
+.split { display: flex; height: 1.6rem; border-radius: 3px; overflow: hidden; margin: .4rem 0; }
+.split > div { display: flex; align-items: center; padding: 0 .5rem; color: #fff; font-family: "IBM Plex Mono", monospace; font-size: .75rem; white-space: nowrap; overflow: hidden; min-width: 0; }
+.xref { columns: 2 18rem; column-gap: 1.5rem; padding-left: 1.1rem; font-size: .9rem; }
+.xref li { break-inside: avoid; margin: .3rem 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Academic paper summary · Brookings Papers on Economic Activity · Fall 2026</div>
+  <h1>Brookings: Financing the AI Buildout</h1>
+  <p class="lede">An economist works out how big the AI buildout is, how it's being paid for, and how much revenue it must earn to justify itself. The paper doesn't predict a bust. It gives you a bar to measure against.</p>
+  <p class="small dim">Stijn Van Nieuwerburgh, Columbia Business School. BPEA conference draft (title page dated Sept 4, presented Sept 24-25, 2026), 28 pages, not yet peer reviewed. No rating, no trade recommendation, no disclosed conflicts. Full PDF read directly.
+  <span class="tag wiki">Wiki</span> marks checks and estimates made in these notes, not claims the paper makes. Notes confidence: high.<br>
+  Companion pages: <a href="ubp-financing-ai-build-out-2026-09.html">UBP credit note</a> · <a href="ai-buildout-financing-ubp-vs-brookings-2026-09.html">UBP vs Brookings side by side</a></p>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#argument">The argument</a>
+  <a href="#size">How big</a>
+  <a href="#build">What gets built</a>
+  <a href="#funding">How it's paid for</a>
+  <a href="#beignet">Beignet case</a>
+  <a href="#pencil">Does it pencil out?</a>
+  <a href="#other">Other findings</a>
+  <a href="#history">History</a>
+  <a href="#takeaways">Takeaways</a>
+  <a href="#checks">Fact checks</a>
+  <a href="#verdict">Verdict</a>
+</nav>
+
+<section id="argument">
+  <h2>The argument in five lines</h2>
+  <div class="argument">
+    <div class="card acc"><span class="n">01 · PHYSICAL CAPITAL</span><div class="big-num">3.63% of GDP</div><div>A 1GW AI campus costs about $41B. A 183GW US buildout by 2032 needs investment averaging 3.63% of GDP a year over 2025-32, bigger relative to the economy than canals, railroads, electrification, highways or telecom.</div></div>
+    <div class="card acc"><span class="n">02 · OUTSIDE MONEY</span><div class="big-num">$800.5B &gt; $707.1B</div><div>2026 is the first year the five hyperscalers' capex exceeds their operating cash flow, pushing funding into leases, joint ventures, project debt, private credit, securitization and SPVs.</div></div>
+    <div class="card acc"><span class="n">03 · HIDDEN LEVERAGE</span><div class="big-num">~90% debt</div><div>That expands funding capacity but raises asset-level leverage, obscures contingent obligations, and concentrates tenant, obsolescence and execution risk, as Meta's Hyperion/Beignet deal shows.</div></div>
+    <div class="card acc"><span class="n">04 · THE BAR</span><div class="big-num">$3.725T</div><div>At a 10% return and 50% margin, the buildout needs $3.725T of annual revenue by 2032: roughly 80% a year growth for OpenAI and Anthropic combined from ~$100B today.</div></div>
+    <div class="card acc"><span class="n">05 · NO BUST CALL</span><div class="big-num">"Premature"</div><div>"It would be premature to conclude that AI infrastructure already poses systemic risk." The main ask is better measurement and disclosure while the capital structure is still forming.</div></div>
+  </div>
+</section>
+
+<section id="size">
+  <h2>How big is it?</h2>
+  <div class="kpis">
+    <div class="kpi"><div class="v">$10.3T</div><div class="l">Total investment 2025-2032 ($10,279B)</div></div>
+    <div class="kpi"><div class="v">3.63%</div><div class="l">Of GDP per year, on average</div></div>
+    <div class="kpi"><div class="v">$41M</div><div class="l">Per MW in 2025, rising 4% a year (same as assumed nominal GDP growth)</div></div>
+    <div class="kpi"><div class="v">$8.2B</div><div class="l">Cost of a representative 200MW campus</div></div>
+  </div>
+  <figure>
+    <figcaption>Where the money goes in a 200MW AI campus <span class="dim">Two-thirds is chips and servers that wear out in years, not decades</span></figcaption>
+    <div class="stack" role="img" aria-label="IT equipment 68.4 percent, facility 26.8 percent, power 4.9 percent">
+      <div style="width:68.4%;background:var(--brk)">IT equipment 68.4% · $5.6B</div>
+      <div style="width:26.8%;background:var(--ubp)">Facility 26.8% · $2.2B</div>
+      <div style="width:4.9%;background:var(--text-dim)" title="Incremental power infrastructure 4.9%, $0.4B"></div>
+    </div>
+    <div class="legend"><span><i style="background:var(--brk)"></i>IT equipment, incl. GPU racks at $4.0M each</span><span><i style="background:var(--ubp)"></i>Facility</span><span><i style="background:var(--text-dim)"></i>Incremental power infrastructure 4.9% · $0.4B</span></div>
+  </figure>
+  <div class="grid2">
+    <figure>
+      <figcaption>Annual investment, $B <span class="dim">Paper's Table 5, in table order 2025 to 2032. Sums to $10,279B.</span></figcaption>
+      <div class="bars">
+        <span class="lab">2025</span><div class="track"><div class="fill acc" style="--w:56%"></div></div><span class="val">1,153</span>
+        <span class="lab">2026</span><div class="track"><div class="fill acc" style="--w:69.6%"></div></div><span class="val">1,432</span>
+        <span class="lab">2027</span><div class="track"><div class="fill acc" style="--w:68%"></div></div><span class="val">1,399</span>
+        <span class="lab">2028</span><div class="track"><div class="fill acc" style="--w:53.4%"></div></div><span class="val">1,098</span>
+        <span class="lab">2029</span><div class="track"><div class="fill acc" style="--w:38.4%"></div></div><span class="val">791</span>
+        <span class="lab">2030</span><div class="track"><div class="fill acc" style="--w:45.7%"></div></div><span class="val">940</span>
+        <span class="lab">2031</span><div class="track"><div class="fill acc" style="--w:68.4%"></div></div><span class="val">1,408</span>
+        <span class="lab">2032</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">2,058</span>
+      </div>
+    </figure>
+    <figure>
+      <figcaption>Same, as % of that year's GDP <span class="dim">Average 3.63% either way it's computed</span></figcaption>
+      <div class="bars">
+        <span class="lab">2025</span><div class="track"><div class="fill acc" style="--w:73.8%"></div></div><span class="val">3.75%</span>
+        <span class="lab">2026</span><div class="track"><div class="fill acc" style="--w:88.2%"></div></div><span class="val">4.48%</span>
+        <span class="lab">2027</span><div class="track"><div class="fill acc" style="--w:82.7%"></div></div><span class="val">4.20%</span>
+        <span class="lab">2028</span><div class="track"><div class="fill acc" style="--w:62.4%"></div></div><span class="val">3.17%</span>
+        <span class="lab">2029</span><div class="track"><div class="fill acc" style="--w:43.3%"></div></div><span class="val">2.20%</span>
+        <span class="lab">2030</span><div class="track"><div class="fill acc" style="--w:49.4%"></div></div><span class="val">2.51%</span>
+        <span class="lab">2031</span><div class="track"><div class="fill acc" style="--w:71.3%"></div></div><span class="val">3.62%</span>
+        <span class="lab">2032</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">5.08%</span>
+      </div>
+    </figure>
+  </div>
+  <p class="small dim">Year labels assume Table 5 runs 2025 to 2032 in order, as the notes list it.</p>
+  <div class="note brk">
+    <p><strong>Not included:</strong> future GPU refreshes. 2025-26 chips likely need replacing around 2030 while the buildings and power stay usable, so lifetime investment is higher than $10.3T. McKinsey's April 2025 "$7 trillion race" estimate is ~30% lower, and outside estimates have kept rising.</p>
+  </div>
+</section>
+
+<section id="build">
+  <h2>What actually gets built</h2>
+  <p class="section-lede">The paper starts from a project-level database, not a top-down guess. Cleanview (accessed July 2026) tracks 2,933 operational or planned projects, 566GW in total. A ridge regression fills in capacity for projects that don't report it (R² = 0.846).</p>
+  <div class="vs">
+    <div class="side"><div class="big-num" style="color:var(--text-dim)">57GW</div><div class="small">Operating today</div></div>
+    <div class="mid">vs</div>
+    <div class="side"><div class="big-num">509GW</div><div class="small">Planned or announced pipeline</div></div>
+  </div>
+  <figure>
+    <figcaption>The paper's central scenario for the pipeline, GW <span class="dim">A scenario, not a forecast</span></figcaption>
+    <div class="bars">
+      <span class="lab">Built by 2032</span><div class="track"><div class="fill acc" style="--w:80.5%"></div></div><span class="val">182.7</span>
+      <span class="lab">Built after 2032</span><div class="track"><div class="fill alt" style="--w:51.7%"></div></div><span class="val">117.2</span>
+      <span class="lab">Never built</span><div class="track"><div class="fill hot" style="--w:100%"></div></div><span class="val">226.9</span>
+    </div>
+    <p class="plain"><b>In plain terms:</b> the paper assumes less than half the announced pipeline is built by 2032, and over 40% never gets built. Even so, the result is the largest buildout in US history by GDP share.</p>
+  </figure>
+  <div class="flag"><strong>Note on the source note:</strong> the notes quote a "44.5%" realization rate, which doesn't reconcile. 182.7GW of 509GW is ~36%, and the three buckets (182.7 + 117.2 + 226.9 = 526.8GW) don't sum to 509GW. This page shows the GW figures only. Check against the PDF. <span class="tag wiki">Wiki calc</span></div>
+</section>
+
+<section id="funding">
+  <h2>How it's being paid for</h2>
+  <figure>
+    <figcaption>Hyperscaler capex has outgrown cash flow, $B <span class="dim">Oracle, Microsoft, Amazon, Meta, Alphabet</span></figcaption>
+    <div class="bars">
+      <span class="lab">Capex 2020</span><div class="track"><div class="fill acc" style="--w:12.1%"></div></div><span class="val">96.8</span>
+      <span class="lab">Capex 2025</span><div class="track"><div class="fill acc" style="--w:50%"></div></div><span class="val">400+</span>
+      <span class="lab">Capex 2026E</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">800.5</span>
+      <span class="lab">Cash flow 2026E</span><div class="track"><div class="fill alt" style="--w:88.3%"></div></div><span class="val">707.1</span>
+    </div>
+  </figure>
+  <div class="grid2">
+    <figure>
+      <figcaption>Morgan Stanley's estimate of the funding mix <span class="dim">$2.9T of incremental compute needs, 2025-2028</span></figcaption>
+      <div class="split" role="img" aria-label="Equity about 60 percent, debt about 40 percent">
+        <div style="width:60%;background:var(--ubp)">Equity ~60%</div>
+        <div style="width:40%;background:var(--brk)">Debt ~40%</div>
+      </div>
+      <p class="small">Within the debt:</p>
+      <div class="bars">
+        <span class="lab">Private credit</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">~$800B</span>
+        <span class="lab">Corporate debt</span><div class="track"><div class="fill acc" style="--w:25%"></div></div><span class="val">~$200B</span>
+        <span class="lab">Structured finance</span><div class="track"><div class="fill acc" style="--w:18.8%"></div></div><span class="val">~$150B</span>
+      </div>
+    </figure>
+    <figure>
+      <figcaption>Most obligations aren't on the balance sheet, $B <span class="dim">WSJ tally cited by the paper; 4 firms, ex-Oracle</span></figcaption>
+      <div class="bars">
+        <span class="lab">On BS: long-term debt</span><div class="track"><div class="fill alt" style="--w:23.4%"></div></div><span class="val">356</span>
+        <span class="lab">On BS: current leases</span><div class="track"><div class="fill alt" style="--w:16.3%"></div></div><span class="val">248</span>
+        <span class="lab">Off BS: future leases</span><div class="track"><div class="fill acc" style="--w:59.5%"></div></div><span class="val">904</span>
+        <span class="lab">Off BS: purchase commitments</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">1,520</span>
+      </div>
+      <p class="plain"><b>$604B on vs $2.4T off, about 4x.</b> "Only one-fifth of the $3T in datacenter-related obligations are currently recognized." Purchase commitments are mostly chips. Moody's separately counts ~$970B of hyperscaler lease commitments, ~$660B not on balance sheet.</p>
+    </figure>
+  </div>
+</section>
+
+<section id="beignet">
+  <h2>The template deal: Meta's Hyperion / Beignet</h2>
+  <p class="section-lede">How a hyperscaler builds a $30B campus without putting the debt on its own books, and what that costs.</p>
+  <div class="grid2">
+    <div class="card acc">
+      <ul class="tight">
+        <li><strong>2.0GW</strong> campus, <strong>~$30B</strong> total investment, joint venture with Blue Owl</li>
+        <li>Meta sold an <strong>80% equity stake</strong> to Blue Owl for <strong>~$2.5B</strong></li>
+        <li>The JV (Beignet) raised <strong>$27B of debt</strong> in Oct 2025, the largest single IG corporate bond deal in US history</li>
+        <li>Rated <span class="pill ig">A+</span>, one notch below Meta itself</li>
+        <li>Debt-to-assets <strong>~90%</strong>; debt-service coverage only <strong>1.12x</strong></li>
+        <li>Priced at <strong>6.58%</strong></li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="big-num">100bp+ · $5B+</div>
+      <p>Beignet pays over 100bp more than Meta's own unsecured debt likely would, which adds more than $5B of interest over the life of the deal.</p>
+      <p class="plain"><b>In plain terms:</b> that premium is the market price of keeping the asset off Meta's balance sheet. A 1.12x coverage ratio leaves only a 12% cushion between the cash coming in and the debt payments due.</p>
+      <p class="small"><strong>Already copied:</strong> Sopaipilla (Meta/BlackRock, El Paso, 960MW) issued $12.3B of A+ bonds in July 2026 on a nearly identical structure.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pencil">
+  <h2>Does it pencil out?</h2>
+  <p class="section-lede">The paper's main contribution (Appendix D). It works backward from the money spent to the revenue AI must earn for investors to get a normal 10% return.</p>
+  <div class="chain">
+    <div class="step"><div class="op">Start</div><div class="v">$9.61T</div><div class="l">Capital base when the 182.7GW is switched on: $8.54T of build cost × 1.126 for the return owed during construction</div></div>
+    <div class="step"><div class="op">× 19.37%</div><div class="v">$1.86T</div><div class="l">Annual cash flow needed. 19.37% blends a 6-year life for IT (68% of cost) and a 20-year life for buildings and power (32%) at a 10% return</div></div>
+    <div class="step"><div class="op">÷ 50% margin</div><div class="v">$3.725T</div><div class="l">Mature annual revenue needed by 2032, 9.2% of that year's GDP</div></div>
+    <div class="step"><div class="op">vs today</div><div class="v">~$100B</div><div class="l">OpenAI + Anthropic combined revenue. Closing the gap takes roughly 80% a year growth through 2032</div></div>
+  </div>
+  <div class="grid2" style="margin-top:1rem">
+    <figure>
+      <figcaption>Required 2032 revenue under different assumptions, $T</figcaption>
+      <div class="bars">
+        <span class="lab">5% return, 67% margin</span><div class="track"><div class="fill acc" style="--w:34.1%"></div></div><span class="val">2.29</span>
+        <span class="lab">Central: 10%, 50%</span><div class="track"><div class="fill acc" style="--w:55.4%"></div></div><span class="val">3.725</span>
+        <span class="lab">Central, GPUs last 3 yrs</span><div class="track"><div class="fill hot" style="--w:89.3%"></div></div><span class="val">6.0</span>
+        <span class="lab">15% return, 33% margin</span><div class="track"><div class="fill hot" style="--w:100%"></div></div><span class="val">6.72</span>
+      </div>
+      <p class="small dim">A 3-year GPU life lifts the requirement from 9.2% to 14.8% of 2032 GDP.</p>
+    </figure>
+    <figure>
+      <figcaption>The same requirement as a GPU rental price, $/GPU-hour</figcaption>
+      <div class="bars">
+        <span class="lab">100% utilized</span><div class="track"><div class="fill acc" style="--w:55%"></div></div><span class="val">5.5</span>
+        <span class="lab">80% utilized</span><div class="track"><div class="fill acc" style="--w:69%"></div></div><span class="val">6.9</span>
+        <span class="lab">70% utilized</span><div class="track"><div class="fill acc" style="--w:79%"></div></div><span class="val">7.9</span>
+        <span class="lab">Market rate today</span><div class="track"><div class="fill alt" style="--w:100%;background:linear-gradient(90deg,transparent 60%,var(--text-dim) 60%)"></div></div><span class="val">6-10+</span>
+      </div>
+      <p class="small dim">The paper calls this "not implausible." The real uncertainty is whether utilization and pricing power hold up across ~180GW of new supply.</p>
+    </figure>
+  </div>
+  <div class="note brk">
+    <p><strong>What it means:</strong> one falsifiable bar you can track every quarter. If OpenAI and Anthropic's combined revenue isn't compounding near 80% a year, the buildout as a whole is earning less than a normal return.</p>
+  </div>
+</section>
+
+<section id="other">
+  <h2>Other findings</h2>
+  <div class="grid2">
+    <div class="card acc">
+      <strong>Data center REITs stopped diversifying</strong>
+      <div class="sig" style="border:none;padding:.4rem 0"><div class="from-to">β ~0.5<span class="arrow">→</span>~1</div><div class="l">Beta to the S&amp;P 500 since 2018, 36-month rolling window</div></div>
+      <p class="small">Their exposure to the non-AI part of the S&amp;P 500 is now comparable to their exposure to AI stocks. They behave like the broad market, not like a defensive or diversifying holding.</p>
+    </div>
+    <div class="card acc">
+      <strong>NVIDIA is backstopping its own customers</strong>
+      <div class="sig" style="border:none;padding:.4rem 0"><div class="from-to">$500B · 25% · $125B</div><div class="l">Facility size · residual value NVIDIA guarantees · its maximum exposure</div></div>
+      <p class="small">Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR fund NVIDIA chip purchases (Aug 2026). The paper flags it as vendor-financing circularity. A similar Google/Broadcom arrangement finances TPUs.</p>
+    </div>
+  </div>
+</section>
+
+<section id="history">
+  <h2>Compared with past booms</h2>
+  <figure>
+    <figcaption>US investment booms as % of GDP per year <span class="dim">Paper's Table 1, harmonized from Cranmer (canals), Gallman (railroads), Ulmer (electrification), BEA (telecom)</span></figcaption>
+    <div class="bars">
+      <span class="lab">Electrification 1905-25</span><div class="track"><div class="fill alt" style="--w:13.8%"></div></div><span class="val">0.50%</span>
+      <span class="lab">Canals 1836-41</span><div class="track"><div class="fill alt" style="--w:18.2%"></div></div><span class="val">0.66%</span>
+      <span class="lab">Telecom/fiber 1996-2003</span><div class="track"><div class="fill alt" style="--w:30.3%"></div></div><span class="val">1.10%</span>
+      <span class="lab">Highways 1956-73</span><div class="track"><div class="fill alt" style="--w:31.1%"></div></div><span class="val">1.13%</span>
+      <span class="lab">Railroads 1870-90</span><div class="track"><div class="fill alt" style="--w:61.7%"></div></div><span class="val">2.24%</span>
+      <span class="lab">AI buildout 2025-32</span><div class="track"><div class="fill acc" style="--w:100%"></div></div><span class="val">3.63%</span>
+    </div>
+  </figure>
+  <div class="note warn">
+    <p><strong>The paper's own caveat matters as much as the numbers.</strong> Canals, railroads and fiber served for decades. GPUs may be obsolete in three to six years. So AI creates less lasting capital per dollar than most of these booms, even though it is the largest by GDP share. Newsletters that compare it straight to the railroad or telecom booms skip this.</p>
+  </div>
+</section>
+
+<section id="takeaways">
+  <h2>Takeaways for investors</h2>
+  <div class="grid3">
+    <div class="card acc"><strong>1. One falsifiable bar.</strong> <span class="small">OpenAI + Anthropic revenue must compound ~80% a year to 2032 from ~$100B. Track it every quarter against reported ARR. Sharper than "is AI demand real."</span></div>
+    <div class="card acc"><strong>2. Beignet is a template with a visible price.</strong> <span class="small">Sopaipilla already copies it. Watch whether the 100bp+ premium over the parent's own debt widens or narrows as more of these deals price.</span></div>
+    <div class="card acc"><strong>3. Reported leverage is the wrong measure.</strong> <span class="small">Off-balance-sheet obligations run 3-4x on-balance-sheet debt (UBP independently gets 3.3x). Track the ratio quarter over quarter as a gauge of how fast risk is leaving GAAP balance sheets.</span></div>
+    <div class="card acc"><strong>4. GPU life drives much of the answer.</strong> <span class="small">6 years to 3 years takes required revenue from 9.2% to 14.8% of GDP. Changes in depreciation schedules, useful-life assumptions or GPU resale values tell you more than headline capex growth.</span></div>
+    <div class="card acc"><strong>5. Data center REITs no longer diversify AI exposure.</strong> <span class="small">Beta ~1 and comparable AI and non-AI exposure. The "lower-correlation picks and shovels" case isn't supported by the paper's data.</span></div>
+    <div class="card acc"><strong>6. Watch NVIDIA's backstop like 2000-01 vendor financing.</strong> <span class="small">A supplier guaranteeing 25% of the residual value of its own product, up to $125B, shows how much balance-sheet support it thinks customers need. Compare Cisco, Lucent and Nortel.</span></div>
+    <div class="card acc"><strong>7. The restraint is itself information.</strong> <span class="small">The most rigorous model-based treatment available, from a source with no commercial stake, declines to call systemic risk. Weigh that against louder bearish newsletter calls without comparable numbers.</span></div>
+  </div>
+</section>
+
+<section id="checks">
+  <h2>Checking the claims</h2>
+  <p class="section-lede">Every reported total was recomputed and reconciles. That's a contrast with the UBP note, which had a cumulative-capex error and an overstated Oracle buffer.</p>
+  <h3>Internal arithmetic</h3>
+  <ul class="checks">
+    <li><span class="verdict ok">Checks</span><span><strong>Table 5.</strong> 1,153 + 1,432 + 1,399 + 1,098 + 791 + 940 + 1,408 + 2,058 = $10,279B. GDP sums to $283,448B. 10,279 ÷ 283,448 = 3.627%. The simple average of the eight yearly ratios also gives 3.63%, so both methods agree.</span></li>
+    <li><span class="verdict ok">Checks</span><span><strong>Table 6.</strong> 182.6GW (stated 182.7), $8,537.9B cost ($8,538.0B), $9,613.7B capital ($9,613.8B), $1,862.4B cash flow (exact), $3,724.7B revenue ($3,724.8B). All within rounding.</span></li>
+    <li><span class="verdict ok">Checks</span><span><strong>Construction multiplier.</strong> 0.10(1.1)³ + 0.25(1.1)² + 0.40(1.1) + 0.25 = 0.1331 + 0.3025 + 0.44 + 0.25 = 1.1256, matching 1.126x ($8.54T → $9.61T).</span></li>
+    <li><span class="verdict ok">Checks</span><span><strong>Capital recovery.</strong> At 10%: 6-year factor 0.1772 ÷ 0.7716 = 22.96%; 20-year factor 0.6728 ÷ 5.7275 = 11.75%. Weighted 0.68 × 22.96% + 0.32 × 11.75% = 19.37%.</span></li>
+  </ul>
+
+  <h3>Against other data in the wiki</h3>
+  <figure>
+    <figcaption>Three independent off-balance-sheet estimates land in the same range, $T</figcaption>
+    <div class="bars">
+      <span class="lab">WSJ via Brookings (4 firms, leases + purchases)</span><div class="track"><div class="fill acc" style="--w:80.7%"></div></div><span class="val">2.4</span>
+      <span class="lab">UBP (5 firms, + guarantees)</span><div class="track"><div class="fill" style="--w:96.7%"></div></div><span class="val">2.9</span>
+      <span class="lab">Burry (5 firms, broader)</span><div class="track"><div class="fill alt" style="--w:100%"></div></div><span class="val">~3.0</span>
+    </div>
+    <p class="small dim">Different firm counts and definitions, same $2.4-3T zone. The paper itself calls for "triangulating multiple data sources" and cites a forthcoming companion paper (Van Nieuwerburgh and Sun, 2026, "Clouds of Credit: Mapping the Financial Web Behind AI Compute") and Atrium.ai.</p>
+  </figure>
+  <ul class="checks">
+    <li><span class="verdict ok">Agrees</span><span><strong>Secondhand citation is accurate.</strong> Michael Parekh's "$10.3 trillion… about 3.6% of US GDP per year for eight years" (Sept 24 digest) matches the paper exactly.</span></li>
+    <li><span class="verdict mid">Definitions</span><span><strong>Moody's vs UBP lease figures.</strong> Moody's ~$970B (~$660B off balance sheet) vs UBP's $1.16T of "leases signed not commenced." Not a contradiction: there's no settled definition yet, which is the paper's measurement-gap point.</span></li>
+    <li><span class="verdict mid">Rising</span><span><strong>McKinsey overtaken.</strong> April 2025's "$7 trillion race" is ~30% below the $10.3T derived ~18 months later. Outside estimates keep moving up.</span></li>
+    <li><span class="verdict ok">Borne out</span><span><strong>Oracle's Jupiter force majeure</strong> postdates the paper and isn't in it, but it's a live case of the execution risk (interconnection, permitting, hardware delays) the paper flags.</span></li>
+  </ul>
+
+  <h3>Methodological points</h3>
+  <div class="grid2">
+    <div class="card"><strong>Return and margin are held constant to 2032.</strong> <span class="small">Falling per-unit GPU prices with a volume response, or margin squeeze from competition, could move the $5.5-7.9/GPU-hour range, and the framework can't say which way.</span></div>
+    <div class="card"><strong>$10.3T and $3.7T are the central case, not a stress case.</strong> <span class="small">How much of the 509GW pipeline gets built is a judgment call built into the scenario, not a conservative floor.</span></div>
+    <div class="card"><strong>The model is unlevered.</strong> <span class="small">Real projects run ~90% debt (Beignet). The paper doesn't translate its hurdle into equity returns under realistic leverage, where revenue shortfalls hit much harder.</span></div>
+    <div class="card"><strong>Hardware refresh is excluded.</strong> <span class="small">2025-26 GPUs likely need replacing around 2030, so lifetime gross investment exceeds $10.3T.</span></div>
+  </div>
+</section>
+
+<section id="verdict">
+  <h2>Verdict</h2>
+  <div class="card acc">
+    <p>The most rigorous model-based treatment of AI-buildout financing in the wiki. Every arithmetic result reconciles on recomputation. The capacity and investment estimates come from a disclosed project-level database with a documented method, not a top-down assumption. And it answers a question no other source in the wiki's AI-financing coverage (UBP, Burry, the digests) computes directly: what revenue does this need to earn a normal return?</p>
+    <p>Its conclusion is appropriately narrow. It defines the bar (~80% a year growth, ~$3.7T by 2032) without forecasting whether it will be cleared, and declines to call systemic risk.</p>
+    <p class="small dim">Two caveats: it's a conference draft, not a peer-reviewed paper, and its results are sensitive to its own build-out and GPU-life assumptions, which it states openly but doesn't resolve.</p>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Related wiki pages:</strong></p>
+  <ul class="xref">
+    <li><a href="ubp-financing-ai-build-out-2026-09.html">UBP: Financing the AI Build-out</a> (HTML), with the full UBP vs Brookings comparison</li>
+    <li><a href="ai-buildout-financing-ubp-vs-brookings-2026-09.html">UBP vs Brookings side by side</a> (HTML)</li>
+    <li><span class="mono">burry-ai-capital-cycle-oracle-jupiter-2026-09</span>: Burry's ~$3T off-balance-sheet estimate</li>
+    <li><span class="mono">market-newsletter-digest-2026-09-24</span>: Parekh's citation of the $10.3T / 3.6% figure</li>
+    <li><span class="mono">ai-compute-commencement-wall-and-refinancing-trap</span>: commencement timing and off-balance-sheet framework</li>
+    <li><span class="mono">sage-road-ai-trade-2026-09</span>: Sage Road's "market rupture" thesis, assessed against this paper</li>
+    <li><span class="mono">ai-inference-costs-accounting</span>: GPU-hour pricing and inference economics</li>
+  </ul>
+  <p>Originals: <a href="https://www.brookings.edu/articles/financing-the-ai-buildout/">Brookings article</a> · <a href="https://www.brookings.edu/wp-content/uploads/2026/09/4c_Van-Nieuwerburgh.pdf">PDF</a>.</p>
+  <p>Built from <span class="mono">brookings-financing-ai-buildout-van-nieuwerburgh-2026-09.md</span>. Generated October 2, 2026.</p>
+</footer>
+</div>
+
+</body>
+</html>
