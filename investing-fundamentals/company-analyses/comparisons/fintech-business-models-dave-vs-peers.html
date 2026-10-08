@@ -1,0 +1,2966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fintech Business Model, Valuation & Cash Flow Analysis: $DAVE vs. Peers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-tertiary: #1f2937;
+      --bg-card: #161f30;
+      --bg-card-hover: #1c283f;
+      --border-color: #2b384e;
+      --border-accent: #3b82f6;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8; /* Enhanced WCAG AA Contrast (5.5:1) */
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-emerald: #059669;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-teal: #14b8a6;
+      --accent-indigo: #6366f1;
+      --dave-green: #00d632;
+      --dave-dark: #0a3d1c;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      --shadow-glow: 0 0 25px rgba(0, 214, 50, 0.18);
+      --shadow-glow-blue: 0 0 25px rgba(59, 130, 246, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    code, pre, .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Sticky Header */
+    header {
+      background: linear-gradient(180deg, rgba(16, 24, 39, 0.96) 0%, rgba(11, 15, 25, 0.98) 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.75rem 0 1.25rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-content {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.725rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-dave {
+      background: rgba(0, 214, 50, 0.15);
+      color: var(--dave-green);
+      border: 1px solid rgba(0, 214, 50, 0.35);
+    }
+
+    .badge-fintech {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-amber);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .badge-teal {
+      background: rgba(20, 184, 166, 0.15);
+      color: var(--accent-teal);
+      border: 1px solid rgba(20, 184, 166, 0.35);
+    }
+
+    .badge-indigo {
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--accent-indigo);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.35rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 1140px;
+    }
+
+    /* Nav Tabs & ARIA Bar */
+    .nav-tabs-wrapper {
+      position: relative;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 0.35rem;
+      overflow-x: auto;
+      padding-top: 0.5rem;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-tab {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      padding: 0.75rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .nav-tab:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .nav-tab.active {
+      color: var(--dave-green);
+      border-bottom-color: var(--dave-green);
+      background: rgba(0, 214, 50, 0.08);
+    }
+
+    .nav-tab.view-all-btn {
+      color: var(--accent-cyan);
+      border-bottom-color: transparent;
+      margin-left: auto;
+    }
+
+    .nav-tab.view-all-btn.active {
+      color: var(--accent-cyan);
+      border-bottom-color: var(--accent-cyan);
+      background: rgba(6, 182, 212, 0.08);
+    }
+
+    /* KPI Highlights Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 1.15rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-blue);
+    }
+
+    .kpi-card.highlight-dave {
+      border-color: rgba(0, 214, 50, 0.4);
+      background: linear-gradient(145deg, var(--bg-card) 0%, rgba(0, 214, 50, 0.05) 100%);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .kpi-title {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .kpi-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
+    }
+
+    .kpi-value.green { color: var(--dave-green); }
+    .kpi-value.cyan { color: var(--accent-cyan); }
+    .kpi-value.purple { color: var(--accent-purple); }
+    .kpi-value.amber { color: var(--accent-amber); }
+    .kpi-value.teal { color: var(--accent-teal); }
+    .kpi-value.indigo { color: var(--accent-indigo); }
+
+    .kpi-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 0.925rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* 2D Sticky Tables */
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: auto;
+      max-height: 740px;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      text-align: left;
+      font-size: 0.85rem;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background-color: #151d2c;
+      border-bottom: 2px solid var(--border-color);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.725rem;
+      white-space: nowrap;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Sticky First Column */
+    thead th:first-child {
+      position: sticky;
+      left: 0;
+      top: 0;
+      z-index: 30;
+      background-color: #172133;
+      border-right: 1px solid var(--border-color);
+    }
+
+    tbody td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 15;
+      background-color: #162031;
+      font-weight: 600;
+      border-right: 1px solid var(--border-color);
+      color: #ffffff;
+    }
+
+    th.th-dave {
+      color: var(--dave-green);
+      background: rgba(0, 214, 50, 0.12);
+      border-left: 1px solid rgba(0, 214, 50, 0.3);
+      border-right: 1px solid rgba(0, 214, 50, 0.3);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+    }
+
+    tbody tr:hover td {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    tbody tr:hover td:first-child {
+      background-color: #1c293f;
+    }
+
+    td.td-dave {
+      background: rgba(0, 214, 50, 0.03);
+      border-left: 1px solid rgba(0, 214, 50, 0.2);
+      border-right: 1px solid rgba(0, 214, 50, 0.2);
+      font-weight: 500;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .tag-blue { background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .tag-green { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .tag-amber { background: rgba(245, 158, 11, 0.15); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .tag-purple { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); }
+    .tag-rose { background: rgba(244, 63, 94, 0.15); color: #fda4af; border: 1px solid rgba(244, 63, 94, 0.3); }
+    .tag-cyan { background: rgba(6, 182, 212, 0.15); color: #67e8f9; border: 1px solid rgba(6, 182, 212, 0.3); }
+    .tag-teal { background: rgba(20, 184, 166, 0.15); color: #5eead4; border: 1px solid rgba(20, 184, 166, 0.3); }
+    .tag-indigo { background: rgba(99, 102, 241, 0.15); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.3); }
+
+    /* Visual Fintech Spectrum Diagram */
+    .spectrum-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    .spectrum-axis {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.85rem;
+      position: relative;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 1300px) {
+      .spectrum-axis {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .spectrum-axis {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .spectrum-node {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .spectrum-node:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-3px);
+    }
+
+    .spectrum-node.dave-node {
+      border: 2px solid var(--dave-green);
+      background: linear-gradient(180deg, rgba(0, 214, 50, 0.08) 0%, rgba(22, 31, 48, 0.9) 100%);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .spectrum-node.sezl-node {
+      border: 1.5px solid var(--accent-indigo);
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, rgba(22, 31, 48, 0.9) 100%);
+    }
+
+    .node-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .node-category {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .node-ticker {
+      font-size: 0.825rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: var(--bg-tertiary);
+    }
+
+    .node-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+
+    .node-desc {
+      font-size: 0.775rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .node-metrics {
+      border-top: 1px solid var(--border-color);
+      padding-top: 0.75rem;
+      font-size: 0.725rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .node-metric-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .node-metric-label { color: var(--text-muted); }
+    .node-metric-val { font-weight: 600; color: var(--text-primary); }
+
+    /* Deep Dive Cards */
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .company-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .company-card.featured-dave {
+      border: 2px solid var(--dave-green);
+      background: linear-gradient(180deg, var(--bg-card) 0%, rgba(0, 214, 50, 0.04) 100%);
+    }
+
+    .company-card.featured-sezl {
+      border: 1.5px solid var(--accent-indigo);
+      background: linear-gradient(180deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.04) 100%);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .card-title-group h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .card-title-group .sub {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .card-section {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .card-section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-blue);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-section-title.dave-accent { color: var(--dave-green); }
+    .card-section-title.sezl-accent { color: var(--accent-indigo); }
+
+    .card-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .card-pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Comparison Bar Visualizer */
+    .chart-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .bar-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .bar-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .bar-track {
+      height: 12px;
+      background: var(--bg-secondary);
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 0.8s ease-in-out;
+    }
+
+    .bar-dave { background: linear-gradient(90deg, #00d632, #10b981); }
+    .bar-sezl { background: linear-gradient(90deg, #6366f1, #818cf8); }
+    .bar-afrm { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+    .bar-sofi { background: linear-gradient(90deg, #06b6d4, #38bdf8); }
+    .bar-xyz  { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+    .bar-chym { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    .bar-klar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+    .bar-ml   { background: linear-gradient(90deg, #10b981, #34d399); }
+    .bar-bfh  { background: linear-gradient(90deg, #14b8a6, #2dd4bf); }
+
+    /* Callout & Summary Box */
+    .callout-box {
+      background: linear-gradient(135deg, rgba(22, 31, 48, 0.95) 0%, rgba(10, 61, 28, 0.4) 100%);
+      border: 1px solid var(--dave-green);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .callout-header {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dave-green);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .callout-body {
+      font-size: 0.925rem;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    /* Waterfall Step Styling */
+    .waterfall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .waterfall-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .waterfall-card.dave-waterfall {
+      border-color: rgba(0, 214, 50, 0.4);
+      background: linear-gradient(180deg, var(--bg-card) 0%, rgba(0, 214, 50, 0.03) 100%);
+    }
+
+    .waterfall-card.sezl-waterfall {
+      border-color: rgba(99, 102, 241, 0.4);
+      background: linear-gradient(180deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.03) 100%);
+    }
+
+    .waterfall-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.85rem;
+    }
+
+    .waterfall-row.total-row {
+      border-top: 2px solid var(--border-color);
+      border-bottom: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #ffffff;
+      padding-top: 0.75rem;
+    }
+
+    /* Interactive Chart Toggle Bar */
+    .chart-controls {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .chart-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.775rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chart-btn:hover, .chart-btn.active {
+      background: var(--accent-blue);
+      color: #ffffff;
+      border-color: var(--accent-blue);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div>
+        <div class="badge-group">
+          <span class="badge badge-dave">DAVE INC. ($DAVE)</span>
+          <span class="badge badge-fintech">COMPETITIVE FINTECH TAXONOMY</span>
+          <span class="badge badge-indigo">SEZZLE ($SEZL) ADDED</span>
+          <span class="badge badge-teal">BREAD FINANCIAL ($BFH) ADDED</span>
+          <span class="badge badge-amber">SOLVENCY & LIQUIDITY BENCHMARK</span>
+        </div>
+        <h1>Fintech Business Model, Valuation, Solvency & Cash Flow Architecture</h1>
+        <p class="subtitle">Institutional-grade comparison of <strong>Dave Inc. ($DAVE)</strong> versus <strong>$SEZL (Sezzle)</strong>, <strong>$AFRM (Affirm)</strong>, <strong>$XYZ (Block/Cash App)</strong>, <strong>$SOFI (SoFi)</strong>, <strong>$CHYM (Chime)</strong>, <strong>$KLAR (Klarna)</strong>, <strong>$BFH (Bread Financial)</strong>, and <strong>$ML (MoneyLion)</strong> across small-dollar liquidity, solvency metrics, valuation multiples, and cash flow conversion.</p>
+      </div>
+      <div>
+        <div style="font-size: 0.775rem; color: var(--text-muted); text-align: right;">Analysis Baseline: FY2026 Run-Rates</div>
+        <div style="font-size: 0.9rem; font-weight: 700; color: var(--dave-green); text-align: right;">Elite Rule of 40: DAVE (88.8%) | SEZL (85.0%)</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- KPI Summary Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card highlight-dave">
+        <div class="kpi-title">
+          <span>Dave Turnaround Margin</span>
+          <span class="badge badge-dave">$DAVE</span>
+        </div>
+        <div class="kpi-value green">44.0%</div>
+        <div class="kpi-sub">Adj. EBITDA Margin ($320M run-rate vs -$82M in 2022)</div>
+      </div>
+
+      <div class="kpi-card highlight-dave">
+        <div class="kpi-title">
+          <span>Dave Capital Velocity</span>
+          <span class="badge badge-dave">$DAVE</span>
+        </div>
+        <div class="kpi-value cyan">&gt;35x – 45x</div>
+        <div class="kpi-sub">Annual capital turnover (7–10 day loan duration)</div>
+      </div>
+
+      <div class="kpi-card highlight-dave">
+        <div class="kpi-title">
+          <span>Loss Absorption Buffer</span>
+          <span class="badge badge-dave">$DAVE</span>
+        </div>
+        <div class="kpi-value green">3.55x</div>
+        <div class="kpi-sub">$320M EBITDA covers ~$90M net losses 3.5x</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Sezzle Loss Absorption</span>
+          <span class="badge badge-indigo">$SEZL</span>
+        </div>
+        <div class="kpi-value indigo">3.81x</div>
+        <div class="kpi-sub">$305M EBITDA covers ~$80M net losses 3.8x</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Affirm Loss Coverage</span>
+          <span class="badge badge-fintech">$AFRM</span>
+        </div>
+        <div class="kpi-value purple">290% ACL</div>
+        <div class="kpi-sub">6.10% ACL reserve covers 2.10% NCO by 2.9x</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>SoFi Bank Capital</span>
+          <span class="badge badge-fintech">$SOFI</span>
+        </div>
+        <div class="kpi-value amber">12.5% CET1</div>
+        <div class="kpi-sub">Well-capitalized bank fortress ($23B deposit float)</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-title">
+          <span>Bread Financial</span>
+          <span class="badge badge-teal">$BFH</span>
+        </div>
+        <div class="kpi-value teal">1.07x PPNR</div>
+        <div class="kpi-sub">7.0% NCO ($1.35B loss) consumes most operating rev</div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs & ARIA Bar -->
+    <div class="nav-tabs-wrapper">
+      <div class="nav-tabs" role="tablist" aria-label="FinTech Analysis Navigation">
+        <button class="nav-tab active" role="tab" aria-selected="true" aria-controls="sec-spectrum" data-section="spectrum" onclick="showSection('spectrum')">1. Fintech Spectrum & Taxonomy</button>
+        <button class="nav-tab" role="tab" aria-selected="false" aria-controls="sec-matrix" data-section="matrix" onclick="showSection('matrix')">2. Core Comparison Matrix</button>
+        <button class="nav-tab" role="tab" aria-selected="false" aria-controls="sec-deep-dive" data-section="deep-dive" onclick="showSection('deep-dive')">3. Company Deep-Dives</button>
+        <button class="nav-tab" role="tab" aria-selected="false" aria-controls="sec-velocity" data-section="velocity" onclick="showSection('velocity')">4. Capital Velocity & Underwriting</button>
+        <button class="nav-tab" role="tab" aria-selected="false" aria-controls="sec-consumer" data-section="consumer" onclick="showSection('consumer')">5. Consumer Segment Matrix</button>
+        <button class="nav-tab" role="tab" aria-selected="false" aria-controls="sec-valuation" data-section="valuation" onclick="showSection('valuation')">6. Valuation & Multi-Metric Benchmarking</button>
+        <button class="nav-tab" role="tab" aria-selected="false" aria-controls="sec-cashflow" data-section="cashflow" onclick="showSection('cashflow')">7. Earnings & Cash Flow Waterfall</button>
+        <button class="nav-tab" role="tab" aria-selected="false" aria-controls="sec-solvency" data-section="solvency" onclick="showSection('solvency')">8. Financial Health, Liquidity & Solvency</button>
+        <button class="nav-tab view-all-btn" role="tab" aria-selected="false" data-section="all" onclick="showSection('all')">📄 View Full Report</button>
+      </div>
+    </div>
+
+    <!-- SECTION 1: THE FINTECH SPECTRUM -->
+    <section id="sec-spectrum" role="tabpanel" aria-labelledby="tab-spectrum">
+      <div class="section-header">
+        <div class="section-title">
+          <span>1. The Consumer Fintech Spectrum: Where $DAVE, $SEZL & Peers Sit</span>
+        </div>
+      </div>
+      <p class="section-desc">Public fintechs occupy fundamentally different positions across consumer credit risk, duration, balance sheet intensity, and monetization vectors. Dave operates as a pure high-velocity liquidity engine, Sezzle pairs Pay-in-4 with high-margin subscriptions and SezzleCash, while Bread Financial ($BFH) represents the revolving card bank model.</p>
+
+      <div class="spectrum-container">
+        <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">
+          Market Spectrum: Small-Dollar Cash Advances ──▶ Subscriber BNPL & Virtual Cards ──▶ POS Checkout ──▶ Store Cards & Banks
+        </div>
+
+        <div class="spectrum-axis">
+          
+          <!-- Node 1: DAVE -->
+          <div class="spectrum-node dave-node">
+            <div>
+              <div class="node-header">
+                <span class="node-category" style="color: var(--dave-green);">High-Velocity Liquidity</span>
+                <span class="node-ticker" style="color: var(--dave-green);">$DAVE</span>
+              </div>
+              <div class="node-title">Dave Inc.</div>
+              <div class="node-desc">Underwrites 7–10 day cash advances up to $500 to bridge paycheck timing gaps. 0% interest, no late fees, 5% service fee + express fees.</div>
+            </div>
+            <div class="node-metrics">
+              <div class="node-metric-row"><span class="node-metric-label">Loan Duration:</span><span class="node-metric-val">7–10 Days</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Turnover Velocity:</span><span class="node-metric-val" style="color: var(--dave-green);">&gt;35x / Year</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Target Consumer:</span><span class="node-metric-val">Paycheck-to-paycheck ($35k-$75k)</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">EBITDA Margin:</span><span class="node-metric-val" style="color: var(--dave-green);">44.0%</span></div>
+            </div>
+          </div>
+
+          <!-- Node 2: SEZZLE -->
+          <div class="spectrum-node sezl-node">
+            <div>
+              <div class="node-header">
+                <span class="node-category" style="color: var(--accent-indigo);">Subscriber BNPL & Card</span>
+                <span class="node-ticker" style="color: var(--accent-indigo);">$SEZL</span>
+              </div>
+              <div class="node-title">Sezzle Inc.</div>
+              <div class="node-desc">Digital POS Pay-in-4, Sezzle Anywhere virtual cards (Apple Pay), Sezzle Premium subscriptions ($17.99/mo), and SezzleCash advances.</div>
+            </div>
+            <div class="node-metrics">
+              <div class="node-metric-row"><span class="node-metric-label">Loan Duration:</span><span class="node-metric-val">6 Weeks (Pay-in-4)</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Turnover Velocity:</span><span class="node-metric-val" style="color: var(--accent-indigo);">~14.0x / Year</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Subscribers:</span><span class="node-metric-val">854k (7.2x freq)</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">EBITDA Margin:</span><span class="node-metric-val" style="color: var(--accent-indigo);">50.0%</span></div>
+            </div>
+          </div>
+
+          <!-- Node 3: CHIME / CASH APP -->
+          <div class="spectrum-node">
+            <div>
+              <div class="node-header">
+                <span class="node-category" style="color: var(--accent-cyan);">Deposit Neobanks</span>
+                <span class="node-ticker">$CHYM / $XYZ</span>
+              </div>
+              <div class="node-title">Chime & Cash App</div>
+              <div class="node-desc">Mobile-first banking and P2P payments ecosystems. Monetize primarily via debit interchange and secondary short-term overdraft/borrow features.</div>
+            </div>
+            <div class="node-metrics">
+              <div class="node-metric-row"><span class="node-metric-label">Primary Driver:</span><span class="node-metric-val">Interchange & P2P fees</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Overdraft / Borrow:</span><span class="node-metric-val">SpotMe ($200) / Borrow ($500)</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Direct Deposit Req:</span><span class="node-metric-val">Strict / Required for limits</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Target Consumer:</span><span class="node-metric-val">Mass market / Underbanked</span></div>
+            </div>
+          </div>
+
+          <!-- Node 4: AFFIRM -->
+          <div class="spectrum-node">
+            <div>
+              <div class="node-header">
+                <span class="node-category" style="color: var(--accent-blue);">POS Installments</span>
+                <span class="node-ticker">$AFRM</span>
+              </div>
+              <div class="node-title">Affirm Holdings</div>
+              <div class="node-desc">Point-of-sale checkout financing ($250 to $10,000+). 3 to 60 month simple interest loans + 0% APR Pay-in-4 subsidized by merchant discount rates (MDR).</div>
+            </div>
+            <div class="node-metrics">
+              <div class="node-metric-row"><span class="node-metric-label">Loan Duration:</span><span class="node-metric-val">3–60 Months</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Turnover Velocity:</span><span class="node-metric-val">~2.3x / Year</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Funding Model:</span><span class="node-metric-val">$28B Capital Marketplace</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Target Consumer:</span><span class="node-metric-val">Prime / Near-Prime (FICO &gt;700)</span></div>
+            </div>
+          </div>
+
+          <!-- Node 5: BREAD FINANCIAL (BFH) -->
+          <div class="spectrum-node">
+            <div>
+              <div class="node-header">
+                <span class="node-category" style="color: var(--accent-teal);">Private Label & POS Card Bank</span>
+                <span class="node-ticker" style="color:var(--accent-teal);">$BFH</span>
+              </div>
+              <div class="node-title">Bread Financial</div>
+              <div class="node-desc">Private label & co-brand credit cards + Bread Pay POS installment loans. Monetizes via 28%+ revolving APRs, late fees, and interchange.</div>
+            </div>
+            <div class="node-metrics">
+              <div class="node-metric-row"><span class="node-metric-label">Loan Duration:</span><span class="node-metric-val">18–36 Months (Revolving)</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Turnover Velocity:</span><span class="node-metric-val">~0.6x / Year</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Credit Loss (NCO):</span><span class="node-metric-val" style="color:var(--accent-rose);">7.0% – 7.1% NCO</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Target Consumer:</span><span class="node-metric-val">Store Card Shoppers (FICO 640–680)</span></div>
+            </div>
+          </div>
+
+          <!-- Node 6: SOFI -->
+          <div class="spectrum-node">
+            <div>
+              <div class="node-header">
+                <span class="node-category" style="color: var(--accent-purple);">National Digital Bank</span>
+                <span class="node-ticker">$SOFI</span>
+              </div>
+              <div class="node-title">SoFi Technologies</div>
+              <div class="node-desc">Full-service chartered bank offering $5,000–$100,000 prime personal, student, and mortgage loans funded by low-cost consumer retail deposits.</div>
+            </div>
+            <div class="node-metrics">
+              <div class="node-metric-row"><span class="node-metric-label">Loan Duration:</span><span class="node-metric-val">3–7 Years (Multi-Year)</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Turnover Velocity:</span><span class="node-metric-val">&lt;0.5x / Year</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Funding Model:</span><span class="node-metric-val">Direct Retail Deposit Float</span></div>
+              <div class="node-metric-row"><span class="node-metric-label">Target Consumer:</span><span class="node-metric-val">Super-Prime "HENRYs" ($100k+ Inc)</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Core Strategic Thesis Callout -->
+      <div class="callout-box">
+        <div class="callout-header">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          <span>The Elite Rule of 40 Club: Dave ($DAVE) & Sezzle ($SEZL)</span>
+        </div>
+        <div class="callout-body">
+          While traditional consumer banks and card issuers (<strong>$BFH, $SOFI</strong>) struggle with low capital turnover and high credit provisions, <strong>$DAVE and $SEZL represent the two highest-margin, most capital-efficient consumer fintech platforms in the public markets</strong>:
+          <br><br>
+          • <strong>Dave Inc. ($DAVE):</strong> Scores <strong>88.8% on the Rule of 40</strong> (+45% revenue growth + 43.8% Adj. EBITDA margin) by recycling working capital <strong>>35 times per year</strong> on 7–10 day cash-flow advances.
+          <br><br>
+          • <strong>Sezzle Inc. ($SEZL):</strong> Scores <strong>85.0% on the Rule of 40</strong> (+35% revenue growth + 50.0% Adj. EBITDA margin) by coupling Pay-in-4 merchant checkout (~14x turnover) with a high-margin consumer subscription model (<strong>854k Sezzle Premium/Anywhere subscribers</strong> paying $17.99/mo) and launching <strong>SezzleCash</strong> micro-advances.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: COMPARISON MATRIX -->
+    <section id="sec-matrix" role="tabpanel" aria-labelledby="tab-matrix">
+      <div class="section-header">
+        <div class="section-title">
+          <span>2. Comprehensive Financial & Business Model Matrix</span>
+        </div>
+      </div>
+      <p class="section-desc">Detailed benchmarking of monetization mechanics, underwriting parameters, balance sheet intensity, and regulatory frameworks across key fintech players.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Company & Ticker</th>
+              <th class="th-dave">Dave Inc. ($DAVE)</th>
+              <th>Sezzle Inc. ($SEZL)</th>
+              <th>Affirm ($AFRM)</th>
+              <th>Bread Financial ($BFH)</th>
+              <th>Block / Cash App ($XYZ)</th>
+              <th>SoFi Technologies ($SOFI)</th>
+              <th>Chime ($CHYM)</th>
+              <th>Klarna ($KLAR)</th>
+              <th>MoneyLion ($ML)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Business Model</strong></td>
+              <td class="td-dave">
+                <strong>D2C Small-Dollar Liquidity Advances</strong><br>
+                (ExtraCash up to $500, 0% interest, automated payroll repayment)
+              </td>
+              <td>
+                <strong>Subscriber-Driven POS BNPL & Virtual Card</strong><br>
+                (Pay-in-4, Sezzle Anywhere on Apple/Google Pay, SezzleCash advances)
+              </td>
+              <td>
+                <strong>POS Installment Network (BNPL)</strong><br>
+                (Pay-in-4 and 3–60 mo. installment loans embedded at retail checkout)
+              </td>
+              <td>
+                <strong>Private Label Credit Cards & Bread Pay</strong><br>
+                (Store credit cards, co-brand Visa/Mastercards, Bread Pay BNPL)
+              </td>
+              <td>
+                <strong>Two-Sided Payments & Financial App</strong><br>
+                (Square merchant ecosystem + Cash App consumer wallet & Borrow)
+              </td>
+              <td>
+                <strong>Chartered Digital Consumer Bank</strong><br>
+                (Personal, student, mortgage loans + Galileo B2B fintech infrastructure)
+              </td>
+              <td>
+                <strong>Consumer Neobanking Platform</strong><br>
+                (Fee-free checking, SpotMe overdraft, MyPay wage access)
+              </td>
+              <td>
+                <strong>Global Commerce & BNPL Bank</strong><br>
+                (Pay-in-4, Pay Now debit, merchant marketing & affiliate checkout)
+              </td>
+              <td>
+                <strong>Financial Marketplace & Adv.</strong><br>
+                (Instacash advances + enterprise consumer lead-gen affiliate network)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Core Monetization Mechanics</strong></td>
+              <td class="td-dave">
+                • 5% ExtraCash service fee ($5 min / $15 cap)<br>
+                • Instant express disbursement fees ($1.99–$9.99)<br>
+                • Monthly subscriptions ($1–$3/mo)<br>
+                • Visa debit card interchange (~1.4%)
+              </td>
+              <td>
+                • Sezzle Premium subscriptions ($17.99/mo)<br>
+                • Merchant Discount Rates (MDR 3.0%–6.0%)<br>
+                • Rescheduling & convenience fees<br>
+                • Sezzle Anywhere virtual card interchange<br>
+                • SezzleCash advance delivery fees
+              </td>
+              <td>
+                • Merchant Discount Rates / MDR (2%–7%)<br>
+                • Simple interest APRs (10%–36%)<br>
+                • Gain-on-sale loan premiums (101%–103%)<br>
+                • Affirm Card debit/POS interchange
+              </td>
+              <td>
+                • Revolving finance charges (26%–34% APR)<br>
+                • Credit card late penalty fees ($8–$41)<br>
+                • Merchant Discount Rates / Bread Pay POS<br>
+                • Card interchange & retailer partner fees
+              </td>
+              <td>
+                • Instant transfer fees (1.5%–2.25%)<br>
+                • Square seller processing (2.6% + 10¢)<br>
+                • Cash App Card interchange<br>
+                • Cash App Borrow 5% flat fee<br>
+                • Bitcoin trading spread margins
+              </td>
+              <td>
+                • Net Interest Margin (NIM) on loan book<br>
+                • Loan origination & securitization fees<br>
+                • Galileo/Technisys B2B SaaS platform fees<br>
+                • Wealth mgmt & card interchange
+              </td>
+              <td>
+                • Visa debit card interchange (majority)<br>
+                • Out-of-network ATM fees<br>
+                • Voluntary SpotMe tips<br>
+                • Instant cash-out transfer fees
+              </td>
+              <td>
+                • Merchant fees (MDR 2.5%–4.0%)<br>
+                • Retailer affiliate marketing commissions<br>
+                • Consumer financing interest (longer loans)<br>
+                • Late fees on missed Pay-in-4
+              </td>
+              <td>
+                • Enterprise referral affiliate fees (Engine)<br>
+                • Instacash express delivery fees<br>
+                • RoarMoney banking interchange<br>
+                • Premium membership subscriptions
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Target Consumer Profile</strong></td>
+              <td class="td-dave">
+                <strong>Everyday Working Americans</strong><br>
+                • Median Inc: $35k – $75k<br>
+                • Paycheck-to-paycheck cash flow gaps<br>
+                • FICO agnostic (CashAI telemetry)
+              </td>
+              <td>
+                <strong>Gen-Z & Millennial Shoppers</strong><br>
+                • Median Inc: $40k – $80k<br>
+                • FICO: 620–680 (Near-Prime / Thin-File)<br>
+                • Omnichannel everyday spenders
+              </td>
+              <td>
+                <strong>Prime / Near-Prime Consumers</strong><br>
+                • Avg FICO &gt;700<br>
+                • Tech-savvy Millennials / Gen-Z<br>
+                • E-commerce retail shoppers
+              </td>
+              <td>
+                <strong>Retail Store Card Shoppers</strong><br>
+                • Median Inc: $45k – $85k<br>
+                • FICO: 640–680 (Near-Prime / Subprime)<br>
+                • Brand-loyal retail shoppers (Ulta, Wayfair)
+              </td>
+              <td>
+                <strong>Mass Market / Urban / Gig Economy</strong><br>
+                • Broad unbanked / underbanked<br>
+                • P2P money senders & micro-investors<br>
+                • FICO agnostic for basic app
+              </td>
+              <td>
+                <strong>Super-Prime "HENRYs"</strong><br>
+                • High Earners Not Rich Yet ($100k+)<br>
+                • Average FICO &gt;740<br>
+                • Young professionals & graduates
+              </td>
+              <td>
+                <strong>Middle-Income Underbanked</strong><br>
+                • Median Inc: $40k – $65k<br>
+                • Traditional bank overdraft refugees<br>
+                • Direct deposit focused
+              </td>
+              <td>
+                <strong>Global Retail & Fashion Shoppers</strong><br>
+                • Gen-Z & Millennial online buyers<br>
+                • Broad prime / near-prime mix<br>
+                • Brand-driven consumers
+              </td>
+              <td>
+                <strong>Subprime / Near-Prime Credit Seekers</strong><br>
+                • Looking for credit builder loans<br>
+                • Comparison shoppers for loans/cards
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Average Loan / Balance Size</strong></td>
+              <td class="td-dave">
+                <span class="mono" style="color: var(--dave-green); font-weight:700;">$150 – $500</span><br>
+                (Micro-liquidity advance)
+              </td>
+              <td>
+                <span class="mono" style="color: var(--accent-indigo); font-weight:700;">$100 – $350</span><br>
+                (Pay-in-4 / Sezzle Anywhere)
+              </td>
+              <td>
+                <span class="mono">$250 – $10,000+</span><br>
+                (Avg AOV: ~$400)
+              </td>
+              <td>
+                <span class="mono">$800 – $2,500</span><br>
+                (Revolving card receivables)
+              </td>
+              <td>
+                <span class="mono">$50 – $500</span><br>
+                (Cash App Borrow)
+              </td>
+              <td>
+                <span class="mono">$10,000 – $50,000+</span><br>
+                (Personal / Student loans)
+              </td>
+              <td>
+                <span class="mono">$20 – $200</span><br>
+                (SpotMe overdraft buffer)
+              </td>
+              <td>
+                <span class="mono">$100 – $1,500</span><br>
+                (Pay-in-4 / Monthly financing)
+              </td>
+              <td>
+                <span class="mono">$50 – $500</span><br>
+                (Instacash advance)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Underwriting Duration & Velocity</strong></td>
+              <td class="td-dave">
+                <strong>7 to 10 Days</strong><br>
+                <span class="mono" style="color:var(--dave-green);">&gt;35x–45x Annual Turnover</span>
+              </td>
+              <td>
+                <strong>~20 to 42 Days</strong><br>
+                <span class="mono" style="color:var(--accent-indigo);">~12x–16x Annual Turnover</span>
+              </td>
+              <td>
+                <strong>3 to 60 Months</strong><br>
+                (Pay-in-4: 6 wks; Avg: ~2.3x/yr)
+              </td>
+              <td>
+                <strong>18 to 36 Months</strong><br>
+                (Revolving: ~0.6x turnover/yr)
+              </td>
+              <td>
+                <strong>14 to 30 Days</strong><br>
+                (Cash App Borrow)
+              </td>
+              <td>
+                <strong>3 to 7 Years</strong><br>
+                (Multi-year amortizing term)
+              </td>
+              <td>
+                <strong>~14 Days</strong><br>
+                (Reconciled on payroll deposit)
+              </td>
+              <td>
+                <strong>6 Weeks to 24 Months</strong><br>
+                (Turnover: ~4x–6x/yr)
+              </td>
+              <td>
+                <strong>14 to 30 Days</strong><br>
+                (Turnover: ~15x–20x/yr)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Operating / EBITDA Margin</strong></td>
+              <td class="td-dave">
+                <strong style="color:var(--dave-green);">~44.0% Adj. EBITDA</strong><br>
+                (Guiding $315M–$325M FY26)
+              </td>
+              <td>
+                <strong style="color:var(--accent-indigo);">~50.0% Adj. EBITDA</strong><br>
+                (Guiding $250M+ EBITDA FY26)
+              </td>
+              <td>
+                <strong>~26.5%–28% Adj. Operating</strong><br>
+                (RLTC/GMV ~3.8%–4.0%)
+              </td>
+              <td>
+                <strong>~35%–38% PPNR Margin</strong><br>
+                (Net Margin ~14%–16% post-losses)
+              </td>
+              <td>
+                <strong>~20%–25% Adj. EBITDA</strong><br>
+                (Rule of 40 framework target)
+              </td>
+              <td>
+                <strong>~25%–28% Adj. EBITDA</strong><br>
+                (Banking spread leverage)
+              </td>
+              <td>
+                <strong>~15%–22% Est. EBITDA</strong><br>
+                (Interchange model margin)
+              </td>
+              <td>
+                <strong>~12%–18% Adj. Operating</strong><br>
+                (Post-turnaround profit)
+              </td>
+              <td>
+                <strong>~20%–25% Adj. EBITDA</strong><br>
+                (Marketplace commission mix)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Credit Loss / Delinquency Metrics</strong></td>
+              <td class="td-dave">
+                <strong>2.12% 28-day past due</strong><br>
+                • NCO: 1.45% of originations<br>
+                • Provision: 15.7% of GAAP Rev
+              </td>
+              <td>
+                <strong>~2.40% NCO on GMV</strong><br>
+                • 30+ day delinquency: ~2.60%<br>
+                • Provision: ~12.5% of Revenue
+              </td>
+              <td>
+                <strong>2.10% Annualized NCO</strong><br>
+                • 30+ day delinquency: 2.80%<br>
+                • ACL coverage: 6.10%
+              </td>
+              <td>
+                <strong style="color:var(--accent-rose);">7.0% – 7.1% NCO Rate</strong><br>
+                • 30+ day delinquency: 5.35%<br>
+                • Allowance for losses: ~11.5%
+              </td>
+              <td>
+                <strong>~2.5% default rate</strong><br>
+                (on Cash App Borrow book)
+              </td>
+              <td>
+                <strong>3.80% Personal Loan NCO</strong><br>
+                • 90+ day delinquency: 0.65%<br>
+                • CECL Provision: 15.5% Net Rev
+              </td>
+              <td>
+                <strong>~1.5% SpotMe loss rate</strong><br>
+                (Recouped via direct deposit)
+              </td>
+              <td>
+                <strong>~1.2%–1.8% NCO on GMV</strong><br>
+                (Mix of short and long loans)
+              </td>
+              <td>
+                <strong>~3.2% NCO on advances</strong><br>
+                (Partially offset by tips/fees)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Banking / Regulatory Architecture</strong></td>
+              <td class="td-dave">
+                <strong>BaaS Partner Model</strong><br>
+                (Coastal Community Bank; FDIC deposits, non-charter asset light)
+              </td>
+              <td>
+                <strong>OCC National Bank Charter Applicant</strong><br>
+                (Direct state lending licenses + WebBank partner transition)
+              </td>
+              <td>
+                <strong>Industrial Bank Partner Model</strong><br>
+                (Cross River Bank & Celtic Bank; FDIA Section 27 rate export)
+              </td>
+              <td>
+                <strong>Chartered Commercial Bank</strong><br>
+                (Comenity Bank & Comenity Capital Bank; Utah State / FDIC)
+              </td>
+              <td>
+                <strong>Hybrid Model</strong><br>
+                (Square Financial Services ILC charter + Wells Fargo/Sutton)
+              </td>
+              <td>
+                <strong>Full National Bank Charter</strong><br>
+                (OCC / Federal Reserve regulated; holds direct FDIC deposits)
+              </td>
+              <td>
+                <strong>BaaS Partner Model</strong><br>
+                (The Bancorp Bank & Stride Bank; BaaS-dependent)
+              </td>
+              <td>
+                <strong>Swedish Bank License</strong><br>
+                (Full European Banking Charter + US BaaS partnerships)
+              </td>
+              <td>
+                <strong>BaaS Partner Model</strong><br>
+                (Pathward / Lead Bank BaaS relationships)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3: COMPANY DEEP-DIVES (ALL 9 COMPANIES) -->
+    <section id="sec-deep-dive" role="tabpanel" aria-labelledby="tab-deep-dive">
+      <div class="section-header">
+        <div class="section-title">
+          <span>3. Head-to-Head Company Deep Dives</span>
+        </div>
+      </div>
+      <p class="section-desc">Examine the nuanced operational, product, and consumer distinctions across all 9 public fintech competitors.</p>
+
+      <div class="company-grid">
+
+        <!-- DAVE DEEP DIVE -->
+        <div class="company-card featured-dave">
+          <div>
+            <div class="card-top">
+              <div class="card-title-group">
+                <span class="badge badge-dave">CORE FOCUS</span>
+                <h3>Dave Inc. ($DAVE)</h3>
+                <div class="sub">The Algorithmic Liquidity & Anti-Overdraft Engine</div>
+              </div>
+              <span class="tag tag-green">44% EBITDA Margin</span>
+            </div>
+            
+            <div class="card-section">
+              <div class="card-section-title dave-accent">What They Do & Why It Works</div>
+              <p class="card-text">
+                Dave provides short-term cash advances ($150–$500) via <strong>ExtraCash™</strong> to everyday Americans navigating the bi-weekly paycheck gap. Unlike predatory payday lenders charging 400%+ APRs or legacy banks charging $35 per overdraft, Dave charges <strong>0% interest and $0 late fees</strong>, monetizing through a transparent <strong>5% service fee ($5 min / $15 cap)</strong>, optional express delivery fees ($1.99–$9.99), and a $1–$3/mo financial software subscription.
+              </p>
+            </div>
+
+            <div class="card-section">
+              <div class="card-section-title dave-accent">Key Moat & Differentiation</div>
+              <p class="card-text">
+                • <strong>CashAI Telemetry:</strong> Evaluates 24+ months of cash inflows and spending patterns in &lt;200ms without FICO scores, maintaining past-due rates at an elite <strong>2.12%</strong>.<br>
+                • <strong>Astronomical Capital Turnover (&gt;35x):</strong> Advances turn over every 7–10 days, allowing $200M of working capital to support <strong>$9.2B in annual originations</strong>.<br>
+                • <strong>Frictionless Direct-to-Consumer Access:</strong> Does not require users to switch their primary direct deposit bank account to qualify for liquidity.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title dave-accent">Key Financial KPIs</div>
+            <div class="card-pill-list">
+              <span class="tag tag-green">3.08M MTMs</span>
+              <span class="tag tag-green">$222 ARPU</span>
+              <span class="tag tag-green">$19 CAC</span>
+              <span class="tag tag-green">&lt;35d Payback</span>
+              <span class="tag tag-green">&gt;65% ROTE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEZZLE DEEP DIVE -->
+        <div class="company-card featured-sezl">
+          <div>
+            <div class="card-top">
+              <div class="card-title-group">
+                <span class="badge badge-indigo">HIGH-MARGIN PEER</span>
+                <h3>Sezzle Inc. ($SEZL)</h3>
+                <div class="sub">The Subscriber-Driven BNPL & Omnichannel Virtual Card</div>
+              </div>
+              <span class="tag tag-indigo">50% EBITDA Margin</span>
+            </div>
+            
+            <div class="card-section">
+              <div class="card-section-title sezl-accent">Business Model & Monetization</div>
+              <p class="card-text">
+                Sezzle is a high-growth BNPL platform combining merchant checkout Pay-in-4 with <strong>Sezzle Anywhere</strong> (virtual cards on Apple/Google Pay) and <strong>Sezzle Premium subscriptions ($17.99/mo)</strong>. It recently expanded into <strong>SezzleCash</strong> (direct cash advances) and announced an application for a national bank charter with the OCC.
+              </p>
+            </div>
+
+            <div class="card-section">
+              <div class="card-section-title sezl-accent">DAVE vs. SEZL Comparison</div>
+              <p class="card-text">
+                • <strong>The Closest Twin on Margins:</strong> Both Dave and Sezzle operate in the elite <strong>>85% Rule of 40 club</strong> (Dave at 88.8%, Sezzle at 85.0%), generating ~45%–50% Adjusted EBITDA margins with high free cash flow conversion.<br>
+                • <strong>Duration & Velocity:</strong> Dave turns capital over <strong>>35x/year</strong> (7–10 day cash liquidity advances); Sezzle turns capital over <strong>~12x–16x/year</strong> (mix of 6-week Pay-in-4 and virtual card transactions).<br>
+                • <strong>Subscription Flywheel:</strong> Sezzle monetizes heavily via <strong>854k active paid subscribers</strong> paying $17.99/month for omnichannel virtual card access anywhere Visa/Mastercard is accepted.
+              </p>
+            </div>
+            <div class="card-section">
+              <div class="card-section-title sezl-accent">Historical Volatility & Market-Moving Disclosures</div>
+              <p class="card-text">
+                • <strong>The "Guidance Treadmill" Drawdowns:</strong> Sezzle experienced 50%+ drawdowns (Aug 2025–May 2026 and Aug 2026 -34%) when management guided 2H revenue growth to moderate (~30% vs >50% in 1H) and revenue yields to normalize, compounded by peer credit scares ($BFH/SYF 7% NCOs).<br>
+                • <strong>Top Metrics Moving Analyst Estimates:</strong> (1) <em>Paid Subscriber Net Adds</em> (854k driving $183M SaaS ARR), (2) <em>Forward Net Income Guidance</em> (raises trigger 50%+ short squeezes), and (3) <em>Net Charge-Off (NCO) % GMV</em> (sub-2.5% confirms 82% FCF conversion).
+              </p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title sezl-accent">Key Financial KPIs</div>
+            <div class="card-pill-list">
+              <span class="tag tag-indigo">854k Subscribers</span>
+              <span class="tag tag-indigo">7.2x Frequency</span>
+              <span class="tag tag-indigo">85% Rule of 40</span>
+              <span class="tag tag-indigo">50% EBITDA Margin</span>
+              <span class="tag tag-indigo">High Beta</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BREAD FINANCIAL ($BFH) -->
+        <div class="company-card">
+          <div>
+            <div class="card-top">
+              <div class="card-title-group">
+                <span class="badge badge-teal">REVOLVING STORE CARD BANK</span>
+                <h3>Bread Financial ($BFH)</h3>
+                <div class="sub">Private Label Credit Cards, Co-Brand & Bread Pay POS</div>
+              </div>
+              <span class="tag tag-teal">PLCC & Retail POS</span>
+            </div>
+            
+            <div class="card-section">
+              <div class="card-section-title" style="color:var(--accent-teal);">Business Model & Monetization</div>
+              <p class="card-text">
+                Formerly Alliance Data Systems (ADS), Bread Financial operates chartered banking subsidiaries (<strong>Comenity Bank & Comenity Capital Bank</strong>) managing ~$20B in retail store cards and co-brand Visa/Mastercards (Ulta, Wayfair, IKEA, Signet Jewelers). It also operates <strong>Bread Pay</strong> for e-commerce installment checkout. Monetizes via high revolving APRs (26%–34%), penalty late fees ($8–$41), and merchant discount rates.
+              </p>
+            </div>
+
+            <div class="card-section">
+              <div class="card-section-title" style="color:var(--accent-teal);">DAVE vs. BFH Differences</div>
+              <p class="card-text">
+                • <strong>Revolving Debt vs. Short-Term Liquidity:</strong> BFH relies on consumers carrying multi-year revolving balances at 28%+ APRs with compounding interest and penalty late fees. Dave strictly charges <strong>0% interest and $0 late fees</strong> on 7–10 day cash-flow advances.<br>
+                • <strong>Credit Losses (NCO):</strong> BFH operates with a massive <strong>7.0%–7.1% Net Charge-Off rate</strong> on subprime/near-prime retail cards. Dave operates with a <strong>1.45% NCO rate</strong> on originations.<br>
+                • <strong>Regulatory Vulnerability:</strong> BFH is heavily exposed to the CFPB's rule capping credit card late fees at $8 (historically $700M+ in revenue). Dave does not charge late fees, making it immune to late-fee rulemaking.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title" style="color:var(--accent-teal);">Key Comparison Takeaway</div>
+            <p class="card-text">BFH is a traditional high-APR store credit card bank; Dave is an unbundled, 0% interest algorithmic financial defense against bank fee traps.</p>
+          </div>
+        </div>
+
+        <!-- AFFIRM ($AFRM) -->
+        <div class="company-card">
+          <div>
+            <div class="card-top">
+              <div class="card-title-group">
+                <span class="badge badge-fintech">BNPL LEADER</span>
+                <h3>Affirm Holdings ($AFRM)</h3>
+                <div class="sub">Point-of-Sale Installments & Retail Merchant Network</div>
+              </div>
+              <span class="tag tag-blue">POS Commerce Financing</span>
+            </div>
+            
+            <div class="card-section">
+              <div class="card-section-title">Business Model & Monetization</div>
+              <p class="card-text">
+                Affirm integrates directly into e-commerce checkouts (Amazon, Shopify, Apple Pay, Target), offering <strong>Pay-in-4</strong> (0% APR split into 4 bi-weekly payments) and <strong>Monthly Installments</strong> (3 to 60 months, 0% to 36% simple interest). Monetizes via <strong>Merchant Discount Rates (MDR)</strong> paid by retailers (2%–7%) and consumer interest income.
+              </p>
+            </div>
+
+            <div class="card-section">
+              <div class="card-section-title">DAVE vs. AFRM Differences</div>
+              <p class="card-text">
+                • <strong>Use Case:</strong> Affirm finances <em>discretionary merchant retail purchases</em> ($250 to $10,000+ for electronics, apparel, furniture). Dave finances <em>non-discretionary emergency cash flow</em> ($150 to $500 for groceries, utility bills, gas).<br>
+                • <strong>Capital Velocity:</strong> Affirm loans have durations of 3 to 60 months, turning capital over only ~2.3x per year and requiring an institutional marketplace of <strong>$28.2B</strong> in funding capacity. Dave turns capital over <strong>>35x/year</strong> with minimal debt.<br>
+                • <strong>Consumer Demographic:</strong> Affirm targets prime/near-prime consumers (avg. FICO &gt;700) shopping online; Dave serves subprime/near-prime everyday paycheck earners.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title">Key Comparison Takeaway</div>
+            <p class="card-text">Affirm is a merchant-side checkout conversion tool; Dave is a consumer-side financial emergency safety net.</p>
+          </div>
+        </div>
+
+        <!-- BLOCK / CASH APP ($XYZ) -->
+        <div class="company-card">
+          <div>
+            <div class="card-top">
+              <div class="card-title-group">
+                <span class="badge badge-fintech">ECOSYSTEM PEER</span>
+                <h3>Block / Cash App ($XYZ)</h3>
+                <div class="sub">The Two-Sided Commerce & P2P Super-App</div>
+              </div>
+              <span class="tag tag-purple">P2P & Seller Ecosystem</span>
+            </div>
+            
+            <div class="card-section">
+              <div class="card-section-title">Business Model & Monetization</div>
+              <p class="card-text">
+                Block operates a two-sided financial ecosystem spanning <strong>Square Seller POS</strong> (processing fees) and <strong>Cash App</strong> (P2P payments, Cash App Card debit interchange, instant withdrawal fees, Bitcoin trading spreads, and Cash App Borrow). Cash App Borrow offers $50–$500 short-term credit charging a flat 5% fee for a 1-month term.
+              </p>
+            </div>
+
+            <div class="card-section">
+              <div class="card-section-title">DAVE vs. XYZ Differences</div>
+              <p class="card-text">
+                • <strong>Scope vs. Focus:</strong> Cash App is a full multi-utility wallet (investing, P2P, crypto, tax filing, merchant checkout). Dave is a dedicated, hyper-focused small-dollar liquidity and budgeting utility.<br>
+                • <strong>Credit Gating:</strong> Cash App Borrow is only unlocked for users with significant Cash App balance activity or direct deposits. Dave provides on-demand liquidity linking to <em>any</em> existing bank account.<br>
+                • <strong>Margin Structure:</strong> Block operates at ~20%–25% Adjusted EBITDA due to large hardware, merchant sales forces, and compliance overhead, compared to Dave's software-pure 44% margin.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title">Key Comparison Takeaway</div>
+            <p class="card-text">Cash App is a general consumer operating system; Dave is an unbundled, high-velocity liquidity engine with superior small-dollar underwriting focus.</p>
+          </div>
+        </div>
+
+        <!-- SOFI TECHNOLOGIES ($SOFI) -->
+        <div class="company-card">
+          <div>
+            <div class="card-top">
+              <div class="card-title-group">
+                <span class="badge badge-fintech">CHARTERED BANK</span>
+                <h3>SoFi Technologies ($SOFI)</h3>
+                <div class="sub">Full-Service Digital Bank for High-Earning "HENRYs"</div>
+              </div>
+              <span class="tag tag-cyan">Chartered Bank & B2B SaaS</span>
+            </div>
+            
+            <div class="card-section">
+              <div class="card-section-title">Business Model & Monetization</div>
+              <p class="card-text">
+                SoFi is a fully chartered national commercial bank. It originates large-dollar personal installment loans ($10,000–$50,000+), student loan refinancings ($50k–$100k+), and residential mortgages, funded directly by its <strong>$23B+ low-cost consumer deposit float</strong>. It also owns Galileo/Technisys, providing B2B core banking infrastructure to other fintechs.
+              </p>
+            </div>
+
+            <div class="card-section">
+              <div class="card-section-title">DAVE vs. SOFI Differences</div>
+              <p class="card-text">
+                • <strong>Target Demographic Polar Opposition:</strong> SoFi explicitly targets super-prime <strong>"HENRYs" (High Earners Not Rich Yet)</strong> with average incomes &gt;$160,000 and FICO scores &gt;745. Dave serves everyday working-class Americans ($35k–$75k income).<br>
+                • <strong>Balance Sheet vs. Velocity:</strong> SoFi holds tens of billions in long-duration loans on its bank balance sheet, subject to strict bank capital adequacy, FDIC deposit insurance ratios, and interest rate spread risks. Dave is an asset-light software platform using BaaS partner Coastal Community Bank.<br>
+                • <strong>Customer Acquisition Cost:</strong> SoFi spends <strong>$250–$400+ per customer</strong> (naming rights, prime marketing) to acquire multi-product banking clients. Dave acquires members for <strong>$19</strong> with immediate 35-day payback.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title">Key Comparison Takeaway</div>
+            <p class="card-text">SoFi is an upscale digital JP Morgan; Dave is an agile, algorithmic digital defense against bank overdraft exploitation.</p>
+          </div>
+        </div>
+
+        <!-- CHIME ($CHYM) DEEP DIVE -->
+        <div class="company-card">
+          <div>
+            <div class="card-top">
+              <div class="card-title-group">
+                <span class="badge badge-amber">NEOBANK SCALE</span>
+                <h3>Chime ($CHYM)</h3>
+                <div class="sub">Fee-Free Consumer Banking, SpotMe & MyPay Wage Access</div>
+              </div>
+              <span class="tag tag-amber">Deposit & Interchange</span>
+            </div>
+            
+            <div class="card-section">
+              <div class="card-section-title" style="color: var(--accent-amber);">Business Model & Monetization</div>
+              <p class="card-text">
+                Chime is the largest US consumer neobank (~15M+ active users), providing fee-free checking accounts, early direct deposit, and <strong>SpotMe®</strong> ($20–$200 fee-free overdraft buffer). It recently launched <strong>MyPay®</strong> (earned wage access up to $500). Monetizes primarily via Visa debit card interchange (~1.4% split with partner banks) and out-of-network ATM fees.
+              </p>
+            </div>
+
+            <div class="card-section">
+              <div class="card-section-title" style="color: var(--accent-amber);">DAVE vs. CHYM Differences</div>
+              <p class="card-text">
+                • <strong>Direct Deposit Gating:</strong> Chime requires members to switch their primary payroll direct deposit to unlock SpotMe overdraft lines. Dave provides on-demand <strong>ExtraCash™</strong> liquidity linking to <em>any</em> external bank via open-banking APIs.<br>
+                • <strong>Monetization Profile:</strong> Chime generates ~80%+ of revenue from debit interchange on consumer card swipes. Dave monetizes via direct 5% service fees ($5 min / $15 cap), express delivery, and software subscriptions.<br>
+                • <strong>Profitability:</strong> Chime operates at ~18% EBITDA margin due to high brand marketing; Dave delivers <strong>44% Adjusted EBITDA margins</strong> with a $19 CAC.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title" style="color: var(--accent-amber);">Key Financial KPIs</div>
+            <div class="card-pill-list">
+              <span class="tag tag-amber">~15M Members</span>
+              <span class="tag tag-amber">$2.10B Revenue</span>
+              <span class="tag tag-amber">18.1% EBITDA</span>
+              <span class="tag tag-amber">Interchange Driver</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- KLARNA ($KLAR) DEEP DIVE -->
+        <div class="company-card">
+          <div>
+            <div class="card-top">
+              <div class="card-title-group">
+                <span class="badge badge-fintech">GLOBAL BNPL & COMMERCE</span>
+                <h3>Klarna ($KLAR)</h3>
+                <div class="sub">Global POS BNPL, European Bank & AI Retail Marketplace</div>
+              </div>
+              <span class="tag tag-rose">Global POS & Ads</span>
+            </div>
+            
+            <div class="card-section">
+              <div class="card-section-title" style="color: var(--accent-pink);">Business Model & Monetization</div>
+              <p class="card-text">
+                Klarna operates a global payments and shopping network (85M+ global active consumers, 575k+ merchants) with a Swedish commercial banking license. Offers Pay-in-4, Pay in 30 days, financing installments (up to 24 months), and Pay Now debit. Monetizes via Merchant Discount Rates (2.5%–4.0%), retailer affiliate marketing commissions, consumer financing interest, and merchant advertising.
+              </p>
+            </div>
+
+            <div class="card-section">
+              <div class="card-section-title" style="color: var(--accent-pink);">DAVE vs. KLAR Differences</div>
+              <p class="card-text">
+                • <strong>Commerce Checkout vs. Emergency Liquidity:</strong> Klarna is a global shopping portal driving merchant conversion for fashion and lifestyle brands. Dave is a domestic emergency liquidity tool designed to prevent overdraft fees.<br>
+                • <strong>Underwriting Speed & Capital Turn:</strong> Klarna loans turn over ~5.5x per year with a mix of 6-week and multi-month loans. Dave turns capital over <strong>>35x per year</strong> on 7–10 day cash-flow advances.<br>
+                • <strong>Operating Margins:</strong> Klarna generates ~15% operating margin after restructuring; Dave delivers <strong>44% Adjusted EBITDA margins</strong> with a $19 CAC and 86% FCF conversion.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title" style="color: var(--accent-pink);">Key Financial KPIs</div>
+            <div class="card-pill-list">
+              <span class="tag tag-rose">85M+ Global Users</span>
+              <span class="tag tag-rose">$3.10B Revenue</span>
+              <span class="tag tag-rose">15.0% Op Margin</span>
+              <span class="tag tag-rose">Affiliate & MDR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MONEYLION ($ML) DEEP DIVE -->
+        <div class="company-card">
+          <div>
+            <div class="card-top">
+              <div class="card-title-group">
+                <span class="badge badge-teal">MARKETPLACE & ADVANCES</span>
+                <h3>MoneyLion ($ML)</h3>
+                <div class="sub">Instacash Liquidity Advances & Enterprise Affiliate Engine</div>
+              </div>
+              <span class="tag tag-teal">Micro-Cap Value</span>
+            </div>
+            
+            <div class="card-section">
+              <div class="card-section-title" style="color: var(--accent-teal);">Business Model & Monetization</div>
+              <p class="card-text">
+                MoneyLion is a digital consumer financial platform operating two core divisions: consumer liquidity advances (<strong>Instacash</strong> up to $500 with optional tips/express fees) and an enterprise financial marketplace network (<strong>Engine by MoneyLion</strong>) providing embedded product recommendations (loans, credit cards, insurance) for third-party publishers.
+              </p>
+            </div>
+
+            <div class="card-section">
+              <div class="card-section-title" style="color: var(--accent-teal);">DAVE vs. ML Differences</div>
+              <p class="card-text">
+                • <strong>Revenue Composition:</strong> MoneyLion derives over 60% of revenue from enterprise marketplace referral fees (lead-gen affiliate model). Dave generates ~85%+ of revenue from proprietary Direct ExtraCash advances, subscriptions, and debit card interchange.<br>
+                • <strong>Pricing Transparency:</strong> MoneyLion relies heavily on optional tips and affiliate partner commissions. Dave uses a standardized, compliant 5% service fee ($5 min / $15 cap) with no tipping friction.<br>
+                • <strong>EBITDA Scale:</strong> Dave generates <strong>$320M in Adjusted EBITDA (44% margin)</strong> on $730M revenue vs. MoneyLion's $135M EBITDA (21.8% margin) on $620M revenue.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-section">
+            <div class="card-section-title" style="color: var(--accent-teal);">Key Financial KPIs</div>
+            <div class="card-pill-list">
+              <span class="tag tag-teal">17M+ Total Users</span>
+              <span class="tag tag-teal">$620M Revenue</span>
+              <span class="tag tag-teal">21.8% EBITDA Margin</span>
+              <span class="tag tag-teal">Engine Marketplace</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: CAPITAL VELOCITY & UNDERWRITING -->
+    <section id="sec-velocity" role="tabpanel" aria-labelledby="tab-velocity">
+      <div class="section-header">
+        <div class="section-title">
+          <span>4. The Capital Velocity Engine: Why $DAVE & $SEZL Financials Differ</span>
+        </div>
+      </div>
+      <p class="section-desc">Visualizing the mathematical difference between high-velocity liquidity advances, subscriber BNPL cards, store credit cards, and multi-year installment loan books.</p>
+
+      <div class="chart-box">
+        <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 1.25rem;">Annual Capital Turnover Comparison (How Many Times $1 of Capital Recycles per Year)</h4>
+        
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span style="color: var(--dave-green); font-weight:700;">Dave Inc. ($DAVE) — 7 to 10 Day Duration</span>
+            <span class="mono" style="color: var(--dave-green); font-weight:700;">38.0x Turnover / Year</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-dave" style="width: 95%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>Direct Cash Advance Peers (MoneyLion / Brigit) — 15 to 20 Day Duration</span>
+            <span class="mono">18.0x Turnover / Year</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-chym" style="width: 45%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span style="color: var(--accent-indigo); font-weight:700;">Sezzle Inc. ($SEZL) — Pay-in-4 & Virtual Card</span>
+            <span class="mono" style="color: var(--accent-indigo); font-weight:700;">14.0x Turnover / Year</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-sezl" style="width: 35%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>Klarna ($KLAR) — Mixed Pay-in-4 & Financing</span>
+            <span class="mono">5.5x Turnover / Year</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-klar" style="width: 14%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>Affirm ($AFRM) — 3 to 60 Month Installments</span>
+            <span class="mono">2.3x Turnover / Year</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-afrm" style="width: 6%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span style="color:var(--accent-teal); font-weight:600;">Bread Financial ($BFH) — 18 to 36 Month Revolving Card Book</span>
+            <span class="mono" style="color:var(--accent-teal);">0.60x Turnover / Year</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-bfh" style="width: 3.5%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>SoFi Technologies ($SOFI) — 3 to 7 Year Multi-Year Bank Loans</span>
+            <span class="mono">0.35x Turnover / Year</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-sofi" style="width: 2%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Financial Turnaround & Margin Comparison -->
+      <div class="chart-box">
+        <h4 style="font-size: 1.05rem; color: #ffffff; margin-bottom: 1.25rem;">Adjusted EBITDA / Operating Margin Comparison (FY2026 Run-Rate)</h4>
+        
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span style="color: var(--accent-indigo); font-weight:700;">Sezzle Inc. ($SEZL)</span>
+            <span class="mono" style="color: var(--accent-indigo); font-weight:700;">50.0% EBITDA Margin</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-sezl" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span style="color: var(--dave-green); font-weight:700;">Dave Inc. ($DAVE)</span>
+            <span class="mono" style="color: var(--dave-green); font-weight:700;">44.0% EBITDA Margin</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-dave" style="width: 88%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>Affirm ($AFRM)</span>
+            <span class="mono">27.8% Adj. Operating Margin</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-afrm" style="width: 55.6%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>SoFi Technologies ($SOFI)</span>
+            <span class="mono">25.0% EBITDA Margin</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-sofi" style="width: 50%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>MoneyLion ($ML)</span>
+            <span class="mono">21.8% EBITDA Margin</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-chym" style="width: 43.6%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>Block ($XYZ)</span>
+            <span class="mono">22.0% EBITDA Margin</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-xyz" style="width: 44%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>Chime ($CHYM)</span>
+            <span class="mono">18.1% EBITDA Margin</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-chym" style="width: 36.2%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span style="color:var(--accent-teal);">Bread Financial ($BFH)</span>
+            <span class="mono" style="color:var(--accent-teal);">15.5% GAAP Net Margin (Post Credit Losses)</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-bfh" style="width: 31%;"></div>
+          </div>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span>Klarna ($KLAR)</span>
+            <span class="mono">15.0% Adj. Operating Margin</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill bar-klar" style="width: 30%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CONSUMER SEGMENTATION MATRIX -->
+    <section id="sec-consumer" role="tabpanel" aria-labelledby="tab-consumer">
+      <div class="section-header">
+        <div class="section-title">
+          <span>5. Target Consumer Demographic Breakdown</span>
+        </div>
+      </div>
+      <p class="section-desc">Direct comparison of consumer income brackets, primary financial pain points, and product positioning.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Consumer Segment</th>
+              <th>Representative FinTech</th>
+              <th>Income & Credit Bracket</th>
+              <th>Primary Financial Pain Point</th>
+              <th>Product Solution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Paycheck Timing Mismatch</strong></td>
+              <td class="td-dave"><strong>$DAVE</strong>, EarnIn, Brigit</td>
+              <td>$35,000 – $75,000<br><span class="tag tag-green">Subprime / Thin-File</span></td>
+              <td>Bills due on the 1st/15th while payroll arrives bi-weekly; avoiding $35 bank overdraft charges.</td>
+              <td>Instant $150–$500 ExtraCash advance linked to cash-flow direct deposit.</td>
+            </tr>
+
+            <tr>
+              <td><strong>Subscriber BNPL & Card Shoppers</strong></td>
+              <td><strong>$SEZL (Sezzle)</strong></td>
+              <td>$40,000 – $80,000<br><span class="tag tag-indigo">Near-Prime / Thin-File (FICO 620–680)</span></td>
+              <td>Wanting flexible Pay-in-4 across non-integrated merchants (Target, Walmart, grocery stores) via Apple Pay.</td>
+              <td>Sezzle Anywhere virtual card + Sezzle Premium subscription ($17.99/mo) and SezzleCash advances.</td>
+            </tr>
+
+            <tr>
+              <td><strong>Retail Store Card Shoppers</strong></td>
+              <td><strong>$BFH (Bread Financial)</strong>, Synchrony</td>
+              <td>$45,000 – $85,000<br><span class="tag tag-teal">Near-Prime / Subprime (FICO 640–680)</span></td>
+              <td>Financing frequent retail brand purchases (apparel, jewelry, home goods) and accumulating store loyalty reward points.</td>
+              <td>Private label store cards, co-brand credit cards, and Bread Pay digital checkout installment plans.</td>
+            </tr>
+
+            <tr>
+              <td><strong>Underbanked Everyday Mobile</strong></td>
+              <td><strong>$XYZ (Cash App)</strong>, <strong>$CHYM</strong></td>
+              <td>$25,000 – $65,000<br><span class="tag tag-amber">Near-Prime / Unbanked</span></td>
+              <td>Distrust of legacy brick-and-mortar bank fees, minimum balance penalties, and slow ACH rails.</td>
+              <td>Fee-free mobile deposit checking, instant P2P money transfers, and debit card rewards.</td>
+            </tr>
+
+            <tr>
+              <td><strong>Retail E-Commerce Shopper</strong></td>
+              <td><strong>$AFRM</strong>, <strong>$KLAR</strong></td>
+              <td>$50,000 – $120,000<br><span class="tag tag-blue">Prime / Near-Prime (FICO &gt;700)</span></td>
+              <td>High revolving credit card APRs (25%+), compounding interest traps, and lack of budgeting discipline for large online purchases.</td>
+              <td>Fixed point-of-sale Pay-in-4 and transparent monthly installment plans with $0 late fees.</td>
+            </tr>
+
+            <tr>
+              <td><strong>Upwardly Mobile High Earner</strong></td>
+              <td><strong>$SOFI</strong>, Wealthfront</td>
+              <td>$100,000 – $250,000+<br><span class="tag tag-purple">Super-Prime "HENRY" (FICO &gt;740)</span></td>
+              <td>Refinancing high-rate student debt, obtaining jumbo mortgages, consolidating prime debt, and seeking high APY cash yield.</td>
+              <td>Full-service digital bank accounts, low-rate prime installment loans, and automated wealth management.</td>
+            </tr>
+
+            <tr>
+              <td><strong>Enterprise Corporate Wage Earner</strong></td>
+              <td>DailyPay, Payactiv, Clair</td>
+              <td>$30,000 – $60,000<br><span class="tag tag-rose">W-2 Shift Workers</span></td>
+              <td>Accessing accrued hourly wages daily rather than waiting for bi-weekly corporate payroll.</td>
+              <td>Employer-integrated B2B2C Earned Wage Access (EWA) directly embedded in HR systems (ADP/Workday).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 6: VALUATION MULTIPLES & BENCHMARKING -->
+    <section id="sec-valuation" role="tabpanel" aria-labelledby="tab-valuation">
+      <div class="section-header">
+        <div class="section-title">
+          <span>6. Stock Valuation & Multi-Metric Benchmarking</span>
+        </div>
+      </div>
+      <p class="section-desc">Comprehensive comparative valuation analysis based on common institutional metrics (EV/Revenue, EV/EBITDA, GAAP P/E, EV/FCF, Rule of 40, SBC Dilution, and Return on Tangible Equity).</p>
+
+      <!-- Master Valuation Table -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric / Multiple</th>
+              <th class="th-dave">Dave Inc. ($DAVE)</th>
+              <th>Sezzle Inc. ($SEZL)</th>
+              <th>Affirm ($AFRM)</th>
+              <th>Bread Financial ($BFH)</th>
+              <th>Block / Cash App ($XYZ)</th>
+              <th>SoFi Technologies ($SOFI)</th>
+              <th>Chime ($CHYM - Private/IPO)</th>
+              <th>Klarna ($KLAR - Private/IPO)</th>
+              <th>MoneyLion ($ML)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Stock Price / Current Value</strong></td>
+              <td class="td-dave"><strong class="mono" style="color:var(--dave-green); font-size:0.95rem;">$335.00</strong></td>
+              <td><strong class="mono" style="color:var(--accent-indigo); font-size:0.95rem;">$125.00</strong></td>
+              <td><span class="mono">$76.50</span></td>
+              <td><strong class="mono" style="color:var(--accent-teal); font-size:0.95rem;">$105.50</strong></td>
+              <td><span class="mono">$82.00</span></td>
+              <td><span class="mono">$18.50</span></td>
+              <td><span class="mono">~$42.00 (Implied)</span></td>
+              <td><span class="mono">~$38.00 (Implied)</span></td>
+              <td><span class="mono">$85.00</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>Market Capitalization</strong></td>
+              <td class="td-dave"><strong class="mono" style="color:var(--dave-green);">$4.35B</strong></td>
+              <td><strong class="mono" style="color:var(--accent-indigo);">$3.95B</strong></td>
+              <td><span class="mono">$25.5B</span></td>
+              <td><strong class="mono" style="color:var(--accent-teal);">$5.15B</strong></td>
+              <td><span class="mono">$50.5B</span></td>
+              <td><span class="mono">$21.5B</span></td>
+              <td><span class="mono">~$17.0B (Target)</span></td>
+              <td><span class="mono">~$15.0B (Target)</span></td>
+              <td><span class="mono">$1.15B</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>Enterprise Value (EV)</strong></td>
+              <td class="td-dave"><strong class="mono" style="color:var(--dave-green);">$4.24B</strong></td>
+              <td><strong class="mono" style="color:var(--accent-indigo);">$3.85B</strong></td>
+              <td><span class="mono">$27.5B</span></td>
+              <td><strong class="mono" style="color:var(--accent-teal);">$9.80B (Incl Debt/ABS)</strong></td>
+              <td><span class="mono">$47.0B</span></td>
+              <td><span class="mono">$26.2B (Incl Debt)</span></td>
+              <td><span class="mono">~$16.5B</span></td>
+              <td><span class="mono">~$14.5B</span></td>
+              <td><span class="mono">$1.20B</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>FY2026E Revenue (Growth YoY)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green);">$730M</strong><br>
+                <span class="tag tag-green">+45% YoY</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo);">$610M</strong><br>
+                <span class="tag tag-indigo">+35% YoY</span>
+              </td>
+              <td>
+                <span class="mono">$4.25B</span><br>
+                <span class="tag tag-blue">+33% YoY</span>
+              </td>
+              <td>
+                <span class="mono">$4.05B (Net)</span><br>
+                <span class="tag tag-teal">+4% YoY</span>
+              </td>
+              <td>
+                <span class="mono">$16.8B (Net)</span><br>
+                <span class="tag tag-purple">+18% YoY</span>
+              </td>
+              <td>
+                <span class="mono">$3.20B</span><br>
+                <span class="tag tag-cyan">+28% YoY</span>
+              </td>
+              <td>
+                <span class="mono">$2.10B</span><br>
+                <span class="tag tag-amber">+22% YoY</span>
+              </td>
+              <td>
+                <span class="mono">$3.10B</span><br>
+                <span class="tag tag-rose">+25% YoY</span>
+              </td>
+              <td>
+                <span class="mono">$620M</span><br>
+                <span class="tag tag-green">+24% YoY</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>EV / FY2026E Revenue</strong></td>
+              <td class="td-dave"><strong class="mono" style="color:var(--dave-green);">5.81x</strong></td>
+              <td><strong class="mono" style="color:var(--accent-indigo);">6.31x</strong></td>
+              <td><span class="mono">6.47x (0.57x GMV)</span></td>
+              <td><span class="mono">2.42x (P/Rev: 1.27x)</span></td>
+              <td><span class="mono">2.80x (Net Rev)</span></td>
+              <td><span class="mono">6.72x (P/Rev)</span></td>
+              <td><span class="mono">7.86x</span></td>
+              <td><span class="mono">4.68x (0.13x GMV)</span></td>
+              <td><span class="mono">1.94x</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>FY2026E Adj. EBITDA / PPNR</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green);">$320M (43.8%)</strong>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo);">$305M (50.0%)</strong>
+              </td>
+              <td><span class="mono">$1.18B (27.8% Op)</span></td>
+              <td><span class="mono">$1.45B PPNR (35.8%)</span></td>
+              <td><span class="mono">$3.70B (22.0%)</span></td>
+              <td><span class="mono">$800M (25.0%)</span></td>
+              <td><span class="mono">$380M (18.1%)</span></td>
+              <td><span class="mono">$465M (15.0% Op)</span></td>
+              <td><span class="mono">$135M (21.8%)</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>EV / FY2026E Adj. EBITDA</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-size:0.95rem;">13.25x</strong><br>
+                <span class="tag tag-green">Extreme Value</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-size:0.95rem;">12.62x</strong><br>
+                <span class="tag tag-indigo">High Cash Flow</span>
+              </td>
+              <td><span class="mono">23.31x</span></td>
+              <td><span class="mono">6.76x (EV/PPNR)</span></td>
+              <td><span class="mono">12.70x</span></td>
+              <td><span class="mono">26.80x</span></td>
+              <td><span class="mono">43.42x</span></td>
+              <td><span class="mono">31.18x</span></td>
+              <td><span class="mono">8.89x</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>Stock-Based Comp (SBC % Rev)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green);">$35M (4.8%)</strong><br>
+                <span class="tag tag-green">~1.5% Dilution/yr</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo);">$28M (4.6%)</strong><br>
+                <span class="tag tag-indigo">Low Dilution</span>
+              </td>
+              <td><span class="mono">$420M (9.9% Rev)</span></td>
+              <td><span class="mono">$45M (1.1% Rev)</span></td>
+              <td><span class="mono">$1.30B (7.7% Net Rev)</span></td>
+              <td><span class="mono">$260M (8.1% Rev)</span></td>
+              <td><span class="mono">~$190M (9.0% Rev)</span></td>
+              <td><span class="mono">~$250M (8.1% Rev)</span></td>
+              <td><span class="mono">$35M (5.6% Rev)</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>Rule of 40 Score (Growth + EBITDA)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-size:1.05rem;">88.8%</strong><br>
+                <span class="tag tag-green">Top 1% FinTech</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-size:1.05rem;">85.0%</strong><br>
+                <span class="tag tag-indigo">Top 1% FinTech</span>
+              </td>
+              <td><span class="mono">60.8% (Op Margin)</span></td>
+              <td><span class="mono">19.5%</span></td>
+              <td><span class="mono">40.0%</span></td>
+              <td><span class="mono">53.0%</span></td>
+              <td><span class="mono">40.1%</span></td>
+              <td><span class="mono">40.0%</span></td>
+              <td><span class="mono">45.8%</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>FY2026E GAAP Net Income (EPS)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green);">$221M ($17.00)</strong>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo);">$184M ($5.82)</strong>
+              </td>
+              <td><span class="mono">$340M ($1.02)</span></td>
+              <td><strong class="mono" style="color:var(--accent-teal);">$590M ($12.00)</strong></td>
+              <td><span class="mono">$1.65B ($2.68)</span></td>
+              <td><span class="mono">$520M ($0.45)</span></td>
+              <td><span class="mono">$135M ($0.34)</span></td>
+              <td><span class="mono">$220M ($0.55)</span></td>
+              <td><span class="mono">$45M ($3.33)</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>Forward GAAP P/E Multiple</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-size:0.95rem;">19.71x</strong><br>
+                <span class="tag tag-green">Low P/E</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-size:0.95rem;">21.48x</strong><br>
+                <span class="tag tag-indigo">Growth Value</span>
+              </td>
+              <td><span class="mono">75.00x</span></td>
+              <td>
+                <strong class="mono" style="color:var(--accent-teal); font-size:0.95rem;">8.79x</strong><br>
+                <span class="tag tag-teal">Card Bank Discount</span>
+              </td>
+              <td><span class="mono">30.60x</span></td>
+              <td><span class="mono">41.11x</span></td>
+              <td><span class="mono">125.90x</span></td>
+              <td><span class="mono">68.18x</span></td>
+              <td><span class="mono">25.53x</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>FY2026E Free Cash Flow (FCF)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green);">$275M (37.7%)</strong>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo);">$250M (41.0%)</strong>
+              </td>
+              <td><span class="mono">$720M (16.9%)</span></td>
+              <td><span class="mono">Bank Balance Sheet Driven</span></td>
+              <td><span class="mono">$2.40B (14.3%)</span></td>
+              <td><span class="mono">Deposit Float Driven</span></td>
+              <td><span class="mono">$260M (12.4%)</span></td>
+              <td><span class="mono">$310M (10.0%)</span></td>
+              <td><span class="mono">$85M (13.7%)</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>FCF Conversion Rate (FCF / EBITDA)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-weight:800;">85.9%</strong><br>
+                <span class="tag tag-green">Asset-Light Pure Cash</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-weight:800;">82.0%</strong><br>
+                <span class="tag tag-indigo">High Cash Flow</span>
+              </td>
+              <td><span class="mono">61.0% (Loan Cap Excl)</span></td>
+              <td><span class="mono">N/A (Card Reserving)</span></td>
+              <td><span class="mono">64.9%</span></td>
+              <td><span class="mono">N/A (Bank Reserving)</span></td>
+              <td><span class="mono">68.4%</span></td>
+              <td><span class="mono">66.7%</span></td>
+              <td><span class="mono">63.0%</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>EV / FY2026E Free Cash Flow</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green);">15.42x</strong><br>
+                <span class="tag tag-green">6.5% FCF Yield</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo);">15.40x</strong><br>
+                <span class="tag tag-indigo">6.5% FCF Yield</span>
+              </td>
+              <td><span class="mono">38.19x</span></td>
+              <td><span class="mono">N/A</span></td>
+              <td><span class="mono">19.58x</span></td>
+              <td><span class="mono">N/A</span></td>
+              <td><span class="mono">63.46x</span></td>
+              <td><span class="mono">46.77x</span></td>
+              <td><span class="mono">14.12x</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>PEG Ratio (P/E to EPS Growth)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-size:1.05rem;">0.44x</strong><br>
+                <span class="tag tag-green">Deep Undervaluation</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-size:1.05rem;">0.61x</strong><br>
+                <span class="tag tag-indigo">Deep Undervaluation</span>
+              </td>
+              <td><span class="mono">1.25x</span></td>
+              <td><span class="mono">1.75x</span></td>
+              <td><span class="mono">1.70x</span></td>
+              <td><span class="mono">1.47x</span></td>
+              <td><span class="mono">3.15x</span></td>
+              <td><span class="mono">1.95x</span></td>
+              <td><span class="mono">0.85x</span></td>
+            </tr>
+
+            <tr>
+              <td><strong>Return on Tangible Equity (ROTE)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-size:1.05rem;">&gt;65.0%</strong>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-size:1.05rem;">&gt;55.0%</strong>
+              </td>
+              <td><span class="mono">~18.0%</span></td>
+              <td><span class="mono">~18.5% (ROTE)</span></td>
+              <td><span class="mono">~16.5%</span></td>
+              <td><span class="mono">~12.5% (ROE)</span></td>
+              <td><span class="mono">~14.0%</span></td>
+              <td><span class="mono">~15.5%</span></td>
+              <td><span class="mono">~22.0%</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Multiple Disconnect Deep Dive -->
+      <div class="callout-box" style="background: linear-gradient(135deg, rgba(22, 31, 48, 0.95) 0%, rgba(99, 102, 241, 0.15) 100%); border-color: var(--accent-indigo);">
+        <div class="callout-header" style="color: var(--accent-indigo);">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>The High-Margin Fintech Pair: $DAVE vs. $SEZL</span>
+        </div>
+        <div class="callout-body">
+          Across the entire public fintech sector, <strong>$DAVE</strong> and <strong>$SEZL</strong> share the rarest financial profile: **both generate ~45%–50% Adjusted EBITDA margins with Rule of 40 scores >85% and FCF conversion >80%**:
+          <br><br>
+          • <strong>Why They Outperform Peers:</strong> Unlike Affirm and SoFi, which rely on heavy debt financing or balance-sheet capital, Dave and Sezzle monetize through high-velocity transactions and recurring subscriptions (Sezzle Premium at $17.99/mo; Dave's $1–$3/mo software + 5% service fees).
+          <br><br>
+          • <strong>Valuation Parallels:</strong> Both trade at attractive single/low-double-digit EBITDA multiples (~12.6x for Sezzle, ~13.3x for Dave) and PEG ratios below 0.65x, representing the highest margin-for-growth value in public financial technology.
+        </div>
+      </div>
+
+      <!-- Interactive Multiple Visualizer -->
+      <div class="chart-box">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h4 style="font-size: 1.05rem; color: #ffffff;">Comparative Valuation & Multiple Visualizer</h4>
+          <div class="chart-controls">
+            <button class="chart-btn active" onclick="updateChart('pe')">Forward GAAP P/E</button>
+            <button class="chart-btn" onclick="updateChart('ebitda')">EV / EBITDA Multiple</button>
+            <button class="chart-btn" onclick="updateChart('rule40')">Rule of 40 Score</button>
+            <button class="chart-btn" onclick="updateChart('absorption')">Loss Absorption Factor</button>
+          </div>
+        </div>
+        
+        <div id="chart-container">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: EARNINGS & CASH FLOW WATERFALL -->
+    <section id="sec-cashflow" role="tabpanel" aria-labelledby="tab-cashflow">
+      <div class="section-header">
+        <div class="section-title">
+          <span>7. Earnings & Cash Flow Waterfall Decomposition</span>
+        </div>
+      </div>
+      <p class="section-desc">Comparing how every $100 of gross customer revenue flows through COGS, credit loss provisions, marketing acquisition, R&D, and overhead into free cash flow.</p>
+
+      <div class="waterfall-grid">
+
+        <!-- DAVE WATERFALL -->
+        <div class="waterfall-card dave-waterfall">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h4 style="color: var(--dave-green); font-size: 1.1rem;">Dave Inc. ($DAVE)</h4>
+            <span class="badge badge-dave">85.9% FCF Conversion</span>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">Per $100 of GAAP Revenue ($730M Run-Rate)</div>
+
+          <div class="waterfall-row"><span>Gross GAAP Revenue</span><span class="mono" style="font-weight:700;">$100.00</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Provision for Unrecoverable Advances</span><span class="mono" style="color:var(--accent-rose);">-$15.70</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Payment Rails & Data Fees</span><span class="mono" style="color:var(--accent-rose);">-$8.50</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Sponsor Bank (CCB) Servicing</span><span class="mono" style="color:var(--accent-rose);">-$3.20</span></div>
+          <div class="waterfall-row" style="font-weight:600; color:var(--accent-cyan);"><span>= Gross Profit</span><span class="mono">$72.60 (72.6%)</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Sales & Marketing ($19 CAC)</span><span class="mono" style="color:var(--accent-rose);">-$13.00</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Product Dev & Engineering (R&D)</span><span class="mono" style="color:var(--accent-rose);">-$8.50</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- General & Administrative (G&A)</span><span class="mono" style="color:var(--accent-rose);">-$7.30</span></div>
+          <div class="waterfall-row total-row" style="color:var(--dave-green);">
+            <span>= Adjusted EBITDA</span>
+            <span class="mono" style="color:var(--dave-green);">$43.80 (43.8%)</span>
+          </div>
+          <div class="waterfall-row"><span style="color:var(--text-muted);">- CapEx, Tax & Working Capital Drag</span><span class="mono" style="color:var(--text-muted);">-$6.10</span></div>
+          <div class="waterfall-row total-row" style="color:#ffffff;">
+            <span>= Unlevered Free Cash Flow</span>
+            <span class="mono" style="color:var(--dave-green);">$37.70 (37.7% Margin)</span>
+          </div>
+        </div>
+
+        <!-- SEZZLE WATERFALL -->
+        <div class="waterfall-card sezl-waterfall">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h4 style="color: var(--accent-indigo); font-size: 1.1rem;">Sezzle Inc. ($SEZL)</h4>
+            <span class="badge badge-indigo">82.0% FCF Conversion</span>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">Per $100 of GAAP Revenue ($610M Run-Rate)</div>
+
+          <div class="waterfall-row"><span>Total GAAP Revenue (Subscrip + MDR)</span><span class="mono" style="font-weight:700;">$100.00</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Processing & On-Us Network Fees</span><span class="mono" style="color:var(--accent-rose);">-$15.50</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Provision for Uncollectible Accounts</span><span class="mono" style="color:var(--accent-rose);">-$12.50</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Funding & Facility Interest</span><span class="mono" style="color:var(--accent-rose);">-$4.00</span></div>
+          <div class="waterfall-row" style="font-weight:600; color:var(--accent-cyan);"><span>= Gross Profit</span><span class="mono">$68.00 (68.0%)</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Sales & Marketing</span><span class="mono" style="color:var(--accent-rose);">-$5.80</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Tech & Platform Engineering</span><span class="mono" style="color:var(--accent-rose);">-$6.20</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- General & Administrative (G&A)</span><span class="mono" style="color:var(--accent-rose);">-$6.00</span></div>
+          <div class="waterfall-row total-row" style="color:var(--accent-indigo);">
+            <span>= Adjusted EBITDA</span>
+            <span class="mono" style="color:var(--accent-indigo);">$50.00 (50.0%)</span>
+          </div>
+          <div class="waterfall-row"><span style="color:var(--text-muted);">- CapEx, Tax & Working Capital Drag</span><span class="mono" style="color:var(--text-muted);">-$9.00</span></div>
+          <div class="waterfall-row total-row" style="color:#ffffff;">
+            <span>= Unlevered Free Cash Flow</span>
+            <span class="mono" style="color:var(--accent-indigo);">$41.00 (41.0% Margin)</span>
+          </div>
+        </div>
+
+        <!-- AFFIRM WATERFALL -->
+        <div class="waterfall-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h4 style="color: var(--accent-blue); font-size: 1.1rem;">Affirm ($AFRM)</h4>
+            <span class="badge badge-fintech">61.0% FCF Conversion</span>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">Per $100 of Total Revenue ($4.25B Run-Rate)</div>
+
+          <div class="waterfall-row"><span>Total GAAP Revenue</span><span class="mono" style="font-weight:700;">$100.00</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Funding Costs (Debt & Warehouse)</span><span class="mono" style="color:var(--accent-rose);">-$21.20</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Credit Loss Provisions</span><span class="mono" style="color:var(--accent-rose);">-$18.40</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Processing & Servicing Fees</span><span class="mono" style="color:var(--accent-rose);">-$18.00</span></div>
+          <div class="waterfall-row" style="font-weight:600; color:var(--accent-cyan);"><span>= RLTC (Unit Gross Profit)</span><span class="mono">$42.40 (42.4%)</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Sales, Marketing & Merchant Acq.</span><span class="mono" style="color:var(--accent-rose);">-$5.20</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Technology & Engineering (R&D)</span><span class="mono" style="color:var(--accent-rose);">-$5.40</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- General & Administrative (G&A)</span><span class="mono" style="color:var(--accent-rose);">-$4.00</span></div>
+          <div class="waterfall-row total-row" style="color:var(--accent-blue);">
+            <span>= Adjusted Operating Income</span>
+            <span class="mono" style="color:var(--accent-blue);">$27.80 (27.8%)</span>
+          </div>
+          <div class="waterfall-row"><span style="color:var(--text-muted);">- Balance Sheet Loan Equity Drag</span><span class="mono" style="color:var(--text-muted);">-$10.90</span></div>
+          <div class="waterfall-row total-row" style="color:#ffffff;">
+            <span>= Unlevered Free Cash Flow</span>
+            <span class="mono" style="color:var(--accent-blue);">$16.90 (16.9% Margin)</span>
+          </div>
+        </div>
+
+        <!-- BREAD FINANCIAL ($BFH) WATERFALL -->
+        <div class="waterfall-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h4 style="color: var(--accent-teal); font-size: 1.1rem;">Bread Financial ($BFH)</h4>
+            <span class="badge badge-teal">The Card Bank Trap</span>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">Per $100 of Gross Interest & Fee Rev ($4.05B Net)</div>
+
+          <div class="waterfall-row"><span>Gross Interest, Fee & Interchange Rev</span><span class="mono" style="font-weight:700;">$100.00</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Deposit & ABS Funding Interest Expense</span><span class="mono" style="color:var(--accent-rose);">-$18.20</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Card Processing & Retailer Share</span><span class="mono" style="color:var(--accent-rose);">-$15.40</span></div>
+          <div class="waterfall-row" style="font-weight:600; color:var(--accent-cyan);"><span>= Pre-Provision Net Revenue (PPNR)</span><span class="mono">$66.40 (66.4%)</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Card Servicing & Retailer Marketing</span><span class="mono" style="color:var(--accent-rose);">-$16.50</span></div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose);">- Bank Overhead & G&A</span><span class="mono" style="color:var(--accent-rose);">-$14.10</span></div>
+          <div class="waterfall-row" style="font-weight:600; color:var(--accent-teal);">
+            <span>= PPNR Operating Margin</span>
+            <span class="mono" style="color:var(--accent-teal);">$35.80 (35.8%)</span>
+          </div>
+          <div class="waterfall-row"><span style="color:var(--accent-rose); font-weight:700;">- 7.0% NCO Credit Loss Provisions</span><span class="mono" style="color:var(--accent-rose); font-weight:700;">-$33.30</span></div>
+          <div class="waterfall-row"><span style="color:var(--text-muted);">- Bank Taxes & CECL Capital Lockup</span><span class="mono" style="color:var(--text-muted);">-$2.50</span></div>
+          <div class="waterfall-row total-row" style="color:#ffffff;">
+            <span>= GAAP Net Income (High Capital Tie-Up)</span>
+            <span class="mono" style="color:var(--accent-teal);">$14.50 (14.5% Margin)</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Cash Conversion Synthesis -->
+      <div class="callout-box" style="background: linear-gradient(135deg, var(--bg-card) 0%, rgba(16, 185, 129, 0.1) 100%); border-color: var(--accent-green);">
+        <div class="callout-header" style="color: var(--accent-green);">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          <span>Key Takeaway: The "Cash Conversion Trap" vs. Dave & Sezzle's Pure Flow</span>
+        </div>
+        <div class="callout-body">
+          • <strong>The Installment & Credit Card Capital Trap:</strong> Traditional lenders and card issuers (<strong>$BFH, $AFRM, $SOFI</strong>) must constantly tie up substantial cash to fund warehouse equity tranches, absorb 7.0% charge-offs, comply with CECL credit loss reserving rules, and absorb multi-year duration risk.
+          <br><br>
+          • <strong>Dave & Sezzle's Velocity Freedom:</strong> Because ExtraCash advances last only 7–10 days and Pay-in-4 turns over in 6 weeks, Dave and Sezzle recycle working capital rapidly. Both convert <strong>>80% of their Adjusted EBITDA directly into unencumbered Free Cash Flow</strong>, enabling high shareholder returns, share repurchases, and organic marketing acceleration without borrowing or equity dilution.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: FINANCIAL HEALTH, LIQUIDITY & SOLVENCY (ALL 9 TICKERS) -->
+    <section id="sec-solvency" role="tabpanel" aria-labelledby="tab-solvency">
+      <div class="section-header">
+        <div class="section-title">
+          <span>8. Financial Health, Solvency & Liquidity Architecture</span>
+        </div>
+      </div>
+      <p class="section-desc">Traditional corporate metrics (Current Ratio, Quick Ratio, Debt/Equity) fail for fintechs because money is operating inventory. Below is the institutional solvency, liquidity runway, capital adequacy, and loss-absorption benchmark across all 9 public peers.</p>
+
+      <!-- Solvency Master Table -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Financial Health Metric</th>
+              <th class="th-dave">Dave Inc. ($DAVE)</th>
+              <th>Sezzle Inc. ($SEZL)</th>
+              <th>Affirm ($AFRM)</th>
+              <th>Bread Financial ($BFH)</th>
+              <th>Block / Cash App ($XYZ)</th>
+              <th>SoFi Technologies ($SOFI)</th>
+              <th>Chime ($CHYM)</th>
+              <th>Klarna ($KLAR)</th>
+              <th>MoneyLion ($ML)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Balance Sheet & Capital Structure</strong></td>
+              <td class="td-dave">
+                <strong>Asset-Light Software</strong><br>
+                (BaaS Coastal Community Bank)
+              </td>
+              <td>
+                <strong>Asset-Light Subscriptions</strong><br>
+                (OCC Charter Applicant)
+              </td>
+              <td>
+                <strong>Institutional Marketplace</strong><br>
+                ($28.2B Off-Balance Capital)
+              </td>
+              <td>
+                <strong>Chartered Credit Card Bank</strong><br>
+                (Comenity Bank / Utah DFI / FDIC)
+              </td>
+              <td>
+                <strong>Two-Sided Platform</strong><br>
+                (Square POS + Cash App Wallet)
+              </td>
+              <td>
+                <strong>Chartered Commercial Bank</strong><br>
+                (OCC / Federal Reserve Regulated)
+              </td>
+              <td>
+                <strong>Asset-Light Neobank</strong><br>
+                (BaaS Bancorp / Stride)
+              </td>
+              <td>
+                <strong>Swedish Bank License</strong><br>
+                (Deposit Float + European ABS)
+              </td>
+              <td>
+                <strong>Financial Marketplace</strong><br>
+                (Asset-Light Affiliate / Roar)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Tangible Common Equity (TCE/TA) / CET1</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-size:0.95rem;">&gt;65.0% TCE/TA</strong><br>
+                <span class="tag tag-green">Pristine Cushion</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-size:0.95rem;">~48.0% TCE/TA</strong><br>
+                <span class="tag tag-indigo">Clean Balance Sheet</span>
+              </td>
+              <td>
+                <span class="mono">~25.0% TCE/TA</span><br>
+                <span class="tag tag-blue">Marketplace Off-Balance</span>
+              </td>
+              <td>
+                <span class="mono">13.0% CET1 / 10.5% TCE</span><br>
+                <span class="tag tag-teal">Card Bank Minimums</span>
+              </td>
+              <td>
+                <strong class="mono">&gt;55.0% TCE/TA</strong><br>
+                <span class="tag tag-purple">High Net Cash</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-amber); font-size:0.95rem;">12.5% CET1 Ratio</strong><br>
+                <span class="tag tag-amber">Well-Capitalized Bank</span>
+              </td>
+              <td>
+                <span class="mono">&gt;70.0% TCE/TA</span><br>
+                <span class="tag tag-amber">Debt-Free Venture</span>
+              </td>
+              <td>
+                <strong class="mono">~18.5% TCE/TA</strong><br>
+                <span class="tag tag-rose">Regulated Bank Cap</span>
+              </td>
+              <td>
+                <span class="mono">~35.0% TCE/TA</span><br>
+                <span class="tag tag-green">Lean Balance Sheet</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Total Available Liquid Reserves</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-size:0.95rem;">$260M Total Liquidity</strong><br>
+                ($185M Cash + $75M VPC Line)
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-size:0.95rem;">~$140M Total Liquidity</strong><br>
+                ($100M Cash + Undrawn Lines)
+              </td>
+              <td>
+                <strong class="mono">$1.85B Cash & Liquidity</strong><br>
+                (Plus $28.2B Mktplace Capacity)
+              </td>
+              <td>
+                <span class="mono">$7B+ Deposits + ABS Lines</span><br>
+                (Dependent on Conduit Debt)
+              </td>
+              <td>
+                <strong class="mono">$9.2B Cash & Liquidity</strong><br>
+                (Massive corporate treasury)
+              </td>
+              <td>
+                <strong class="mono">$23B+ Retail Deposits</strong><br>
+                (Sticky Low-Cost FDIC Float)
+              </td>
+              <td>
+                <span class="mono">~$800M Cash</span><br>
+                (Substantial balance buffer)
+              </td>
+              <td>
+                <strong class="mono">~$2.5B Liquidity</strong><br>
+                (Deposits + Credit Lines)
+              </td>
+              <td>
+                <span class="mono">~$115M Cash & Lines</span><br>
+                (Sufficient for marketplace)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Net Debt / Cash Position</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-weight:700;">+$110M Net Cash</strong><br>
+                (Zero convertible debt overhang)
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-weight:700;">+$85M Net Cash</strong><br>
+                (Zero legacy debt traps)
+              </td>
+              <td>
+                <span class="mono">-$1.2B Net Debt (ABS)</span><br>
+                (Covered by loan assets)
+              </td>
+              <td>
+                <span class="mono" style="color:var(--accent-rose);">-$3.8B Debt (ABS & Term)</span><br>
+                (High corporate leverage)
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--dave-green);">+$3.5B Net Cash</strong><br>
+                (Cash exceeds conv. notes)
+              </td>
+              <td>
+                <span class="mono">Deposit Funded</span><br>
+                (No reliance on repo lines)
+              </td>
+              <td>
+                <strong class="mono">+$800M Net Cash</strong><br>
+                (Zero long-term debt)
+              </td>
+              <td>
+                <strong class="mono">+$650M Net Cash</strong><br>
+                (Pre-IPO Fortress)
+              </td>
+              <td>
+                <span class="mono">+$25M Net Cash</span><br>
+                (Modest net positive)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Loss Reserve Coverage Ratio (ACL / Delinquency)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green);">15.7% GAAP Provision</strong><br>
+                (Dynamic weekly recovery)
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo);">~12.5% Rev Coverage</strong><br>
+                (Covers 2.4% GMV loss)
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-blue); font-weight:800;">6.10% ACL Reserve</strong><br>
+                <span class="tag tag-blue">290% NCO Coverage</span>
+              </td>
+              <td>
+                <span class="mono" style="color:var(--accent-rose);">11.5% ACL Reserve</span><br>
+                (160% NCO on 7.0% Losses)
+              </td>
+              <td>
+                <span class="mono">~2.5% Borrow Reserve</span><br>
+                (Sufficient for micro-credit)
+              </td>
+              <td>
+                <span class="mono">3.8% CECL Allowance</span><br>
+                (160% NCO Coverage)
+              </td>
+              <td>
+                <span class="mono">~1.5% SpotMe Reserve</span><br>
+                (Interchange offset)
+              </td>
+              <td>
+                <strong class="mono">2.8% ACL Reserve</strong><br>
+                (180% NCO Coverage)
+              </td>
+              <td>
+                <span class="mono">~3.2% Advance Reserve</span><br>
+                (Fee-cushioned)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Loss Absorption Factor (EBITDA / Net Losses)</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-size:1.05rem;">3.55x Coverage</strong><br>
+                ($320M EBITDA / $90M Loss)
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-size:1.05rem;">3.81x Coverage</strong><br>
+                ($305M EBITDA / $80M Loss)
+              </td>
+              <td>
+                <span class="mono">2.45x Coverage</span><br>
+                (RLTC Gross Profit Margin)
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-rose); font-size:1.05rem;">1.07x Coverage</strong><br>
+                <span class="tag tag-rose">Vulnerable to Recession</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--dave-green);">4.20x Coverage</strong><br>
+                (Ecosystem Cash Cushion)
+              </td>
+              <td>
+                <span class="mono">1.55x Coverage</span><br>
+                (Net Interest Spread)
+              </td>
+              <td>
+                <span class="mono">3.10x Coverage</span><br>
+                (Interchange Fee Buffer)
+              </td>
+              <td>
+                <strong class="mono">2.60x Coverage</strong><br>
+                ($465M Op / $180M Loss)
+              </td>
+              <td>
+                <span class="mono">2.20x Coverage</span><br>
+                (Affiliate Marketplace Mix)
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Asset-Liability Duration Mismatch Risk</strong></td>
+              <td class="td-dave">
+                <strong class="mono" style="color:var(--dave-green); font-weight:700;">NONE (7–10 Day Term)</strong><br>
+                <span class="tag tag-green">Zero Lockup Risk</span>
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--accent-indigo); font-weight:700;">VERY LOW (6-Wk Pay-in-4)</strong><br>
+                <span class="tag tag-indigo">Minimal Lockup</span>
+              </td>
+              <td>
+                <span class="mono">LOW (2.3x Turn / Mktplace)</span><br>
+                (Term matches funding lines)
+              </td>
+              <td>
+                <span class="mono" style="color:var(--accent-rose);">HIGH (18–36 Mo Revolving)</span><br>
+                (Vulnerable to Rate Spikes)
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--dave-green);">NONE (Instant Rails)</strong><br>
+                (Zero Duration Risk)
+              </td>
+              <td>
+                <span class="mono" style="color:var(--accent-amber);">MODERATE (3–7 Yr Loans)</span><br>
+                (Protected by core deposits)
+              </td>
+              <td>
+                <strong class="mono" style="color:var(--dave-green);">NONE (Interchange)</strong><br>
+                (Zero Duration Risk)
+              </td>
+              <td>
+                <span class="mono">LOW (6-Wk Pay-in-4 Mix)</span><br>
+                (Minimal Lockup)
+              </td>
+              <td>
+                <span class="mono">LOW (14–30 Day Term)</span><br>
+                (Minimal Duration)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Solvency Architecture Synthesis Callout -->
+      <div class="callout-box" style="background: linear-gradient(135deg, rgba(22, 31, 48, 0.95) 0%, rgba(6, 182, 212, 0.15) 100%); border-color: var(--accent-cyan);">
+        <div class="callout-header" style="color: var(--accent-cyan);">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          <span>The Institutional Solvency Ranking (Safest to Highest Risk)</span>
+        </div>
+        <div class="callout-body">
+          • <strong>Tier 1 — The High-Velocity Net-Cash Fortresses ($DAVE & $SEZL):</strong> Dave and Sezzle hold positive net cash, generate >80% FCF conversion, and boast **>3.5x Loss Absorption Factors**. Because their assets mature in days or weeks, they have zero duration lockup and can throttle credit instantly during macro downturns.
+          <br><br>
+          • <strong>Tier 2 — The Scaled Ecosystems ($XYZ & $AFRM):</strong> Block holds $3.5B in net cash with a massive payments moat; Affirm operates an asset-light **$28.2B off-balance sheet institutional marketplace** with **290% ACL loss reserve coverage** and $1.85B in cash.
+          <br><br>
+          • <strong>Tier 3 — The Chartered Commercial Bank ($SOFI):</strong> SoFi is protected by Federal Reserve / OCC regulatory capital rules with a strong **12.5% CET1 ratio** and $23B+ in sticky consumer deposits, but is constrained by multi-year loan duration.
+          <br><br>
+          • <strong>Tier 4 — The Cyclical High-Risk Card Bank ($BFH):</strong> Bread Financial carries **$3.8B in debt**, a heavy **7.0% Net Charge-Off rate**, and a thin **1.07x Loss Absorption Factor**, making it the most vulnerable to consumer credit shocks and CFPB late-fee caps.
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="padding-top: 0; padding-bottom: 0;">
+      <p>Fintech Strategic Research, Valuation, Solvency & Cash Flow Framework • Prepared for Investment Research Notes • Generated August 25, 2026</p>
+      <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">Data Sources: SEC Form 10-K/10-Q Filings, Regulatory Capital Call Reports, Investor Presentations, BaaS Sponsor Bank Disclosures, and Equity Research Models.</p>
+    </div>
+  </footer>
+
+  <script>
+    const SECTIONS = ['spectrum', 'matrix', 'deep-dive', 'velocity', 'consumer', 'valuation', 'cashflow', 'solvency'];
+
+    function showSection(sectionId, updateHash = true) {
+      if (sectionId === 'all') {
+        SECTIONS.forEach(id => {
+          const el = document.getElementById('sec-' + id);
+          if (el) el.style.display = 'block';
+        });
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+          const isAll = tab.getAttribute('data-section') === 'all';
+          tab.classList.toggle('active', isAll);
+          tab.setAttribute('aria-selected', isAll ? 'true' : 'false');
+        });
+        if (updateHash) history.replaceState(null, null, '#all');
+        return;
+      }
+
+      SECTIONS.forEach(id => {
+        const el = document.getElementById('sec-' + id);
+        if (el) {
+          el.style.display = (id === sectionId) ? 'block' : 'none';
+        }
+      });
+
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        const isMatch = tab.getAttribute('data-section') === sectionId;
+        tab.classList.toggle('active', isMatch);
+        tab.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+
+      if (updateHash) history.replaceState(null, null, '#' + sectionId);
+    }
+
+    // Keyboard navigation for WAI-ARIA tablist
+    document.addEventListener('keydown', (e) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+      const activeTab = document.querySelector('.nav-tab.active');
+      if (!activeTab || document.activeElement !== activeTab) return;
+
+      const tabs = Array.from(document.querySelectorAll('.nav-tab'));
+      let idx = tabs.indexOf(activeTab);
+
+      if (e.key === 'ArrowRight') idx = (idx + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') idx = (idx - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') idx = 0;
+      else if (e.key === 'End') idx = tabs.length - 1;
+
+      tabs[idx].focus();
+      tabs[idx].click();
+    });
+
+    // Interactive chart data switcher covering all 9 tickers with normalized widths
+    const CHART_DATA = {
+      pe: [
+        { name: "Chime ($CHYM)", val: "125.9x P/E", width: 100, class: "bar-chym", label: "Implied Target IPO Multiple" },
+        { name: "Affirm ($AFRM)", val: "75.0x P/E", width: 60, class: "bar-afrm", label: "High-Growth BNPL Premium" },
+        { name: "Klarna ($KLAR)", val: "68.2x P/E", width: 54, class: "bar-klar", label: "Target IPO Valuation" },
+        { name: "SoFi Technologies ($SOFI)", val: "41.1x P/E", width: 33, class: "bar-sofi", label: "Bank Multiple" },
+        { name: "Block / Cash App ($XYZ)", val: "30.6x P/E", width: 24, class: "bar-xyz", label: "Two-Sided Platform" },
+        { name: "MoneyLion ($ML)", val: "25.5x P/E", width: 20, class: "bar-ml", label: "Marketplace Model" },
+        { name: "Sezzle Inc. ($SEZL)", val: "21.5x P/E (PEG: 0.61x)", width: 17, class: "bar-sezl", label: "50% EBITDA Margin + High Cash Flow", highlight: true },
+        { name: "Dave Inc. ($DAVE)", val: "19.7x P/E (PEG: 0.44x)", width: 16, class: "bar-dave", label: "Fastest Growth (45%), Lowest P/E", highlight: true },
+        { name: "Bread Financial ($BFH)", val: "8.8x P/E", width: 7, class: "bar-bfh", label: "Subprime Card Bank Multiple" }
+      ],
+      ebitda: [
+        { name: "Chime ($CHYM)", val: "43.4x EV/EBITDA", width: 100, class: "bar-chym", label: "Private Benchmark" },
+        { name: "Klarna ($KLAR)", val: "31.2x EV/EBITDA", width: 72, class: "bar-klar", label: "Target IPO Multiple" },
+        { name: "SoFi Technologies ($SOFI)", val: "26.8x EV/EBITDA", width: 62, class: "bar-sofi", label: "Chartered Bank Multiple" },
+        { name: "Affirm ($AFRM)", val: "23.3x EV/EBITDA", width: 54, class: "bar-afrm", label: "RLTC Operating Spread" },
+        { name: "Dave Inc. ($DAVE)", val: "13.3x EV/EBITDA", width: 31, class: "bar-dave", label: "44% EBITDA Margin at 13.3x", highlight: true },
+        { name: "Block ($XYZ)", val: "12.7x EV/EBITDA", width: 29, class: "bar-xyz", label: "Gross Profit Multiple" },
+        { name: "Sezzle Inc. ($SEZL)", val: "12.6x EV/EBITDA", width: 29, class: "bar-sezl", label: "50% EBITDA Margin at 12.6x", highlight: true },
+        { name: "MoneyLion ($ML)", val: "8.9x EV/EBITDA", width: 20, class: "bar-ml", label: "Micro-Cap Valuation" },
+        { name: "Bread Financial ($BFH)", val: "6.8x EV/PPNR", width: 15, class: "bar-bfh", label: "Credit Card PPNR Multiple" }
+      ],
+      rule40: [
+        { name: "Dave Inc. ($DAVE)", val: "88.8% Score", width: 100, class: "bar-dave", label: "45% Rev Growth + 43.8% EBITDA (Top 1%)", highlight: true },
+        { name: "Sezzle Inc. ($SEZL)", val: "85.0% Score", width: 96, class: "bar-sezl", label: "35% Rev Growth + 50.0% EBITDA (Top 1%)", highlight: true },
+        { name: "Affirm ($AFRM)", val: "60.8% Score", width: 68, class: "bar-afrm", label: "33% Rev Growth + 27.8% Adj Op Margin" },
+        { name: "SoFi Technologies ($SOFI)", val: "53.0% Score", width: 60, class: "bar-sofi", label: "28% Rev Growth + 25.0% EBITDA" },
+        { name: "MoneyLion ($ML)", val: "45.8% Score", width: 52, class: "bar-ml", label: "24% Rev Growth + 21.8% EBITDA" },
+        { name: "Chime ($CHYM)", val: "40.1% Score", width: 45, class: "bar-chym", label: "22% Rev Growth + 18.1% EBITDA" },
+        { name: "Block ($XYZ)", val: "40.0% Score", width: 45, class: "bar-xyz", label: "18% Rev Growth + 22.0% EBITDA" },
+        { name: "Klarna ($KLAR)", val: "40.0% Score", width: 45, class: "bar-klar", label: "25% Rev Growth + 15.0% Op Margin" },
+        { name: "Bread Financial ($BFH)", val: "19.5% Score", width: 22, class: "bar-bfh", label: "4% Rev Growth + 15.5% Net Margin" }
+      ],
+      absorption: [
+        { name: "Block / Cash App ($XYZ)", val: "4.20x Factor", width: 100, class: "bar-xyz", label: "Massive Ecosystem Profit Cushion" },
+        { name: "Sezzle Inc. ($SEZL)", val: "3.81x Factor", width: 91, class: "bar-sezl", label: "$305M EBITDA covers $80M losses 3.8x", highlight: true },
+        { name: "Dave Inc. ($DAVE)", val: "3.55x Factor", width: 85, class: "bar-dave", label: "$320M EBITDA covers $90M losses 3.55x", highlight: true },
+        { name: "Chime ($CHYM)", val: "3.10x Factor", width: 74, class: "bar-chym", label: "Interchange Revenue Buffer" },
+        { name: "Klarna ($KLAR)", val: "2.60x Factor", width: 62, class: "bar-klar", label: "$465M Op Profit covers $180M losses 2.6x" },
+        { name: "Affirm ($AFRM)", val: "2.45x Factor", width: 58, class: "bar-afrm", label: "RLTC Spread covers credit losses" },
+        { name: "MoneyLion ($ML)", val: "2.20x Factor", width: 52, class: "bar-ml", label: "Marketplace Commissions Buffer" },
+        { name: "SoFi Technologies ($SOFI)", val: "1.55x Factor", width: 37, class: "bar-sofi", label: "Net Interest Spread covers CECL" },
+        { name: "Bread Financial ($BFH)", val: "1.07x Factor", width: 25, class: "bar-bfh", label: "7.0% NCO consumes almost all PPNR" }
+      ]
+    };
+
+    function updateChart(metricKey) {
+      document.querySelectorAll('.chart-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick').includes(metricKey));
+      });
+
+      const container = document.getElementById('chart-container');
+      if (!container) return;
+
+      const items = CHART_DATA[metricKey] || CHART_DATA.pe;
+      container.innerHTML = items.map(item => `
+        <div class="bar-group">
+          <div class="bar-label-row">
+            <span style="${item.highlight ? 'color: ' + (item.class === 'bar-sezl' ? 'var(--accent-indigo)' : 'var(--dave-green)') + '; font-weight:700;' : ''}">${item.name} — ${item.label}</span>
+            <span class="mono" style="${item.highlight ? 'color: ' + (item.class === 'bar-sezl' ? 'var(--accent-indigo)' : 'var(--dave-green)') + '; font-weight:700;' : ''}">${item.val}</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill ${item.class}" style="width: ${item.width}%;"></div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Hash-based routing initialization
+    document.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && (SECTIONS.includes(hash) || hash === 'all')) {
+        showSection(hash, false);
+      } else {
+        showSection('spectrum', false); // Cleanly display Tab 1 by default
+      }
+      updateChart('pe');
+    });
+  </script>
+</body>
+</html>

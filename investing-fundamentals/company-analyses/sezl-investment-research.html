@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sezzle Inc. ($SEZL) — Institutional Equity Research & Adversarial Stress-Test Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-tertiary: #1f2937;
+      --bg-card: #161f30;
+      --bg-card-hover: #1c283f;
+      --border-color: #2b384e;
+      --border-accent: #8b5cf6;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-emerald: #059669;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-teal: #14b8a6;
+      --accent-indigo: #6366f1;
+      --sezl-purple: #8b5cf6;
+      --sezl-dark: #2e1065;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      --shadow-glow-purple: 0 0 25px rgba(139, 92, 246, 0.22);
+      --shadow-glow-green: 0 0 25px rgba(16, 185, 129, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    code, pre, .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Sticky Header */
+    header {
+      background: linear-gradient(180deg, rgba(16, 24, 39, 0.96) 0%, rgba(11, 15, 25, 0.98) 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.5rem 0 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-content {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-purple {
+      background: rgba(139, 92, 246, 0.18);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+    }
+
+    .badge-green {
+      background: rgba(16, 185, 129, 0.18);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.18);
+      color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .badge-blue {
+      background: rgba(59, 130, 246, 0.18);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+
+    .badge-rose {
+      background: rgba(244, 63, 94, 0.18);
+      color: #fda4af;
+      border: 1px solid rgba(244, 63, 94, 0.4);
+    }
+
+    .title-area h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .title-area p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    .quick-stats {
+      display: flex;
+      gap: 1.5rem;
+      background: var(--bg-card);
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .quick-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quick-stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .quick-stat-value {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Search Input */
+    .search-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.85rem;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+      width: 240px;
+      transition: all 0.2s ease;
+    }
+
+    .search-box:focus {
+      border-color: var(--sezl-purple);
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+
+    /* Tab Navigation */
+    .nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.6rem 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+      background: var(--bg-tertiary);
+    }
+
+    .tab-btn.active {
+      color: #fff;
+      background: var(--sezl-purple);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+    }
+
+    /* Content Area */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-accent);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Highlight Banner */
+    .highlight-banner {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(16, 185, 129, 0.12) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-glow-purple);
+    }
+
+    .highlight-banner h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #c4b5fd;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tables */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    thead {
+      background: var(--bg-secondary);
+      border-bottom: 2px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    th {
+      padding: 0.85rem 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .num {
+      font-family: 'JetBrains Mono', monospace;
+      text-align: right;
+    }
+
+    th.num {
+      text-align: right;
+    }
+
+    .positive {
+      color: var(--accent-green);
+      font-weight: 600;
+    }
+
+    .negative {
+      color: var(--accent-rose);
+      font-weight: 600;
+    }
+
+    .highlight-cell {
+      background: rgba(139, 92, 246, 0.12);
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* Interactive Waterfall / Progress Bars */
+    .waterfall-bar-container {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      height: 36px;
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .waterfall-segment {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      transition: width 0.4s ease;
+      position: relative;
+    }
+
+    /* Scenario Toggle Switcher */
+    .scenario-switcher {
+      display: flex;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      padding: 0.3rem;
+      gap: 0.3rem;
+      border: 1px solid var(--border-color);
+      margin-bottom: 1.5rem;
+      max-width: 450px;
+    }
+
+    .scenario-btn {
+      flex: 1;
+      padding: 0.5rem 0.75rem;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .scenario-btn.active {
+      background: var(--sezl-purple);
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(139, 92, 246, 0.3);
+    }
+
+    /* Accordion */
+    .accordion-item {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      background: var(--bg-card);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: var(--bg-card);
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .accordion-header:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .accordion-content {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border-color);
+      display: none;
+      background: rgba(11, 15, 25, 0.5);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .accordion-item.open .accordion-content {
+      display: block;
+    }
+
+    .accordion-icon {
+      transition: transform 0.2s ease;
+    }
+
+    .accordion-item.open .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 0;
+      margin-top: 4rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* Print styling */
+    @media print {
+      body { background: #fff; color: #000; }
+      header { position: static; background: #fff; color: #000; border-bottom: 1px solid #ccc; }
+      .nav-tabs, .scenario-switcher, .search-box { display: none; }
+      .tab-content { display: block !important; margin-bottom: 3rem; }
+      .card, .table-container { border: 1px solid #ddd; box-shadow: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .quick-stats { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="title-area">
+        <div class="badge-group">
+          <span class="badge badge-purple">NASDAQ: SEZL</span>
+          <span class="badge badge-green">BUY / LONG</span>
+          <span class="badge badge-blue">Base Target: $232.00 (+85.6%)</span>
+          <span class="badge badge-amber">Rule of 40: 85.0%</span>
+        </div>
+        <h1>Sezzle Inc. ($SEZL) Investment Suite</h1>
+        <p>Institutional Equity Research, Hybrid Subscription-Gated BNPL Architecture & Adversarial Stress-Test</p>
+      </div>
+
+      <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <input type="text" class="search-box" id="docSearch" placeholder="🔍 Search document..." onkeyup="filterContent()">
+        
+        <div class="quick-stats">
+          <div class="quick-stat">
+            <span class="quick-stat-label">Share Price</span>
+            <span class="quick-stat-value">$125.00</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">Market Cap</span>
+            <span class="quick-stat-value">$3.95B</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">FY26E Rev</span>
+            <span class="quick-stat-value">$610.0M</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">EBITDA Margin</span>
+            <span class="quick-stat-value positive">50.0%</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">Diluted EPS</span>
+            <span class="quick-stat-value">$5.82</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top: 0; padding-bottom: 0;">
+      <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-overview')">📊 Overview & Dashboard</button>
+        <button class="tab-btn" onclick="switchTab('tab-model')">⚙️ Business Model & Unit Econ (Stage 2)</button>
+        <button class="tab-btn" onclick="switchTab('tab-memo')">📑 Investment Memo & Valuation (Stage 3)</button>
+        <button class="tab-btn" onclick="switchTab('tab-stresstest')">🛡️ Adversarial Stress-Test (Stage 4)</button>
+        <button class="tab-btn" onclick="switchTab('tab-kpi')">🎯 KPI Watch List & Risk Sizing</button>
+        <button class="tab-btn" onclick="switchTab('tab-sources')">🏛️ Regulatory & Sources (Stage 1)</button>
+        <button class="tab-btn" onclick="switchTab('tab-all')">📖 Complete Dossier</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ==========================================
+         TAB 1: OVERVIEW & DASHBOARD
+         ========================================== -->
+    <section id="tab-overview" class="tab-content active">
+      
+      <div class="highlight-banner">
+        <h3>Institutional Investment Summary: BUY / LONG (Base Target $232.00 | +85.6% Upside)</h3>
+        <p>Sezzle Inc. ($SEZL) has engineered one of the most profitable transformations in consumer fintech, pivoting from a low-margin merchant-subsidized checkout button into a high-margin consumer subscription ecosystem. Generating <strong>50.0% Adjusted EBITDA margins</strong>, an <strong>85.0% Rule of 40 score</strong>, and <strong>$250M in annual FCF</strong> on a compact 31.6M share float, Sezzle trades at just <strong>21.5x FY2026E EPS</strong>—a severe mispricing against comparable high-growth payment platforms.</p>
+      </div>
+
+      <!-- 4-Stat Metric Cards -->
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Subscription ARR</span>
+            <span class="badge badge-purple">$183M ARR</span>
+          </div>
+          <div style="font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono';" class="positive">854,000</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Paid subscribers paying $17.99/mo for Anywhere virtual card access.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Capital Velocity</span>
+            <span class="badge badge-green">~14.0x Velocity</span>
+          </div>
+          <div style="font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono';" class="positive">6-Week Turn</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">$250M working capital supports $3.5B GMV; ROTE exceeds 55%.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Free Cash Flow</span>
+            <span class="badge badge-blue">82% Conversion</span>
+          </div>
+          <div style="font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono';" class="positive">$250.0M</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">$41.00 FCF generated on every $100.00 of GAAP net revenue.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Valuation Disconnect</span>
+            <span class="badge badge-amber">21.5x P/E</span>
+          </div>
+          <div style="font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono';" class="positive">+85.6% Upside</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Trades at ~21.5x P/E vs Affirm at 75x P/E and Dave at 19.4x P/E.</p>
+        </div>
+      </div>
+
+      <!-- The 6 Iceberg Risks Matrix -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">🧊 The 6 Iceberg Risks of Sezzle Inc. ($SEZL)</span>
+          <span class="badge badge-rose">Adversarial Risk Audit</span>
+        </div>
+        <div class="table-container" style="margin-bottom: 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Risk Vector</th>
+                <th>Surface Strength</th>
+                <th>The Hidden "Iceberg" Danger</th>
+                <th>Mitigant / Counter-Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Subscription Churn & TILA Reg Z</strong></td>
+                <td>$183M ARR; 854k subs @ $17.99/mo</td>
+                <td>$216/yr fee on $250/mo GMV = >70% effective APR; CFPB / State AG usury recharacterization threat under TILA Reg Z (see <a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #c4b5fd; text-decoration: underline;">FinTech Usury Framework</a>).</td>
+                <td>Non-recourse POS terms, free 0% Pay-in-4 option, active bureau reporting via Sezzle Up.</td>
+              </tr>
+              <tr>
+                <td><strong>2. WebBank BaaS Concentration</strong></td>
+                <td>FDIA Section 27 nationwide rate export</td>
+                <td>Madden v. Midland "True Lender" scrutiny and FDIC third-party risk guidance.</td>
+                <td>Active OCC National Bank Charter application to eliminate sponsor dependency.</td>
+              </tr>
+              <tr>
+                <td><strong>3. OCC Bank Capital Trapped Drag</strong></td>
+                <td>Eliminates $24M partner fees</td>
+                <td>Tier 1 Leverage (8-10%) traps $150M-$250M equity, compressing ROTE from >55% to 15-18% bank multiples (P/TBV).</td>
+                <td>Low-cost core insured deposit gathering offsets capital drag over 3-5 years.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Digital Wallet Gatekeeper Power</strong></td>
+                <td>Omnichannel Apple/Google Pay rollout</td>
+                <td>Apple Pay / Google Wallet interchange friction and tokenization fee hikes.</td>
+                <td>Proprietary virtual card BIN routing and direct in-app merchant checkout.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Subprime Phantom Debt Stacking</strong></td>
+                <td>2.40% NCO rate; 6-week short duration</td>
+                <td>Lacks payroll direct deposit sweep; sits behind rent and utility bills in recession.</td>
+                <td>Dynamic ML credit limits, first installment 25% down-payment barrier.</td>
+              </tr>
+              <tr>
+                <td><strong>6. Microstructure & Guidance Whiplash</strong></td>
+                <td>Compact float (31.6M diluted shares)</td>
+                <td>Low float causes 30%+ drawdowns on any sequential quarterly deceleration.</td>
+                <td>Aggressive share repurchases funded by $250M unlevered annual FCF.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Financial Reconciliation Table -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">📋 4-Stage Research Pipeline Architecture</span>
+          <span class="badge badge-purple">Standard Wiki Suite</span>
+        </div>
+        <div class="grid-2">
+          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <h4 style="color: #c4b5fd; margin-bottom: 0.5rem;">Stage 1 & Stage 2 Overview</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              <strong>Stage 1 (Sources):</strong> SEC EDGAR filings (10-K, 10-Q), CIK <code>0001662991</code>, WebBank FDIA Section 27 rate preemption, and OCC National Bank Charter application.
+            </p>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              <strong>Stage 2 (Equity Report):</strong> Detailed financial model, 4-pillar monetization, $41 FCF per $100 revenue waterfall, 14x capital velocity, and historical volatility decomposition.
+            </p>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <h4 style="color: #6ee7b7; margin-bottom: 0.5rem;">Stage 3 & Stage 4 Overview</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              <strong>Stage 3 (Investment Memo):</strong> BUY recommendation, $232.00 Base Target (+85.6%), 3-year valuation sensitivity matrix, and 12-month KPI watch list.
+            </p>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              <strong>Stage 4 (Stress-Test):</strong> Full adversarial bull/bear debate, Arbitrator Shared Facts / 3 Crux Assumptions, and Audited Multi-Factor Downside Stress-Test Model.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 2: BUSINESS MODEL & UNIT ECONOMICS (STAGE 2)
+         ========================================== -->
+    <section id="tab-model" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">💰 The $41 FCF per $100 Revenue Waterfall</span>
+          <span class="badge badge-green">Unit Economics</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          Sezzle operates with extraordinary operating leverage. On every $100 of GAAP Revenue, Sezzle captures <strong>$50.00 in Adjusted EBITDA</strong> and <strong>$41.00 in Unlevered Free Cash Flow</strong>.
+        </p>
+
+        <div class="waterfall-bar-container">
+          <div class="waterfall-segment" style="width: 15.5%; background: #f43f5e;" title="Payment Processing: -$15.50">Proc -15.5%</div>
+          <div class="waterfall-segment" style="width: 12.5%; background: #fb7185;" title="Credit Loss Provision: -$12.50">CECL -12.5%</div>
+          <div class="waterfall-segment" style="width: 4.0%; background: #f59e0b;" title="Interest Cost: -$4.00">Debt -4%</div>
+          <div class="waterfall-segment" style="width: 18.0%; background: #3b82f6;" title="OpEx (S&M, R&D, G&A): -$18.00">OpEx -18%</div>
+          <div class="waterfall-segment" style="width: 9.0%; background: #06b6d4;" title="Taxes & D&A: -$9.00">Tax/D&A -9%</div>
+          <div class="waterfall-segment" style="width: 41.0%; background: #10b981;" title="Free Cash Flow: $41.00">FCF 41.0%</div>
+        </div>
+
+        <div class="table-container" style="margin-bottom: 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>P&L Line Item</th>
+                <th class="num">Amount ($)</th>
+                <th class="num">% of Total</th>
+                <th>Operational / Accounting Mechanics</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gross GAAP Net Revenue</strong></td>
+                <td class="num font-bold"><strong>$100.00</strong></td>
+                <td class="num">100.0%</td>
+                <td>Blended 17.43% take-rate on $3.5B GMV across MDR, subscriptions & fees</td>
+              </tr>
+              <tr>
+                <td>- Payment Processing & Card Network Rails</td>
+                <td class="num negative">-$15.50</td>
+                <td class="num">15.5%</td>
+                <td>Interchange fees paid to card networks & ACH rails</td>
+              </tr>
+              <tr>
+                <td>- Provision for Credit Losses (CECL Bad Debt)</td>
+                <td class="num negative">-$12.50</td>
+                <td class="num">12.5%</td>
+                <td>Covers 2.40% Gross NCOs less recoveries under ASC 326</td>
+              </tr>
+              <tr>
+                <td>- Warehouse Credit Facility Interest</td>
+                <td class="num negative">-$4.00</td>
+                <td class="num">4.0%</td>
+                <td>Wholesale warehouse line interest expense</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>= Gross Profit</strong></td>
+                <td class="num positive"><strong>$68.00</strong></td>
+                <td class="num positive">68.0%</td>
+                <td>Unit-level gross margin before operating overhead</td>
+              </tr>
+              <tr>
+                <td>- Sales & Marketing (CAC)</td>
+                <td class="num negative">-$5.80</td>
+                <td class="num">5.8%</td>
+                <td>Organic app store acquisition, virality & co-marketing</td>
+              </tr>
+              <tr>
+                <td>- Technology, Engineering & Infrastructure (R&D)</td>
+                <td class="num negative">-$6.20</td>
+                <td class="num">6.2%</td>
+                <td>Cloud infrastructure, machine learning underwriting models</td>
+              </tr>
+              <tr>
+                <td>- General & Administrative (G&A, Legal, Compliance)</td>
+                <td class="num negative">-$6.00</td>
+                <td class="num">6.0%</td>
+                <td>Regulatory compliance, legal defense & corporate overhead</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>= Adjusted EBITDA</strong></td>
+                <td class="num positive"><strong>$50.00</strong></td>
+                <td class="num positive">50.0%</td>
+                <td>Industry-leading cash operating margin</td>
+              </tr>
+              <tr>
+                <td>- Stock-Based Compensation (SBC)</td>
+                <td class="num negative">-$4.60</td>
+                <td class="num">4.6%</td>
+                <td>Non-cash equity comp (~1.5% annual dilution)</td>
+              </tr>
+              <tr>
+                <td>- Corporate Taxes & D&A</td>
+                <td class="num negative">-$15.24</td>
+                <td class="num">15.2%</td>
+                <td>21% statutory tax rate + depreciation/amortization</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>= GAAP Net Income (EPS: $5.82)</strong></td>
+                <td class="num positive"><strong>$30.16</strong></td>
+                <td class="num positive">30.2%</td>
+                <td>Fully GAAP profitable bottom line</td>
+              </tr>
+              <tr style="background: rgba(16, 185, 129, 0.15);">
+                <td><strong>= Unlevered Free Cash Flow (FCF)</strong></td>
+                <td class="num positive"><strong>$41.00</strong></td>
+                <td class="num positive">41.0%</td>
+                <td><strong>82.0% Conversion of Adjusted EBITDA</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Volatility Analysis -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">📈 Historical Stock Volatility & Market-Moving Metric Analysis</span>
+          <span class="badge badge-amber">Decomposition</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">
+          Sezzle has experienced extreme historical price swings. Below is the multi-factor decomposition explaining what moved the stock:
+        </p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Time Period</th>
+                <th>Price Trajectory</th>
+                <th>Primary Drivers & Catalyst Decomposition</th>
+                <th>Market Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>May 2025 Spike</strong></td>
+                <td class="positive">Spike +140%</td>
+                <td>Q1 2025 earnings beat (+60% rev growth) and breakout in <em>Sezzle Anywhere</em> subscribers surpassing 500k, triggering a violent short squeeze on low float.</td>
+                <td>Multiple expanded from 12x to 35x P/E</td>
+              </tr>
+              <tr>
+                <td><strong>Aug 2025 – May 2026</strong></td>
+                <td class="negative">Decline >50%</td>
+                <td>(1) Macro fintech multiple compression; (2) CFPB proposed BNPL interpretive rule; (3) Seasonal Q1 GMV growth deceleration (+28% vs +55% prior); (4) Short seller reports on subprime stacking.</td>
+                <td>Multiple compressed from 35x to 15x P/E</td>
+              </tr>
+              <tr>
+                <td><strong>May 2026 Spike</strong></td>
+                <td class="positive">Spike +85%</td>
+                <td>Q1 2026 record EBITDA ($76M / 50% margin), full-year guidance raise to $610M revenue, and OCC Bank Charter application disclosure.</td>
+                <td>Rebounded from $70 to $145</td>
+              </tr>
+              <tr>
+                <td><strong>August 2026 Pullback</strong></td>
+                <td class="negative">Pullback -14%</td>
+                <td>Broader market macro rotation out of high-beta fintech, profit-taking post-Q2 earnings, and FTC/regulatory headlines.</td>
+                <td>Consolidated to current ~$125.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Accounting Policies, PwC Auditor Transition & ICFR Material Weakness -->
+      <div class="card" style="margin-top: 1.5rem;">
+        <div class="card-header">
+          <span class="card-title">🔍 Accounting Policies, PwC Auditor Transition & ICFR Material Weakness</span>
+          <span class="badge badge-amber">Governance & Accounting Audit</span>
+        </div>
+        <div class="grid-2">
+          <div>
+            <h4 style="color: #fcd34d; margin-bottom: 0.5rem; font-size: 0.95rem;">1. Auditor Transition to PwC & Open ICFR Weakness</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
+              In <strong>March 2026</strong>, Sezzle dismissed its previous mid-tier auditor (Baker Tilly US, LLP) and engaged <strong>PricewaterhouseCoopers LLP (PwC)</strong> as its independent registered public accounting firm—a vital institutional milestone for a $4B market cap company.
+            </p>
+            <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding-left: 1.25rem;">
+              <li><strong>Open ICFR Material Weakness:</strong> As disclosed in the FY2025 Form 10-K, Sezzle reported an internal control deficiency related to <em>the presentation and classification of cash flows associated with notes receivable</em>.</li>
+              <li><strong>Remediation Status:</strong> Management is remediating controls under PwC oversight; no historical balance sheet or revenue restatements have been required.</li>
+              <li><strong>Revenue Recognition Tension:</strong> Sezzle books Anywhere fees ($17.99/mo) ratably under <strong>ASC 606 (SaaS ARR)</strong>. If regulators classify these as credit origination fees under <strong>ASC 310 / TILA Reg Z</strong>, fees must be recognized over loan life and disclosed as finance charges.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #6ee7b7; margin-bottom: 0.5rem; font-size: 0.95rem;">2. Hindenburg Research (Dec 2024) Mitigation Scorecard</h4>
+            <div class="table-container" style="margin-bottom: 0;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Hindenburg Allegation Pillar</th>
+                    <th>Status</th>
+                    <th>Institutional Resolution</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1. Solvency & Cash Flow Burn</strong></td>
+                    <td class="positive"><strong>95% Resolved</strong></td>
+                    <td style="font-size: 0.82rem;">+$85M net cash, $250M FCF, non-reliance on expensive warehouse lines.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2. Merchant Churn & Stagnation</strong></td>
+                    <td class="positive"><strong>Mitigated</strong></td>
+                    <td style="font-size: 0.82rem;">Pivoted to $183M ARR D2C Anywhere virtual cards (Target, Amazon).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3. Subprime Credit Stacking</strong></td>
+                    <td class="badge-amber"><strong>Partially Mit.</strong></td>
+                    <td style="font-size: 0.82rem;">NCOs kept at 2.40% GMV via ML gating; lacks payroll sweep priority.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>4. Regulatory & Usury Exposure</strong></td>
+                    <td class="negative"><strong>Active Risk</strong></td>
+                    <td style="font-size: 0.82rem;">CFPB TILA Reg Z scrutiny & CA DFPI settlement ($582k); see <a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #93c5fd; text-decoration: underline;">Framework</a>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>5. Auditor & Governance Weakness</strong></td>
+                    <td class="badge-blue"><strong>In Transition</strong></td>
+                    <td style="font-size: 0.82rem;">Big 4 PwC retained; ICFR cash flow remediation ongoing.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 3: INVESTMENT MEMO & VALUATION (STAGE 3)
+         ========================================== -->
+    <section id="tab-memo" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">🎯 3-Year Valuation Sensitivity Matrix (FY2026E – FY2028E)</span>
+          <span class="badge badge-purple">Interactive Scenario Switcher</span>
+        </div>
+        
+        <div class="scenario-switcher">
+          <button class="scenario-btn" onclick="setMemoScenario('bear')">🐻 Bear ($85.00)</button>
+          <button class="scenario-btn active" onclick="setMemoScenario('base')">⚖️ Base ($232.00)</button>
+          <button class="scenario-btn" onclick="setMemoScenario('bull')">🐂 Bull ($385.00)</button>
+        </div>
+
+        <div id="memo-scenario-card" class="highlight-banner" style="background: rgba(139, 92, 246, 0.12); border-color: var(--sezl-purple);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h3 id="memo-scenario-title" style="color: #c4b5fd;">Base Case: $232.00 Target (+85.6% Upside | +22.9% 3-Yr IRR)</h3>
+              <p id="memo-scenario-desc" style="color: var(--text-secondary); font-size: 0.9rem;">
+                3-Year Revenue CAGR of +22.0% ($1.10B FY28E Rev), 50.0% Adjusted EBITDA margin ($550M), and GAAP EPS of $10.55 at 22.0x P/E.
+              </p>
+            </div>
+            <div style="text-align: right;">
+              <span id="memo-scenario-prob" class="badge badge-green" style="font-size: 0.9rem;">60% Probability</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th class="num">Prob.</th>
+                <th class="num">3-Yr Rev CAGR</th>
+                <th class="num">FY28E Revenue</th>
+                <th class="num">EBITDA Margin</th>
+                <th class="num">FY28E GAAP EPS</th>
+                <th class="num">Target Multiple</th>
+                <th class="num">Target Price</th>
+                <th class="num">3-Yr IRR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="row-bear">
+                <td><strong>Bear Case</strong></td>
+                <td class="num">20%</td>
+                <td class="num negative">+8.0%</td>
+                <td class="num">$768M</td>
+                <td class="num">32.0%</td>
+                <td class="num">$5.30</td>
+                <td class="num">16.0x P/E</td>
+                <td class="num negative"><strong>$85.00</strong></td>
+                <td class="num negative"><strong>-12.1%</strong></td>
+              </tr>
+              <tr id="row-base" class="highlight-cell">
+                <td><strong>Base Case (Target)</strong></td>
+                <td class="num">60%</td>
+                <td class="num positive"><strong>+22.0%</strong></td>
+                <td class="num positive"><strong>$1,100M</strong></td>
+                <td class="num positive"><strong>50.0%</strong></td>
+                <td class="num positive"><strong>$10.55</strong></td>
+                <td class="num positive"><strong>22.0x P/E</strong></td>
+                <td class="num positive"><strong>$232.00</strong></td>
+                <td class="num positive"><strong>+22.9%</strong></td>
+              </tr>
+              <tr id="row-bull">
+                <td><strong>Bull Case</strong></td>
+                <td class="num">20%</td>
+                <td class="num positive">+35.0%</td>
+                <td class="num">$1,500M</td>
+                <td class="num">52.0%</td>
+                <td class="num">$14.80</td>
+                <td class="num">26.0x P/E</td>
+                <td class="num positive"><strong>$385.00</strong></td>
+                <td class="num positive"><strong>+45.4%</strong></td>
+              </tr>
+              <tr style="background: rgba(255, 255, 255, 0.05); font-weight: 700;">
+                <td colspan="7"><strong>Probability-Weighted Expected Value (PWEV): 0.20($85) + 0.60($232) + 0.20($385)</strong></td>
+                <td class="num positive" style="font-size: 1.05rem;"><strong>$233.20</strong></td>
+                <td class="num positive" style="font-size: 1.05rem;"><strong>+86.6%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3 Core Thesis Pillars -->
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">1. Subscription ARR Moat</span>
+            <span class="badge badge-purple">Flywheel</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            Sezzle Anywhere transforms seasonal checkout BNPL into $183M recurring ARR (854k subs @ $17.99/mo). High-frequency subscribers transact >18x per year, reducing customer acquisition costs to near-zero for subsequent purchases.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">2. Capital Velocity Engine</span>
+            <span class="badge badge-green">~14x Velocity</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            With an average installment duration of just 6 weeks, Sezzle turns over its working capital ~14 times annually. Supporting $3.5B in GMV requires only ~$250M in debt/equity capital, driving ROTE over 55%.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">3. OCC Bank Charter Catalyst</span>
+            <span class="badge badge-blue">Roadmap</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            Securing an OCC National Bank Charter eliminates $24M in annual sponsor bank fees, unlocks nationwide direct lending without state licensing friction, and provides direct access to the Federal Reserve payment rails.
+          </p>
+        </div>
+      </div>
+
+      <!-- Regulatory & Bank Charter Downside Valuation Bridge Card -->
+      <div class="card" style="margin-top: 1.5rem; background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.3);">
+        <div class="card-header">
+          <span class="card-title" style="color: #fda4af;">🚨 Regulatory Reclassification & Bank Charter Equity Trap Valuation Bridge</span>
+          <span class="badge badge-rose">Downside Tail-Risk Model</span>
+        </div>
+        <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+          <p style="margin-bottom: 0.75rem;">
+            If the <strong>CFPB TILA Regulation Z interpretive rule</strong> or State AG actions force Anywhere $17.99/mo subscriptions to be treated as mandatory finance charges, or if OCC Tier 1 Leverage mandates (8%–10%) trap $150M–$250M of capital:
+          </p>
+          <div class="table-container" style="margin-bottom: 0.75rem;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Financial Line Item</th>
+                  <th class="num">FY26E Baseline</th>
+                  <th class="num">Post-Regulatory Unbundling / Bank Trap</th>
+                  <th class="num">Delta (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Net Operating Revenue</strong></td>
+                  <td class="num positive">$610.0M</td>
+                  <td class="num negative">$395.0M</td>
+                  <td class="num negative">-35.2%</td>
+                </tr>
+                <tr>
+                  <td><strong>Adjusted EBITDA</strong></td>
+                  <td class="num positive">$305.0M (50.0% margin)</td>
+                  <td class="num negative">$135.0M (34.2% margin)</td>
+                  <td class="num negative">-55.7%</td>
+                </tr>
+                <tr>
+                  <td><strong>Diluted GAAP EPS</strong></td>
+                  <td class="num font-bold">$5.82</td>
+                  <td class="num font-bold negative">$1.95</td>
+                  <td class="num negative">-66.5%</td>
+                </tr>
+                <tr>
+                  <td><strong>Target Valuation Multiple</strong></td>
+                  <td class="num">21.5x P/E (Fintech Growth)</td>
+                  <td class="num negative">8.0x – 10.0x P/E / 1.2x–1.5x P/TBV</td>
+                  <td class="num negative">-58.1%</td>
+                </tr>
+                <tr style="background: rgba(244, 63, 94, 0.15); font-weight: 700;">
+                  <td><strong>Implied Equity Target Price</strong></td>
+                  <td class="num font-bold" style="color: #fff;">$125.00</td>
+                  <td class="num negative" style="font-size: 1.1rem;"><strong>$16.00 – $25.00</strong></td>
+                  <td class="num negative" style="font-size: 1.1rem;"><strong>-80.0% to -87.2%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted);">
+            *Full comparative legal analysis and sensitivity math across $SEZL, $DAVE (-78% to -84%), and $SOFI documented in <a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #c4b5fd; text-decoration: underline;">fintech-usury-tila-regulatory-exposure-2026.md</a>.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 4: ADVERSARIAL STRESS-TEST (STAGE 4)
+         ========================================== -->
+    <section id="tab-stresstest" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">⚔️ Adversarial Debate: Independent Bull vs. Independent Bear</span>
+          <span class="badge badge-rose">Institutional Stress-Test</span>
+        </div>
+        
+        <div class="grid-2">
+          <!-- Bull Column -->
+          <div style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+              <span class="badge badge-green">INDEPENDENT BULL ANALYST</span>
+            </div>
+            <h4 style="color: #6ee7b7; margin-bottom: 0.75rem;">Key Pillars of the Bull Thesis:</h4>
+            <ul style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; padding-left: 1.25rem;">
+              <li><strong>Secular BNPL Expansion:</strong> Capturing Gen-Z/Millennials fleeing 28%+ APR credit cards; GMV scaling past $3.5B toward $6.0B.</li>
+              <li><strong>Subscription Resiliency:</strong> Anywhere subscribers generate >$215/yr high-margin ARR with low churn.</li>
+              <li><strong>Capital Turn Velocity:</strong> 6-week cycles prevent credit build-up; $250M capital drives $250M FCF.</li>
+              <li><strong>Regulatory Cleansing:</strong> CFPB rules eliminate fly-by-night competitors; Sezzle's WebBank relationship & bureau reporting set the compliance standard.</li>
+            </ul>
+          </div>
+
+          <!-- Bear Column -->
+          <div style="background: rgba(244, 63, 94, 0.06); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 10px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+              <span class="badge badge-rose">INDEPENDENT BEAR RISK ANALYST</span>
+            </div>
+            <h4 style="color: #fda4af; margin-bottom: 0.75rem;">Key Pillars of the Bear Thesis:</h4>
+            <ul style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; padding-left: 1.25rem;">
+              <li><strong>Effective APR Fragility:</strong> $17.99/mo fee on $250/mo GMV exceeds 70% APR; TILA finance charge reclassification threat.</li>
+              <li><strong>OCC Trapped Capital:</strong> Tier 1 Leverage (8-10%) locks up $150M-$250M equity, crushing ROTE from >55% to 15-18%.</li>
+              <li><strong>Subprime Phantom Stacking:</strong> No payroll direct deposit priority; defaults surge above 4.5% in macro recessions.</li>
+              <li><strong>Multiple De-Rating:</strong> Multiple compresses from 21.5x to 14.0x, driving stock down to $27.44–$53.12 (-57% to -78%).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audited Multi-Factor Stress Model -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">📉 Audited Multi-Factor Downside Stress-Test Model</span>
+          <span class="badge badge-purple">P&L Flow-Through</span>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Line Item / Parameter</th>
+                <th class="num">FY2026E Baseline</th>
+                <th class="num">Scenario A: Credit Shock<br><span style="font-size: 0.7rem; text-transform: none; color: var(--text-muted);">(Unemployment +200 bps)</span></th>
+                <th class="num">Scenario B: Compound Stress<br><span style="font-size: 0.7rem; text-transform: none; color: var(--text-muted);">(Credit Shock + Sub Churn)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gross Merchandise Volume (GMV)</strong></td>
+                <td class="num font-bold">$3,500.0M</td>
+                <td class="num">$3,100.0M (-11.4%)</td>
+                <td class="num">$2,750.0M (-21.4%)</td>
+              </tr>
+              <tr>
+                <td>- Paid Subscribers (Anywhere/Premium)</td>
+                <td class="num">854,000</td>
+                <td class="num">750,000 (-12.2%)</td>
+                <td class="num">600,000 (-29.7%)</td>
+              </tr>
+              <tr>
+                <td>- Subscription ARR ($17.99/mo)</td>
+                <td class="num">$183.0M (30.0% Rev)</td>
+                <td class="num">$161.9M (31.4% Rev)</td>
+                <td class="num">$129.5M (30.5% Rev)</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>Total Net GAAP Revenue</strong></td>
+                <td class="num positive"><strong>$610.0M</strong> (17.43% GMV)</td>
+                <td class="num"><strong>$515.0M</strong> (16.61% GMV)</td>
+                <td class="num"><strong>$425.0M</strong> (15.45% GMV)</td>
+              </tr>
+              <tr>
+                <td>- Net Charge-Offs (NCO $ / Rate)</td>
+                <td class="num negative">$84.0M / 2.40% GMV</td>
+                <td class="num negative">$130.2M / 4.20% GMV</td>
+                <td class="num negative">$132.0M / 4.80% GMV</td>
+              </tr>
+              <tr>
+                <td>- CECL Credit Loss Provision</td>
+                <td class="num negative">-$76.25M (12.5% Rev)</td>
+                <td class="num negative">-$128.00M (24.9% Rev)</td>
+                <td class="num negative">-$135.00M (31.8% Rev)</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>Adjusted EBITDA</strong></td>
+                <td class="num positive"><strong>$305.0M</strong> (50.0% Mar)</td>
+                <td class="num"><strong>$195.0M</strong> (37.9% Mar)</td>
+                <td class="num"><strong>$135.0M</strong> (31.8% Mar)</td>
+              </tr>
+              <tr>
+                <td><strong>GAAP Net Income</strong></td>
+                <td class="num positive"><strong>$184.00M</strong> (30.2% Mar)</td>
+                <td class="num"><strong>$105.00M</strong> (20.4% Mar)</td>
+                <td class="num"><strong>$62.00M</strong> (14.6% Mar)</td>
+              </tr>
+              <tr>
+                <td><strong>Diluted GAAP EPS</strong></td>
+                <td class="num font-bold"><strong>$5.82</strong></td>
+                <td class="num"><strong>$3.32</strong></td>
+                <td class="num"><strong>$1.96</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Unlevered Free Cash Flow (FCF)</strong></td>
+                <td class="num positive">$250.0M (82.0% Conv)</td>
+                <td class="num">$145.0M (74.4% Conv)</td>
+                <td class="num">$85.0M (63.0% Conv)</td>
+              </tr>
+              <tr style="background: rgba(255, 255, 255, 0.04);">
+                <td><strong>Target P/E Multiple</strong></td>
+                <td class="num"><strong>21.5x P/E</strong></td>
+                <td class="num"><strong>16.0x P/E</strong></td>
+                <td class="num"><strong>14.0x P/E</strong></td>
+              </tr>
+              <tr style="background: rgba(139, 92, 246, 0.18);">
+                <td><strong>Implied Share Price & Drawdown</strong></td>
+                <td class="num font-bold" style="font-size: 1.1rem; color: #fff;"><strong>$125.00</strong> (Current)</td>
+                <td class="num negative" style="font-size: 1.1rem;"><strong>$53.12</strong> (-57.5%)</td>
+                <td class="num negative" style="font-size: 1.1rem;"><strong>$27.44</strong> (-78.0%)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Arbitrator 3 Crux Assumptions -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">⚖️ Arbitrator Adjudication: The 3 Critical Divergence Assumptions</span>
+          <span class="badge badge-blue">Adjudication</span>
+        </div>
+
+        <div class="accordion-item open">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>1. Subscription Durability vs. Regulatory APR Threat (Verdict: Lean Bull [Moderate])</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p><strong>Bull Argument:</strong> Anywhere delivers clear consumer utility across Target, Amazon, and groceries; free 0% Pay-in-4 option provides legal buffer against mandatory finance charge classification.</p>
+            <p><strong>Bear Argument:</strong> Annualizing $17.99/mo on micro-transactions breaches state usury statutes; NY DFS and CFPB scrutiny could cap subscription pricing.</p>
+            <p><strong>Arbitrator Adjudication:</strong> <em>Lean Bull [Moderate Margin]</em> — Sezzle Up credit bureau reporting provides genuine consumer welfare value. High-volume shoppers easily justify $17.99/mo through merchant discounts.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>2. Underwriting Resilience in a Stagflationary Shock (Verdict: Lean Bull [Strong])</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p><strong>Bull Argument:</strong> 6-week short duration with 25% down at checkout allows instant ML algorithmic adjustments within 14 days, preventing debt accumulation.</p>
+            <p><strong>Bear Argument:</strong> Subprime consumers stack multiple BNPL apps; without direct payroll sweeps, Sezzle sits junior to rent and utilities during layoffs.</p>
+            <p><strong>Arbitrator Adjudication:</strong> <em>Lean Bull [Strong Margin]</em> — 14x annual capital turnover gives Sezzle superior agility compared to 36-month installment lenders. Net losses are capped by rapid cycle velocity.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>3. Bank Charter Value-Accretion vs. ROTE Dilution (Verdict: Too Close to Call [Even])</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p><strong>Bull Argument:</strong> Eliminates $24M in partner fees, unlocks FDIC insured deposit funding (<2.0% cost of funds), and provides nationwide lending autonomy.</p>
+            <p><strong>Bear Argument:</strong> OCC capital requirements trap $150M–$250M of tangible equity, dragging ROTE down from >55% to 15%–18% and forcing multiple re-rating to Price/Tangible Book.</p>
+            <p><strong>Arbitrator Adjudication:</strong> <em>Too Close to Call [Even Balance]</em> — Bank charters offer immense long-term funding stability but impose severe initial regulatory compliance overhead and capital lockups.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 5: KPI WATCH LIST & RISK SIZING
+         ========================================== -->
+    <section id="tab-kpi" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">🎯 Comprehensive 6-Column KPI Watch List</span>
+          <span class="badge badge-purple">Quarterly Monitor</span>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Focus Area</th>
+                <th>Metric / KPI Name</th>
+                <th>Operational Definition</th>
+                <th>Green Signal (Thesis Intact)</th>
+                <th>Red Flag (Breach / De-Risk)</th>
+                <th>Data Source & Cadence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Subscription Health</strong></td>
+                <td>Paid Anywhere Subs & Churn</td>
+                <td>Active subscribers paying $17.99/mo; Monthly churn %</td>
+                <td class="positive">> 1,000,000 subs; Churn < 3.5%</td>
+                <td class="negative">< 750,000 subs; Churn > 5.0%</td>
+                <td>SEC 10-Q / Shareholder Letter (Qtr)</td>
+              </tr>
+              <tr>
+                <td><strong>2. Credit Underwriting</strong></td>
+                <td>Net Charge-Off (NCO) % GMV</td>
+                <td>Gross credit losses less recoveries / Total GMV</td>
+                <td class="positive">NCO ≤ 2.50% of GMV</td>
+                <td class="negative">NCO > 3.50% for 2 consecutive Qs</td>
+                <td>SEC 10-Q Credit Footnote (Qtr)</td>
+              </tr>
+              <tr>
+                <td><strong>3. Operating Leverage</strong></td>
+                <td>Adjusted EBITDA Margin %</td>
+                <td>Adjusted EBITDA / GAAP Net Revenue</td>
+                <td class="positive">Margin ≥ 48.0%</td>
+                <td class="negative">Margin < 38.0%</td>
+                <td>Quarterly Earnings Release (Qtr)</td>
+              </tr>
+              <tr>
+                <td><strong>4. Cash Conversion</strong></td>
+                <td>Free Cash Flow Conversion %</td>
+                <td>Unlevered FCF / Adjusted EBITDA</td>
+                <td class="positive">Conversion ≥ 80.0%</td>
+                <td class="negative">Conversion < 65.0%</td>
+                <td>Statement of Cash Flows (Qtr)</td>
+              </tr>
+              <tr>
+                <td><strong>5. Bank Charter</strong></td>
+                <td>OCC Tier 1 Capital Mandate</td>
+                <td>Required Tier 1 Leverage Ratio on de novo bank</td>
+                <td class="positive">Leverage requirement ≤ 8.0%</td>
+                <td class="negative">Leverage > 10.0% or Charter Denied</td>
+                <td>OCC / Form 8-K Disclosure (Event)</td>
+              </tr>
+              <tr>
+                <td><strong>6. Regulatory Actions</strong></td>
+                <td>CFPB / State AG Enforcement</td>
+                <td>Formal investigations or usury lawsuits</td>
+                <td class="positive">Routine inquiries; Safe harbor upheld</td>
+                <td class="negative">Formal civil complaint / Fee caps</td>
+                <td>Regulatory Enforcement Docket (Ongoing)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Portfolio Sizing & Conviction Protocols -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">💼 Portfolio Allocation & Sizing</span>
+            <span class="badge badge-green">2.0% – 3.5% Target Weight</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+            • <strong>Recommendation:</strong> <strong>BUY / LONG</strong> (Asymmetric GARP Compounder).<br>
+            • <strong>Target Weight:</strong> <strong>2.0% to 3.5% of total equity assets</strong> (reflecting high float volatility relative to Dave's 4.0%).<br>
+            • <strong>Execution Staging:</strong> Accumulate in 3 staged tranches (40% initial at market ~$125, 30% on pullbacks to $110-$115, and 30% post-earnings confirmation).
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">🛑 Mandatory Risk Stop Protocols</span>
+            <span class="badge badge-rose">De-Risk Triggers</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+            • <strong>50% Position Cut:</strong> Triggered if Anywhere paid subscribers fall below <strong>750,000</strong> or monthly churn exceeds <strong>5.0%</strong>.<br>
+            • <strong>Credit Stop:</strong> Cut position by 50% if Net Charge-Offs breach <strong>3.50% of GMV</strong> for two consecutive quarters.<br>
+            • <strong>Hard Exit:</strong> Full exit if a federal court or CFPB ruling reclassifies BNPL subscription fees as usurious finance charges.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 6: REGULATORY & SOURCES (STAGE 1)
+         ========================================== -->
+    <section id="tab-sources" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">🏛️ Verified Regulatory Sources & SEC Disclosures</span>
+          <span class="badge badge-blue">CIK 0001662991</span>
+        </div>
+        
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Filing / Document</th>
+                <th>Reporting Period</th>
+                <th>Filing Date</th>
+                <th>Core SEC Disclosures & Relevance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Form 10-K (Annual Report)</strong></td>
+                <td>FY2025 (Period ended Dec 31, 2025)</td>
+                <td>Feb 2026</td>
+                <td>Audited GAAP Financial Statements, ASC 326 CECL credit loss methodology, WebBank origination agreement, and 31.6M diluted share count.</td>
+              </tr>
+              <tr>
+                <td><strong>Form 10-Q (Quarterly Report)</strong></td>
+                <td>Q2 2026 (Period ended June 30, 2026)</td>
+                <td>Aug 2026</td>
+                <td>$183M Subscription ARR, 854k Anywhere subscribers, $76M Adj. EBITDA, and $250M cash/liquidity position.</td>
+              </tr>
+              <tr>
+                <td><strong>FDIA Section 27 Disclosures</strong></td>
+                <td>Ongoing BaaS Partnership</td>
+                <td>12 U.S.C. § 1831d</td>
+                <td>WebBank FDIC-insured Industrial Bank charter enabling nationwide interest rate preemption over state usury caps.</td>
+              </tr>
+              <tr>
+                <td><strong>OCC National Bank Charter</strong></td>
+                <td>De Novo Application Roadmap</td>
+                <td>May 2026</td>
+                <td>Roadmap to transition into a nationally chartered bank under the Office of the Comptroller of the Currency.</td>
+              </tr>
+              <tr>
+                <td><strong>Auditor Change (PwC) & Form 8-K</strong></td>
+                <td>Independent Auditor Transition</td>
+                <td>March 2026</td>
+                <td>Dismissal of Baker Tilly US, LLP and appointment of PricewaterhouseCoopers LLP (PwC). Disclosed open ICFR material weakness regarding presentation/classification of notes receivable cash flows.</td>
+              </tr>
+              <tr>
+                <td><strong>CFPB & State Usury Actions</strong></td>
+                <td>Regulatory Enforcement Docket</td>
+                <td>2020 – 2026</td>
+                <td>CFPB TILA Regulation Z interpretive rule; 2020 California DFPI settlement ($582k penalty for illegal lending); ongoing state AG rate reclassification monitoring.</td>
+              </tr>
+              <tr>
+                <td><strong>Cross-FinTech Usury Framework</strong></td>
+                <td>Comparative Institutional Analysis</td>
+                <td>Sept 2026</td>
+                <td>Cross-company comparative framework (<a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #c4b5fd; text-decoration: underline;">fintech-usury-tila-regulatory-exposure-2026.md</a>) evaluating True Lender exposure, TILA Reg Z finance charge risk, and downside valuation bridges across $SEZL, $DAVE, $AFRM, $SOFI, and $ML.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Verification Checksum Info -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">🔒 Document Integrity Checksums</span>
+          <span class="badge badge-green">SHA-256 Verified</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+          Verified repository document frontmatter checksum:
+        </p>
+        <code style="display: block; background: var(--bg-secondary); padding: 0.75rem; border-radius: 6px; font-size: 0.82rem; color: #6ee7b7; border: 1px solid var(--border-color);">
+          SHA-256: 835d83ae82f42a78f307aa5bc34f3ca441e4d3db269e8bfa1700684fef94c03f (sezl-1-document-sources.md)
+        </code>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 7: COMPLETE ALL-IN-ONE DOSSIER
+         ========================================== -->
+    <section id="tab-all" class="tab-content">
+      
+      <div class="highlight-banner">
+        <h3>Complete Sezzle Inc. ($SEZL) Research Dossier</h3>
+        <p>This single-scroll view aggregates the entire 4-stage research suite for comprehensive analysis and offline review.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h2 style="color: #c4b5fd; margin-bottom: 1rem;">1. Executive Thesis & Market Opportunity</h2>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+          Sezzle Inc. (NASDAQ: SEZL) has achieved what few fintechs in public market history have accomplished: transforming from a venture-subsidized, low-margin checkout plugin into a hyper-profitable, subscriber-gated consumer liquidity ecosystem. Generating $610M in FY2026E GAAP revenue, 50.0% Adjusted EBITDA margins ($305M), and $250M in annual unlevered free cash flow on a clean 31.6M diluted share count, Sezzle is compounding value at an extraordinary velocity.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.8;">
+          The core engine is <strong>Sezzle Anywhere</strong>—an omnichannel virtual Mastercard deployed via Apple Pay and Google Pay, gated behind a $17.99/month consumer subscription. This structure decouples Sezzle from merchant integration friction, allowing 854,000 active subscribers to deploy 0% APR Pay-in-4 financing at Target, Amazon, Walmart, or grocery stores nationwide.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h2 style="color: #6ee7b7; margin-bottom: 1rem;">2. Core Financial Engine & Valuation Adjudication</h2>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+          At ~$125.00 per share ($3.95B Market Cap, $3.85B EV with +$85M net cash), Sezzle trades at <strong>21.5x FY2026E GAAP EPS of $5.82</strong> and <strong>12.6x Adjusted EBITDA</strong>. Our multi-method valuation framework triangulates an intrinsic 2-year base target of <strong>$232.00 (+85.6% upside)</strong> based on a 22.0x multiple on FY28E EPS of $10.55.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h2 style="color: #fda4af; margin-bottom: 1rem;">3. Accounting Governance, Auditor Transition & Regulatory Valuation Downside</h2>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+          While Sezzle's cash flow solvency is confirmed ($250M unlevered FCF, +$85M net cash) and <strong>PwC</strong> was retained as Big-4 auditor in March 2026, an open <strong>ICFR material weakness</strong> on notes receivable cash flows and the regulatory tension between ASC 606 (SaaS subscription ARR) and ASC 310 / TILA Reg Z finance charges warrant strict downside tracking:
+        </p>
+        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1rem;">
+          <li><strong>Subscription Unbundling:</strong> If CFPB or state AGs reclassify $17.99/mo subscription fees as finance charges, subscription ARR drops -$100M+.</li>
+          <li><strong>EBITDA & EPS Impact:</strong> Adjusted EBITDA compresses from $305M to $135M; GAAP EPS drops from $5.82 to $1.95.</li>
+          <li><strong>Bank Charter Equity Drag:</strong> OCC Tier 1 Leverage capital mandates (8%–10%) trap $150M–$250M equity, compressing ROTE from >55% to 15%–18% and re-rating multiple to 8x–10x P/E or 1.2x–1.5x P/TBV.</li>
+          <li><strong>Implied Downside:</strong> <strong>$16.00 – $25.00 per share (-80% to -87% drawdown)</strong>.</li>
+        </ul>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">
+          Cross-company comparison with $DAVE, $AFRM, $SOFI, and $ML is detailed in <a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #c4b5fd; text-decoration: underline;">fintech-usury-tila-regulatory-exposure-2026.md</a>.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="padding-top: 0; padding-bottom: 0;">
+      <p>Sezzle Inc. ($SEZL) Institutional Equity Research & Adversarial Stress-Test Suite</p>
+      <p style="margin-top: 0.5rem; font-size: 0.78rem;">Generated for Investment Committee & Portfolio Management | Data through August 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching logic
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      
+      const targetContent = document.getElementById(tabId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+      
+      const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+      if (targetBtn) {
+        targetBtn.classList.add('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Accordion toggle
+    function toggleAccordion(headerEl) {
+      const item = headerEl.parentElement;
+      item.classList.toggle('open');
+    }
+
+    // Interactive Scenario Switcher for Memo Tab
+    function setMemoScenario(type) {
+      const card = document.getElementById('memo-scenario-card');
+      const title = document.getElementById('memo-scenario-title');
+      const desc = document.getElementById('memo-scenario-desc');
+      const prob = document.getElementById('memo-scenario-prob');
+      
+      const btns = document.querySelectorAll('.scenario-btn');
+      btns.forEach(b => b.classList.remove('active'));
+
+      // Highlight active row in table
+      document.querySelectorAll('#row-bear, #row-base, #row-bull').forEach(r => r.classList.remove('highlight-cell'));
+
+      if (type === 'bear') {
+        btns[0].classList.add('active');
+        document.getElementById('row-bear').classList.add('highlight-cell');
+        title.innerHTML = 'Bear Case: $85.00 Target (-32.0% Downside | -12.1% 3-Yr IRR)';
+        title.style.color = '#fda4af';
+        desc.innerHTML = 'Revenue growth slows to +8.0% CAGR ($768M FY28E Rev), EBITDA margin compresses to 32.0% ($246M), and GAAP EPS falls to $5.30 at 16.0x P/E.';
+        prob.innerHTML = '20% Probability';
+        prob.className = 'badge badge-rose';
+        card.style.background = 'rgba(244, 63, 94, 0.12)';
+        card.style.borderColor = 'rgba(244, 63, 94, 0.4)';
+      } else if (type === 'bull') {
+        btns[2].classList.add('active');
+        document.getElementById('row-bull').classList.add('highlight-cell');
+        title.innerHTML = 'Bull Case: $385.00 Target (+208.0% Upside | +45.4% 3-Yr IRR)';
+        title.style.color = '#6ee7b7';
+        desc.innerHTML = 'Revenue accelerates at +35.0% CAGR ($1.50B FY28E Rev), EBITDA margin expands to 52.0% ($780M), and GAAP EPS reaches $14.80 at 26.0x P/E.';
+        prob.innerHTML = '20% Probability';
+        prob.className = 'badge badge-green';
+        card.style.background = 'rgba(16, 185, 129, 0.12)';
+        card.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+      } else {
+        btns[1].classList.add('active');
+        document.getElementById('row-base').classList.add('highlight-cell');
+        title.innerHTML = 'Base Case (Target): $232.00 Target (+85.6% Upside | +22.9% 3-Yr IRR)';
+        title.style.color = '#c4b5fd';
+        desc.innerHTML = '3-Year Revenue CAGR of +22.0% ($1.10B FY28E Rev), 50.0% Adjusted EBITDA margin ($550M), and GAAP EPS of $10.55 at 22.0x P/E.';
+        prob.innerHTML = '60% Probability';
+        prob.className = 'badge badge-green';
+        card.style.background = 'rgba(139, 92, 246, 0.12)';
+        card.style.borderColor = 'var(--sezl-purple)';
+      }
+    }
+
+    // Client-side quick filter
+    function filterContent() {
+      const q = document.getElementById('docSearch').value.toLowerCase();
+      if (!q) {
+        document.querySelectorAll('tr, .card, p').forEach(el => el.style.opacity = '1');
+        return;
+      }
+      document.querySelectorAll('tr, .card').forEach(el => {
+        const txt = el.innerText.toLowerCase();
+        if (txt.includes(q)) {
+          el.style.opacity = '1';
+        } else {
+          el.style.opacity = '0.35';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

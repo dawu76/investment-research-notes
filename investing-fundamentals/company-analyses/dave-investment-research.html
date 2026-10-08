@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dave Inc. ($DAVE) — Institutional Equity Research & Adversarial Stress-Test Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-tertiary: #1f2937;
+      --bg-card: #161f30;
+      --bg-card-hover: #1c283f;
+      --border-color: #2b384e;
+      --border-accent: #00d632;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-green: #10b981;
+      --accent-emerald: #059669;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-teal: #14b8a6;
+      --accent-indigo: #6366f1;
+      --dave-green: #00d632;
+      --dave-dark: #0a3d1c;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+      --shadow-glow-green: 0 0 25px rgba(0, 214, 50, 0.22);
+      --shadow-glow-blue: 0 0 25px rgba(59, 130, 246, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    code, pre, .mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .container {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Sticky Header */
+    header {
+      background: linear-gradient(180deg, rgba(16, 24, 39, 0.96) 0%, rgba(11, 15, 25, 0.98) 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.5rem 0 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-content {
+      max-width: 1560px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-dave {
+      background: rgba(0, 214, 50, 0.16);
+      color: #4ade80;
+      border: 1px solid rgba(0, 214, 50, 0.4);
+    }
+
+    .badge-green {
+      background: rgba(16, 185, 129, 0.18);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .badge-amber {
+      background: rgba(245, 158, 11, 0.18);
+      color: #fcd34d;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .badge-blue {
+      background: rgba(59, 130, 246, 0.18);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+
+    .badge-rose {
+      background: rgba(244, 63, 94, 0.18);
+      color: #fda4af;
+      border: 1px solid rgba(244, 63, 94, 0.4);
+    }
+
+    .badge-purple {
+      background: rgba(139, 92, 246, 0.18);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+    }
+
+    .title-area h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .title-area p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    .quick-stats {
+      display: flex;
+      gap: 1.5rem;
+      background: var(--bg-card);
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+
+    .quick-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quick-stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .quick-stat-value {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Search Input */
+    .search-box {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.5rem 0.85rem;
+      color: #fff;
+      font-size: 0.85rem;
+      outline: none;
+      width: 240px;
+      transition: all 0.2s ease;
+    }
+
+    .search-box:focus {
+      border-color: var(--dave-green);
+      box-shadow: 0 0 10px rgba(0, 214, 50, 0.3);
+    }
+
+    /* Tab Navigation */
+    .nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.6rem 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+      background: var(--bg-tertiary);
+    }
+
+    .tab-btn.active {
+      color: #0b0f19;
+      background: var(--dave-green);
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(0, 214, 50, 0.35);
+    }
+
+    /* Content Area */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-accent);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Highlight Banner */
+    .highlight-banner {
+      background: linear-gradient(135deg, rgba(0, 214, 50, 0.12) 0%, rgba(59, 130, 246, 0.12) 100%);
+      border: 1px solid rgba(0, 214, 50, 0.35);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-glow-green);
+    }
+
+    .highlight-banner h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #4ade80;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tables */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    thead {
+      background: var(--bg-secondary);
+      border-bottom: 2px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    th {
+      padding: 0.85rem 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .num {
+      font-family: 'JetBrains Mono', monospace;
+      text-align: right;
+    }
+
+    th.num {
+      text-align: right;
+    }
+
+    .positive {
+      color: var(--accent-green);
+      font-weight: 600;
+    }
+
+    .negative {
+      color: var(--accent-rose);
+      font-weight: 600;
+    }
+
+    .highlight-cell {
+      background: rgba(0, 214, 50, 0.12);
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* Interactive Waterfall / Progress Bars */
+    .waterfall-bar-container {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      height: 36px;
+      width: 100%;
+      display: flex;
+      overflow: hidden;
+      margin: 1.5rem 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .waterfall-segment {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      transition: width 0.4s ease;
+      position: relative;
+    }
+
+    /* Scenario Toggle Switcher */
+    .scenario-switcher {
+      display: flex;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      padding: 0.3rem;
+      gap: 0.3rem;
+      border: 1px solid var(--border-color);
+      margin-bottom: 1.5rem;
+      max-width: 450px;
+    }
+
+    .scenario-btn {
+      flex: 1;
+      padding: 0.5rem 0.75rem;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .scenario-btn.active {
+      background: var(--dave-green);
+      color: #0b0f19;
+      box-shadow: 0 2px 6px rgba(0, 214, 50, 0.3);
+    }
+
+    /* Accordion */
+    .accordion-item {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      background: var(--bg-card);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      background: var(--bg-card);
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .accordion-header:hover {
+      background: var(--bg-card-hover);
+    }
+
+    .accordion-content {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border-color);
+      display: none;
+      background: rgba(11, 15, 25, 0.5);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .accordion-item.open .accordion-content {
+      display: block;
+    }
+
+    .accordion-icon {
+      transition: transform 0.2s ease;
+    }
+
+    .accordion-item.open .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 0;
+      margin-top: 4rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* Print styling */
+    @media print {
+      body { background: #fff; color: #000; }
+      header { position: static; background: #fff; color: #000; border-bottom: 1px solid #ccc; }
+      .nav-tabs, .scenario-switcher, .search-box { display: none; }
+      .tab-content { display: block !important; margin-bottom: 3rem; }
+      .card, .table-container { border: 1px solid #ddd; box-shadow: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .quick-stats { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="title-area">
+        <div class="badge-group">
+          <span class="badge badge-dave">NASDAQ: DAVE</span>
+          <span class="badge badge-green">BUY (GARP COMPOUNDER)</span>
+          <span class="badge badge-blue">Base Target: $550.00 (+64.2%)</span>
+          <span class="badge badge-amber">Rule of 40: 89.0%</span>
+        </div>
+        <h1>Dave Inc. ($DAVE) Investment Suite</h1>
+        <p>Institutional Equity Research, High-Velocity Liquidity Advance Mechanics & Adversarial Stress-Test</p>
+      </div>
+
+      <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <input type="text" class="search-box" id="docSearch" placeholder="🔍 Search document..." onkeyup="filterContent()">
+        
+        <div class="quick-stats">
+          <div class="quick-stat">
+            <span class="quick-stat-label">Share Price</span>
+            <span class="quick-stat-value">$335.00</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">Market Cap</span>
+            <span class="quick-stat-value">$4.35B</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">FY26E Rev</span>
+            <span class="quick-stat-value">$730.0M</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">EBITDA Margin</span>
+            <span class="quick-stat-value positive">44.0%</span>
+          </div>
+          <div class="quick-stat">
+            <span class="quick-stat-label">Diluted EPS</span>
+            <span class="quick-stat-value">$17.25</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top: 0; padding-bottom: 0;">
+      <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-overview')">📊 Overview & Dashboard</button>
+        <button class="tab-btn" onclick="switchTab('tab-model')">⚙️ Business Model & Unit Econ (Stage 2)</button>
+        <button class="tab-btn" onclick="switchTab('tab-memo')">📑 Investment Memo & Valuation (Stage 3)</button>
+        <button class="tab-btn" onclick="switchTab('tab-stresstest')">🛡️ Adversarial Stress-Test (Stage 4)</button>
+        <button class="tab-btn" onclick="switchTab('tab-kpi')">🎯 KPI Watch List & Risk Sizing</button>
+        <button class="tab-btn" onclick="switchTab('tab-sources')">🏛️ Regulatory & Sources (Stage 1)</button>
+        <button class="tab-btn" onclick="switchTab('tab-all')">📖 Complete Dossier</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ==========================================
+         TAB 1: OVERVIEW & DASHBOARD
+         ========================================== -->
+    <section id="tab-overview" class="tab-content active">
+      
+      <div class="highlight-banner">
+        <h3>Institutional Investment Summary: BUY / LONG (Base Target $550.00 | +64.2% Upside)</h3>
+        <p>Dave Inc. ($DAVE) represents the rarest combination in consumer financial technology: hypergrowth (<strong>+30%+ YoY top-line</strong> across 9 consecutive quarters), elite profitability (<strong>44.0% Adjusted EBITDA margins</strong>; ~$17.25 Adjusted Diluted EPS), and structural capital efficiency (<strong>>35x annual working capital turnover</strong>). Providing short-term ExtraCash advances up to $500 as an ethical alternative to $35 bank overdrafts, Dave captures high-frequency consumer liquidity with an industry-low <strong>$19 CAC</strong> and <strong>~31-day payback</strong> on a pristine ~13.0M share float.</p>
+      </div>
+
+      <!-- 4-Stat Metric Cards -->
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">ExtraCash Originations</span>
+            <span class="badge badge-dave">$9.2B Run-Rate</span>
+          </div>
+          <div style="font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono';" class="positive">$2.30B / Qtr</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Average advance reached record $215 in Q2 2026 across 3.1M active members.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Capital Velocity</span>
+            <span class="badge badge-green">>35x–45x Turn</span>
+          </div>
+          <div style="font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono';" class="positive">7–10 Day Cycle</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Just ~$220M working capital supports $9.2B originations; ROTE exceeds 65%.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Free Cash Flow</span>
+            <span class="badge badge-blue">84.4% Conversion</span>
+          </div>
+          <div style="font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono';" class="positive">$270.0M</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">$37.00 FCF generated on every $100.00 of GAAP net operating revenue.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Customer Acquisition</span>
+            <span class="badge badge-amber">$19 CAC</span>
+          </div>
+          <div style="font-size: 1.8rem; font-weight: 800; font-family: 'JetBrains Mono';" class="positive">~31-Day Payback</div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">LTV/CAC > 10.0x driven by Mark Cuban brand pull and $222 annual ARPU.</p>
+        </div>
+      </div>
+
+      <!-- The 6 Iceberg Risks Matrix -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">🧊 The 6 Iceberg Risks of Dave Inc. ($DAVE)</span>
+          <span class="badge badge-rose">Adversarial Risk Audit</span>
+        </div>
+        <div class="table-container" style="margin-bottom: 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Risk Vector</th>
+                <th>Surface Strength</th>
+                <th>The Hidden "Iceberg" Danger</th>
+                <th>Mitigant / Counter-Weight</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Effective APR & Usury Caps</strong></td>
+                <td>5.0% flat fee ($5 min / $15 cap) with free ACH</td>
+                <td>Annualizes to >260% APR on 7-day turn; TILA Reg Z finance charge threat & Baltimore 33% usury suit (see <a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #60a5fa; text-decoration: underline;">FinTech Usury Framework</a>).</td>
+                <td>Non-recourse structure (no collections/credit damage), optional express delivery, state EWA safe harbors (MO, NV, KS, WI).</td>
+              </tr>
+              <tr>
+                <td><strong>2. Federal Litigation & Liability</strong></td>
+                <td>Zero tip solicitation in current UI flow</td>
+                <td>FTC/DOJ federal action (Case No. 2:24-cv-09419, C.D. Cal.) alleging deceptive marketing, express fees, tipping dark patterns & naming CEO Jason Wilk individually.</td>
+                <td>Restructured to transparent 5% model; $35M-$75M restitution potential buffered by +$110M net cash and $270M annual FCF.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Capital Velocity & VPC Covenants</strong></td>
+                <td>>35x turnover on 7-10 day advance cycle</td>
+                <td>28-day past-due rate >2.80% triggers VPC credit facility advance haircuts (85% down to <70%).</td>
+                <td>CashAI real-time payroll telemetry provides 48-hour feedback loop to throttle limits; +$110M internal liquidity.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Mega-Fintech Encroachment</strong></td>
+                <td>$19 CAC with ~31-day payback flywheel</td>
+                <td>Cash App Borrow (55M MAUs), Chime SpotMe (free $200), & BofA Balance Assist skim zero-CAC users.</td>
+                <td>Frictionless D2C open-banking model does not require direct deposit switching to qualify for micro-liquidity.</td>
+              </tr>
+              <tr>
+                <td><strong>5. BaaS Sponsor Bank Oversight</strong></td>
+                <td>Migrated to Coastal Community Bank (CCB)</td>
+                <td>FDIC/OCC third-party risk management scrutiny and potential consent order growth caps.</td>
+                <td>CCB CCBX institutional ledger controls; Section 27 FDIA interest exportation (12 U.S.C. § 1831d).</td>
+              </tr>
+              <tr>
+                <td><strong>6. Microstructure & EPS Torque</strong></td>
+                <td>Tight float (13.0M diluted shares); $17.25 EPS</td>
+                <td>High operating leverage amplifies downside in credit shock (-75% drawdown to $84).</td>
+                <td>Extinguished $100M FTX note for $35M cash; debt-free pristine balance sheet with $270M FCF.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Financial Reconciliation Table -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">📋 4-Stage Research Pipeline Architecture</span>
+          <span class="badge badge-dave">Standard Wiki Suite</span>
+        </div>
+        <div class="grid-2">
+          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <h4 style="color: #4ade80; margin-bottom: 0.5rem;">Stage 1 & Stage 2 Overview</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              <strong>Stage 1 (Sources):</strong> SEC EDGAR filings (10-K, 10-Q), CIK <code>0001804196</code>, Coastal Community Bank partnership, CashAI underwriting telemetry, and SHA-256 verified checksum.
+            </p>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              <strong>Stage 2 (Equity Report):</strong> Detailed financial model, ExtraCash monetization, $37 FCF per $100 revenue waterfall, >35x capital velocity, and competitive positioning vs 9 peers.
+            </p>
+          </div>
+          <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <h4 style="color: #60a5fa; margin-bottom: 0.5rem;">Stage 3 & Stage 4 Overview</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+              <strong>Stage 3 (Investment Memo):</strong> BUY recommendation, $550.00 Base Target (+64.2%), 2-year valuation sensitivity matrix, Pre-Mortem failure modes, and 12-month KPI watch list.
+            </p>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              <strong>Stage 4 (Stress-Test):</strong> Adversarial debate, Arbitrator Shared Facts / 3 Crux Assumptions, and Audited Multi-Factor Downside Stress-Test Model.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 2: BUSINESS MODEL & UNIT ECONOMICS (STAGE 2)
+         ========================================== -->
+    <section id="tab-model" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">💰 The $37 FCF per $100 Revenue Waterfall</span>
+          <span class="badge badge-green">Unit Economics</span>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          Dave operates with elite software operating leverage. On every $100 of Net Operating Revenue, Dave generates <strong>$43.80 in Adjusted EBITDA</strong> and <strong>$37.00 in Unlevered Free Cash Flow</strong>.
+        </p>
+
+        <div class="waterfall-bar-container">
+          <div class="waterfall-segment" style="width: 15.7%; background: #f43f5e;" title="Credit Provision: -$15.70">CECL -15.7%</div>
+          <div class="waterfall-segment" style="width: 11.6%; background: #fb7185;" title="Rails & Partner Fees: -$11.60">Rails -11.6%</div>
+          <div class="waterfall-segment" style="width: 13.0%; background: #f59e0b;" title="CAC Spend: -$13.00">CAC -13.0%</div>
+          <div class="waterfall-segment" style="width: 15.8%; background: #3b82f6;" title="Tech & G&A: -$15.80">Overhead -15.8%</div>
+          <div class="waterfall-segment" style="width: 6.9%; background: #06b6d4;" title="Tax & Non-Cash: -$6.90">Tax/SBC -6.9%</div>
+          <div class="waterfall-segment" style="width: 37.0%; background: #10b981;" title="Free Cash Flow: $37.00">FCF 37.0%</div>
+        </div>
+
+        <div class="table-container" style="margin-bottom: 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Financial Line Item</th>
+                <th class="num">Absolute Amount</th>
+                <th class="num">% of Revenue</th>
+                <th>Accounting & Unit Dynamics</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Total Net Operating Revenue</strong></td>
+                <td class="num font-bold"><strong>$100.00</strong> ($730.0M)</td>
+                <td class="num">100.0%</td>
+                <td>7.93% blended platform yield on $9.2B ExtraCash originations</td>
+              </tr>
+              <tr>
+                <td>- Provision for Unrecoverable Advances</td>
+                <td class="num negative">-$15.75 ($115.0M)</td>
+                <td class="num">15.7%</td>
+                <td>Covers 1.45% Net Charge-Offs on short 7–10 day advance duration</td>
+              </tr>
+              <tr>
+                <td>- Processing, Rails & Bank Partner Fees</td>
+                <td class="num negative">-$11.64 ($85.0M)</td>
+                <td class="num">11.6%</td>
+                <td>Card network interchange & Coastal Community Bank account fees</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>= Gross Profit</strong></td>
+                <td class="num positive"><strong>$72.61</strong> ($530.0M)</td>
+                <td class="num positive">72.6%</td>
+                <td>High-margin software-like gross cash generation</td>
+              </tr>
+              <tr>
+                <td>- Advertising & Acquisition Spend (CAC)</td>
+                <td class="num negative">-$13.01 ($95.0M)</td>
+                <td class="num">13.0%</td>
+                <td>Organic brand virality delivering industry-low $19.00 CAC</td>
+              </tr>
+              <tr>
+                <td>- Technology & Platform Engineering (R&D)</td>
+                <td class="num negative">-$6.16 ($45.0M)</td>
+                <td class="num">6.2%</td>
+                <td>CashAI machine learning underwriting telemetry</td>
+              </tr>
+              <tr>
+                <td>- General & Administrative (G&A, Legal, Compliance)</td>
+                <td class="num negative">-$9.59 ($70.0M)</td>
+                <td class="num">9.6%</td>
+                <td>Corporate overhead, regulatory compliance & legal defense</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>= Adjusted EBITDA</strong></td>
+                <td class="num positive"><strong>$43.84</strong> ($320.0M)</td>
+                <td class="num positive">43.8%</td>
+                <td>Industry-leading cash operating profitability</td>
+              </tr>
+              <tr>
+                <td>- Non-Cash Stock Compensation & D&A</td>
+                <td class="num negative">-$2.05 ($15.0M)</td>
+                <td class="num">2.1%</td>
+                <td>Equity compensation expense on tight ~13.0M share float</td>
+              </tr>
+              <tr>
+                <td>- Income Tax Expense (Effective Rate)</td>
+                <td class="num negative">-$10.96 ($80.0M)</td>
+                <td class="num">11.0%</td>
+                <td>26.2% effective corporate tax rate</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>= GAAP Net Income (EPS: $17.25)</strong></td>
+                <td class="num positive"><strong>$30.82</strong> ($225.0M)</td>
+                <td class="num positive">30.8%</td>
+                <td>GAAP Diluted EPS run-rate of $17.00–$17.50</td>
+              </tr>
+              <tr style="background: rgba(16, 185, 129, 0.15);">
+                <td><strong>= Unlevered Free Cash Flow (FCF)</strong></td>
+                <td class="num positive"><strong>$36.99</strong> ($270.0M)</td>
+                <td class="num positive">37.0%</td>
+                <td><strong>84.4% Conversion of Adjusted EBITDA</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Capital Velocity & ROTE -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">⚡ Capital Turnover Multiplier</span>
+            <span class="badge badge-dave">>35x–45x Annual Velocity</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+            Because ExtraCash advances have an average maturity of only <strong>7 to 10 days</strong>, Dave recycles its capital over <strong>35 to 45 times per year</strong>. Supporting <strong>$9.2B in annual originations</strong> requires an average working capital balance of only <strong>~$220M–$230M</strong>. This ultra-fast cycle insulates Dave from multi-year duration risk and drives Return on Tangible Equity (ROTE) <strong>>65%</strong>.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">🏆 FinTech Rule of 40 Scorecard</span>
+            <span class="badge badge-green">89.0% Score (99th Percentile)</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+            • <strong>Revenue Growth Rate:</strong> +45.0% YoY run-rate (+30% reported Q2)<br>
+            • <strong>Adjusted EBITDA Margin:</strong> 44.0% margin ($320M run-rate)<br>
+            • <strong>Total Rule of 40 Score:</strong> <strong>89.0%</strong> (45% + 44%)<br>
+            • <strong>Benchmarking:</strong> Places Dave in the top 1% of all public fintech, payments, and SaaS enterprises globally.
+          </p>
+        </div>
+      </div>
+
+      <!-- Legal, Regulatory & Litigation Deep Dive -->
+      <div class="card" style="margin-top: 1.5rem;">
+        <div class="card-header">
+          <span class="card-title">⚖️ Legal, Regulatory & Federal Litigation Deep Dive</span>
+          <span class="badge badge-rose">Active Enforcement Audit</span>
+        </div>
+        <div class="grid-2">
+          <div>
+            <h4 style="color: #fda4af; margin-bottom: 0.5rem; font-size: 0.95rem;">1. FTC & DOJ Federal Lawsuit (Case No. 2:24-cv-09419, C.D. Cal.)</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
+              In late 2024, the FTC filed a federal complaint and the <strong>U.S. Department of Justice (DOJ) joined as co-plaintiff</strong>, filing an amended complaint that added <strong>CEO Jason Wilk as an individual named defendant</strong> under FTC Act Sections 13(b) & 19.
+            </p>
+            <ul style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; padding-left: 1.25rem;">
+              <li><strong>Deceptive Marketing:</strong> Marketing advances of "up to $500 instantly" when users rarely qualified for that amount.</li>
+              <li><strong>Tipping Dark Patterns:</strong> Coercive UI cues and unsubstantiated charitable claims ("providing meals to hungry children").</li>
+              <li><strong>Express Delivery Fees:</strong> Inadequate disclosures surrounding $3.00–$25.00 instant disbursement options.</li>
+              <li><strong>ROSCA Subscriptions:</strong> Obfuscated cancellation flows for recurring $1.00/mo membership fees.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: #60a5fa; margin-bottom: 0.5rem; font-size: 0.95rem;">2. State Usury & TILA Regulation Z Reclassification</h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
+              In December 2025, the <strong>City of Baltimore</strong> filed suit under the Maryland Consumer Loan Law alleging ExtraCash advances operate as unlicensed payday loans with effective APRs >2,500%. Under TILA Regulation Z (12 CFR § 1026.4), any fee required to access credit risks reclassification as a finance charge.
+            </p>
+            <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 6px; padding: 0.75rem; font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Cross-Fintech Context:</strong> For an in-depth institutional comparison of how Dave's regulatory risk compares against Sezzle ($SEZL), Affirm ($AFRM), MoneyLion ($ML), and SoFi ($SOFI), refer to the dedicated framework document: 
+              <a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #93c5fd; text-decoration: underline; font-weight: 600;">fintech-usury-tila-regulatory-exposure-2026.md</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 3: INVESTMENT MEMO & VALUATION (STAGE 3)
+         ========================================== -->
+    <section id="tab-memo" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">🎯 2-Year Valuation Sensitivity Matrix (FY2026E – FY2028E)</span>
+          <span class="badge badge-dave">Interactive Scenario Switcher</span>
+        </div>
+        
+        <div class="scenario-switcher">
+          <button class="scenario-btn" onclick="setMemoScenario('bear')">🐻 Bear ($112.00)</button>
+          <button class="scenario-btn active" onclick="setMemoScenario('base')">⚖️ Base ($550.00)</button>
+          <button class="scenario-btn" onclick="setMemoScenario('bull')">🐂 Bull ($850.00)</button>
+        </div>
+
+        <div id="memo-scenario-card" class="highlight-banner" style="background: rgba(0, 214, 50, 0.12); border-color: var(--dave-green);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h3 id="memo-scenario-title" style="color: #4ade80;">Base Case: $550.00 Target (+64.2% Upside | +28.1% 2-Yr IRR)</h3>
+              <p id="memo-scenario-desc" style="color: var(--text-secondary); font-size: 0.9rem;">
+                2-Year Revenue CAGR of +20.0% ($1.05B FY28E Rev), 45.0% Adjusted EBITDA margin ($472M), and Adjusted EPS of $25.00 at 22.0x P/E.
+              </p>
+            </div>
+            <div style="text-align: right;">
+              <span id="memo-scenario-prob" class="badge badge-green" style="font-size: 0.9rem;">60% Probability</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th class="num">Prob.</th>
+                <th class="num">2-Yr Rev CAGR</th>
+                <th class="num">FY28E Net Revenue</th>
+                <th class="num">EBITDA Margin</th>
+                <th class="num">FY28E Adj. EPS</th>
+                <th class="num">FY28E FCF/Share</th>
+                <th class="num">Target Multiple</th>
+                <th class="num">Target Price</th>
+                <th class="num">2-Yr IRR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="row-bear">
+                <td><strong>Bear Case</strong></td>
+                <td class="num">20%</td>
+                <td class="num negative">+1.4%</td>
+                <td class="num">$750M</td>
+                <td class="num">22.0%</td>
+                <td class="num">$7.50</td>
+                <td class="num">$8.00</td>
+                <td class="num">14.0x P/E</td>
+                <td class="num negative"><strong>$112.00</strong></td>
+                <td class="num negative"><strong>-42.2%</strong></td>
+              </tr>
+              <tr id="row-base" class="highlight-cell">
+                <td><strong>Base Case (Target)</strong></td>
+                <td class="num">60%</td>
+                <td class="num positive"><strong>+20.0%</strong></td>
+                <td class="num positive"><strong>$1,050M</strong></td>
+                <td class="num positive"><strong>45.0%</strong></td>
+                <td class="num positive"><strong>$25.00</strong></td>
+                <td class="num positive"><strong>$27.00</strong></td>
+                <td class="num positive"><strong>22.0x P/E</strong></td>
+                <td class="num positive"><strong>$550.00</strong></td>
+                <td class="num positive"><strong>+28.1%</strong></td>
+              </tr>
+              <tr id="row-bull">
+                <td><strong>Bull Case</strong></td>
+                <td class="num">20%</td>
+                <td class="num positive">+31.0%</td>
+                <td class="num">$1,250M</td>
+                <td class="num">48.0%</td>
+                <td class="num">$33.00</td>
+                <td class="num">$35.00</td>
+                <td class="num">26.0x P/E</td>
+                <td class="num positive"><strong>$850.00</strong></td>
+                <td class="num positive"><strong>+59.3%</strong></td>
+              </tr>
+              <tr style="background: rgba(255, 255, 255, 0.05); font-weight: 700;">
+                <td colspan="8"><strong>Probability-Weighted Expected Value (PWEV): 0.20($112) + 0.60($550) + 0.20($850)</strong></td>
+                <td class="num positive" style="font-size: 1.05rem;"><strong>$522.40</strong></td>
+                <td class="num positive" style="font-size: 1.05rem;"><strong>+55.9%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3 Structural Growth Catalysts -->
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">1. $19 CAC Flywheel</span>
+            <span class="badge badge-dave">Acquisition</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            Scaling Monthly Transacting Members from 3.1M toward >4.5M across the 150M+ American workforce living paycheck-to-paycheck, maintaining sub-35 day payback.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">2. CashAI v6.0 Limits</span>
+            <span class="badge badge-green">Monetization</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            Safely expanding advance sizes up to $500+ for prime behavioral cohorts, pushing average advances from $215 toward $250+ and driving annual ARPU toward $275+.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">3. Neobanking & Flex Card</span>
+            <span class="badge badge-blue">Cross-Sell</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">
+            Capturing primary payroll direct deposits on the Dave Card via Coastal Community Bank, unlocking zero-CAC debit interchange and recurring subscription ARR.
+          </p>
+        </div>
+      </div>
+
+      <!-- Regulatory Downside Valuation Bridge Card -->
+      <div class="card" style="margin-top: 1.5rem; background: rgba(244, 63, 94, 0.05); border: 1px solid rgba(244, 63, 94, 0.3);">
+        <div class="card-header">
+          <span class="card-title" style="color: #fda4af;">🚨 Regulatory Reclassification & Adverse Ruling Valuation Bridge</span>
+          <span class="badge badge-rose">Downside Tail-Risk Model</span>
+        </div>
+        <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+          <p style="margin-bottom: 0.75rem;">
+            If the <strong>FTC + DOJ federal lawsuit (Case No. 2:24-cv-09419)</strong> or the <strong>City of Baltimore usury action</strong> results in a permanent injunction barring express fees / dark-pattern tipping or mandating TILA APR caps:
+          </p>
+          <div class="table-container" style="margin-bottom: 0.75rem;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Financial Line Item</th>
+                  <th class="num">FY26E Baseline</th>
+                  <th class="num">Post-Enforcement Injunction</th>
+                  <th class="num">Delta (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Net Operating Revenue</strong></td>
+                  <td class="num positive">$730.0M</td>
+                  <td class="num negative">$450.0M</td>
+                  <td class="num negative">-38.4%</td>
+                </tr>
+                <tr>
+                  <td><strong>Adjusted EBITDA</strong></td>
+                  <td class="num positive">$320.0M (43.8% margin)</td>
+                  <td class="num negative">$85.0M (18.9% margin)</td>
+                  <td class="num negative">-73.4%</td>
+                </tr>
+                <tr>
+                  <td><strong>Adjusted Diluted EPS</strong></td>
+                  <td class="num font-bold">$17.25</td>
+                  <td class="num font-bold negative">$5.50</td>
+                  <td class="num negative">-68.1%</td>
+                </tr>
+                <tr>
+                  <td><strong>Target Valuation Multiple</strong></td>
+                  <td class="num">19.4x P/E (Fintech Growth)</td>
+                  <td class="num negative">10.0x – 12.0x P/E (Subprime Monoline)</td>
+                  <td class="num negative">-43.3%</td>
+                </tr>
+                <tr style="background: rgba(244, 63, 94, 0.15); font-weight: 700;">
+                  <td><strong>Implied Equity Target Price</strong></td>
+                  <td class="num font-bold" style="color: #fff;">$335.00</td>
+                  <td class="num negative" style="font-size: 1.1rem;"><strong>$55.00 – $75.00</strong></td>
+                  <td class="num negative" style="font-size: 1.1rem;"><strong>-77.6% to -83.6%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-muted);">
+            *Cross-fintech sensitivity math and comparisons against $SEZL (-81% to -88%) and $AFRM (0% APR compliant) documented in <a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #93c5fd; text-decoration: underline;">fintech-usury-tila-regulatory-exposure-2026.md</a>.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 4: ADVERSARIAL STRESS-TEST (STAGE 4)
+         ========================================== -->
+    <section id="tab-stresstest" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">⚔️ Adversarial Debate: Independent Bull vs. Independent Bear</span>
+          <span class="badge badge-rose">Institutional Stress-Test</span>
+        </div>
+        
+        <div class="grid-2">
+          <!-- Bull Column -->
+          <div style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+              <span class="badge badge-green">INDEPENDENT BULL ANALYST</span>
+            </div>
+            <h4 style="color: #6ee7b7; margin-bottom: 0.75rem;">Key Pillars of the Bull Thesis:</h4>
+            <ul style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; padding-left: 1.25rem;">
+              <li><strong>Pro-Consumer Disruption:</strong> 5% flat fee delivers 57%–85% savings over $35 overdraft penalties.</li>
+              <li><strong>Unmatched Unit Economics:</strong> $19 CAC, 31-day payback, >10x LTV/CAC, and 89% Rule of 40 score.</li>
+              <li><strong>Capital Velocity Moat:</strong> >35x annual turnover ($220M capital drives $270M FCF) with ROTE >65%.</li>
+              <li><strong>Regulatory Cleansing:</strong> CFPB/FTC crackdowns wipe out fly-by-night tip-shaming apps, consolidating demand.</li>
+            </ul>
+          </div>
+
+          <!-- Bear Column -->
+          <div style="background: rgba(244, 63, 94, 0.06); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 10px; padding: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+              <span class="badge badge-rose">INDEPENDENT BEAR RISK ANALYST</span>
+            </div>
+            <h4 style="color: #fda4af; margin-bottom: 0.75rem;">Key Pillars of the Bear Thesis:</h4>
+            <ul style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; padding-left: 1.25rem;">
+              <li><strong>Effective APR >260%:</strong> 7-day $5 fee on $100 draw violates state usury caps if reclassified under TILA.</li>
+              <li><strong>Federal Litigation:</strong> FTC/DOJ federal complaint naming CEO Jason Wilk individually.</li>
+              <li><strong>VPC Covenant Fragility:</strong> Delinquencies >2.80% trigger advance rate cuts from 85% to <70%.</li>
+              <li><strong>Severe Asymmetric Drawdown:</strong> Credit loss surge compresses EPS to $6.00 ($84 PT) or -$1.85 ($32.50 PT).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audited Multi-Factor Stress Model -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">📉 Audited Multi-Factor Downside Stress-Test Model ($DAVE)</span>
+          <span class="badge badge-dave">P&L Flow-Through</span>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Line Item / Parameter</th>
+                <th class="num">FY2026E Baseline</th>
+                <th class="num">Scenario A: Credit Shock<br><span style="font-size: 0.7rem; text-transform: none; color: var(--text-muted);">(NCO to 2.50% / Mild Rec)</span></th>
+                <th class="num">Scenario B: Compound Stress<br><span style="font-size: 0.7rem; text-transform: none; color: var(--text-muted);">(NCO to 3.25% + CAC $35)</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ExtraCash Originations</strong></td>
+                <td class="num font-bold">$9,200.0M ($2.3B/Q)</td>
+                <td class="num">$8,100.0M (-12.0%)</td>
+                <td class="num">$7,200.0M (-21.7%)</td>
+              </tr>
+              <tr>
+                <td>- Monthly Transacting Members (MTMs)</td>
+                <td class="num">3.10 Million</td>
+                <td class="num">2.85 Million (-8.1%)</td>
+                <td class="num">2.60 Million (-16.1%)</td>
+              </tr>
+              <tr>
+                <td>- Annualized ARPU per MTM</td>
+                <td class="num">$222.00</td>
+                <td class="num">$210.00 (-5.4%)</td>
+                <td class="num">$195.00 (-12.2%)</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>Total Net Operating Revenue</strong></td>
+                <td class="num positive"><strong>$730.0M</strong></td>
+                <td class="num"><strong>$620.0M</strong> (-15.1%)</td>
+                <td class="num"><strong>$530.0M</strong> (-27.4%)</td>
+              </tr>
+              <tr>
+                <td>- Provision for Unrecoverable Advances</td>
+                <td class="num negative">-$115.0M (1.45% NCO)</td>
+                <td class="num negative">-$195.0M (2.50% NCO)</td>
+                <td class="num negative">-$235.0M (3.25% NCO)</td>
+              </tr>
+              <tr>
+                <td>- Advertising & Acquisition Spend (CAC)</td>
+                <td class="num negative">-$95.0M ($19 CAC)</td>
+                <td class="num negative">-$110.0M ($26 CAC)</td>
+                <td class="num negative">-$125.0M ($35 CAC)</td>
+              </tr>
+              <tr>
+                <td>- Technology, Rails & Overheads</td>
+                <td class="num negative">-$200.0M</td>
+                <td class="num negative">-$196.0M</td>
+                <td class="num negative">-$190.0M</td>
+              </tr>
+              <tr class="highlight-cell">
+                <td><strong>Adjusted EBITDA</strong></td>
+                <td class="num positive"><strong>$320.0M</strong> (43.8% Mar)</td>
+                <td class="num"><strong>$119.0M</strong> (19.2% Mar)</td>
+                <td class="num negative"><strong>-$20.0M</strong> (-3.8% Mar)</td>
+              </tr>
+              <tr>
+                <td><strong>GAAP Net Income</strong></td>
+                <td class="num positive"><strong>$225.0M</strong> (30.8% Mar)</td>
+                <td class="num"><strong>$78.0M</strong> (12.6% Mar)</td>
+                <td class="num negative"><strong>-$24.0M</strong> (Net Loss)</td>
+              </tr>
+              <tr>
+                <td><strong>Diluted Adjusted EPS</strong></td>
+                <td class="num font-bold"><strong>$17.25</strong></td>
+                <td class="num"><strong>$6.00</strong></td>
+                <td class="num negative"><strong>-$1.85</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Unlevered Free Cash Flow (FCF)</strong></td>
+                <td class="num positive">$270.0M (84.4% Conv)</td>
+                <td class="num">$85.0M (71.4% Conv)</td>
+                <td class="num negative">-$15.0M (Cash Burn)</td>
+              </tr>
+              <tr style="background: rgba(255, 255, 255, 0.04);">
+                <td><strong>Target Valuation Multiple</strong></td>
+                <td class="num"><strong>19.4x P/E</strong></td>
+                <td class="num"><strong>14.0x P/E</strong></td>
+                <td class="num"><strong>0.8x EV/Rev Floor</strong></td>
+              </tr>
+              <tr style="background: rgba(0, 214, 50, 0.16);">
+                <td><strong>Implied Share Price & Drawdown</strong></td>
+                <td class="num font-bold" style="font-size: 1.1rem; color: #fff;"><strong>$335.00</strong> (Current)</td>
+                <td class="num negative" style="font-size: 1.1rem;"><strong>$84.00</strong> (-74.9%)</td>
+                <td class="num negative" style="font-size: 1.1rem;"><strong>$32.50</strong> (-90.3%)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Arbitrator 3 Crux Assumptions -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">⚖️ Arbitrator Adjudication: The 3 Critical Divergence Assumptions</span>
+          <span class="badge badge-blue">Adjudication</span>
+        </div>
+
+        <div class="accordion-item open">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>1. Legal Defensibility of 5% Pricing under TILA/Usury (Verdict: Lean Bull [Moderate])</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p><strong>Bull Argument:</strong> Non-recourse structure (no collections, no credit damage), optional express delivery with free standard ACH, zero late fees, and explicit statutory safe harbors (Missouri SB 103, Nevada SB 290, Kansas HB 2105, Wisconsin Act 94).</p>
+            <p><strong>Bear Argument:</strong> Annualized 7-day fee exceeds 260% APR; Baltimore lawsuit challenges advances under Maryland's 33% usury cap; CFPB could mandate formal APR disclosures across UI flows.</p>
+            <p><strong>Arbitrator Adjudication:</strong> <em>Lean Bull [Moderate Margin]</em> — Proactive elimination of tips and late fees creates strong legal separation from payday lending. Section 27 FDIA interest rate preemption via Coastal Community Bank exports permissible terms nationwide.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>2. Underwriting Agility & VPC Covenants in Downturn (Verdict: Lean Bull [Strong])</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p><strong>Bull Argument:</strong> 7–10 day duration provides an instant 48-hour feedback loop to throttle advance limits; +$110M net cash provides unencumbered internal liquidity buffer.</p>
+            <p><strong>Bear Argument:</strong> Macro unemployment surge pushes delinquencies past 2.80%, triggering VPC facility haircuts from 85% to <70% and capping originations.</p>
+            <p><strong>Arbitrator Adjudication:</strong> <em>Lean Bull [Strong Margin]</em> — Direct real-time payroll telemetry and automated ACH sweeping upon deposit provide an unassailable risk advantage over 36-month installment loans. $320M EBITDA provides 2.46x loss absorption.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>3. Organic $19 CAC Defensibility vs. Mega-Fintechs (Verdict: Too Close to Call [Even])</span>
+            <span class="accordion-icon">▼</span>
+          </div>
+          <div class="accordion-content">
+            <p><strong>Bull Argument:</strong> Open-banking D2C distribution eliminates the friction of switching primary bank accounts, allowing Dave to acquire users at $19 across 150M+ workers.</p>
+            <p><strong>Bear Argument:</strong> Cash App Borrow (55M MAUs) and Chime SpotMe (free $200 with direct deposit) skim low-risk users at zero CAC, forcing marketing inflation past $35 CAC.</p>
+            <p><strong>Arbitrator Adjudication:</strong> <em>Too Close to Call [Even Balance]</em> — Dave dominates standalone emergency micro-liquidity, but converting users into primary direct deposit relationships faces formidable ecosystem moats.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 5: KPI WATCH LIST & RISK SIZING
+         ========================================== -->
+    <section id="tab-kpi" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">🎯 Comprehensive 6-Column KPI Watch List</span>
+          <span class="badge badge-dave">Quarterly Monitor</span>
+        </div>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Critical Assumption</th>
+                <th>Metric / KPI Name</th>
+                <th>Operational Definition & Calculation</th>
+                <th>Green Signal (Thesis Intact)</th>
+                <th>Red Flag (Breach / De-Risk)</th>
+                <th>Data Source & Cadence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Legal Defensibility</strong></td>
+                <td>ExtraCash Net Take Rate (%)</td>
+                <td><code>ExtraCash Express & Service Fee Revenue / Total ExtraCash Originations</code></td>
+                <td class="positive">4.70% – 5.10% (Pricing intact)</td>
+                <td class="negative">< 4.20% (Fee caps or drop in take-up)</td>
+                <td>SEC Form 10-Q / Release (Qtr)</td>
+              </tr>
+              <tr>
+                <td><strong>1. Legal Defensibility</strong></td>
+                <td>Regulatory Reserves & Injunctions</td>
+                <td>Dollar litigation loss reserves; presence of state AG/FTC injunctions</td>
+                <td class="positive">Reserves < $15M; Zero injunctions</td>
+                <td class="negative">Injunction in Tier-1 State; Penalty > $25M</td>
+                <td>SEC Form 10-Q (Legal Note) (Qtr)</td>
+              </tr>
+              <tr>
+                <td><strong>2. Underwriting Stability</strong></td>
+                <td>28-Day Past-Due Delinquency %</td>
+                <td><code>Receivables Delinquent 28+ Days / Total Active ExtraCash Balance</code></td>
+                <td class="positive">≤ 2.20% (CashAI telemetry intact)</td>
+                <td class="negative">> 2.80% for 2 consecutive Qs (VPC Risk)</td>
+                <td>SEC Form 10-Q Credit Note (Qtr)</td>
+              </tr>
+              <tr>
+                <td><strong>2. Underwriting Stability</strong></td>
+                <td>VPC Facility Available Liquidity</td>
+                <td>Total undrawn capacity under $150M VPC line; advance rate %</td>
+                <td class="positive">Liquidity > $75M; Advance Rate ≥ 85%</td>
+                <td class="negative">Liquidity < $30M; Advance Rate < 70%</td>
+                <td>SEC Form 10-Q Debt Note (Qtr)</td>
+              </tr>
+              <tr>
+                <td><strong>3. CAC Defensibility</strong></td>
+                <td>Blended CAC & Payback Velocity</td>
+                <td><code>CAC = Ad Spend / New Activations; Payback = CAC / (ARPU × GM)</code></td>
+                <td class="positive">CAC ≤ $22.00; Payback ≤ 35 days</td>
+                <td class="negative">CAC > $30.00; Payback > 50 days</td>
+                <td>Shareholder Letter / 10-Q (Qtr)</td>
+              </tr>
+              <tr>
+                <td><strong>3. CAC Defensibility</strong></td>
+                <td>Monthly Transacting Members & ARPU</td>
+                <td>Unique active transacting members in 30-day window; Annualized ARPU</td>
+                <td class="positive">MTMs > 3.50M; ARPU $235.00–$250.00</td>
+                <td class="negative">MTMs < 2.90M; ARPU < $200.00</td>
+                <td>Shareholder Letter / 10-Q (Qtr)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Portfolio Sizing & Conviction Protocols -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">💼 Portfolio Allocation & Sizing</span>
+            <span class="badge badge-green">2.5% – 4.0% Target Weight</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+            • <strong>Recommendation:</strong> <strong>BUY / LONG</strong> (GARP / High-Velocity FinTech Compounder).<br>
+            • <strong>Target Weight:</strong> <strong>2.5% to 4.0% of total equity portfolio assets</strong>.<br>
+            • <strong>Execution Staging:</strong> Accumulate in 3 staged tranches (40% initial position at market ~$335, 30% on pullbacks to the 50-day moving average ~$300–$315, and 30% post-earnings confirmation).
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">🛑 Mandatory Risk Stop Protocols</span>
+            <span class="badge badge-rose">De-Risk Triggers</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+            • <strong>50% Position Cut:</strong> Triggered if 28-day past-due rate breaches <strong>2.80%</strong> for two consecutive quarters (triggering VPC credit facility covenant risk).<br>
+            • <strong>CAC Stop:</strong> Cut position by 50% if Customer Acquisition Cost exceeds <strong>$30.00</strong> or payback extends past <strong>50 days</strong>.<br>
+            • <strong>Hard Exit:</strong> Immediate full exit if a federal court or Tier-1 state regulator enters an injunction recharacterizing ExtraCash express fees as usurious loans.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 6: REGULATORY & SOURCES (STAGE 1)
+         ========================================== -->
+    <section id="tab-sources" class="tab-content">
+      
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <span class="card-title">🏛️ Verified Regulatory Sources & SEC Disclosures</span>
+          <span class="badge badge-blue">CIK 0001804196</span>
+        </div>
+        
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Filing / Document</th>
+                <th>Reporting Period</th>
+                <th>Filing Date</th>
+                <th>Core SEC Disclosures & Relevance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Form 10-K (Annual Report)</strong></td>
+                <td>FY2025 (Period ended Dec 31, 2025)</td>
+                <td>March 2026</td>
+                <td>Audited GAAP Financial Statements, CashAI credit loss methodology under ASC 326, Coastal Community Bank agreement, and tight ~13.0M diluted share count.</td>
+              </tr>
+              <tr>
+                <td><strong>Form 10-Q (Quarterly Report)</strong></td>
+                <td>Q2 2026 (Period ended June 30, 2026)</td>
+                <td>Aug 5, 2026</td>
+                <td>$170.8M Revenue (+30% YoY), $75.5M Adj. EBITDA (44.2% margin), $2.3B ExtraCash originations, record $215 avg advance, and FY26 guidance raise.</td>
+              </tr>
+              <tr>
+                <td><strong>FTC / DOJ Federal Complaint</strong></td>
+                <td>Case No. 2:24-cv-09419 (C.D. Cal.)</td>
+                <td>Dec 2024 / Jan 2025</td>
+                <td>Amended complaint adding DOJ and naming CEO Jason Wilk individually under FTC Act Sections 13(b) & 19 (deceptive marketing, express fees, tipping, and ROSCA $1/mo subscriptions).</td>
+              </tr>
+              <tr>
+                <td><strong>City of Baltimore Lawsuit</strong></td>
+                <td>Circuit Court for Baltimore City</td>
+                <td>Dec 30, 2025</td>
+                <td>Lawsuit challenging ExtraCash advances as unlicensed payday loans under Maryland Consumer Loan Law (33% APR usury cap).</td>
+              </tr>
+              <tr>
+                <td><strong>Cross-FinTech Usury Framework</strong></td>
+                <td>Comparative Institutional Analysis</td>
+                <td>Sept 2026</td>
+                <td>Cross-company comparative framework (<a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #60a5fa; text-decoration: underline;">fintech-usury-tila-regulatory-exposure-2026.md</a>) evaluating True Lender exposure, TILA Reg Z finance charge risk, and downside valuation bridges across $DAVE, $SEZL, $AFRM, $SOFI, and $ML.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Verification Checksum Info -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">🔒 Document Integrity Checksums</span>
+          <span class="badge badge-green">SHA-256 Verified</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+          Verified repository document frontmatter checksum:
+        </p>
+        <code style="display: block; background: var(--bg-secondary); padding: 0.75rem; border-radius: 6px; font-size: 0.82rem; color: #4ade80; border: 1px solid var(--border-color);">
+          SHA-256: 49e4963e6308cf2611e9f1e16f3938b8ca70295da9be696c738e4695368a416b (dave-1-document-sources.md)
+        </code>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         TAB 7: COMPLETE ALL-IN-ONE DOSSIER
+         ========================================== -->
+    <section id="tab-all" class="tab-content">
+      
+      <div class="highlight-banner">
+        <h3>Complete Dave Inc. ($DAVE) Research Dossier</h3>
+        <p>This single-scroll view aggregates the entire 4-stage research suite for comprehensive analysis and offline review.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h2 style="color: #4ade80; margin-bottom: 1rem;">1. Executive Thesis & Market Opportunity</h2>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+          Dave Inc. (NASDAQ: DAVE) has achieved the rarest combination in consumer financial technology: hypergrowth (+30%+ YoY revenue in FY2026 across 9 consecutive quarters), elite profitability (44.0% Adjusted EBITDA margins; ~$17.25 Adjusted Diluted EPS), and structural capital efficiency (>35x annual working capital turnover). By providing short-term ExtraCash advances up to $500 as an ethical alternative to predatory $35 legacy bank overdraft fees, Dave captures high-frequency consumer liquidity demand.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.8;">
+          Its proprietary CashAI engine underwrites real-time cash flow rather than static bureau credit scores, maintaining an ultra-low 2.12% delinquency rate. With an extraordinary customer acquisition cost of <strong>$19.00</strong>, CAC payback of <strong>~31 days</strong>, and expanding ARPU ($222), Dave is generating >$270M in annualized free cash flow on a clean, tight share count (~13.0M diluted shares).
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h2 style="color: #60a5fa; margin-bottom: 1rem;">2. Core Financial Engine & Valuation Adjudication</h2>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+          At ~$335.00 per share ($4.35B Market Cap, $4.25B EV with +$110M net cash), Dave trades at <strong>~19.4x FY2026E Adjusted Diluted EPS of $17.25</strong> and <strong>~13.0x Adjusted EBITDA</strong>. Our multi-method valuation framework triangulates an intrinsic 2-year base target of <strong>$550.00 (+64.2% upside)</strong> based on a 22.0x multiple on FY28E Adjusted EPS of $25.00.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem;">
+        <h2 style="color: #fda4af; margin-bottom: 1rem;">3. Adversarial Risk Audit, Active Litigation & Regulatory Valuation Downside</h2>
+        <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+          While Dave screens as an elite compounder, institutional capital prices a discount due to the <strong>active FTC + DOJ federal lawsuit (Case No. 2:24-cv-09419 in C.D. Cal.)</strong> naming CEO Jason Wilk individually, and state usury challenges (City of Baltimore). If courts force fee unbundling or classify express fees as mandatory TILA finance charges, Dave faces an adverse valuation bridge:
+        </p>
+        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: 1.25rem; margin-bottom: 1rem;">
+          <li><strong>Revenue Impact:</strong> Net revenue drops -38% to $450M as take rates compress from 4.80% to ~2.80%.</li>
+          <li><strong>EBITDA Compression:</strong> Adjusted EBITDA falls -73% to $85M (margin compressed from 44% to ~19%).</li>
+          <li><strong>Multiple Contraction:</strong> P/E compresses from 19.4x down to 10.0x–12.0x subprime monoline levels.</li>
+          <li><strong>Implied Downside:</strong> <strong>$55.00 – $75.00 per share (-78% to -84% drawdown)</strong>.</li>
+        </ul>
+        <p style="font-size: 0.88rem; color: var(--text-muted);">
+          Cross-company comparison with $SEZL, $AFRM, $SOFI, and $ML is detailed in <a href="comparisons/fintech-usury-tila-regulatory-exposure-2026.md" style="color: #93c5fd; text-decoration: underline;">fintech-usury-tila-regulatory-exposure-2026.md</a>.
+        </p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container" style="padding-top: 0; padding-bottom: 0;">
+      <p>Dave Inc. ($DAVE) Institutional Equity Research & Adversarial Stress-Test Suite</p>
+      <p style="margin-top: 0.5rem; font-size: 0.78rem;">Generated for Investment Committee & Portfolio Management | Data through August 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Tab switching logic
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      
+      const targetContent = document.getElementById(tabId);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      }
+      
+      const targetBtn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+      if (targetBtn) {
+        targetBtn.classList.add('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Accordion toggle
+    function toggleAccordion(headerEl) {
+      const item = headerEl.parentElement;
+      item.classList.toggle('open');
+    }
+
+    // Interactive Scenario Switcher for Memo Tab
+    function setMemoScenario(type) {
+      const card = document.getElementById('memo-scenario-card');
+      const title = document.getElementById('memo-scenario-title');
+      const desc = document.getElementById('memo-scenario-desc');
+      const prob = document.getElementById('memo-scenario-prob');
+      
+      const btns = document.querySelectorAll('.scenario-btn');
+      btns.forEach(b => b.classList.remove('active'));
+
+      // Highlight active row in table
+      document.querySelectorAll('#row-bear, #row-base, #row-bull').forEach(r => r.classList.remove('highlight-cell'));
+
+      if (type === 'bear') {
+        btns[0].classList.add('active');
+        document.getElementById('row-bear').classList.add('highlight-cell');
+        title.innerHTML = 'Bear Case: $112.00 Target (-66.6% Downside | -42.2% 2-Yr IRR)';
+        title.style.color = '#fda4af';
+        desc.innerHTML = 'Revenue growth slows to +1.4% CAGR ($750M FY28E Rev), EBITDA margin compresses to 22.0% ($165M), and Adjusted EPS falls to $7.50 at 14.0x P/E.';
+        prob.innerHTML = '20% Probability';
+        prob.className = 'badge badge-rose';
+        card.style.background = 'rgba(244, 63, 94, 0.12)';
+        card.style.borderColor = 'rgba(244, 63, 94, 0.4)';
+      } else if (type === 'bull') {
+        btns[2].classList.add('active');
+        document.getElementById('row-bull').classList.add('highlight-cell');
+        title.innerHTML = 'Bull Case: $850.00 Target (+153.7% Upside | +59.3% 2-Yr IRR)';
+        title.style.color = '#4ade80';
+        desc.innerHTML = 'Revenue accelerates at +31.0% CAGR ($1.25B FY28E Rev), EBITDA margin expands to 48.0% ($600M), and Adjusted EPS reaches $33.00 at 26.0x P/E.';
+        prob.innerHTML = '20% Probability';
+        prob.className = 'badge badge-green';
+        card.style.background = 'rgba(16, 185, 129, 0.12)';
+        card.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+      } else {
+        btns[1].classList.add('active');
+        document.getElementById('row-base').classList.add('highlight-cell');
+        title.innerHTML = 'Base Case (Target): $550.00 Target (+64.2% Upside | +28.1% 2-Yr IRR)';
+        title.style.color = '#4ade80';
+        desc.innerHTML = '2-Year Revenue CAGR of +20.0% ($1.05B FY28E Rev), 45.0% Adjusted EBITDA margin ($472M), and Adjusted EPS of $25.00 at 22.0x P/E.';
+        prob.innerHTML = '60% Probability';
+        prob.className = 'badge badge-green';
+        card.style.background = 'rgba(0, 214, 50, 0.12)';
+        card.style.borderColor = 'var(--dave-green)';
+      }
+    }
+
+    // Client-side quick filter
+    function filterContent() {
+      const q = document.getElementById('docSearch').value.toLowerCase();
+      if (!q) {
+        document.querySelectorAll('tr, .card, p').forEach(el => el.style.opacity = '1');
+        return;
+      }
+      document.querySelectorAll('tr, .card').forEach(el => {
+        const txt = el.innerText.toLowerCase();
+        if (txt.includes(q)) {
+          el.style.opacity = '1';
+        } else {
+          el.style.opacity = '0.35';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
