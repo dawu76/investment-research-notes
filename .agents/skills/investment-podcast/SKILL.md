@@ -15,6 +15,10 @@ Before synthesizing the podcast summary, retrieve the raw transcript from the vi
 
 ### **Acquisition and Formatting**
 1. Fetch the transcript programmatically (e.g., using `youtube_transcript_api` in a temporary Python helper script).
+   * **Fallback for HTTP 429 / Bot Blocks:** If `youtube_transcript_api` or HTML scraping fails with HTTP 429 rate-limiting, use YouTube's **InnerTube API** directly:
+     - Retrieve the public API key (`INNERTUBE_API_KEY`) from `https://www.youtube.com/embed/[VIDEO_ID]`.
+     - POST to `https://www.youtube.com/youtubei/v1/next?key=[API_KEY]` with `{"videoId": "[VIDEO_ID]", "context": {"client": {"clientName": "WEB", "clientVersion": "2.20240308.00.00"}}}` to get the searchable transcript panel parameter (`getTranscriptEndpoint.params`).
+     - POST to `https://www.youtube.com/youtubei/v1/get_transcript?key=[API_KEY]` with `{"params": "[PARAMS]", "context": ...}` to retrieve timestamped cue segments (`startMs` and `text`).
 2. Format the raw transcript with timestamp prefixes for every segment: `[MM:SS] Text...` (e.g., `[14:20] The Fed is likely to raise...`).
 3. Save the formatted raw transcript to the `trading/interviews/` directory.
 4. **File Name Format:** Use lowercase, hyphenated slugs:
