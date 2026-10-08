@@ -489,7 +489,7 @@ However, the actual market reaction diverged sharply from conventional geopoliti
 Following the initial correction, the S&P 500 staged one of the most aggressive recoveries in financial history. By late June 2026, the index was trading **9% higher** than its level prior to the outbreak of the conflict.
 
 ### The Liquidity Thesis: How Liquidity Drives the S&P 500
-As analyzed by Beth Kindig ^[investing-macro/market-newsletter-digest-2026-06-24.md], this resilience highlights a core market tenet: global liquidity, rather than geopolitical headlines, dictates intermediate and long-term market trends. 
+As analyzed by Beth Kindig ^[reading-list/notes/market-newsletter-digest-2026-06-24.md], this resilience highlights a core market tenet: global liquidity, rather than geopolitical headlines, dictates intermediate and long-term market trends. 
 - **The Refinancing Engine:** In a highly financialized global economy, market risk appetite is governed by the ease and cost of refinancing existing corporate and sovereign debt.
 - **The U.S. Dollar (DXY) Squeeze:** Approximately 64% of global debt is denominated in U.S. dollars. When the dollar weakens, foreign borrowers require less local currency to service their dollar debt, freeing up capital to flow into risk assets. Conversely, a strengthening dollar index (DXY) drains global liquidity. The market shrugged off the war because underlying global liquidity flows remained stable during the initial shock.
 

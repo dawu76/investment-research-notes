@@ -4,7 +4,7 @@ created: 2026-09-01
 updated: 2026-09-01
 type: concept
 tags: [macro, infrastructure, cloud, valuation, credit, risk, thesis, framework]
-sources: [investing-macro/market-newsletter-digest-2026-08-20.md, investing-macro/market-newsletter-digest-2026-08-19.md]
+sources: [reading-list/notes/market-newsletter-digest-2026-08-20.md, reading-list/notes/market-newsletter-digest-2026-08-19.md]
 confidence: medium
 contested: true
 contradictions: [market-newsletter-digest-2026-08-20]

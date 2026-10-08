@@ -39,6 +39,7 @@ Synthesized, cross-referenced pages. These are the living knowledge layer.
 | `investing-guidelines/wealth-preservation.md` | concept | Personal wealth preservation framework |
 | `investing-macro/bond-supply-tsunami-2026.md` | concept | 2026 bond supply thesis |
 | `investing-macro/hormuz-closure-scenarios-2026.md` | concept | Geopolitical risk scenarios |
+| `reading-list/notes/market-newsletter-digest-*.md` | query | Daily newsletter digests (some with `.html` companions) |
 | `investing-options/` | concept | Options strategy notes |
 | `investing-crypto/` | entity/concept | Crypto company analyses and concepts |
 | `investing-real-estate/` | concept | Real estate strategy notes |

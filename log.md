@@ -4,6 +4,15 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-07] update | Moved newsletter digests to reading-list/notes
+
+- Moved all 50 `market-newsletter-digest-*` files (49 `.md` digests from 2026-06-02 to 2026-09-25, plus the 2026-09-25 `.html` companion) from `investing-macro/` to `reading-list/notes/` with `git mv`.
+- Wikilinks to the digests use the filename only, so the 226 `[[market-newsletter-digest-*]]` links in 38 files needed no change.
+- Updated 35 path references (frontmatter `sources:` and `^[...]` footnotes) in 11 pages: both semianalysis-research notes, hormuz-closure-scenarios-2026, ai-compute-commencement-wall-and-refinancing-trap, global-liquidity-framework, ai-inference-costs-accounting, google-marvell-broadcom-optical-20260819, the sage-road, ubp and brookings theme notes, and multifamily-credit-stress-and-rem-2026-09.
+- Updated the 2026-09-25 HTML companion's 21 links to other wiki pages and its source-path footer for the new location; links between digests are unchanged.
+- Updated: `index.md` (digest entries moved from Macro to a new Reading List / Notes section; page count unchanged at 228), `SCHEMA.md` and `CLAUDE.md` (new location noted).
+- Earlier log entries keep the old `investing-macro/` paths as written.
+
 ## [2026-10-04] create | HTML companion for the 2026-09-25 newsletter digest
 
 - Created: `investing-macro/market-newsletter-digest-2026-09-25.html` (reading version of the .md digest: ten key-reading tiles showing each figure against the prior digests, a watch-levels panel, a source-conflicts panel, a section index, all 12 themes with their text, numbers, quotes and sources kept, tables for the credit spread ladder, payroll breakeven, Muse metrics, SaaS multiples and regional datacenter capacity, and the related-page links pointed at the .md files).

@@ -11,8 +11,8 @@ sources:
   - https://www.apartments.com/grow/learning-center/supply-vacancy-outlook-2026
   - https://stockanalysis.com/etf/rem/holdings/
   - Yahoo Finance chart API (REM and holdings prices, pulled 2026-09-29)
-  - investing-macro/market-newsletter-digest-2026-09-23.md
-  - investing-macro/market-newsletter-digest-2026-09-21.md
+  - reading-list/notes/market-newsletter-digest-2026-09-23.md
+  - reading-list/notes/market-newsletter-digest-2026-09-21.md
 confidence: medium
 contested: false
 ---

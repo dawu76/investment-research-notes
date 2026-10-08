@@ -13,6 +13,7 @@ markdown research notes organized by topic, plus one real Python project.
 - `investing-quant/` — quantitative research notes
 - `investing-real-estate/` — real estate research
 - `investing-books/`, `reading-list/` — book notes
+- `reading-list/notes/` — daily market newsletter digests and their HTML companions
 - `investing-crypto/` — crypto research notes
 - `galactic-macro/` — macro framework notes
 - `personal-finance/` — personal finance notes

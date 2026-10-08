@@ -9,7 +9,7 @@ sources:
   - https://www.brookings.edu/articles/financing-the-ai-buildout/
   - investing-fundamentals/company-analyses/themes/ubp-financing-ai-build-out-2026-09.md
   - investing-fundamentals/company-analyses/themes/burry-ai-capital-cycle-oracle-jupiter-2026-09.md
-  - investing-macro/market-newsletter-digest-2026-09-24.md
+  - reading-list/notes/market-newsletter-digest-2026-09-24.md
 confidence: high
 contested: false
 ---

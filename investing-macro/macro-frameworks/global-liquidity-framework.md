@@ -4,7 +4,7 @@ created: 2026-08-18
 updated: 2026-08-18
 type: concept
 tags: [macro, liquidity, framework, concept, positioning, bonds, rates, valuation]
-sources: [investing-macro/macro-frameworks/README.md, investing-macro/market-newsletter-digest-2026-08-13.md]
+sources: [investing-macro/macro-frameworks/README.md, reading-list/notes/market-newsletter-digest-2026-08-13.md]
 confidence: high
 contested: false
 ---

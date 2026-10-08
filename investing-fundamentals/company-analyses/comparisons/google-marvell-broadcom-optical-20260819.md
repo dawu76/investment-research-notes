@@ -4,7 +4,7 @@ created: 2026-08-19
 updated: 2026-08-19
 type: comparison
 tags: [company, hardware, chips, infrastructure, cloud, valuation, risk]
-sources: [investing-macro/market-newsletter-digest-2026-08-19.md]
+sources: [reading-list/notes/market-newsletter-digest-2026-08-19.md]
 confidence: high
 contested: false
 ---

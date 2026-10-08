@@ -9,10 +9,10 @@ sources:
   - https://www.ubp.com/files/live/sites/ubp/files/documents/investment/headlines/20260916_ubp-headlines-financing-ai-build-out.pdf
   - https://www.brookings.edu/wp-content/uploads/2026/09/4c_Van-Nieuwerburgh.pdf
   - investing-fundamentals/company-analyses/themes/burry-ai-capital-cycle-oracle-jupiter-2026-09.md
-  - investing-macro/market-newsletter-digest-2026-09-19.md
-  - investing-macro/market-newsletter-digest-2026-09-22.md
-  - investing-macro/market-newsletter-digest-2026-09-23.md
-  - investing-macro/market-newsletter-digest-2026-09-24.md
+  - reading-list/notes/market-newsletter-digest-2026-09-19.md
+  - reading-list/notes/market-newsletter-digest-2026-09-22.md
+  - reading-list/notes/market-newsletter-digest-2026-09-23.md
+  - reading-list/notes/market-newsletter-digest-2026-09-24.md
 confidence: medium
 contested: false
 ---

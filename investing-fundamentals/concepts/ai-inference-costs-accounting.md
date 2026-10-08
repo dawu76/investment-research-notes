@@ -4,7 +4,7 @@ created: 2026-07-11
 updated: 2026-09-10
 type: concept
 tags: [saas, cloud, concept, valuation]
-sources: [investing-macro/market-newsletter-digest-2026-07-09.md]
+sources: [reading-list/notes/market-newsletter-digest-2026-07-09.md]
 confidence: high
 contested: false
 ---
