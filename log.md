@@ -4,6 +4,22 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-09] create | Symbotic (SYM) analysis pipeline, stages 1–3
+
+- Created: `investing-fundamentals/company-analyses/sym-1-document-sources.md` (10-Ks FY2021–FY2025 on EDGAR, FY26 10-Qs/8-Ks, Dec 2025 424B5, FY2026 proxy; May 2024 Investor Day; IR-site PDFs marked unverified because ir.symbotic.com returned 403)
+- Created: `investing-fundamentals/company-analyses/sym-2-equity-report.md`: business model, revenue quality, cost structure, capital intensity, growth drivers, moat; includes a share-count section that values SYM on all 604.9M economic shares (Class A 129.9M + Class V-1 71.4M + Class V-3 403.6M). That gives ~$26.0B equity value at ~$43 vs ~$5.6B on Class A alone. The section also covers the 89.8% Cohen-family voting control, the $484.4M TRA, and cash being matched by $1.74B of deferred revenue
+- Created: `investing-fundamentals/company-analyses/sym-3-investment-memo.md`: Hold / fully priced; FY26E ~8.8x EV/sales, ~72x EV/adj. EBITDA, ~87x P/FCF; reverse DCF needs ~32–38% revenue CAGR vs ~20% supported by backlog; probability-weighted scenario value ~$28; risks led by valuation/share count and Walmart concentration (87.0% of 9M FY26 revenue)
+- Data: SEC XBRL company facts and filings; Q3 FY26 earnings call; FY26E = 9M actuals + Q4 guidance midpoint; FY26 FCF is an estimate
+- Links: [[up-c-share-count]], [[valuations]]
+- Updated: `index.md` (Companies table; page count 232). Also corrected the Up-C entry below: its Symbotic figures are now verified against the SEC filing
+
+## [2026-10-09] create | Up-C share-count concept note
+
+- Created: `investing-fundamentals/concepts/up-c-share-count.md` (concept): how Up-C / paired-class structures (Class V or Class B voting-only shares plus exchangeable OpCo units) make data providers that count only the listed class understate market cap and EV and overstate cheapness on consolidated metrics; which metrics break; the P/E-vs-P/S "tell"; Symbotic (SYM) worked example; checklist.
+- Review edits: exchange is at the holder's option and PubCo can usually settle in cash; added TRA mechanics (85% of tax savings, liability treated as debt in EV), how to treat NCI in EV without double-counting, the size of the error (total ÷ Class A shares, 4.7x for SYM, shrinking as units are exchanged); labeled the ~$300M FY26 FCF as an estimate (9-month $242.8M plus an assumed ~$57M Q4); added the NCI cross-check (78.7% of Q3 net income vs. 78.7% of economic shares); corrected the deferred-revenue point (the cash drain is the cost of delivery, not the full balance, so free cash is above zero).
+- Verified later the same day: the Symbotic share counts, net income, NCI, cash, deferred revenue and FCF match the Q3 FY26 8-K Ex. 99.1 on sec.gov (the Nasdaq copy of the press release had timed out).
+- Updated: `index.md` (Financial Concepts; page count 229; last-updated 2026-10-09).
+
 ## [2026-10-07] lint | Fixed broken wikilinks across the wiki
 
 - Retargeted 138 wikilinks whose page exists under another name, keeping the original display text: ticker links (`afrm`, `hood`, `shop`, `ddog`, `now`, etc.) now point to `<ticker>-2-equity-report` (`crcl` to the `CRCL` hub); folder-name links (`macro-frameworks`, `carry-strategy`, `trend-following-strategy`, `solo-401k`, `rise-of-carry`, etc.) point to the folder's README by path; the TW tax research, lakewatch and cyber-saas-seat-risk index entries point to their actual files; fixed the `tm-great-` typo in a Thoughtful Money cross-reference; `treasury-market-financial-repression` now points to `treasury-financial-repression-slr-stablecoins`.

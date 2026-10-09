@@ -2,7 +2,7 @@
 
 > Content catalog. Every wiki page listed under its type with a one-line summary.
 > Read this first to find relevant pages before any query or ingest operation.
-> Last updated: 2026-10-07 | Total pages: 228
+> Last updated: 2026-10-09 | Total pages: 232
 
 ---
 
@@ -32,6 +32,7 @@
 | [[rbrk-2-equity-report\|rbrk]] | Rubrik | 1–3 | Data security and ransomware recovery platform |
 | [[sezl-2-equity-report\|sezl]] | Sezzle | 1–4 + HTML suite | Subscriber-gated BNPL, Sezzle Anywhere omnichannel virtual card, and high-velocity micro-liquidity platform (`sezl-investment-research.html`) |
 | [[shop-2-equity-report\|shop]] | Shopify | 1–5 + assessment | E-commerce platform and merchant financial services |
+| [[sym-2-equity-report\|sym]] | Symbotic | 1–3 | AI-directed warehouse robotics for retail distribution centers; Up-C share-count adjustment (Class A is 130M of 605M economic shares), Walmart concentration |
 | [[zscaler-2-equity-report\|zscaler]] | Zscaler | 1–4 | Zero-trust network access and cloud security proxy |
 
 ### Themes
@@ -78,6 +79,7 @@
 - [[valuations]] — Valuation methodology notes and market valuation reference
 - [[pvgo]] — Present Value of Growth Opportunities: price decomposition, expectations measure, and PVGO% vs. value factor (Mauboussin/Callahan, MSIM, June 2026)
 - [[funding-short-squeeze]] — Funding short mechanics, short squeeze unwind dynamics, and data-driven assessment methodology; includes June 2026 SaaS vs. semis observation
+- [[up-c-share-count]] — Up-C structures and share-count distortion: why screeners that count only listed Class A shares understate market cap/EV and make P/S, P/FCF and cash per share look cheap; EV/NCI/TRA treatment, a Symbotic (SYM) worked example (129M listed vs. 604M economic shares), the deferred-revenue cash trap, and a per-stock checklist
 
 ### Options & Volatility
 *In `investing-options/`*
