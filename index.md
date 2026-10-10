@@ -2,7 +2,7 @@
 
 > Content catalog. Every wiki page listed under its type with a one-line summary.
 > Read this first to find relevant pages before any query or ingest operation.
-> Last updated: 2026-10-09 | Total pages: 232
+> Last updated: 2026-10-09 | Total pages: 234
 
 ---
 
@@ -102,6 +102,7 @@
 
 *In `investing-macro/`*
 
+- [[sa-whos-funding-the-11-trillion-ai-buildout-20261009]] (`podcasts/`) — Podcast discussion: SemiAnalysis Weekly Ep. 037 with Daniel Nishball and Jordan Nanos on the $11.3T AI capex funding wall ($7T of debt by 2029), Nvidia's $497B of off-balance-sheet backstops (supports ~46GW of ~240GW coming), H100 rents rising back toward ~$3/hr, ~90% API gross margins, and AI debt passing auto loans
 - [[ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001]] (`podcasts/`): Podcast discussion, Alpha Exchange with Brij Khurana (Wellington) on the investment/rates decoupling thesis, wealth-effect-driven inflation, growth headwinds (tight policy plus oil shock), AI capex crowding out bonds two ways (hyperscaler issuance, rising stock-bond correlation), circular chip financing and NDFI lending, and three areas of excitement: TIPS (with a growth-slowdown caveat), Australia/NZ hiking "mistakes," and EM local bonds; no explicit US duration call (October 1, 2026)
 - [[jv-short-term-ai-fear-long-term-compute-scarcity-20260726]] (`podcasts/`) — Podcast discussion: Jordi Visser on 86% Q2 earnings beats, China's $9B state AI support, Jevons paradox in compute scarcity, Vera Rubin optical step-functions, and agentic AI memory (July 26, 2026)
 - [[wnfm-softwares-ai-reckoning-20260726]] (`podcasts/`) — Podcast discussion: What's Next for Markets with Billy Fitzsimmons on enterprise software valuation collapse, seat cannibalization vs. vibe coding threats, hyperscaler CapEx wars ($250B), and OpenAI/Anthropic IPO catalysts (July 26, 2026)
@@ -148,6 +149,7 @@
 - [[mv-theres-no-turning-back-20260618]] (`podcasts/`) — Podcast discussion: Brent Johnson on stablecoin hegemony, the imperial transition of the U.S., DXY milkshake dynamics, and agricultural fertilizer yield shocks (June 18, 2026)
 - [[mv-the-migration-is-upon-us-20260611]] (`podcasts/`) — Podcast discussion: Larry McDonald on super core CPI inflation, the $3T tech lockup overhang, and rotations into value, healthcare, and energy (June 11, 2026)
 
+- [[klement-ai-bubble-2027-forecast-20261008]] — Joachim Klement (Panmure Liberum) forecast that the AI bubble bursts in 2027–28: S&P 500 to 5,000 (~−36%) and Stoxx 600 to 430 by end-2027; argument rests on depleted hyperscaler FCF and rising debt costs; 200-day moving-average defensive trigger
 - [[bond-supply-tsunami-2026]] — 2026 thesis on structural oversupply of US Treasury issuance and market impact
 - [[hormuz-closure-scenarios-2026]] — Geopolitical risk scenarios around Strait of Hormuz closure
 - [[yen-carry-trade-unwinding-2025]] (`carry-trade-analysis/`) — Yen carry trade unwinding analysis (2025) — **1,189 lines, candidate for splitting**

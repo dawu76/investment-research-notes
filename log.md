@@ -4,6 +4,20 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-09] ingest | SemiAnalysis Weekly Ep. 037 — Who's Funding the $11 Trillion AI Buildout? (Capital Markets)
+
+- Created: `investing-macro/podcasts/sa-whos-funding-the-11-trillion-ai-buildout-20261009.md` (concept): the six questions the episode addresses; the constraint moving from memory to data centers to financing; $11.3T cumulative 2024–29 capex and ~$7T of debt by 2029 (~$1T net new in 2026, ~$400B since June 1); "balance sheet as a service" and ASC 606 off-balance-sheet treatment; Amazon/Oracle/CoreWeave spreads; the H100 rental-price reversal (~$1.30 bottom to ~$3/hr); per-GPU-hour income statement (~$38/hr revenue vs ~$2.80 TCO, ~90% API margin); Nvidia's $497B of backstops (AICP ~$3.25 floor with 50% revenue share, Ports Pike $105B residual-value guarantees, a $500B tranched partnership) and its ~46GW capacity vs ~240GW coming
+- Continuity: AICP terms moved from a $2.33–2.36 floor and 40% revenue share ([[semianalysis-research-2026-07]]) to ~$3.25 and 50%; financing view contrasted with [[klement-ai-bubble-2027-forecast-20261008]]
+- Source: YouTube auto-captions (fetched with youtube-transcript-api); some names and figures garbled and reconciled against the speakers' arithmetic, as noted on the page
+- Updated: `index.md` (Macro; page count 234)
+
+## [2026-10-09] create | Klement AI-bubble forecast note
+
+- Created: `investing-macro/klement-ai-bubble-2027-forecast-20261008.md` (query): Joachim Klement's Oct 8, 2026 Bloomberg call that the AI bubble bursts in 2027–28, with S&P 500 at 5,000 and Stoxx 600 at 430 by end-2027; his argument (depleted hyperscaler FCF, rising debt costs, weak breadth), his 200-day moving-average trigger, and a comparison with the commencement-wall framework's 2027–28 timing and ~35% Path 2 derate
+- Not verified: the Bloomberg interview itself; figures come from secondary coverage. The FTSE 8,260 target, $713B capex and $2–5T revenue figures each appear in only one or two summaries
+- Links: [[ai-compute-commencement-wall-and-refinancing-trap]], [[ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001]], [[rr-this-is-how-the-ai-bubble-actually-pops-20260724]], [[tm-greatest-stock-and-earnings-bubble-in-us-history-20260712]], [[valuations]]
+- Updated: `index.md` (Macro; page count 233)
+
 ## [2026-10-09] create | Symbotic (SYM) analysis pipeline, stages 1–3
 
 - Created: `investing-fundamentals/company-analyses/sym-1-document-sources.md` (10-Ks FY2021–FY2025 on EDGAR, FY26 10-Qs/8-Ks, Dec 2025 424B5, FY2026 proxy; May 2024 Investor Day; IR-site PDFs marked unverified because ir.symbotic.com returned 403)
