@@ -30,6 +30,7 @@
 | [[now-2-equity-report\|now]] | ServiceNow | 1–4 + assessment | Enterprise IT and business workflow automation |
 | [[panw-2-equity-report\|panw]] | Palo Alto Networks | 1–4 | Cybersecurity platform (NGFW, Prisma, Cortex XDR) |
 | [[rbrk-2-equity-report\|rbrk]] | Rubrik | 1–3 | Data security and ransomware recovery platform |
+| [[se-2-equity-report\|se]] | Sea Limited | 1–3 | Shopee (SEA/Taiwan/Brazil e-commerce), Monee (digital lending, possible IPO) and Garena (Free Fire); memo explains the October 2026 18% selloff (Sea Cloud AI launch, DBS downgrade, reinvestment fears) and what $78 assumes |
 | [[sezl-2-equity-report\|sezl]] | Sezzle | 1–4 + HTML suite | Subscriber-gated BNPL, Sezzle Anywhere omnichannel virtual card, and high-velocity micro-liquidity platform (`sezl-investment-research.html`) |
 | [[shop-2-equity-report\|shop]] | Shopify | 1–5 + assessment | E-commerce platform and merchant financial services |
 | [[sym-2-equity-report\|sym]] | Symbotic | 1–3 | AI-directed warehouse robotics for retail distribution centers; Up-C share-count adjustment (Class A is 130M of 605M economic shares), Walmart concentration |
