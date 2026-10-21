@@ -4,6 +4,17 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-21] create | Sea Limited ($SE) stage 4: bull/bear stress test
+
+- Created: `investing-fundamentals/company-analyses/se-4-stress-test.md`. Recent-developments search (no Q3 date notice yet; new 52-week low ~$76-77; Q2 adj EBITDA beat vs EPS miss; nothing new on Sea Cloud capex). Independent bull and bear reports (verbatim) and arbitrator ruling:
+  - Shopee margin trajectory: lean bear, moderate. The $1B Shopee target is ~0.62% of 2026 GMV.
+  - Fee increases sticking: lean bull, slight. Total Shopee revenue/GMV went ~12.7% → ~14.6%.
+  - Valuation floor: lean bull, moderate.
+  - KPI table and sizing: one-third starter; half after Q3 if Shopee EBITDA/GMV ≥0.68% and GMV ≥24%; full after two quarters >0.75%.
+- Arithmetic checks given to the arbitrator: a possible VAS→core reclassification behind the take-rate jump; the bear's double-counted tax cut; the bull's "$5.1B" not being the memo's full bear case.
+- Reviewer's note added after the ruling: the arbitrator's ~$92 bear-heavy value is end-2027. Discounted, it is ~$81, near the price, so assumption 3 is closer to too close to call.
+- Updated: `se-3-investment-memo.md` (stress-test summary under Bottom Line) and `index.md` (SE row now stages 1–4).
+
 ## [2026-10-21] create | Sea Limited ($SE) analysis pipeline, stages 1-3
 
 - Created: `investing-fundamentals/company-analyses/se-1-document-sources.md`. Form 20-F PDFs for FY2021-FY2025 on cdn.sea.com (all verified HTTP 200 PDF). No Investor Day exists, so it lists the Q4 2025 and Q2 2026 results decks instead. Also covers the Oct 20 6-K (CEO memo), October 2026 Form 4/144/13G filings (all insider sales under 10b5-1 plans; nothing from Tencent), the three broker reports in `reports/`, and dated news sources. The CFRA capture (`se-earnings-cfra-20260811.mhtml`) holds only the Schwab viewer shell with no report text, so it was not used.
