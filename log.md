@@ -4,6 +4,19 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-22] update | DOCN memo: October 22 sell-off (-10%) and corrections
+
+- Updated: `docn-3-investment-memo.md`. Rewrote the October 22 update, which had been written in the morning when DOCN was up ~3% ("the sell-off pauses"). New title: "the sell-off resumes on financing fears." Changes:
+  - **Price:** ~$91.23 at 3:45pm ET (-10.1%; stockanalysis.com intraday), ~17% below the Oct 15 close and ~32% below Oct 9.
+  - **Filings:** EDGAR shows no 8-K in October; the only filings are directors' Form 4s and a 13G/A.
+  - **Market backdrop (Oct 22 digest):** the 10-year above 5.2%, hike odds ~39%, Hang Seng Tech -5%, and neocloud short interest ~20-26%.
+  - **New valuation at ~$91:** EV ~$10.9B, ~9.3x 2026 revenue guidance, ~6% below the base case and ~11% below the weighted value. Scenario weights unchanged.
+  - **Corrections:**
+    - Piper Sandler upgraded on October 21, not October 15; it also cut its target from $142 to $126.
+    - Nebius's October 22 Citi facility (reported at $3.5B, SOFR +2.75-3.50%, under one year) is a separate deal from its earlier ~$775M GPU-backed facility.
+    - The Q3 date is unconfirmed: November 4 in this memo, November 3 per Bullstory; the company has not announced it.
+- Updated the HTML companion in place (section, TOC entry and header note regenerated from the markdown); `check_html.py` passes.
+
 ## [2026-10-22] update | AKAM: what a breach of the revolver leverage covenant triggers
 
 - Checked the 2022 credit agreement and all five convertible indentures on EDGAR, replacing the memo's "not verified" note:
