@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DigitalOcean Equity Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a bond-desk morning sheet. Key readings strip up top (now vs. prior), then a sticky section index beside one reading column. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf3;
+  --line: #d3dae4;
+  --ink: #18212e;
+  --ink-dim: #556377;
+  --accent: #1f4e79;
+  --accent-soft: #e1eaf4;
+  --up: #a8361f;
+  --up-soft: #f7e4df;
+  --hold: #2e6a4d;
+  --hold-soft: #e0efe6;
+  --flag: #8a5a00;
+  --flag-soft: #f6ecd6;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-neg: #e34948;
+  --grid: #dfe4eb;
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+    --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+    --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+    --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+  --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+  --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+  --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16.5px; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); line-height: 1.6; overflow-wrap: break-word;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 0 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-data); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+
+/* Header */
+header.top { padding-block: 2.2rem 1.4rem; display: grid; gap: .6rem; }
+header.top h1 { font-family: var(--f-display); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; }
+.dek { max-width: 46rem; margin: 0; color: var(--ink-dim); font-size: 1.05rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; color: var(--ink-dim); }
+.meta span { font-family: var(--f-data); }
+
+/* Key readings */
+.readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-block: .4rem 1.6rem; }
+@media (min-width: 48rem) { .readings { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .75rem .8rem .8rem; display: grid; gap: .3rem; align-content: start; border-top: 3px solid var(--line); min-width: 0; }
+.tile.up { border-top-color: var(--up); }
+.tile.hold { border-top-color: var(--hold); }
+.tile.flat { border-top-color: var(--flag); }
+.tile .label { font-size: .78rem; color: var(--ink-dim); line-height: 1.3; }
+.tile .val { font-family: var(--f-data); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.tile .path { font-family: var(--f-data); font-size: .74rem; color: var(--ink-dim); line-height: 1.4; }
+.tile .state { justify-self: start; font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .4rem; border-radius: 3px; }
+.tile.up .state { background: var(--up-soft); color: var(--up); }
+.tile.hold .state { background: var(--hold-soft); color: var(--hold); }
+.tile.flat .state { background: var(--flag-soft); color: var(--flag); }
+
+/* Two panels: watch + conflicts */
+.panels { display: grid; gap: 1rem; margin-bottom: 2rem; }
+@media (min-width: 56rem) { .panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 .6rem; font-family: var(--f-body); font-weight: 600; }
+.panel.conflicts { background: var(--flag-soft); border-color: transparent; }
+.panel.conflicts h2 { color: var(--flag); }
+.watch { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.watch li { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.watch .lvl { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+.panel ul.plain { margin: 0; padding-left: 1.1rem; font-size: .9rem; display: grid; gap: .35rem; }
+
+/* Body layout */
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 62rem) { .layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+nav.toc { min-width: 0; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; }
+nav.toc a { display: block; text-decoration: none; color: var(--ink-dim); font-size: .85rem; white-space: nowrap; padding: .3rem .6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .n { font-family: var(--f-data); color: var(--accent); margin-right: .35rem; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1rem); align-self: start; }
+  nav.toc ol { flex-direction: column; overflow: visible; gap: .1rem; }
+  nav.toc a { white-space: normal; background: transparent; border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .3rem .7rem; line-height: 1.35; }
+  nav.toc a:hover { border-left-color: var(--accent); }
+}
+
+main { min-width: 0; max-width: 48rem; display: grid; gap: 2.6rem; }
+section.theme { min-width: 0; }
+section.theme h2 { font-family: var(--f-display); font-size: 1.45rem; margin: .2rem 0 .7rem; }
+.takeaway { margin: 0 0 1rem; padding: .7rem .9rem; background: var(--accent-soft); border-radius: 4px; font-size: .97rem; }
+/* Points: headline + gist visible, full note on expand */
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+details.pt { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.pt[open] { border-color: var(--accent); }
+details.pt > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: .5rem; row-gap: .15rem; padding: .65rem .85rem; }
+details.pt > summary::-webkit-details-marker { display: none; }
+details.pt > summary::before { content: ""; grid-row: 1 / span 2; margin-top: .45rem; width: .45rem; height: .45rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; }
+details.pt[open] > summary::before { transform: rotate(45deg); margin-top: .3rem; }
+@media (prefers-reduced-motion: reduce) { details.pt > summary::before { transition: none; } }
+details.pt > summary:hover .hd { color: var(--accent); }
+.hd { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.gist { grid-column: 2; color: var(--ink-dim); font-size: .9rem; line-height: 1.45; }
+.detail { padding: .2rem 1rem 1rem 2.45rem; display: grid; gap: .6rem; font-size: .95rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.detail p { margin: 0; max-width: 42rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.detail ul ul { margin-top: .4rem; }
+.detail li::marker { color: var(--ink-dim); }
+.detail blockquote { margin: 0; }
+@media (max-width: 30rem) { .detail { padding-left: 1rem; } }
+.chip { display: inline-block; font-family: var(--f-data); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 3px; margin-right: .4rem; vertical-align: .1em; }
+.chip.why { background: var(--accent-soft); color: var(--accent); }
+.chip.cont { background: var(--surface-2); color: var(--ink-dim); }
+li.aside { font-size: .88rem; color: var(--ink-dim); padding: .2rem .85rem; }
+
+/* Bottom line */
+.bottomline { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; margin-bottom: 1.2rem; }
+.bottomline h2 { font-size: 1rem; margin: 0 0 .6rem; font-weight: 600; }
+.bottomline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+@media (min-width: 56rem) { .bottomline ol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.6rem; } }
+.bottomline li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem; font-size: .9rem; line-height: 1.45; }
+.bottomline a { font-family: var(--f-data); font-size: .74rem; text-decoration: none; padding-top: .12rem; }
+
+/* Expand controls */
+.tools { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.tools button { font: 500 .78rem var(--f-body); color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .3rem .6rem; cursor: pointer; }
+.tools button:hover { border-color: var(--accent); }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Charts: horizontal bars, one baseline, values at the bar tip */
+.keyviz { margin: 0 0 1rem; }
+.vizpair { display: grid; gap: 1rem; }
+@media (min-width: 46rem) { .vizpair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+figure.viz { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .8rem .9rem .7rem; min-width: 0; }
+.detail figure.viz { background: transparent; border: 0; padding: .2rem 0; }
+figure.viz figcaption { display: grid; gap: .1rem; margin-bottom: .6rem; }
+.vt { font-weight: 600; font-size: .92rem; }
+.vs { font-size: .78rem; color: var(--ink-dim); }
+.vlegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-dim); margin-bottom: .5rem; }
+.vlegend span { display: inline-flex; align-items: center; gap: .35rem; }
+.sw { width: .7rem; height: .7rem; border-radius: 2px; display: inline-block; }
+.sw.s1 { background: var(--viz-1); } .sw.s2 { background: var(--viz-2); }
+.hbars { display: grid; grid-template-columns: minmax(5.5rem, 9rem) minmax(0, 1fr); column-gap: .7rem; row-gap: .35rem; align-items: center; }
+.blab { font-size: .8rem; color: var(--ink-dim); text-align: right; line-height: 1.2; }
+.track { position: relative; height: 22px; border-radius: 3px; outline: none; grid-column: 2; z-index: 1; }
+.track:hover, .track:focus-visible { background: var(--surface-2); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.bar { position: absolute; top: 4px; height: 14px; border-radius: 0 4px 4px 0; }
+.bar.neg { border-radius: 4px 0 0 4px; }
+.bar.s1 { background: var(--viz-1); } .bar.s2 { background: var(--viz-2); } .bar.sn { background: var(--viz-neg); }
+.bval { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--f-data); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; background: var(--surface); padding: 0 3px; border-radius: 2px; z-index: 1; }
+.track:hover .bval, .track:focus-visible .bval { background: var(--surface-2); }
+.refs { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .5; }
+.refl { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .45; }
+.refhead { grid-column: 2; position: relative; height: 1.1rem; }
+.reflab { position: absolute; transform: translateX(calc(-100% + .3rem)); line-height: 1.1rem; font-family: var(--f-data); font-size: .68rem; color: var(--ink-dim); white-space: nowrap; }
+.vnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-dim); }
+#viztip { position: fixed; z-index: 10; max-width: 18rem; padding: .4rem .55rem; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: .78rem; line-height: 1.35; pointer-events: none; }
+.panel.conflicts { grid-column: 1 / -1; }
+.panel.conflicts table { min-width: 36rem; }
+.panel.conflicts td, .panel.conflicts th { border-bottom-color: color-mix(in srgb, var(--flag) 25%, transparent); }
+details.conf > summary { cursor: pointer; font-weight: 600; color: var(--flag); }
+details.conf[open] > summary { margin-bottom: .6rem; }
+blockquote { margin: .5rem 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font-style: italic; color: var(--ink-dim); }
+.conflict { background: var(--flag-soft); color: var(--ink); padding: 0 .25rem; border-radius: 3px; }
+.conflict-tag { font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); margin-right: .3rem; }
+.xref { font-family: var(--f-data); font-size: .82rem; background: var(--surface-2); padding: .05rem .35rem; border-radius: 3px; text-decoration: none; color: var(--accent); }
+.sources { margin-top: 1rem; font-size: .84rem; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: .6rem; }
+.sources b { font-family: var(--f-data); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; margin-right: .4rem; }
+
+.tablewrap { overflow-x: auto; margin: .6rem 0; }
+table { border-collapse: collapse; font-size: .88rem; min-width: 30rem; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-data); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+.links { display: grid; gap: .5rem; padding-left: 1.1rem; margin: 0; font-size: .92rem; }
+footer { margin-top: 3rem; font-size: .82rem; color: var(--ink-dim); }
+</style>
+<style>
+ul.bul, ol.bul { margin: 0 0 1rem; padding-left: 1.2rem; display: grid; gap: .55rem; font-size: .96rem; max-width: 46rem; }
+ul.bul ul { margin-top: .4rem; display: grid; gap: .35rem; }
+section.theme > p { max-width: 46rem; }
+section.theme h3 { font-size: 1.05rem; margin: 1.4rem 0 .5rem; }
+table.cmp td:first-child { font-weight: 500; }
+.tablewrap table.cmp { min-width: 36rem; }
+code { font-family: var(--f-data); font-size: .85em; background: var(--surface-2); padding: .05rem .3rem; border-radius: 3px; }
+.verdict { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--up); border-radius: 6px; padding: .9rem 1.1rem; margin: 0 0 1.6rem; max-width: 60rem; }
+.verdict h2 { font-size: 1rem; margin: 0 0 .4rem; }
+.verdict p { margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Equity report · DigitalOcean Holdings · October 15, 2026</div>
+  <h1>DigitalOcean Holdings ($DOCN): Equity Report</h1>
+  <p class="dek"><strong>Price:</strong> $104.29 (intraday October 15, 2026; the close was $109.47, and the stock was ~$97.38 intraday October 16 after a sector sell-off; see <a class="xref" href="docn-3-investment-memo.md">docn-3-investment-memo</a>). <strong>Market cap:</strong> ~$12.3B on 117.6M shares outstanding (126.5M diluted, Q3 guide). <strong>52-week range:</strong> $37.84-$187.50. <strong>Next report:</strong> Q3 2026 on November 4, 2026.</p><p class="dek"><strong>Data basis:</strong> FY2025 results (Q4 release, February 2026), the Q2 2026 release and 10-Q (August 2026), the July 2026 financing filings and the September 2026 equipment-finance 8-K. Sources: <a class="xref" href="docn-1-document-sources.md">docn-1-document-sources</a>.</p><p class="dek"><strong>Updated October 15, 2026</strong> with two Morgan Stanley reports in <code>reports/</code> (Sanjit Singh, Ryan Lountzis, Adam Wood; Overweight, $175 target): "2Q26 Results: Larger Commitments + More Capacity Fuel a Multiyear Acceleration Story" (August 4, 2026; stock $127.17) and "Open Intelligence Summit: Building The AI Native Cloud" (October 14, 2026, written before that day's -14.8% move; stock $128.21). Figures attributed to "MS" come from those reports; MS model figures come from its August model exhibits.</p>
+</header>
+<div class="readings" style="grid-template-columns:repeat(auto-fit,minmax(11rem,1fr))"><div class="tile flat"><span class="label">Price</span><span class="val">$104.29</span><span class="path">44% below the $187.50 May high</span><span class="state">Oct 15</span></div><div class="tile hold"><span class="label">Q2 2026 revenue</span><span class="val">$281.2M</span><span class="path">+29%; FY guide +30-31%</span><span class="state">Accelerating</span></div><div class="tile hold"><span class="label">AI customer ARR</span><span class="val">$234M</span><span class="path">+212%; 85% non-bare-metal</span><span class="state">Growing</span></div><div class="tile up"><span class="label">Gross margin</span><span class="val">55.0%</span><span class="path">59.9% a year earlier</span><span class="state">Falling</span></div><div class="tile up"><span class="label">Top 25 customers</span><span class="val">~20%</span><span class="path">of revenue, from 9%</span><span class="state">Concentrating</span></div></div>
+
+<div class="layout">
+<nav class="toc" aria-label="Sections"><ol><li><a href="#executive-summary">Executive Summary</a></li><li><a href="#what-they-sell-and-who-buys">What They Sell and Who Buys</a></li><li><a href="#how-they-make-money">How They Make Money</a></li><li><a href="#revenue-quality">Revenue Quality</a></li><li><a href="#cost-structure">Cost Structure</a></li><li><a href="#capital-intensity">Capital Intensity</a></li><li><a href="#growth-drivers">Growth Drivers</a></li><li><a href="#competitive-edge">Competitive Edge</a></li><li><a href="#related">Related</a></li></ol></nav>
+<main>
+<section class="theme" id="executive-summary"><h2>Executive Summary</h2><p>DigitalOcean rents cloud computing to developers, startups and smaller software companies: virtual servers ("Droplets"), managed Kubernetes, databases, storage and app hosting, and now GPU capacity and AI inference services. Revenue is usage-based and billed monthly, from over 680,000 customers. Until 2025 it was a steady business: FY2025 revenue of $901.4M grew 15%, with a 60% gross margin, 42% adjusted EBITDA margin and 19% adjusted free cash flow margin.</p>
+<p>In 2026 it became an AI-capacity growth story. Revenue growth roughly doubled to 29% in Q2 (guided 30-31% for the year and 50%+ for 2027), AI customer ARR tripled to $234M, and remaining performance obligations rose 12x to $894M on its first nine-figure annual commitments. To serve that demand it has committed to ~155 MW of data-center capacity, $2.76B of not-yet-commenced data-center leases, and a $725M-$1.025B equipment-leasing facility, and it raised ~$888M of equity in March. The economics are shifting: gross margin fell from 59.9% to 55.0% year over year, free cash flow guidance was cut from 15-17% to 11-13% of revenue, and the top 25 customers went from 9% to 20% of revenue.</p>
+<p><strong>In plain English:</strong> a profitable developer cloud that is turning itself into a leveraged AI-inference landlord, and the stock is priced as if that works.</p></section>
+<section class="theme" id="what-they-sell-and-who-buys"><h2>What They Sell and Who Buys</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="AI customer ARR: share from non-bare-metal services"><figcaption><span class="vt">AI customer ARR: share from non-bare-metal services</span><span class="vs">Percent of AI customer ARR</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Q2 2025</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Q2 2025" aria-label="Q2 2025: 43%"><span class="bar s1" style="left:0.00%;width:35.26%"></span><span class="bval" style="left:calc(35.26% + 6px)">43%</span></div><span class="blab" style="grid-row:2">Q3 2025</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Q3 2025" aria-label="Q3 2025: 68%"><span class="bar s1" style="left:0.00%;width:55.76%"></span><span class="bval" style="left:calc(55.76% + 6px)">68%</span></div><span class="blab" style="grid-row:3">Q4 2025</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Q4 2025" aria-label="Q4 2025: 70%"><span class="bar s1" style="left:0.00%;width:57.40%"></span><span class="bval" style="left:calc(57.40% + 6px)">70%</span></div><span class="blab" style="grid-row:4">Q1 2026</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Q1 2026" aria-label="Q1 2026: 81%"><span class="bar s1" style="left:0.00%;width:66.42%"></span><span class="bval" style="left:calc(66.42% + 6px)">81%</span></div><span class="blab" style="grid-row:5">Q2 2026</span><div class="track" style="grid-row:5" tabindex="0" data-tip="Q2 2026" aria-label="Q2 2026: 85%"><span class="bar s1" style="left:0.00%;width:69.70%"></span><span class="bval" style="left:calc(69.70% + 6px)">85%</span></div><div class="refs" style="grid-row:1 / span 5"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="AI ARR growth by type, Q2 2026"><figcaption><span class="vt">AI ARR growth by type, Q2 2026</span><span class="vs">Percent, year over year (MS, company data)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Inference services</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Inference services ARR +762%" aria-label="Inference services: +762%"><span class="bar s1" style="left:25.90%;width:50.29%"></span><span class="bval" style="left:calc(76.19% + 6px)">+762%</span></div><span class="blab" style="grid-row:2">AI customers' core cloud</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Core cloud ARR from AI customers +158%" aria-label="AI customers&#x27; core cloud: +158%"><span class="bar s1" style="left:25.90%;width:10.43%"></span><span class="bval" style="left:calc(36.33% + 6px)">+158%</span></div><span class="blab" style="grid-row:3">Bare-metal GPU</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Bare-metal GPU ARR -20%" aria-label="Bare-metal GPU: -20%"><span class="bar sn neg" style="left:24.58%;width:1.32%"></span><span class="bval" style="right:calc(75.42% + 6px)">-20%</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:25.90%"></span></div></div></figure></div></div><ul class="bul"><li><strong>Core cloud (~79% of ARR):</strong> Droplets (virtual machines), App Platform, managed Kubernetes and databases, object storage (Spaces), networking, and Cloudways managed hosting. Buyers are developers, startups and "digital native enterprises" (DNE customers, spending over $500 a month): about <strong>22,000 DNE customers producing 67% of Q2 2026 revenue</strong>, up from 59%. The need is simple, predictable cloud infrastructure without hyperscaler complexity or pricing.</li><li><strong>AI (~21% of ARR, $234M AI customer ARR, +212%):</strong> GPU Droplets and bare-metal GPUs (from the 2023 Paperspace acquisition), and increasingly managed AI services: the Inference Engine (6,000+ customers since launch), serverless inference, and Managed Agents (public preview, October 2026). Management says <strong>85% of AI customer ARR comes from non-bare-metal services</strong> and over 70% from inference, and about 70% of AI customers with $100K+ ARR also buy core cloud. Buyers are "AI-native" companies building products on open models that want cheaper, simpler inference than the hyperscalers or GPU-only neoclouds.<ul><li><strong>AI ARR mix shift (MS, company data):</strong> the non-bare-metal share of AI customer ARR went <strong>43% (Q2 2025) → 68% → 70% → 81% → 85% (Q2 2026)</strong>. Year over year in Q2 2026, inference services ARR grew <strong>762%</strong>, AI customers' core-cloud ARR <strong>158%</strong>, and bare-metal GPU ARR <strong>fell 20%</strong>. Incremental AI ARR was a record <strong>$64M</strong> in the quarter (+190%).</li><li><strong>Open Intelligence Summit (October 13, 2026, via MS):</strong> token volume on the platform grew <strong>50x from April to September</strong>, and <strong>open-weight models reached 88% of token usage, up from 27% in May</strong>. New products: Managed Agents and Agent Droplets (late September/early October; DigitalOcean runs dedicated microVMs, customers bring their own agent harness; &gt;85 models supported), Agent Data Services (private preview), Agent Learning Services, and Signals and Simulations (public preview). MS: "monetization remains earlier innings."</li></ul></li><li><strong>Geography and footprint:</strong> global customer base; capacity being added in new U.S. data centers (Richmond and Kansas City launched in 2026; Memphis due 2H 2026), totaling about 155 MW committed, most online by end-2027.</li></ul></section>
+<section class="theme" id="how-they-make-money"><h2>How They Make Money</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="ARR by type, Q2 2026"><figcaption><span class="vt">ARR by type, Q2 2026</span><span class="vs">$ millions</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Core cloud</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Total ARR $1,125M less AI customer ARR" aria-label="Core cloud: ~$891M"><span class="bar s1" style="left:0.00%;width:73.06%"></span><span class="bval" style="left:calc(73.06% + 6px)">~$891M</span></div><span class="blab" style="grid-row:2">AI customers</span><div class="track" style="grid-row:2" tabindex="0" data-tip="AI customer ARR" aria-label="AI customers: $234M"><span class="bar s1" style="left:0.00%;width:19.19%"></span><span class="bval" style="left:calc(19.19% + 6px)">$234M</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="ARR growth by type"><figcaption><span class="vt">ARR growth by type</span><span class="vs">Percent, year over year</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Core cloud</span><div class="track" style="grid-row:1" tabindex="0" data-tip="From ~$800M a year earlier" aria-label="Core cloud: ~+11%"><span class="bar s1" style="left:0.00%;width:3.76%"></span><span class="bval" style="left:calc(3.76% + 6px)">~+11%</span></div><span class="blab" style="grid-row:2">AI customers</span><div class="track" style="grid-row:2" tabindex="0" data-tip="From $75M a year earlier" aria-label="AI customers: +212%"><span class="bar s1" style="left:0.00%;width:72.43%"></span><span class="bval" style="left:calc(72.43% + 6px)">+212%</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div><ul class="bul"><li><strong>Model:</strong> usage-based subscription (pay-as-you-go, billed monthly), plus a growing layer of multi-year committed contracts with large AI customers. ARR was $1,125M at Q2 2026 (+29%).</li><li><strong>Mix:</strong> core cloud ARR ~$891M (this report's arithmetic: total ARR less AI ARR), up ~11% from ~$800M a year earlier; AI customer ARR $234M (+212%). Revenue by customer size: $100K+ customers are 35% of Q2 revenue (+98% growth), $500K+ 26% (+160%) and $1M+ 23% (+214%).</li><li><strong>2026 guidance:</strong> revenue $1.170-1.180B (+30-31%), with Q4 growth of 35% or more; adjusted EBITDA margin 38.5-39.5%; adjusted FCF margin 11-13%; non-GAAP EPS $1.35-1.40 on ~122-123M diluted shares. Management is "even more confident" in 50%+ growth in 2027 but has not formally guided.</li></ul></section>
+<section class="theme" id="revenue-quality"><h2>Revenue Quality</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Remaining performance obligations"><figcaption><span class="vt">Remaining performance obligations</span><span class="vs">$ millions</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Q2 2025</span><div class="track" style="grid-row:1" tabindex="0" data-tip="RPO a year earlier" aria-label="Q2 2025: $71M"><span class="bar s1" style="left:0.00%;width:5.82%"></span><span class="bval" style="left:calc(5.82% + 6px)">$71M</span></div><span class="blab" style="grid-row:2">Year-end 2025</span><div class="track" style="grid-row:2" tabindex="0" data-tip="RPO at Dec 31, 2025" aria-label="Year-end 2025: $134M"><span class="bar s1" style="left:0.00%;width:10.99%"></span><span class="bval" style="left:calc(10.99% + 6px)">$134M</span></div><span class="blab" style="grid-row:3">Q2 2026</span><div class="track" style="grid-row:3" tabindex="0" data-tip="RPO at June 30, 2026; $366M within 12 months" aria-label="Q2 2026: $894M"><span class="bar s1" style="left:0.00%;width:73.31%"></span><span class="bval" style="left:calc(73.31% + 6px)">$894M</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Top 25 customers as a share of revenue"><figcaption><span class="vt">Top 25 customers as a share of revenue</span><span class="vs">Percent</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Q2 2025</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Top 25 share a year earlier" aria-label="Q2 2025: 9%"><span class="bar s1" style="left:0.00%;width:29.52%"></span><span class="bval" style="left:calc(29.52% + 6px)">9%</span></div><span class="blab" style="grid-row:2">Q2 2026</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Top 25 share, Q2 2026" aria-label="Q2 2026: ~20%"><span class="bar s1" style="left:0.00%;width:65.60%"></span><span class="bval" style="left:calc(65.60% + 6px)">~20%</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div><ul class="bul"><li><strong>The legacy base is recurring but not contracted:</strong> most customers pay monthly with no commitment. Net dollar retention was 102% in Q2 2026 (a three-year high, up from 99% in Q4 2024), and management says it will stop highlighting NDR because growth now depends on its largest AI customers.</li><li><strong>Contracted revenue is new and concentrated:</strong> RPO was <strong>$894M at June 30, 2026, versus $71M a year earlier</strong> and $134M at year-end 2025. $366M is expected within 12 months, and the weighted-average life is 3.7 years. The jump came from "multiple nine-figure annual customer commitments" with unnamed AI-native customers. One nine-figure annual commitment is at least ~8.5% of 2026 revenue (this report's arithmetic: $100M ÷ $1.175B).</li><li><strong>Concentration is rising fast:</strong> the top 25 customers were about <strong>20% of Q2 2026 revenue versus 9% a year earlier</strong>, and management expects that to "rise modestly" as large deals ramp. The 10-Q still says there is "no material customer concentration," and no customer exceeds 10% of revenue or receivables.</li><li><strong>AI demand quality:</strong> management stresses that most AI revenue is managed inference rather than raw GPU rental. Inference revenue still depends on a small number of AI-native customers whose own funding and model choices can shift quickly. GPU list prices on several fleets rose ~30% in 2026, but management called the Q2 pricing effect "modest."</li></ul></section>
+<section class="theme" id="cost-structure"><h2>Cost Structure</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Non-GAAP gross margin (MS model)"><figcaption><span class="vt">Non-GAAP gross margin (MS model)</span><span class="vs">Percent</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">FY2025</span><div class="track" style="grid-row:1" tabindex="0" data-tip="FY2025 actual" aria-label="FY2025: 61.8%"><span class="bar s1" style="left:0.00%;width:72.39%"></span><span class="bval" style="left:calc(72.39% + 6px)">61.8%</span></div><span class="blab" style="grid-row:2">FY2026e</span><div class="track" style="grid-row:2" tabindex="0" data-tip="MS 2026 estimate" aria-label="FY2026e: 54.3%"><span class="bar s1" style="left:0.00%;width:63.61%"></span><span class="bval" style="left:calc(63.61% + 6px)">54.3%</span></div><span class="blab" style="grid-row:3">Q3 2026e</span><div class="track" style="grid-row:3" tabindex="0" data-tip="MS trough quarter" aria-label="Q3 2026e: 51.4%"><span class="bar s1" style="left:0.00%;width:60.21%"></span><span class="bval" style="left:calc(60.21% + 6px)">51.4%</span></div><span class="blab" style="grid-row:4">Q4 2026e</span><div class="track" style="grid-row:4" tabindex="0" data-tip="MS estimate" aria-label="Q4 2026e: 52.0%"><span class="bar s1" style="left:0.00%;width:60.91%"></span><span class="bval" style="left:calc(60.91% + 6px)">52.0%</span></div><span class="blab" style="grid-row:5">2027e</span><div class="track" style="grid-row:5" tabindex="0" data-tip="MS estimate" aria-label="2027e: 54.3%"><span class="bar s1" style="left:0.00%;width:63.61%"></span><span class="bval" style="left:calc(63.61% + 6px)">54.3%</span></div><span class="blab" style="grid-row:6">2028e</span><div class="track" style="grid-row:6" tabindex="0" data-tip="MS estimate" aria-label="2028e: 54.7%"><span class="bar s1" style="left:0.00%;width:64.08%"></span><span class="bval" style="left:calc(64.08% + 6px)">54.7%</span></div><div class="refs" style="grid-row:1 / span 6"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Depreciation (MS model)"><figcaption><span class="vt">Depreciation (MS model)</span><span class="vs">$ millions</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">FY2025</span><div class="track" style="grid-row:1" tabindex="0" data-tip="FY2025" aria-label="FY2025: $137.4M"><span class="bar s1" style="left:0.00%;width:20.12%"></span><span class="bval" style="left:calc(20.12% + 6px)">$137.4M</span></div><span class="blab" style="grid-row:2">2026e</span><div class="track" style="grid-row:2" tabindex="0" data-tip="MS estimate" aria-label="2026e: $241.0M"><span class="bar s1" style="left:0.00%;width:35.29%"></span><span class="bval" style="left:calc(35.29% + 6px)">$241.0M</span></div><span class="blab" style="grid-row:3">2027e</span><div class="track" style="grid-row:3" tabindex="0" data-tip="MS estimate" aria-label="2027e: $356.1M"><span class="bar s1" style="left:0.00%;width:52.14%"></span><span class="bval" style="left:calc(52.14% + 6px)">$356.1M</span></div><span class="blab" style="grid-row:4">2028e</span><div class="track" style="grid-row:4" tabindex="0" data-tip="MS estimate" aria-label="2028e: $493.6M"><span class="bar s1" style="left:0.00%;width:72.28%"></span><span class="bval" style="left:calc(72.28% + 6px)">$493.6M</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div><div class="tablewrap"><table class="cmp"><thead><tr><th>Metric</th><th>FY2024</th><th>FY2025</th><th>Q2 2025</th><th>Q2 2026</th></tr></thead><tbody><tr><td>Revenue</td><td>$780.6M</td><td>$901.4M (+15%)</td><td>$218M (approx.)</td><td>$281.2M (+29%)</td></tr><tr><td>GAAP gross margin</td><td>~60%</td><td>60%</td><td>59.9%</td><td>55.0%</td></tr><tr><td>Adjusted EBITDA margin</td><td>42%</td><td>42%</td><td>not given</td><td>40%</td></tr><tr><td>Adjusted operating margin</td><td>not given</td><td>not given</td><td>28%</td><td>24%</td></tr><tr><td>GAAP operating margin</td><td>12% (approx.)</td><td>17% (approx.)</td><td>not given</td><td>10%</td></tr></tbody></table></div>
+<ul class="bul"><li><strong>Main costs:</strong> data-center rent and power, depreciation of servers and GPUs, bandwidth, people, and stock-based compensation (Q2 2026: $32.7M, 11.6% of revenue). Depreciation of property and equipment rose to <strong>$42.2M in Q2 2026 from $25.6M</strong> as new capacity entered service, which is the main reason gross margin fell about 5 points.</li><li><strong>GAAP vs. adjusted:</strong> FY2025 GAAP EPS of $2.52 included a $0.66 tax-valuation-allowance release and a $0.30 gain on retiring 2026 notes, so it overstates underlying earnings; non-GAAP EPS was $2.12. In 2026 non-GAAP EPS guidance is $1.35-1.40, lower than FY2025's $2.12, because of new-capacity costs and more shares.</li><li><strong>Where MS sees margins going (non-GAAP gross margin):</strong> 61.8% (FY2025) → <strong>54.3% (FY2026)</strong>, with <strong>51.4% in Q3 and 52.0% in Q4 2026</strong>, then 54.3% (2027) and 54.7% (2028). Depreciation in the MS model rises from $137.4M (FY2025) to <strong>$241.0M (2026), $356.1M (2027) and $493.6M (2028)</strong>. Non-GAAP operating margin falls from 28.6% (FY2025) to 19.3% (2026) and only recovers to 20.9% by 2028.</li><li><strong>Scalability:</strong> the core cloud has scale economics (software-defined services on owned and leased infrastructure). AI capacity is less scalable: every new megawatt needs leased space, power and GPU/CPU equipment, so margins depend on utilization and contract pricing.</li></ul></section>
+<section class="theme" id="capital-intensity"><h2>Capital Intensity</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Free cash flow: MS model vs. after lease principal"><figcaption><span class="vt">Free cash flow: MS model vs. after lease principal</span><span class="vs">$ millions</span></figcaption><div class="vlegend"><span><i class="sw s2"></i>MS model</span><span><i class="sw s1"></i>After lease principal</span></div><div class="hbars"><span class="blab" style="grid-row:1">2027 MS</span><div class="track" style="grid-row:1" tabindex="0" data-tip="MS free cash flow 2027" aria-label="2027 MS: $325.0M"><span class="bar s2" style="left:0.00%;width:49.35%"></span><span class="bval" style="left:calc(49.35% + 6px)">$325.0M</span></div><span class="blab" style="grid-row:2">2027 owner</span><div class="track" style="grid-row:2" tabindex="0" data-tip="After ~$209M/yr of MUFG lease principal (this report)" aria-label="2027 owner: ~$116M"><span class="bar s1" style="left:0.00%;width:17.61%"></span><span class="bval" style="left:calc(17.61% + 6px)">~$116M</span></div><span class="blab" style="grid-row:3">2028 MS</span><div class="track" style="grid-row:3" tabindex="0" data-tip="MS free cash flow 2028" aria-label="2028 MS: $474.0M"><span class="bar s2" style="left:0.00%;width:71.98%"></span><span class="bval" style="left:calc(71.98% + 6px)">$474.0M</span></div><span class="blab" style="grid-row:4">2028 owner</span><div class="track" style="grid-row:4" tabindex="0" data-tip="After ~$209M/yr of MUFG lease principal (this report)" aria-label="2028 owner: ~$265M"><span class="bar s1" style="left:0.00%;width:40.24%"></span><span class="bval" style="left:calc(40.24% + 6px)">~$265M</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Lease and financing commitments"><figcaption><span class="vt">Lease and financing commitments</span><span class="vs">$ billions</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Uncommenced data-center leases</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Undiscounted, commencing July 2026-June 2028, 11.2-yr avg" aria-label="Uncommenced data-center leases: $2.76B"><span class="bar s1" style="left:0.00%;width:73.01%"></span><span class="bval" style="left:calc(73.01% + 6px)">$2.76B</span></div><span class="blab" style="grid-row:2">MUFG facility (intended)</span><div class="track" style="grid-row:2" tabindex="0" data-tip="$725M plus $300M accordion" aria-label="MUFG facility (intended): $1.025B"><span class="bar s1" style="left:0.00%;width:27.11%"></span><span class="bval" style="left:calc(27.11% + 6px)">$1.025B</span></div><span class="blab" style="grid-row:3">Finance leases on balance sheet</span><div class="track" style="grid-row:3" tabindex="0" data-tip="June 30, 2026" aria-label="Finance leases on balance sheet: $577.7M"><span class="bar s1" style="left:0.00%;width:15.28%"></span><span class="bval" style="left:calc(15.28% + 6px)">$577.7M</span></div><span class="blab" style="grid-row:4">Uncommenced finance-lease equipment</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Commenced July 2026" aria-label="Uncommenced finance-lease equipment: $281.6M"><span class="bar s1" style="left:0.00%;width:7.45%"></span><span class="bval" style="left:calc(7.45% + 6px)">$281.6M</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div><div class="keyviz"><figure class="viz" role="group" aria-label="Committed data-center capacity"><figcaption><span class="vt">Committed data-center capacity</span><span class="vs">MW</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Additions</span><span><i class="sw s2"></i>Total</span></div><div class="hbars"><span class="blab" style="grid-row:1">Entering 2026</span><div class="track" style="grid-row:1" tabindex="0" data-tip="31 MW online in 2026" aria-label="Entering 2026: 76 MW"><span class="bar s1" style="left:0.00%;width:35.61%"></span><span class="bval" style="left:calc(35.61% + 6px)">76 MW</span></div><span class="blab" style="grid-row:2">Added on Q1 call</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Ramping through 2027" aria-label="Added on Q1 call: 60 MW"><span class="bar s1" style="left:0.00%;width:28.11%"></span><span class="bval" style="left:calc(28.11% + 6px)">60 MW</span></div><span class="blab" style="grid-row:3">Added in Q2</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Late 2027 into early 2028" aria-label="Added in Q2: 20 MW"><span class="bar s1" style="left:0.00%;width:9.37%"></span><span class="bval" style="left:calc(9.37% + 6px)">20 MW</span></div><span class="blab" style="grid-row:4">Total committed</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Most online by end-2027" aria-label="Total committed: ~155 MW"><span class="bar s2" style="left:0.00%;width:72.63%"></span><span class="bval" style="left:calc(72.63% + 6px)">~155 MW</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure></div><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>FY2024</th><th>FY2025</th><th>H1 2026</th><th>2026 guide</th></tr></thead><tbody><tr><td>Operating cash flow</td><td>$282.7M (36%)</td><td>$309.6M (34%)</td><td>$156.9M</td><td>not guided</td></tr><tr><td>Cash capex (P&amp;E + software)</td><td>$186.6M</td><td>$139.9M</td><td>$93.4M</td><td>not guided</td></tr><tr><td>Equipment acquired under financing (off the cash capex line)</td><td>not given</td><td>not given</td><td>$51.5M</td><td>rising (MUFG facility)</td></tr><tr><td>Adjusted FCF</td><td>$134.7M (17%)</td><td>$168.0M (19%)</td><td>$62.8M (12%)</td><td>11-13% of revenue (initial guide 15-17%)</td></tr></tbody></table></div>
+<ul class="bul"><li><strong>How the buildout is funded:</strong> mostly through leases rather than cash capex. That keeps "adjusted FCF" positive but moves the cost into lease and financing obligations.<ul><li><strong>Not-yet-commenced data-center operating leases: $2.76B undiscounted</strong>, commencing July 2026 through June 2028, average term 11.2 years. Spread evenly, that is about $246M a year, ~21% of 2026 guided revenue (this report's arithmetic).</li><li><strong>Finance leases and equipment financing:</strong> $577.7M on the balance sheet at June 30, 2026 (at 6-7% rates), plus $281.6M of finance-lease equipment not yet commenced.</li><li><strong>$725M MUFG equipment finance facility</strong> (September 2026, maturing 2030), expandable to $1.025B, which management intends to use in full, for GPUs, CPUs and other equipment, accounted for as finance leases.</li></ul></li><li><strong>Debt and liquidity (June 30, 2026):</strong> cash $767.0M. 2026 convertible notes $312.3M (0%, conversion price ~$178.51, due <strong>December 1, 2026</strong>, so cash repayment). 2030 convertible notes $153.2M after the July repurchase (0%, conversion price $39.17, so they are deep in the money and will likely convert into ~3.9M shares). Revolver $412.5M, undrawn. The $500M term loan was repaid in March. Management cites pro forma net leverage of ~0.7x against a 4x ceiling it has articulated.</li><li><strong>Equity issuance:</strong> March 2026 follow-on of 11.95M shares at $77.00 (net $887.9M), mainly to repay the term loan. In July, 12.54M shares at $117.54 (~$1.47B) funded the repurchase of $471.8M of 2030 notes. Those notes were convertible into ~12.0M shares, so the swap added only ~0.5M net shares, which the company intends to buy back. Diluted shares still rise from 105.3M (FY2025) to ~126.5M (Q3 2026 guide), about 20%.</li><li><strong>Returns:</strong> stockanalysis.com puts ROIC at ~7.9% and interest coverage at ~3.8x (including lease interest).</li><li><strong>Capacity build-up (MS):</strong> DigitalOcean entered 2026 with <strong>76 MW</strong> committed (31 MW coming online in 2026: 6 MW in Q2, the rest in 2H), added <strong>60 MW</strong> on the Q1 call (ramping through 2027) and <strong>20 MW</strong> in Q2 (late 2027 into early 2028), for ~155 MW. It is ahead of schedule on three 2026 sites (Richmond Q1, Kansas City Q2, Memphis 2H).</li><li><strong>How MS models the cash (and what it leaves out):</strong> MS forecasts free cash flow of <strong>$141.3M (12.0%) in 2026, $325.0M (18.3%) in 2027 and $474.0M (19.6%) in 2028</strong>, on cash capex of only <strong>$182.2M, $273.2M and $371.4M</strong>. Its model holds long-term finance-lease and equipment-financing liabilities flat at <strong>$447.9M through 2028</strong> and long-term debt at $921.1M. The August model predates the September MUFG facility, which the company intends to use in full ($1.025B). If that is drawn and amortized over the ~4.9-year lease terms the 10-Q reports, principal repayments run roughly <strong>$209M a year</strong> (this report's arithmetic). Owner free cash flow would then be closer to <strong>~$116M in 2027 and ~$265M in 2028</strong> than MS's $325M and $474M.</li></ul></section>
+<section class="theme" id="growth-drivers"><h2>Growth Drivers</h2><ol class="bul"><li><strong>AI inference and managed AI services (structural, concentration-heavy):</strong> AI ARR +212%, inference services up ~800% year over year, Inference Engine adoption by 6,000+ customers, Managed Agents launched. Larger multi-year commitments (nine-figure annual) are the main contributor to RPO.</li><li><strong>Capacity coming online (timing-driven):</strong> ~155 MW committed, most online by end-2027; Memphis in 2H 2026; 20 MW more for late 2027-2028. Management says a data center takes about a year from lease signing to revenue, so 2027 growth depends on sites already signed opening on time.</li><li><strong>Core cloud (structural, steady):</strong> core ARR growing ~11%, NDR at a three-year high (102%), and AI customers attaching core cloud services. This is the part of the business that funded the old model.</li><li><strong>Pricing:</strong> GPU list prices rose ~30% on several fleets in 2026, a cyclical tailwind while compute is scarce.</li></ol></section>
+<section class="theme" id="competitive-edge"><h2>Competitive Edge</h2><ul class="bul"><li><strong>What protects the core:</strong> simplicity and price for developers and small businesses, a large self-serve customer base (680,000+), and switching costs that rise as customers use more managed services. Evidence: stable 60% gross margin and ~42% adjusted EBITDA margin through 2025, NDR recovering to 102%.</li><li><strong>What protects AI:</strong> less clear. Management argues DigitalOcean sells a full stack (inference engine, agents, orchestration, core cloud) rather than rented GPUs, unlike neoclouds that "rely on GPU rentals" and inference providers "stacking margins on rented GPUs." That is plausible for small and mid-size AI companies. For large AI-native customers signing nine-figure commitments, the purchase decision is closer to price per unit of capacity, where CoreWeave, Nebius, Lambda, the hyperscalers and Akamai (see <a class="xref" href="akam-2-equity-report.md">akam-2-equity-report</a>) compete with far larger balance sheets.</li><li><strong>The sell-side view (MS):</strong> DigitalOcean's AI strategy "from day one" targeted agentic and inference workloads, and "platform breadth and depth provide support in a highly fragmented landscape." MS's own listed downside risks are competition, the AI supply/demand balance, and "higher capital intensity weighs on cash flow and margins." The open-weight shift (88% of tokens) cuts both ways: it is DigitalOcean's chosen market, and also the most price-competitive segment of inference, because any provider can serve the same open models.</li><li><strong>Financial evidence of moat durability:</strong> mixed. Margins are falling as AI scales (gross 59.9% → 55.0%; adjusted operating 28% → 24%), returns on capital are modest (~8% ROIC), and the share count has risen ~20% in a year. Growth is strong and contracted RPO is real, but the returns on the new capacity are not yet visible.</li></ul></section>
+<section class="theme" id="related"><h2>Related</h2><ul class="bul"><li><a class="xref" href="docn-1-document-sources.md">docn-1-document-sources</a> and <a class="xref" href="docn-3-investment-memo.md">docn-3-investment-memo</a></li><li><a class="xref" href="akam-2-equity-report.md">akam-2-equity-report</a> and <a class="xref" href="akam-3-investment-memo.md">akam-3-investment-memo</a>: Akamai's similar pivot from edge services to leased AI compute capacity.</li><li><a class="xref" href="../../investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md">ai-compute-commencement-wall-and-refinancing-trap</a>: framework for lease-funded AI capacity built ahead of revenue.</li><li><a class="xref" href="themes/ai-capex-financing-risk-semianalysis-2026-10.md">ai-capex-financing-risk-semianalysis-2026-10</a>: how AI compute buildouts are financed.</li></ul></section>
+</main>
+</div>
+<footer>HTML version of <span class="num">investing-fundamentals/company-analyses/docn-2-equity-report.md</span>; the markdown file is the source of record. Not investment advice.</footer>
+</div>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.id = 'viztip'; tip.hidden = true; document.body.appendChild(tip);
+  function show(el, x, y) {
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var r = tip.getBoundingClientRect(), left = Math.min(x + 12, window.innerWidth - r.width - 8), top = y - r.height - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (top < 8 ? y + 16 : top) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', function () { tip.hidden = true; });
+    el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+    el.addEventListener('blur', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+})();
+</script>
+</body>
+</html>

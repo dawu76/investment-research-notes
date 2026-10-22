@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Homebuilders PHM TOL LEN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a bond-desk morning sheet. Key readings strip up top (now vs. prior), then a sticky section index beside one reading column. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf3;
+  --line: #d3dae4;
+  --ink: #18212e;
+  --ink-dim: #556377;
+  --accent: #1f4e79;
+  --accent-soft: #e1eaf4;
+  --up: #a8361f;
+  --up-soft: #f7e4df;
+  --hold: #2e6a4d;
+  --hold-soft: #e0efe6;
+  --flag: #8a5a00;
+  --flag-soft: #f6ecd6;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-neg: #e34948;
+  --grid: #dfe4eb;
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+    --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+    --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+    --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+  --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+  --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+  --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16.5px; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); line-height: 1.6; overflow-wrap: break-word;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 0 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-data); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+
+/* Header */
+header.top { padding-block: 2.2rem 1.4rem; display: grid; gap: .6rem; }
+header.top h1 { font-family: var(--f-display); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; }
+.dek { max-width: 46rem; margin: 0; color: var(--ink-dim); font-size: 1.05rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; color: var(--ink-dim); }
+.meta span { font-family: var(--f-data); }
+
+/* Key readings */
+.readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-block: .4rem 1.6rem; }
+@media (min-width: 48rem) { .readings { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .75rem .8rem .8rem; display: grid; gap: .3rem; align-content: start; border-top: 3px solid var(--line); min-width: 0; }
+.tile.up { border-top-color: var(--up); }
+.tile.hold { border-top-color: var(--hold); }
+.tile.flat { border-top-color: var(--flag); }
+.tile .label { font-size: .78rem; color: var(--ink-dim); line-height: 1.3; }
+.tile .val { font-family: var(--f-data); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.tile .path { font-family: var(--f-data); font-size: .74rem; color: var(--ink-dim); line-height: 1.4; }
+.tile .state { justify-self: start; font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .4rem; border-radius: 3px; }
+.tile.up .state { background: var(--up-soft); color: var(--up); }
+.tile.hold .state { background: var(--hold-soft); color: var(--hold); }
+.tile.flat .state { background: var(--flag-soft); color: var(--flag); }
+
+/* Two panels: watch + conflicts */
+.panels { display: grid; gap: 1rem; margin-bottom: 2rem; }
+@media (min-width: 56rem) { .panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 .6rem; font-family: var(--f-body); font-weight: 600; }
+.panel.conflicts { background: var(--flag-soft); border-color: transparent; }
+.panel.conflicts h2 { color: var(--flag); }
+.watch { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.watch li { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.watch .lvl { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+.panel ul.plain { margin: 0; padding-left: 1.1rem; font-size: .9rem; display: grid; gap: .35rem; }
+
+/* Body layout */
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 62rem) { .layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+nav.toc { min-width: 0; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; }
+nav.toc a { display: block; text-decoration: none; color: var(--ink-dim); font-size: .85rem; white-space: nowrap; padding: .3rem .6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .n { font-family: var(--f-data); color: var(--accent); margin-right: .35rem; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1rem); align-self: start; }
+  nav.toc ol { flex-direction: column; overflow: visible; gap: .1rem; }
+  nav.toc a { white-space: normal; background: transparent; border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .3rem .7rem; line-height: 1.35; }
+  nav.toc a:hover { border-left-color: var(--accent); }
+}
+
+main { min-width: 0; max-width: 48rem; display: grid; gap: 2.6rem; }
+section.theme { min-width: 0; }
+section.theme h2 { font-family: var(--f-display); font-size: 1.45rem; margin: .2rem 0 .7rem; }
+.takeaway { margin: 0 0 1rem; padding: .7rem .9rem; background: var(--accent-soft); border-radius: 4px; font-size: .97rem; }
+/* Points: headline + gist visible, full note on expand */
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+details.pt { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.pt[open] { border-color: var(--accent); }
+details.pt > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: .5rem; row-gap: .15rem; padding: .65rem .85rem; }
+details.pt > summary::-webkit-details-marker { display: none; }
+details.pt > summary::before { content: ""; grid-row: 1 / span 2; margin-top: .45rem; width: .45rem; height: .45rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; }
+details.pt[open] > summary::before { transform: rotate(45deg); margin-top: .3rem; }
+@media (prefers-reduced-motion: reduce) { details.pt > summary::before { transition: none; } }
+details.pt > summary:hover .hd { color: var(--accent); }
+.hd { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.gist { grid-column: 2; color: var(--ink-dim); font-size: .9rem; line-height: 1.45; }
+.detail { padding: .2rem 1rem 1rem 2.45rem; display: grid; gap: .6rem; font-size: .95rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.detail p { margin: 0; max-width: 42rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.detail ul ul { margin-top: .4rem; }
+.detail li::marker { color: var(--ink-dim); }
+.detail blockquote { margin: 0; }
+@media (max-width: 30rem) { .detail { padding-left: 1rem; } }
+.chip { display: inline-block; font-family: var(--f-data); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 3px; margin-right: .4rem; vertical-align: .1em; }
+.chip.why { background: var(--accent-soft); color: var(--accent); }
+.chip.cont { background: var(--surface-2); color: var(--ink-dim); }
+li.aside { font-size: .88rem; color: var(--ink-dim); padding: .2rem .85rem; }
+
+/* Bottom line */
+.bottomline { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; margin-bottom: 1.2rem; }
+.bottomline h2 { font-size: 1rem; margin: 0 0 .6rem; font-weight: 600; }
+.bottomline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+@media (min-width: 56rem) { .bottomline ol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.6rem; } }
+.bottomline li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem; font-size: .9rem; line-height: 1.45; }
+.bottomline a { font-family: var(--f-data); font-size: .74rem; text-decoration: none; padding-top: .12rem; }
+
+/* Expand controls */
+.tools { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.tools button { font: 500 .78rem var(--f-body); color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .3rem .6rem; cursor: pointer; }
+.tools button:hover { border-color: var(--accent); }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Charts: horizontal bars, one baseline, values at the bar tip */
+.keyviz { margin: 0 0 1rem; }
+.vizpair { display: grid; gap: 1rem; }
+@media (min-width: 46rem) { .vizpair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+figure.viz { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .8rem .9rem .7rem; min-width: 0; }
+.detail figure.viz { background: transparent; border: 0; padding: .2rem 0; }
+figure.viz figcaption { display: grid; gap: .1rem; margin-bottom: .6rem; }
+.vt { font-weight: 600; font-size: .92rem; }
+.vs { font-size: .78rem; color: var(--ink-dim); }
+.vlegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-dim); margin-bottom: .5rem; }
+.vlegend span { display: inline-flex; align-items: center; gap: .35rem; }
+.sw { width: .7rem; height: .7rem; border-radius: 2px; display: inline-block; }
+.sw.s1 { background: var(--viz-1); } .sw.s2 { background: var(--viz-2); }
+.hbars { display: grid; grid-template-columns: minmax(5.5rem, 9rem) minmax(0, 1fr); column-gap: .7rem; row-gap: .35rem; align-items: center; }
+.blab { font-size: .8rem; color: var(--ink-dim); text-align: right; line-height: 1.2; }
+.track { position: relative; height: 22px; border-radius: 3px; outline: none; grid-column: 2; z-index: 1; }
+.track:hover, .track:focus-visible { background: var(--surface-2); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.bar { position: absolute; top: 4px; height: 14px; border-radius: 0 4px 4px 0; }
+.bar.neg { border-radius: 4px 0 0 4px; }
+.bar.s1 { background: var(--viz-1); } .bar.s2 { background: var(--viz-2); } .bar.sn { background: var(--viz-neg); }
+.bval { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--f-data); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; background: var(--surface); padding: 0 3px; border-radius: 2px; z-index: 1; }
+.track:hover .bval, .track:focus-visible .bval { background: var(--surface-2); }
+.refs { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .5; }
+.refl { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .45; }
+.refhead { grid-column: 2; position: relative; height: 1.1rem; }
+.reflab { position: absolute; transform: translateX(calc(-100% + .3rem)); line-height: 1.1rem; font-family: var(--f-data); font-size: .68rem; color: var(--ink-dim); white-space: nowrap; }
+.vnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-dim); }
+#viztip { position: fixed; z-index: 10; max-width: 18rem; padding: .4rem .55rem; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: .78rem; line-height: 1.35; pointer-events: none; }
+.panel.conflicts { grid-column: 1 / -1; }
+.panel.conflicts table { min-width: 36rem; }
+.panel.conflicts td, .panel.conflicts th { border-bottom-color: color-mix(in srgb, var(--flag) 25%, transparent); }
+details.conf > summary { cursor: pointer; font-weight: 600; color: var(--flag); }
+details.conf[open] > summary { margin-bottom: .6rem; }
+blockquote { margin: .5rem 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font-style: italic; color: var(--ink-dim); }
+.conflict { background: var(--flag-soft); color: var(--ink); padding: 0 .25rem; border-radius: 3px; }
+.conflict-tag { font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); margin-right: .3rem; }
+.xref { font-family: var(--f-data); font-size: .82rem; background: var(--surface-2); padding: .05rem .35rem; border-radius: 3px; text-decoration: none; color: var(--accent); }
+.sources { margin-top: 1rem; font-size: .84rem; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: .6rem; }
+.sources b { font-family: var(--f-data); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; margin-right: .4rem; }
+
+.tablewrap { overflow-x: auto; margin: .6rem 0; }
+table { border-collapse: collapse; font-size: .88rem; min-width: 30rem; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-data); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+.links { display: grid; gap: .5rem; padding-left: 1.1rem; margin: 0; font-size: .92rem; }
+footer { margin-top: 3rem; font-size: .82rem; color: var(--ink-dim); }
+.bottomline li { grid-template-columns: minmax(0, 1fr); }
+section.theme h3 { font-size: 1.05rem; margin: 1.2rem 0 .5rem; }
+section.theme > p { margin: .5rem 0; max-width: 46rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Comparison · October 20, 2026</div>
+  <h1>Homebuilders at the Bottom of the Cycle: $PHM vs. $TOL vs. $LEN, plus $OC</h1>
+  <p class="dek" style="font-size:.9rem"><strong>Prices:</strong> PHM ~$112 and TOL ~$134 on October 7 (Barron's); LEN ~$76 and PHM ~$111 around October 19 (Morningstar quotes via search, approximate). OC ~$114 (Barron's).</p><p class="dek" style="font-size:.9rem"><strong>Latest reported quarters:</strong> PHM June 2026 (Q3 due late October); LEN August 2026 (fiscal Q4 due December); TOL fiscal Q3 (July 2026).</p><p class="dek" style="font-size:.9rem"><strong>Built from</strong> the three articles in <span class="num">sources</span>, the two earnings releases, and the rates data in <a class="xref" href="../../../reading-list/notes/market-newsletter-digest-2026-09-26.md">market-newsletter-digest-2026-09-26</a> and <a class="xref" href="../../../reading-list/notes/market-newsletter-digest-2026-09-27.md">market-newsletter-digest-2026-09-27</a>. Ratios marked "this page" are new arithmetic.</p>
+  <div class="meta"><span>PHM · TOL · LEN · OC</span><span>Source note: phm-vs-tol-vs-len-homebuilders-20261020.md</span></div>
+</header>
+
+<section class="bottomline" aria-label="Bottom line"><h2>Bottom line</h2><ol>
+<li><span><strong>Not yet for the group.</strong> Even the analyst with Outperforms on PHM and TOL (Stephen Kim, Evercore ISI) says "I don't think this is the right time to buy this group," and may change his view "in the next six months or so." The October NAHB data deteriorated after his interview.</span></li>
+<li><span><strong>PHM is the builder to accumulate early,</strong> but as a multiple re-rating on flat-to-lower earnings, not an earnings-growth story. Size it for a 2027 EPS decline.</span></li>
+<li><span><strong>LEN: hold or avoid on a 12-month view.</strong> The floor at tangible book (~$78, Evercore) is near the price, so downside is limited, but there is no catalyst and land-option financing adds a margin headwind specific to Lennar.</span></li>
+<li><span><strong>Balance sheets (§6):</strong> PHM (net debt ~3% of capital, nothing due before 2031) and TOL (15.6%, ~$3.3B liquidity) are insulated from debt problems in a longer slump. LEN is solvent but burning cash while paying out $1.36B and has $7.33B of land deposits at risk. OC is the most levered (2.4x net debt/EBITDA, ~$1.0B due within 12 months against $271M cash).</span></li>
+<li><span><strong>ETFs (§7):</strong> ITB is the concentrated bet (~70% new-home construction, half in five builders, D.R. Horton 18%) and the right vehicle for the AI-capex hedge. XHB is only ~37% builders, with ~23% in commercial and data-center building systems and ~14% in home-goods retail, so it hedges less and adds AI exposure.</span></li>
+<li><span><strong>OC is the cleanest risk/reward in the set:</strong> earnings are depressed by weather, not the housing cycle. Evercore's $185 target is ~62% above ~$114 (this page).</span></li>
+</ol></section>
+
+<div class="eyebrow" style="margin-bottom:.5rem">Key readings</div>
+<div class="readings">
+<div class="tile up"><span class="label">NAHB Housing Market Index</span><span class="val">29</span><span class="path">30 (Apr 2020) → 32 expected → 29, lowest since June 2012</span><span class="state">Falling</span></div>
+<div class="tile up"><span class="label">Builders cutting prices</span><span class="val">43%</span><span class="path">Highest since 2020; average cut 6% for a 7th month</span><span class="state">Rising</span></div>
+<div class="tile up"><span class="label">30-year mortgage (Freddie Mac)</span><span class="val">7.40%</span><span class="path">5.98 (Jan) → 6.66 (end Aug) → 7.40</span><span class="state">Rising</span></div>
+<div class="tile up"><span class="label">XHB / SPY</span><span class="val">0.1206</span><span class="path">~0.218 (Sep 2024 peak) → 0.1206 (Oct 14), lowest since April 2020</span><span class="state">Pandemic low</span></div>
+<div class="tile hold"><span class="label">PHM net debt / capital</span><span class="val">3.3%</span><span class="path">No notes due before March 2031; ~$2.7B liquidity</span><span class="state">Insulated</span></div>
+<div class="tile hold"><span class="label">TOL net debt / capital</span><span class="val">15.6%</span><span class="path">15.3 (FYE 2025) → 15.4 (FQ2) → 15.6; ~$3.3B liquidity</span><span class="state">Insulated</span></div>
+<div class="tile up"><span class="label">LEN operating cash flow (9 mo.)</span><span class="val">-$822M</span><span class="path">vs. $1.36B of buybacks + dividends; cash $3.44B → $1.15B</span><span class="state">Eroding</span></div>
+<div class="tile up"><span class="label">LEN land deposits</span><span class="val">$7.33B</span><span class="path">About a third of equity; $224M written off in nine months</span><span class="state">At risk</span></div>
+<div class="tile flat"><span class="label">OC net debt / adj. EBITDA</span><span class="val">2.4x</span><span class="path">Inside its target range; tangible equity negative</span><span class="state">Levered</span></div>
+<div class="tile flat"><span class="label">ITB in new-home construction</span><span class="val">~70%</span><span class="path">Half in five builders; D.R. Horton 18.0%; effective ~14 stocks</span><span class="state">Concentrated</span></div>
+<div class="tile flat"><span class="label">XHB in data-center / commercial systems</span><span class="val">~23%</span><span class="path">Builders only ~37%; ~14% home-goods retail; effective ~32 stocks</span><span class="state">Diversified</span></div>
+<div class="tile up"><span class="label">OC debt due within 12 months</span><span class="val">~$1.0B</span><span class="path">$937M current long-term + $65M short-term vs. $271M cash</span><span class="state">Refinance</span></div>
+</div>
+
+<div class="panels">
+  <div class="panel"><h2>Dates and levels to watch</h2><ul class="watch">
+<li><span class="lvl">Oct 27-28</span><span>FOMC: ~70% odds of another hike; the 10-year is near 5.2%.</span></li>
+<li><span class="lvl">Late Oct</span><span>PulteGroup Q3: does the 25% margin hold, and do orders keep growing?</span></li>
+<li><span class="lvl">Dec</span><span>Lennar FQ4: guided margin 15.5-16.0%; watch deposit write-offs and buyback pace.</span></li>
+<li><span class="lvl">6.5%</span><span>Kim&#x27;s mortgage-rate threshold for demand to improve materially.</span></li>
+<li><span class="lvl">43% → ?</span><span>NAHB price-cut share falling back, and incentive use below 60%.</span></li>
+<li><span class="lvl">Winter starts</span><span>Builders cutting production into spring 2027 (lean inventory is the catalyst).</span></li>
+<li><span class="lvl">OC maturities</span><span>Refinancing ~$1.0B due within 12 months in a 5%+ 10-year market.</span></li>
+  </ul></div>
+  <div class="panel conflicts"><details class="conf"><summary>Data conflicts and estimates (4)</summary><ul class="plain"><li><strong>LEN year to date:</strong> about -25% (Kim) vs. about -26% (Barron's, October 19). Different dates.</li><li><strong>Mortgage rate:</strong> 7.28% (Kim, interview in September and early October) vs. 7.40% (Freddie Mac, latest week) vs. ~7.5% (Pantheon). Different dates and series; same direction.</li><li><strong>LEN vs. book:</strong> Kim says Lennar trades "around book value" (tangible basis, $78 target); reported equity per share (~$91) gives ~0.85x. Different measures.</li><li><strong>PHM book value</strong> (~$69) is this page's estimate from weighted shares, not a reported figure.</li></ul></details></div>
+</div>
+
+<div class="layout">
+<nav class="toc" aria-label="Sections">
+  <div class="tools"><button type="button" id="expand-all">Expand all</button><button type="button" id="collapse-all">Collapse all</button></div>
+  <ol><li><a href="#1-the-industry-backdrop-october-2026"><span class="n">1</span>Backdrop</a></li><li><a href="#2-company-comparison"><span class="n">2</span>Companies</a></li><li><a href="#3-owens-corning-the-weather-trade"><span class="n">3</span>Owens Corning</a></li><li><a href="#4-catalysts-and-what-would-make-the-grou"><span class="n">4</span>Catalysts</a></li><li><a href="#5-homebuilders-as-an-ai-capex-hedge"><span class="n">5</span>AI-capex hedge</a></li><li><a href="#6-balance-sheets-who-is-insulated-from-d"><span class="n">6</span>Balance sheets</a></li><li><a href="#7-etf-vehicles-itb-vs-xhb"><span class="n">7</span>ITB vs. XHB</a></li><li><a href="#8-risks"><span class="n">8</span>Risks</a></li><li><a href="#related"><span class="n">+</span>Related pages</a></li></ol>
+</nav>
+<main>
+<p class="eyebrow" style="margin:0">Tap a point to read the full note</p>
+<section class="theme" id="1-the-industry-backdrop-october-2026">
+<div class="eyebrow">Section 1</div>
+<h2>The industry backdrop (October 2026)</h2>
+<p class="takeaway">Builder sentiment is at a 14-year low (HMI 29) and 43% of builders cut prices in October, the most since 2020, as the 30-year mortgage rose to 7.40%. Stocks already trade at pandemic-era relative lows (XHB/SPY 0.1206).</p>
+<div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="NAHB Housing Market Index, October"><figcaption><span class="vt">NAHB Housing Market Index, October</span><span class="vs">Index and components (50 = neutral)</span></figcaption><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:74.55%;top:0.0rem">Neutral 50 &#9662;</span></div><span class="blab" style="grid-row:2">HMI</span><div class="track" style="grid-row:2" tabindex="0" data-tip="HMI 29, lowest since June 2012; below April 2020 (30) and the 32 consensus" aria-label="HMI: 29"><span class="bar s1" style="left:0.00%;width:43.24%"></span><span class="bval" style="left:calc(43.24% + 6px)">29</span></div><span class="blab" style="grid-row:3">Current sales</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Current sales conditions 33 (-2)" aria-label="Current sales: 33"><span class="bar s1" style="left:0.00%;width:49.20%"></span><span class="bval" style="left:calc(49.20% + 6px)">33</span></div><span class="blab" style="grid-row:4">Next 6 months</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Sales expectations 32 (-5)" aria-label="Next 6 months: 32"><span class="bar s1" style="left:0.00%;width:47.71%"></span><span class="bval" style="left:calc(47.71% + 6px)">32</span></div><span class="blab" style="grid-row:5">Buyer traffic</span><div class="track" style="grid-row:5" tabindex="0" data-tip="Prospective buyer traffic 18 (-5)" aria-label="Buyer traffic: 18"><span class="bar s1" style="left:0.00%;width:26.84%"></span><span class="bval" style="left:calc(26.84% + 6px)">18</span></div><div class="refs" style="grid-row:2 / span 4"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:74.55%"></span></div></div></figure><figure class="viz" role="group" aria-label="30-year mortgage rate"><figcaption><span class="vt">30-year mortgage rate</span><span class="vs">Percent</span></figcaption><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:66.62%;top:0.0rem">Kim's 6.5% threshold &#9662;</span></div><span class="blab" style="grid-row:2">Start of 2026</span><div class="track" style="grid-row:2" tabindex="0" data-tip="5.98% at the start of the year (Kim)" aria-label="Start of 2026: 5.98%"><span class="bar s1" style="left:0.00%;width:61.30%"></span><span class="bval" style="left:calc(61.30% + 6px)">5.98%</span></div><span class="blab" style="grid-row:3">End of August</span><div class="track" style="grid-row:3" tabindex="0" data-tip="6.66% at the end of August (Freddie Mac)" aria-label="End of August: 6.66%"><span class="bar s1" style="left:0.00%;width:68.27%"></span><span class="bval" style="left:calc(68.27% + 6px)">6.66%</span></div><span class="blab" style="grid-row:4">Latest week</span><div class="track" style="grid-row:4" tabindex="0" data-tip="7.40% in the latest week (Freddie Mac); Pantheon ~7.5%" aria-label="Latest week: 7.40%"><span class="bar s2" style="left:0.00%;width:75.85%"></span><span class="bval" style="left:calc(75.85% + 6px)">7.40%</span></div><div class="refs" style="grid-row:2 / span 3"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:66.62%"></span></div></div><p class="vnote">Kim needs rates below about 6.5% for demand to improve materially.</p></figure></div></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Builder sentiment at a 14-year low.</span><span class="gist">NAHB/Wells Fargo HMI fell 3 points to 29 in October, below April 2020 (30) and the 32 consensus; lowest since June 2012. Current sales 33 (-2),...</span></summary><div class="detail"><p><strong>Builder sentiment at a 14-year low.</strong></p><p>NAHB/Wells Fargo HMI fell 3 points to <strong>29</strong> in October, below April 2020 (30) and the 32 consensus; lowest since June 2012. Current sales 33 (-2), six-month expectations 32 (-5), buyer traffic <strong>18</strong> (-5).</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Price cuts and incentives.</span><span class="gist">43% of builders cut prices in October, the highest share since NAHB began regular tracking in 2020; average cut 6% for a seventh straight month.</span></summary><div class="detail"><p><strong>Price cuts and incentives.</strong></p><p><strong>43%</strong> of builders cut prices in October, the highest share since NAHB began regular tracking in 2020; average cut <strong>6%</strong> for a seventh straight month. <strong>65%</strong> used incentives, the 19th straight month above 60%.</p><p>More than a third reported immigration-enforcement activity causing construction delays.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Mortgage rates.</span><span class="gist">Freddie Mac 30-year 7.40% in the latest week, from 6.66% at the end of August; Pantheon puts the typical rate near 7.5%, from ~6.6% in early July.</span></summary><div class="detail"><p><strong>Mortgage rates.</strong></p><p>Freddie Mac 30-year <strong>7.40%</strong> in the latest week, from <strong>6.66%</strong> at the end of August; Pantheon puts the typical rate near <strong>7.5%</strong>, from ~6.6% in early July. Kim quoted <strong>7.28%</strong>, from <strong>5.98%</strong> at the start of the year (an earlier reading).</p><p>The 10-year is near 5.2% and the market prices ~70% odds of an October 27-28 Fed hike (<a class="xref" href="../../../reading-list/notes/market-newsletter-digest-2026-09-26.md">market-newsletter-digest-2026-09-26</a>).</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Affordability.</span><span class="gist">Oxford Economics: a median-income household earns less than three-quarters of what it needs to afford a median-priced home, and this year&#x27;s rate...</span></summary><div class="detail"><p><strong>Affordability.</strong></p><p>Oxford Economics: a median-income household earns less than three-quarters of what it needs to afford a median-priced home, and this year's rate rise priced out another <strong>5 million</strong> households. No meaningful improvement expected until around end-2027.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Margin expectations.</span><span class="gist">Evercore&#x27;s Q3 investor survey (October 14): operating margins expected 112bp lower in a year, gross margins 74bp lower.</span></summary><div class="detail"><p><strong>Margin expectations.</strong></p><p>Evercore's Q3 investor survey (October 14): operating margins expected <strong>112bp</strong> lower in a year, gross margins <strong>74bp</strong> lower. The fear is impairments.</p><p>Kim: "We still think the builders can avoid hefty write-downs, but the way things are going, it just might be by the slimmest of margins."</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Stocks.</span><span class="gist">XHB/SPY closed at 0.1206 on October 14, lowest since April 2020, vs. ~0.218 at the late-September 2024 peak: builders down ~43% relative to the...</span></summary><div class="detail"><p><strong>Stocks.</strong></p><p>XHB/SPY closed at <strong>0.1206</strong> on October 14, lowest since April 2020, vs. ~0.218 at the late-September 2024 peak: builders down ~43% relative to the S&amp;P 500 in two years (XHB -24% vs. SPY +34%). Year to date: XHB down almost 9%, PHM/TOL/DHI down 2-5%, LEN down about 26%.</p><p>ITB set a 52-week low on October 14.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Long-run demand.</span><span class="gist">Kim: household formation falls from about 1.25M a year (plus ~250K demolitions, so ~1.5M starts needed) to 755K in the 2030s and 420K in the 2040s.</span></summary><div class="detail"><p><strong>Long-run demand.</strong></p><p>Kim: household formation falls from about <strong>1.25M</strong> a year (plus ~250K demolitions, so ~1.5M starts needed) to <strong>755K</strong> in the 2030s and <strong>420K</strong> in the 2040s. Evercore forecasts the FHFA house price index falling <strong>1-2% a year</strong> for the next few years.</p><p>Implication: returns come from capital allocation (buybacks), not volume. Toll has bought back about <strong>50%</strong> of its shares since 2015.</p></div></details></li>
+</ul>
+</section>
+<section class="theme" id="2-company-comparison">
+<div class="eyebrow">Section 2</div>
+<h2>Company comparison</h2>
+<p class="takeaway">Evercore sees ~37% upside in PHM and TOL and ~3% in LEN. PHM&#x27;s target implies lower 2027 EPS, so its upside comes from a higher multiple; Lennar faces a 100bp+ land-option margin headwind on top of a 15.8% margin.</p>
+<div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Upside to Evercore&#x27;s targets"><figcaption><span class="vt">Upside to Evercore's targets</span><span class="vs">Percent, from early-October prices (this page)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">PulteGroup</span><div class="track" style="grid-row:1" tabindex="0" data-tip="$154 target vs. ~$112" aria-label="PulteGroup: ~37%"><span class="bar s1" style="left:0.00%;width:67.42%"></span><span class="bval" style="left:calc(67.42% + 6px)">~37%</span></div><span class="blab" style="grid-row:2">Toll Brothers</span><div class="track" style="grid-row:2" tabindex="0" data-tip="$184 target vs. ~$134" aria-label="Toll Brothers: ~37%"><span class="bar s1" style="left:0.00%;width:67.42%"></span><span class="bval" style="left:calc(67.42% + 6px)">~37%</span></div><span class="blab" style="grid-row:3">Lennar</span><div class="track" style="grid-row:3" tabindex="0" data-tip="$78 target (tangible book) vs. ~$76" aria-label="Lennar: ~3%"><span class="bar s1" style="left:0.00%;width:5.47%"></span><span class="bval" style="left:calc(5.47% + 6px)">~3%</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Latest home sale gross margin"><figcaption><span class="vt">Latest home sale gross margin</span><span class="vs">Percent</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">PulteGroup</span><div class="track" style="grid-row:1" tabindex="0" data-tip="25.0% in Q2 (27.0% a year ago)" aria-label="PulteGroup: 25.0%"><span class="bar s1" style="left:0.00%;width:68.33%"></span><span class="bval" style="left:calc(68.33% + 6px)">25.0%</span></div><span class="blab" style="grid-row:2">Toll Brothers</span><div class="track" style="grid-row:2" tabindex="0" data-tip="23.9% GAAP in FQ3 (25.6% a year ago)" aria-label="Toll Brothers: 23.9%"><span class="bar s1" style="left:0.00%;width:65.33%"></span><span class="bval" style="left:calc(65.33% + 6px)">23.9%</span></div><span class="blab" style="grid-row:3">Lennar</span><div class="track" style="grid-row:3" tabindex="0" data-tip="15.8% in FQ3 (17.5% a year ago); incentives ~12%" aria-label="Lennar: 15.8%"><span class="bar s1" style="left:0.00%;width:43.19%"></span><span class="bval" style="left:calc(43.19% + 6px)">15.8%</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div>
+<div class="tablewrap"><table><thead><tr><th></th><th>PulteGroup</th><th>Toll Brothers</th><th>Lennar</th></tr></thead><tbody><tr><td>Evercore rating / target</td><td>Outperform / <strong>$154</strong></td><td>Outperform / <strong>$184</strong></td><td>Underperform / <strong>$78</strong></td></tr><tr><td>Price (Oct 7, Barron's)</td><td>~$112</td><td>~$134</td><td>~$76 (Oct 19)</td></tr><tr><td>Implied upside (this page)</td><td>~37%</td><td>~37%</td><td>~3%</td></tr><tr><td>Valuation basis</td><td>14.5x next year's EPS (from 9.75x forward)</td><td>13x next year's EPS (from 10.9x)</td><td>Estimated tangible book in 12 months</td></tr><tr><td>Latest gross margin</td><td>25.0% (27.0% a year ago)</td><td>23.9% (25.6%)</td><td>15.8% (17.5%); incentives ~12%</td></tr><tr><td>Orders, latest quarter</td><td>+6% units; community count +8%</td><td>not given</td><td>-9% units; Q4 guide 19,500-20,500</td></tr><tr><td>Leverage</td><td>net debt-to-capital 3.3%</td><td>"isn't high" (Kim)</td><td>homebuilding debt-to-capital 16.6% (13.5% a year ago)</td></tr><tr><td>Book value per share</td><td>~$69 (this page: $13.01B equity / 189.4M Q2 weighted shares)</td><td>not given</td><td>~$91 reported equity basis; Evercore's tangible-book estimate ~$78</td></tr><tr><td>Price / book</td><td>~1.6x (this page)</td><td>not given</td><td>~0.83-0.85x reported book; ~1x tangible</td></tr></tbody></table></div>
+<h3>PulteGroup: a re-rating bet on lower earnings</h3>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Q2 2026</span><span class="gist">revenue $3.98B (vs. $4.40B), EPS $2.48 (vs. $3.03), closings -8%, ASP -3% to $544K, SG&amp;A 10.1% of home sales (vs. 9.1%), backlog value -1% to $6.80B.</span></summary><div class="detail"><p><strong>Q2 2026:</strong></p><p>revenue $3.98B (vs. $4.40B), EPS $2.48 (vs. $3.03), closings -8%, ASP -3% to $544K, SG&amp;A 10.1% of home sales (vs. 9.1%), backlog value -1% to $6.80B. Bought back 5.5M shares (~3%) for $681M in H1. Management: "market conditions remain highly competitive," with "early signs that conditions may be stabilizing in select geographies."</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">What Evercore's target implies (this page)</span><span class="gist">$112 ÷ 9.75 ≈ $11.50 of forward EPS; $154 ÷ 14.5 ≈ $10.60 of next year&#x27;s EPS.</span></summary><div class="detail"><p><strong>What Evercore's target implies (this page):</strong></p><p>$112 ÷ 9.75 ≈ <strong>$11.50</strong> of forward EPS; $154 ÷ 14.5 ≈ <strong>$10.60</strong> of next year's EPS. If "forward" is the next twelve months and "next year" is 2027 (the article does not define them), the target assumes EPS <em>falls</em> and all of the upside comes from the multiple.</p><p>That is consistent with Kim's view that margins bottom in 2027 at the earliest.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">The real question is the valuation method.</span><span class="gist">Kim: the large builders &quot;should be trading on a price/earnings basis&quot; because they are land-light, less levered and higher-margin than 35 years...</span></summary><div class="detail"><p><strong>The real question is the valuation method.</strong></p><p>Kim: the large builders "should be trading on a price/earnings basis" because they are land-light, less levered and higher-margin than 35 years ago; the industry has long traded at book ("liquidation valuations") because returns don't beat the cost of capital predictably. On book value PHM at ~1.6x has no margin of safety (ROE ~14% on Q2 annualized vs. a ~9% cost of equity, this page).</p><p>On earnings, 9.75x is cheap.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Why Kim prefers it</span><span class="gist">move-up and baby-boomer buyers have less rate sensitivity; margins high enough that cash flow stays strong; low leverage; cash goes to buybacks,...</span></summary><div class="detail"><p><strong>Why Kim prefers it:</strong></p><p>move-up and baby-boomer buyers have less rate sensitivity; margins high enough that cash flow stays strong; low leverage; cash goes to buybacks, not growth.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Sensitivity (this page)</span><span class="gist">each 1 point of gross margin is worth about $0.60 of annual EPS ($3.81B of quarterly home sale revenue, 24% tax, ~188M shares).</span></summary><div class="detail"><p><strong>Sensitivity (this page):</strong></p><p>each 1 point of gross margin is worth about $0.60 of annual EPS ($3.81B of quarterly home sale revenue, 24% tax, ~188M shares).</p></div></details></li>
+</ul>
+<h3>Toll Brothers</h3>
+<ul class="points">
+<li class="aside">Same thesis as PHM at the high end: margin 23.9% (from 25.6%), Outperform, $184 target at 13x next year's EPS vs. 10.9x forward. Here the implied EPS rises ($134 ÷ 10.9 ≈ $12.30 forward, $184 ÷ 13 ≈ $14.15 next year, this page), so the TOL target relies less on the multiple alone than PHM's.</li>
+</ul>
+<h3>Lennar: floor without a catalyst</h3>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">FQ3 2026</span><span class="gist">revenue $8.0B, EPS $1.19 ($1.23 adjusted, vs. $2.29), deliveries 20,840 (-3%), orders 20,879 (-9%), ASP $372K, incentives ~12%, net margin on home...</span></summary><div class="detail"><p><strong>FQ3 2026:</strong></p><p>revenue $8.0B, EPS $1.19 ($1.23 adjusted, vs. $2.29), deliveries 20,840 (-3%), orders 20,879 (-9%), ASP $372K, incentives ~12%, net margin on home sales 6.6%. FY deliveries cut to 80,000-81,000 from 82,000-83,000. Q4 guide: gross margin 15.5-16.0%, deliveries 22,000-23,000. Land: ~488,000 homesites controlled, under 2.5% owned.</p><p>Management: rates "approximately 6.8% at quarter end and even higher since"; consumers "slow their purchase decision."</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Kim's case against</span><span class="gist">Lennar held volume while demand weakened, at &quot;a steeper margin price than we have seen historically.&quot;</span></summary><div class="detail"><p><strong>Kim's case against:</strong></p><p>Lennar held volume while demand weakened, at "a steeper margin price than we have seen historically." Its land is optioned largely through land bankers such as Millrose Properties (a Lennar spinoff), whose options "carry more restrictive terms and are more costly."</p><p>He estimates financing cost alone adds <strong>more than 100bp</strong> of margin pressure.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">This page's margin math</span><span class="gist">each point of gross margin is worth about $1.00 of annual EPS (~$7.75B quarterly home sale revenue, 24% tax, ~238M shares) on an annualized base...</span></summary><div class="detail"><p><strong>This page's margin math:</strong></p><p>each point of gross margin is worth about $1.00 of annual EPS (~$7.75B quarterly home sale revenue, 24% tax, ~238M shares) on an annualized base near $5. So the 100bp option-cost headwind roughly cancels one year of a normal margin recovery.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">The bull counterpoint</span><span class="gist">Berkshire Hathaway&#x27;s ~$2.2B stake (above 11%).</span></summary><div class="detail"><p><strong>The bull counterpoint:</strong></p><p>Berkshire Hathaway's ~$2.2B stake (above 11%). Kim reads it as a long-horizon bet on Stuart Miller's four decades of navigating cycles, which doesn't conflict with a one-year Underperform.</p></div></details></li>
+<li class="aside">Annualized ROE ~5% (EPS ~$4.8 on ~$91 book, this page): on current earnings Lennar would be worth ~0.5x reported book at a 9-10% cost of equity, so 0.85x already prices part of a recovery.</li>
+</ul>
+</section>
+<section class="theme" id="3-owens-corning-the-weather-trade">
+<div class="eyebrow">Section 3</div>
+<h2>Owens Corning: the weather trade</h2>
+<p class="takeaway">Roofing earnings are depressed by two weak storm years, not the housing cycle. Evercore values the depressed earnings at a normal multiple: $185 vs. ~$114.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="Owens Corning: price vs. Evercore&#x27;s target"><figcaption><span class="vt">Owens Corning: price vs. Evercore's target</span><span class="vs">Dollars per share</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Price</span><span><i class="sw s2"></i>Target</span></div><div class="hbars"><span class="blab" style="grid-row:1">Price</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Trading around $114 (Barron&#x27;s)" aria-label="Price: ~$114"><span class="bar s1" style="left:0.00%;width:44.51%"></span><span class="bval" style="left:calc(44.51% + 6px)">~$114</span></div><span class="blab" style="grid-row:2">Evercore target</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Sum of parts: 11x roofing, 8x insulation, 6x doors EBITDA" aria-label="Evercore target: $185"><span class="bar s2" style="left:0.00%;width:72.24%"></span><span class="bval" style="left:calc(72.24% + 6px)">$185</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure></div>
+<ul class="points">
+<li class="aside">Evercore's top pick: target <strong>$185</strong> vs. ~$114. Sum of parts on EBITDA: <strong>11x</strong> roofing, <strong>8x</strong> insulation, <strong>6x</strong> doors. Two-thirds to three-quarters of profit is roofing.</li>
+<li class="aside">Thesis: roofing demand is driven by storms, not construction. Last year no named hurricane made landfall for the first time in many years, and this is expected to be a weak storm year. Kim: "put a higher multiple on depressed earnings, not a lower multiple on lower numbers." Buying window "in the next three to six months."</li>
+<li class="aside">Risks: weather timing is unknowable; insulation is tied to new construction, which is weakening.</li>
+</ul>
+</section>
+<section class="theme" id="4-catalysts-and-what-would-make-the-grou">
+<div class="eyebrow">Section 4</div>
+<h2>Catalysts and what would make the group investable</h2>
+<p class="takeaway">Kim wants builders to stay gloomy and cut production through winter, enter spring 2027 with lean inventory, and then get rate relief below about 6.5%.</p>
+
+<p>Kim's sequence: builders stay "reserved, quiet, and unhappy" and cut production through winter, enter spring 2027 with lean inventory, then mortgage rates ease. He needs rates <strong>below about 6.5%</strong> for demand to improve materially, which "seems far away." He does <em>not</em> want demand to pick up early and get builders "overexcited into the late fall," repeating the overproduction of the past two winters.</p>
+<p><strong>Watch list:</strong></p>
+<ul class="points">
+<li class="aside">NAHB price-cut share falling back from 43%, and incentive use below 60%.</li>
+<li class="aside">Starts and spec inventory staying low through winter.</li>
+<li class="aside">Freddie Mac 30-year moving toward 6.5%.</li>
+<li class="aside">PHM Q3 (late October) and LEN FQ4 (December): margins stabilizing, no large impairments.</li>
+<li class="aside">An AI-capex scare that pulls the 10-year sharply lower (see §5).</li>
+</ul>
+</section>
+<section class="theme" id="5-homebuilders-as-an-ai-capex-hedge">
+<div class="eyebrow">Section 5</div>
+<h2>Homebuilders as an AI-capex hedge</h2>
+<p class="takeaway">If AI capex falls, the Fed cuts and yields drop, which would help housing. The hedge fails if the same shock hits white-collar jobs.</p>
+
+<p>22V Research's Dennis DeBusschere: "Real Private Residential Fixed investment has not contributed to GDP in 4 years as private fixed investment (AI capex) has accelerated." AI capex and consumer spending have kept growth above trend and the 10-year high. If AI capex fell, the Fed would cut aggressively and yields would fall, so "Long Homebuilders is an interesting AI capex decline hedge."</p>
+<ul class="points">
+<li class="aside">This is the crowding-out argument in <a class="xref" href="../../../investing-macro/podcasts/ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001.md">ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001</a> and Goldman's "Competition for Capital" (<a class="xref" href="../../../reading-list/notes/market-newsletter-digest-2026-09-27.md">market-newsletter-digest-2026-09-27</a>). The closest precedent is 2000-2002, when builders rallied as the Fed cut and tech fell.</li>
+<li><details class="pt"><summary><span class="hd">Where the hedge breaks</span><span class="gist">Kim says an &quot;unprecedented number&quot; of top-third earners fear losing their jobs within five years.</span></summary><div class="detail"><p><strong>Where the hedge breaks:</strong></p><p>Kim says an "unprecedented number" of top-third earners fear losing their jobs within five years. If an AI-capex decline also hits white-collar employment, rates fall but buyers still stay away.</p><p>The hedge works through the rates channel and fails through the jobs channel.</p></div></details></li>
+</ul>
+</section>
+<section class="theme" id="6-balance-sheets-who-is-insulated-from-d">
+<div class="eyebrow">Section 6</div>
+<h2>Balance Sheets: Who Is Insulated From Debt Problems</h2>
+<p class="takeaway">PulteGroup (net debt ~3% of capital, nothing due before 2031) and Toll Brothers (15.6%, ~$3.3B liquidity) are insulated. Lennar is solvent but burning cash while paying out $1.36B, with $7.33B of land deposits at risk. Owens Corning is the most levered: 2.4x net debt/EBITDA and ~$1.0B due within 12 months.</p>
+<div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Net debt / capital"><figcaption><span class="vt">Net debt / capital</span><span class="vs">Percent (Owens Corning shown in the table: 2.4x net debt/EBITDA)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">PulteGroup</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Net debt-to-capital 3.3% at June 30" aria-label="PulteGroup: 3.3%"><span class="bar s1" style="left:0.00%;width:13.53%"></span><span class="bval" style="left:calc(13.53% + 6px)">3.3%</span></div><span class="blab" style="grid-row:2">Lennar</span><div class="track" style="grid-row:2" tabindex="0" data-tip="This page: ~$3.15B net debt / ($3.15B + $21.56B equity)" aria-label="Lennar: ~12.7%"><span class="bar s1" style="left:0.00%;width:52.07%"></span><span class="bval" style="left:calc(52.07% + 6px)">~12.7%</span></div><span class="blab" style="grid-row:3">Toll Brothers</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Net debt-to-capital 15.6% at July 31" aria-label="Toll Brothers: 15.6%"><span class="bar s1" style="left:0.00%;width:63.96%"></span><span class="bval" style="left:calc(63.96% + 6px)">15.6%</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Liquidity: cash + undrawn revolver"><figcaption><span class="vt">Liquidity: cash + undrawn revolver</span><span class="vs">$ billions</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Builders</span><span><i class="sw s2"></i>Owens Corning, cash only</span></div><div class="hbars"><span class="blab" style="grid-row:1">Lennar</span><div class="track" style="grid-row:1" tabindex="0" data-tip="~$1.15B cash + ~$2.5B undrawn (before letters of credit); ~$3.1B excluding escrow" aria-label="Lennar: ~$3.6B"><span class="bar s1" style="left:0.00%;width:70.29%"></span><span class="bval" style="left:calc(70.29% + 6px)">~$3.6B</span></div><span class="blab" style="grid-row:2">Toll Brothers</span><div class="track" style="grid-row:2" tabindex="0" data-tip="$1.06B cash + $2.24B available" aria-label="Toll Brothers: ~$3.3B"><span class="bar s1" style="left:0.00%;width:64.43%"></span><span class="bval" style="left:calc(64.43% + 6px)">~$3.3B</span></div><span class="blab" style="grid-row:3">PulteGroup</span><div class="track" style="grid-row:3" tabindex="0" data-tip="$1.34B cash + $1.4B available" aria-label="PulteGroup: ~$2.7B"><span class="bar s1" style="left:0.00%;width:52.71%"></span><span class="bval" style="left:calc(52.71% + 6px)">~$2.7B</span></div><span class="blab" style="grid-row:4">Owens Corning</span><div class="track" style="grid-row:4" tabindex="0" data-tip="$271M cash; revolver not retrieved; ~$1.0B due within 12 months" aria-label="Owens Corning: $0.27B"><span class="bar s2" style="left:0.00%;width:5.27%"></span><span class="bval" style="left:calc(5.27% + 6px)">$0.27B</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure></div><figure class="viz" role="group" aria-label="Interest coverage (estimates)"><figcaption><span class="vt">Interest coverage (estimates)</span><span class="vs">Times; pre-tax income plus interest over interest incurred (OC on EBITDA)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">PulteGroup</span><div class="track" style="grid-row:1" tabindex="0" data-tip="~$28.5M of quarterly interest incurred" aria-label="PulteGroup: ~23x"><span class="bar s1" style="left:0.00%;width:72.54%"></span><span class="bval" style="left:calc(72.54% + 6px)">~23x</span></div><span class="blab" style="grid-row:2">Toll Brothers</span><div class="track" style="grid-row:2" tabindex="0" data-tip="$30.3M of interest incurred in FQ3" aria-label="Toll Brothers: ~13x"><span class="bar s1" style="left:0.00%;width:41.00%"></span><span class="bval" style="left:calc(41.00% + 6px)">~13x</span></div><span class="blab" style="grid-row:3">Owens Corning</span><div class="track" style="grid-row:3" tabindex="0" data-tip="~$2.05B trailing adj. EBITDA / $255-265M guided interest; ~5-7x on EBIT" aria-label="Owens Corning: ~8x"><span class="bar s2" style="left:0.00%;width:25.23%"></span><span class="bval" style="left:calc(25.23% + 6px)">~8x</span></div><span class="blab" style="grid-row:4">Lennar</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Rough: 10-Q interest figure not retrieved" aria-label="Lennar: ~7-8x"><span class="bar s1" style="left:0.00%;width:22.08%"></span><span class="bval" style="left:calc(22.08% + 6px)">~7-8x</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">Lennar drawn at 7x, the low end of the estimate.</p></figure></div>
+<p>Latest quarter for each company (PHM June 30, TOL July 31, LEN August 31, OC June 30). Homebuilder debt excludes self-liquidating mortgage-warehouse lines; Toll's ratio includes its $129M mortgage facility. Coverage ratios are this page's estimates: quarterly pre-tax income plus interest, divided by interest incurred.</p>
+<div class="tablewrap"><table><thead><tr><th></th><th>PulteGroup</th><th>Toll Brothers</th><th>Lennar</th><th>Owens Corning</th></tr></thead><tbody><tr><td>Cash</td><td>$1.34B</td><td>$1.06B</td><td>$1.15B (incl. $575M in escrow ~2 days)</td><td>$0.27B</td></tr><tr><td>Total debt</td><td>$1.82B</td><td>$2.77B</td><td>$4.30B (incl. $650M revolver draw)</td><td>$5.19B</td></tr><tr><td>Net debt</td><td>~$0.48B</td><td>~$1.71B</td><td>~$3.15B</td><td>~$4.92B</td></tr><tr><td>Debt / capital</td><td>12.3%</td><td>24.5%</td><td>16.6%</td><td>~58% (this page)</td></tr><tr><td>Net debt / capital</td><td>3.3%</td><td>15.6%</td><td>~12.7% (this page)</td><td>n/m</td></tr><tr><td>Net debt / adj. EBITDA</td><td>low</td><td>low</td><td>moderate</td><td>2.4x (company)</td></tr><tr><td>Undrawn revolver</td><td>$1.4B of $1.75B, to Feb 2031</td><td>$2.24B of $2.38B</td><td>~$2.5B of $3.125B before letters of credit (this page)</td><td>not retrieved</td></tr><tr><td>Liquidity (cash + revolver)</td><td>~$2.7B</td><td>~$3.3B</td><td>~$3.6B (~$3.1B excluding escrow)</td><td>$0.27B cash shown</td></tr><tr><td>Debt due within 12 months</td><td>none (next note March 2031)</td><td>not in release</td><td>not retrieved</td><td>~$1.0B ($937M current long-term + $65M short-term)</td></tr><tr><td>Interest coverage (est.)</td><td>~23x</td><td>~13x</td><td>~7-8x (rough)</td><td>~8x EBITDA, ~5-7x EBIT</td></tr><tr><td>Equity / tangible equity</td><td>$13.01B</td><td>$8.53B ($92.36/share)</td><td>$21.56B / ~$18.1B after $3.44B goodwill</td><td>$3.81B / negative after $4.12B goodwill and intangibles</td></tr><tr><td>Operating cash flow YTD</td><td>+$177M (H1)</td><td>not in release</td><td>-$822M (nine months)</td><td>+$244M (H1); FCF -$188M, seasonal</td></tr><tr><td>Shareholder returns YTD</td><td>$681M buybacks (H1)</td><td>$506M</td><td>$993M buybacks + $366M dividends</td><td>$230M buybacks + $127M dividends</td></tr></tbody></table></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">PulteGroup: most insulated.</span><span class="gist">Net debt is about 3% of capital. Notes total $1.8B in five issues maturing 2031-2036 (4.250% 2031, 7.875% 2032, 6.375% 2033, 6.000% 2035, 4.900%...</span></summary><div class="detail"><p><strong>PulteGroup: most insulated.</strong></p><p>Net debt is about 3% of capital. Notes total $1.8B in five issues maturing 2031-2036 (4.250% 2031, 7.875% 2032, 6.375% 2033, 6.000% 2035, 4.900% 2036); nothing is due within 12 months, and the revolver is undrawn.</p><p>Capitalized interest was $28.5M in Q2, so roughly $115M a year against well over $2B of annual pre-tax profit. H1 land charges were only $27.6M ($16.1M impairments, $11.5M deposit write-offs).</p><p>Exposure: $1.29B of option deposits against $9.69B of remaining purchase price (walk-away options, not debt); $3.1B of surety bonds and $343M of letters of credit; Pulte Mortgage's $625M repurchase facility (due August 12, 2026, $478M drawn at June 30).</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Toll Brothers: insulated, with a land caveat.</span><span class="gist">Net debt-to-capital 15.6%, ~$3.3B of liquidity, ~13x coverage ($30.3M of interest incurred in Q3) and the least rate-sensitive buyer.</span></summary><div class="detail"><p><strong>Toll Brothers: insulated, with a land caveat.</strong></p><p>Net debt-to-capital 15.6%, ~$3.3B of liquidity, ~13x coverage ($30.3M of interest incurred in Q3) and the least rate-sensitive buyer. The weak point is assets: Toll owns 31,817 of its 75,486 lots (42%), versus under 2.5% at Lennar, and booked $61.8M of inventory impairments and write-offs in nine months plus $39.6M of joint-venture impairments in Q3. Falling prices would hit book value before debt service.</p><p>The maturity schedule for $894M of loans payable was not in the release.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Lennar: solvent, but the cushion is eroding.</span><span class="gist">The ratios are sound. The trend is not: operating cash flow of -$822M over nine months against $1.36B of buybacks and dividends; homebuilding cash...</span></summary><div class="detail"><p><strong>Lennar: solvent, but the cushion is eroding.</strong></p><p>The ratios are sound. The trend is not: operating cash flow of -$822M over nine months against $1.36B of buybacks and dividends; homebuilding cash down from $3.44B (November 30, 2025) to $1.15B, half of it escrow; $650M drawn on the revolver.</p><p>Lennar filed new senior-note offerings (424B2/424B5) in October, likely terming out the revolver at today's higher rates (use of proceeds not confirmed). The larger exposure is off the debt line: $7.33B of land deposits and pre-acquisition costs, about a third of equity, with $224M already written off in nine months.</p><p>Creditors are safe; the pressure falls on buybacks, the dividend and tangible book (~$77 a share, this page, matching Evercore's $78).</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Owens Corning: the least insulated balance sheet.</span><span class="gist">Net debt/adj. EBITDA 2.4x (inside its target range).</span></summary><div class="detail"><p><strong>Owens Corning: the least insulated balance sheet.</strong></p><p>Net debt/adj. EBITDA 2.4x (inside its target range). About $1.0B is due within 12 months against $271M of cash, so it must refinance or roll commercial paper.</p><p>H1 payouts were supported by $370M of glass-reinforcements sale proceeds. Coverage of ~8x on EBITDA (2026 interest guided at $255-265M; trailing adj. EBITDA ~$2.05B implied by the 2.4x ratio, this page) is comfortable, and roofing (storms, replacement) makes it less exposed to new construction than the builders.</p><p>The risk is refinancing in a 5%+ 10-year market. Credit rating and revolver size not verified.</p></div></details></li>
+</ul>
+<p><strong>If housing keeps underperforming</strong> (margins down another 300-500bp, volumes down 10-15%, prices falling 1-2% a year):</p>
+<div class="tablewrap"><table><thead><tr><th></th><th>Debt risk</th><th>What gives first</th></tr></thead><tbody><tr><td>PulteGroup</td><td>Very low</td><td>Buyback pace; small write-downs</td></tr><tr><td>Toll Brothers</td><td>Low</td><td>Write-downs on owned land and JVs</td></tr><tr><td>Lennar</td><td>Low for creditors, moderate for shareholders</td><td>Option-deposit write-offs, buybacks and dividend, tangible book</td></tr><tr><td>Owens Corning</td><td>Moderate (refinancing timing)</td><td>Buybacks; leverage rises if roofing stays weak</td></tr></tbody></table></div>
+<p>Builders usually generate cash in a downturn because land spending stops and inventory is sold down. PHM and TOL are set up for that. Lennar's land-light model leaves less inventory to liquidate and more deposits at risk. Owens Corning has no such buffer, but its demand is less cyclical. Not covered: the small-cap builders trading more than 20% below tangible book, where debt risk usually concentrates in a long slump.</p>
+</section>
+<section class="theme" id="7-etf-vehicles-itb-vs-xhb">
+<div class="eyebrow">Section 7</div>
+<h2>ETF Vehicles: $ITB vs. $XHB</h2>
+<p class="takeaway">ITB is the concentrated bet: about 70% moves with new-home construction and half sits in five large builders. XHB is only ~37% builders, with ~23% in commercial and data-center building systems and ~14% in home-goods retail, so its outcome depends less on any single macro call.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="Weight by demand driver"><figcaption><span class="vt">Weight by demand driver</span><span class="vs">Percent of fund, Oct 19, 2026 (this page's classification)</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>ITB</span><span><i class="sw s2"></i>XHB</span></div><div class="hbars"><span class="blab" style="grid-row:1">Large builders</span><div class="track" style="grid-row:1" tabindex="0" data-tip="ITB: DHI, PHM, NVR, LEN, TOL" aria-label="Large builders: 49.2%"><span class="bar s1" style="left:0.00%;width:73.35%"></span><span class="bval" style="left:calc(73.35% + 6px)">49.2%</span></div><span class="blab" style="grid-row:2"></span><div class="track" style="grid-row:2" tabindex="0" data-tip="XHB: DHI, PHM, NVR, LEN, TOL" aria-label=": 16.1%"><span class="bar s2" style="left:0.00%;width:24.00%"></span><span class="bval" style="left:calc(24.00% + 6px)">16.1%</span></div><span class="blab" style="grid-row:3">Mid/small builders</span><div class="track" style="grid-row:3" tabindex="0" data-tip="ITB" aria-label="Mid/small builders: 8.2%"><span class="bar s1" style="left:0.00%;width:12.23%"></span><span class="bval" style="left:calc(12.23% + 6px)">8.2%</span></div><span class="blab" style="grid-row:4"></span><div class="track" style="grid-row:4" tabindex="0" data-tip="XHB: equal weighting lifts small builders" aria-label=": 14.4%"><span class="bar s2" style="left:0.00%;width:21.47%"></span><span class="bval" style="left:calc(21.47% + 6px)">14.4%</span></div><span class="blab" style="grid-row:5">Manufactured homes</span><div class="track" style="grid-row:5" tabindex="0" data-tip="ITB: SKY, CVCO" aria-label="Manufactured homes: 4.4%"><span class="bar s1" style="left:0.00%;width:6.56%"></span><span class="bval" style="left:calc(6.56% + 6px)">4.4%</span></div><span class="blab" style="grid-row:6"></span><div class="track" style="grid-row:6" tabindex="0" data-tip="XHB: SKY, CVCO" aria-label=": 6.3%"><span class="bar s2" style="left:0.00%;width:9.39%"></span><span class="bval" style="left:calc(9.39% + 6px)">6.3%</span></div><span class="blab" style="grid-row:7">New-constr. products</span><div class="track" style="grid-row:7" tabindex="0" data-tip="ITB: BLDR, IBP, SSD, EXP, LPX, UFPI" aria-label="New-constr. products: 8.6%"><span class="bar s1" style="left:0.00%;width:12.82%"></span><span class="bval" style="left:calc(12.82% + 6px)">8.6%</span></div><span class="blab" style="grid-row:8"></span><div class="track" style="grid-row:8" tabindex="0" data-tip="XHB: BLDR, IBP, SSD" aria-label=": 9.2%"><span class="bar s2" style="left:0.00%;width:13.72%"></span><span class="bval" style="left:calc(13.72% + 6px)">9.2%</span></div><span class="blab" style="grid-row:9">Repair & remodel</span><div class="track" style="grid-row:9" tabindex="0" data-tip="ITB: HD, LOW, SHW, MAS, OC and others" aria-label="Repair &amp; remodel: 26.2%"><span class="bar s1" style="left:0.00%;width:39.06%"></span><span class="bval" style="left:calc(39.06% + 6px)">26.2%</span></div><span class="blab" style="grid-row:10"></span><div class="track" style="grid-row:10" tabindex="0" data-tip="XHB: HD, LOW, MAS, OC" aria-label=": 13.2%"><span class="bar s2" style="left:0.00%;width:19.68%"></span><span class="bval" style="left:calc(19.68% + 6px)">13.2%</span></div><span class="blab" style="grid-row:11">Residential HVAC</span><div class="track" style="grid-row:11" tabindex="0" data-tip="ITB: LII" aria-label="Residential HVAC: 2.6%"><span class="bar s1" style="left:0.00%;width:3.88%"></span><span class="bval" style="left:calc(3.88% + 6px)">2.6%</span></div><span class="blab" style="grid-row:12"></span><div class="track" style="grid-row:12" tabindex="0" data-tip="XHB: LII" aria-label=": 3.2%"><span class="bar s2" style="left:0.00%;width:4.77%"></span><span class="bval" style="left:calc(4.77% + 6px)">3.2%</span></div><span class="blab" style="grid-row:13">Commercial / data center</span><div class="track" style="grid-row:13" tabindex="0" data-tip="ITB has none" aria-label="Commercial / data center: 0%"><span class="bar s1" style="left:0.00%;width:0.60%"></span><span class="bval" style="left:calc(0.00% + 6px)">0%</span></div><span class="blab" style="grid-row:14"></span><div class="track" style="grid-row:14" tabindex="0" data-tip="XHB: TT, JCI, CARR, MOD, ALLE, CSL, WMS" aria-label=": 23.1%"><span class="bar s2" style="left:0.00%;width:34.44%"></span><span class="bval" style="left:calc(34.44% + 6px)">23.1%</span></div><span class="blab" style="grid-row:15">Home-goods retail</span><div class="track" style="grid-row:15" tabindex="0" data-tip="ITB: small furniture names" aria-label="Home-goods retail: 0.6%"><span class="bar s1" style="left:0.00%;width:0.89%"></span><span class="bval" style="left:calc(0.89% + 6px)">0.6%</span></div><span class="blab" style="grid-row:16"></span><div class="track" style="grid-row:16" tabindex="0" data-tip="XHB: W, SN, WSM, SGI" aria-label=": 14.4%"><span class="bar s2" style="left:0.00%;width:21.47%"></span><span class="bval" style="left:calc(21.47% + 6px)">14.4%</span></div><div class="refs" style="grid-row:1 / span 16"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">New-construction subtotal: ~70% ITB vs. ~46% XHB.</p></figure><figure class="viz" role="group" aria-label="Concentration"><figcaption><span class="vt">Concentration</span><span class="vs">Percent of fund in the largest positions</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>ITB</span><span><i class="sw s2"></i>XHB</span></div><div class="hbars"><span class="blab" style="grid-row:1">ITB top 5</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Top 5: DHI 18.0%, PHM, NVR, LEN, SHW" aria-label="ITB top 5: 49%"><span class="bar s1" style="left:0.00%;width:50.23%"></span><span class="bval" style="left:calc(50.23% + 6px)">49%</span></div><span class="blab" style="grid-row:2">XHB top 5</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Top 5 of 34 equal-weighted names" aria-label="XHB top 5: 18%"><span class="bar s2" style="left:0.00%;width:18.45%"></span><span class="bval" style="left:calc(18.45% + 6px)">18%</span></div><span class="blab" style="grid-row:3">ITB top 10</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Top 10 of 43 holdings" aria-label="ITB top 10: 69%"><span class="bar s1" style="left:0.00%;width:70.73%"></span><span class="bval" style="left:calc(70.73% + 6px)">69%</span></div><span class="blab" style="grid-row:4">XHB top 10</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Top 10 of 34 holdings" aria-label="XHB top 10: 36%"><span class="bar s2" style="left:0.00%;width:36.90%"></span><span class="bval" style="left:calc(36.90% + 6px)">36%</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure></div>
+<p>Holdings as of October 19, 2026 (issuer files). The demand-driver groups are this page's classification; several companies span more than one end market (Carrier and Trane have residential HVAC, Owens Corning mixes reroofing with new-construction insulation, Masco and Simpson split new construction and remodeling). Reassigning those moves the totals a few points without changing the conclusion.</p>
+<div class="tablewrap"><table><thead><tr><th></th><th>ITB</th><th>XHB</th></tr></thead><tbody><tr><td>Index and weighting</td><td>Dow Jones U.S. Select Home Construction; market cap</td><td>S&amp;P Homebuilders Select Industry; modified equal weight</td></tr><tr><td>Holdings</td><td>43</td><td>34</td></tr><tr><td>Top 5 / top 10 weight</td><td>49% / 69%</td><td>18% / 36%</td></tr><tr><td>Effective number of stocks (1 ÷ sum of squared weights, this page)</td><td>~14</td><td>~32</td></tr><tr><td>Largest position</td><td>D.R. Horton 18.0%</td><td>Wayfair 3.8%</td></tr><tr><td>Net assets / expense ratio</td><td>$2.27B / 0.37%</td><td>$1.38B / 0.35%</td></tr><tr><td>Overlap</td><td>23 names in common; ~48% of weight overlaps (this page)</td><td></td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Demand driver (this page)</th><th>ITB</th><th>XHB</th><th>Main names</th></tr></thead><tbody><tr><td>Large homebuilders</td><td>49.2%</td><td>16.1%</td><td>DHI, PHM, NVR, LEN, TOL</td></tr><tr><td>Mid/small homebuilders</td><td>8.2%</td><td>14.4%</td><td>MTH, KBH, MHO, CCS, LGIH, HOV, DFH</td></tr><tr><td>Manufactured homes</td><td>4.4%</td><td>6.3%</td><td>SKY, CVCO</td></tr><tr><td>New-construction products and installers</td><td>8.6%</td><td>9.2%</td><td>BLDR, IBP, SSD (plus EXP, LPX, UFPI in ITB)</td></tr><tr><td>New-construction subtotal</td><td>~70%</td><td>~46%</td><td></td></tr><tr><td>Repair and remodel, home improvement</td><td>26.2%</td><td>13.2%</td><td>HD, LOW, SHW, MAS, OC, FBIN, TREX</td></tr><tr><td>Residential HVAC (mostly replacement)</td><td>2.6%</td><td>3.2%</td><td>LII</td></tr><tr><td>Commercial and data-center building systems</td><td>0%</td><td>23.1%</td><td>TT, JCI, CARR, MOD, ALLE, CSL, WMS</td></tr><tr><td>Furnishings and home-goods retail</td><td>0.6%</td><td>14.4%</td><td>W, SN, WSM, SGI</td></tr></tbody></table></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">ITB is the concentrated bet.</span><span class="gist">About 70% moves with new-home construction, half the fund sits in five large builders and D.R.</span></summary><div class="detail"><p><strong>ITB is the concentrated bet.</strong></p><p>About 70% moves with new-home construction, half the fund sits in five large builders and D.R. Horton alone is 18%.</p><p>It is a call on mortgage rates and builder margins, close to a basket of the PHM/LEN/TOL names above. It tilts to the strongest balance sheets (§6) and carries little small-cap credit risk.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">XHB is a buildings-and-home-spending basket.</span><span class="gist">Builders are about 37% of the fund (large, mid/small and manufactured).</span></summary><div class="detail"><p><strong>XHB is a buildings-and-home-spending basket.</strong></p><p>Builders are about 37% of the fund (large, mid/small and manufactured). About 23% is commercial and data-center building systems (TT, JCI, CARR and MOD sell cooling and building systems into data centers; ALLE, CSL and WMS are commercial and infrastructure), and about 14% is home-goods retail.</p><p>Equal weighting raises its share of small builders and small caps, where debt risk concentrates in a long slump. Wayfair, SharkNinja and Williams-Sonoma lean on Asian sourcing, so tariffs matter (import shares not verified).</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Factor exposures</span><span class="gist"></span></summary><div class="detail"><p><strong>Factor exposures:</strong></p><ul><li>Mortgage rates and new-home demand: ITB very high (~70%); XHB moderate (~46%).</li><li>Existing-home turnover and remodeling: ITB ~26% (HD, LOW, SHW depend on home sales and home-equity spending); XHB ~13%.</li><li>AI capex, data centers and commercial construction: ITB none; XHB ~23%.</li><li>Consumer goods spending and tariffs: ITB negligible; XHB ~14%.</li><li>Concentration: ITB high (one stock 18%); XHB low (no position above ~4%).</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">The AI-capex hedge (§5) only works through ITB.</span><span class="gist">In an AI-capex decline with Fed cuts, ITB&#x27;s builders benefit and it has no AI exposure.</span></summary><div class="detail"><p><strong>The AI-capex hedge (§5) only works through ITB.</strong></p><p>In an AI-capex decline with Fed cuts, ITB's builders benefit and it has no AI exposure. XHB is mixed: its builders rise while its ~23% in data-center and commercial systems falls.</p><p>For a portfolio already heavy in AI, XHB adds AI exposure rather than hedging it.</p></div></details></li>
+</ul>
+<div class="tablewrap"><table><thead><tr><th>Scenario</th><th>ITB</th><th>XHB</th></tr></thead><tbody><tr><td>Mortgage rates fall below ~6.5%, housing recovers</td><td>Bigger winner</td><td>Gains, diluted</td></tr><tr><td>Higher for longer, AI capex keeps booming</td><td>Weak</td><td>Holds up better</td></tr><tr><td>AI capex falls, Fed cuts, yields drop</td><td>Works as a hedge</td><td>Mixed</td></tr><tr><td>Consumer recession and job losses</td><td>Builders hit hard; remodeling holds relatively better</td><td>Furnishings retail and small builders hit; commercial systems partly offset</td></tr><tr><td>Credit stress in small caps</td><td>Less exposed</td><td>More exposed</td></tr></tbody></table></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Which to use</span><span class="gist">ITB for a direct call on housing turning or as the AI-capex hedge; XHB for housing exposure without a strong rate call, accepting more small-cap...</span></summary><div class="detail"><p><strong>Which to use:</strong></p><p>ITB for a direct call on housing turning or as the AI-capex hedge; XHB for housing exposure without a strong rate call, accepting more small-cap credit and tariff exposure.</p></div></details></li>
+</ul>
+</section>
+<section class="theme" id="8-risks">
+<div class="eyebrow">Section 8</div>
+<h2>Risks</h2>
+<p class="takeaway">Rates, write-downs and margins with no visible bottom are the main risks; shrinking household formation caps the recovery.</p>
+
+<ul class="points">
+<li class="aside">Rates rising further (Fed hike, 10-year near 5.2%, bond-supply pressure in <a class="xref" href="../../../investing-macro/bond-supply-tsunami-2026.md">bond-supply-tsunami-2026</a>).</li>
+<li class="aside">Impairments turning book value from a floor into a moving target, most for land-heavy small caps, least for land-light PHM and LEN.</li>
+<li class="aside">No visible margin bottom; investors expect gross margins 74bp lower in a year.</li>
+<li class="aside">Labor delays from immigration enforcement and higher gas prices hitting traffic.</li>
+<li class="aside">Shrinking household formation capping multiples after any recovery.</li>
+<li class="aside">Rental and multifamily stress competing for the marginal buyer (<a class="xref" href="../../../investing-real-estate/multifamily-credit-stress-and-rem-2026-09.md">multifamily-credit-stress-and-rem-2026-09</a>).</li>
+</ul>
+</section>
+<section class="theme" id="related">
+<div class="eyebrow">Section 9</div>
+<h2>Related</h2>
+
+<ul class="points">
+<li class="aside"><a class="xref" href="../../../reading-list/notes/market-newsletter-digest-2026-09-26.md">market-newsletter-digest-2026-09-26</a> and <a class="xref" href="../../../reading-list/notes/market-newsletter-digest-2026-09-27.md">market-newsletter-digest-2026-09-27</a>: rates, Fed and consumer backdrop.</li>
+<li class="aside"><a class="xref" href="../../../investing-macro/podcasts/ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001.md">ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001</a>: AI capex crowding out bonds and rate-sensitive sectors.</li>
+<li class="aside"><a class="xref" href="../../../investing-macro/bond-supply-tsunami-2026.md">bond-supply-tsunami-2026</a>: Treasury supply and the long end.</li>
+<li class="aside"><a class="xref" href="../../../investing-real-estate/multifamily-credit-stress-and-rem-2026-09.md">multifamily-credit-stress-and-rem-2026-09</a>: rental-side stress.</li>
+<li class="aside"><a class="xref" href="../../concepts/valuations.md">valuations</a> and <a class="xref" href="../../concepts/equity-risk-premium.md">equity-risk-premium</a>: P/E vs. P/B frameworks used above.</li>
+</ul>
+</section>
+</main>
+</div>
+<footer>HTML companion to <span class="num">investing-fundamentals/company-analyses/comparisons/phm-vs-tol-vs-len-homebuilders-20261020.md</span>; the markdown file is the source of record.</footer>
+</div>
+<script>
+(function () {
+  var pts = function () { return document.querySelectorAll('details.pt'); };
+  document.getElementById('expand-all').addEventListener('click', function () { pts().forEach(function (d) { d.open = true; }); });
+  document.getElementById('collapse-all').addEventListener('click', function () { pts().forEach(function (d) { d.open = false; }); });
+})();
+</script>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.id = 'viztip'; tip.hidden = true; document.body.appendChild(tip);
+  function show(el, x, y) {
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var r = tip.getBoundingClientRect(), left = Math.min(x + 12, window.innerWidth - r.width - 8), top = y - r.height - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (top < 8 ? y + 16 : top) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', function () { tip.hidden = true; });
+    el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+    el.addEventListener('blur', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+})();
+</script>
+</body>
+</html>

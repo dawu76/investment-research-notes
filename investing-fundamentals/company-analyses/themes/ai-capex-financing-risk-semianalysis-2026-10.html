@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Capex and Financing</title>
+<meta name="description" content="Industry theme built from three SemiAnalysis discussions (October 2026): AI capex, financing, and financial risk.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d4f91'/%3E%3Crect x='7' y='17' width='4' height='9' fill='%23fff'/%3E%3Crect x='14' y='11' width='4' height='15' fill='%23fff'/%3E%3Crect x='21' y='6' width='4' height='20' fill='%23e0a458'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --surface-2: #eef2f7;
+  --border: #d6dde8;
+  --text: #16202d;
+  --text-dim: #536175;
+  --e37: #1d4f91;
+  --e37-soft: #e3ecf8;
+  --e34: #a8570f;
+  --e34-soft: #f8ecdf;
+  --btp: #2f6b4f;
+  --btp-soft: #e2f0e8;
+  --warn: #b03a2e;
+  --warn-soft: #f8e5e2;
+  --bar-bg: #e4e9f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e141d; --surface: #151d29; --surface-2: #1b2534; --border: #2a3648;
+    --text: #e3e9f1; --text-dim: #9aa8bb;
+    --e37: #74a8eb; --e37-soft: #1a2c45;
+    --e34: #e3a660; --e34-soft: #3a2a19;
+    --btp: #74c49a; --btp-soft: #183326;
+    --warn: #ee8a7d; --warn-soft: #3d1f1c;
+    --bar-bg: #232f40;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e141d; --surface: #151d29; --surface-2: #1b2534; --border: #2a3648;
+  --text: #e3e9f1; --text-dim: #9aa8bb;
+  --e37: #74a8eb; --e37-soft: #1a2c45;
+  --e34: #e3a660; --e34-soft: #3a2a19;
+  --btp: #74c49a; --btp-soft: #183326;
+  --warn: #ee8a7d; --warn-soft: #3d1f1c;
+  --bar-bg: #232f40;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 17px; scroll-behavior: smooth; scroll-padding-top: 4rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif; line-height: 1.55;
+  overflow-wrap: break-word;
+}
+.wrap { max-width: 68rem; margin: 0 auto; padding: 0 1rem 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+h1 { font-family: "IBM Plex Serif", Georgia, serif; font-size: 2.2rem; margin: 0 0 .6rem; }
+h2 { font-size: 1.5rem; margin: 0 0 .4rem; }
+h3 { font-size: 1.1rem; margin: 1.6rem 0 .5rem; }
+p { max-width: 68ch; margin: .5rem 0; }
+ul, ol { padding-left: 1.3rem; }
+li { margin: .25rem 0; }
+.mono, .num { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+.dim { color: var(--text-dim); }
+.small { font-size: .85rem; }
+a { color: var(--e37); }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--e37); outline-offset: 2px; }
+
+.tag { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: .7rem; font-weight: 600;
+  letter-spacing: .06em; text-transform: uppercase; padding: .1rem .45rem; border-radius: 3px; vertical-align: .1em; white-space: nowrap; }
+.tag.e37 { background: var(--e37-soft); color: var(--e37); }
+.tag.e34 { background: var(--e34-soft); color: var(--e34); }
+.tag.btp { background: var(--btp-soft); color: var(--btp); }
+.tag.calc { background: var(--warn-soft); color: var(--warn); }
+.tag.wiki { background: var(--surface-2); color: var(--text-dim); border: 1px solid var(--border); }
+
+header.top { padding: 2.5rem 0 1.5rem; border-bottom: 1px solid var(--border); }
+.eyebrow { font-family: "IBM Plex Mono", monospace; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); }
+.lede { font-size: 1.12rem; max-width: 62ch; }
+
+nav.toc { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--border);
+  overflow-x: auto; white-space: nowrap; margin: 0 -1rem; padding: 0 1rem; }
+nav.toc a { display: inline-block; padding: .65rem .7rem; font-size: .85rem; color: var(--text-dim); text-decoration: none; }
+nav.toc a:hover { color: var(--text); }
+
+section { padding-top: 2.6rem; }
+.section-lede { color: var(--text-dim); max-width: 66ch; margin-bottom: 1.2rem; }
+
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1rem; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+.grid2 > *, .grid3 > * { min-width: 0; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.1rem 1.2rem; }
+.card.e37 { border-top: 3px solid var(--e37); }
+.card.e34 { border-top: 3px solid var(--e34); }
+.card.btp { border-top: 3px solid var(--btp); }
+.card.warn { border-top: 3px solid var(--warn); }
+.card h3 { margin-top: 0; }
+.card .who { font-size: .85rem; color: var(--text-dim); margin: 0 0 .6rem; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+.kpi { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .9rem 1rem; }
+.kpi .big-num { font-family: "IBM Plex Mono", monospace; font-size: 1.6rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.kpi .l { font-size: .85rem; color: var(--text-dim); }
+
+ol.bottom { counter-reset: b; list-style: none; padding: 0; }
+ol.bottom li { counter-increment: b; position: relative; padding: .7rem 0 .7rem 2.6rem; border-bottom: 1px solid var(--border); margin: 0; }
+ol.bottom li::before { content: counter(b); position: absolute; left: 0; top: .7rem; width: 1.8rem; height: 1.8rem; border-radius: 50%;
+  background: var(--e37-soft); color: var(--e37); font-family: "IBM Plex Mono", monospace; font-weight: 600; display: grid; place-items: center; font-size: .85rem; }
+
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .8rem; }
+.step { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .9rem 1rem; position: relative; }
+.step .when { font-family: "IBM Plex Mono", monospace; font-size: .75rem; color: var(--text-dim); }
+.step .what { font-weight: 600; margin: .2rem 0; }
+.step.now { border: 2px solid var(--warn); }
+.status { font-family: "IBM Plex Mono", monospace; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.status.tight { color: var(--e34); }
+.status.easing { color: var(--btp); }
+.status.binding { color: var(--warn); }
+
+/* horizontal bars */
+.bars { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1rem 1.2rem; margin: 1rem 0; }
+.bars h3 { margin: 0 0 .2rem; font-size: 1rem; }
+.bars .note { font-size: .8rem; color: var(--text-dim); margin: 0 0 .8rem; }
+.row { display: grid; grid-template-columns: minmax(8rem, 15rem) 1fr 5.5rem; gap: .7rem; align-items: center; margin: .45rem 0; }
+.row .lab { font-size: .85rem; }
+.row .track { background: var(--bar-bg); height: 14px; border-radius: 0 4px 4px 0; position: relative; }
+.row .fill { height: 100%; border-radius: 0 4px 4px 0; background: var(--e37); }
+.fill.e34 { background: var(--e34); }
+.fill.btp { background: var(--btp); }
+.fill.warn { background: var(--warn); }
+.fill.mute { background: var(--text-dim); opacity: .55; }
+.row .val { font-family: "IBM Plex Mono", monospace; font-size: .85rem; text-align: right; font-variant-numeric: tabular-nums; }
+.row:hover .lab { color: var(--text); font-weight: 600; }
+.row:hover .fill { filter: brightness(1.12); }
+@media (max-width: 34rem) {
+  .row { grid-template-columns: 1fr 4.5rem; }
+  .row .lab { grid-column: 1 / -1; margin-bottom: -.25rem; }
+}
+
+/* tables */
+.tbl-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+th, td { text-align: left; padding: .55rem .75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { background: var(--surface-2); font-weight: 600; font-size: .8rem; white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: var(--surface-2); }
+td.num { white-space: nowrap; }
+tr.hl td { background: var(--warn-soft); }
+
+.view { font-family: "IBM Plex Mono", monospace; font-size: .72rem; font-weight: 600; padding: .1rem .4rem; border-radius: 3px; white-space: nowrap; }
+.view.bull { background: var(--btp-soft); color: var(--btp); }
+.view.neu { background: var(--surface-2); color: var(--text-dim); border: 1px solid var(--border); }
+.view.bear { background: var(--warn-soft); color: var(--warn); }
+.view.caut { background: var(--e34-soft); color: var(--e34); }
+
+.callout { background: var(--surface); border-left: 4px solid var(--warn); border-radius: 0 6px 6px 0; padding: 1rem 1.2rem; margin: 1rem 0; }
+.callout.blue { border-left-color: var(--e37); }
+.callout p { margin: .3rem 0; }
+blockquote { margin: .8rem 0; padding: .2rem 0 .2rem 1rem; border-left: 3px solid var(--border); color: var(--text-dim); font-style: italic; }
+
+/* gauge for backstop capacity */
+.gauge { margin: .8rem 0 .2rem; }
+.gauge .track { background: var(--bar-bg); height: 26px; border-radius: 4px; overflow: hidden; display: flex; }
+.gauge .seg { height: 100%; }
+.gauge .legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .8rem; color: var(--text-dim); margin-top: .5rem; }
+.sw { display: inline-block; width: .8rem; height: .8rem; border-radius: 2px; vertical-align: -.1em; margin-right: .3rem; }
+
+details { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .6rem 1rem; margin: .6rem 0; }
+summary { cursor: pointer; font-weight: 600; }
+
+footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); font-size: .85rem; color: var(--text-dim); }
+code { font-family: "IBM Plex Mono", monospace; font-size: .85em; background: var(--surface-2); padding: .05rem .3rem; border-radius: 3px; }
+
+@media print {
+  nav.toc { display: none; }
+  body { background: #fff; }
+  section { break-inside: avoid-page; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Industry theme · October 2026 · built from three SemiAnalysis discussions</div>
+  <h1>AI Capex, Financing, and Financial Risk</h1>
+  <p class="lede">SemiAnalysis argues the limit on the AI buildout is now money, not chips or data centers. Demand and unit economics look strong on their data. The risk sits in how the debt is structured and in GPU rental prices staying high.</p>
+  <div class="grid3" style="margin-top:1.2rem">
+    <div class="card e34"><span class="tag e34">Ep. 034</span><h3 style="margin:.4rem 0 .2rem">The Fight for Fast Tokens</h3><p class="who">Nanos with the InferenceX team · Oct 2, 2026</p><p class="small">Serving costs, margins, TPU v7, Vera Rubin.</p></div>
+    <div class="card e37"><span class="tag e37">Ep. 037</span><h3 style="margin:.4rem 0 .2rem">Who's Funding the $11T Buildout?</h3><p class="who">Daniel Nishball, Jordan Nanos · Oct 9, 2026</p><p class="small">Debt markets, backstops, residual values.</p></div>
+    <div class="card btp"><span class="tag btp">BTP</span><h3 style="margin:.4rem 0 .2rem">Can AI Keep Growing Exponentially?</h3><p class="who">Dylan Patel, Jordan Nanos, with Alex Kantrowitz · Oct 9, 2026</p><p class="small">Scale, revenue needed, company-level risk.</p></div>
+  </div>
+  <p class="small dim" style="margin-top:1rem">Source tags: <span class="tag e34">Ep. 034</span> <span class="tag e37">Ep. 037</span> <span class="tag btp">BTP</span> mark the episode; <span class="tag calc">calc</span> marks this page's own arithmetic or judgment; <span class="tag wiki">wiki</span> marks other wiki notes. All three come from one firm that sells data to the industry it describes, so read this as a well-informed bull case to test.</p>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#bottom">Bottom line</a><a href="#frame">Frame</a><a href="#size">Size</a><a href="#returns">Returns</a><a href="#revenue">Revenue math</a><a href="#financing">Financing</a><a href="#nvidia">Nvidia</a><a href="#contracts">Who holds risk</a><a href="#tech">Technology</a><a href="#bears">vs bears</a><a href="#risks">Risks</a><a href="#positioning">Positioning</a><a href="#dashboard">Dashboard</a><a href="#caveats">Caveats</a>
+</nav>
+
+<div class="kpis">
+  <div class="kpi"><div class="big-num">$11.3T</div><div class="l">AI capex, 2024–2029 <span class="tag e37">Ep. 037</span></div></div>
+  <div class="kpi"><div class="big-num">~$7T</div><div class="l">AI debt outstanding by 2029 <span class="tag e37">Ep. 037</span></div></div>
+  <div class="kpi"><div class="big-num">~$3/hr</div><div class="l">One-year H100 rent, up from ~$1.30 <span class="tag e37">Ep. 037</span></div></div>
+  <div class="kpi"><div class="big-num">$588B</div><div class="l">Nvidia backstops, from $497B a month earlier <span class="tag btp">BTP</span></div></div>
+  <div class="kpi"><div class="big-num">46 / 240GW</div><div class="l">What Nvidia can back vs capacity coming <span class="tag e37">Ep. 037</span></div></div>
+</div>
+
+<!-- 1 -->
+<section id="bottom">
+  <h2>Bottom line</h2>
+  <ol class="bottom">
+    <li><strong>The constraint has moved from chips to data centers to money.</strong> Memory (HBM) is still tight, and data-center capacity should balance by 2027–28. Financing is the new limit: ~$7T of AI debt by 2029, against a US high-yield market that issues ~$400B a year.</li>
+    <li><strong>SemiAnalysis's case on demand and unit economics is strong.</strong> Four-year-old H100s rent for more than they did a year ago. API serving runs ~75–90% gross margins. Anthropic is said to cover its compute costs. These are the firm's own models, but they agree across three teams.</li>
+    <li><strong>The bull and bear revenue math is closer than the rhetoric.</strong> Patel's rule of thumb applied to SemiAnalysis's $11.3T gives ~$2.8T a year of revenue needed. His own danger line is $3T in 2031; Brookings says ~$3.7T by 2032. The argument is about pace.</li>
+    <li><strong>The GPU rental price ties the risk together.</strong> Neocloud margins, lender returns, residual values, and Nvidia's rent-back guarantees all assume today's high rents roughly hold. A fall in rents would hit every one of them at the same time.</li>
+    <li><strong>Losses, if they come, land on specific companies before the system:</strong> leveraged neoclouds and the long tail, then Oracle, then Nvidia's contingent book, then hyperscaler multiples. Meta, Amazon, and Microsoft can stop spending and stay solvent.</li>
+    <li><strong>Backstops are a bridge with a known length.</strong> Lenders have to learn to take AI risk without a hyperscaler or Nvidia behind it. Nishball calls this "the biggest question of our time."</li>
+  </ol>
+</section>
+
+<!-- 2 -->
+<section id="frame">
+  <h2>The organizing frame: willingness vs ability</h2>
+  <p class="section-lede">Nishball splits the debate in two. Most of the public bubble argument mixes them, which makes it hard to tell what data would change anyone's mind. <span class="tag e37">Ep. 037</span></p>
+  <div class="grid2">
+    <div class="card btp"><h3>Willingness</h3><p>Do end users get enough value, and are margins high enough, that someone pays for the capacity?</p><p class="small"><strong>SemiAnalysis answer:</strong> yes, with data on rents, margins, and lab revenue.</p></div>
+    <div class="card warn"><h3>Ability</h3><p>Can the capital markets supply the money fast enough?</p><p class="small"><strong>SemiAnalysis answer:</strong> not yet clear. Lenders depend on backstops that have a limit.</p></div>
+  </div>
+  <h3>How the binding constraint moved</h3>
+  <div class="flow">
+    <div class="step"><div class="when">2024–25</div><div class="what">Chips, especially memory</div><div class="status tight">Still tight</div><p class="small">AI takes ~70% of DRAM wafers; Nvidia "despec'd" Vera Rubin to ship racks at all. HBM now shapes model design <span class="tag e34">Ep. 034</span></p></div>
+    <div class="step"><div class="when">2025–26</div><div class="what">Powered data-center sites</div><div class="status easing">Easing</div><p class="small">Site activations, refurbishments, behind-the-meter power; "much more balanced" by 2027–28. Site-specific delays persist.</p></div>
+    <div class="step now"><div class="when">2026 onward</div><div class="what">Financing</div><div class="status binding">Binding</div><p class="small">"A constraint people have learned about in just the last few months." <span class="tag e37">Ep. 037</span></p></div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="size">
+  <h2>How big is the buildout?</h2>
+  <p class="section-lede">The cumulative estimates agree at ~$10–11T, so scale isn't the main disagreement. GDP shares differ because they measure different things.</p>
+  <div class="bars" role="img" aria-label="AI buildout as share of US GDP by estimate">
+    <h3>Buildout as a share of US GDP</h3>
+    <p class="note">Scale: 0–6% of GDP. Patel's figure is next year's run rate including the full supply chain; the chart and Brookings figures are multi-year averages.</p>
+    <div class="row" title="Railroads: 2.2% of GDP (median annual)"><div class="lab">Railroads (historical)</div><div class="track"><div class="fill mute" style="width:36.7%"></div></div><div class="val">2.2%</div></div>
+    <div class="row" title="Popular chart: 3.6% of GDP"><div class="lab">AI, popular chart <span class="tag btp">BTP</span></div><div class="track"><div class="fill" style="width:60%"></div></div><div class="val">3.6%</div></div>
+    <div class="row" title="Brookings: 3.63% of GDP"><div class="lab">AI, Brookings <span class="tag wiki">wiki</span></div><div class="track"><div class="fill" style="width:60.5%"></div></div><div class="val">3.63%</div></div>
+    <div class="row" title="Patel: 5-6% of GDP next year"><div class="lab">AI next year, Patel <span class="tag btp">BTP</span></div><div class="track"><div class="fill btp" style="width:91.7%"></div></div><div class="val">5–6%</div></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Measure</th><th>Figure</th><th>Source</th><th>Scope</th></tr></thead>
+    <tbody>
+      <tr><td>Cumulative AI capex, 2024–2029</td><td class="num"><strong>$11.3T</strong></td><td><span class="tag e37">Ep. 037</span></td><td>Chips and racks (incl. TPU, Trainium) plus data centers; excludes power plants and fabs; includes neoclouds and developers</td></tr>
+      <tr><td>US capex next year</td><td class="num"><strong>~$2T</strong></td><td><span class="tag btp">BTP</span></td><td>Full supply chain, against ~$30T+ GDP</td></tr>
+      <tr><td>Brookings / Van Nieuwerburgh</td><td class="num">$10.3T</td><td><span class="tag wiki">wiki</span></td><td>Project-level capacity model</td></tr>
+      <tr><td>Hyperscaler capex growth</td><td class="num"><strong>+116% YoY</strong> (Q3 2026)</td><td><span class="tag btp">BTP</span></td><td>Consensus: &lt;100% in Q4, ~70% in Q1 2027</td></tr>
+      <tr><td>Global data-center capacity added</td><td class="num">~40GW/yr → ~60GW/yr by 2029</td><td><span class="tag e37">Ep. 037</span></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid2">
+    <div class="card"><h3>US capex serves foreign demand</h3><p class="small">Most of Anthropic's and OpenAI's European inference runs in US data centers. Railroad comparisons, which served domestic traffic, overstate how much US GDP has to support this. <span class="tag btp">BTP</span></p></div>
+    <div class="card"><h3>Slower capex growth is consensus</h3><p class="small">+116% falling to ~70% is arithmetic, not a demand break. Watch the dollar level. Nanos expects real limits late in 2027: organizing another gigawatt on top of existing projects, and raising trillions.</p></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="returns">
+  <h2>Willingness: the return side</h2>
+  <h3>Prices are rising, not falling</h3>
+  <div class="bars" role="img" aria-label="One-year H100 rental price path">
+    <h3>One-year H100 rental, $/GPU-hour</h3>
+    <p class="note">Scale: $0–3.50. SemiAnalysis's theoretical curve tracked within ~2% for 18 months, then broke in Sept–Oct 2025 as sold-out GB300 and B200/B300 demand cascaded down to Hoppers. <span class="tag e37">Ep. 037</span></p>
+    <div class="row" title="Fall 2025 bottom: ~$1.30/hr"><div class="lab">Fall 2025 bottom</div><div class="track"><div class="fill mute" style="width:37.1%"></div></div><div class="val">~$1.30</div></div>
+    <div class="row" title="Renewals: ~$2.50/hr"><div class="lab">Some renewals</div><div class="track"><div class="fill" style="width:71.4%"></div></div><div class="val">~$2.50</div></div>
+    <div class="row" title="Now: ~$3/hr, near H1 2023 signing levels"><div class="lab">Now (Oct 2026)</div><div class="track"><div class="fill" style="width:85.7%"></div></div><div class="val">~$3.00</div></div>
+    <div class="row" title="Nvidia AICP rent-back floor: ~$3.25 average"><div class="lab">For reference: AICP floor</div><div class="track"><div class="fill warn" style="width:92.9%"></div></div><div class="val">~$3.25</div></div>
+  </div>
+  <p class="small dim">The AICP floor applies to the neocloud's cluster, whose GPU generation isn't stated. It is shown for scale, not as a like-for-like comparison with H100 rents.</p>
+  <ul>
+    <li><strong>Token prices</strong> are rising on a blended $/million-tokens basis, while throughput per GPU rises too, so margins widen even at flat prices. <span class="tag e37">Ep. 037</span></li>
+    <li>Nanos expects four-year-old H100s to rent for <em>more</em> next year.</li>
+  </ul>
+
+  <h3>Margins at each layer</h3>
+  <p class="section-lede">The episodes quote several margin figures. They measure different things and fit together.</p>
+  <div class="bars" role="img" aria-label="Margins by layer">
+    <div class="row" title="Frontier-lab API gross margin ~90%"><div class="lab">Frontier API gross <span class="tag e37">037</span></div><div class="track"><div class="fill" style="width:90%"></div></div><div class="val">~90%</div></div>
+    <div class="row" title="Open models on GB300 gross ~80%"><div class="lab">Open models on GB300, gross <span class="tag e37">037</span></div><div class="track"><div class="fill" style="width:80%"></div></div><div class="val">~80%</div></div>
+    <div class="row" title="Anthropic inference gross ~75%"><div class="lab">Anthropic inference gross <span class="tag btp">BTP</span></div><div class="track"><div class="fill btp" style="width:75%"></div></div><div class="val">~75%</div></div>
+    <div class="row" title="Flat-rate subscriptions 50-60%"><div class="lab">Flat-rate subscriptions <span class="tag e37">037</span></div><div class="track"><div class="fill" style="width:55%"></div></div><div class="val">50–60%</div></div>
+    <div class="row" title="Open-model profit after 30% license, 60% utilization: 40-50%"><div class="lab">Open-model profit, after license <span class="tag e34">034</span></div><div class="track"><div class="fill e34" style="width:45%"></div></div><div class="val">40–50%</div></div>
+    <div class="row" title="Server OEMs ~9%"><div class="lab">Server OEMs <span class="tag e37">037</span></div><div class="track"><div class="fill warn" style="width:9%"></div></div><div class="val">~9%</div></div>
+  </div>
+  <details>
+    <summary>How the margin figures are built</summary>
+    <ul class="small">
+      <li><strong>~90% API:</strong> ~$38/hr of token revenue per GB300 (~$1.85 per million tokens blended) vs ~$2.80/hr cost of ownership (~$2.13 capital, ~$0.66 operating). Renting from a neocloud costs ~$4.50–5/hr. <span class="tag e37">Ep. 037</span></li>
+      <li><strong>~75% Anthropic:</strong> higher on frontier models; Salesforce runs ~75%, which took it years after its IPO. <span class="tag btp">BTP</span></li>
+      <li><strong>40–50% profit:</strong> Kimi K3 ~40.7% on GB200 NVL72, ~50% on GB300 with Dynamo at 60% utilization and a 30% license fee to Moonshot. Some DeepSeek V4.1 Flash settings are unprofitable. Uses open-source software; large providers should do better. <span class="tag e34">Ep. 034</span></li>
+      <li><strong>Per megawatt:</strong> frontier-token revenue up to ~$100M per MW per year at optimistic utilization, vs ~$40M per MW to build. Nishball calls the $100M "a little optimistic." <span class="tag e37">Ep. 037</span></li>
+    </ul>
+  </details>
+
+  <h3>Lab revenue and profitability <span class="tag btp">BTP</span></h3>
+  <div class="grid3">
+    <div class="card"><div class="big-num mono" style="font-size:1.4rem;font-weight:600">&lt;$10B → &gt;$100B</div><p class="small">Anthropic revenue this year (~10x)</p></div>
+    <div class="card"><div class="big-num mono" style="font-size:1.4rem;font-weight:600">$600–700B</div><p class="small">Patel's OpenAI + Anthropic run-rate forecast for Dec 2027</p></div>
+    <div class="card"><div class="big-num mono" style="font-size:1.4rem;font-weight:600">~0</div><p class="small">Customer acquisition cost, vs up to ~30% of revenue at SaaS companies</p></div>
+  </div>
+  <ul>
+    <li>Anthropic covers training plus inference compute today; OpenAI gets there in "two or three" quarters.</li>
+    <li>Amazon's AI infrastructure is "profitable today"; Bedrock lifted gross margin last quarter.</li>
+    <li>R&amp;D grows slower than revenue, and customers are sticky. Patel: an AI lab is "arguably a better business than software."</li>
+  </ul>
+</section>
+
+<!-- 5 -->
+<section id="revenue">
+  <h2>The revenue requirement: where bulls and bears differ</h2>
+  <p class="section-lede">Put side by side, the bull and bear thresholds cluster around $3T a year near 2031. The disagreement is about whether revenue compounds fast enough to get there.</p>
+  <div class="bars" role="img" aria-label="Annual AI revenue required, by source">
+    <h3>Annual AI revenue needed, $T</h3>
+    <p class="note">Scale: $0–6T. Compare today's lab revenue in the low hundreds of billions.</p>
+    <div class="row" title="Patel forecast, OpenAI + Anthropic run rate Dec 2027: $0.6-0.7T"><div class="lab">Patel forecast, 2 labs, Dec 2027</div><div class="track"><div class="fill btp" style="width:10.8%"></div></div><div class="val">$0.6–0.7T</div></div>
+    <div class="row" title="Patel's rule applied to $11.3T: ~$2.8T"><div class="lab">Patel's rule × $11.3T <span class="tag calc">calc</span></div><div class="track"><div class="fill warn" style="width:46.7%"></div></div><div class="val">~$2.8T</div></div>
+    <div class="row" title="Patel danger line: $3T in 2031"><div class="lab">Patel's "big problems" line, 2031</div><div class="track"><div class="fill btp" style="width:50%"></div></div><div class="val">$3T</div></div>
+    <div class="row" title="Brookings: ~$3.5-3.7T by 2032"><div class="lab">Brookings, 2032 <span class="tag wiki">wiki</span></div><div class="track"><div class="fill" style="width:61.7%"></div></div><div class="val">~$3.7T</div></div>
+    <div class="row" title="Bain: $6T by 2031"><div class="lab">Bain, 2031</div><div class="track"><div class="fill mute" style="width:100%"></div></div><div class="val">$6T</div></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>View</th><th>Revenue needed</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td>Bain</td><td class="num">$6T/yr by 2031</td><td>Hyperscaler break-even</td></tr>
+      <tr><td>Brookings / Van Nieuwerburgh</td><td class="num">~$3.5–3.7T/yr by 2032</td><td>8.8–9.2% of GDP; 10% required return, 50% operating cash-flow margin, 6-year IT life</td></tr>
+      <tr><td>Patel rule of thumb</td><td class="num">~$250B/yr per $1T</td><td>$1.5T of revenue over 6 years, back-loaded</td></tr>
+      <tr class="hl"><td><strong>Patel's rule × $11.3T</strong> <span class="tag calc">calc</span></td><td class="num"><strong>~$2.8T/yr</strong></td><td>This page's arithmetic, not a figure he gave. Overstates the need slightly, since data centers last ~15 years, not 6</td></tr>
+      <tr><td>Patel's danger line</td><td class="num">$3T in 2031</td><td>"If AI revenue is only $3 trillion in 2031… big problems"</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout">
+    <p><strong>The test to watch.</strong> Patel's December 2027 forecast ($600–700B for two labs) would put the industry about a quarter of the way to ~$3T with four years left. If lab revenue misses that path by a wide margin in 2027, the bull case loses its main support.</p>
+  </div>
+  <p><strong>Where the money comes from</strong> <span class="tag btp">BTP</span>: corporate R&amp;D and COGS budgets moving to AI, and capital taking share from labor. Patel's example is US chip-design headcount, flat for 20 years while the industry's value exploded.</p>
+  <blockquote>"Capex is not going up at 10x a year, but inference revenue just went up 10x year on year for the AI labs." (Patel)</blockquote>
+</section>
+
+<!-- 6 -->
+<section id="financing">
+  <h2>Ability: the financing side</h2>
+  <p class="section-lede">A new borrower class raising ~$1T a year, more than the whole high-yield market, competes with Treasuries and corporates for the same buyers. <span class="tag e37">Ep. 037</span></p>
+  <div class="bars" role="img" aria-label="Net new AI debt in 2026 vs annual US credit market issuance">
+    <h3>2026 net new AI debt vs annual US issuance, $T</h3>
+    <p class="note">Scale: $0–3T. Total US issuance is ~$12.7T including ~$5–6T of Treasuries (off scale).</p>
+    <div class="row" title="US IG issuance ~$3T/yr"><div class="lab">Investment grade</div><div class="track"><div class="fill mute" style="width:100%"></div></div><div class="val">~$3.0T</div></div>
+    <div class="row" title="Net new AI debt 2026 ~$1T"><div class="lab"><strong>Net new AI debt, 2026</strong></div><div class="track"><div class="fill warn" style="width:33.3%"></div></div><div class="val">~$1.0T</div></div>
+    <div class="row" title="High yield ~$400B/yr"><div class="lab">High-yield bonds</div><div class="track"><div class="fill mute" style="width:13.3%"></div></div><div class="val">~$0.4T</div></div>
+    <div class="row" title="Leveraged loans ~$400B/yr"><div class="lab">Leveraged loans</div><div class="track"><div class="fill mute" style="width:13.3%"></div></div><div class="val">~$0.4T</div></div>
+  </div>
+  <ul>
+    <li><strong>~$7T</strong> of AI debt outstanding by 2029. 2026: ~$500B through June, then ~$400B from June 1 to Oct 7 (~$260B documented, ~$150B reported).</li>
+    <li>"2026 is the last year that AI debt is going to be less than 10% of all issuance."</li>
+    <li>AI debt passed US auto loans and student loans in 2026; it is second only to agency MBS among US asset-backed credit.</li>
+  </ul>
+  <blockquote>"It's like a zombie apocalypse but you don't know how many waves of zombies are coming… you don't know whether you're on wave five or wave 50." (Nishball)</blockquote>
+
+  <h3>"Balance sheet as a service"</h3>
+  <p>Lenders finance a cluster only against a <strong>five-year offtake from an investment-grade buyer</strong>. OpenAI and Anthropic aren't rated, so a hyperscaler or Nvidia sits in the middle.</p>
+  <div class="grid3">
+    <div class="card"><h3>Example</h3><p class="small">Nscale sells capacity to Microsoft, which resells it to OpenAI. If OpenAI doesn't pay, Microsoft does, so Nscale borrows against Microsoft's credit.</p></div>
+    <div class="card"><h3>Accounting</h3><p class="small">Many deals are service contracts (ASC 606), not leases (ASC 842), so they stay off the balance sheet. Nishball expects rating agencies to "see through this stuff."</p></div>
+    <div class="card"><h3>Cost passes to buyers</h3><p class="small">GB300 capacity means picking a provider six months ahead and prepaying 30–50% of contract value.</p></div>
+  </div>
+
+  <h3>The credit market is already charging for it</h3>
+  <div class="bars" role="img" aria-label="Credit spreads, basis points">
+    <p class="note">Approximate spreads in basis points (Z-spread unless noted). Scale: 0–400bp. <span class="tag e37">Ep. 037</span></p>
+    <div class="row" title="Meta 5-year ~97bp"><div class="lab">Meta 5-year</div><div class="track"><div class="fill mute" style="width:24.3%"></div></div><div class="val">~97bp</div></div>
+    <div class="row" title="Amazon 10-year ~100-110bp"><div class="lab">Amazon 10-year</div><div class="track"><div class="fill" style="width:26.3%"></div></div><div class="val">~105bp</div></div>
+    <div class="row" title="CoreWeave-Meta project loan just under ~200bp"><div class="lab">CoreWeave–Meta project loan</div><div class="track"><div class="fill" style="width:49%"></div></div><div class="val">~195bp</div></div>
+    <div class="row" title="Oracle 10-year ~250bp"><div class="lab">Oracle 10-year</div><div class="track"><div class="fill warn" style="width:62.5%"></div></div><div class="val">~250bp</div></div>
+    <div class="row" title="CoreWeave ~400bp"><div class="lab">CoreWeave</div><div class="track"><div class="fill warn" style="width:100%"></div></div><div class="val">~400bp</div></div>
+  </div>
+  <ul class="small">
+    <li>Amazon's $25B six-tranche July deal priced "well wide" of its curve: ~100bp at issue, widened 10–20bp over the summer.</li>
+    <li>Oracle's whole curve is up ~30–50bp since summer.</li>
+    <li>The CoreWeave–Meta loan priced at SOFR + 225bp, ~100bp over Meta itself. That gap is the price of execution risk.</li>
+  </ul>
+  <div class="callout blue"><p>Spreads widened at Oracle and on Amazon's new issues before any sign of weaker demand. On SemiAnalysis's reading, AI stress shows up first as a <strong>funding-cost</strong> problem, not a revenue problem.</p></div>
+</section>
+
+<!-- 7 -->
+<section id="nvidia">
+  <h2>Nvidia as financier</h2>
+  <p class="section-lede">Nvidia now guarantees much of the debt that buys its own chips.</p>
+  <div class="card">
+    <h3>Backstop capacity vs capacity coming</h3>
+    <div class="gauge" role="img" aria-label="Nvidia can support about 46GW of about 240GW coming">
+      <div class="track"><div class="seg" style="width:19.2%;background:var(--e37)"></div><div class="seg" style="width:80.8%;background:var(--bar-bg)"></div></div>
+      <div class="legend"><span><span class="sw" style="background:var(--e37)"></span>~46GW Nvidia's balance sheet can support</span><span><span class="sw" style="background:var(--bar-bg);border:1px solid var(--border)"></span>~194GW left for lenders without an Nvidia backstop (of ~240GW coming)</span></div>
+    </div>
+    <p class="small dim">Hyperscaler backstop capacity hasn't been modeled yet. <span class="tag e37">Ep. 037</span></p>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Item</th><th>Figure</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Off-balance-sheet commitments tracked</td><td class="num"><strong>$497B → $588B</strong> (early Sept → Oct 9)</td><td><span class="tag e37">Ep. 037</span> <span class="tag btp">BTP</span></td></tr>
+      <tr><td>Pace of new backstops</td><td class="num">~$100B a month</td><td><span class="tag e37">Ep. 037</span></td></tr>
+      <tr><td>AICP rent-back floor (now)</td><td class="num">~$3.25/GPU-hr avg, 6 years; Nvidia takes 50% above the floor</td><td><span class="tag e37">Ep. 037</span></td></tr>
+      <tr><td>AICP floor (July)</td><td class="num">$2.33–2.36/hr; 40% share</td><td><span class="tag wiki">wiki</span></td></tr>
+      <tr><td>Ports Pike residual-value guarantees</td><td class="num">$105B; 4.25GW, up to ~9GW</td><td><span class="tag e37">Ep. 037</span></td></tr>
+      <tr><td>Nvidia revenue</td><td class="num">Nearing ~$500B (~2.5% of US M2)</td><td><span class="tag btp">BTP</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid2">
+    <div class="card btp"><h3>Bull reading</h3><p class="small">Nvidia signs as the creditworthy buyer so neoclouds can borrow. When capacity comes online someone else usually wants it at a higher price, so Nvidia resells and moves on. It also wants customers beyond three or four hyperscalers. Capacity it keeps for its own research is a very small share of revenue. (Nanos) <span class="tag btp">BTP</span></p></div>
+    <div class="card warn"><h3>Risk reading</h3><p class="small">The floor rose ~40% since July as rents rose, so Nvidia is underwriting at higher prices. If rents fall below the floor, Nvidia pays the difference and gets no revenue share, and residual-value guarantees become liabilities. Its earnings would fall at the same time as its guarantee payments rise. <span class="tag calc">calc</span></p></div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="contracts">
+  <h2>Who holds the risk: contract structure</h2>
+  <div class="grid2">
+    <div class="card"><h3>Binding vs flexible commitments <span class="tag btp">BTP</span></h3>
+      <ul class="small">
+        <li><strong>Neocloud offtakes:</strong> 5–6 years, full capacity, fixed hourly rates, no cancellation at will. Binding.</li>
+        <li><strong>Self-built campuses:</strong> flexible. Meta can leave a shell empty for years; the building is a small share of total cost.</li>
+      </ul>
+      <p class="small">When demand slows, hyperscalers can cut their own builds first and still owe the neoclouds. First losses go to neocloud lenders and equity.</p>
+    </div>
+    <div class="card"><h3>Lenders underwrite to zero residual value <span class="tag e37">Ep. 037</span></h3>
+      <p class="small">Most projects target a 20–30%+ IRR over 5–6 years with no residual value. Value after year five "is like a bonus." Senior lenders lose money if rents fall during the contract or a counterparty fails, not because the GPUs are worth less at the end.</p>
+    </div>
+  </div>
+  <h3>Contract length decides who gains from rising rents <span class="tag btp">BTP</span></h3>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Provider</th><th>Contract profile</th><th>If rents rise</th><th>If rents fall</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Nebius</strong></td><td>Shortest average contracts of the top clouds</td><td>Reprices up ("really jack up pricing")</td><td>Reprices down</td></tr>
+      <tr><td><strong>CoreWeave</strong></td><td>Long-term contracts</td><td>Captures less</td><td>Protected</td></tr>
+      <tr><td><strong>Oracle</strong></td><td>Fixed-margin OpenAI deals signed ~a year ago</td><td>Can't benefit</td><td>Protected on margin, exposed on execution</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Execution is where single names break</h3>
+  <div class="grid3">
+    <div class="card warn"><h3>Oracle</h3><p class="small">Second-tier ClusterMAX quality but heavy debt, fixed margins, and the New Mexico site delayed potentially years for lack of gas pipelines, with force majeure declared. Wisconsin delayed too. <span class="tag btp">BTP</span></p></div>
+    <div class="card warn"><h3>Neocloud security</h3><p class="small">Chinese open models such as GLM 5.3 "can just hack dozens of the neoclouds." SemiAnalysis saw another tenant's jobs on one cloud, including a foreign government security agency's. A breach risks contracts, and with them the lenders' collateral. <span class="tag btp">BTP</span></p></div>
+    <div class="card warn"><h3>Long tail</h3><p class="small">SemiAnalysis tracks 323 providers. The "not recommended" group has more names than the top four tiers combined. A seller's market hides weak quality. <span class="tag btp">BTP</span></p></div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="tech">
+  <h2>Technology shifts that change the financing math</h2>
+  <p class="section-lede">Hardware and software changes feed straight into depreciation lives, residual values, and which suppliers win.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Shift</th><th>Evidence</th><th>Financing implication</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Vera Rubin</strong> <span class="tag e34">034</span></td><td>~3x Blackwell at ~100 tok/s per user, ~1.4x at max throughput, at &lt;2x the price; HBM4 ~3x bandwidth</td><td>Clear reason to upgrade, and faster economic obsolescence of Blackwell. Scarcity has outweighed it so far; once supply catches up, older-chip rents fall.</td></tr>
+      <tr><td><strong>TPU v7</strong> <span class="tag e34">034</span></td><td>Lowest cost per token vs B200/B300; PyTorch-on-TPU coming; TPUs entering neoclouds</td><td>A second supplier for lenders and a pricing check on Nvidia.</td></tr>
+      <tr><td><strong>Google vs DeepMind</strong> <span class="tag btp">BTP</span></td><td>DeepMind will have the least compute of the three frontier labs; OpenAI and Anthropic each add 5–10GW next year</td><td>Alphabet looks increasingly like an infrastructure seller.</td></tr>
+      <tr><td><strong>HBM shapes models</strong> <span class="tag e34">034</span></td><td>Engrams and KV-cache offload move work to DRAM and SSD; DRAM offload adds ~20–30% to cache hits</td><td>More memory and flash content per server.</td></tr>
+      <tr><td><strong>Fast tokens</strong> <span class="tag e34">034</span></td><td>Tool calls are the bottleneck; GPU mega-kernels (TileRT) reach ~200–500 tok/s</td><td>Specialist chipmakers are financed on the shortage, not on a proven long-term edge.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 10 -->
+<section id="bears">
+  <h2>Where SemiAnalysis disagrees with the bears</h2>
+  <p class="section-lede">Every view converges on where stress shows up first: Oracle, neoclouds, and private credit. They differ on how likely it is and how big.</p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Bear view</th><th>Their claim</th><th>SemiAnalysis response</th><th>Still unresolved</th></tr></thead>
+    <tbody>
+      <tr><td>Klement <span class="tag wiki">wiki</span></td><td>FCF depleted, debt "prohibitive"; bubble bursts 2027–28; S&amp;P 5,000</td><td>Agrees financing is the constraint; disagrees on ability to pay because unit economics are strong</td><td>Whether equity investors keep paying while spreads widen</td></tr>
+      <tr><td>Brookings / Van Nieuwerburgh <span class="tag wiki">wiki</span></td><td>~$3.7T of annual revenue needed by 2032</td><td>Patel calls the numbers too low, but his own danger line is ~$3T in 2031</td><td>Revenue path 2027–31</td></tr>
+      <tr><td>UBP <span class="tag wiki">wiki</span></td><td>~$2.9T off balance sheet; ~12x commitments to lab ARR; Oracle the weak link</td><td>Agrees on Oracle and accounting; sees lab revenue growing into commitments</td><td>Whether rating agencies treat take-or-pay as debt</td></tr>
+      <tr><td>Burry <span class="tag wiki">wiki</span></td><td>Write-offs 2028–29; Oracle stress</td><td>Agrees on Oracle execution; rising rents argue against write-offs</td><td>Depreciation lives once supply catches up</td></tr>
+      <tr><td>Ed Zitron <span class="tag btp">BTP</span></td><td>Nvidia funds its own demand</td><td>Backstops are resold at higher prices; internal use is tiny</td><td>Guarantee exposure if resale prices fall</td></tr>
+      <tr><td>Commencement wall <span class="tag wiki">wiki</span></td><td>2027–28 payment wall; losses on neoclouds and private credit</td><td>Neocloud offtakes are binding; demand exceeds supply</td><td>Same direction on who bears losses</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 11 -->
+<section id="risks">
+  <h2>Risk framework</h2>
+  <p class="section-lede">Ranked by severity × probability over the next 2–3 years. The ranking is this page's judgment, built from the three episodes. <span class="tag calc">calc</span></p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>#</th><th>Risk</th><th>Trigger</th><th>What breaks first</th><th>Early signal</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><strong>Financing capacity outruns backstops</strong></td><td>Debt need passes what hyperscalers and Nvidia can guarantee (~46GW vs ~240GW)</td><td>Non-IG neocloud raises, convert-heavy funding, wider spreads</td><td>New-issue concessions; CoreWeave and Oracle spreads; share of deals without a backstop</td></tr>
+      <tr><td class="num">2</td><td><strong>GPU rental prices reverse</strong></td><td>Rubin and TPU supply catch up; 3x per-chip gain hits older-chip rents</td><td>Short-contract margins, AICP floors, residual-value guarantees</td><td>One-year H100 and GB300 rental indices; OpenRouter token prices</td></tr>
+      <tr><td class="num">3</td><td><strong>Execution and delays</strong></td><td>Power, gas pipelines, moratoriums, construction</td><td>Oracle New Mexico and Wisconsin; project loans serviced from reserves</td><td>Force majeure notices; energization dates vs contract</td></tr>
+      <tr><td class="num">4</td><td><strong>Lab counterparty concentration</strong></td><td>OpenAI or Anthropic revenue misses the $600–700B path</td><td>Hyperscalers' resale guarantees; Oracle's OpenAI backlog</td><td>Lab run-rate disclosures; Anthropic IPO filing</td></tr>
+      <tr><td class="num">5</td><td><strong>Accounting re-rating</strong></td><td>Agencies treat ASC 606 service deals and take-or-pay as debt</td><td>Hyperscaler leverage metrics and multiples, Oracle first</td><td>Rating-agency methodology notes</td></tr>
+      <tr><td class="num">6</td><td><strong>Security incident at a neocloud</strong></td><td>Model-assisted breach or tenant data exposure</td><td>Contracts with sovereign and enterprise customers</td><td>Disclosed incidents; ClusterMAX security scores</td></tr>
+      <tr><td class="num">7</td><td><strong>Enterprise adoption stalls</strong></td><td>Fortune 500 "lack of imagination" persists</td><td>Revenue beyond coding and consumer</td><td>Enterprise seat and API spend data</td></tr>
+      <tr><td class="num">8</td><td><strong>Political backlash over distribution of gains</strong></td><td>Capital share rises fast while labor income stagnates (Patel's own worry)</td><td>Regulation, taxes, permitting</td><td>Policy proposals on AI rents and data-center permits</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout">
+    <p><strong>Pre-mortem.</strong> If this theme is wrong in three years, the most likely reason is risk 2 setting off risk 1. Rubin and TPU capacity arrive in volume in 2027 and rents fall. Neocloud margins and Nvidia's rent-back floors come under pressure together, and lenders who had been relying on backstops stop extending new credit right when the 2027–28 payment wall arrives. Demand could keep growing through all of this. The problem would be that prices fall faster than the debt was underwritten to allow.</p>
+  </div>
+  <h3>What must hold for the bull case</h3>
+  <ul>
+    <li>Rents stay above underwriting levels through 2028.</li>
+    <li>OpenAI plus Anthropic reach roughly $600–700B of run rate by end-2027.</li>
+    <li>Credit markets learn to underwrite neocloud execution risk without a guarantor.</li>
+    <li>No major lab defaults on a backstopped offtake.</li>
+  </ul>
+</section>
+
+<!-- 12 -->
+<section id="positioning">
+  <h2>Public-market positioning by layer</h2>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Layer</th><th>Names</th><th>View</th><th>Why</th><th>Main risk</th></tr></thead>
+    <tbody>
+      <tr><td>Memory</td><td>SK Hynix, Samsung, Micron (MU)</td><td><span class="view bull">Bullish</span></td><td>HBM binding; DRAM/SSD content per server rising</td><td>Memory cycle turns once despec'd products catch up</td></tr>
+      <tr><td>Accelerators</td><td>Nvidia (NVDA)</td><td><span class="view bull">Bullish</span> <span class="view caut">contingent risk</span></td><td>Rubin 3x at &lt;2x price; revenue ~$500B; 50% share above floors</td><td>$588B of backstops become liabilities if rents fall</td></tr>
+      <tr><td>Custom silicon</td><td>Alphabet (GOOGL), Broadcom (AVGO)</td><td><span class="view bull">Bullish</span></td><td>TPU v7 cost lead; neocloud distribution; $24B + $6B TPU financing</td><td>DeepMind's falling compute share</td></tr>
+      <tr><td>Hyperscalers</td><td>Amazon (AMZN)</td><td><span class="view bull">Bullish</span></td><td>AI infrastructure already profitable</td><td>Lab counterparty risk; new-issue spreads</td></tr>
+      <tr><td>Hyperscalers</td><td>Meta (META), Microsoft (MSFT)</td><td><span class="view neu">Neutral</span></td><td>Solvent and can stop buying; backstopping others' deals</td><td>Off-balance-sheet re-rating</td></tr>
+      <tr><td>Cloud</td><td>Oracle (ORCL)</td><td><span class="view caut">Cautious</span></td><td>Good service</td><td>Fixed margins, debt, New Mexico force majeure; widest IG curve</td></tr>
+      <tr><td>Neoclouds</td><td>Nebius (NBIS)</td><td><span class="view bull">Bullish while rents rise</span></td><td>Short contracts reprice upward</td><td>Same contracts reprice down if rents fall</td></tr>
+      <tr><td>Neoclouds</td><td>CoreWeave (CRWV)</td><td><span class="view neu">Neutral</span></td><td>Top-tier quality; long contracts protect downside</td><td>Convert dilution; ~400bp spreads; capped upside</td></tr>
+      <tr><td>Long-tail neoclouds, miner hosts</td><td>Hut 8 (HUT), others</td><td><span class="view bear">Bearish to mixed</span></td><td>Seller's market hides weak security and reliability</td><td>Need IG offtake to borrow</td></tr>
+      <tr><td>Server OEMs</td><td>—</td><td><span class="view bear">Bearish margins</span></td><td>~9% margins in a price war</td><td>—</td></tr>
+      <tr><td>Fast-inference silicon</td><td>Cerebras, others</td><td><span class="view caut">Cautious</span></td><td>Funded by shortage</td><td>GPU software closes the speed gap</td></tr>
+      <tr><td>Credit / duration</td><td>IG tech credit, long Treasuries</td><td><span class="view caut">Cautious</span></td><td>~$1T a year of new AI supply; heading above 10% of issuance</td><td>Widening spreading from Oracle to AA names</td></tr>
+    </tbody>
+  </table></div>
+  <div class="grid2">
+    <div class="card"><h3>Portfolio implications</h3>
+      <ul class="small">
+        <li>Treat <strong>credit spreads as the early warning</strong> for AI equities. Funding costs should move before demand does.</li>
+        <li><strong>Contract length</strong> is the main way to distinguish neocloud equities. Pick based on your view of where rents go.</li>
+        <li>Value <strong>Nvidia partly as a lender</strong>. Track the backstop total every quarter against revenue and cash.</li>
+        <li>Be careful adding <strong>long duration</strong> while AI issuance grows toward 10% of US issuance.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section id="dashboard">
+  <h2>Dashboard: what to track</h2>
+  <p class="section-lede">Current values come from the three episodes. Red-flag levels are this page's proposals, not SemiAnalysis figures. <span class="tag calc">calc</span></p>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Indicator</th><th>Current (Oct 2026)</th><th>Red flag</th><th>Frequency / source</th></tr></thead>
+    <tbody>
+      <tr><td>One-year H100 rental</td><td class="num">~$3/hr</td><td>Back toward ~$2/hr</td><td>Monthly; SemiAnalysis GPU rental index</td></tr>
+      <tr><td>AICP rent-back floor</td><td class="num">~$3.25/hr, 50% share</td><td>Spot GB-class rents near the floor</td><td>Per program; Nvidia disclosures, SemiAnalysis</td></tr>
+      <tr><td>Nvidia tracked backstops</td><td class="num">$588B</td><td>Growth faster than revenue for several quarters, or a first payout</td><td>Monthly; SemiAnalysis; NVDA 10-Q footnotes</td></tr>
+      <tr><td>Net new AI debt</td><td class="num">~$1T in 2026</td><td>Rising issuance with widening concessions</td><td>Monthly; deal flow</td></tr>
+      <tr><td>Oracle 10-year Z-spread</td><td class="num">~250bp</td><td>Further widening while peers hold</td><td>Daily; TRACE/Bloomberg</td></tr>
+      <tr><td>Amazon 10-year Z-spread</td><td class="num">~100–110bp</td><td>Sustained &gt;130bp</td><td>Daily</td></tr>
+      <tr><td>CoreWeave spread</td><td class="num">~400bp</td><td>&gt;600bp</td><td>Daily</td></tr>
+      <tr><td>Hyperscaler capex growth</td><td class="num">+116% YoY (Q3)</td><td>Level of capex falling, not only the growth rate</td><td>Quarterly earnings</td></tr>
+      <tr><td>OpenAI + Anthropic run rate</td><td class="num">Anthropic &gt;$100B</td><td>Combined well short of $600–700B by Dec 2027</td><td>Company disclosures; Anthropic IPO filing</td></tr>
+      <tr><td>Blended token prices</td><td class="num">Rising</td><td>Sustained declines on frontier and open models</td><td>OpenRouter</td></tr>
+      <tr><td>Data-center energization</td><td class="num">Site-specific delays</td><td>More force majeure notices</td><td>Company filings, local permits</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 14 -->
+<section id="caveats">
+  <h2>Caveats</h2>
+  <ul>
+    <li><strong>One firm, three teams.</strong> The views agree partly because they draw on the same SemiAnalysis models (TCO, tokenomics, rental index). They don't confirm each other independently.</li>
+    <li><strong>Commercial incentives.</strong> SemiAnalysis sells ClusterMAX, TCO models, and data to lenders and operators, and is launching a credit group. Patel calls himself "extremely bullish" on Anthropic.</li>
+    <li><strong>Model-dependent figures.</strong> Lab revenue forecasts, margins, and the 46GW backstop limit are SemiAnalysis estimates, not company disclosures.</li>
+    <li><strong>The ~$2.8T figure</strong> is this page's application of Patel's rule to Ep. 037's capex total, not something either speaker said.</li>
+    <li><strong>Transcript quality.</strong> All three sources are YouTube auto-captions. Product names and a few numbers were reconciled against the speakers' own arithmetic.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Companion to <code>ai-capex-financing-risk-semianalysis-2026-10.md</code>. Episode notes: <code>sa-fight-for-fast-tokens-tpu-v7-vera-rubin-engrams-20261002</code>, <code>sa-whos-funding-the-11-trillion-ai-buildout-20261009</code>, <code>btp-can-ai-keep-growing-exponentially-semianalysis-20261009</code>.</p>
+  <p>Sources: <a href="https://youtu.be/NcqHQmpNjr0">Ep. 034</a> · <a href="https://youtu.be/XlnyFCviN4o">Ep. 037</a> · <a href="https://youtu.be/LwMtHI7BHWI">Big Technology Podcast</a>. Built October 2026.</p>
+</footer>
+
+</div>
+</body>
+</html>

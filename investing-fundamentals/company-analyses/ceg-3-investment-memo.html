@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CEG Investment Memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a bond-desk morning sheet. Key readings strip up top (now vs. prior), then a sticky section index beside one reading column. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf3;
+  --line: #d3dae4;
+  --ink: #18212e;
+  --ink-dim: #556377;
+  --accent: #1f4e79;
+  --accent-soft: #e1eaf4;
+  --up: #a8361f;
+  --up-soft: #f7e4df;
+  --hold: #2e6a4d;
+  --hold-soft: #e0efe6;
+  --flag: #8a5a00;
+  --flag-soft: #f6ecd6;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-neg: #e34948;
+  --grid: #dfe4eb;
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+    --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+    --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+    --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+  --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+  --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+  --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16.5px; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); line-height: 1.6; overflow-wrap: break-word;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 0 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-data); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+
+/* Header */
+header.top { padding-block: 2.2rem 1.4rem; display: grid; gap: .6rem; }
+header.top h1 { font-family: var(--f-display); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; }
+.dek { max-width: 46rem; margin: 0; color: var(--ink-dim); font-size: 1.05rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; color: var(--ink-dim); }
+.meta span { font-family: var(--f-data); }
+
+/* Key readings */
+.readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-block: .4rem 1.6rem; }
+@media (min-width: 48rem) { .readings { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .75rem .8rem .8rem; display: grid; gap: .3rem; align-content: start; border-top: 3px solid var(--line); min-width: 0; }
+.tile.up { border-top-color: var(--up); }
+.tile.hold { border-top-color: var(--hold); }
+.tile.flat { border-top-color: var(--flag); }
+.tile .label { font-size: .78rem; color: var(--ink-dim); line-height: 1.3; }
+.tile .val { font-family: var(--f-data); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.tile .path { font-family: var(--f-data); font-size: .74rem; color: var(--ink-dim); line-height: 1.4; }
+.tile .state { justify-self: start; font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .4rem; border-radius: 3px; }
+.tile.up .state { background: var(--up-soft); color: var(--up); }
+.tile.hold .state { background: var(--hold-soft); color: var(--hold); }
+.tile.flat .state { background: var(--flag-soft); color: var(--flag); }
+
+/* Two panels: watch + conflicts */
+.panels { display: grid; gap: 1rem; margin-bottom: 2rem; }
+@media (min-width: 56rem) { .panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 .6rem; font-family: var(--f-body); font-weight: 600; }
+.panel.conflicts { background: var(--flag-soft); border-color: transparent; }
+.panel.conflicts h2 { color: var(--flag); }
+.watch { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.watch li { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.watch .lvl { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+.panel ul.plain { margin: 0; padding-left: 1.1rem; font-size: .9rem; display: grid; gap: .35rem; }
+
+/* Body layout */
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 62rem) { .layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+nav.toc { min-width: 0; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; }
+nav.toc a { display: block; text-decoration: none; color: var(--ink-dim); font-size: .85rem; white-space: nowrap; padding: .3rem .6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .n { font-family: var(--f-data); color: var(--accent); margin-right: .35rem; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1rem); align-self: start; }
+  nav.toc ol { flex-direction: column; overflow: visible; gap: .1rem; }
+  nav.toc a { white-space: normal; background: transparent; border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .3rem .7rem; line-height: 1.35; }
+  nav.toc a:hover { border-left-color: var(--accent); }
+}
+
+main { min-width: 0; max-width: 48rem; display: grid; gap: 2.6rem; }
+section.theme { min-width: 0; }
+section.theme h2 { font-family: var(--f-display); font-size: 1.45rem; margin: .2rem 0 .7rem; }
+.takeaway { margin: 0 0 1rem; padding: .7rem .9rem; background: var(--accent-soft); border-radius: 4px; font-size: .97rem; }
+/* Points: headline + gist visible, full note on expand */
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+details.pt { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.pt[open] { border-color: var(--accent); }
+details.pt > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: .5rem; row-gap: .15rem; padding: .65rem .85rem; }
+details.pt > summary::-webkit-details-marker { display: none; }
+details.pt > summary::before { content: ""; grid-row: 1 / span 2; margin-top: .45rem; width: .45rem; height: .45rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; }
+details.pt[open] > summary::before { transform: rotate(45deg); margin-top: .3rem; }
+@media (prefers-reduced-motion: reduce) { details.pt > summary::before { transition: none; } }
+details.pt > summary:hover .hd { color: var(--accent); }
+.hd { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.gist { grid-column: 2; color: var(--ink-dim); font-size: .9rem; line-height: 1.45; }
+.detail { padding: .2rem 1rem 1rem 2.45rem; display: grid; gap: .6rem; font-size: .95rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.detail p { margin: 0; max-width: 42rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.detail ul ul { margin-top: .4rem; }
+.detail li::marker { color: var(--ink-dim); }
+.detail blockquote { margin: 0; }
+@media (max-width: 30rem) { .detail { padding-left: 1rem; } }
+.chip { display: inline-block; font-family: var(--f-data); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 3px; margin-right: .4rem; vertical-align: .1em; }
+.chip.why { background: var(--accent-soft); color: var(--accent); }
+.chip.cont { background: var(--surface-2); color: var(--ink-dim); }
+li.aside { font-size: .88rem; color: var(--ink-dim); padding: .2rem .85rem; }
+
+/* Bottom line */
+.bottomline { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; margin-bottom: 1.2rem; }
+.bottomline h2 { font-size: 1rem; margin: 0 0 .6rem; font-weight: 600; }
+.bottomline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+@media (min-width: 56rem) { .bottomline ol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.6rem; } }
+.bottomline li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem; font-size: .9rem; line-height: 1.45; }
+.bottomline a { font-family: var(--f-data); font-size: .74rem; text-decoration: none; padding-top: .12rem; }
+
+/* Expand controls */
+.tools { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.tools button { font: 500 .78rem var(--f-body); color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .3rem .6rem; cursor: pointer; }
+.tools button:hover { border-color: var(--accent); }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Charts: horizontal bars, one baseline, values at the bar tip */
+.keyviz { margin: 0 0 1rem; }
+.vizpair { display: grid; gap: 1rem; }
+@media (min-width: 46rem) { .vizpair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+figure.viz { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .8rem .9rem .7rem; min-width: 0; }
+.detail figure.viz { background: transparent; border: 0; padding: .2rem 0; }
+figure.viz figcaption { display: grid; gap: .1rem; margin-bottom: .6rem; }
+.vt { font-weight: 600; font-size: .92rem; }
+.vs { font-size: .78rem; color: var(--ink-dim); }
+.vlegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-dim); margin-bottom: .5rem; }
+.vlegend span { display: inline-flex; align-items: center; gap: .35rem; }
+.sw { width: .7rem; height: .7rem; border-radius: 2px; display: inline-block; }
+.sw.s1 { background: var(--viz-1); } .sw.s2 { background: var(--viz-2); }
+.hbars { display: grid; grid-template-columns: minmax(5.5rem, 9rem) minmax(0, 1fr); column-gap: .7rem; row-gap: .35rem; align-items: center; }
+.blab { font-size: .8rem; color: var(--ink-dim); text-align: right; line-height: 1.2; }
+.track { position: relative; height: 22px; border-radius: 3px; outline: none; grid-column: 2; z-index: 1; }
+.track:hover, .track:focus-visible { background: var(--surface-2); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.bar { position: absolute; top: 4px; height: 14px; border-radius: 0 4px 4px 0; }
+.bar.neg { border-radius: 4px 0 0 4px; }
+.bar.s1 { background: var(--viz-1); } .bar.s2 { background: var(--viz-2); } .bar.sn { background: var(--viz-neg); }
+.bval { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--f-data); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; background: var(--surface); padding: 0 3px; border-radius: 2px; z-index: 1; }
+.track:hover .bval, .track:focus-visible .bval { background: var(--surface-2); }
+.refs { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .5; }
+.refl { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .45; }
+.refhead { grid-column: 2; position: relative; height: 1.1rem; }
+.reflab { position: absolute; transform: translateX(calc(-100% + .3rem)); line-height: 1.1rem; font-family: var(--f-data); font-size: .68rem; color: var(--ink-dim); white-space: nowrap; }
+.vnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-dim); }
+#viztip { position: fixed; z-index: 10; max-width: 18rem; padding: .4rem .55rem; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: .78rem; line-height: 1.35; pointer-events: none; }
+.panel.conflicts { grid-column: 1 / -1; }
+.panel.conflicts table { min-width: 36rem; }
+.panel.conflicts td, .panel.conflicts th { border-bottom-color: color-mix(in srgb, var(--flag) 25%, transparent); }
+details.conf > summary { cursor: pointer; font-weight: 600; color: var(--flag); }
+details.conf[open] > summary { margin-bottom: .6rem; }
+blockquote { margin: .5rem 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font-style: italic; color: var(--ink-dim); }
+.conflict { background: var(--flag-soft); color: var(--ink); padding: 0 .25rem; border-radius: 3px; }
+.conflict-tag { font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); margin-right: .3rem; }
+.xref { font-family: var(--f-data); font-size: .82rem; background: var(--surface-2); padding: .05rem .35rem; border-radius: 3px; text-decoration: none; color: var(--accent); }
+.sources { margin-top: 1rem; font-size: .84rem; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: .6rem; }
+.sources b { font-family: var(--f-data); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; margin-right: .4rem; }
+
+.tablewrap { overflow-x: auto; margin: .6rem 0; }
+table { border-collapse: collapse; font-size: .88rem; min-width: 30rem; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-data); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+.links { display: grid; gap: .5rem; padding-left: 1.1rem; margin: 0; font-size: .92rem; }
+footer { margin-top: 3rem; font-size: .82rem; color: var(--ink-dim); }
+.bottomline li { grid-template-columns: 8.5rem minmax(0, 1fr); }
+section.theme h3 { font-size: 1.05rem; margin: 1.2rem 0 .5rem; }
+section.theme > p { margin: .5rem 0; max-width: 46rem; }
+.detail ol { margin: 0; padding-left: 1.3rem; display: grid; gap: .5rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Investment memo · October 20, 2026</div>
+  <h1>Constellation Energy ($CEG): Investment Memo</h1>
+  <p class="dek">A high-quality business at roughly fair value: the probability-weighted value is ~$244 against a $259.44 price, with a bear case of ~$154 and a bull case of ~$340. The price already assumes management&#x27;s full 2029 plan at ~18.6x earnings; build a position only below ~$215.</p>
+  <p class="dek" style="font-size:.9rem"><strong>Price:</strong> ~$259.44 (October 20, 2026 close), down ~12% in a week and ~36% below the $406.04 52-week high. <strong>Market cap</strong> ~$91.9B (354.3M shares, July 31, 2026). <strong>Net debt</strong> ~$24.0B at June 30, 2026 (debt $24.70B less $0.70B cash), or ~$19.5B pro forma for ~$4.5B of after-tax divestiture proceeds. <strong>Next catalyst:</strong> Q3 2026 results on November 9 (Raymond James estimates $3.90 adjusted EPS vs. ~$3.62 consensus).</p><p class="dek" style="font-size:.9rem">Business background: <a class="xref" href="ceg-2-equity-report.md">ceg-2-equity-report</a>. Valuation figures marked "this memo" are new arithmetic. Sell-side figures come from secondary aggregators.</p>
+  <div class="meta"><span>Source note: ceg-3-investment-memo.md</span></div>
+</header>
+
+<section class="bottomline" aria-label="Bottom line"><h2>Bottom line</h2><ol>
+<li><a href="#1-executive-summary">Summary</a><span>Weighted value ~$244 vs. $259.44; hold if owned, buy below ~$215.</span></li>
+<li><a href="#2-business-model-unit-economics">Unit economics</a><span>Contracted nuclear ~$70-88/MWh vs. a ~$45-51 PTC floor; mostly fixed costs.</span></li>
+<li><a href="#3-competitive-position-moat">Moat</a><span>Largest IPP and C&amp;I supplier; narrow moat; peers VST and NRG rated no-moat.</span></li>
+<li><a href="#4-top-3-growth-drivers-sensitivities">Scenarios</a><span>2029 EPS ~$13 / ~$17 / ~$20.50; values ~$154 / ~$241 / ~$340.</span></li>
+<li><a href="#5-risk-framework-with-failure-modes">Risks</a><span>AI-demand slowdown first; then power prices and the 2032 PTC cliff, and regulation.</span></li>
+<li><a href="#6-12-month-kpi-watch-list">KPIs</a><span>New contracted MW, guidance, PJM forwards and capacity, net debt, Crane restart.</span></li>
+</ol></section>
+
+<div class="eyebrow" style="margin-bottom:.5rem">Key readings</div>
+<div class="readings">
+<div class="tile flat"><span class="label">Share price</span><span class="val">$259.44</span><span class="path">Oct 20 close; -12% in a week; 52-week high $406.04</span><span class="state">Below high</span></div>
+<div class="tile flat"><span class="label">Weighted value (memo)</span><span class="val">~$244</span><span class="path">Bear ~$154 / base ~$241 / bull ~$340</span><span class="state">Fair value</span></div>
+<div class="tile up"><span class="label">Implied 2029 multiple</span><span class="val">~18.6x</span><span class="path">On ~$17.10 of management-implied 2029 EPS</span><span class="state">Full plan priced</span></div>
+<div class="tile flat"><span class="label">Morningstar fair value</span><span class="val">$238</span><span class="path">Possibly ~$203 if Calpine debt is omitted (unconfirmed)</span><span class="state">3 stars</span></div>
+<div class="tile hold"><span class="label">2026 EPS guidance</span><span class="val">$11.50-12.50</span><span class="path">Raised in Q2; ~21.6x the midpoint at $259.44</span><span class="state">Raised</span></div>
+<div class="tile up"><span class="label">Net debt</span><span class="val">~$24.0B</span><span class="path">~$19.5B pro forma for ~$4.5B after-tax divestitures</span><span class="state">Elevated</span></div>
+<div class="tile hold"><span class="label">Uncontracted nuclear in 2029</span><span class="val">147M MWh</span><span class="path">Each 1 GW PPA adds ~$0.40-1.00 of EPS</span><span class="state">Optionality</span></div>
+<div class="tile flat"><span class="label">Buy level (memo)</span><span class="val"><$215</span><span class="path">About 12% under the ~$244 weighted value</span><span class="state">Wait</span></div>
+</div>
+
+<div class="panels">
+  <div class="panel"><h2>Dates and levels to watch</h2><ul class="watch">
+<li><span class="lvl">Nov 9</span><span>Q3 2026 results: Raymond James expects $3.90 adjusted EPS vs. ~$3.62 consensus; watch 2026 guidance and new contracts.</span></li>
+<li><span class="lvl">Year-end 2026</span><span>Brazos Valley and LS Power divestitures close (~$5.9B gross proceeds), cutting net debt.</span></li>
+<li><span class="lvl">Feb 28, 2027</span><span>End of FERC&#x27;s suspension of PJM&#x27;s reliability-backstop procurement.</span></li>
+<li><span class="lvl">2027</span><span>Crane restart (835 MW for Microsoft) and Clinton deliveries to Meta from June 2027.</span></li>
+<li><span class="lvl">Mid-2027</span><span>Illinois CMC/ZEC program ends; uncontracted nuclear moves to the PTC floor or market.</span></li>
+<li><span class="lvl">$50/MWh</span><span>PJM West forwards below this push the fleet toward the PTC zone (memo red flag).</span></li>
+<li><span class="lvl">25% FFO/debt</span><span>Moody&#x27;s downgrade threshold for the Baa1 rating.</span></li>
+  </ul></div>
+  <div class="panel conflicts"><details class="conf"><summary>Data notes and caveats (5)</summary><ul class="plain"><li>Morningstar&#x27;s DCF bridge uses Dec 31, 2025 debt ($8.99B) and cash ($3.64B), before CEG assumed $12.55B of Calpine debt. Unless that debt is captured in its 2026 cash-flow forecast, its $238 fair value is overstated by up to ~$35 a share; this is unconfirmed (range ~$203-238).</li><li>Reported operating cash flow was negative in FY2021-FY2024 because receivables-securitization collections (DPP) were classified as investing inflows; it is not a sign of weak cash generation.</li><li>GAAP EPS differs sharply from adjusted EPS (FY2025 $7.40 vs. $9.39; Q2 2026 $1.42 vs. $2.55) because of hedge and decommissioning-trust marks.</li><li>Goldman&#x27;s $305 target is reported as both Neutral (Investing.com) and a June Buy initiation (Benzinga); the rating is unconfirmed.</li><li>Sell-side consensus targets come from aggregators (Benzinga, Investing.com, MarketBeat) with different windows.</li></ul></details></div>
+</div>
+
+<div class="layout">
+<nav class="toc" aria-label="Sections">
+  <div class="tools"><button type="button" id="expand-all">Expand all</button><button type="button" id="collapse-all">Collapse all</button></div>
+  <ol><li><a href="#1-executive-summary"><span class="n">1</span>Summary</a></li><li><a href="#2-business-model-unit-economics"><span class="n">2</span>Unit economics</a></li><li><a href="#3-competitive-position-moat"><span class="n">3</span>Moat</a></li><li><a href="#4-top-3-growth-drivers-sensitivities"><span class="n">4</span>Growth &amp; scenarios</a></li><li><a href="#5-risk-framework-with-failure-modes"><span class="n">5</span>Risks</a></li><li><a href="#6-12-month-kpi-watch-list"><span class="n">6</span>KPIs</a></li></ol>
+</nav>
+<main>
+<p class="eyebrow" style="margin:0">Tap a point to read the full note</p>
+<section class="theme" id="1-executive-summary">
+<div class="eyebrow">Section 1</div>
+<h2>1. Executive Summary</h2>
+<p class="takeaway">Constellation owns the scarcest asset in the AI-power trade, but the price needs management&#x27;s full 2029 plan and a premium multiple. Weighted value ~$244 vs. $259.44; Morningstar&#x27;s $238 may itself be too high.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="Value per share: scenarios and outside views"><figcaption><span class="vt">Value per share: scenarios and outside views</span><span class="vs">Dollars</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Outside views</span><span><i class="sw s2"></i>This memo</span></div><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:53.19%;top:0.0rem">Price $259.44 &#9662;</span></div><span class="blab" style="grid-row:2">Street average target</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Benzinga average across 25 analysts (aggregator)" aria-label="Street average target: ~$348"><span class="bar s1" style="left:0.00%;width:71.34%"></span><span class="bval" style="left:calc(71.34% + 6px)">~$348</span></div><span class="blab" style="grid-row:3">Bull case (memo)</span><div class="track" style="grid-row:3" tabindex="0" data-tip="2029 EPS ~$20.50 at 20x, discounted" aria-label="Bull case (memo): ~$340"><span class="bar s2" style="left:0.00%;width:69.70%"></span><span class="bval" style="left:calc(69.70% + 6px)">~$340</span></div><span class="blab" style="grid-row:4">Weighted value (memo)</span><div class="track" style="grid-row:4" tabindex="0" data-tip="25% bear / 50% base / 25% bull" aria-label="Weighted value (memo): ~$244"><span class="bar s2" style="left:0.00%;width:50.02%"></span><span class="bval" style="left:calc(50.02% + 6px)">~$244</span></div><span class="blab" style="grid-row:5">Base case (memo)</span><div class="track" style="grid-row:5" tabindex="0" data-tip="2029 EPS ~$17 at 17x, discounted" aria-label="Base case (memo): ~$241"><span class="bar s2" style="left:0.00%;width:49.41%"></span><span class="bval" style="left:calc(49.41% + 6px)">~$241</span></div><span class="blab" style="grid-row:6">Morningstar</span><div class="track" style="grid-row:6" tabindex="0" data-tip="Fair value, Oct 14, 2026" aria-label="Morningstar: $238"><span class="bar s1" style="left:0.00%;width:48.79%"></span><span class="bval" style="left:calc(48.79% + 6px)">$238</span></div><span class="blab" style="grid-row:7">Morningstar if Calpine debt omitted</span><div class="track" style="grid-row:7" tabindex="0" data-tip="Unconfirmed: $238 less up to ~$35" aria-label="Morningstar if Calpine debt omitted: ~$203"><span class="bar s1" style="left:0.00%;width:41.61%"></span><span class="bval" style="left:calc(41.61% + 6px)">~$203</span></div><span class="blab" style="grid-row:8">Bear case (memo)</span><div class="track" style="grid-row:8" tabindex="0" data-tip="2029 EPS ~$13 at 14x, discounted" aria-label="Bear case (memo): ~$154"><span class="bar s2" style="left:0.00%;width:31.57%"></span><span class="bval" style="left:calc(31.57% + 6px)">~$154</span></div><div class="refs" style="grid-row:2 / span 7"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:53.19%"></span></div></div></figure></div>
+<p><strong>Thesis.</strong> Constellation owns the scarcest asset in the AI-power trade: ~22 GW of operating nuclear plants that run at ~95% capacity factors. Since January 2026 it also owns the largest US gas and geothermal fleet (Calpine).</p>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">What's locked in</span><span class="gist">a federal PTC floor through 2032, PJM capacity prices of $325-333/MW-day through 2028/29, and long-term contracts with Microsoft, Meta, Amazon and...</span></summary><div class="detail"><p><strong>What's locked in:</strong></p><p>a federal PTC floor through 2032, PJM capacity prices of $325-333/MW-day through 2028/29, and long-term contracts with Microsoft, Meta, Amazon and Google.</p></div></details></li>
+<li class="aside" style="color:var(--ink);font-size:.95rem"><strong>Management's plan:</strong> 2026 adjusted EPS of $11.50-12.50 and 20%+ base EPS growth to 2029.</li>
+<li><details class="pt"><summary><span class="hd">The open question</span><span class="gist">what the market will pay for growth beyond 2029. That depends on whether hyperscalers keep signing premium contracts for the ~147M MWh a year of...</span></summary><div class="detail"><p><strong>The open question:</strong></p><p>what the market will pay for growth beyond 2029. That depends on whether hyperscalers keep signing premium contracts for the ~147M MWh a year of nuclear output still uncontracted in 2029.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Valuation</span><span class="gist">at ~$259 the stock trades at ~21.6x 2026 guidance and ~18x management&#x27;s implied 2029 EPS.</span></summary><div class="detail"><p><strong>Valuation:</strong></p><p>at ~$259 the stock trades at ~21.6x 2026 guidance and ~18x management's implied 2029 EPS. This memo's probability-weighted value is <strong>~$244</strong> (bear ~$154, base ~$241, bull ~$340), about 6% below the price.</p><ul><li>Morningstar's $238 is in the same place. As discussed below, Morningstar's figure may be overstated by up to ~$35 because its DCF bridge appears to omit the Calpine debt.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Conclusion</span><span class="gist">a high-quality business at roughly fair value, with no margin of safety.</span></summary><div class="detail"><p><strong>Conclusion:</strong></p><p>a high-quality business at roughly fair value, with no margin of safety. It is worth owning more aggressively only below ~$215.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Bull case</span><span class="gist">Constellation signs 2-3 GW more nuclear contracts at $20-50/MWh premiums, Crane restarts on time in 2027, and power prices hold.</span></summary><div class="detail"><p><strong>Bull case:</strong></p><p>Constellation signs 2-3 GW more nuclear contracts at $20-50/MWh premiums, Crane restarts on time in 2027, and power prices hold. 2029 EPS reaches ~$20.50, and the market keeps paying ~20x for a scarce, contracted clean-power franchise.</p><p>Value ~$340 (+31%), close to the Street's ~$341-353 average targets.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Bear case</span><span class="gist">AI-capex financing stress slows hyperscaler contracting, forward power prices drift toward the PTC zone, and earnings land near management&#x27;s base...</span></summary><div class="detail"><p><strong>Bear case:</strong></p><p>AI-capex financing stress slows hyperscaler contracting, forward power prices drift toward the PTC zone, and earnings land near management's base case, about $13 in 2029. The stock de-rates to an IPP multiple of ~14x. Value ~$154 (-41%).</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Target investor</span><span class="gist">quality-growth investors who accept commodity and policy volatility and want long-duration exposure to US power demand.</span></summary><div class="detail"><p><strong>Target investor:</strong></p><p>quality-growth investors who accept commodity and policy volatility and want long-duration exposure to US power demand. Not an income stock: the yield is ~0.66% on a $1.706 dividend, though the dividend grows 10% a year.</p><p>Not a hedge against an AI-capex slowdown; it is the opposite. See <a class="xref" href="comparisons/phm-vs-tol-vs-len-homebuilders-20261020.md">phm-vs-tol-vs-len-homebuilders-20261020</a>.</p></div></details></li>
+</ul>
+<h3>What the price assumes (this memo)</h3>
+<p>Discounting today's $259.44 at a 9.6% cost of equity (Morningstar's) to the end of 2028 requires a value of ~$318 at that point.</p>
+<div class="tablewrap"><table><thead><tr><th>2029 EPS</th><th>Multiple needed for ~$318</th><th>Comment</th></tr></thead><tbody><tr><td>$11.65 (management base midpoint, base only)</td><td>~27x</td><td>Not plausible on base earnings alone</td></tr><tr><td>~$17.10 (base midpoint grossed up for 30-35% enhanced)</td><td>~18.6x</td><td>Roughly management's full plan</td></tr><tr><td>$19.05 (Morningstar)</td><td>~16.7x</td><td>Morningstar's forecast is above management's implied total</td></tr></tbody></table></div>
+<p>The price therefore assumes management's full plan <strong>and</strong> a premium multiple held into 2029, or Morningstar's higher earnings at a utility-plus multiple. No growth beyond 2029 is needed at 16-19x, but that multiple itself requires investors to expect it.</p>
+</section>
+<section class="theme" id="2-business-model-unit-economics">
+<div class="eyebrow">Section 2</div>
+<h2>2. Business Model &amp; Unit Economics</h2>
+<p class="takeaway">Contracted nuclear earns ~$70-88/MWh against a PTC floor of ~$45-51; retail adds ~$1.4B of margin a year. Costs are mostly fixed, so prices drive earnings.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="Contracted clean nuclear vs. PTC floor"><figcaption><span class="vt">Contracted clean nuclear vs. PTC floor</span><span class="vs">$ per MWh (management modeling inputs)</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Contracted clean</span><span><i class="sw s2"></i>PTC floor</span></div><div class="hbars"><span class="blab" style="grid-row:1">2026 contracted</span><div class="track" style="grid-row:1" tabindex="0" data-tip="36M MWh" aria-label="2026 contracted: ~$70"><span class="bar s1" style="left:0.00%;width:57.40%"></span><span class="bval" style="left:calc(57.40% + 6px)">~$70</span></div><span class="blab" style="grid-row:2">2026 PTC floor</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Available nuclear" aria-label="2026 PTC floor: $44.75"><span class="bar s2" style="left:0.00%;width:36.70%"></span><span class="bval" style="left:calc(36.70% + 6px)">$44.75</span></div><span class="blab" style="grid-row:3">2028 contracted</span><div class="track" style="grid-row:3" tabindex="0" data-tip="53M MWh" aria-label="2028 contracted: $77"><span class="bar s1" style="left:0.00%;width:63.14%"></span><span class="bval" style="left:calc(63.14% + 6px)">$77</span></div><span class="blab" style="grid-row:4">2028 PTC floor</span><div class="track" style="grid-row:4" tabindex="0" data-tip="2% inflation path" aria-label="2028 PTC floor: $48.88"><span class="bar s2" style="left:0.00%;width:40.08%"></span><span class="bval" style="left:calc(40.08% + 6px)">$48.88</span></div><span class="blab" style="grid-row:5">2030 contracted</span><div class="track" style="grid-row:5" tabindex="0" data-tip="53M MWh" aria-label="2030 contracted: $88"><span class="bar s1" style="left:0.00%;width:72.16%"></span><span class="bval" style="left:calc(72.16% + 6px)">$88</span></div><span class="blab" style="grid-row:6">2030 PTC floor</span><div class="track" style="grid-row:6" tabindex="0" data-tip="2% inflation path" aria-label="2030 PTC floor: $50.88"><span class="bar s2" style="left:0.00%;width:41.72%"></span><span class="bval" style="left:calc(41.72% + 6px)">$50.88</span></div><div class="refs" style="grid-row:1 / span 6"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">The gap (~$28-37/MWh by 2028-2030) is the economic case for new hyperscaler deals.</p></figure></div>
+<p><strong>Revenue mix (FY2025, pre-Calpine):</strong> $25.53B of revenue and $10.85B of RNF (revenue net of fuel).</p>
+<ul class="points">
+<li class="aside">Segment RNF: Midwest 35%, Mid-Atlantic 32%, New York 15%, ERCOT 11%, Other 8%.</li>
+<li class="aside">H1 2026 with Calpine: segment RNF $7.63B, of which Calpine $2.15B (28%).</li>
+</ul>
+<p><strong>Unit economics (2026-2030 modeling inputs, Q2 2026 deck):</strong></p>
+<div class="tablewrap"><table><thead><tr><th>Unit</th><th>Volume</th><th>Price / margin</th><th>Comment</th></tr></thead><tbody><tr><td>Contracted clean nuclear</td><td>36M MWh (2026) → 53M (2028-2030)</td><td>~$70/MWh (2026) → $77 (2028), $85 (2029), $88 (2030)</td><td>Excludes 2026 PPAs (920 MW, Amazon, Google)</td></tr><tr><td>Available nuclear at the PTC floor</td><td>101M MWh (2026) → 147M (2030)</td><td>$44.75 (2026), $48.88 (2028) → $50.88/MWh (2030)</td><td>Upside to market prices; the floor ends 2032</td></tr><tr><td>Illinois CMC units</td><td>53M MWh (2026), 23M (2027)</td><td>~$34/MWh</td><td>Program ends mid-2027</td></tr><tr><td>Gas fleet</td><td>~68-71M MWh (PJM/other), 25M (ERCOT), 26-31M (West)</td><td>spark spreads $15-25/MWh</td><td>Calpine-dominated</td></tr><tr><td>Retail power</td><td>~245M MWh</td><td>$4.25-4.35/MWh</td><td>~$1.05B of gross margin a year (this memo)</td></tr><tr><td>Retail gas</td><td>835-850M dth</td><td>$0.40-0.45/dth</td><td>~$0.35B a year (this memo)</td></tr></tbody></table></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Spread to the floor</span><span class="gist">a contracted nuclear MWh at ~$77-88 earns roughly $28-37/MWh more than the PTC floor of ~$49-51 by 2028-2030 (this memo).</span></summary><div class="detail"><p><strong>Spread to the floor:</strong></p><p>a contracted nuclear MWh at ~$77-88 earns roughly $28-37/MWh more than the PTC floor of ~$49-51 by 2028-2030 (this memo). That premium is the economic case for signing hyperscaler deals.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Operating leverage</span><span class="gist">nuclear costs are mostly fixed, at about $7.0B of adjusted O&amp;M for 2026. Management&#x27;s sensitivity: +$1-3/MWh on power prices and spark spreads...</span></summary><div class="detail"><p><strong>Operating leverage:</strong></p><p>nuclear costs are mostly fixed, at about $7.0B of adjusted O&amp;M for 2026. Management's sensitivity: +$1-3/MWh on power prices and spark spreads adds $150-450M of FCFbG and $0.45-1.35 of EPS. The PTC limits the downside on the 101-147M MWh of available nuclear through 2032, but not after.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Cash conversion</span><span class="gist">FCFbG of $8.4B (2026-2027) and $11.5-13.0B (2028-2029), against 2026 adjusted net income of about $4.3B (Morningstar).</span></summary><div class="detail"><p><strong>Cash conversion:</strong></p><ul><li>FCFbG of $8.4B (2026-2027) and $11.5-13.0B (2028-2029), against 2026 adjusted net income of about $4.3B (Morningstar).</li><li>Reported operating cash flow is noisy from collateral and derivatives: FY2025 $4.24B; H1 2026 $1.55B after $357M of collateral posted.</li><li>The historical negative operating cash flow (FY2021-FY2024) reflects receivables-securitization accounting, not weak cash generation.</li><li>There is no inventory or receivables cycle in the usual sense. The working-capital swing that matters is collateral posting when prices move.</li></ul></div></details></li>
+</ul>
+</section>
+<section class="theme" id="3-competitive-position-moat">
+<div class="eyebrow">Section 3</div>
+<h2>3. Competitive Position &amp; Moat</h2>
+<p class="takeaway">Largest IPP and C&amp;I retail supplier, with all four largest hyperscalers signed. The moat is real but narrow: outside contracts, nuclear economics follow power prices.</p>
+
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Market position.</span><span class="gist">Largest US independent power producer: ~55 GW, the largest nuclear, gas and geothermal fleets, about 10% of US clean energy.</span></summary><div class="detail"><p><strong>Market position.</strong></p><ul><li>Largest US independent power producer: ~55 GW, the largest nuclear, gas and geothermal fleets, about 10% of US clean energy.</li><li>Largest C&amp;I retail supplier: ~190M MWh of load, about twice the next supplier; 80% of the Fortune 100; 2.5M accounts.</li><li>It has signed all four of the largest hyperscalers to long-term deals.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Moat classification</span><span class="gist">Cost advantage and scale: low-marginal-cost baseload nuclear and efficient combined-cycle gas, plus an integrated retail book that hedges generation.</span></summary><div class="detail"><p><strong>Moat classification:</strong></p><ul><li><strong>Cost advantage and scale:</strong> low-marginal-cost baseload nuclear and efficient combined-cycle gas, plus an integrated retail book that hedges generation.</li><li><strong>Regulatory support:</strong> PTC, state ZEC/CMC programs, DOE loan support, NRC license extensions to the 2040s-2050s.</li><li><strong>Irreplaceable assets:</strong> no new large US nuclear plants are being built at scale, and management puts the new-build cost of the fleet at more than 3x its enterprise value.</li><li>Morningstar assigns a <strong>Narrow moat</strong>, based on retail cost advantage, and rates capital allocation Exemplary.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Durability evidence</span><span class="gist">Capacity factor of 94.7% in 2025.</span></summary><div class="detail"><p><strong>Durability evidence:</strong></p><ul><li>Capacity factor of 94.7% in 2025.</li><li>ROIC of 13-17% (FY2024-2025, Morningstar) against an 8.0% WACC.</li><li>Contracted clean volume rising ~47% from 2026 to 2028 (36M to 53M MWh), with contract terms of 15-20 years.</li><li>License renewals extend the asset life well beyond 2032.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Durability limits</span><span class="gist">Outside contracts, nuclear economics follow power prices, which follow gas. In 2023 the Illinois ZEC price fell to $0.30/MWh as market prices...</span></summary><div class="detail"><p><strong>Durability limits:</strong></p><ul><li>Outside contracts, nuclear economics follow power prices, which follow gas. In 2023 the Illinois ZEC price fell to $0.30/MWh as market prices rose, which shows how state support and market revenue offset each other.</li><li>Retail margins compete on price.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Competitors</span><span class="gist">Vistra (VST): nuclear plus a large gas fleet; Meta deal; Morningstar fair value $106, no moat, price/fair value 1.41.</span></summary><div class="detail"><p><strong>Competitors:</strong></p><ul><li><em>Vistra (VST):</em> nuclear plus a large gas fleet; Meta deal; Morningstar fair value $106, no moat, price/fair value 1.41.</li><li><em>NRG:</em> retail-heavy with a gas fleet; fair value $104, no moat, price/fair value 0.96.</li><li><em>Talen:</em> single large nuclear site (Susquehanna) with Amazon.</li><li>Utilities with nuclear (PSEG, Dominion, Southern) are regulated and can't easily sign merchant co-location deals in the same way.</li><li><strong>Constellation's differentiation:</strong> fleet size allows multi-site, multi-GW deals with uprates; the fleet spans every major competitive market; and it operates best-in-class.</li></ul></div></details></li>
+</ul>
+</section>
+<section class="theme" id="4-top-3-growth-drivers-sensitivities">
+<div class="eyebrow">Section 4</div>
+<h2>4. Top 3 Growth Drivers &amp; Sensitivities</h2>
+<p class="takeaway">2029 EPS ranges from ~$13 (bear) to ~$17 (base) and ~$20.50 (bull). New nuclear contracts and power prices are the swing factors.</p>
+<div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="2029 adjusted EPS by scenario"><figcaption><span class="vt">2029 adjusted EPS by scenario</span><span class="vs">Dollars per share (this memo)</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>This memo</span><span><i class="sw s2"></i>Morningstar</span></div><div class="hbars"><span class="blab" style="grid-row:1">Bear</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Base only plus modest enhanced earnings" aria-label="Bear: ~$13.00"><span class="bar s1" style="left:0.00%;width:44.42%"></span><span class="bval" style="left:calc(44.42% + 6px)">~$13.00</span></div><span class="blab" style="grid-row:2">Base</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Management&#x27;s plan, base grossed up for enhanced" aria-label="Base: ~$17.00"><span class="bar s1" style="left:0.00%;width:58.08%"></span><span class="bval" style="left:calc(58.08% + 6px)">~$17.00</span></div><span class="blab" style="grid-row:3">Bull</span><div class="track" style="grid-row:3" tabindex="0" data-tip="3 GW new PPAs, higher prices, more buybacks" aria-label="Bull: ~$20.50"><span class="bar s1" style="left:0.00%;width:70.04%"></span><span class="bval" style="left:calc(70.04% + 6px)">~$20.50</span></div><span class="blab" style="grid-row:4">Morningstar</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Morningstar 2029 forecast" aria-label="Morningstar: $19.05"><span class="bar s2" style="left:0.00%;width:65.09%"></span><span class="bval" style="left:calc(65.09% + 6px)">$19.05</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Scenario value per share"><figcaption><span class="vt">Scenario value per share</span><span class="vs">Dollars; present value plus ~$5 dividends</span></figcaption><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:53.19%;top:0.0rem">Price &#9662;</span></div><span class="blab" style="grid-row:2">Bear (25%)</span><div class="track" style="grid-row:2" tabindex="0" data-tip="14x 2029 EPS" aria-label="Bear (25%): ~$154"><span class="bar s1" style="left:0.00%;width:31.57%"></span><span class="bval" style="left:calc(31.57% + 6px)">~$154</span></div><span class="blab" style="grid-row:3">Base (50%)</span><div class="track" style="grid-row:3" tabindex="0" data-tip="17x 2029 EPS" aria-label="Base (50%): ~$241"><span class="bar s1" style="left:0.00%;width:49.41%"></span><span class="bval" style="left:calc(49.41% + 6px)">~$241</span></div><span class="blab" style="grid-row:4">Bull (25%)</span><div class="track" style="grid-row:4" tabindex="0" data-tip="20x 2029 EPS" aria-label="Bull (25%): ~$340"><span class="bar s1" style="left:0.00%;width:69.70%"></span><span class="bval" style="left:calc(69.70% + 6px)">~$340</span></div><div class="refs" style="grid-row:2 / span 3"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:53.19%"></span></div></div></figure></div></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">1. New long-term nuclear contracts (structural).</span><span class="gist">Opportunity: 147M MWh a year of nuclear output uncontracted in 2029, plus ~1,100 MW of uprates (890 MW tied to Google).</span></summary><div class="detail"><p><strong>1. New long-term nuclear contracts (structural).</strong></p><ul><li><strong>Opportunity:</strong> 147M MWh a year of nuclear output uncontracted in 2029, plus ~1,100 MW of uprates (890 MW tied to Google).</li><li><strong>Earnings value:</strong> management sizes each 1 GW nuclear PPA at a $20-50/MWh premium to the floor at <strong>+$0.40-1.00 of EPS</strong> and +$125-325M of FCFbG.</li><li><strong>Probability-weighted (this memo):</strong> 1-2 GW more signed by end-2027 in the base case; 3 GW in the bull; ~0 in the bear.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">2. Power prices, spark spreads and capacity (cyclical).</span><span class="gist">Market levels: PJM West ATC forwards of $72.75 (2026) and $66.94 (2027) at June 30; PJM capacity at $325-333/MW-day through 2028/29.</span></summary><div class="detail"><p><strong>2. Power prices, spark spreads and capacity (cyclical).</strong></p><ul><li><strong>Market levels:</strong> PJM West ATC forwards of $72.75 (2026) and $66.94 (2027) at June 30; PJM capacity at $325-333/MW-day through 2028/29.</li><li><strong>Sensitivity:</strong> +$1-3/MWh = +$0.45-1.35 of EPS (management). A $1-3 decline costs about the same until nuclear revenues hit the PTC zone.</li><li><strong>Probability-weighted:</strong> flat in the base case, +$2 in the bull, -$2 in the bear.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">3. Capital allocation and the Calpine platform (structural).</span><span class="gist">Plan: $5.0B of buybacks over 2026-2027 (~$2.8B left), $3.9B of growth capex (Crane restart, uprates), 10% dividend growth and $3.4B of deleveraging.</span></summary><div class="detail"><p><strong>3. Capital allocation and the Calpine platform (structural).</strong></p><ul><li><strong>Plan:</strong> $5.0B of buybacks over 2026-2027 (~$2.8B left), $3.9B of growth capex (Crane restart, uprates), 10% dividend growth and $3.4B of deleveraging.</li><li><strong>Gas upside:</strong> 1 GW of gas "powered land" deals adds +$0.20-0.50 of EPS; the CyrusOne Texas deals total up to ~1,160 MW.</li><li><strong>Management's capital-allocation upside:</strong> +$0.20-0.75+ of EPS.</li></ul></div></details></li>
+</ul>
+<p><strong>2029 sensitivity (this memo; management's per-driver ranges applied to the base midpoint):</strong></p>
+<div class="tablewrap"><table><thead><tr><th>Driver</th><th>Bear</th><th>Base</th><th>Bull</th></tr></thead><tbody><tr><td>Base EPS (management, 2029)</td><td>$11.40</td><td>$11.65</td><td>$11.90</td></tr><tr><td>New nuclear PPAs</td><td>0 GW: $0</td><td>1-2 GW: +$1.00</td><td>3 GW: +$2.50</td></tr><tr><td>Power prices and spark spreads</td><td>-$2/MWh: -$0.90</td><td>+$0.50 (forwards at June 30 above base)</td><td>+$2/MWh: +$0.90</td></tr><tr><td>Gas contracts and higher utilization</td><td>+$0.10</td><td>+$0.40</td><td>+$0.80</td></tr><tr><td>Commercial margin above average</td><td>$0</td><td>+$0.30</td><td>+$0.50</td></tr><tr><td>Enhanced earnings from volatility capture</td><td>+$2.20</td><td>+$2.50</td><td>+$2.70</td></tr><tr><td>Capital allocation (buybacks, growth capex)</td><td>+$0.20</td><td>+$0.65</td><td>+$1.20</td></tr><tr><td><strong>2029 adjusted EPS</strong></td><td><strong>~$13.00</strong></td><td><strong>~$17.00</strong></td><td><strong>~$20.50</strong></td></tr><tr><td>Exit multiple (end-2028)</td><td>14x</td><td>17x</td><td>20x</td></tr><tr><td>Value at end-2028</td><td>$182</td><td>$289</td><td>$410</td></tr><tr><td>Present value at 9.6%, plus ~$5 of dividends</td><td><strong>~$154</strong></td><td><strong>~$241</strong></td><td><strong>~$340</strong></td></tr><tr><td>Probability</td><td>25%</td><td>50%</td><td>25%</td></tr></tbody></table></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Probability-weighted value: ~$244</span><span class="gist">(this memo), versus Morningstar $238, a possibly debt-corrected Morningstar ~$203, and Street average targets of ~$348-360 (Benzinga,...</span></summary><div class="detail"><p><strong>Probability-weighted value: ~$244</strong></p><p>(this memo), versus Morningstar $238, a possibly debt-corrected Morningstar ~$203, and Street average targets of ~$348-360 (Benzinga, Investing.com, MarketBeat).</p></div></details></li>
+<li class="aside">Recent targets: Raymond James $341, BMO $350, Argus $325, Citi $297 (July). Goldman's $305 is reported as both Neutral (Investing.com) and a June Buy initiation (Benzinga); the rating is unconfirmed.</li>
+</ul>
+<p><strong>Milestones to watch:</strong></p>
+<ul class="points">
+<li class="aside">Q3 results on November 9 (2026 guidance, new contracts, Brazos/LS Power closings).</li>
+<li class="aside">PJM reliability backstop procurement: FERC suspended the framework to February 28, 2027.</li>
+<li class="aside">2027 Business and Earnings Outlook (likely February-March 2027).</li>
+<li class="aside">Crane restart in 2027 and Clinton-Meta deliveries from June 2027.</li>
+<li class="aside">Illinois CMC expiry in mid-2027.</li>
+<li class="aside">PJM 2029/30 capacity auction.</li>
+</ul>
+</section>
+<section class="theme" id="5-risk-framework-with-failure-modes">
+<div class="eyebrow">Section 5</div>
+<h2>5. Risk Framework with Failure Modes</h2>
+<p class="takeaway">The top risk is an AI-demand slowdown that stalls new contracts; next are a power-price downturn with the 2032 PTC cliff, and regulatory intervention.</p>
+
+<div class="tablewrap"><table><thead><tr><th>Rank</th><th>Risk</th><th>Severity</th><th>Probability</th><th>Trigger</th><th>Impact</th><th>Mitigation</th></tr></thead><tbody><tr><td>1</td><td><strong>AI-demand and contracting slowdown</strong></td><td>High</td><td>Medium</td><td>Hyperscaler capex cuts; AI credit stress (e.g. CoreWeave's ~15% bond yields in October 2026); data-center delays</td><td>New PPAs stall; the 147M MWh earns floor prices; multiple de-rates (the stock fell ~12% in a week on sector selling)</td><td>Signed 15-20 year contracts with investment-grade buyers; PTC floor through 2032; contracted volume already rising to 53M MWh</td></tr><tr><td>2</td><td><strong>Power-price downturn and the 2032 PTC cliff</strong></td><td>High</td><td>Medium</td><td>Gas price collapse; weak load growth; new supply</td><td>Enhanced earnings (30-40% of the total) shrink; after 2032 the uncontracted fleet has no floor</td><td>Hedging, retail integration, contracting before 2032; NY ZEC to 2049</td></tr><tr><td>3</td><td><strong>Regulatory and political intervention</strong></td><td>Medium-High</td><td>Medium</td><td>PJM capacity-price caps or collars; FERC co-location limits; state affordability backlash (capacity prices ~3x a year earlier); Texas data-center permit freeze</td><td>Capacity revenue cut; slower deal structuring; delays like the PJM backstop suspension</td><td>Geographic diversity after Calpine; deals that add new capacity (uprates, restarts) are politically easier</td></tr><tr><td>4</td><td><strong>Execution and operations</strong></td><td>Medium</td><td>Medium-Low</td><td>Crane restart slips (PJM upgrades could stretch full deliverability to December 2030); uprate delays; major nuclear outage; Calpine integration</td><td>Delays to 835 MW of Microsoft revenue; outage costs; tail risk of a nuclear incident across the fleet</td><td>FERC CIR transfer (June 2026); NRC fuel license approved; a record of fast outages</td></tr><tr><td>5</td><td><strong>Balance sheet and rates</strong></td><td>Medium</td><td>Medium-Low</td><td>Higher rates; refinancing $5.2B of short-term borrowings; buybacks crowding out deleveraging; FFO/debt below Moody's 25% threshold</td><td>Higher interest (H1 2026 net interest $536M vs. $264M); possible downgrade; lower valuation multiple</td><td>BBB+/Baa1 stable; $4.5B of after-tax divestiture proceeds; $3.4B of planned deleveraging; DOE loan at Treasuries +37.5bp</td></tr></tbody></table></div>
+<p><strong>Pre-mortem.</strong> If this investment fails over three years, the most likely reason is the market no longer paying a scarcity premium for uncontracted nuclear. Hyperscaler capex slows after the 2026 AI-financing scare, forward power prices drift toward the PTC zone, and Constellation signs few new PPAs. 2029 EPS then lands near the low teens instead of ~$17, and the stock re-rates from ~21x earnings to the ~13-14x of other IPPs. Business quality survives; the multiple doesn't.</p>
+<p><strong>Key assumptions that must hold:</strong></p>
+<ul class="points">
+<li class="aside">1. At least 1-2 GW of new premium nuclear contracts by end-2027.</li>
+<li class="aside">2. Forward power prices stay above the PTC phase-out (~$45-50/MWh) for most of the fleet.</li>
+<li class="aside">3. The Crane restart delivers in 2027-2028.</li>
+<li class="aside">4. PJM capacity prices stay near $300+/MW-day with no punitive caps.</li>
+<li class="aside">5. Net debt falls with the divestitures, and FFO/debt stays above 25%.</li>
+<li class="aside">6. The market keeps valuing CEG at a premium to IPP peers (~17x+ forward earnings).</li>
+</ul>
+<p><strong>Morningstar model caveat (this memo).</strong> Morningstar's DCF bridge subtracts $8.99B of debt and adds $3.64B of cash: exactly the December 31, 2025 balances, before Calpine closed.</p>
+<ul class="points">
+<li class="aside">Constellation assumed $12.55B of Calpine debt on January 7, 2026 (10-Q purchase-price allocation), and June 30 total debt was $24.70B.</li>
+<li class="aside">Morningstar's own 2026 debt/capital forecast (21.7%) is about half the ~43% on the June 30 balance sheet.</li>
+<li class="aside">Unless the assumed debt is captured in its 2026 free cash flow forecast (−$9.4B, larger than the $2.5B net cash paid for Calpine), Morningstar's $238 is overstated by up to ~$35 a share. Treat it as an upper bound of a $203-238 range, not a conservative floor.</li>
+</ul>
+</section>
+<section class="theme" id="6-12-month-kpi-watch-list">
+<div class="eyebrow">Section 6</div>
+<h2>6. 12-Month KPI Watch List</h2>
+<p class="takeaway">Ten KPIs, led by new contracted MW, guidance, power forwards, PJM capacity prices, net debt and the Crane restart.</p>
+
+<div class="tablewrap"><table><thead><tr><th>KPI</th><th>Current</th><th>Target range</th><th>Red flag</th><th>Frequency / source</th></tr></thead><tbody><tr><td>Adjusted operating EPS vs. guidance</td><td>2026 guide $11.50-12.50; Q2 $2.55</td><td>Upper half of guidance; 2027 guide ≥$13</td><td>Guidance cut, or a 2027 outlook below ~$12.50</td><td>Quarterly; earnings release</td></tr><tr><td>New long-term contracts signed (MW)</td><td>2026 YTD: 920 MW (Q2) + Amazon 190 MW + Google 890 MW new / 2,700 MW supply</td><td>≥1 GW of new nuclear or gas contracts in the next 12 months</td><td>No new deals by mid-2027</td><td>Quarterly; releases and 8-Ks</td></tr><tr><td>Contracted clean price and volume</td><td>36M MWh at ~$70 (2026); 53M at $77 (2028)</td><td>Rising price and volume in each update</td><td>Flat or lower in the 2027 Outlook</td><td>Annual Outlook and quarterly modeling slides</td></tr><tr><td>Nuclear capacity factor</td><td>94.7% (FY2025); 93.0% (Q2 2026)</td><td>≥93%</td><td>&lt;90% for a quarter outside planned outages</td><td>Quarterly; release</td></tr><tr><td>PJM West ATC forward power price</td><td>$72.75 (2026), $66.94 (2027) at June 30</td><td>≥$55/MWh</td><td>&lt;$50/MWh (fleet moving into the PTC zone)</td><td>Quarterly modeling slides; market data</td></tr><tr><td>PJM capacity clearing price</td><td>$329 (2026/27), $333 (2027/28), $325 (2028/29)</td><td>≥$275/MW-day</td><td>Cap or collar below ~$200, or a sharp fall in the next auction</td><td>Per auction; PJM</td></tr><tr><td>FCFbG</td><td>$8.4B guided for 2026-2027</td><td>On track; ≥$4B a year</td><td>Cut below $7.5B cumulative</td><td>Quarterly; earnings deck</td></tr><tr><td>Net debt and credit metrics</td><td>Debt $24.70B; net ~$24.0B (June 30)</td><td>Net debt &lt;$20B after divestitures; FFO/debt &gt;25%</td><td>Net debt rising, or a negative outlook from Moody's/S&amp;P</td><td>Quarterly; 10-Q, rating agencies</td></tr><tr><td>Crane restart milestones</td><td>NRC fuel license approved; CIR transfer granted; target 2027</td><td>NRC restart approval, then synchronization in 2027</td><td>Slip into 2028, or deliverability limited to 2030 upgrades</td><td>Quarterly; NRC and company</td></tr><tr><td>Buybacks and share count</td><td>~$2.8B of authorization left; 354.3M shares (July 31)</td><td>~$2B+ a year; shares falling toward ~340M</td><td>Buybacks paused to protect the balance sheet</td><td>Quarterly; 10-Q</td></tr></tbody></table></div>
+<p><strong>Bottom line:</strong> fairly valued (~$244 probability-weighted vs. $259). Hold if owned. Build a position below ~$215 (about 12% under weighted value), or on evidence of 1-2 GW of new contracts while the price is near today's. CEG is a long-duration bet on continuing AI-driven power demand, so size it as part of AI exposure, not as a diversifier.</p>
+<p><strong>Related wiki pages:</strong> <a class="xref" href="ceg-2-equity-report.md">ceg-2-equity-report</a>, <a class="xref" href="themes/ai-capex-financing-risk-semianalysis-2026-10.md">ai-capex-financing-risk-semianalysis-2026-10</a>, <a class="xref" href="../../investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md">ai-compute-commencement-wall-and-refinancing-trap</a>, <a class="xref" href="../../reading-list/notes/market-newsletter-digest-2026-09-27.md">market-newsletter-digest-2026-09-27</a> (AI financing and memory context), <a class="xref" href="../concepts/valuations.md">valuations</a>, <a class="xref" href="../concepts/equity-risk-premium.md">equity-risk-premium</a>.</p>
+</section>
+</main>
+</div>
+<footer>HTML companion to <span class="num">investing-fundamentals/company-analyses/ceg-3-investment-memo.md</span>; the markdown file is the source of record.</footer>
+</div>
+<script>
+(function () {
+  var pts = function () { return document.querySelectorAll('details.pt'); };
+  document.getElementById('expand-all').addEventListener('click', function () { pts().forEach(function (d) { d.open = true; }); });
+  document.getElementById('collapse-all').addEventListener('click', function () { pts().forEach(function (d) { d.open = false; }); });
+})();
+</script>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.id = 'viztip'; tip.hidden = true; document.body.appendChild(tip);
+  function show(el, x, y) {
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var r = tip.getBoundingClientRect(), left = Math.min(x + 12, window.innerWidth - r.width - 8), top = y - r.height - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (top < 8 ? y + 16 : top) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', function () { tip.hidden = true; });
+    el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+    el.addEventListener('blur', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+})();
+</script>
+</body>
+</html>

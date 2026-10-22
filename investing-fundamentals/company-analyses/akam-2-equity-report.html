@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akamai Equity Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a bond-desk morning sheet. Key readings strip up top (now vs. prior), then a sticky section index beside one reading column. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf3;
+  --line: #d3dae4;
+  --ink: #18212e;
+  --ink-dim: #556377;
+  --accent: #1f4e79;
+  --accent-soft: #e1eaf4;
+  --up: #a8361f;
+  --up-soft: #f7e4df;
+  --hold: #2e6a4d;
+  --hold-soft: #e0efe6;
+  --flag: #8a5a00;
+  --flag-soft: #f6ecd6;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-neg: #e34948;
+  --grid: #dfe4eb;
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+    --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+    --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+    --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+  --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+  --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+  --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16.5px; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); line-height: 1.6; overflow-wrap: break-word;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 0 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-data); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+
+/* Header */
+header.top { padding-block: 2.2rem 1.4rem; display: grid; gap: .6rem; }
+header.top h1 { font-family: var(--f-display); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; }
+.dek { max-width: 46rem; margin: 0; color: var(--ink-dim); font-size: 1.05rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; color: var(--ink-dim); }
+.meta span { font-family: var(--f-data); }
+
+/* Key readings */
+.readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-block: .4rem 1.6rem; }
+@media (min-width: 48rem) { .readings { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .75rem .8rem .8rem; display: grid; gap: .3rem; align-content: start; border-top: 3px solid var(--line); min-width: 0; }
+.tile.up { border-top-color: var(--up); }
+.tile.hold { border-top-color: var(--hold); }
+.tile.flat { border-top-color: var(--flag); }
+.tile .label { font-size: .78rem; color: var(--ink-dim); line-height: 1.3; }
+.tile .val { font-family: var(--f-data); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.tile .path { font-family: var(--f-data); font-size: .74rem; color: var(--ink-dim); line-height: 1.4; }
+.tile .state { justify-self: start; font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .4rem; border-radius: 3px; }
+.tile.up .state { background: var(--up-soft); color: var(--up); }
+.tile.hold .state { background: var(--hold-soft); color: var(--hold); }
+.tile.flat .state { background: var(--flag-soft); color: var(--flag); }
+
+/* Two panels: watch + conflicts */
+.panels { display: grid; gap: 1rem; margin-bottom: 2rem; }
+@media (min-width: 56rem) { .panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 .6rem; font-family: var(--f-body); font-weight: 600; }
+.panel.conflicts { background: var(--flag-soft); border-color: transparent; }
+.panel.conflicts h2 { color: var(--flag); }
+.watch { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.watch li { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.watch .lvl { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+.panel ul.plain { margin: 0; padding-left: 1.1rem; font-size: .9rem; display: grid; gap: .35rem; }
+
+/* Body layout */
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 62rem) { .layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+nav.toc { min-width: 0; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; }
+nav.toc a { display: block; text-decoration: none; color: var(--ink-dim); font-size: .85rem; white-space: nowrap; padding: .3rem .6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .n { font-family: var(--f-data); color: var(--accent); margin-right: .35rem; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1rem); align-self: start; }
+  nav.toc ol { flex-direction: column; overflow: visible; gap: .1rem; }
+  nav.toc a { white-space: normal; background: transparent; border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .3rem .7rem; line-height: 1.35; }
+  nav.toc a:hover { border-left-color: var(--accent); }
+}
+
+main { min-width: 0; max-width: 48rem; display: grid; gap: 2.6rem; }
+section.theme { min-width: 0; }
+section.theme h2 { font-family: var(--f-display); font-size: 1.45rem; margin: .2rem 0 .7rem; }
+.takeaway { margin: 0 0 1rem; padding: .7rem .9rem; background: var(--accent-soft); border-radius: 4px; font-size: .97rem; }
+/* Points: headline + gist visible, full note on expand */
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+details.pt { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.pt[open] { border-color: var(--accent); }
+details.pt > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: .5rem; row-gap: .15rem; padding: .65rem .85rem; }
+details.pt > summary::-webkit-details-marker { display: none; }
+details.pt > summary::before { content: ""; grid-row: 1 / span 2; margin-top: .45rem; width: .45rem; height: .45rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; }
+details.pt[open] > summary::before { transform: rotate(45deg); margin-top: .3rem; }
+@media (prefers-reduced-motion: reduce) { details.pt > summary::before { transition: none; } }
+details.pt > summary:hover .hd { color: var(--accent); }
+.hd { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.gist { grid-column: 2; color: var(--ink-dim); font-size: .9rem; line-height: 1.45; }
+.detail { padding: .2rem 1rem 1rem 2.45rem; display: grid; gap: .6rem; font-size: .95rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.detail p { margin: 0; max-width: 42rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.detail ul ul { margin-top: .4rem; }
+.detail li::marker { color: var(--ink-dim); }
+.detail blockquote { margin: 0; }
+@media (max-width: 30rem) { .detail { padding-left: 1rem; } }
+.chip { display: inline-block; font-family: var(--f-data); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 3px; margin-right: .4rem; vertical-align: .1em; }
+.chip.why { background: var(--accent-soft); color: var(--accent); }
+.chip.cont { background: var(--surface-2); color: var(--ink-dim); }
+li.aside { font-size: .88rem; color: var(--ink-dim); padding: .2rem .85rem; }
+
+/* Bottom line */
+.bottomline { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; margin-bottom: 1.2rem; }
+.bottomline h2 { font-size: 1rem; margin: 0 0 .6rem; font-weight: 600; }
+.bottomline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+@media (min-width: 56rem) { .bottomline ol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.6rem; } }
+.bottomline li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem; font-size: .9rem; line-height: 1.45; }
+.bottomline a { font-family: var(--f-data); font-size: .74rem; text-decoration: none; padding-top: .12rem; }
+
+/* Expand controls */
+.tools { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.tools button { font: 500 .78rem var(--f-body); color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .3rem .6rem; cursor: pointer; }
+.tools button:hover { border-color: var(--accent); }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Charts: horizontal bars, one baseline, values at the bar tip */
+.keyviz { margin: 0 0 1rem; }
+.vizpair { display: grid; gap: 1rem; }
+@media (min-width: 46rem) { .vizpair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+figure.viz { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .8rem .9rem .7rem; min-width: 0; }
+.detail figure.viz { background: transparent; border: 0; padding: .2rem 0; }
+figure.viz figcaption { display: grid; gap: .1rem; margin-bottom: .6rem; }
+.vt { font-weight: 600; font-size: .92rem; }
+.vs { font-size: .78rem; color: var(--ink-dim); }
+.vlegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-dim); margin-bottom: .5rem; }
+.vlegend span { display: inline-flex; align-items: center; gap: .35rem; }
+.sw { width: .7rem; height: .7rem; border-radius: 2px; display: inline-block; }
+.sw.s1 { background: var(--viz-1); } .sw.s2 { background: var(--viz-2); }
+.hbars { display: grid; grid-template-columns: minmax(5.5rem, 9rem) minmax(0, 1fr); column-gap: .7rem; row-gap: .35rem; align-items: center; }
+.blab { font-size: .8rem; color: var(--ink-dim); text-align: right; line-height: 1.2; }
+.track { position: relative; height: 22px; border-radius: 3px; outline: none; grid-column: 2; z-index: 1; }
+.track:hover, .track:focus-visible { background: var(--surface-2); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.bar { position: absolute; top: 4px; height: 14px; border-radius: 0 4px 4px 0; }
+.bar.neg { border-radius: 4px 0 0 4px; }
+.bar.s1 { background: var(--viz-1); } .bar.s2 { background: var(--viz-2); } .bar.sn { background: var(--viz-neg); }
+.bval { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--f-data); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; background: var(--surface); padding: 0 3px; border-radius: 2px; z-index: 1; }
+.track:hover .bval, .track:focus-visible .bval { background: var(--surface-2); }
+.refs { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .5; }
+.refl { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .45; }
+.refhead { grid-column: 2; position: relative; height: 1.1rem; }
+.reflab { position: absolute; transform: translateX(calc(-100% + .3rem)); line-height: 1.1rem; font-family: var(--f-data); font-size: .68rem; color: var(--ink-dim); white-space: nowrap; }
+.vnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-dim); }
+#viztip { position: fixed; z-index: 10; max-width: 18rem; padding: .4rem .55rem; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: .78rem; line-height: 1.35; pointer-events: none; }
+.panel.conflicts { grid-column: 1 / -1; }
+.panel.conflicts table { min-width: 36rem; }
+.panel.conflicts td, .panel.conflicts th { border-bottom-color: color-mix(in srgb, var(--flag) 25%, transparent); }
+details.conf > summary { cursor: pointer; font-weight: 600; color: var(--flag); }
+details.conf[open] > summary { margin-bottom: .6rem; }
+blockquote { margin: .5rem 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font-style: italic; color: var(--ink-dim); }
+.conflict { background: var(--flag-soft); color: var(--ink); padding: 0 .25rem; border-radius: 3px; }
+.conflict-tag { font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); margin-right: .3rem; }
+.xref { font-family: var(--f-data); font-size: .82rem; background: var(--surface-2); padding: .05rem .35rem; border-radius: 3px; text-decoration: none; color: var(--accent); }
+.sources { margin-top: 1rem; font-size: .84rem; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: .6rem; }
+.sources b { font-family: var(--f-data); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; margin-right: .4rem; }
+
+.tablewrap { overflow-x: auto; margin: .6rem 0; }
+table { border-collapse: collapse; font-size: .88rem; min-width: 30rem; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-data); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+.links { display: grid; gap: .5rem; padding-left: 1.1rem; margin: 0; font-size: .92rem; }
+footer { margin-top: 3rem; font-size: .82rem; color: var(--ink-dim); }
+</style>
+<style>
+ul.bul, ol.bul { margin: 0 0 1rem; padding-left: 1.2rem; display: grid; gap: .55rem; font-size: .96rem; max-width: 46rem; }
+ul.bul ul { margin-top: .4rem; display: grid; gap: .35rem; }
+section.theme > p { max-width: 46rem; }
+section.theme h3 { font-size: 1.05rem; margin: 1.4rem 0 .5rem; }
+table.cmp td:first-child { font-weight: 500; }
+.tablewrap table.cmp { min-width: 36rem; }
+code { font-family: var(--f-data); font-size: .85em; background: var(--surface-2); padding: .05rem .3rem; border-radius: 3px; }
+.verdict { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--up); border-radius: 6px; padding: .9rem 1.1rem; margin: 0 0 1.6rem; max-width: 60rem; }
+.verdict h2 { font-size: 1rem; margin: 0 0 .4rem; }
+.verdict p { margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Equity report · Akamai Technologies · October 15, 2026</div>
+  <h1>Akamai Technologies ($AKAM): Equity Report</h1>
+  <p class="dek"><strong>Price:</strong> $90.65 (intraday October 15, 2026; the close was $92.32). <strong>Market cap:</strong> ~$13.0B on 143.7M shares. <strong>52-week range:</strong> $70.82-$165.45. <strong>Next report:</strong> Q3 2026 on November 5, 2026.</p><p class="dek"><strong>Data basis:</strong> FY2025 results (Q4 release, February 2026) and the Q2 2026 release and 10-Q (August 2026), plus the Anthropic agreement 8-K (September 24, 2026). Sources: <a class="xref" href="akam-1-document-sources.md">akam-1-document-sources</a>.</p><p class="dek"><strong>Updated October 15, 2026</strong> with two sell-side reports in <code>reports/</code>: Morgan Stanley (Sanjit Singh, "Feedback After the Recent Stock Reaction," September 29, 2026; Overweight, $165 target) and Morningstar (Martin Szumski, September 25, 2026; fair value $150, no moat, Very High uncertainty). A CFRA report saved as <code>akam-cfra-20260925.mhtml</code> contains only the browser's PDF-viewer shell, not the report, so it is not used. Figures attributed to "MS" or "Morningstar" below come from those reports.</p>
+</header>
+<div class="readings" style="grid-template-columns:repeat(auto-fit,minmax(11rem,1fr))"><div class="tile flat"><span class="label">Price</span><span class="val">$90.65</span><span class="path">45% below the $165.45 high (May 13)</span><span class="state">Oct 15</span></div><div class="tile hold"><span class="label">Q2 2026 revenue</span><span class="val">$1.100B</span><span class="path">+5%; Security 55%, CIS 9%</span><span class="state">Growing</span></div><div class="tile up"><span class="label">Non-GAAP op. margin</span><span class="val">25%</span><span class="path">30% in FY2025</span><span class="state">Falling</span></div><div class="tile up"><span class="label">Convert principal</span><span class="val">$7.64B</span><span class="path">vs. $4.62B cash and securities</span><span class="state">Net debt</span></div><div class="tile up"><span class="label">Anthropic share of CIS</span><span class="val">~90%</span><span class="path">of recent bookings; $13.3B in two deals</span><span class="state">Concentrated</span></div></div>
+
+<div class="layout">
+<nav class="toc" aria-label="Sections"><ol><li><a href="#executive-summary">Executive Summary</a></li><li><a href="#what-they-sell-and-who-buys">What They Sell and Who Buys</a></li><li><a href="#how-they-make-money">How They Make Money</a></li><li><a href="#revenue-quality">Revenue Quality</a></li><li><a href="#cost-structure">Cost Structure</a></li><li><a href="#capital-intensity">Capital Intensity</a></li><li><a href="#growth-drivers">Growth Drivers</a></li><li><a href="#competitive-edge">Competitive Edge</a></li><li><a href="#related">Related</a></li></ol></nav>
+<main>
+<section class="theme" id="executive-summary"><h2>Executive Summary</h2><p>Akamai sells three things: security for websites, APIs and corporate networks (55% of Q2 2026 revenue); content delivery and related edge applications (36%, shrinking); and cloud compute capacity, called Cloud Infrastructure Services or CIS (9%, the fastest-growing). Most revenue is recurring, from multi-year enterprise contracts billed monthly with committed minimums plus usage. The legacy economics are good: FY2025 non-GAAP operating margin was 30% and adjusted EBITDA margin 43%, on $4.21B of revenue growing 5%.</p>
+<p>In 2026 the company changed its capital profile to chase AI compute demand. It signed over $2.8B of multi-year CIS contracts in H1, plus an $11.6B, seven-year commitment from Anthropic in September, and it is building capacity to serve them. Capex goes from 19% of revenue in FY2025 to about 40% in 2026 before the Anthropic deal, plus about $1.7B more for that deal, funded partly by $3.5B of 0% convertible notes issued in May and a buyback pause. The key risk is whether that capital earns its cost: management's own margin ranges for large deals suggest returns near the cost of capital, and one customer now dominates the backlog.</p>
+<p><strong>In plain English:</strong> a mature, cash-generative internet-security and delivery company that is betting its balance sheet on becoming an AI cloud.</p></section>
+<section class="theme" id="what-they-sell-and-who-buys"><h2>What They Sell and Who Buys</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Revenue by line, Q2 2026"><figcaption><span class="vt">Revenue by line, Q2 2026</span><span class="vs">$ millions</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Security</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Security $604M, 55% of revenue" aria-label="Security: $604M"><span class="bar s1" style="left:0.00%;width:70.75%"></span><span class="bval" style="left:calc(70.75% + 6px)">$604M</span></div><span class="blab" style="grid-row:2">Delivery and other</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Delivery and other cloud apps $396M" aria-label="Delivery and other: $396M"><span class="bar s1" style="left:0.00%;width:46.39%"></span><span class="bval" style="left:calc(46.39% + 6px)">$396M</span></div><span class="blab" style="grid-row:3">CIS</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Cloud Infrastructure Services $99M" aria-label="CIS: $99M"><span class="bar s1" style="left:0.00%;width:11.60%"></span><span class="bval" style="left:calc(11.60% + 6px)">$99M</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Growth by line, Q2 2026"><figcaption><span class="vt">Growth by line, Q2 2026</span><span class="vs">Percent, year over year</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Security</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Security +10%" aria-label="Security: +10%"><span class="bar s1" style="left:29.89%;width:11.58%"></span><span class="bval" style="left:calc(41.47% + 6px)">+10%</span></div><span class="blab" style="grid-row:2">Delivery and other</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Delivery and other cloud apps -6%" aria-label="Delivery and other: -6%"><span class="bar sn neg" style="left:22.95%;width:6.95%"></span><span class="bval" style="right:calc(77.05% + 6px)">-6%</span></div><span class="blab" style="grid-row:3">CIS</span><div class="track" style="grid-row:3" tabindex="0" data-tip="CIS +39%" aria-label="CIS: +39%"><span class="bar s1" style="left:29.89%;width:45.16%"></span><span class="bval" style="left:calc(75.05% + 6px)">+39%</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:29.89%"></span></div></div></figure></div></div><div class="tablewrap"><table class="cmp"><thead><tr><th>Line</th><th>Q2 2026 revenue</th><th>YoY</th><th>What it is</th></tr></thead><tbody><tr><td>Security</td><td>$604M</td><td>+10%</td><td>Web application and API protection, bot management, DDoS (Prolexic), Guardicore micro-segmentation (Zero Trust), API Security; LayerX browser security acquired July 2026 (~$205M)</td></tr><tr><td>Delivery and other cloud apps</td><td>$396M</td><td>-6%</td><td>Content delivery network (CDN) for video, software downloads and web traffic; media and edge applications</td></tr><tr><td>Cloud Infrastructure Services (CIS)</td><td>$99M</td><td>+39%</td><td>Virtual machines, storage and GPU/CPU capacity on the Akamai Cloud (built on the 2022 Linode acquisition), including the Akamai Inference Cloud</td></tr></tbody></table></div>
+<ul class="bul"><li><strong>Customers:</strong> large enterprises, banks, retailers, media and gaming companies, software vendors and governments. Revenue splits evenly between the U.S. ($550M, +4%) and international ($549M, +6%) in Q2 2026, and no non-U.S. country exceeds 10%.</li><li><strong>Why they buy:</strong> security customers need attacks stopped at the edge before they reach their own infrastructure, and Akamai's global network (one of the largest distributed edge platforms) does that at scale. Delivery customers want reliable, low-latency content at a low cost per gigabyte, which is a commodity purchase. CIS customers increasingly are AI companies that need CPU and GPU capacity outside the hyperscalers. The largest is Anthropic, whose deal covers CPU workloads.</li></ul></section>
+<section class="theme" id="how-they-make-money"><h2>How They Make Money</h2><ul class="bul"><li><strong>Model:</strong> recurring subscription with committed contract minimums plus usage-based overage. Security is mostly subscription; Delivery is usage-heavy (price per traffic volume); CIS is a mix of on-demand usage and large take-or-pay multi-year commitments.</li><li><strong>FY2025 revenue mix ($4.208B):</strong> Security $2.243B (53%, +10%), Delivery $1.257B (30%, -5%), Cloud computing $708M (17%, +12%), of which CIS $314M (+36%). In 2026 Akamai re-cut its segments to Security / Delivery and other cloud apps / CIS, so the 2025 and 2026 splits are not directly comparable.</li><li><strong>2026 guidance ($4.445-4.530B, +6-8%):</strong> Security high-single-digit growth in constant currency, Delivery and other a mid-single-digit decline, CIS at least +50%. Management expects total growth to reach the low teens in 2027 as CIS contracts ramp.</li></ul></section>
+<section class="theme" id="revenue-quality"><h2>Revenue Quality</h2><ul class="bul"><li><strong>Recurring and predictable:</strong> remaining performance obligations were $7.6B at June 30, 2026, about 40% of it recognizable within 12 months. That figure predates the $11.6B Anthropic commitment signed in September.</li><li><strong>Diversification is falling:</strong> before 2026, Akamai's base was thousands of enterprise customers with no disclosed concentration. The Anthropic commitment alone is about 1.5x the June RPO and averages about $1.66B a year over seven years (this report's arithmetic, $11.6B ÷ 7), roughly 37% of 2026 guided revenue once fully ramped. MS expects ~$1.7B of annual revenue from it once ramped, held flat under the take-or-pay structure.</li><li><strong>The Q1 customer is also Anthropic.</strong> Morningstar identifies the May 2026 $1.8B, seven-year deal as Anthropic's first, so the two Anthropic deals total <strong>$13.3B</strong>. MS says <strong>~90% of recent CIS bookings</strong> are tied to this customer, out of <strong>~$14.4B of total signed CIS commitments</strong>. The relationship "began with a much smaller commitment earlier this year" and expanded within months.</li><li><strong>Timing of the new revenue (MS):</strong> the September contract begins contributing in <strong>2H 2027</strong>, generating <strong>$150-300M in FY2027</strong> and reaching a <strong>~$1.7B annualized run-rate by the end of 2028</strong>. Most of the capex comes before that revenue.</li><li><strong>The legacy mix is shifting the wrong way for quality:</strong> Delivery has declined for several years (-15% in FY2024, -5% in FY2025, -6% in Q2 2026), so the business must grow Security and CIS just to offset it. Security growth slowed from +16% (FY2024) to +10% (FY2025 and Q2 2026), and is guided to high-single-digit for 2026. The fastest security lines (Guardicore segmentation and API Security, $293M in FY2025, +43%) are about 13% of security revenue.</li></ul></section>
+<section class="theme" id="cost-structure"><h2>Cost Structure</h2><div class="keyviz"><figure class="viz" role="group" aria-label="Margins are falling as CIS scales"><figcaption><span class="vt">Margins are falling as CIS scales</span><span class="vs">Percent of revenue</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Non-GAAP operating margin</span><span><i class="sw s2"></i>Adjusted EBITDA margin</span></div><div class="hbars"><span class="blab" style="grid-row:1">Non-GAAP op. FY2024</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Non-GAAP operating margin FY2024" aria-label="Non-GAAP op. FY2024: 29%"><span class="bar s1" style="left:0.00%;width:47.56%"></span><span class="bval" style="left:calc(47.56% + 6px)">29%</span></div><span class="blab" style="grid-row:2">Non-GAAP op. FY2025</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Non-GAAP operating margin FY2025" aria-label="Non-GAAP op. FY2025: 30%"><span class="bar s1" style="left:0.00%;width:49.20%"></span><span class="bval" style="left:calc(49.20% + 6px)">30%</span></div><span class="blab" style="grid-row:3">Non-GAAP op. Q2 2026</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Non-GAAP operating margin Q2 2026" aria-label="Non-GAAP op. Q2 2026: 25%"><span class="bar s1" style="left:0.00%;width:41.00%"></span><span class="bval" style="left:calc(41.00% + 6px)">25%</span></div><span class="blab" style="grid-row:4">Adj. EBITDA FY2024</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Adjusted EBITDA margin FY2024" aria-label="Adj. EBITDA FY2024: 42%"><span class="bar s2" style="left:0.00%;width:68.88%"></span><span class="bval" style="left:calc(68.88% + 6px)">42%</span></div><span class="blab" style="grid-row:5">Adj. EBITDA FY2025</span><div class="track" style="grid-row:5" tabindex="0" data-tip="Adjusted EBITDA margin FY2025" aria-label="Adj. EBITDA FY2025: 43%"><span class="bar s2" style="left:0.00%;width:70.52%"></span><span class="bval" style="left:calc(70.52% + 6px)">43%</span></div><span class="blab" style="grid-row:6">Adj. EBITDA Q2 2026</span><div class="track" style="grid-row:6" tabindex="0" data-tip="Adjusted EBITDA margin Q2 2026" aria-label="Adj. EBITDA Q2 2026: 38%"><span class="bar s2" style="left:0.00%;width:62.32%"></span><span class="bval" style="left:calc(62.32% + 6px)">38%</span></div><div class="refs" style="grid-row:1 / span 6"><span class="zero" style="left:0.00%"></span></div></div></figure></div><div class="tablewrap"><table class="cmp"><thead><tr><th>Metric</th><th>FY2024</th><th>FY2025</th><th>Q2 2026</th></tr></thead><tbody><tr><td>GAAP operating margin</td><td>13%</td><td>13%</td><td>7%</td></tr><tr><td>Non-GAAP operating margin</td><td>29%</td><td>30%</td><td>25%</td></tr><tr><td>Adjusted EBITDA margin</td><td>42%</td><td>43%</td><td>38%</td></tr><tr><td>Non-GAAP EPS</td><td>$6.48</td><td>$7.12</td><td>$1.59 (-8% YoY)</td></tr><tr><td>GAAP EPS</td><td>$3.27</td><td>$3.07</td><td>$0.52 (-27% YoY)</td></tr></tbody></table></div>
+<ul class="bul"><li><strong>Main costs:</strong> network and colocation (data-center space and power), bandwidth, depreciation of servers, and people (R&amp;D and sales). CIS adds colocation and depreciation that management says can run about a quarter ahead of revenue.</li><li><strong>The GAAP-to-non-GAAP gap is large:</strong> in FY2025 non-GAAP operating income ($1.254B) was more than twice GAAP ($567M). The difference is mainly stock-based compensation, acquired-intangible amortization and restructuring. Non-GAAP P/E multiples overstate cheapness relative to GAAP (trailing GAAP P/E ~33x vs. ~13.5x on 2026 non-GAAP EPS guidance).</li><li><strong>Scalability:</strong> the security business scales well on shared network assets. CIS is far less scalable: management's illustrative large-deal economics are mid-60s to mid-70s percent cash gross margin and low-20s to low-30s percent non-GAAP operating margin once ramped, below the legacy business's 30%. As CIS grows, the blended margin falls: guidance is 25-26% for 2026, down from 30%.</li></ul></section>
+<section class="theme" id="capital-intensity"><h2>Capital Intensity</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Capex as a share of revenue"><figcaption><span class="vt">Capex as a share of revenue</span><span class="vs">Percent; 2026 guide excludes the ~$1.7B Anthropic add-on</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">FY2024</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Capex $676M, 17% of revenue" aria-label="FY2024: 17%"><span class="bar s1" style="left:0.00%;width:29.04%"></span><span class="bval" style="left:calc(29.04% + 6px)">17%</span></div><span class="blab" style="grid-row:2">FY2025</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Capex $818M, 19% of revenue" aria-label="FY2025: 19%"><span class="bar s1" style="left:0.00%;width:32.46%"></span><span class="bval" style="left:calc(32.46% + 6px)">19%</span></div><span class="blab" style="grid-row:3">H1 2026</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Capex $553M, 25% of revenue" aria-label="H1 2026: 25%"><span class="bar s1" style="left:0.00%;width:42.71%"></span><span class="bval" style="left:calc(42.71% + 6px)">25%</span></div><span class="blab" style="grid-row:4">2026 guide</span><div class="track" style="grid-row:4" tabindex="0" data-tip="~40% of revenue before ~$1.7B for Anthropic" aria-label="2026 guide: ~40%"><span class="bar s1" style="left:0.00%;width:68.33%"></span><span class="bval" style="left:calc(68.33% + 6px)">~40%</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">With the Anthropic add-on, 2026 capex is ~$3.5B (this report's estimate).</p></figure><figure class="viz" role="group" aria-label="Free cash flow to the firm (Morningstar)"><figcaption><span class="vt">Free cash flow to the firm (Morningstar)</span><span class="vs">$ billions</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">2026</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Morningstar FCF to the firm, 2026" aria-label="2026: -$2.70B"><span class="bar sn neg" style="left:45.00%;width:27.00%"></span><span class="bval" style="right:calc(55.00% + 6px)">-$2.70B</span></div><span class="blab" style="grid-row:2">2027</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Morningstar FCF to the firm, 2027" aria-label="2027: -$2.29B"><span class="bar sn neg" style="left:49.10%;width:22.90%"></span><span class="bval" style="right:calc(50.90% + 6px)">-$2.29B</span></div><span class="blab" style="grid-row:3">2028</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Morningstar FCF to the firm, 2028" aria-label="2028: -$42M"><span class="bar sn neg" style="left:71.58%;width:0.60%"></span><span class="bval" style="right:calc(28.42% + 6px)">-$42M</span></div><span class="blab" style="grid-row:4">2029</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Morningstar FCF to the firm, 2029" aria-label="2029: $504M"><span class="bar s1" style="left:72.00%;width:5.04%"></span><span class="bval" style="left:calc(77.04% + 6px)">$504M</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:72.00%"></span></div></div></figure></div></div><div class="keyviz"><figure class="viz" role="group" aria-label="Convertible notes: conversion price vs. today"><figcaption><span class="vt">Convertible notes: conversion price vs. today</span><span class="vs">$ per share; the stock is below every series</span></figcaption><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:32.32%;top:0.0rem">Price $90.65 &#9662;</span></div><span class="blab" style="grid-row:2">2033 notes ($1.725B)</span><div class="track" style="grid-row:2" tabindex="0" data-tip="2033 notes, 0.25%, $1.725B principal" aria-label="2033 notes ($1.725B): $93.01"><span class="bar s1" style="left:0.00%;width:33.16%"></span><span class="bval" style="left:calc(33.16% + 6px)">$93.01</span></div><span class="blab" style="grid-row:3">2027 notes ($1.15B)</span><div class="track" style="grid-row:3" tabindex="0" data-tip="2027 notes, 0.375%, $1.15B, mature Sept 1, 2027" aria-label="2027 notes ($1.15B): $116.18"><span class="bar s1" style="left:0.00%;width:41.42%"></span><span class="bval" style="left:calc(41.42% + 6px)">$116.18</span></div><span class="blab" style="grid-row:4">2029 notes ($1.265B)</span><div class="track" style="grid-row:4" tabindex="0" data-tip="2029 notes, 1.125%, $1.265B" aria-label="2029 notes ($1.265B): $126.31"><span class="bar s1" style="left:0.00%;width:45.03%"></span><span class="bval" style="left:calc(45.03% + 6px)">$126.31</span></div><span class="blab" style="grid-row:5">2032 notes ($1.75B)</span><div class="track" style="grid-row:5" tabindex="0" data-tip="2032 notes, 0%, $1.75B" aria-label="2032 notes ($1.75B): $190.81"><span class="bar s1" style="left:0.00%;width:68.03%"></span><span class="bval" style="left:calc(68.03% + 6px)">$190.81</span></div><span class="blab" style="grid-row:6">2030 notes ($1.75B)</span><div class="track" style="grid-row:6" tabindex="0" data-tip="2030 notes, 0%, $1.75B" aria-label="2030 notes ($1.75B): $201.41"><span class="bar s1" style="left:0.00%;width:71.81%"></span><span class="bval" style="left:calc(71.81% + 6px)">$201.41</span></div><div class="refs" style="grid-row:2 / span 5"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:32.32%"></span></div></div></figure></div><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>FY2024</th><th>FY2025</th><th>H1 2026</th><th>2026 guide</th></tr></thead><tbody><tr><td>Capex (accrual)</td><td>$676M (17% of revenue)</td><td>$818M (19%)</td><td>$553M (25%)</td><td>~40% of revenue before Anthropic, plus ~$1.7B for the Anthropic deal</td></tr><tr><td>Operating cash flow</td><td>$1.519B</td><td>$1.519B</td><td>$639M</td><td>not guided</td></tr><tr><td>Free cash flow (OCF − cash capex)</td><td>$834M</td><td>$699M</td><td>$221M</td><td>negative (estimate below)</td></tr></tbody></table></div>
+<ul class="bul"><li><strong>2026 free cash flow (this report's estimate):</strong> at the guidance midpoint, 40% of $4.49B is about $1.8B of capex, plus about $1.7B for Anthropic, so total capex is about $3.5B. With operating cash flow near $1.3-1.5B, 2026 FCF would be roughly <strong>-$2.0B to -$2.2B</strong>. Morningstar is more negative: <strong>free cash flow to the firm of -$2.70B in 2026 and -$2.29B in 2027</strong>, near zero in 2028 (-$42M), turning positive in 2029 ($504M).</li><li><strong>Anthropic capex schedule (MS):</strong> of the ~$5.5B, about <strong>$1.7B lands in Q4 2026, ~$3.1B in FY2027 and ~$0.7B in FY2028</strong>. Morningstar notes the deal's annual recurring revenue-to-capex ratio is about <strong>1/3</strong>, versus a more common <strong>1/2</strong>, which it reads as a discounted price for scale. The May deal needed about <strong>$800M of 2026 capex, likely Nvidia GPUs</strong>; the September deal is CPU capacity.</li><li><strong>Capacity and power (MS):</strong> management expects the ~$14.4B of signed CIS commitments to need <strong>95-105 MW</strong> to support <strong>~$2.2B of fully ramped annual revenue</strong>, about <strong>$22M of revenue per MW</strong>. Capacity is spread across many colocation providers rather than one campus, some is already secured, and the hardware could be redeployed or resold if the customer relationship changes.</li><li><strong>Longer-term capex (Morningstar):</strong> spending averaging <strong>$2.56B+ a year over the next decade, about 2.7x 2025's level</strong>, as a baseline, with potentially more if Akamai signs further frontier-lab deals.</li><li><strong>Balance sheet:</strong> $4.62B of cash and marketable securities against $7.64B of convertible-note principal at June 30, 2026, so net debt is about $3.0B. Operating lease liabilities add $1.78B. If the estimate above holds, year-end 2026 cash falls to roughly $2.2B after the LayerX purchase.</li><li><strong>Convertible notes (principal, coupon, conversion price):</strong> 2027 $1.15B, 0.375%, $116.18; 2029 $1.265B, 1.125%, $126.31; 2030 $1.75B, 0%, $201.41; 2032 $1.75B, 0%, $190.81; 2033 $1.725B, 0.25%, $93.01. Each has note hedges and warrants, with warrant strikes of $155-283. Cash interest is small (Q2 2026 total interest expense $9.1M), and coverage is ample (~11x GAAP, ~32x non-GAAP operating income to interest in H1 2026). The pressure point is principal: the <strong>$1.15B 2027 notes mature September 1, 2027</strong>, and the stock ($90.65) is below every conversion price, so they will be settled in cash or refinanced, not converted. <strong>Ratings and covenant (added October 16, 2026):</strong> Moody's Baa2 and S&amp;P BBB, both with negative outlooks. The $1.0B revolver's gross leverage covenant (debt including the notes ÷ EBITDA) steps down from 4.75x to 3.50x on December 31, 2026, against an estimated ~4.0-4.2x. See the October 16 update in <a class="xref" href="akam-3-investment-memo.md">akam-3-investment-memo</a>.</li><li><strong>Capital returns:</strong> Akamai bought back $800M of stock in FY2025 (10.0M shares at ~$79.77) and $616M in H1 2026, at an average of $134.54 in Q2, then <strong>paused buybacks</strong> in August to fund CIS. $565M of authorization remains through June 2027.</li><li><strong>Returns on capital:</strong> trailing ROIC is about 4% (stockanalysis.com). Morningstar's own ROIC series is 8.6% in 2025, falling to <strong>6.0% in 2026 and 5.8% in 2027</strong> and recovering only to 8.9% by 2030, against its <strong>7.6% WACC</strong>. Its view: the September deal's margin structure is "more accretive than we expected, though not enough to materially improve the firm's returns on invested capital." Morningstar projects <strong>net debt/EBITDA of 5.1x in 2026 and 5.0x in 2027</strong> on its EBITDA definition, falling to 1.6x by 2030.</li><li><strong>Funding (MS):</strong> "It appears increasingly likely to us that Akamai ultimately raises incremental capital, most likely debt." MS flags a near-term loop: each additional large CIS win can improve the long-term revenue outlook while forcing another round of near-term EPS and FCF estimate cuts.</li></ul></section>
+<section class="theme" id="growth-drivers"><h2>Growth Drivers</h2><ol class="bul"><li><strong>CIS / AI compute (structural, with financing risk).</strong> Guided at least +50% in 2026, accelerating in Q4 and 2027. Demand is backed by contracts: over $2.8B signed in H1, the $11.6B Anthropic commitment (expandable by up to $9B, with warrant vesting tied to the expansion), a &gt;$600M four-year deal with a U.S. technology company (robotics) that ramps through 2027, and GPU capacity that management calls "completely sold out."</li><li><strong>Security (structural, slowing).</strong> Zero Trust segmentation (Guardicore) and API Security grew 43% in FY2025. LayerX extends into browser security. The core web-application firewall and DDoS businesses are mature and face competition from Cloudflare, cloud-native tools and Zscaler-type platforms.</li><li><strong>Delivery stabilization (cyclical/structural decline).</strong> Delivery is a declining line, but consolidation (Edgio's exit in 2024, CrowdStrike moving web delivery to Akamai) can slow the decline. Pricing pressure is structural.</li><li><strong>Capital allocation.</strong> Historically buybacks added 3-5% a year to per-share growth (diluted shares fell from 154.3M in FY2024 to 147.0M in FY2025). With buybacks paused and up to 7.7M warrant shares for Anthropic, that tailwind is gone for now.</li></ol></section>
+<section class="theme" id="competitive-edge"><h2>Competitive Edge</h2><div class="keyviz"><figure class="viz" role="group" aria-label="Return on invested capital vs. cost of capital (Morningstar)"><figcaption><span class="vt">Return on invested capital vs. cost of capital (Morningstar)</span><span class="vs">Percent</span></figcaption><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:56.65%;top:0.0rem">WACC 7.6% &#9662;</span></div><span class="blab" style="grid-row:2">2025</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Morningstar ROIC 2025" aria-label="2025: 8.6%"><span class="bar s1" style="left:0.00%;width:64.11%"></span><span class="bval" style="left:calc(64.11% + 6px)">8.6%</span></div><span class="blab" style="grid-row:3">2026</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Morningstar ROIC 2026" aria-label="2026: 6.0%"><span class="bar s1" style="left:0.00%;width:44.73%"></span><span class="bval" style="left:calc(44.73% + 6px)">6.0%</span></div><span class="blab" style="grid-row:4">2027</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Morningstar ROIC 2027" aria-label="2027: 5.8%"><span class="bar s1" style="left:0.00%;width:43.24%"></span><span class="bval" style="left:calc(43.24% + 6px)">5.8%</span></div><span class="blab" style="grid-row:5">2030</span><div class="track" style="grid-row:5" tabindex="0" data-tip="Morningstar ROIC 2030" aria-label="2030: 8.9%"><span class="bar s1" style="left:0.00%;width:66.35%"></span><span class="bval" style="left:calc(66.35% + 6px)">8.9%</span></div><div class="refs" style="grid-row:2 / span 4"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:56.65%"></span></div></div><p class="vnote">Morningstar projects returns below its cost of capital through at least 2027.</p></figure></div><ul class="bul"><li><strong>Moat sources:</strong> a global edge network built over 25 years, with deep enterprise relationships in large financial, retail and media customers; regulated customers' switching costs (security configurations, compliance, integration); and scale in DDoS mitigation.</li><li><strong>Evidence of durability:</strong> a 30% non-GAAP operating margin and 43% adjusted EBITDA margin in FY2025 show pricing power in security. Security grew 10% in a slow year, and large customers keep consolidating onto Akamai (CrowdStrike in 2026).</li><li><strong>Evidence of erosion:</strong> Delivery is commoditized and shrinking. Security growth halved in two years. Cloudflare grew revenue 36% in Q2 2026 ($696M) against Akamai's 5%, and is winning developer and mid-market share with a unified platform (see <a class="xref" href="net-2-equity-report.md">net-2-equity-report</a>). ROIC near 4% shows the moat is not producing high returns on the capital being deployed now.</li><li><strong>In CIS the moat is thinner:</strong> Akamai competes with hyperscalers (AWS, Azure, Google), neoclouds (CoreWeave, Nebius) and CPU-heavy providers on price per unit of capacity. Its advantages are distributed locations, existing enterprise contracts and willingness to commit balance sheet. That last advantage is the one the bear case questions.</li><li><strong>The two sell-side views split on exactly this point:</strong><ul><li><em>Morningstar (no moat since May 2026, cut from narrow):</em> the security business has network effects (20-30% of global internet traffic feeds its threat data) and switching costs, but "with such heavy investment in a no-moat, highly commoditized compute business, we believe the security business is not sufficient to offset the risk of value destruction." Compute pricing is elevated only because supply lags demand; as supply catches up, "per-unit compute pricing should compress materially." Customers increasingly multi-home workloads, and Akamai enters "as a pure capacity provider, with only modest opportunities to cross-sell into security." It is "underfunded relative to competitors such as CoreWeave, IREN, hyperscalers, and Blackstone."</li><li><em>Morgan Stanley:</em> comparing Akamai to CoreWeave "risks understating the software and network value embedded in Akamai's offering." The contract runs on Akamai's existing software stack with limited incremental R&amp;D or sales cost. Akamai can attach agent sandboxing, AI security and model-as-a-service later. Its distributed infrastructure "already supports all three hyperscalers as CIS customers."</li></ul></li><li><strong>Security moat evidence (Morningstar):</strong> security is 53% of revenue, up from 12% a decade ago. Guardicore and Zero Trust products require deep integration into customers' security policies, "making it incredibly complex and risky to rip out." Morningstar's bears-say list: media customers keep insourcing delivery, and hyperscalers keep adding security features to their clouds.</li></ul></section>
+<section class="theme" id="related"><h2>Related</h2><ul class="bul"><li><a class="xref" href="akam-1-document-sources.md">akam-1-document-sources</a> and <a class="xref" href="akam-3-investment-memo.md">akam-3-investment-memo</a></li><li><a class="xref" href="net-2-equity-report.md">net-2-equity-report</a> and <a class="xref" href="net-3-investment-memo.md">net-3-investment-memo</a>: Cloudflare, the main competitor in security and edge delivery.</li><li><a class="xref" href="../../investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md">ai-compute-commencement-wall-and-refinancing-trap</a>: framework for capex-led AI compute buildouts funded ahead of revenue.</li><li><a class="xref" href="../../reading-list/notes/market-newsletter-digest-2026-09-25.md">market-newsletter-digest-2026-09-25</a>: market reaction to the Anthropic deal (the stock closed +4.44% after an initial spike).</li></ul></section>
+</main>
+</div>
+<footer>HTML version of <span class="num">investing-fundamentals/company-analyses/akam-2-equity-report.md</span>; the markdown file is the source of record. Not investment advice.</footer>
+</div>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.id = 'viztip'; tip.hidden = true; document.body.appendChild(tip);
+  function show(el, x, y) {
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var r = tip.getBoundingClientRect(), left = Math.min(x + 12, window.innerWidth - r.width - 8), top = y - r.height - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (top < 8 ? y + 16 : top) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', function () { tip.hidden = true; });
+    el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+    el.addEventListener('blur', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+})();
+</script>
+</body>
+</html>

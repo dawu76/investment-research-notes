@@ -4,12 +4,223 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-22] lint | index.md and log.md cleanup
+
+- Checked: all 224 index wikilinks resolve (the `\|` aliases in tables are valid); every page created in log entries since 2026-10-09 has an index entry; no duplicate or out-of-order log headers.
+- Fixed: index header date and page count (2026-10-20 / 256 to 2026-10-22 / 257, adding the October 22 digest); AKAM and DOCN rows now say "1–3 + HTML", matching the CEG row, since both have HTML companions.
+- Committed the pages from the 2026-10-09 to 2026-10-21 entries that were still untracked (AKAM, DOCN, CEG and SoFi pipelines, three comparisons, three themes, two podcast notes, the September 26 and 27 digests, the MOS memo update and the sell-side reports those pages cite), together with these index and log updates. Left untracked: AS, ONON, PHM, PDD, MRVL and SE report files not cited by any page, `.playwright-mcp/` and a stray transcript file.
+
 ## [2026-10-22] create | Market newsletter digest, October 22, 2026 (initial, news-based)
 
 - Created: `reading-list/notes/market-newsletter-digest-2026-10-22.md` from a research session on the day's AI selloff, before any newsletter ingestion. Five themes: Lam Research's supply-constrained December guide (two constraints from the call transcript, components and customer cleanrooms; part names not disclosed, candidate suppliers marked as this digest's inference), Meta's capex floor, neocloud financing (Nebius loan, CoreWeave bond yields), the CPI-driven rates backdrop, and the Hang Seng Tech selloff. Sources are news reports, Lam's 8-K and the Motley Fool transcript. `confidence: medium` because most figures are intraday and outlets disagree on five of them.
 - Created: `reading-list/notes/market-newsletter-digest-2026-10-22.html` companion (19 points, 8 charts, 4 tables); `check_html.py` passes.
 - Continuity links to the committed 09-22 to 09-25 digests only; the 09-26 and 09-27 digests were uncommitted at the time, so they are cited in plain text.
 - Updated: `index.md` (Reading List / Notes).
+
+## [2026-10-21] update | Mosaic ($MOS) memo: October developments and balance-sheet stress test
+
+- Updated: `investing-fundamentals/company-analyses/mos-3-investment-memo.md`. Added §6 (renumbered Final Recommendation to §7; rating unchanged, with a note that Pillars 2 and 3 are weaker):
+  - October drivers: Trump's Belarus potash deal (Sept 21; sanctions lifted in March; first 30,000 t shipment due in New Orleans), RBC downgrade to Sector Perform ($25 target, Q3 miss expected), $705 Q3 sulfur.
+  - Balance sheet from the Q2 2026 10-Q: debt ~$5.86B, cash $294M, liquidity ~$2.9B, net debt/EBITDA ~3.4x, H1 FCF −$406M.
+  - August refinancing from 8-Ks: $2.0B of 2031/2034/2036 notes, ~$1.4B of 2027-2029 notes retired, +~$45M a year of interest.
+  - Covenant headroom from FY2025 10-K Note 11: debt/cap ~32% vs. 0.65; coverage ~7x vs. 3.0x, breach at ~$180-230M quarterly EBITDA.
+  - Base/stress/severe scenarios, and new monitoring triggers. Ratings were not checked.
+- Updated: `index.md` (MOS row).
+
+## [2026-10-20] create | Is Microsoft over-earning from OpenAI? (FY2026)
+
+- Created: `investing-fundamentals/company-analyses/themes/msft-openai-over-earning-2026-10.md` from the user's question and pasted note. Data: Microsoft FY2026 10-K (OpenAI revenue $24.1B incl. revenue share, $6.0B receivable, ~25% stake, $6.5B OpenAI gains, segment results, $678B RPO, $115.9B capex), FY2026 Q2 and Q4 releases ($3.2B Anthropic gain inside adjusted EPS), September 2025 and March 2026 10-Qs (recapitalization, 'reciprocal' revenue share), Microsoft's October 2025 and April 2026 partnership posts (revenue share through 2030 with a total cap; Microsoft stops paying OpenAI; non-exclusive license to 2032), press reports of the $38B cap and 20% rate, and Ed Zitron's leaked revenue-share and inference figures (unverified).
+- Analysis: composition of the $24.1B (~$2-4B revenue share, ~$20-22B compute, estimate), FY2026 profit attribution scenarios (~4.8-8.8% of operating income), share of growth (~26-32% of revenue growth, ~half of Azure growth), durable adjusted EPS growth ~18% vs. 22%, and the capped revenue-share ramp and cliff (~$19B / ~$2 EPS peak around 2028 on OpenAI's plan). `contested: true`.
+- Updated: `index.md` (Themes; page count 255 to 256).
+
+## [2026-10-20] update | Constellation Energy ($CEG): HTML companions for the equity report and memo
+
+- Created: `investing-fundamentals/company-analyses/ceg-2-equity-report.html` (26 collapsible points, 6 charts, 3 tables) and `ceg-3-investment-memo.html` (19 points, 4 charts, 5 tables), using the digest-shell styling. Each has a bottom line, key-reading tiles, a watch list and a collapsed data-notes panel (including the unconfirmed Morningstar debt-bridge caveat). `check_html.py` passes for both.
+- Updated: `ceg-2-equity-report.md` (PTC floor path $44.75/$48.88/$50.88 and Morningstar price/fair value ratios 1.41/0.96/1.11, so chart values trace to the markdown) and `ceg-3-investment-memo.md` (2028 PTC floor in the unit-economics table).
+- Updated: `index.md` (CEG row notes the HTML companions).
+
+## [2026-10-20] create | Apple WebKit identity-resolution block: impact on public adtech
+
+- Created: `investing-fundamentals/company-analyses/themes/apple-webkit-identity-resolution-block-adtech-2026-10.md` from the AdExchanger article the user supplied on Apple's WebKit post "Blocking Identity Resolution Infrastructure" (iOS 27). Covers what Apple announced (domain-level blocking, first-party-scoped graphs not exempt, named targets and backup domains such as TTDCDN.org), an exposure ranking for public adtech with mitigations, relative winners, timing (WebKit coverage, iOS 27 adoption, ATT precedent, EU antitrust) and a watch list. Share prices, device revenue mix and the actual blocklist were not verified.
+- Updated: `index.md` (Themes; page count +1).
+
+## [2026-10-20] create | Constellation Energy ($CEG) analysis pipeline, stages 1-3
+
+- Created: `investing-fundamentals/company-analyses/ceg-1-document-sources.md`. Annual report PDFs (Form ARS on EDGAR) for FY2022-FY2025, verified HTTP 200 PDF; FY2021 is the 10-K in HTML (first standalone year; no ARS found). No Investor Day exists (EDGAR full-text search); lists the 2026 Business and Earnings Outlook deck, the Q2 2026 earnings deck and the January 2025 Calpine announcement materials instead (SEC copies verified; IR-site PDFs returned 403 and are marked [UNVERIFIED]). Includes the Morningstar report (`reports/ceg-morningstar-20261014.pdf`) and dated news sources.
+- Created: `ceg-2-equity-report.md`. Business, segment RNF (FY2025 and H1 2026 with Calpine), revenue quality (base vs. enhanced earnings, contracted clean volumes, $11.9B RPO, PTC floor), cost structure, capital intensity (DPP securitization explains negative FY2021-24 operating cash flow; FCFbG $8.4B 2026-27), balance sheet ($24.70B debt, ~43% debt/capital, BBB+/Baa1), growth drivers and moat.
+- Created: `ceg-3-investment-memo.md`. What the price assumes (~18.6x management's implied 2029 EPS), unit economics, 2029 sensitivity table and scenarios (~$154 / ~$241 / ~$340; weighted ~$244 vs. $259.44), ranked risks, pre-mortem, 10-KPI watch list. Flags that Morningstar's DCF bridge uses Dec 31, 2025 debt ($8.99B) and cash ($3.64B), omitting the $12.55B of Calpine debt assumed January 7, 2026 (up to ~$35/share). `contested: true` (Morningstar $238 vs. Street ~$348-360).
+- Updated: `index.md` (Companies table; page count 251 to 254).
+
+## [2026-10-20] update | Homebuilder comparison: ITB vs. XHB section
+
+- Updated: `investing-fundamentals/company-analyses/comparisons/phm-vs-tol-vs-len-homebuilders-20261020.md`. Added §7 (ETF vehicles) from the ITB and XHB holdings files as of October 19, 2026: fund structure and concentration (top 5 49% vs. 18%, effective ~14 vs. ~32 stocks, ~48% weight overlap), weights by demand driver (this page's classification), factor exposures, scenario table, and why only ITB works as the AI-capex-decline hedge. Renumbered Risks to §8; added an ETF bullet to the bottom line and the holdings files to `sources`.
+- Updated: HTML companion (26 points, 10 charts, 6 tables; new ITB-vs-XHB charts and two key-reading tiles). `check_html.py` passes.
+- Updated: `index.md` (comparison entry).
+
+## [2026-10-20] update | Homebuilder comparison: balance sheets and HTML companion
+
+- Updated: `investing-fundamentals/company-analyses/comparisons/phm-vs-tol-vs-len-homebuilders-20261020.md`. Added §6 (balance sheets: cash, debt, net debt-to-capital, revolver availability, maturities, interest coverage estimates, tangible equity, cash flow vs. payouts, and a housing-downturn stress table) from PulteGroup's June 10-Q, Toll's FQ3 release, Lennar's August 10-Q and October 424B filings, and Owens Corning's Q2 release. Renumbered Risks to §7; added a balance-sheet bullet to the bottom line and the new filings to `sources`.
+- Created: HTML companion `phm-vs-tol-vs-len-homebuilders-20261020.html` (21 collapsible points, 8 charts, 3 tables; digest-shell styling). `check_html.py` passes.
+- Updated: `index.md` (comparison entry describes the balance-sheet section and notes the HTML companion).
+
+## [2026-10-20] create | Homebuilder comparison: $PHM vs. $TOL vs. $LEN, plus $OC
+
+- Created: `investing-fundamentals/company-analyses/comparisons/phm-vs-tol-vs-len-homebuilders-20261020.md` from three articles the user supplied (Barron's interview with Evercore ISI's Stephen Kim, Oct 8; Barron's on NAHB price cuts, Oct 19; Benzinga on the NAHB HMI and 22V's AI-capex hedge, Oct 19), PulteGroup's Q2 2026 and Lennar's FQ3 2026 8-Ks, and the 09-26/09-27 digests.
+- Content: industry backdrop (HMI 29, 43% price cuts, 7.40% mortgage, Evercore margin survey), company table with Evercore targets, implied-EPS check showing PHM's $154 target rests on a multiple re-rating with lower 2027 EPS, LEN's land-option margin headwind vs. the Berkshire stake, Owens Corning sum of parts, catalysts and watch list, AI-capex hedge and where it breaks, risks, data conflicts. `contested: true` (Evercore vs. Berkshire on LEN; P/E vs. P/B valuation).
+- Updated: `index.md` (Comparisons; total pages 250 to 251; updated date).
+
+## [2026-10-19] ingest | Market newsletter digest, September 27, 2026
+
+- Created: `reading-list/notes/market-newsletter-digest-2026-09-27.md` from 54 matched emails (about 43 used; 11 dropped as off-topic or promos), 13 themes: rates and auction demand, Japan and the yen carry trade, money-fund cash and consumer credit, the Fed and the data week, equity breadth and earnings quality, volatility and options, Meta's Muse, frontier labs and the Anthropic IPO, memory and AI supply, oil and policy, fintech and market structure, short reports, global equities and process notes.
+- Continuity checks against the 09-22 to 09-26 digests (auction results, breadth, Muse downloads, Burry's commitments, Kalshi volume, payroll consensus). Conflicts flagged inline: weekly SPY/QQQ returns, payroll consensus, Anthropic quarterly revenue and IPO timing, semiconductor drawdown, OpenAI margin arithmetic, Gayed's delinquency count.
+- Created: HTML companion `reading-list/notes/market-newsletter-digest-2026-09-27.html` (59 collapsible points, 25 charts, 9 tables); `check_html.py` passes. Not indexed (not a wiki page).
+- Updated: `index.md` (Reading List / Notes).
+
+## [2026-10-16] update | SoFi ($SOFI) memo and report: stress-test findings
+
+- Updated `sofi-3-investment-memo.md`:
+  - Bull case corrected: 2028 EPS of ~$1.08 is ~11-12% ROTCE, not "toward 20%". Assumption 4 now puts the mid-teens in 2029-2030.
+  - Loan-sale dependence restated as ~$6.3B a quarter (~59% of personal originations), up from "$3-4B", in Assumption 2 and Risk #2. The Risk #2 mitigation now gives the CET1 cost (~2.2 points per quarter held).
+  - Added Goldman $15, StoneX $25 and Q3 consensus EPS ~$0.17 to the Street references.
+  - October 27 milestone: added the 2-year Treasury benchmark for the discount rate and the stress test's bar for adding.
+  - KPIs: all-in charge-off red flag tightened to 4.5%; one-year CD share added to the deposits row.
+  - Noted that most tangible-book growth came from the raise. Added a summary pointer to [[sofi-4-stress-test]] and set `contested: true`.
+- Updated `sofi-2-equity-report.md`: added the 59% off-balance-sheet share to the funding-channel concentration and the earnings-versus-raise split to tangible book. Added a link to the stress test.
+- `sofi-1-document-sources.md` was not changed because it is immutable.
+
+## [2026-10-16] create | SoFi ($SOFI) stage 4: bull/bear stress test
+
+- Created: `investing-fundamentals/company-analyses/sofi-4-stress-test.md`, run as three independent agents. Bull and bear worked in parallel from the memo's data pack plus a web search of recent developments: KBW >$1B Q3 headwind and $15 target, Goldman $15, StoneX Buy $25, Q3 consensus EPS ~$0.17 on October 27, SoFiUSD on Mastercard, industry personal-loan 60+ day delinquency 3.98%, the AI-credit sell-off. The arbitrator received both reports verbatim.
+- Arbitrator verdicts:
+  - Balance-sheet stress: lean bull, moderate.
+  - ROTCE path to the high teens without new equity: lean bear, clear.
+  - Funding and distribution (LPB, loan sales): lean bear, slight.
+- Closing: no margin of safety at ~$14.50. Low-to-moderate conviction, a 1-2% starter position, and add only if the Q3 print shows a mark near or below ~$1B, the $825M guide held and TBV/share at or above ~$6.75.
+- Errors the arbitrator corrected:
+  - Bear: discount rate compared with the 10-year instead of the 2-year; LPB volume $4.1B instead of $3.1B; unsupported claim that rivals are growing faster.
+  - Bull: Happen described as forward-flow funded (it owns a bank); gross default rate treated as net; overstated mark reversal.
+- Updated: `index.md` (SoFi row to stages 1-4; page count 249 to 250).
+
+## [2026-10-16] create | SoFi Technologies ($SOFI) analysis pipeline, stages 1-3
+
+- Created: `investing-fundamentals/company-analyses/sofi-1-document-sources.md`. Annual report PDFs (Form ARS on EDGAR) for FY2022-FY2025, verified HTTP 200. FY2021 is the 10-K in HTML (no ARS filed; SoFi listed via the IPOE SPAC in June 2021). No Investor Day found (EDGAR full-text search of 8-Ks), so the page lists quarterly investor decks instead, all verified. It also lists the interim filings used: the Q4 2025, Q1 2026 and Q2 2026 releases, the Q2 10-Q, and the Q3 date (October 27, 2026).
+- Created: `sofi-2-equity-report.md`. Covers the business, the FY2021-FY2025 history (SEC XBRL), FY2025 and Q2 2026 segment results, revenue quality (fair-value marks, loan sales, LPB, delinquent-loan sales), cost structure, capital (CET1 22.8% to 18.7%), liquidity, rate sensitivity, growth drivers and the moat.
+- Created: `sofi-3-investment-memo.md`.
+  - What the price assumes at ~$14.52 and at $11.50: ~17-20% vs. ~15-17% ROTCE needed, against ~7-9% today.
+  - 2028 scenarios: bear ~$6, base ~$13.8, bull ~$23.8; weighted ~$14.0 (end-2027 basis), ~$12 discounted. Deep bear ~$3-4.
+  - Credit and rate stress table from the 10-Q sensitivities, five ranked risks, a pre-mortem and a 10-item KPI list.
+  - The stress test and the $11.50 analysis come from this session's earlier answers.
+- Updated: `index.md` (SoFi row; page count 246 to 249).
+
+## [2026-10-16] update | DOCN memo: $55 reverse valuation added
+
+- Updated: `docn-3-investment-memo.md`. Added a $55 column to the reverse-valuation table (EV ~$6.7B, ~5.7x 2026 revenue, ~6.7x MS 2028 EBITDA, ~25x MS 2027 EPS). New rows: leases as a share of market cap, the implied AI ARR multiple, the shares needed per dollar of new equity, and returns to the memo's bear and base cases. Added a paragraph: $55 prices almost all of the bear case (-11% to bear, +76% to base). HTML rebuilt.
+
+## [2026-10-16] update | DOCN memo: dilution figure corrected
+
+- Corrected: `docn-3-investment-memo.md` ($65 section). "New equity costs ~45% more dilution than the July raise" was wrong. 45% is the price discount ($65 vs. $117.54). The shares needed per dollar raised rise ~81% (117.54 ÷ 65). HTML rebuilt.
+
+## [2026-10-16] update | AKAM memo: October sell-off, $65 reverse valuation, liquidity and covenant
+
+- Updated: `akam-3-investment-memo.md`. Added an "Update, October 16, 2026" section with three parts:
+  - The week's sell-off: AKAM -17.7%, with no company news. The market repriced AI-compute funding costs (CoreWeave bonds at 15%) and Anthropic counterparty risk ($518B of commitments per Reuters, the IREN deal, cancellation terms in Nscale's S-1).
+  - A $65 reverse valuation: about the memo's bear case, or compute valued at roughly zero with the core at ~9.7x.
+  - Liquidity: a 2027 funding gap of ~$1.7-2.4B before the revolver, and ratings (Moody's Baa2 and S&P BBB, both negative outlook).
+- New finding from the credit agreement (Amendment No. 3, May 18, 2026): the revolver's gross leverage covenant steps down from 4.75x to 3.50x on December 31, 2026, against an estimated ~4.0-4.2x. Assessment: a funding squeeze, not a crunch, in the base case. The risk table's revolver mitigant now carries a caveat.
+- Updated: `akam-2-equity-report.md` (ratings and covenant note in the balance-sheet section).
+- Rebuilt both HTML pages. `check_html.py` passes for the equity report. For the memo it only flags URL words that sit inside link `href` attributes (a false positive; the links render).
+
+## [2026-10-16] update | DOCN memo: what a $65 price would assume
+
+- Updated: `docn-3-investment-memo.md` (October 16 update section). Added a reverse valuation at $65: EV ~$7.9B, ~6.7x 2026 revenue, ~7.9x MS 2028 EBITDA. It fits three readings: growth misses (2028 revenue ~$1.76B) at MS's bear multiple, MS's base growth at a ~9-10x neocloud multiple, or a mix. On a sum of the parts, AI ARR is still valued at ~14-18x. From $65 the memo's cases run -25% (bear) to +49% (base). Also noted that a lower price makes equity-funded growth more dilutive. HTML rebuilt; `check_html.py` passes.
+
+## [2026-10-16] update | DOCN memo: October 12-16 neocloud sell-off; price corrections
+
+- Updated: `docn-3-investment-memo.md`. Added an "Update, October 16, 2026" section: DOCN -27.8% for the week, alongside CoreWeave -24.6%, Nebius -23.6%, IREN -21.8%, Cloudflare -19.1% and Akamai -17.7% (Yahoo Finance closes; October 16 intraday). Causes: CoreWeave's bond scare (October 14), Gartner's neocloud forecast (October 15), CoreWeave founder sales and Warsh's rate comments (October 16), and higher rates. Assessment: trading DOCN like a neocloud is partly fair (lease-funded GPU growth, GPU-backed equipment financing) and partly not (79% of ARR is the profitable core cloud, net cash excluding leases, no high-yield bonds). At ~$97 the price equals the memo's base case. Also replaced "no company news explains the move" on October 14 with the CoreWeave explanation, and added a link to [[akam-vs-docn-20261015]].
+- Corrected: the $104.29 DOCN price used on October 15 was intraday (the close was $109.47). Noted in `docn-2-equity-report.md`, `docn-3-investment-memo.md` and `comparisons/akam-vs-docn-20261015.md`. The AKAM price ($90.65) was also intraday (the close was $92.32). Noted in `akam-2-equity-report.md` and `akam-3-investment-memo.md`.
+- Updated: `akam-3-investment-memo.md` and the comparison page now attribute the October 14 drop to the CoreWeave sell-off instead of leaving it unexplained.
+- Rebuilt the HTML companions (`docn-2`, `docn-3`, `akam-2`, `akam-3`, comparison). `check_html.py` passes on all of them.
+
+## [2026-10-15] create | Comparison: $AKAM vs. $DOCN (leased AI compute)
+
+- Created: `investing-fundamentals/company-analyses/comparisons/akam-vs-docn-20261015.md`, built from the AKAM and DOCN memos and the four analyst reports in `reports/`. Sections: what the price assumes, how much new demand is secured, concentration, balance sheet and funding, scenario outcomes, what to watch.
+- Conclusions: AKAM is more de-risked at today's price (contracted revenue ~2.1x committed capex, ~13x earnings, bear -34%); DOCN carries higher expectations (76x 2026 EPS guide, RPO ~0.24x of ~$3.8B lease commitments, bear -53%). DOCN has the more diversified customer base; AKAM has the more diversified business and smaller price downside. The two fell together on October 14, so holding both adds little diversification.
+- Created: `comparisons/akam-vs-docn-20261015.html` (the .md verbatim plus 10 charts). HTML companion, not indexed. `check_html.py` passes.
+- Updated: `index.md` (page count 245 → 246).
+
+## [2026-10-15] create | HTML versions of the DigitalOcean equity report and investment memo
+
+- Created: `investing-fundamentals/company-analyses/docn-2-equity-report.html` (the .md verbatim plus 11 charts: AI ARR non-bare-metal share and growth by type, ARR mix and growth, RPO and top-25 concentration, MS gross margin and depreciation paths, MS FCF vs. after lease principal, lease and financing commitments, committed MW) and `docn-3-investment-memo.html` (the .md verbatim plus a bear-case box and 4 charts: MS vs. memo values, 2028 revenue by case, FCF vs. after lease principal, scenario values). `check_html.py` passes for both. Not indexed (HTML pages are not wiki pages).
+
+## [2026-10-15] update | DigitalOcean ($DOCN) report and memo: Morgan Stanley reports incorporated
+
+- Sources: `investing-fundamentals/company-analyses/reports/docn-q2-results-morgan-stanley-20260804.pdf` (Q2 results; Overweight, $175) and `docn-open-intelligence-summit-20261014.pdf` (summit update, written before the October 14 -14.8% move). Model rows extracted with pdftotext from the August note's exhibits.
+- Updated `docn-2-equity-report.md`: AI ARR mix (non-bare-metal 43% → 85%; inference +762%, bare metal -20%); summit data (tokens 50x April-September; open-weight models 88% of tokens vs. 27% in May; agent product launches); MS margin path (non-GAAP gross margin 61.8% → 54.3%, Q3 2026 trough 51.4%; depreciation $137M → $494M by 2028); capacity build (76 → 155 MW); MS FCF ($141M / $325M / $474M) vs. an owner-FCF view after ~$209M/yr of MUFG lease principal not in the MS model.
+- Rewrote `docn-3-investment-memo.md`: Street-vs-memo table; at $104 the EV (~$12.5B) equals MS's bear-case valuation (14x ~$880M 2028 EBITDA); options-implied P(<$93) ~45% (Oct 13); this memo's bear differs from MS's by allowing 2027 growth to miss (+30% vs. +51%; 2028 revenue $1.76B vs. MS bear ~$2.2B). Scenario values unchanged (~$49 / ~$97 / ~$179; weighted ~$103).
+- `docn-1-document-sources.md` unchanged (raw source, immutable).
+
+## [2026-10-15] create | DigitalOcean ($DOCN) analysis pipeline, stages 1-3
+
+- Created: `investing-fundamentals/company-analyses/docn-1-document-sources.md` (raw source, with sha256): FY2022-FY2025 annual reports (Form ARS PDFs on EDGAR, each checked HTTP 200 application/pdf), FY2021 10-K (HTML; no ARS filed), the April 2025 Investor Day (deck not located, [UNVERIFIED]), and the 2026 interim filings used.
+- Created: `docn-2-equity-report.md` (entity): core cloud ~$891M ARR (+~11%) vs. AI customer ARR $234M (+212%); RPO $894M (from $71M); top-25 customers 9% → 20% of revenue; gross margin 59.9% → 55.0%; $2.76B of uncommenced data-center leases, $578M finance leases, $725M-$1.025B MUFG equipment facility; March ($77) and July ($117.54) equity issues; diluted shares up ~20%.
+- Created: `docn-3-investment-memo.md` (entity): valuation and bear-case focus; ~76x 2026 EPS, ~27x EBITDA, ~1.2% FCF yield; 2028 scenarios (bear ~$49, base ~$97, bull ~$179, weighted ~$103 vs. $104.29 price), deep bear ~$25; risk table led by fixed lease costs and AI customer concentration; 10-KPI watch list.
+- No sell-side reports for DOCN in `reports/`. Not verified: identities of the nine-figure AI customers; 2027 capex.
+- Updated: `index.md` (Companies; page count 245).
+
+## [2026-10-15] create | HTML versions of the Akamai equity report and investment memo
+
+- Created: `investing-fundamentals/company-analyses/akam-2-equity-report.html` (the .md verbatim plus 7 charts: revenue and growth by line, margin history, capex share, Morningstar FCF to the firm, convert conversion prices vs. the $90.65 price, Morningstar ROIC vs. WACC) and `akam-3-investment-memo.html` (the .md verbatim plus a bear-case summary box and 5 charts: Street vs. memo values, 2028 EPS estimates, deal IRR stress test vs. 7.6% WACC, operating margin by depreciation life, 2028 scenario values). `check_html.py` passes for both. Not indexed (HTML pages are not wiki pages).
+
+## [2026-10-15] update | Akamai ($AKAM) report and memo: sell-side reports incorporated
+
+- Sources: `investing-fundamentals/company-analyses/reports/akam-morgan-stanley-20260925.pdf` (Overweight, $165, dated Sept 29, 2026) and `akam-morningstar-20260925.pdf` (fair value $150, no moat, Very High uncertainty). `akam-cfra-20260925.mhtml` holds only Chrome's PDF-viewer shell (no report text or PDF data) and was not used; it needs re-saving as a PDF.
+- Updated `akam-2-equity-report.md`: the Q1 2026 $1.8B customer is Anthropic (two deals, $13.3B; ~90% of recent CIS bookings); ~$14.4B of signed CIS commitments, 95-105 MW, ~$2.2B fully ramped revenue; Anthropic capex schedule ($1.7B Q4 2026, $3.1B 2027, $0.7B 2028) and revenue start in 2H 2027; Morningstar FCF to the firm (-$2.70B 2026, -$2.29B 2027), ROIC path vs. a 7.6% WACC, net debt/EBITDA ~5x; the two reports' opposing moat views.
+- Rewrote `akam-3-investment-memo.md`: Street-vs-memo comparison table; reproduced MS's deal IRR (10.6%) and stress-tested it (one-year delay ~5.7%, revenue -15% ~5.5%, 22% margin ~7.9%, renewal upside ~12.9%); resolved the earlier depreciation question (MS assumes a seven-year life; margins are ~22% at six years and ~11% at five); updated risks, milestones and KPIs. The 2028 scenario values (~$60 / ~$106 / ~$177) are unchanged.
+- `akam-1-document-sources.md` left unchanged (raw-source pages are immutable per SCHEMA); the reports are cited in the other two pages' frontmatter.
+
+## [2026-10-15] create | Akamai ($AKAM) analysis pipeline, stages 1-3
+
+- Created: `investing-fundamentals/company-analyses/akam-1-document-sources.md` (raw source, with sha256): FY2022-FY2025 annual reports (Form ARS PDFs on EDGAR, each checked HTTP 200 application/pdf), FY2021 10-K (HTML; no ARS PDF filed), the February 2025 investor overview (HTML 8-K exhibit), the 2022 Analyst Day (no PDF found, marked [UNVERIFIED]), and the 2026 interim filings used.
+- Created: `akam-2-equity-report.md` (entity): segment mix (Q2 2026 Security 55%, Delivery 36%, CIS 9%), margin history (non-GAAP operating margin 30% FY2025 to 25% Q2 2026), capex step-up (19% of revenue to ~40% plus ~$1.7B for Anthropic), convertible stack ($7.64B principal, conversion prices $93-201), buyback pause.
+- Created: `akam-3-investment-memo.md` (entity): valuation and bear-case focus; 2028 scenario model (bear ~$60, base ~$106, bull ~$177, weighted ~$107), deep-bear tail ~$40, Anthropic deal return arithmetic (after-tax ~5-8% on $5.5B capex) and a depreciation check that does not reconcile with management's margin range, 2026 FCF estimate of -$2.0B to -$2.2B, risk table, pre-mortem, 10-KPI watch list.
+- Not verified: the firm behind the October 8, 2026 downgrade; whether the Q1 2026 $1.8B frontier-model commitment is also Anthropic; the cause of the October 14 drop (no company news found).
+- Updated: `index.md` (Companies; page count 242).
+
+## [2026-10-15] create | Comparison: $DECK vs. $BIRK vs. $AS vs. $ONON
+
+- Created: `investing-fundamentals/company-analyses/comparisons/deck-vs-birk-vs-as-vs-onon-20261015.md` (comparison): valuation (EV including leases, P/E on guidance and consensus, EV/EBITDA, implied long-run growth at a 9% cost of equity), debt and interest coverage, and June-quarter trends by brand, channel and region.
+- Sources: the four June-quarter press releases (Deckers IR; BIRK, AS and ON 6-Ks on EDGAR), stockanalysis.com statistics (share counts, consensus, short interest), Yahoo Finance prices and FX as of 2026-10-15.
+- Not found: a specific cause for Deckers' September slide to $78; noted on the page.
+- Created: `deck-vs-birk-vs-as-vs-onon-20261015.html` (HTML companion: the .md text and tables verbatim, four ticker tiles, 8 charts on P/E, implied growth, EV/EBITDA, target upside, net debt, interest coverage, revenue growth and gross margin; `check_html.py` passes). Not indexed.
+- Updated: `index.md` (Comparisons; page count 239).
+
+## [2026-10-14] ingest | Investment newsletter digest for 2026-09-26
+
+- Retrieved 39 Gmail messages matching investment/newsletter keywords for 2026-09-26, a Saturday (haroldwu account, GWS CLI); used about 35 after dropping a QTR promo, a duplicate Diff send, The Substack Post's weekend roundup and Arjun Murti's Climate Week video. Six used emails are paywalled previews cited for their premise only.
+- Created: `reading-list/notes/market-newsletter-digest-2026-09-26.md` (12 sections): Gayed's Treasury curve shelf (2Y 4.81% to 10Y 5.17% in a 36bp band, 1Y 62bp over the fed funds midpoint) and a real-yield running total (10Y TIPS 2.68% to 2.83% since Sept 16 while the breakeven fell 2.33% to 2.27%; about 90bp of the 99bp YTD 10Y rise is real); the September SEP (median dot 4.1%, 17 of 18 see upside inflation risk) and next week's PCE/payroll calendar; Roberts on what the 9,000 S&P targets require (earnings yield about 8bp over the 10Y, margins 17.0% vs. a 12.4% average, borrowing up from 9% to 32% of hyperscaler capex); Mauldin's yield ladder and Freddie Mac multifamily delinquencies at 0.64% (above the 2011 peak); Kovacs's escalation case for Hormuz and the diesel export-ban mechanics; TSCS on the BOJ's ¥150T reserve drain, regional banks' lending-support repayments through March 2028 and a ¥250T watch level; AI capex as 3.6% of GDP and Epoch AI's 47%-per-quarter cost decline; Muse's trust gap and AI-incident survey data; SemiAnalysis's Panther Lake teardown (18A roughly N3E-class), Alibaba's V900 and Huawei's LogicFolding; Anduril at ~23x forward revenue against a $838.5B defense CR; SaaS seat-based vs. consumption multiples and TAA models at 50.5% risk-off; process notes.
+- Data conflicts flagged inline rather than resolved: October hike odds a week earlier (about 50% vs. 54%/71% in the 09-24 digest), CCC yield (15% vs. 16%), East-West pipeline attacker (Iraqi proxies vs. Houthis), Meta's gain since Muse (20%+ vs. ~27%), V900 cluster size (500,000 vs. 50,000), and the truce end date. UMich year-ahead expectations confirmed at 4.6% on the final read, which settles part of a 09-25 conflict.
+- Created: `reading-list/notes/market-newsletter-digest-2026-09-26.html` (HTML companion built from the .md: dek, 12-line bottom line, ten key-reading tiles against prior digests, watch list, collapsed conflicts table, 61 collapsible points, 30 charts and 10 tables; `check_html.py` passes). HTML pages are not wiki pages, so it is not indexed.
+- Updated: `index.md` (Reading List / Notes; page count 238; last-updated date 2026-10-14).
+
+## [2026-10-09] create | Industry theme — AI Capex, Financing, and Financial Risk (SemiAnalysis, October 2026)
+
+- Created: `investing-fundamentals/company-analyses/themes/ai-capex-financing-risk-semianalysis-2026-10.md` (concept): synthesis of three SemiAnalysis discussions; willingness-vs-ability frame and constraint migration (chips → data centers → financing); buildout size ($11.3T, ~$2T US next year, +116% capex growth); margin reconciliation across episodes (90% API, 75% Anthropic inference, 80% open-model gross, 40–50% profit, 9% OEMs); revenue-requirement comparison showing Patel's rule applied to $11.3T (~$2.8T/yr) lands near his own $3T danger line and Brookings' ~$3.7T; debt-market sizing and spreads; Nvidia backstops ($497B → $588B, AICP floor $2.33 → $3.25, ~46GW limit); contract structure and execution risk; bear-view comparison table; ranked risk framework with pre-mortem; positioning by layer; indicator dashboard with proposed red flags
+- Links: [[sa-whos-funding-the-11-trillion-ai-buildout-20261009]], [[sa-fight-for-fast-tokens-tpu-v7-vera-rubin-engrams-20261002]], [[btp-can-ai-keep-growing-exponentially-semianalysis-20261009]], [[klement-ai-bubble-2027-forecast-20261008]], [[ai-compute-commencement-wall-and-refinancing-trap]]
+- Updated: `index.md` (Themes; page count 237)
+
+## [2026-10-09] ingest | Big Technology Podcast — Can AI Keep Growing Exponentially? (Dylan Patel and Jordan Nanos)
+
+- Created: `investing-macro/podcasts/btp-can-ai-keep-growing-exponentially-semianalysis-20261009.md` (concept): the eight questions the episode addresses; ~$2T of US capex next year (5–6% of GDP) vs the 3.6%/2.2% railroad chart; hyperscaler capex +116% YoY in Q3 2026 vs consensus deceleration; Patel's rebuttal of Bain ($6T by 2031) and Van Nieuwerburgh ($3.5T, 8.8% of GDP) with depreciation math and a $600–700B OpenAI + Anthropic run-rate forecast for Dec 2027; Anthropic compute-profitable with ~75% inference gross margin and near-zero customer acquisition cost; the Anthropic IPO "$2T could be zero or $20T" multiple math; Nvidia backstops at $588B (up from $497B about a month earlier); neocloud security failures; ClusterMAX tiers, Oracle's three risks (fixed-margin OpenAI deals, debt, New Mexico force majeure) and Nebius's short-contract pricing power; DeepMind's falling compute share; labs keeping models internal
+- Continuity: links [[sa-whos-funding-the-11-trillion-ai-buildout-20261009]], [[sa-fight-for-fast-tokens-tpu-v7-vera-rubin-engrams-20261002]], [[klement-ai-bubble-2027-forecast-20261008]], [[brookings-financing-ai-buildout-van-nieuwerburgh-2026-09]]
+- Source: YouTube auto-captions (youtube-transcript-api); model names as spoken
+- Updated: `index.md` (Macro; page count 236)
+
+## [2026-10-09] ingest | SemiAnalysis Weekly Ep. 034 — The Fight for Fast Tokens, TPU v7, Vera Rubin, and Engrams
+
+- Created: `investing-macro/podcasts/sa-fight-for-fast-tokens-tpu-v7-vera-rubin-engrams-20261002.md` (concept): the six questions the episode addresses; engrams (n-gram embeddings looked up from DRAM/SSD) as an HBM workaround led by Chinese labs; the AgentX benchmark (replayed SemiAnalysis coding sessions, ~100K median input tokens, >98% theoretical cache-hit rate, +20–30% hits from DRAM offload at high throughput); the profit calculator (~40.7% on GB200 NVL72 for Kimi K3; ~50% on GB300 at 60% utilization after a 30% license fee); TPU v7 lowest cost per million tokens vs B200/B300, a native PyTorch backend coming, TPUs entering neoclouds; Vera Rubin ~3x at ~100 tokens/sec per user and ~1.4x at max throughput (HBM4 ~3x bandwidth; 3.125-bit lookup-table quantization); fast tokens seen as a niche; TileRT at 200–500 tokens/sec on GPUs; chip startups and Nvidia's $20B Groq acquisition
+- Continuity: margins reconciled with Ep. 037's ~80% gross-margin claim ([[sa-whos-funding-the-11-trillion-ai-buildout-20261009]]); links [[deepseek-v4-1-flash-memory-bottlenecks]], [[ai-inference-costs-accounting]]
+- Source: YouTube auto-captions (youtube-transcript-api); some model names and the TPU TCO figure garbled, as noted on the page
+- Updated: `index.md` (Macro; page count 235)
 
 ## [2026-10-09] ingest | SemiAnalysis Weekly Ep. 037 — Who's Funding the $11 Trillion AI Buildout? (Capital Markets)
 
@@ -1070,3 +1281,9 @@
 - Updated: `investing-fundamentals/company-analyses/themes/deepseek-v4-1-flash-memory-bottlenecks.md` (expanded Section 2 with technical breakdowns of how CED global KV projection, CSA2 tri-mode attention, native FP4 micro-scaling, Engram deterministic prefetching, SWA Bounded Replay local recomputation, and DSpark speculative decoding function under the hood; integrated the "Alexander the Great" multi-token concept problem and early-layer FLOP savings; added Section 5.G on the geopolitical driver bypassing Western HBM/CoWoS sanctions for Huawei Ascend and Chinese labs).
 - Updated: `log.md`
 
+
+## [2026-10-22] update | DigitalOcean ($DOCN): October 22 update to the investment memo
+
+- Updated: `investing-fundamentals/company-analyses/docn-3-investment-memo.md` (added "Update, October 22, 2026: the sell-off pauses, the credit gauge doesn't": price since October 16 (~$101.48 close October 21), CoreWeave 2032 bond yields as the sector gauge, Nebius falling on its GPU-backed Citi facility and what that implies for DOCN's MUFG facility, analyst actions (Barclays Hold unconfirmed, UBS $140, Piper Sandler Overweight), unchanged liquidity check, valuation at ~$101.5, and pre-November 4 watch items; bumped `updated` to 2026-10-22).
+- Updated: `investing-fundamentals/company-analyses/docn-3-investment-memo.html` (mirrored the October 22 section, TOC entry and header note).
+- Updated: `log.md`

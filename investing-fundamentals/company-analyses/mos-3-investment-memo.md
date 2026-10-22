@@ -1,7 +1,7 @@
 ---
 title: "The Mosaic Company (NYSE: MOS) Investment Memo"
 created: 2026-08-17
-updated: 2026-08-17
+updated: 2026-10-21
 type: entity
 tags: [company, agriculture, commodities, fertilizers, credit, valuation, investment-memo]
 sources: [investing-fundamentals/company-analyses/mos-1-document-sources.md, investing-fundamentals/company-analyses/mos-2-equity-report.md]
@@ -96,7 +96,83 @@ In August 2026, Mosaic successfully issued **$2.0B of senior unsecured notes** (
 
 ---
 
-## 6. Final Recommendation
+## 6. Update (October 21, 2026): Recent Developments and Balance-Sheet Stress Test
+
+The stock fell from about $21.35 at the start of October to about $18.75 on October 9, and later traded near $18.05, a multi-year low. No new company filing explains the drop. Three things hit at once:
+* **Belarus potash (September 21).** President Trump said the US is preparing a "massive" potash purchase from Belarus at prices "substantially less than we are currently paying to Canada."
+  * The US lifted sanctions on Belaruskali and Belarusian Potash Company in March 2026. The first 30,000-tonne shipment is due in New Orleans in October (Argus).
+  * This hits Pillar 3: potash is the segment still earning money ($278M of adjusted EBITDA in Q2), and Belarus adds a second pricing threat on top of BHP's Jansen mine (2027).
+  * Volumes are small so far, and many analysts read the deal as leverage in the trade dispute with Canada.
+* **RBC downgrade (October 9, the day of the ~5% drop).** Cut to Sector Perform from Outperform; target $25 from $27. RBC cited a slower phosphate recovery and "minimal cash generation" in 2026-2027, and expects Q3 core profit to miss consensus as curtailments raise unit costs. Consensus has slipped to Hold (mean target ~$26).
+* **The sulfur squeeze continues.** The Q3 sulfur contract settled at $705 per long ton, against $522 realized in Q2, and mostly hits Q4 results. Q3 segment EBITDA was guided below Q2's $407M.
+
+Not behind the drop: the September 25 8-K is a routine officer change (the EVP of Operations is retiring, with a named successor effective December 1, 2026).
+
+### Balance sheet and liquidity (June 30, 2026, Q2 10-Q)
+
+| Measure | Value |
+|---|---|
+| Total debt | ~$5.86B: short-term $1.02B, current long-term $0.07B, long-term $4.77B |
+| Cash | $294M |
+| Net debt | ~$5.56B; ~$5.9B including $353M of structured accounts payable (supplier financing) |
+| Liquidity | ~$2.9B: cash, $2.0B available on the $2.5B commercial paper program backed by the revolver, $0.6B uncommitted lines (management target: "up to $3.0B") |
+| Revolver | $2.5B committed, unsecured, matures May 16, 2030 |
+| Adjusted EBITDA | Q1 $416M, Q2 $407M (~$1.65B annualized, this memo); Q3 guided below Q2 |
+| Net debt / annualized EBITDA | ~3.4x (~3.6x including supplier financing) (this memo) |
+| H1 2026 free cash flow | −$406M (operating cash flow $272M, capex $677M); −$546M after $141M of dividends |
+
+**August refinancing (8-Ks of August 10, 17 and 28):**
+* Mosaic issued $2.0B of senior notes: $1.0B at 5.350% due 2031, $0.5B at 5.650% due 2034 and $0.5B at 5.900% due 2036.
+* The proceeds funded tender offers (tender cap $1.4B) and redemptions of the remaining 4.050% 2027 notes, 7.30% 2028 debentures and 5.375% 2028 notes, plus up to $150M of the 4.350% 2029 notes. About $1.4B of principal was retired (this memo).
+* No bond matures until 2029 (~$350M of 4.350% notes), then 2031.
+* The cost is about +$45M a year of interest (this memo), because ~4.6% average coupons were replaced with ~5.5%.
+* The other ~$0.6B of net proceeds was likely used to reduce short-term borrowings (not confirmed).
+
+### Covenant headroom (FY2025 10-K, Note 11; compliance reported at June 30, 2026)
+
+| Covenant | Requirement | Current (this memo) | Breach point |
+|---|---|---|---|
+| Consolidated indebtedness (net of unrestricted cash) / capitalization | ≤ 0.65 | ~32% | Equity would have to fall from $11.6B to ~$3.0B, an ~$8.6B write-down |
+| Interest coverage | ≥ 3.0x | ~7x (~$1.65B EBITDA vs. ~$236M of annualized net interest) | EBITDA of ~$180-230M a quarter, a 45-55% drop from the H1 run rate (the range includes the higher post-refinancing interest) |
+
+Potash alone (~$1.1B a year of EBITDA at the Q2 rate) covers interest about 3.6x. A covenant breach would need phosphate losses and a sharp drop in potash prices at the same time. The ratios here approximate the credit agreement's defined terms.
+
+### Stress scenarios (12-24 months, this memo)
+
+| Scenario | Assumptions | Annual EBITDA | Interest coverage | Net debt / EBITDA | Likely outcome |
+|---|---|---|---|---|---|
+| Base | Sulfur eases from $705; potash prices hold; capex $1.2B; Brazil working capital releases in H2 | ~$1.6-2.0B | ~5-7x | ~2.8-3.5x | Leverage stabilizes; dividend maintained |
+| Stress | Sulfur stays ~$700+ through 2027; potash price cut of ~$30-50/t from Belarus and Jansen pressure | ~$1.0-1.3B | ~3.3-4.3x | ~4.5-5.5x | Rating pressure; dividend cut likely; no covenant breach |
+| Severe | Sulfur above ~$800 (the memo's bear trigger) plus a potash price war and weak farm demand | ~$0.7-0.9B | ~2.3-3.0x | 6x+ | Coverage covenant at risk; needs an amendment, asset sales (e.g. the Ma'aden stake within $1.8B of equity investments) or equity |
+
+**What gives first:** the credit rating and the dividend (~$280M a year), not liquidity.
+* Net debt at ~3.4-3.6x EBITDA is already high for investment grade.
+* Commercial paper and Brazil working-capital lines (~$1.0B of short-term debt) roll over continuously and depend on the rating. The revolver backs the commercial paper, so a downgrade raises costs rather than causing a default.
+* Florida phosphate financial-assurance requirements, partly funded by $748M of restricted trust investments, could require more collateral after a downgrade.
+* Current ratings and agency outlooks were not checked for this update.
+
+**What this means for the thesis:**
+* Pillar 1 (refinancing removed near-term default risk) still holds.
+* Pillar 2 (phosphate margins self-correct) is delayed: sulfur is still near $705.
+* Pillar 3 (potash) is weaker: Belarus pricing pressure adds to Jansen.
+* The thesis that this is "margin compression, not solvency" is intact, but the cushion is thinner.
+
+**Additional monitoring triggers:**
+
+| Trigger | Positive signal | Negative signal |
+|---|---|---|
+| Q3 2026 adjusted EBITDA (early November; date not confirmed) | ≥ ~$350M | < ~$250M (approaching the coverage floor of ~$180-230M a quarter) |
+| H2 2026 free cash flow | Positive, with the Brazil working-capital release | Negative again; short-term debt rising above ~$1.0B |
+| Q4 2026 sulfur contract | Below $600 per long ton | ≥ $750 per long ton |
+| US potash pricing | Holds near the $270-290/t mine-gate guide | Nutrien or Mosaic cuts US prices in response to Belarus volumes |
+| Credit rating / outlook | Affirmed investment grade, stable | Negative outlook or downgrade |
+| Dividend | Maintained | Cut (likely before any liquidity problem) |
+
+---
+
+## 7. Final Recommendation
+
+*The rating below is from the original August 17, 2026 memo. Section 6 records the October developments; it does not change the rating, but it weakens Pillars 2 and 3.*
 
 **Rating:** **BUY (Cyclical Value)**  
 **Time Horizon:** 12 to 24 Months  

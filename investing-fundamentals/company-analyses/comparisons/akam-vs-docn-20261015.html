@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AKAM vs DOCN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a bond-desk morning sheet. Key readings strip up top (now vs. prior), then a sticky section index beside one reading column. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf3;
+  --line: #d3dae4;
+  --ink: #18212e;
+  --ink-dim: #556377;
+  --accent: #1f4e79;
+  --accent-soft: #e1eaf4;
+  --up: #a8361f;
+  --up-soft: #f7e4df;
+  --hold: #2e6a4d;
+  --hold-soft: #e0efe6;
+  --flag: #8a5a00;
+  --flag-soft: #f6ecd6;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-neg: #e34948;
+  --grid: #dfe4eb;
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+    --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+    --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+    --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+  --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+  --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+  --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16.5px; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); line-height: 1.6; overflow-wrap: break-word;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 0 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-data); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+
+/* Header */
+header.top { padding-block: 2.2rem 1.4rem; display: grid; gap: .6rem; }
+header.top h1 { font-family: var(--f-display); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; }
+.dek { max-width: 46rem; margin: 0; color: var(--ink-dim); font-size: 1.05rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; color: var(--ink-dim); }
+.meta span { font-family: var(--f-data); }
+
+/* Key readings */
+.readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-block: .4rem 1.6rem; }
+@media (min-width: 48rem) { .readings { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .75rem .8rem .8rem; display: grid; gap: .3rem; align-content: start; border-top: 3px solid var(--line); min-width: 0; }
+.tile.up { border-top-color: var(--up); }
+.tile.hold { border-top-color: var(--hold); }
+.tile.flat { border-top-color: var(--flag); }
+.tile .label { font-size: .78rem; color: var(--ink-dim); line-height: 1.3; }
+.tile .val { font-family: var(--f-data); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.tile .path { font-family: var(--f-data); font-size: .74rem; color: var(--ink-dim); line-height: 1.4; }
+.tile .state { justify-self: start; font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .4rem; border-radius: 3px; }
+.tile.up .state { background: var(--up-soft); color: var(--up); }
+.tile.hold .state { background: var(--hold-soft); color: var(--hold); }
+.tile.flat .state { background: var(--flag-soft); color: var(--flag); }
+
+/* Two panels: watch + conflicts */
+.panels { display: grid; gap: 1rem; margin-bottom: 2rem; }
+@media (min-width: 56rem) { .panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 .6rem; font-family: var(--f-body); font-weight: 600; }
+.panel.conflicts { background: var(--flag-soft); border-color: transparent; }
+.panel.conflicts h2 { color: var(--flag); }
+.watch { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.watch li { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.watch .lvl { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+.panel ul.plain { margin: 0; padding-left: 1.1rem; font-size: .9rem; display: grid; gap: .35rem; }
+
+/* Body layout */
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 62rem) { .layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+nav.toc { min-width: 0; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; }
+nav.toc a { display: block; text-decoration: none; color: var(--ink-dim); font-size: .85rem; white-space: nowrap; padding: .3rem .6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .n { font-family: var(--f-data); color: var(--accent); margin-right: .35rem; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1rem); align-self: start; }
+  nav.toc ol { flex-direction: column; overflow: visible; gap: .1rem; }
+  nav.toc a { white-space: normal; background: transparent; border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .3rem .7rem; line-height: 1.35; }
+  nav.toc a:hover { border-left-color: var(--accent); }
+}
+
+main { min-width: 0; max-width: 48rem; display: grid; gap: 2.6rem; }
+section.theme { min-width: 0; }
+section.theme h2 { font-family: var(--f-display); font-size: 1.45rem; margin: .2rem 0 .7rem; }
+.takeaway { margin: 0 0 1rem; padding: .7rem .9rem; background: var(--accent-soft); border-radius: 4px; font-size: .97rem; }
+/* Points: headline + gist visible, full note on expand */
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+details.pt { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.pt[open] { border-color: var(--accent); }
+details.pt > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: .5rem; row-gap: .15rem; padding: .65rem .85rem; }
+details.pt > summary::-webkit-details-marker { display: none; }
+details.pt > summary::before { content: ""; grid-row: 1 / span 2; margin-top: .45rem; width: .45rem; height: .45rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; }
+details.pt[open] > summary::before { transform: rotate(45deg); margin-top: .3rem; }
+@media (prefers-reduced-motion: reduce) { details.pt > summary::before { transition: none; } }
+details.pt > summary:hover .hd { color: var(--accent); }
+.hd { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.gist { grid-column: 2; color: var(--ink-dim); font-size: .9rem; line-height: 1.45; }
+.detail { padding: .2rem 1rem 1rem 2.45rem; display: grid; gap: .6rem; font-size: .95rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.detail p { margin: 0; max-width: 42rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.detail ul ul { margin-top: .4rem; }
+.detail li::marker { color: var(--ink-dim); }
+.detail blockquote { margin: 0; }
+@media (max-width: 30rem) { .detail { padding-left: 1rem; } }
+.chip { display: inline-block; font-family: var(--f-data); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 3px; margin-right: .4rem; vertical-align: .1em; }
+.chip.why { background: var(--accent-soft); color: var(--accent); }
+.chip.cont { background: var(--surface-2); color: var(--ink-dim); }
+li.aside { font-size: .88rem; color: var(--ink-dim); padding: .2rem .85rem; }
+
+/* Bottom line */
+.bottomline { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; margin-bottom: 1.2rem; }
+.bottomline h2 { font-size: 1rem; margin: 0 0 .6rem; font-weight: 600; }
+.bottomline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+@media (min-width: 56rem) { .bottomline ol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.6rem; } }
+.bottomline li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem; font-size: .9rem; line-height: 1.45; }
+.bottomline a { font-family: var(--f-data); font-size: .74rem; text-decoration: none; padding-top: .12rem; }
+
+/* Expand controls */
+.tools { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.tools button { font: 500 .78rem var(--f-body); color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .3rem .6rem; cursor: pointer; }
+.tools button:hover { border-color: var(--accent); }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Charts: horizontal bars, one baseline, values at the bar tip */
+.keyviz { margin: 0 0 1rem; }
+.vizpair { display: grid; gap: 1rem; }
+@media (min-width: 46rem) { .vizpair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+figure.viz { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .8rem .9rem .7rem; min-width: 0; }
+.detail figure.viz { background: transparent; border: 0; padding: .2rem 0; }
+figure.viz figcaption { display: grid; gap: .1rem; margin-bottom: .6rem; }
+.vt { font-weight: 600; font-size: .92rem; }
+.vs { font-size: .78rem; color: var(--ink-dim); }
+.vlegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-dim); margin-bottom: .5rem; }
+.vlegend span { display: inline-flex; align-items: center; gap: .35rem; }
+.sw { width: .7rem; height: .7rem; border-radius: 2px; display: inline-block; }
+.sw.s1 { background: var(--viz-1); } .sw.s2 { background: var(--viz-2); }
+.hbars { display: grid; grid-template-columns: minmax(5.5rem, 9rem) minmax(0, 1fr); column-gap: .7rem; row-gap: .35rem; align-items: center; }
+.blab { font-size: .8rem; color: var(--ink-dim); text-align: right; line-height: 1.2; }
+.track { position: relative; height: 22px; border-radius: 3px; outline: none; grid-column: 2; z-index: 1; }
+.track:hover, .track:focus-visible { background: var(--surface-2); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.bar { position: absolute; top: 4px; height: 14px; border-radius: 0 4px 4px 0; }
+.bar.neg { border-radius: 4px 0 0 4px; }
+.bar.s1 { background: var(--viz-1); } .bar.s2 { background: var(--viz-2); } .bar.sn { background: var(--viz-neg); }
+.bval { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--f-data); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; background: var(--surface); padding: 0 3px; border-radius: 2px; z-index: 1; }
+.track:hover .bval, .track:focus-visible .bval { background: var(--surface-2); }
+.refs { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .5; }
+.refl { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .45; }
+.refhead { grid-column: 2; position: relative; height: 1.1rem; }
+.reflab { position: absolute; transform: translateX(calc(-100% + .3rem)); line-height: 1.1rem; font-family: var(--f-data); font-size: .68rem; color: var(--ink-dim); white-space: nowrap; }
+.vnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-dim); }
+#viztip { position: fixed; z-index: 10; max-width: 18rem; padding: .4rem .55rem; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: .78rem; line-height: 1.35; pointer-events: none; }
+.panel.conflicts { grid-column: 1 / -1; }
+.panel.conflicts table { min-width: 36rem; }
+.panel.conflicts td, .panel.conflicts th { border-bottom-color: color-mix(in srgb, var(--flag) 25%, transparent); }
+details.conf > summary { cursor: pointer; font-weight: 600; color: var(--flag); }
+details.conf[open] > summary { margin-bottom: .6rem; }
+blockquote { margin: .5rem 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font-style: italic; color: var(--ink-dim); }
+.conflict { background: var(--flag-soft); color: var(--ink); padding: 0 .25rem; border-radius: 3px; }
+.conflict-tag { font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); margin-right: .3rem; }
+.xref { font-family: var(--f-data); font-size: .82rem; background: var(--surface-2); padding: .05rem .35rem; border-radius: 3px; text-decoration: none; color: var(--accent); }
+.sources { margin-top: 1rem; font-size: .84rem; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: .6rem; }
+.sources b { font-family: var(--f-data); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; margin-right: .4rem; }
+
+.tablewrap { overflow-x: auto; margin: .6rem 0; }
+table { border-collapse: collapse; font-size: .88rem; min-width: 30rem; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-data); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+.links { display: grid; gap: .5rem; padding-left: 1.1rem; margin: 0; font-size: .92rem; }
+footer { margin-top: 3rem; font-size: .82rem; color: var(--ink-dim); }
+</style>
+<style>
+table.cmp td:first-child { font-weight: 500; }
+table.cmp td.r { font-family: var(--f-body); text-align: left; }
+ul.bul { margin: 0 0 1rem; padding-left: 1.1rem; display: grid; gap: .55rem; font-size: .96rem; max-width: 46rem; }
+ul.bul ul { margin-top: .4rem; display: grid; gap: .35rem; }
+section.theme > p { max-width: 46rem; }
+section.theme h3 { font-size: 1.05rem; margin: 1.4rem 0 .5rem; }
+.tablewrap table.cmp { min-width: 40rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Company comparison · October 15, 2026</div>
+  <h1>Leased AI Compute: $AKAM vs. $DOCN</h1>
+  <p class="dek"><strong>Prices as of October 15, 2026 (intraday):</strong> AKAM $90.65, DOCN $104.29. Closes that day were $92.32 and $109.47. On October 16 both fell further in the neocloud sell-off (DOCN ~$97.38, AKAM ~$88.06 intraday); see <a class="xref" href="../docn-3-investment-memo.md">docn-3-investment-memo</a>. Both peaked in May 2026 (AKAM $165.45, DOCN $187.50) and both are down about 45% from there.</p><p class="dek"><strong>Latest reported quarter:</strong> June 2026. <strong>Next reports:</strong> DOCN November 4, AKAM November 5.</p><p class="dek"><strong>Built from</strong> <a class="xref" href="../akam-3-investment-memo.md">akam-3-investment-memo</a> and <a class="xref" href="../docn-3-investment-memo.md">docn-3-investment-memo</a>. Every figure below is from those pages or their source reports. Ratios marked "this page" are new arithmetic on those figures.</p>
+</header>
+<div class="readings" style="grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))"><div class="tile up"><span class="label">More de-risked</span><span class="val">AKAM</span><span class="path">Contracts ~2.1x committed spend; ~13x earnings</span><span class="state">Price</span></div><div class="tile down"><span class="label">Higher expectations</span><span class="val">DOCN</span><span class="path">76x 2026 EPS guide; EV = MS bear case</span><span class="state">Price</span></div><div class="tile flat"><span class="label">More diversified customers</span><span class="val">DOCN</span><span class="path">Largest ~8.5% vs. Anthropic ~31% of AKAM 2028</span><span class="state">Customers</span></div><div class="tile up"><span class="label">Smaller downside</span><span class="val">AKAM</span><span class="path">Bear -34% vs. -53%; deep bear -55% vs. -76%</span><span class="state">Scenarios</span></div></div>
+<div class="layout">
+<nav class="toc" aria-label="Sections"><ol><li><a href="#bottom">Bottom line</a></li><li><a href="#price">What the price assumes</a></li><li><a href="#secured">How much of the new demand is secured</a></li><li><a href="#concentration">Concentration and diversification</a></li><li><a href="#funding">Balance sheet and funding</a></li><li><a href="#scenarios">Scenario outcomes (from each memo)</a></li><li><a href="#watch">What to watch</a></li><li><a href="#sources">Sources</a></li></ol></nav>
+<main>
+<section class="theme" id="bottom"><h2>Bottom line</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="P/E on Morgan Stanley EPS"><figcaption><span class="vt">P/E on Morgan Stanley EPS</span><span class="vs">Times earnings</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>AKAM</span><span><i class="sw s2"></i>DOCN</span></div><div class="hbars"><span class="blab" style="grid-row:1">AKAM 2027</span><div class="track" style="grid-row:1" tabindex="0" data-tip="AKAM 13.2x MS 2027 EPS ($6.89)" aria-label="AKAM 2027: 13.2x"><span class="bar s1" style="left:0.00%;width:19.68%"></span><span class="bval" style="left:calc(19.68% + 6px)">13.2x</span></div><span class="blab" style="grid-row:2">DOCN 2027</span><div class="track" style="grid-row:2" tabindex="0" data-tip="DOCN ~48x MS 2027 EPS ($2.19)" aria-label="DOCN 2027: ~48x"><span class="bar s2" style="left:0.00%;width:71.56%"></span><span class="bval" style="left:calc(71.56% + 6px)">~48x</span></div><span class="blab" style="grid-row:3">AKAM 2028</span><div class="track" style="grid-row:3" tabindex="0" data-tip="AKAM ~12x MS 2028 EPS ($7.53)" aria-label="AKAM 2028: ~12x"><span class="bar s1" style="left:0.00%;width:17.89%"></span><span class="bval" style="left:calc(17.89% + 6px)">~12x</span></div><span class="blab" style="grid-row:4">DOCN 2028</span><div class="track" style="grid-row:4" tabindex="0" data-tip="DOCN ~34x MS 2028 EPS ($3.07)" aria-label="DOCN 2028: ~34x"><span class="bar s2" style="left:0.00%;width:50.69%"></span><span class="bval" style="left:calc(50.69% + 6px)">~34x</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Scenario value vs. price"><figcaption><span class="vt">Scenario value vs. price</span><span class="vs">Percent, from each memo</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">AKAM bear</span><div class="track" style="grid-row:1" tabindex="0" data-tip="AKAM bear ~$60" aria-label="AKAM bear: -34%"><span class="bar sn neg" style="left:34.19%;width:12.13%"></span><span class="bval" style="right:calc(65.81% + 6px)">-34%</span></div><span class="blab" style="grid-row:2">DOCN bear</span><div class="track" style="grid-row:2" tabindex="0" data-tip="DOCN bear ~$49" aria-label="DOCN bear: -53%"><span class="bar sn neg" style="left:27.42%;width:18.91%"></span><span class="bval" style="right:calc(72.58% + 6px)">-53%</span></div><span class="blab" style="grid-row:3">AKAM weighted</span><div class="track" style="grid-row:3" tabindex="0" data-tip="AKAM weighted ~$107" aria-label="AKAM weighted: +18%"><span class="bar s1" style="left:46.32%;width:6.42%"></span><span class="bval" style="left:calc(52.75% + 6px)">+18%</span></div><span class="blab" style="grid-row:4">DOCN weighted</span><div class="track" style="grid-row:4" tabindex="0" data-tip="DOCN weighted ~$103" aria-label="DOCN weighted: -1%"><span class="bar sn neg" style="left:45.97%;width:0.60%"></span><span class="bval" style="right:calc(54.03% + 6px)">-1%</span></div><span class="blab" style="grid-row:5">AKAM bull</span><div class="track" style="grid-row:5" tabindex="0" data-tip="AKAM bull ~$177" aria-label="AKAM bull: +95%"><span class="bar s1" style="left:46.32%;width:33.89%"></span><span class="bval" style="left:calc(80.22% + 6px)">+95%</span></div><span class="blab" style="grid-row:6">DOCN bull</span><div class="track" style="grid-row:6" tabindex="0" data-tip="DOCN bull ~$179" aria-label="DOCN bull: +72%"><span class="bar s2" style="left:46.32%;width:25.69%"></span><span class="bval" style="left:calc(72.01% + 6px)">+72%</span></div><div class="refs" style="grid-row:1 / span 6"><span class="zero" style="left:46.32%"></span></div></div><p class="vnote">Red bars are losses from $90.65 (AKAM) and $104.29 (DOCN).</p></figure></div></div><p>Both companies are building AI compute capacity ahead of revenue. They differ in what has already been secured and in what the price asks for.</p>
+<ul class="bul"><li><strong>More de-risked at today's price: Akamai.</strong> Its new demand is under contract: $11.6B from Anthropic over seven years against ~$5.5B of capex, so signed revenue is about 2.1x the money it must spend. The stock trades at ~13x earnings, roughly the price of a no-growth security and CDN business. What remains is counterparty, return and funding risk, and the price already discounts much of it. DigitalOcean's new capacity is mostly <em>not</em> under contract: RPO of $894M against ~$3.8B of data-center and equipment leases. It has to win the demand after building the space.</li><li><strong>Higher expectations in the price: DigitalOcean, by a wide margin.</strong> 76x 2026 EPS guidance and ~34x Morgan Stanley's 2028 EPS, against ~13x for Akamai. DigitalOcean's price needs 2027 revenue growth of about 45% (the DOCN memo's base case, ~$97). Akamai's price assumes roughly no earnings growth through 2027.</li><li><strong>Safer or more diversified: it depends on which risk you mean.</strong><ul><li><em>Customers:</em> DigitalOcean is more diversified. Its largest customer is about 8.5% of revenue and the top 25 are about 20%. At Akamai, ~90% of recent compute bookings come from Anthropic. By 2028 Anthropic could be ~30% of Akamai's total revenue (this page, base case).</li><li><em>Business lines and cash engine:</em> Akamai is more diversified. Security ($604M a quarter, +10%) has a real moat and pays for the bet. Compute is 9% of revenue today. At DigitalOcean, AI is already 21% of ARR and the core cloud grows ~11%.</li><li><em>Price downside:</em> Akamai is safer. On each memo's scenarios, Akamai's bear case is -34% (deep bear -55%) and DigitalOcean's is -53% (deep bear -76%).</li><li><em>Balance sheet:</em> mixed. Akamai has more debt in dollars (~$3.0B net) and negative free cash flow through 2027, so it must borrow ~$2-3B more. DigitalOcean has little debt but has committed lease spending of ~3.2x its 2026 revenue, and it funds itself partly by issuing shares (diluted count up ~20% in a year).</li></ul></li></ul>
+<p><strong>Overall:</strong> Akamai is the better risk-reward at these prices: weighted value ~$107 (+18%) with downside to ~$60. DigitalOcean's weighted value ~$103 is about its price, with downside to ~$49. Akamai's risk is concentrated on one customer, and that should limit the position size. Owning both does not diversify much: they fell together on October 14 (AKAM -8%, DOCN -14.8%) with no company news for either. Both moved with CoreWeave after its bond scare that day.</p></section>
+<section class="theme" id="price"><h2>What the price assumes</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="EV / 2026 revenue"><figcaption><span class="vt">EV / 2026 revenue</span><span class="vs">Times, guide midpoints (this page)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">AKAM</span><div class="track" style="grid-row:1" tabindex="0" data-tip="EV ~$16.1B / $4.49B" aria-label="AKAM: ~3.6x"><span class="bar s1" style="left:0.00%;width:24.60%"></span><span class="bval" style="left:calc(24.60% + 6px)">~3.6x</span></div><span class="blab" style="grid-row:2">DOCN</span><div class="track" style="grid-row:2" tabindex="0" data-tip="EV ~$12.5B / $1.175B" aria-label="DOCN: ~10.6x"><span class="bar s2" style="left:0.00%;width:72.43%"></span><span class="bval" style="left:calc(72.43% + 6px)">~10.6x</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="EV / 2028 Street revenue"><figcaption><span class="vt">EV / 2028 Street revenue</span><span class="vs">Times (this page)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">AKAM</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Morningstar 2028 revenue $6.51B" aria-label="AKAM: ~2.5x"><span class="bar s1" style="left:0.00%;width:17.08%"></span><span class="bval" style="left:calc(17.08% + 6px)">~2.5x</span></div><span class="blab" style="grid-row:2">DOCN</span><div class="track" style="grid-row:2" tabindex="0" data-tip="MS 2028 revenue $2.42B" aria-label="DOCN: ~5.2x"><span class="bar s2" style="left:0.00%;width:35.53%"></span><span class="bval" style="left:calc(35.53% + 6px)">~5.2x</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>AKAM</th><th>DOCN</th></tr></thead><tbody><tr><td>Price (Oct 15, 2026)</td><td class="r">$90.65</td><td class="r">$104.29</td></tr><tr><td>Market cap</td><td class="r">~$13.0B</td><td class="r">~$12.3B</td></tr><tr><td>Enterprise value</td><td class="r">~$16.1B (ex-leases)</td><td class="r">~$12.5B (incl. finance leases); ~$13.4B incl. operating leases</td></tr><tr><td>P/E, 2026 company guidance</td><td class="r">~13.5x</td><td class="r">~76x</td></tr><tr><td>P/E, Morgan Stanley 2027 EPS</td><td class="r">13.2x ($6.89)</td><td class="r">~48x ($2.19)</td></tr><tr><td>P/E, Morgan Stanley 2028 EPS</td><td class="r">~12x ($7.53)</td><td class="r">~34x ($3.07)</td></tr><tr><td>EV / 2026 revenue (this page)</td><td class="r">~3.6x ($4.49B guide midpoint)</td><td class="r">~10.6x ($1.175B guide midpoint)</td></tr><tr><td>EV / 2028 Street revenue (this page)</td><td class="r">~2.5x (Morningstar $6.51B)</td><td class="r">~5.2x (MS $2.42B)</td></tr><tr><td>Morgan Stanley</td><td class="r">Overweight, $165</td><td class="r">Overweight, $175 (bear $93, bull $246)</td></tr><tr><td>Other reference</td><td class="r">Morningstar fair value $150; price is 0.60x</td><td class="r">EV equals MS's bear-case EV (~$12.3B)</td></tr><tr><td>Options-implied odds</td><td class="r"></td><td class="r">P(&lt;$93 in 12 months) ~45% (Oct 13)</td></tr><tr><td>Short interest</td><td class="r">13.4%</td><td class="r">~11% of float</td></tr></tbody></table></div>
+<p><strong>What each price assumes:</strong></p>
+<ul class="bul"><li><strong>AKAM:</strong> at ~13x earnings with flat Street EPS through 2027, the market prices Akamai as a legacy business that does not grow and carries a balance-sheet problem. It gives little credit for the $14.4B of signed compute contracts. The Street's EPS barely rises in 2027 because depreciation and colocation costs of the new capacity hit before revenue starts in 2H 2027.</li><li><strong>DOCN:</strong> the price assumes the AI pivot works. Morgan Stanley's <em>bear</em> case still has 2028 revenue of ~$2.2B, about 37% a year compounded from 2026, and today's EV equals that bear-case value. The DOCN memo's bear case lets 2027 growth fall to +30%, and that alone takes the value to ~$49.</li></ul></section>
+<section class="theme" id="secured"><h2>How much of the new demand is secured</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Committed spending vs. contracted revenue"><figcaption><span class="vt">Committed spending vs. contracted revenue</span><span class="vs">$ billions</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">AKAM spend</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Anthropic deal capex 2026-28" aria-label="AKAM spend: ~$5.5B"><span class="bar sn" style="left:0.00%;width:34.69%"></span><span class="bval" style="left:calc(34.69% + 6px)">~$5.5B</span></div><span class="blab" style="grid-row:2">AKAM contract</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Anthropic seven-year contract" aria-label="AKAM contract: $11.6B"><span class="bar s1" style="left:0.00%;width:73.17%"></span><span class="bval" style="left:calc(73.17% + 6px)">$11.6B</span></div><span class="blab" style="grid-row:3">DOCN spend</span><div class="track" style="grid-row:3" tabindex="0" data-tip="$2.76B leases + up to $1.025B MUFG" aria-label="DOCN spend: ~$3.8B"><span class="bar sn" style="left:0.00%;width:23.97%"></span><span class="bval" style="left:calc(23.97% + 6px)">~$3.8B</span></div><span class="blab" style="grid-row:4">DOCN RPO</span><div class="track" style="grid-row:4" tabindex="0" data-tip="RPO $894M" aria-label="DOCN RPO: $894M"><span class="bar s2" style="left:0.00%;width:5.64%"></span><span class="bval" style="left:calc(5.64% + 6px)">$894M</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">Red bars are committed spending.</p></figure><figure class="viz" role="group" aria-label="Contracted revenue ÷ committed spending"><figcaption><span class="vt">Contracted revenue ÷ committed spending</span><span class="vs">Times (this page)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">AKAM</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Anthropic deal alone" aria-label="AKAM: ~2.1x"><span class="bar s1" style="left:0.00%;width:68.88%"></span><span class="bval" style="left:calc(68.88% + 6px)">~2.1x</span></div><span class="blab" style="grid-row:2">DOCN</span><div class="track" style="grid-row:2" tabindex="0" data-tip="RPO vs. lease commitments; RPO understates usage revenue" aria-label="DOCN: ~0.24x"><span class="bar s2" style="left:0.00%;width:7.87%"></span><span class="bval" style="left:calc(7.87% + 6px)">~0.24x</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>AKAM</th><th>DOCN</th></tr></thead><tbody><tr><td>New spending committed</td><td class="r">~$5.5B of capex for the September Anthropic deal ($1.7B Q4 2026, $3.1B 2027, $0.7B 2028)</td><td class="r">$2.76B of data-center leases not yet started (11.2-year average) plus a $725M-$1.025B MUFG equipment facility: ~$3.8B</td></tr><tr><td>Committed spending vs. company size (this page)</td><td class="r">~1.3x FY2025 revenue; ~42% of market cap</td><td class="r">~3.2x 2026 revenue; ~31% of market cap</td></tr><tr><td>Contracted revenue behind it</td><td class="r">$11.6B Anthropic (seven years); $14.4B signed compute commitments in total</td><td class="r">RPO $894M ($366M due within 12 months)</td></tr><tr><td>Contracted revenue ÷ committed spending (this page)</td><td class="r">~2.1x (Anthropic deal alone)</td><td class="r">~0.24x</td></tr><tr><td>Contract form</td><td class="r">Take-or-pay once capacity is delivered</td><td class="r">Mostly usage-based; large AI customers on ~3.7-year terms</td></tr><tr><td>Who carries the demand risk</td><td class="r">The customer, if it pays</td><td class="r">DigitalOcean: it must fill ~155 MW it has already leased</td></tr></tbody></table></div>
+<p>The last ratio compares two different things. DigitalOcean's revenue was never built on long contracts, so its RPO understates what its ~$891M core cloud will bring in. The direction still holds. Akamai built after signing; DigitalOcean is signing leases ahead of customers.</p>
+<p><strong>The catch on Akamai's contracts:</strong> contracted revenue does not mean good returns. Morgan Stanley's ~11% deal IRR falls to ~5.5-7.9% with a one-year delay, 15% lower revenue, or 8 points of extra cost, all at or below Morningstar's 7.6% cost of capital. Akamai's main risk is earning too little on the capacity. DigitalOcean's main risk is that the capacity sits partly empty.</p></section>
+<section class="theme" id="concentration"><h2>Concentration and diversification</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Largest-customer exposure"><figcaption><span class="vt">Largest-customer exposure</span><span class="vs">Percent of revenue</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">AKAM 2028 est.</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Anthropic, base case (this page)" aria-label="AKAM 2028 est.: ~31%"><span class="bar s1" style="left:0.00%;width:72.63%"></span><span class="bval" style="left:calc(72.63% + 6px)">~31%</span></div><span class="blab" style="grid-row:2">DOCN top 25</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Top 25 customers, from 9%" aria-label="DOCN top 25: ~20%"><span class="bar s2" style="left:0.00%;width:46.86%"></span><span class="bval" style="left:calc(46.86% + 6px)">~20%</span></div><span class="blab" style="grid-row:3">DOCN largest</span><div class="track" style="grid-row:3" tabindex="0" data-tip="One customer" aria-label="DOCN largest: ~8.5%+"><span class="bar s2" style="left:0.00%;width:19.91%"></span><span class="bval" style="left:calc(19.91% + 6px)">~8.5%+</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Share of business in AI compute today"><figcaption><span class="vt">Share of business in AI compute today</span><span class="vs">Percent</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">AKAM</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Compute share of Q2 2026 revenue" aria-label="AKAM: 9%"><span class="bar s1" style="left:0.00%;width:21.09%"></span><span class="bval" style="left:calc(21.09% + 6px)">9%</span></div><span class="blab" style="grid-row:2">DOCN</span><div class="track" style="grid-row:2" tabindex="0" data-tip="AI share of ARR ($234M of $1,125M)" aria-label="DOCN: 21%"><span class="bar s2" style="left:0.00%;width:49.20%"></span><span class="bval" style="left:calc(49.20% + 6px)">21%</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>AKAM</th><th>DOCN</th></tr></thead><tbody><tr><td>Revenue mix</td><td class="r">Security 55% (+10%), Delivery 36% (-6%), Compute 9% (+39%), Q2 2026</td><td class="r">Core cloud ~$891M ARR (+11%), AI ~$234M ARR (+212%); AI is 21% of ARR</td></tr><tr><td>Customer base</td><td class="r">Large regulated enterprises; 20-30% of internet traffic passes through Akamai (Morningstar)</td><td class="r">680,000+ customers, mostly developers, startups, AI-native firms</td></tr><tr><td>Largest customer exposure</td><td class="r">~90% of recent compute bookings and ~$13.3B of contracts from Anthropic; ~30% of 2028 base-case revenue (this page)</td><td class="r">Top 25 ~20% of revenue (from 9%); one customer ~8.5%+</td></tr><tr><td>Moat</td><td class="r">Real in security; none proven in compute (Morningstar: no moat overall)</td><td class="r">Switching costs in core cloud; AI edge is the software stack, but open-weight models are 88% of tokens, the most price-competitive kind of inference</td></tr><tr><td>What pays for the buildout</td><td class="r">Security and delivery cash flow (OCF 36% of revenue) plus new debt</td><td class="r">Core cloud cash flow plus equity raises and equipment leases</td></tr></tbody></table></div>
+<p>How the 2028 Anthropic share was estimated: the AKAM base case has $2.2B of compute revenue out of $6.42B total. With ~90% of compute from Anthropic, that is ~$2.0B, or ~31%.</p></section>
+<section class="theme" id="funding"><h2>Balance sheet and funding</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Committed spending vs. annual revenue"><figcaption><span class="vt">Committed spending vs. annual revenue</span><span class="vs">Times (this page)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">AKAM</span><div class="track" style="grid-row:1" tabindex="0" data-tip="~$5.5B vs. FY2025 revenue $4.21B" aria-label="AKAM: ~1.3x"><span class="bar s1" style="left:0.00%;width:26.65%"></span><span class="bval" style="left:calc(26.65% + 6px)">~1.3x</span></div><span class="blab" style="grid-row:2">DOCN</span><div class="track" style="grid-row:2" tabindex="0" data-tip="~$3.8B vs. 2026 guide $1.175B" aria-label="DOCN: ~3.2x"><span class="bar s2" style="left:0.00%;width:65.60%"></span><span class="bval" style="left:calc(65.60% + 6px)">~3.2x</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Free cash flow, 2027"><figcaption><span class="vt">Free cash flow, 2027</span><span class="vs">$ millions</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">AKAM</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Morningstar FCF to the firm" aria-label="AKAM: -$2.29B"><span class="bar sn neg" style="left:44.77%;width:28.52%"></span><span class="bval" style="right:calc(55.23% + 6px)">-$2.29B</span></div><span class="blab" style="grid-row:2">DOCN</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Owner FCF after lease principal" aria-label="DOCN: ~$116M"><span class="bar s2" style="left:73.28%;width:1.44%"></span><span class="bval" style="left:calc(74.73% + 6px)">~$116M</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:73.28%"></span></div></div><p class="vnote">Different measures: AKAM is Morningstar FCFF; DOCN is the memo's owner FCF.</p></figure></div></div><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>AKAM</th><th>DOCN</th></tr></thead><tbody><tr><td>Cash (June 30, 2026)</td><td class="r">$4.62B</td><td class="r">$767M</td></tr><tr><td>Debt</td><td class="r">$7.64B of converts (2027-2033 maturities, 0-1.125% coupons)</td><td class="r">$312.3M of 2026 converts due Dec 1, 2026 (cash); $153.2M of 2030 converts (likely to convert into ~3.9M shares)</td></tr><tr><td>Net debt (ex-leases)</td><td class="r">~$3.0B</td><td class="r">net cash ex-leases; pro forma net leverage ~0.7x</td></tr><tr><td>Lease liabilities</td><td class="r">$1.78B operating</td><td class="r">$577.7M finance-lease and equipment liabilities, plus $2.76B of leases not yet started</td></tr><tr><td>Free cash flow</td><td class="r">Negative: -$2.70B (2026), -$2.29B (2027) per Morningstar; breakeven 2028</td><td class="r">Positive: adjusted FCF margin guided 11-13%; owner FCF after lease principal ~$116M (2027), ~$265M (2028)</td></tr><tr><td>Funding route</td><td class="r">New debt of ~$2-3B by end-2027, including the $1.15B notes due Sept 1, 2027; buybacks paused; equity ruled out for now</td><td class="r">Two equity raises in 2026 ($888M at $77; ~$1.47B at $117.54); equipment leases via MUFG</td></tr><tr><td>Dilution</td><td class="r">Up to 7.7M warrant shares for Anthropic; buyback tailwind gone</td><td class="r">Diluted shares up ~20% in a year</td></tr><tr><td>Net debt / EBITDA</td><td class="r">~5x in 2026-27 (Morningstar)</td><td class="r">~0.7x pro forma</td></tr></tbody></table></div>
+<p>Akamai's leverage is visible and large in dollars, but it sits on top of a $4B+ revenue business with $4.6B of cash and low-coupon converts. DigitalOcean's leverage hides in leases: rent of ~$246M a year once the sites start, plus ~$209M a year of equipment principal at full MUFG use, against owner FCF of ~$116-265M. On a reported net-debt basis DigitalOcean looks safer. On fixed obligations relative to the size of the business, Akamai looks safer.</p></section>
+<section class="theme" id="scenarios"><h2>Scenario outcomes (from each memo)</h2><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>AKAM</th><th>DOCN</th></tr></thead><tbody><tr><td>Bear</td><td class="r">~$60 (-34%), 30% weight</td><td class="r">~$49 (-53%), 30% weight</td></tr><tr><td>Base</td><td class="r">~$106 (+17%), 50% weight</td><td class="r">~$97 (-7%), 45% weight</td></tr><tr><td>Bull</td><td class="r">~$177 (+95%), 20% weight</td><td class="r">~$179 (+72%), 25% weight</td></tr><tr><td>Probability-weighted</td><td class="r">~$107 (+18%)</td><td class="r">~$103 (-1%)</td></tr><tr><td>Deep bear (not weighted)</td><td class="r">~$40 (-55%)</td><td class="r">~$25 (-76%)</td></tr><tr><td>Bull upside ÷ bear downside (this page)</td><td class="r">~2.8</td><td class="r">~1.4</td></tr><tr><td>What breaks the thesis</td><td class="r">Anthropic delays, under-uses or renegotiates; returns fall below cost of capital</td><td class="r">2027 growth near 30% instead of 50%; sites fill slowly while leases run</td></tr></tbody></table></div>
+<p>Both memos use the same method: 2028 EPS times a scenario multiple. Akamai's multiples (10-17x) are low because it is priced as a mature business. DigitalOcean's (30-45x) assume it stays a growth stock, so a growth miss compounds: lower earnings <em>and</em> a lower multiple.</p></section>
+<section class="theme" id="watch"><h2>What to watch</h2><ul class="bul"><li><strong>November 4 (DOCN Q3):</strong> revenue vs. $304-307M; gross margin vs. MS's 51.4% trough; RPO; first MUFG draw.</li><li><strong>November 5 (AKAM Q3):</strong> compute growth vs. the ≥50% full-year guide; capex vs. $475-525M; RPO including the $11.6B.</li><li><strong>December 1, 2026:</strong> DOCN repays $312.3M of converts in cash.</li><li><strong>February 2027:</strong> both give FY2027 guidance. For DOCN the test is ~50% growth. For AKAM it is EPS vs. consensus $6.71 and the financing plan.</li><li><strong>2H 2027:</strong> Anthropic revenue starts at Akamai ($150-300M expected in 2027). DigitalOcean's leased sites come online through 2027.</li><li><strong>September 1, 2027:</strong> AKAM's $1.15B notes mature.</li></ul>
+<p><strong>Shared risk:</strong> both depend on AI inference demand staying ahead of supply into 2028. If GPU supply catches up, Akamai faces re-marketing pressure if Anthropic steps back, and DigitalOcean faces open-model price competition. Morgan Stanley covers both with the same analyst and is Overweight on both. See <a class="xref" href="../../../investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md">ai-compute-commencement-wall-and-refinancing-trap</a> for how capacity built ahead of revenue tends to break.</p><h3>Related</h3><ul class="bul"><li><a class="xref" href="../akam-2-equity-report.md">akam-2-equity-report</a>, <a class="xref" href="../akam-3-investment-memo.md">akam-3-investment-memo</a></li><li><a class="xref" href="../docn-2-equity-report.md">docn-2-equity-report</a>, <a class="xref" href="../docn-3-investment-memo.md">docn-3-investment-memo</a></li><li><a class="xref" href="../themes/ai-capex-financing-risk-semianalysis-2026-10.md">ai-capex-financing-risk-semianalysis-2026-10</a>: how AI compute buildouts are financed.</li><li><a class="xref" href="../net-3-investment-memo.md">net-3-investment-memo</a>: Cloudflare, Akamai's closest competitor.</li><li><a class="xref" href="../../concepts/valuations.md">valuations</a>: multiple and discount-rate framework.</li></ul></section>
+<section class="theme" id="sources"><h2>Sources</h2><ul class="bul"><li>investing-fundamentals/company-analyses/akam-2-equity-report.md</li><li>investing-fundamentals/company-analyses/akam-3-investment-memo.md</li><li>investing-fundamentals/company-analyses/docn-2-equity-report.md</li><li>investing-fundamentals/company-analyses/docn-3-investment-memo.md</li><li>investing-fundamentals/company-analyses/reports/akam-morgan-stanley-20260925.pdf</li><li>investing-fundamentals/company-analyses/reports/akam-morningstar-20260925.pdf</li><li>investing-fundamentals/company-analyses/reports/docn-q2-results-morgan-stanley-20260804.pdf</li><li>investing-fundamentals/company-analyses/reports/docn-open-intelligence-summit-20261014.pdf</li></ul></section>
+</main>
+</div>
+<footer>HTML companion to <span class="num">investing-fundamentals/company-analyses/comparisons/akam-vs-docn-20261015.md</span>; the markdown file is the source of record. Not investment advice.</footer>
+</div>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.id = 'viztip'; tip.hidden = true; document.body.appendChild(tip);
+  function show(el, x, y) {
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var r = tip.getBoundingClientRect(), left = Math.min(x + 12, window.innerWidth - r.width - 8), top = y - r.height - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (top < 8 ? y + 16 : top) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', function () { tip.hidden = true; });
+    el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+    el.addEventListener('blur', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+})();
+</script>
+</body>
+</html>

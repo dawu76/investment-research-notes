@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Footwear Brands Compared</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a bond-desk morning sheet. Key readings strip up top (now vs. prior), then a sticky section index beside one reading column. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf3;
+  --line: #d3dae4;
+  --ink: #18212e;
+  --ink-dim: #556377;
+  --accent: #1f4e79;
+  --accent-soft: #e1eaf4;
+  --up: #a8361f;
+  --up-soft: #f7e4df;
+  --hold: #2e6a4d;
+  --hold-soft: #e0efe6;
+  --flag: #8a5a00;
+  --flag-soft: #f6ecd6;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-neg: #e34948;
+  --grid: #dfe4eb;
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+    --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+    --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+    --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+  --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+  --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+  --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16.5px; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); line-height: 1.6; overflow-wrap: break-word;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 0 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-data); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+
+/* Header */
+header.top { padding-block: 2.2rem 1.4rem; display: grid; gap: .6rem; }
+header.top h1 { font-family: var(--f-display); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; }
+.dek { max-width: 46rem; margin: 0; color: var(--ink-dim); font-size: 1.05rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; color: var(--ink-dim); }
+.meta span { font-family: var(--f-data); }
+
+/* Key readings */
+.readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-block: .4rem 1.6rem; }
+@media (min-width: 48rem) { .readings { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .75rem .8rem .8rem; display: grid; gap: .3rem; align-content: start; border-top: 3px solid var(--line); min-width: 0; }
+.tile.up { border-top-color: var(--up); }
+.tile.hold { border-top-color: var(--hold); }
+.tile.flat { border-top-color: var(--flag); }
+.tile .label { font-size: .78rem; color: var(--ink-dim); line-height: 1.3; }
+.tile .val { font-family: var(--f-data); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.tile .path { font-family: var(--f-data); font-size: .74rem; color: var(--ink-dim); line-height: 1.4; }
+.tile .state { justify-self: start; font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .4rem; border-radius: 3px; }
+.tile.up .state { background: var(--up-soft); color: var(--up); }
+.tile.hold .state { background: var(--hold-soft); color: var(--hold); }
+.tile.flat .state { background: var(--flag-soft); color: var(--flag); }
+
+/* Two panels: watch + conflicts */
+.panels { display: grid; gap: 1rem; margin-bottom: 2rem; }
+@media (min-width: 56rem) { .panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 .6rem; font-family: var(--f-body); font-weight: 600; }
+.panel.conflicts { background: var(--flag-soft); border-color: transparent; }
+.panel.conflicts h2 { color: var(--flag); }
+.watch { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.watch li { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.watch .lvl { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+.panel ul.plain { margin: 0; padding-left: 1.1rem; font-size: .9rem; display: grid; gap: .35rem; }
+
+/* Body layout */
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 62rem) { .layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+nav.toc { min-width: 0; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; }
+nav.toc a { display: block; text-decoration: none; color: var(--ink-dim); font-size: .85rem; white-space: nowrap; padding: .3rem .6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .n { font-family: var(--f-data); color: var(--accent); margin-right: .35rem; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1rem); align-self: start; }
+  nav.toc ol { flex-direction: column; overflow: visible; gap: .1rem; }
+  nav.toc a { white-space: normal; background: transparent; border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .3rem .7rem; line-height: 1.35; }
+  nav.toc a:hover { border-left-color: var(--accent); }
+}
+
+main { min-width: 0; max-width: 48rem; display: grid; gap: 2.6rem; }
+section.theme { min-width: 0; }
+section.theme h2 { font-family: var(--f-display); font-size: 1.45rem; margin: .2rem 0 .7rem; }
+.takeaway { margin: 0 0 1rem; padding: .7rem .9rem; background: var(--accent-soft); border-radius: 4px; font-size: .97rem; }
+/* Points: headline + gist visible, full note on expand */
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+details.pt { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.pt[open] { border-color: var(--accent); }
+details.pt > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: .5rem; row-gap: .15rem; padding: .65rem .85rem; }
+details.pt > summary::-webkit-details-marker { display: none; }
+details.pt > summary::before { content: ""; grid-row: 1 / span 2; margin-top: .45rem; width: .45rem; height: .45rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; }
+details.pt[open] > summary::before { transform: rotate(45deg); margin-top: .3rem; }
+@media (prefers-reduced-motion: reduce) { details.pt > summary::before { transition: none; } }
+details.pt > summary:hover .hd { color: var(--accent); }
+.hd { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.gist { grid-column: 2; color: var(--ink-dim); font-size: .9rem; line-height: 1.45; }
+.detail { padding: .2rem 1rem 1rem 2.45rem; display: grid; gap: .6rem; font-size: .95rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.detail p { margin: 0; max-width: 42rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.detail ul ul { margin-top: .4rem; }
+.detail li::marker { color: var(--ink-dim); }
+.detail blockquote { margin: 0; }
+@media (max-width: 30rem) { .detail { padding-left: 1rem; } }
+.chip { display: inline-block; font-family: var(--f-data); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 3px; margin-right: .4rem; vertical-align: .1em; }
+.chip.why { background: var(--accent-soft); color: var(--accent); }
+.chip.cont { background: var(--surface-2); color: var(--ink-dim); }
+li.aside { font-size: .88rem; color: var(--ink-dim); padding: .2rem .85rem; }
+
+/* Bottom line */
+.bottomline { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; margin-bottom: 1.2rem; }
+.bottomline h2 { font-size: 1rem; margin: 0 0 .6rem; font-weight: 600; }
+.bottomline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+@media (min-width: 56rem) { .bottomline ol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.6rem; } }
+.bottomline li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem; font-size: .9rem; line-height: 1.45; }
+.bottomline a { font-family: var(--f-data); font-size: .74rem; text-decoration: none; padding-top: .12rem; }
+
+/* Expand controls */
+.tools { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.tools button { font: 500 .78rem var(--f-body); color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .3rem .6rem; cursor: pointer; }
+.tools button:hover { border-color: var(--accent); }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Charts: horizontal bars, one baseline, values at the bar tip */
+.keyviz { margin: 0 0 1rem; }
+.vizpair { display: grid; gap: 1rem; }
+@media (min-width: 46rem) { .vizpair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+figure.viz { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .8rem .9rem .7rem; min-width: 0; }
+.detail figure.viz { background: transparent; border: 0; padding: .2rem 0; }
+figure.viz figcaption { display: grid; gap: .1rem; margin-bottom: .6rem; }
+.vt { font-weight: 600; font-size: .92rem; }
+.vs { font-size: .78rem; color: var(--ink-dim); }
+.vlegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-dim); margin-bottom: .5rem; }
+.vlegend span { display: inline-flex; align-items: center; gap: .35rem; }
+.sw { width: .7rem; height: .7rem; border-radius: 2px; display: inline-block; }
+.sw.s1 { background: var(--viz-1); } .sw.s2 { background: var(--viz-2); }
+.hbars { display: grid; grid-template-columns: minmax(5.5rem, 9rem) minmax(0, 1fr); column-gap: .7rem; row-gap: .35rem; align-items: center; }
+.blab { font-size: .8rem; color: var(--ink-dim); text-align: right; line-height: 1.2; }
+.track { position: relative; height: 22px; border-radius: 3px; outline: none; grid-column: 2; z-index: 1; }
+.track:hover, .track:focus-visible { background: var(--surface-2); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.bar { position: absolute; top: 4px; height: 14px; border-radius: 0 4px 4px 0; }
+.bar.neg { border-radius: 4px 0 0 4px; }
+.bar.s1 { background: var(--viz-1); } .bar.s2 { background: var(--viz-2); } .bar.sn { background: var(--viz-neg); }
+.bval { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--f-data); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; background: var(--surface); padding: 0 3px; border-radius: 2px; z-index: 1; }
+.track:hover .bval, .track:focus-visible .bval { background: var(--surface-2); }
+.refs { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .5; }
+.refl { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .45; }
+.refhead { grid-column: 2; position: relative; height: 1.1rem; }
+.reflab { position: absolute; transform: translateX(calc(-100% + .3rem)); line-height: 1.1rem; font-family: var(--f-data); font-size: .68rem; color: var(--ink-dim); white-space: nowrap; }
+.vnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-dim); }
+#viztip { position: fixed; z-index: 10; max-width: 18rem; padding: .4rem .55rem; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: .78rem; line-height: 1.35; pointer-events: none; }
+.panel.conflicts { grid-column: 1 / -1; }
+.panel.conflicts table { min-width: 36rem; }
+.panel.conflicts td, .panel.conflicts th { border-bottom-color: color-mix(in srgb, var(--flag) 25%, transparent); }
+details.conf > summary { cursor: pointer; font-weight: 600; color: var(--flag); }
+details.conf[open] > summary { margin-bottom: .6rem; }
+blockquote { margin: .5rem 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font-style: italic; color: var(--ink-dim); }
+.conflict { background: var(--flag-soft); color: var(--ink); padding: 0 .25rem; border-radius: 3px; }
+.conflict-tag { font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); margin-right: .3rem; }
+.xref { font-family: var(--f-data); font-size: .82rem; background: var(--surface-2); padding: .05rem .35rem; border-radius: 3px; text-decoration: none; color: var(--accent); }
+.sources { margin-top: 1rem; font-size: .84rem; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: .6rem; }
+.sources b { font-family: var(--f-data); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; margin-right: .4rem; }
+
+.tablewrap { overflow-x: auto; margin: .6rem 0; }
+table { border-collapse: collapse; font-size: .88rem; min-width: 30rem; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-data); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+.links { display: grid; gap: .5rem; padding-left: 1.1rem; margin: 0; font-size: .92rem; }
+footer { margin-top: 3rem; font-size: .82rem; color: var(--ink-dim); }
+</style>
+<style>
+table.cmp td:first-child { font-weight: 500; }
+table.cmp td.r { font-family: var(--f-body); text-align: left; }
+ul.bul { margin: 0 0 1rem; padding-left: 1.1rem; display: grid; gap: .55rem; font-size: .96rem; max-width: 46rem; }
+ul.bul ul { margin-top: .4rem; display: grid; gap: .35rem; }
+section.theme > p { max-width: 46rem; }
+section.theme h3 { font-size: 1.05rem; margin: 1.4rem 0 .5rem; }
+.tablewrap table.cmp { min-width: 40rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Company comparison · October 15, 2026</div>
+  <h1>Branded Footwear and Apparel: $DECK vs. $BIRK vs. $AS vs. $ONON</h1>
+  <p class="dek"><strong>Prices as of October 15, 2026:</strong> DECK $86.35, BIRK $35.33, AS $29.94, ONON $35.58. FX: EUR/USD 1.1208, CHF/USD 1.2056.</p><p class="dek"><strong>Latest reported quarter:</strong> the June 2026 quarter for all four (DECK fiscal Q1 FY27, BIRK fiscal Q3 FY26, AS Q2 2026, ON Q2 2026).</p><p class="dek"><strong>Next reports:</strong> DECK October 22 (after close), ON November 11, AS November 17. BIRK's fiscal year ended September 30; its Q4 report has no confirmed date.</p>
+</header>
+<div class="readings" style="grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))"><div class="tile flat"><span class="label">DECK</span><span class="val">$86.35</span><span class="path">11.6x FY27 EPS guide; net cash $1.60B</span><span class="state">Cheapest</span></div><div class="tile up"><span class="label">BIRK</span><span class="val">$35.33</span><span class="path">13.6x forward; net leverage 1.4x ex-leases</span><span class="state">Levered</span></div><div class="tile up"><span class="label">AS</span><span class="val">$29.94</span><span class="path">23.3x FY26 EPS guide; +32.1% Q2 revenue</span><span class="state">Priciest</span></div><div class="tile flat"><span class="label">ONON</span><span class="val">$35.58</span><span class="path">19.5x forward; net cash; wholesale +4.8%</span><span class="state">Slowing</span></div></div>
+<div class="layout">
+<nav class="toc" aria-label="Sections"><ol><li><a href="#bottom">Bottom line</a></li><li><a href="#valuation">Valuation assumptions</a></li><li><a href="#debt">Debt burden and interest coverage</a></li><li><a href="#trends">Business trends (June 2026 quarter)</a></li><li><a href="#compare">How they compare</a></li><li><a href="#sources">Sources</a></li></ol></nav>
+<main>
+<section class="theme" id="bottom"><h2>Bottom line</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Consensus forward P/E"><figcaption><span class="vt">Consensus forward P/E</span><span class="vs">Times forward earnings</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">DECK</span><div class="track" style="grid-row:1" tabindex="0" data-tip="DECK 11.3x consensus forward (11.6x on FY27 guidance)" aria-label="DECK: 11.3x"><span class="bar s1" style="left:0.00%;width:37.06%"></span><span class="bval" style="left:calc(37.06% + 6px)">11.3x</span></div><span class="blab" style="grid-row:2">BIRK</span><div class="track" style="grid-row:2" tabindex="0" data-tip="BIRK 13.6x consensus forward (16.0x on FY26 guidance)" aria-label="BIRK: 13.6x"><span class="bar s1" style="left:0.00%;width:44.61%"></span><span class="bval" style="left:calc(44.61% + 6px)">13.6x</span></div><span class="blab" style="grid-row:3">ONON</span><div class="track" style="grid-row:3" tabindex="0" data-tip="ONON 19.5x consensus forward" aria-label="ONON: 19.5x"><span class="bar s1" style="left:0.00%;width:63.96%"></span><span class="bval" style="left:calc(63.96% + 6px)">19.5x</span></div><span class="blab" style="grid-row:4">AS</span><div class="track" style="grid-row:4" tabindex="0" data-tip="AS 20.5x consensus forward (23.3x on FY26 guidance)" aria-label="AS: 20.5x"><span class="bar s1" style="left:0.00%;width:67.24%"></span><span class="bval" style="left:calc(67.24% + 6px)">20.5x</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Long-run growth the price implies"><figcaption><span class="vt">Long-run growth the price implies</span><span class="vs">Percent, at a 9% cost of equity (rough ranking)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">DECK</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Forward earnings yield on EV ~9.9%" aria-label="DECK: ~-1%"><span class="bar sn neg" style="left:39.57%;width:4.71%"></span><span class="bval" style="right:calc(60.43% + 6px)">~-1%</span></div><span class="blab" style="grid-row:2">BIRK</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Forward earnings yield on EV ~6.0%" aria-label="BIRK: ~3%"><span class="bar s1" style="left:44.29%;width:14.14%"></span><span class="bval" style="left:calc(58.43% + 6px)">~3%</span></div><span class="blab" style="grid-row:3">ONON</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Forward earnings yield on EV ~5.5%" aria-label="ONON: ~3.5%"><span class="bar s1" style="left:44.29%;width:16.50%"></span><span class="bval" style="left:calc(60.79% + 6px)">~3.5%</span></div><span class="blab" style="grid-row:4">AS</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Forward earnings yield on EV ~4.2%" aria-label="AS: ~5%"><span class="bar s1" style="left:44.29%;width:23.57%"></span><span class="bval" style="left:calc(67.86% + 6px)">~5%</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:44.29%"></span></div></div><p class="vnote">Cost of equity minus forward earnings yield on EV. Ranks how much each price assumes; not a valuation.</p></figure></div></div><p>All four trade 29-30% below their 52-week highs, but for different reasons, and the valuations differ more than the businesses do.</p>
+<ul class="bul"><li><strong>Deckers is priced for no growth.</strong> At 11.6x guided FY27 EPS and about 8x EV/EBIT, with $1.6B of cash and no borrowings, its forward earnings yield on EV is close to 10%. At a 9% cost of equity that implies about zero long-run growth. The debate is whether HOKA (69% of Q1 sales) is maturing: it grew 7.7% in Q1, and operating income fell 6% as SG&amp;A rose 12.7%. EPS was flat only because the share count fell 7.4%.</li><li><strong>Birkenstock is the only one with real debt, by choice.</strong> It borrowed to buy back stock: gross borrowings are €1.69B and net leverage is 1.4x adjusted EBITDA excluding leases (1.7-1.8x including them). Coverage is comfortable (about 10x underlying EBIT to net finance cost in Q3). Constant-currency growth is 15%, but tariffs, FX and a higher tax rate mean reported 9-month EPS is <em>down</em> (€1.32 vs. €1.36) while adjusted EPS is up. At 13.6x forward earnings it is cheap if pricing power holds.</li><li><strong>Amer Sports is the growth stock and is priced like one.</strong> Revenue grew 32% in Q2 and guidance is about 24% for 2026, but the stock trades at 23x guided 2026 EPS. Two things flatter the current numbers: Q2 gross margin included a 390bp one-time tariff refund, and Greater China is 34% of revenue. It repaid its term loan this year and now has net cash excluding leases, but carries $954M of leases.</li><li><strong>On is the cleanest balance sheet with the most visible deceleration.</strong> It has CHF 1.15B of net cash (excluding leases), and financial income exceeds financial expense. Constant-currency growth is 21.6%, but a strong franc cut reported growth to 13.5%. Wholesale grew only 4.8% reported, and guidance was trimmed to "low-20%" constant currency. At 19.5x forward earnings, it needs that growth to hold.</li></ul>
+<p>On a simple "what growth is priced in" test (below), the market asks the least of Deckers and the most of Amer Sports.</p></section>
+<section class="theme" id="valuation"><h2>Valuation assumptions</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="EV/EBITDA"><figcaption><span class="vt">EV/EBITDA</span><span class="vs">Times; bases differ (see table)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">DECK</span><div class="track" style="grid-row:1" tabindex="0" data-tip="DECK 7.7x trailing" aria-label="DECK: 7.7x"><span class="bar s1" style="left:0.00%;width:37.14%"></span><span class="bval" style="left:calc(37.14% + 6px)">7.7x</span></div><span class="blab" style="grid-row:2">BIRK</span><div class="track" style="grid-row:2" tabindex="0" data-tip="BIRK 9.6x FY26 guide (≥€710M)" aria-label="BIRK: 9.6x"><span class="bar s1" style="left:0.00%;width:46.31%"></span><span class="bval" style="left:calc(46.31% + 6px)">9.6x</span></div><span class="blab" style="grid-row:3">ONON</span><div class="track" style="grid-row:3" tabindex="0" data-tip="ONON 13.4x FY26 guide (19.75% margin)" aria-label="ONON: 13.4x"><span class="bar s1" style="left:0.00%;width:64.64%"></span><span class="bval" style="left:calc(64.64% + 6px)">13.4x</span></div><span class="blab" style="grid-row:4">AS</span><div class="track" style="grid-row:4" tabindex="0" data-tip="AS 14.2x trailing" aria-label="AS: 14.2x"><span class="bar s1" style="left:0.00%;width:68.49%"></span><span class="bval" style="left:calc(68.49% + 6px)">14.2x</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Consensus target vs. price"><figcaption><span class="vt">Consensus target vs. price</span><span class="vs">Percent upside</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">ONON</span><div class="track" style="grid-row:1" tabindex="0" data-tip="ONON consensus target +22%" aria-label="ONON: +22%"><span class="bar s1" style="left:0.00%;width:25.77%"></span><span class="bval" style="left:calc(25.77% + 6px)">+22%</span></div><span class="blab" style="grid-row:2">DECK</span><div class="track" style="grid-row:2" tabindex="0" data-tip="DECK consensus target +37%" aria-label="DECK: +37%"><span class="bar s1" style="left:0.00%;width:43.34%"></span><span class="bval" style="left:calc(43.34% + 6px)">+37%</span></div><span class="blab" style="grid-row:3">BIRK</span><div class="track" style="grid-row:3" tabindex="0" data-tip="BIRK consensus target +42%" aria-label="BIRK: +42%"><span class="bar s1" style="left:0.00%;width:49.20%"></span><span class="bval" style="left:calc(49.20% + 6px)">+42%</span></div><span class="blab" style="grid-row:4">AS</span><div class="track" style="grid-row:4" tabindex="0" data-tip="AS consensus target +58%" aria-label="AS: +58%"><span class="bar s1" style="left:0.00%;width:67.94%"></span><span class="bval" style="left:calc(67.94% + 6px)">+58%</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>DECK</th><th>BIRK</th><th>AS</th><th>ONON</th></tr></thead><tbody><tr><td>Market cap</td><td class="r">$11.8B</td><td class="r">$6.3B</td><td class="r">$17.4B</td><td class="r">$11.9B</td></tr><tr><td>Net debt (cash), ex-leases</td><td class="r">($1.60B)</td><td class="r">$1.11B</td><td class="r">($0.57B)</td><td class="r">($1.39B)</td></tr><tr><td>Lease liabilities</td><td class="r">$0.47B</td><td class="r">$0.27B</td><td class="r">$0.95B</td><td class="r">$0.68B</td></tr><tr><td>EV including leases</td><td class="r">$10.6B</td><td class="r">$7.7B</td><td class="r">$17.8B</td><td class="r">$11.2B</td></tr><tr><td>P/E on company guidance</td><td class="r">11.6x (FY27 EPS $7.35-7.50)</td><td class="r">16.0x (FY26 adj. EPS €1.90-2.05)</td><td class="r">23.3x (FY26 EPS $1.27-1.30)</td><td class="r">not guided</td></tr><tr><td>Consensus forward P/E</td><td class="r">11.3x</td><td class="r">13.6x</td><td class="r">20.5x</td><td class="r">19.5x</td></tr><tr><td>EV/EBITDA</td><td class="r">7.7x trailing</td><td class="r">9.6x FY26 guide (≥€710M)</td><td class="r">14.2x trailing</td><td class="r">13.4x FY26 guide (19.75% margin)</td></tr><tr><td>EV/sales</td><td class="r">1.7x FY27 guide (ex-leases)</td><td class="r">2.9x FY26 guide</td><td class="r">2.3x trailing</td><td class="r">2.6x FY26 guide</td></tr><tr><td>Consensus 3-year EPS growth</td><td class="r">10.5%</td><td class="r">15.9%</td><td class="r">27.8%</td><td class="r">38.8%</td></tr><tr><td>Forward P/E ÷ 3-year EPS growth</td><td class="r">1.1</td><td class="r">0.85</td><td class="r">0.74</td><td class="r">0.50</td></tr><tr><td>Forward earnings yield on EV</td><td class="r">~9.9%</td><td class="r">~6.0%</td><td class="r">~4.2%</td><td class="r">~5.5%</td></tr><tr><td>Long-run growth implied at a 9% cost of equity</td><td class="r">about -1%</td><td class="r">about 3%</td><td class="r">about 5%</td><td class="r">about 3.5%</td></tr><tr><td>Consensus target vs. price</td><td class="r">+37%</td><td class="r">+42%</td><td class="r">+58%</td><td class="r">+22%</td></tr><tr><td>Short interest (% of float)</td><td class="r">8.8%</td><td class="r">8.4%</td><td class="r">7.2%</td><td class="r">11.2%</td></tr></tbody></table></div>
+<p>How the derived rows were built (this page's arithmetic, not company figures):</p>
+<ul class="bul"><li>EV uses stockanalysis.com share counts (DECK 136.18M; BIRK 177.89M; AS 581.82M; ONON 334.21M economic shares, with Class B counted at its 1/10 economic weight) and balance sheets at June 30, 2026. EUR and CHF amounts are converted at October 15 spot rates.</li><li>"Implied growth" treats forward earnings as a proxy for steady-state free cash flow and solves <em>cost of equity minus earnings yield on EV</em>. It is crude: it ignores reinvestment needs (AS guides $400M of 2026 capex) and margin changes. Its job is to rank how much each price assumes, not to value the stocks. The 9% cost of equity reflects a 10-year Treasury near 5.2% and a 10-year TIPS yield of 2.83% (<a class="xref" href="../../../reading-list/notes/market-newsletter-digest-2026-09-26.md">market-newsletter-digest-2026-09-26</a>). Higher real yields hurt the long-duration names (AS, ONON) more than DECK, which earns its value sooner.</li><li>Deckers' EV/EBIT uses guided FY27 sales of $5.885B (midpoint) at an operating margin "slightly better than 21.5%."</li><li>ON's PEG looks flattered: 2025 net income was depressed by a CHF 154M FX loss in H1 2025, which inflates the EPS growth base.</li></ul>
+<p><strong>What each price assumes:</strong></p>
+<ul class="bul"><li><strong>DECK:</strong> HOKA flattens and UGG stays mid-single-digit; buybacks of about 80% of free cash flow do the compounding. Any sign HOKA stabilizes at high-single-digit growth looks undervalued at this multiple. Piper Sandler's bear case (January 2026) is that investors are overestimating HOKA's addressable market.</li><li><strong>BIRK:</strong> Mid-teens constant-currency growth continues and the premium price point survives. William Blair downgraded on the pricing-power question in August, and L Catterton sold about $1B of stock at $39.35. The sponsor overhang is the near-term technical issue.</li><li><strong>AS:</strong> 2026's 24% growth decays slowly, Arc'teryx keeps expanding in China and the West, and margins expand from 14.2-14.5% toward the segment margins of Arc'teryx (~22.5%) and Salomon (16-16.5%).</li><li><strong>ONON:</strong> Low-20s constant-currency growth persists after the deliberate wholesale slowdown, and the 65%+ gross margin holds. Currency is the swing factor: every point of franc strength comes straight off reported USD growth.</li></ul></section>
+<section class="theme" id="debt"><h2>Debt burden and interest coverage</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Net debt (cash), excluding leases"><figcaption><span class="vt">Net debt (cash), excluding leases</span><span class="vs">$ billions; negative = net cash</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">DECK</span><div class="track" style="grid-row:1" tabindex="0" data-tip="DECK net cash $1.60B" aria-label="DECK: ($1.60B)"><span class="bar sn neg" style="left:39.76%;width:21.12%"></span><span class="bval" style="right:calc(60.24% + 6px)">($1.60B)</span></div><span class="blab" style="grid-row:2">ONON</span><div class="track" style="grid-row:2" tabindex="0" data-tip="ONON net cash $1.39B (CHF converted)" aria-label="ONON: ($1.39B)"><span class="bar sn neg" style="left:42.53%;width:18.35%"></span><span class="bval" style="right:calc(57.47% + 6px)">($1.39B)</span></div><span class="blab" style="grid-row:3">AS</span><div class="track" style="grid-row:3" tabindex="0" data-tip="AS net cash $0.57B" aria-label="AS: ($0.57B)"><span class="bar sn neg" style="left:53.36%;width:7.52%"></span><span class="bval" style="right:calc(46.64% + 6px)">($0.57B)</span></div><span class="blab" style="grid-row:4">BIRK</span><div class="track" style="grid-row:4" tabindex="0" data-tip="BIRK net debt $1.11B (EUR converted)" aria-label="BIRK: $1.11B"><span class="bar s1" style="left:60.88%;width:14.65%"></span><span class="bval" style="left:calc(75.53% + 6px)">$1.11B</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:60.88%"></span></div></div><p class="vnote">Red bars are net cash. Leases excluded; see table for lease liabilities.</p></figure><figure class="viz" role="group" aria-label="Interest coverage"><figcaption><span class="vt">Interest coverage</span><span class="vs">Operating profit ÷ interest cost, latest period</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">BIRK</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Q3 EBIT / underlying net finance cost (6.1x trailing reported)" aria-label="BIRK: ~9.8x"><span class="bar s1" style="left:0.00%;width:47.27%"></span><span class="bval" style="left:calc(47.27% + 6px)">~9.8x</span></div><span class="blab" style="grid-row:2">AS</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Q2 adj. EBIT / interest expense (12.2x H1)" aria-label="AS: ~10.4x"><span class="bar s1" style="left:0.00%;width:50.16%"></span><span class="bval" style="left:calc(50.16% + 6px)">~10.4x</span></div><span class="blab" style="grid-row:3">ONON</span><div class="track" style="grid-row:3" tabindex="0" data-tip="H1 EBIT / financial expense" aria-label="ONON: 14.5x"><span class="bar s1" style="left:0.00%;width:69.94%"></span><span class="bval" style="left:calc(69.94% + 6px)">14.5x</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">DECK has no borrowings, so coverage is not meaningful.</p></figure></div></div><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>DECK</th><th>BIRK</th><th>AS</th><th>ONON</th></tr></thead><tbody><tr><td>Cash (June 30, 2026)</td><td class="r">$1,603M</td><td class="r">€694M</td><td class="r">$720M</td><td class="r">CHF 1,206M</td></tr><tr><td>Borrowings</td><td class="r">none</td><td class="r">€1,687M (incl. €900M 4.50% notes issued June 2026)</td><td class="r">$147M (current)</td><td class="r">CHF 52M other financial liabilities</td></tr><tr><td>Lease liabilities</td><td class="r">$472M</td><td class="r">€237M</td><td class="r">$954M</td><td class="r">CHF 562M</td></tr><tr><td>Net leverage</td><td class="r">net cash</td><td class="r">1.4x adj. EBITDA ex-leases; company-reported 1.8x (June), guides 1.6-1.7x at FY-end</td><td class="r">net cash ex-leases; 0.8x debt/EBITDA incl. leases</td><td class="r">net cash</td></tr><tr><td>Interest burden</td><td class="r">none; "other income, net" +$13.7M in Q1</td><td class="r">Q3 interest paid €20.2M (~€81M annualized)</td><td class="r">Q2 interest expense $20.0M; FY26 adjusted net finance cost ~$85M</td><td class="r">H1 financial expense CHF 16.3M vs. income CHF 18.3M</td></tr><tr><td>Coverage</td><td class="r">not meaningful</td><td class="r">~9.8x Q3 EBIT / underlying net finance cost; 6.1x trailing reported</td><td class="r">~10.4x Q2 adj. EBIT / interest expense; 12.2x H1</td><td class="r">14.5x H1 EBIT / financial expense</td></tr><tr><td>Capital return</td><td class="r">$338M buyback in Q1 at ~$103.79; $4.7B authorization left</td><td class="r">€230M ASR completed June 30 (6M shares); up to $500M more planned</td><td class="r">none</td><td class="r">none</td></tr></tbody></table></div>
+<ul class="bul"><li><strong>Birkenstock is the only name where leverage matters, and it is a choice.</strong> In June it issued €900M of 4.50% notes, repaid €428.5M of 5.25% notes, and kept the rest for buybacks of up to $500M. Q3 finance cost of €43.0M included a €10.6M ASR fair-value loss and an €11.7M loss from derecognizing the old notes. Excluding those, coverage is close to 10x. The risk is that leverage rises if EBITDA disappoints while buybacks continue, and the guided year-end ratio has already moved up from 1.3-1.4x to 1.6-1.7x.</li><li><strong>Amer Sports deleveraged quickly.</strong> Non-current borrowings went from $792M at December 31 to zero, at the cost of a $50.5M debt-extinguishment loss in H1. What remains is mostly lease interest from a growing store fleet. Leases ($954M) are the largest of the four, which matters if the retail rollout (Arc'teryx is adding up to 12 China stores) meets a slowdown.</li><li><strong>Deckers and On carry no financial risk.</strong> Their exposure is operating: inventory and wholesale order books, plus leases ($472M and CHF 562M).</li></ul></section>
+<section class="theme" id="trends"><h2>Business trends (June 2026 quarter)</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Revenue growth, June quarter"><figcaption><span class="vt">Revenue growth, June quarter</span><span class="vs">Percent</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Reported</span><span><i class="sw s2"></i>Constant currency</span></div><div class="hbars"><span class="blab" style="grid-row:1">DECK reported</span><div class="track" style="grid-row:1" tabindex="0" data-tip="DECK +5.7% reported" aria-label="DECK reported: +5.7%"><span class="bar s1" style="left:0.00%;width:12.30%"></span><span class="bval" style="left:calc(12.30% + 6px)">+5.7%</span></div><span class="blab" style="grid-row:2">DECK cc</span><div class="track" style="grid-row:2" tabindex="0" data-tip="DECK +4.8% constant currency" aria-label="DECK cc: +4.8%"><span class="bar s2" style="left:0.00%;width:10.36%"></span><span class="bval" style="left:calc(10.36% + 6px)">+4.8%</span></div><span class="blab" style="grid-row:3">BIRK reported</span><div class="track" style="grid-row:3" tabindex="0" data-tip="BIRK +13% reported" aria-label="BIRK reported: +13%"><span class="bar s1" style="left:0.00%;width:28.05%"></span><span class="bval" style="left:calc(28.05% + 6px)">+13%</span></div><span class="blab" style="grid-row:4">BIRK cc</span><div class="track" style="grid-row:4" tabindex="0" data-tip="BIRK +15% constant currency" aria-label="BIRK cc: +15%"><span class="bar s2" style="left:0.00%;width:32.37%"></span><span class="bval" style="left:calc(32.37% + 6px)">+15%</span></div><span class="blab" style="grid-row:5">ONON reported</span><div class="track" style="grid-row:5" tabindex="0" data-tip="ONON +13.5% reported" aria-label="ONON reported: +13.5%"><span class="bar s1" style="left:0.00%;width:29.13%"></span><span class="bval" style="left:calc(29.13% + 6px)">+13.5%</span></div><span class="blab" style="grid-row:6">ONON cc</span><div class="track" style="grid-row:6" tabindex="0" data-tip="ONON +21.6% constant currency" aria-label="ONON cc: +21.6%"><span class="bar s2" style="left:0.00%;width:46.61%"></span><span class="bval" style="left:calc(46.61% + 6px)">+21.6%</span></div><span class="blab" style="grid-row:7">AS reported</span><div class="track" style="grid-row:7" tabindex="0" data-tip="AS +32.1% reported" aria-label="AS reported: +32.1%"><span class="bar s1" style="left:0.00%;width:69.27%"></span><span class="bval" style="left:calc(69.27% + 6px)">+32.1%</span></div><span class="blab" style="grid-row:8">AS cc</span><div class="track" style="grid-row:8" tabindex="0" data-tip="AS +30% constant currency" aria-label="AS cc: +30%"><span class="bar s2" style="left:0.00%;width:64.74%"></span><span class="bval" style="left:calc(64.74% + 6px)">+30%</span></div><div class="refs" style="grid-row:1 / span 8"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="Gross margin, June quarter"><figcaption><span class="vt">Gross margin, June quarter</span><span class="vs">Percent</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">DECK</span><div class="track" style="grid-row:1" tabindex="0" data-tip="DECK 56.4% (+60bp)" aria-label="DECK: 56.4%"><span class="bar s1" style="left:0.00%;width:61.66%"></span><span class="bval" style="left:calc(61.66% + 6px)">56.4%</span></div><span class="blab" style="grid-row:2">BIRK</span><div class="track" style="grid-row:2" tabindex="0" data-tip="BIRK 59.1% reported (-140bp)" aria-label="BIRK: 59.1%"><span class="bar s1" style="left:0.00%;width:64.62%"></span><span class="bval" style="left:calc(64.62% + 6px)">59.1%</span></div><span class="blab" style="grid-row:3">ONON</span><div class="track" style="grid-row:3" tabindex="0" data-tip="ONON 65.4% (+390bp)" aria-label="ONON: 65.4%"><span class="bar s1" style="left:0.00%;width:71.50%"></span><span class="bval" style="left:calc(71.50% + 6px)">65.4%</span></div><span class="blab" style="grid-row:4">AS</span><div class="track" style="grid-row:4" tabindex="0" data-tip="AS 65.6%, incl. 390bp one-time tariff refund" aria-label="AS: 65.6%"><span class="bar s1" style="left:0.00%;width:71.72%"></span><span class="bval" style="left:calc(71.72% + 6px)">65.6%</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">AS was about 61.7% excluding the tariff refund.</p></figure></div></div><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>DECK</th><th>BIRK</th><th>AS</th><th>ONON</th></tr></thead><tbody><tr><td>Revenue growth, reported</td><td class="r">+5.7%</td><td class="r">+13%</td><td class="r">+32.1%</td><td class="r">+13.5%</td></tr><tr><td>Revenue growth, constant currency</td><td class="r">+4.8%</td><td class="r">+15%</td><td class="r">+30%</td><td class="r">+21.6%</td></tr><tr><td>Gross margin</td><td class="r">56.4% (+60bp)</td><td class="r">59.1% reported (-140bp); 9M 56.5% vs. 59.4%</td><td class="r">65.6% (+710bp, incl. 390bp tariff refund)</td><td class="r">65.4% (+390bp)</td></tr><tr><td>Operating income / margin</td><td class="r">$155M, -6% YoY (15.2%)</td><td class="r">€203M, +3% (28.2%)</td><td class="r">$208M adjusted, 12.8% (incl. tariff refund)</td><td class="r">CHF 119M EBIT (14.0%); adj. EBITDA margin 19.8%</td></tr><tr><td>DTC growth</td><td class="r">+13.0% (comparable +6.8%)</td><td class="r">+14% (+16% cc)</td><td class="r">+39.9%</td><td class="r">+26.0% (+34.3% cc)</td></tr><tr><td>Wholesale growth</td><td class="r">+2.2%</td><td class="r">+13% (+15% cc)</td><td class="r">+23.6%</td><td class="r">+4.8% (+12.7% cc)</td></tr><tr><td>Inventory</td><td class="r">-4.9% YoY</td><td class="r">+19.7% vs. Sep-25 (seasonal)</td><td class="r">+19% YoY</td><td class="r">+12.7% vs. Dec-25 (seasonal)</td></tr><tr><td>Guidance change</td><td class="r">EPS raised $0.05; sales unchanged</td><td class="r">raised (cc growth 15%, EBITDA ≥€710M)</td><td class="r">raised (growth ~24%, EPS $1.27-1.30)</td><td class="r">trimmed (low-20% cc growth)</td></tr></tbody></table></div>
+<p>Inventory and operating margins for DECK and AS are computed from the releases (operating margin = operating income ÷ net sales).</p>
+<p><strong>Deckers.</strong> HOKA $703.5M (+7.7%), UGG $278.0M (+4.9%); other brands -18.1% as Koolaburra is phased out. International grew 8.4%, domestic 3.2%. Gross margin improved, but SG&amp;A grew more than twice as fast as sales, so operating income fell. Inventory falling while sales grow means no channel-stuffing risk. Full-year guidance assumes HOKA low-double-digit and UGG mid-single-digit growth, so HOKA has to accelerate from Q1's 7.7%. Deckers reports on October 22, the nearest test of any of the four.</p>
+<p><strong>Birkenstock.</strong> Constant-currency growth was even across channels and regions (APAC +23% cc, Americas +14% cc), and DTC outgrew B2B for the first time in two years. The pressure is below revenue: 9-month reported gross margin fell 290bp (tariffs and FX), and the guided tax rate rose to 30-31% from 26-28%. Adjusted EPS (€0.74, +19% in Q3) is the best case for the business; reported net profit fell 15% in Q3, partly from refinancing one-offs.</p>
+<p><strong>Amer Sports.</strong> All three segments grew 20%+: Arc'teryx +32.5% (omni-comp +17%), Salomon +37.4% (DTC +52% on sneaker franchises), Wilson +24.3%. Asia Pacific grew 60% and Greater China 35.5%. Strip out the 390bp tariff refund and Q2 gross margin was about 61.7%, still up about 320bp. Q3 guidance slows growth to 18-20% with operating margin of 13.5-14.0%. Corporate expense guidance rose to $240M from $220M. China is a concentration risk (34% of H1 revenue).</p>
+<p><strong>On.</strong> The quarter missed on revenue (CHF 850.3M vs. about CHF 878M expected), and the stock fell up to 22% on the day. Management called the wholesale slowdown deliberate, to protect pricing ahead of 2027 launches, and said Q3 growth will be below Q4. Americas grew only 4.5% reported (13.0% cc). Apparel (+47.7%) and accessories (+88.3%) are growing fast from a small base (8% of sales). Gross margin of 65.4% and the raised full-year floor of 65% show pricing power intact. The issue is volume, not price.</p></section>
+<section class="theme" id="compare"><h2>How they compare</h2><ul class="bul"><li><strong>Cheapest on current earnings:</strong> DECK, by a wide margin. It is also the only one whose operating income is falling.</li><li><strong>Best growth at a reasonable price:</strong> BIRK on headline multiples (13.6x forward, 0.85 PEG), with the caveats of leverage, a sponsor seller and margin pressure.</li><li><strong>Highest quality growth, highest bar:</strong> AS. It is the only one raising revenue guidance, but adjusted numbers include one-time tariff refunds and China concentration.</li><li><strong>Strongest balance sheet with an execution question:</strong> ONON. Pricing power is intact and volume growth is slowing. Currency explains much of the reported weakness.</li></ul>
+<p><strong>Shared risks:</strong> US consumer sentiment (University of Michigan at 48.1 in September), tariff policy (AS and ON guidance exclude or one-off the refunds; Deckers assumes no refund collection), and FX. BIRK and ONON report in EUR and CHF, so their USD-converted multiples move with exchange rates, and the strong franc cut ON's Q2 reported growth by 8 points. DECK and AS report in USD.</p>
+<p><strong>Data caveats:</strong> Share counts, consensus estimates and short interest come from stockanalysis.com (October 15, 2026). Company figures come from the June-quarter releases. BIRK's adjusted EBITDA and ON's EBITDA guidance are company non-GAAP/non-IFRS measures. A September 2026 cause for Deckers' fall from about $100 to $78 was not found in search; the price path is recorded, not explained.</p><h3>Related</h3><ul class="bul"><li><a class="xref" href="../../concepts/valuations.md">valuations</a> and <a class="xref" href="../../concepts/equity-risk-premium.md">equity-risk-premium</a>: the discount-rate framework behind the implied-growth row.</li><li><a class="xref" href="../../../reading-list/notes/market-newsletter-digest-2026-09-26.md">market-newsletter-digest-2026-09-26</a>: rates backdrop (10-year 5.17%, 10-year TIPS 2.83%) and consumer data used above.</li><li><a class="xref" href="crwd-vs-panw-vs-zs-20260315.md">crwd-vs-panw-vs-zs-20260315</a>: earlier multi-company comparison in this folder.</li></ul></section>
+<section class="theme" id="sources"><h2>Sources</h2><ul class="bul"><li><a href="https://ir.deckers.com/news-events/press-releases/detail/661/deckers-brands-reports-first-quarter-fiscal-year-2027-financial-results">https://ir.deckers.com/news-events/press-releases/detail/661/deckers-brands-reports-first-quarter-fiscal-year-2027-financial-results</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/0001977102/000119312526347762/birk-ex99_1.htm">https://www.sec.gov/Archives/edgar/data/0001977102/000119312526347762/birk-ex99_1.htm</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/1988894/000198889426000083/pressreleaseq22026.htm">https://www.sec.gov/Archives/edgar/data/1988894/000198889426000083/pressreleaseq22026.htm</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/0001858985/000185898526000018/a26q2-ex993xpressrelease.htm">https://www.sec.gov/Archives/edgar/data/0001858985/000185898526000018/a26q2-ex993xpressrelease.htm</a></li><li><a href="https://stockanalysis.com (statistics pages for DECK, BIRK, AS, ONON, as of 2026-10-15)">https://stockanalysis.com (statistics pages for DECK, BIRK, AS, ONON, as of 2026-10-15)</a></li><li>Yahoo Finance chart API (prices and EUR/USD, CHF/USD, 2026-10-15)</li></ul></section>
+</main>
+</div>
+<footer>HTML companion to <span class="num">investing-fundamentals/company-analyses/comparisons/deck-vs-birk-vs-as-vs-onon-20261015.md</span>; the markdown file is the source of record. Not investment advice.</footer>
+</div>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.id = 'viztip'; tip.hidden = true; document.body.appendChild(tip);
+  function show(el, x, y) {
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var r = tip.getBoundingClientRect(), left = Math.min(x + 12, window.innerWidth - r.width - 8), top = y - r.height - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (top < 8 ? y + 16 : top) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', function () { tip.hidden = true; });
+    el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+    el.addEventListener('blur', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+})();
+</script>
+</body>
+</html>

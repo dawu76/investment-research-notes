@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DigitalOcean Investment Memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a bond-desk morning sheet. Key readings strip up top (now vs. prior), then a sticky section index beside one reading column. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf3;
+  --line: #d3dae4;
+  --ink: #18212e;
+  --ink-dim: #556377;
+  --accent: #1f4e79;
+  --accent-soft: #e1eaf4;
+  --up: #a8361f;
+  --up-soft: #f7e4df;
+  --hold: #2e6a4d;
+  --hold-soft: #e0efe6;
+  --flag: #8a5a00;
+  --flag-soft: #f6ecd6;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-neg: #e34948;
+  --grid: #dfe4eb;
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+    --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+    --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+    --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+  --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+  --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+  --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16.5px; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); line-height: 1.6; overflow-wrap: break-word;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 0 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-data); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+
+/* Header */
+header.top { padding-block: 2.2rem 1.4rem; display: grid; gap: .6rem; }
+header.top h1 { font-family: var(--f-display); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; }
+.dek { max-width: 46rem; margin: 0; color: var(--ink-dim); font-size: 1.05rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; color: var(--ink-dim); }
+.meta span { font-family: var(--f-data); }
+
+/* Key readings */
+.readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-block: .4rem 1.6rem; }
+@media (min-width: 48rem) { .readings { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .75rem .8rem .8rem; display: grid; gap: .3rem; align-content: start; border-top: 3px solid var(--line); min-width: 0; }
+.tile.up { border-top-color: var(--up); }
+.tile.hold { border-top-color: var(--hold); }
+.tile.flat { border-top-color: var(--flag); }
+.tile .label { font-size: .78rem; color: var(--ink-dim); line-height: 1.3; }
+.tile .val { font-family: var(--f-data); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.tile .path { font-family: var(--f-data); font-size: .74rem; color: var(--ink-dim); line-height: 1.4; }
+.tile .state { justify-self: start; font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .4rem; border-radius: 3px; }
+.tile.up .state { background: var(--up-soft); color: var(--up); }
+.tile.hold .state { background: var(--hold-soft); color: var(--hold); }
+.tile.flat .state { background: var(--flag-soft); color: var(--flag); }
+
+/* Two panels: watch + conflicts */
+.panels { display: grid; gap: 1rem; margin-bottom: 2rem; }
+@media (min-width: 56rem) { .panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 .6rem; font-family: var(--f-body); font-weight: 600; }
+.panel.conflicts { background: var(--flag-soft); border-color: transparent; }
+.panel.conflicts h2 { color: var(--flag); }
+.watch { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.watch li { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.watch .lvl { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+.panel ul.plain { margin: 0; padding-left: 1.1rem; font-size: .9rem; display: grid; gap: .35rem; }
+
+/* Body layout */
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 62rem) { .layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+nav.toc { min-width: 0; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; }
+nav.toc a { display: block; text-decoration: none; color: var(--ink-dim); font-size: .85rem; white-space: nowrap; padding: .3rem .6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .n { font-family: var(--f-data); color: var(--accent); margin-right: .35rem; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1rem); align-self: start; }
+  nav.toc ol { flex-direction: column; overflow: visible; gap: .1rem; }
+  nav.toc a { white-space: normal; background: transparent; border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .3rem .7rem; line-height: 1.35; }
+  nav.toc a:hover { border-left-color: var(--accent); }
+}
+
+main { min-width: 0; max-width: 48rem; display: grid; gap: 2.6rem; }
+section.theme { min-width: 0; }
+section.theme h2 { font-family: var(--f-display); font-size: 1.45rem; margin: .2rem 0 .7rem; }
+.takeaway { margin: 0 0 1rem; padding: .7rem .9rem; background: var(--accent-soft); border-radius: 4px; font-size: .97rem; }
+/* Points: headline + gist visible, full note on expand */
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+details.pt { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.pt[open] { border-color: var(--accent); }
+details.pt > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: .5rem; row-gap: .15rem; padding: .65rem .85rem; }
+details.pt > summary::-webkit-details-marker { display: none; }
+details.pt > summary::before { content: ""; grid-row: 1 / span 2; margin-top: .45rem; width: .45rem; height: .45rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; }
+details.pt[open] > summary::before { transform: rotate(45deg); margin-top: .3rem; }
+@media (prefers-reduced-motion: reduce) { details.pt > summary::before { transition: none; } }
+details.pt > summary:hover .hd { color: var(--accent); }
+.hd { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.gist { grid-column: 2; color: var(--ink-dim); font-size: .9rem; line-height: 1.45; }
+.detail { padding: .2rem 1rem 1rem 2.45rem; display: grid; gap: .6rem; font-size: .95rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.detail p { margin: 0; max-width: 42rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.detail ul ul { margin-top: .4rem; }
+.detail li::marker { color: var(--ink-dim); }
+.detail blockquote { margin: 0; }
+@media (max-width: 30rem) { .detail { padding-left: 1rem; } }
+.chip { display: inline-block; font-family: var(--f-data); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 3px; margin-right: .4rem; vertical-align: .1em; }
+.chip.why { background: var(--accent-soft); color: var(--accent); }
+.chip.cont { background: var(--surface-2); color: var(--ink-dim); }
+li.aside { font-size: .88rem; color: var(--ink-dim); padding: .2rem .85rem; }
+
+/* Bottom line */
+.bottomline { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; margin-bottom: 1.2rem; }
+.bottomline h2 { font-size: 1rem; margin: 0 0 .6rem; font-weight: 600; }
+.bottomline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+@media (min-width: 56rem) { .bottomline ol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.6rem; } }
+.bottomline li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem; font-size: .9rem; line-height: 1.45; }
+.bottomline a { font-family: var(--f-data); font-size: .74rem; text-decoration: none; padding-top: .12rem; }
+
+/* Expand controls */
+.tools { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.tools button { font: 500 .78rem var(--f-body); color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .3rem .6rem; cursor: pointer; }
+.tools button:hover { border-color: var(--accent); }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Charts: horizontal bars, one baseline, values at the bar tip */
+.keyviz { margin: 0 0 1rem; }
+.vizpair { display: grid; gap: 1rem; }
+@media (min-width: 46rem) { .vizpair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+figure.viz { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .8rem .9rem .7rem; min-width: 0; }
+.detail figure.viz { background: transparent; border: 0; padding: .2rem 0; }
+figure.viz figcaption { display: grid; gap: .1rem; margin-bottom: .6rem; }
+.vt { font-weight: 600; font-size: .92rem; }
+.vs { font-size: .78rem; color: var(--ink-dim); }
+.vlegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-dim); margin-bottom: .5rem; }
+.vlegend span { display: inline-flex; align-items: center; gap: .35rem; }
+.sw { width: .7rem; height: .7rem; border-radius: 2px; display: inline-block; }
+.sw.s1 { background: var(--viz-1); } .sw.s2 { background: var(--viz-2); }
+.hbars { display: grid; grid-template-columns: minmax(5.5rem, 9rem) minmax(0, 1fr); column-gap: .7rem; row-gap: .35rem; align-items: center; }
+.blab { font-size: .8rem; color: var(--ink-dim); text-align: right; line-height: 1.2; }
+.track { position: relative; height: 22px; border-radius: 3px; outline: none; grid-column: 2; z-index: 1; }
+.track:hover, .track:focus-visible { background: var(--surface-2); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.bar { position: absolute; top: 4px; height: 14px; border-radius: 0 4px 4px 0; }
+.bar.neg { border-radius: 4px 0 0 4px; }
+.bar.s1 { background: var(--viz-1); } .bar.s2 { background: var(--viz-2); } .bar.sn { background: var(--viz-neg); }
+.bval { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--f-data); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; background: var(--surface); padding: 0 3px; border-radius: 2px; z-index: 1; }
+.track:hover .bval, .track:focus-visible .bval { background: var(--surface-2); }
+.refs { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .5; }
+.refl { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .45; }
+.refhead { grid-column: 2; position: relative; height: 1.1rem; }
+.reflab { position: absolute; transform: translateX(calc(-100% + .3rem)); line-height: 1.1rem; font-family: var(--f-data); font-size: .68rem; color: var(--ink-dim); white-space: nowrap; }
+.vnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-dim); }
+#viztip { position: fixed; z-index: 10; max-width: 18rem; padding: .4rem .55rem; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: .78rem; line-height: 1.35; pointer-events: none; }
+.panel.conflicts { grid-column: 1 / -1; }
+.panel.conflicts table { min-width: 36rem; }
+.panel.conflicts td, .panel.conflicts th { border-bottom-color: color-mix(in srgb, var(--flag) 25%, transparent); }
+details.conf > summary { cursor: pointer; font-weight: 600; color: var(--flag); }
+details.conf[open] > summary { margin-bottom: .6rem; }
+blockquote { margin: .5rem 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font-style: italic; color: var(--ink-dim); }
+.conflict { background: var(--flag-soft); color: var(--ink); padding: 0 .25rem; border-radius: 3px; }
+.conflict-tag { font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); margin-right: .3rem; }
+.xref { font-family: var(--f-data); font-size: .82rem; background: var(--surface-2); padding: .05rem .35rem; border-radius: 3px; text-decoration: none; color: var(--accent); }
+.sources { margin-top: 1rem; font-size: .84rem; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: .6rem; }
+.sources b { font-family: var(--f-data); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; margin-right: .4rem; }
+
+.tablewrap { overflow-x: auto; margin: .6rem 0; }
+table { border-collapse: collapse; font-size: .88rem; min-width: 30rem; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-data); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+.links { display: grid; gap: .5rem; padding-left: 1.1rem; margin: 0; font-size: .92rem; }
+footer { margin-top: 3rem; font-size: .82rem; color: var(--ink-dim); }
+</style>
+<style>
+ul.bul, ol.bul { margin: 0 0 1rem; padding-left: 1.2rem; display: grid; gap: .55rem; font-size: .96rem; max-width: 46rem; }
+ul.bul ul { margin-top: .4rem; display: grid; gap: .35rem; }
+section.theme > p { max-width: 46rem; }
+section.theme h3 { font-size: 1.05rem; margin: 1.4rem 0 .5rem; }
+table.cmp td:first-child { font-weight: 500; }
+.tablewrap table.cmp { min-width: 36rem; }
+code { font-family: var(--f-data); font-size: .85em; background: var(--surface-2); padding: .05rem .3rem; border-radius: 3px; }
+.verdict { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--up); border-radius: 6px; padding: .9rem 1.1rem; margin: 0 0 1.6rem; max-width: 60rem; }
+.verdict h2 { font-size: 1rem; margin: 0 0 .4rem; }
+.verdict p { margin: 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Investment memo · DigitalOcean Holdings · October 15, 2026</div>
+  <h1>DigitalOcean Holdings ($DOCN): Investment Memo</h1>
+  <p class="dek"><strong>Price:</strong> $104.29 (intraday October 15, 2026; the close was $109.47), up ~175% from the $37.84 52-week low and 44% below the $187.50 high (May 2026). The stock fell 14.8% on October 14 ($128.21 → $109.29) the day after the company's Open Intelligence Summit. There was no company news or downgrade; the drop matched CoreWeave's 15.5% fall the same day, after a scare in CoreWeave's bonds (see the October 16 and October 22 updates below). <strong>Market cap</strong> ~$12.3B (117.6M shares). <strong>EV</strong> ~$12.5B including finance leases, ~$13.4B including operating leases. <strong>Next catalyst:</strong> Q3 2026 results on November 4.</p><p class="dek"><strong>Focus:</strong> what the price assumes, the risks, and what a bear case looks like. Business background: <a class="xref" href="docn-2-equity-report.md">docn-2-equity-report</a>.</p><p class="dek"><strong>Updated October 15, 2026</strong> with Morgan Stanley's August 4 Q2 note and October 14 summit note in <code>reports/</code> (Overweight, $175 target, both written at ~$127-128).</p><p class="dek"><strong>Updated October 22, 2026:</strong> the stock closed at $101.48 on October 21, about 3% above its October 16 close, and is down ~31% over one month. See the October 22 update below.</p>
+</header>
+<div class="readings" style="grid-template-columns:repeat(auto-fit,minmax(11rem,1fr))"><div class="tile flat"><span class="label">Price</span><span class="val">$104.29</span><span class="path">~76x 2026 EPS; ~34x MS 2028 EPS</span><span class="state">Oct 15</span></div><div class="tile hold"><span class="label">Weighted value</span><span class="val">~$103</span><span class="path">bear ~$49 · base ~$97 · bull ~$179</span><span class="state">Memo</span></div><div class="tile up"><span class="label">EV vs. MS bear</span><span class="val">~$12.5B</span><span class="path">MS bear-case EV ~$12.3B</span><span class="state">At bear</span></div><div class="tile up"><span class="label">P(below $93)</span><span class="val">~45%</span><span class="path">options-implied, 12 months (Oct 13)</span><span class="state">Options</span></div><div class="tile flat"><span class="label">Next proof point</span><span class="val">Feb 2027</span><span class="path">2027 guide vs. 50%+; Q3 on Nov 4</span><span class="state">Watch</span></div></div>
+<div class="verdict"><h2>Bear case in one line</h2><p>Site delays or a large AI customer pausing cut 2027 growth to ~30%, new rent and lease-funded GPUs squeeze margins as open-model inference prices fall, and the market values DigitalOcean as a leveraged small cloud (~$49).</p></div>
+<div class="layout">
+<nav class="toc" aria-label="Sections"><ol><li><a href="#update-october-22-2026-the-sell-off-pauses-the-credit-gauge-doesnt">Update, October 22, 2026: the sell-off pauses, the credit gauge doesn't</a></li><li><a href="#update-october-16-2026-the-neocloud-sell-off">Update, October 16, 2026: the neocloud sell-off</a></li><li><a href="#executive-summary">Executive Summary</a></li><li><a href="#business-model-unit-economics">Business Model &amp; Unit Economics</a></li><li><a href="#competitive-position-moat">Competitive Position &amp; Moat</a></li><li><a href="#top-3-growth-drivers-sensitivities">Top 3 Growth Drivers &amp; Sensitivities</a></li><li><a href="#risk-framework-with-failure-modes">Risk Framework with Failure Modes</a></li><li><a href="#12-month-kpi-watch-list">12-Month KPI Watch List</a></li><li><a href="#related">Related</a></li></ol></nav>
+<main>
+<section class="theme" id="update-october-22-2026-the-sell-off-pauses-the-credit-gauge-doesnt"><h2>Update, October 22, 2026: the sell-off pauses, the credit gauge doesn't</h2>
+<p><strong>Price since October 16:</strong> $98.38 close October 16 (MarketBeat), $101.48 close October 21 (range $98.84-104.40; Motley Fool quote page), and ~$102.77 early October 22 (+3.3%; Traders Union). DOCN has stopped falling for now and is ~46% below the $187.50 May high. It still has no company news. Q3 results are on November 4.</p>
+<p><strong>What moved the group this week:</strong></p>
+<ul class="bul"><li><strong>October 20:</strong> CoreWeave's bonds again briefly yielded 15% before closing near 14.5%. Its 9.625% notes due 2032 now trade at a ~14.8% yield (24/7 Wall St). Coverage now treats these bonds as the gauge for neocloud stocks.</li><li><strong>October 21:</strong> Elon Musk called AI-overcapacity talk "ridiculous," reversing his October 14 "yikes." CoreWeave (+3% to $63.77) and Nebius (+3% to $176.60) bounced.</li><li><strong>October 22 (as of 10:47am ET):</strong> Nebius fell 6% to $162.03 on the same day it announced a ~$775M senior secured, GPU-backed Citi facility that matures in under a year. CoreWeave fell 5% to $58.86, Cloudflare rose 2%, and QQQ fell ~2.3%. A Barclays strategist said AI credit stress has stayed mostly inside the neoclouds. Jensen Huang said neocloud demand is "off the charts" but capital is scarce (CNBC).</li></ul>
+<p><strong>Analyst actions on DOCN:</strong> Barclays reportedly cut to Hold around October 12 (one source, date unconfirmed). UBS cut its target from $155 to $140, kept Neutral, and questioned whether capacity can keep up with AI demand. Piper Sandler upgraded to Overweight on October 15. Morgan Stanley is still Overweight at $175.</p>
+<p><strong>What changes for this memo.</strong> Nebius is the new data point. The market sold the stock <em>because</em> it added GPU-backed secured debt, while Cloudflare, with no such debt, rose. That is the financing route DOCN plans to rely on: the $725M MUFG facility (expandable to $1.025B, matures 2030), drawn as finance leases. When DOCN starts drawing it, the market may treat the draws the way it treated Nebius's Citi line, even though DOCN's terms run four years longer. Lenders charging more for GPU-backed credit also makes the equity alternative more dilutive (the October 16 update: ~1.2x the shares per dollar at ~$97 vs. the July raise).</p>
+<p><strong>Liquidity check (unchanged; June 30 balance sheet):</strong> $767.0M of cash against $312.3M of 0% notes due December 1. Their ~$178.51 conversion price means a cash repayment, which leaves ~$455M of cash before second-half free cash flow. The $412.5M revolver is undrawn. The $153.2M of 2030 notes (conversion price $39.17) should convert into ~3.9M shares rather than take cash. There are no high-yield bonds, and after December no other debt matures before 2030. The risks are still the $2.76B of leases not yet started (~$246M a year once they commence), lease-principal repayments on the MUFG facility, and dilution. None of these is a refinancing risk.</p>
+<p><strong>Valuation at ~$101.5 (this update's arithmetic):</strong> market cap ~$11.9B, EV ~$12.1B including finance leases (~10.3x 2026 revenue guidance), just below MS's bear-case EV (~$12.3B). That is ~74x 2026 non-GAAP EPS guidance (midpoint $1.375) and ~46x MS's 2027 EPS. The price is ~5% above this memo's base case (~$97), ~1% below the weighted value (~$103) and ~107% above the bear case (~$49). With the core cloud at 4-5x ARR ($30-38 a share), the AI business is valued at ~32-36x its $234M ARR. Without company news there is no reason to change the scenario weights, so the October 16 verdict stands: about fair, not cheap.</p>
+<p><strong>Before November 4, watch:</strong> CoreWeave's 2032 bond yield (above ~15% has meant DOCN down); any DOCN equity raise or new financing 8-K. <strong>On November 4:</strong> the first MUFG draw and its rate against the 6-7% on existing finance leases, Q3 revenue vs. the $304-307M guide, gross margin vs. MS's 51.4% trough, and any first word on 2027. The $65/$55 analysis in the October 16 update still applies. Falling there on sector selling would make the stock cheap. Falling there on a weak 2027 outlook or an equity raise would mean the scenario weights need revising.</p>
+</section>
+<section class="theme" id="update-october-16-2026-the-neocloud-sell-off"><h2>Update, October 16, 2026: the neocloud sell-off</h2><p>DOCN fell <strong>27.8% in the week of October 12-16</strong> ($134.82 on October 9 to ~$97.38 intraday October 16; Yahoo Finance daily closes). It had no company news. It moved with the neoclouds:</p>
+<div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>Week</th><th>Oct 14</th><th>Oct 16 (intraday)</th></tr></thead><tbody><tr><td>DOCN</td><td>-27.8%</td><td>-14.8%</td><td>-11.0%</td></tr><tr><td>CoreWeave (CRWV)</td><td>-24.6%</td><td>-15.5%</td><td>-11.1%</td></tr><tr><td>Nebius (NBIS)</td><td>-23.6%</td><td>-10.1%</td><td>-10.3%</td></tr><tr><td>IREN</td><td>-21.8%</td><td>-12.2%</td><td>-9.4%</td></tr><tr><td>Cloudflare (NET)</td><td>-19.1%</td><td>-6.7%</td><td>-7.7%</td></tr><tr><td>Akamai (AKAM)</td><td>-17.7%</td><td>-8.2%</td><td>-4.6%</td></tr></tbody></table></div>
+<p><strong>Causes, by day:</strong></p>
+<ul class="bul"><li><strong>October 14:</strong> CoreWeave's 2032 bonds briefly yielded 15%, and Elon Musk's "yikes" reply spread the scare. CRWV fell ~16%, and DOCN fell almost exactly as much.</li><li><strong>October 15:</strong> Gartner forecast that over 80% of neocloud providers will stop operating independently by 2030. CDS spreads on tech bonds reached record highs.</li><li><strong>October 16:</strong> CoreWeave's unsecured bonds yielded 15% again, Bloomberg reported its founders sold $3.3B of stock, and Fed nominee Warsh left a rate hike on the table.</li><li><strong>Rates too:</strong> Cloudflare, which has no GPU debt, fell 19%. Part of the week was a de-rating of high-multiple stocks with the 10-year above 5%.</li></ul>
+<p><strong>Is trading DOCN like a neocloud fair? Partly.</strong></p>
+<ul class="bul"><li><em>Fair:</em> the growth that supports the valuation is a neocloud-style bet: 155 MW leased ahead of demand, $2.76B of data-center leases not yet started, and GPUs funded through the MUFG equipment facility, which is GPU-backed lease financing. If lenders reprice GPU-backed credit, as CoreWeave's 15% yields suggest, that facility gets more expensive. Open-weight models (88% of tokens) are the most price-competitive kind of inference, and the top 25 customers rose from 9% to 20% of revenue.</li><li><em>Not fair:</em> about 79% of ARR (~$891M) is the developer cloud, with 680,000+ customers, growing ~11% and profitable. 85% of AI ARR is managed services, and bare-metal GPU rental is under 15% and shrinking. The balance sheet has no high-yield bonds and net cash excluding leases, and the $312.3M of notes due December 1 is covered by $767M of cash. DOCN's risk is fixed lease costs and dilution, not refinancing in a closed credit market.</li></ul>
+<p><strong>Valuation at ~$97 (this update's arithmetic):</strong> market cap ~$11.5B, EV ~$11.7B including finance leases (~9.9x 2026 revenue guidance), now below Morgan Stanley's bear-case EV of ~$12.3B. The price equals this memo's base case (~$97), 6% below the weighted value (~$103), and 50% above the bear case (~$49). If the core cloud is worth 4-5x ARR ($30-38 a share), the remaining ~$60 a share values the $234M of AI ARR at about 30x. The market is not pricing DOCN as distressed. What fell this week is the AI premium, so the price is about fair, not yet cheap. The test is the November 4 report: 2027 growth near 50%, gross margin bottoming near 51%, and MUFG draws on normal terms.</p>
+<p><strong>What $65 or $55 would assume (this update's arithmetic).</strong> $65 is ~33% below ~$97 and $55 is ~44% below. Share counts and lease-adjusted debt (~$1.2B) are as in Section 4.</p>
+<div class="tablewrap"><table class="cmp"><thead><tr><th>Measure</th><th>At $55</th><th>At $65</th><th>At ~$97</th></tr></thead><tbody><tr><td>Market cap / EV incl. finance leases</td><td>~$6.5B / ~$6.7B</td><td>~$7.6B / ~$7.9B</td><td>~$11.5B / ~$11.7B</td></tr><tr><td>EV / 2026 revenue guidance</td><td>~5.7x</td><td>~6.7x</td><td>~9.9x</td></tr><tr><td>EV / MS 2028 EBITDA ($998M); MS bear (~$880M)</td><td>~6.7x; ~7.6x</td><td>~7.9x; ~9.0x</td><td>~11.7x; ~13.3x</td></tr><tr><td>P/E: 2026 guidance; MS 2027; MS 2028</td><td>~40x; ~25x; ~18x</td><td>~47x; ~30x; ~21x</td><td>~71x; ~44x; ~32x</td></tr><tr><td>Owner FCF yield after lease principal, 2027 / 2028</td><td>~1.8% / ~4.1%</td><td>~1.5% / ~3.5%</td><td>~1.0% / ~2.3%</td></tr><tr><td>Committed leases (~$3.8B) as % of market cap</td><td>~58%</td><td>~50%</td><td>~33%</td></tr><tr><td>AI ARR multiple, with the core cloud at 4-5x ARR ($30-38 a share)</td><td>~9-13x</td><td>~14-18x</td><td>~30x</td></tr><tr><td>Shares needed per dollar of new equity vs. the July raise ($117.54)</td><td>~2.1x</td><td>~1.8x</td><td>~1.2x</td></tr><tr><td>From this memo's cases: bear ($49) / base ($97)</td><td>-11% / +76%</td><td>-25% / +49%</td><td>-50% / 0%</td></tr></tbody></table></div>
+<p>Using this memo's methods (2028 EPS × P/E, or 2028 EBITDA × multiple less lease-adjusted debt), $65 fits one of three readings:</p>
+<ul class="bul"><li><strong>Growth misses, multiple holds:</strong> 2028 revenue ~$1.76B (2027 +30%, 2028 +15%, ~22% a year from 2026) at base-case margins (~16% net, ~38% EBITDA), valued at 30x earnings or ~14x EBITDA (MS's bear multiple).</li><li><strong>Growth holds, multiple compresses:</strong> MS's base revenue (~$2.4B) and margins, valued at ~9-10x EBITDA, a capital-heavy hosting or neocloud multiple.</li><li><strong>A mix:</strong> 2028 revenue ~$2.0-2.2B at ~12x EBITDA.</li></ul>
+<p>On a sum of the parts, the core cloud at 4-5x ARR is $30-38 a share, so $65 still values the $234M of AI ARR at ~14-18x (vs. ~30x at $97). The price would not imply credit distress; the deep bear case is ~$25. From $65, this memo's cases are -62% (deep bear), -25% (bear), +49% (base), +58% (weighted) and +175% (bull).</p>
+<p><strong>At $55 the price assumes almost all of the bear case.</strong> The most natural reading is the bear path itself (2028 revenue ~$1.76B, ~12% net and ~35% EBITDA margins) at ~34x EPS or ~13x EBITDA, a little above this memo's bear multiples (30x and 12x). The alternatives are MS's base plan at ~8x EBITDA, a distressed hosting multiple, or ~$2.0B of revenue at ~10-11x. The AI business would still be valued at ~9-13x ARR. The price keeps about 30% of the premium that ~$97 carries above the $37.84 52-week low. Deep bear (~$25) is -55% from $55. The December 1 notes remain covered by cash, and the 2030 notes (conversion price $39.17) still convert into ~3.9M shares. Two pressures grow: equity funding becomes very dilutive, which pushes new capacity onto the MUFG GPU-backed facility, and committed leases reach ~58% of market cap.</p>
+<p>How the stock reaches $65 or $55 matters more than the level. If it gets there on sector selling while DOCN's numbers hold, it is undervalued on these assumptions. If it gets there on company news, the scenario weights need revising: a 2027 outlook below 40% growth, gross margin below 50%, an equity raise, or a large AI customer leaving. The feedback loop to watch is equity funding: DOCN sold stock at $77 and $117.54 this year, and at $65 each dollar of new equity needs ~80% more shares than the July raise (the price is ~45% lower).</p></section>
+<section class="theme" id="executive-summary"><h2>1. Executive Summary</h2><div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="Value per share: Morgan Stanley vs. this memo"><figcaption><span class="vt">Value per share: Morgan Stanley vs. this memo</span><span class="vs">$ per share; reference line is today's price</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>This memo</span><span><i class="sw s2"></i>Morgan Stanley</span></div><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:31.67%;top:0.0rem">Price $104.29 &#9662;</span></div><span class="blab" style="grid-row:2">Memo bear</span><div class="track" style="grid-row:2" tabindex="0" data-tip="2028 EPS ~$1.62 at 30x" aria-label="Memo bear: ~$49"><span class="bar s1" style="left:0.00%;width:14.88%"></span><span class="bval" style="left:calc(14.88% + 6px)">~$49</span></div><span class="blab" style="grid-row:3">MS bear</span><div class="track" style="grid-row:3" tabindex="0" data-tip="14x ~$880M 2028 EBITDA" aria-label="MS bear: $93"><span class="bar s2" style="left:0.00%;width:28.24%"></span><span class="bval" style="left:calc(28.24% + 6px)">$93</span></div><span class="blab" style="grid-row:4">Memo base</span><div class="track" style="grid-row:4" tabindex="0" data-tip="2028 EPS ~$2.77 at 35x" aria-label="Memo base: ~$97"><span class="bar s1" style="left:0.00%;width:29.46%"></span><span class="bval" style="left:calc(29.46% + 6px)">~$97</span></div><span class="blab" style="grid-row:5">Memo weighted</span><div class="track" style="grid-row:5" tabindex="0" data-tip="30/45/25 probability-weighted" aria-label="Memo weighted: ~$103"><span class="bar s1" style="left:0.00%;width:31.28%"></span><span class="bval" style="left:calc(31.28% + 6px)">~$103</span></div><span class="blab" style="grid-row:6">MS base</span><div class="track" style="grid-row:6" tabindex="0" data-tip="22x CY2028 EBITDA of $998M" aria-label="MS base: $175"><span class="bar s2" style="left:0.00%;width:53.15%"></span><span class="bval" style="left:calc(53.15% + 6px)">$175</span></div><span class="blab" style="grid-row:7">Memo bull</span><div class="track" style="grid-row:7" tabindex="0" data-tip="2028 EPS ~$3.98 at 45x" aria-label="Memo bull: ~$179"><span class="bar s1" style="left:0.00%;width:54.36%"></span><span class="bval" style="left:calc(54.36% + 6px)">~$179</span></div><span class="blab" style="grid-row:8">MS bull</span><div class="track" style="grid-row:8" tabindex="0" data-tip="25x 2028 EBITDA" aria-label="MS bull: $246"><span class="bar s2" style="left:0.00%;width:74.71%"></span><span class="bval" style="left:calc(74.71% + 6px)">$246</span></div><div class="refs" style="grid-row:2 / span 7"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:31.67%"></span></div></div></figure><figure class="viz" role="group" aria-label="2028 revenue by case"><figcaption><span class="vt">2028 revenue by case</span><span class="vs">$ billions</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>This memo</span><span><i class="sw s2"></i>Morgan Stanley</span></div><div class="hbars"><span class="blab" style="grid-row:1">Memo bear</span><div class="track" style="grid-row:1" tabindex="0" data-tip="+30% in 2027, +15% in 2028" aria-label="Memo bear: $1.76B"><span class="bar s1" style="left:0.00%;width:43.73%"></span><span class="bval" style="left:calc(43.73% + 6px)">$1.76B</span></div><span class="blab" style="grid-row:2">MS bear</span><div class="track" style="grid-row:2" tabindex="0" data-tip="MS bear case" aria-label="MS bear: ~$2.2B"><span class="bar s2" style="left:0.00%;width:54.67%"></span><span class="bval" style="left:calc(54.67% + 6px)">~$2.2B</span></div><span class="blab" style="grid-row:3">Memo base</span><div class="track" style="grid-row:3" tabindex="0" data-tip="+45% in 2027, +30% in 2028" aria-label="Memo base: $2.21B"><span class="bar s1" style="left:0.00%;width:54.92%"></span><span class="bval" style="left:calc(54.92% + 6px)">$2.21B</span></div><span class="blab" style="grid-row:4">MS base</span><div class="track" style="grid-row:4" tabindex="0" data-tip="MS base case" aria-label="MS base: $2.42B"><span class="bar s2" style="left:0.00%;width:60.13%"></span><span class="bval" style="left:calc(60.13% + 6px)">$2.42B</span></div><span class="blab" style="grid-row:5">Memo bull</span><div class="track" style="grid-row:5" tabindex="0" data-tip="+55% in 2027, +40% in 2028" aria-label="Memo bull: $2.55B"><span class="bar s1" style="left:0.00%;width:63.36%"></span><span class="bval" style="left:calc(63.36% + 6px)">$2.55B</span></div><span class="blab" style="grid-row:6">MS bull</span><div class="track" style="grid-row:6" tabindex="0" data-tip="MS bull case" aria-label="MS bull: ~$2.9B"><span class="bar s2" style="left:0.00%;width:72.06%"></span><span class="bval" style="left:calc(72.06% + 6px)">~$2.9B</span></div><div class="refs" style="grid-row:1 / span 6"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">MS's bear revenue is about this memo's base; the memo's bear allows 2027 growth to miss.</p></figure></div></div><p><strong>Thesis.</strong> DigitalOcean is priced for its AI pivot to work, but no longer for it to work spectacularly. At $104 the enterprise value (~$12.5B) equals Morgan Stanley's <em>bear-case</em> valuation: 14x its bear 2028 EBITDA of ~$880M is ~$12.3B. In Morgan Stanley's August note, the options market implied a ~50% chance the stock would fall below $93 within a year; on October 13, at $128, still ~45%. On earnings, the stock is ~76x 2026 non-GAAP EPS guidance, ~48x MS's 2027 EPS ($2.19) and ~34x its 2028 EPS ($3.07). The growth is real and partly contracted (RPO $894M, 12x; AI ARR $234M, +212%; token volume 50x since April). The Street's bear case still assumes ~$2.2B of 2028 revenue, though, and its cash flow forecasts leave out most of the lease financing behind the buildout. This memo's bear case assumes the growth itself disappoints: 2027 at +30% instead of +51%, giving 2028 revenue of $1.76B, 20% below MS's bear. That gives ~$49. The probability-weighted value is ~$103, roughly today's price. The stock has de-rated toward fair, but the downside if the growth path breaks is still larger than the upside.</p>
+<ul class="bul"><li><strong>Bull case:</strong> Capacity opens on time, 2027 growth exceeds 50% as MS models (+51%), and inference stays mostly managed services. 2028 revenue reaches $2.4-2.9B, and the stock goes back to the $175-246 MS base/bull range (+68% to +136%).</li><li><strong>Bear case:</strong> A site delay or a large AI customer pausing cuts 2027 growth to ~30%. New rent and lease-funded GPUs squeeze margins as open-model inference prices fall, and the market values DigitalOcean as a leveraged small cloud: ~$49 (-53%), ~$25 in a deep bear.</li><li><strong>Target investor:</strong> growth investors with high risk tolerance who will follow capacity and customer data each quarter. Not a value or income holding (no dividend; owner free cash flow yield ~1%).</li></ul><h3>What the Street assumes vs. this memo</h3><div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>Morgan Stanley (Aug 4 / Oct 14)</th><th>This memo</th></tr></thead><tbody><tr><td>Rating / value</td><td>Overweight; $175 target (bear $93, bull $246)</td><td>base ~$97, bear ~$49, bull ~$179, weighted ~$103</td></tr><tr><td>Method</td><td>22x CY2028 EBITDA of $998M (bear 14x, bull 25x)</td><td>2028 non-GAAP EPS × P/E, cross-checked on EV/EBITDA</td></tr><tr><td>2027 revenue growth</td><td>+51.1% ($1,776M)</td><td>+30% bear / +45% base / +55% bull</td></tr><tr><td>2028 revenue</td><td>$2.42B base; ~$2.2B bear; ~$2.9B bull</td><td>$1.76B / $2.21B / $2.55B</td></tr><tr><td>2028 EBITDA margin</td><td>41% (bear 40%, bull 43%)</td><td>cross-check 35% / 38% / 40%</td></tr><tr><td>EPS 2026 / 2027 / 2028</td><td>$1.37 / $2.19 / $3.07 (consensus $1.44 / $1.85 / $2.90)</td><td>2028: $1.62 / $2.77 / $3.98</td></tr><tr><td>FCF margin 2026 / 2027 / 2028</td><td>12.0% / 18.3% / 19.6%</td><td>owner FCF lower after lease principal (Section 2)</td></tr><tr><td>Options-implied odds (12 months)</td><td>P(&lt;$93) ~45%, P(&gt;$175) ~11.6% (Oct 13)</td><td></td></tr></tbody></table></div>
+<p>The key difference is not multiples but the revenue path. MS's bear case still has 2028 revenue of ~$2.2B, about the same as this memo's base case. A real bear case for a capacity-constrained AI cloud is a growth shortfall, which MS's range does not include.</p></section>
+<section class="theme" id="business-model-unit-economics"><h2>2. Business Model &amp; Unit Economics</h2><div class="keyviz"><figure class="viz" role="group" aria-label="Free cash flow: MS model vs. after lease principal"><figcaption><span class="vt">Free cash flow: MS model vs. after lease principal</span><span class="vs">$ millions</span></figcaption><div class="vlegend"><span><i class="sw s2"></i>MS model</span><span><i class="sw s1"></i>After lease principal</span></div><div class="hbars"><span class="blab" style="grid-row:1">2027 MS</span><div class="track" style="grid-row:1" tabindex="0" data-tip="MS free cash flow 2027" aria-label="2027 MS: $325M"><span class="bar s2" style="left:0.00%;width:49.35%"></span><span class="bval" style="left:calc(49.35% + 6px)">$325M</span></div><span class="blab" style="grid-row:2">2027 owner</span><div class="track" style="grid-row:2" tabindex="0" data-tip="After ~$209M/yr of lease principal" aria-label="2027 owner: ~$116M"><span class="bar s1" style="left:0.00%;width:17.61%"></span><span class="bval" style="left:calc(17.61% + 6px)">~$116M</span></div><span class="blab" style="grid-row:3">2028 MS</span><div class="track" style="grid-row:3" tabindex="0" data-tip="MS free cash flow 2028" aria-label="2028 MS: $474M"><span class="bar s2" style="left:0.00%;width:71.98%"></span><span class="bval" style="left:calc(71.98% + 6px)">$474M</span></div><span class="blab" style="grid-row:4">2028 owner</span><div class="track" style="grid-row:4" tabindex="0" data-tip="After ~$209M/yr of lease principal" aria-label="2028 owner: ~$265M"><span class="bar s1" style="left:0.00%;width:40.24%"></span><span class="bval" style="left:calc(40.24% + 6px)">~$265M</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">Assumes the $1.025B MUFG facility is drawn in full and repaid over ~4.9 years.</p></figure></div><p><strong>Revenue breakdown (Q2 2026, $281.2M, +29%; ARR $1,125M):</strong></p>
+<div class="tablewrap"><table class="cmp"><thead><tr><th>Component</th><th>Size</th><th>Growth</th><th>Note</th></tr></thead><tbody><tr><td>Core cloud ARR</td><td>~$891M</td><td>~+11%</td><td>this memo's arithmetic: ARR less AI ARR</td></tr><tr><td>AI customer ARR</td><td>$234M</td><td>+212%</td><td>non-bare-metal share 85% (43% a year ago)</td></tr><tr><td>— inference services</td><td>&gt;70% of AI ARR</td><td>+762%</td><td></td></tr><tr><td>— AI customers' core cloud</td><td></td><td>+158%</td><td></td></tr><tr><td>— bare-metal GPU</td><td>&lt;15% of AI ARR</td><td>-20%</td><td></td></tr><tr><td>$1M+ customers</td><td>23% of revenue</td><td>revenue +214%</td><td></td></tr><tr><td>Top 25 customers</td><td>~20% of revenue</td><td>from 9%</td><td>expected to "rise modestly"</td></tr></tbody></table></div>
+<p><strong>Unit economics:</strong></p>
+<ul class="bul"><li><strong>Revenue per MW:</strong> historically &gt;$22M of ARR per MW, expected to rise with the AI mix. At $22M, the ~155 MW committed supports ~$3.4B of ARR (this memo's arithmetic). MS's model reaches $2.7B of ARR by end-2028.</li><li><strong>Fixed cost per MW:</strong> $2.76B of not-yet-commenced data-center leases (11.2-year average) is roughly $246M a year of rent once started, ~21% of 2026 revenue, before the GPU/CPU equipment that fills the space.</li><li><strong>Margins (MS model):</strong> non-GAAP gross margin falls from 61.8% (FY2025) to 54.3% (2026), bottoming at <strong>51.4% in Q3 2026</strong>, and stays ~54-55% through 2028 as depreciation rises from $137M (FY2025) to $494M (2028). Non-GAAP operating margin falls from 28.6% to 19.3% and recovers only to 20.9% by 2028. AI growth is margin-dilutive to the core cloud for the whole forecast period.</li></ul>
+<p><strong>Cash conversion: the gap in the Street model.</strong> MS forecasts FCF of $141M (2026), $325M (2027) and $474M (2028), on cash capex of only $182M, $273M and $371M. Its balance sheet holds finance-lease liabilities flat at $447.9M through 2028. That model predates the September $725M MUFG equipment facility, which management intends to expand to $1.025B and use in full. Those GPUs and CPUs arrive as finance leases: they do not show up as capex, but their principal must be repaid. At ~4.9-year terms, full use means ~$209M a year of principal. Owner FCF is then closer to <strong>~$116M in 2027 and ~$265M in 2028</strong> (this memo's arithmetic), a ~1-2% yield on today's market cap, not 2.7-3.9%.</p>
+<p><strong>Operating leverage:</strong> positive on revenue, negative on capacity. Management says a data center takes about a year from lease signing to revenue, so 2027's cost base is mostly committed already.</p></section>
+<section class="theme" id="competitive-position-moat"><h2>3. Competitive Position &amp; Moat</h2><ul class="bul"><li><strong>Market position:</strong> small in a very large market. 2026 revenue of ~$1.18B against hyperscaler cloud revenue in the hundreds of billions; CoreWeave and Nebius are far larger in GPU capacity. The niche is developers, startups and mid-size AI-native companies.</li><li><strong>Moat classification:</strong> switching costs in core cloud (managed databases, Kubernetes, app hosting), developer brand, self-serve scale (680,000+ customers). In AI, the claimed edge is the software stack: Inference Engine, Managed Agents (with dedicated microVMs and bring-your-own harness), Agent Data and Learning Services, Signals and Simulations.</li><li><strong>Durability:</strong> the shift to managed AI services (85% non-bare-metal) supports the software-stack argument. But <strong>open-weight models are now 88% of token usage (27% in May)</strong>, and serving open-weight models is the most contestable part of inference: every GPU cloud, neocloud and inference provider can host the same models, so price per token sets share. MS lists competition and the AI supply/demand balance as its main downside risks.</li><li><strong>Key competitors:</strong> AWS, Azure, Google Cloud; CoreWeave, Nebius, Lambda, Crusoe; inference platforms (Together, Fireworks, Baseten); Akamai's new AI cloud (<a class="xref" href="akam-3-investment-memo.md">akam-3-investment-memo</a>).</li></ul></section>
+<section class="theme" id="top-3-growth-drivers-sensitivities"><h2>4. Top 3 Growth Drivers &amp; Sensitivities</h2><div class="keyviz"><figure class="viz" role="group" aria-label="2028 scenario values"><figcaption><span class="vt">2028 scenario values</span><span class="vs">$ per share; deep-bear tail is outside the weights</span></figcaption><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:42.76%;top:0.0rem">Price $104.29 &#9662;</span></div><span class="blab" style="grid-row:2">Deep-bear tail</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Customers do not renew; 2028 revenue ~$1.5B at 30% EBITDA margin" aria-label="Deep-bear tail: ~$25"><span class="bar sn" style="left:0.00%;width:10.25%"></span><span class="bval" style="left:calc(10.25% + 6px)">~$25</span></div><span class="blab" style="grid-row:3">Bear (30%)</span><div class="track" style="grid-row:3" tabindex="0" data-tip="2028 EPS ~$1.62 at 30x" aria-label="Bear (30%): ~$49"><span class="bar s1" style="left:0.00%;width:20.09%"></span><span class="bval" style="left:calc(20.09% + 6px)">~$49</span></div><span class="blab" style="grid-row:4">Base (45%)</span><div class="track" style="grid-row:4" tabindex="0" data-tip="2028 EPS ~$2.77 at 35x" aria-label="Base (45%): ~$97"><span class="bar s1" style="left:0.00%;width:39.77%"></span><span class="bval" style="left:calc(39.77% + 6px)">~$97</span></div><span class="blab" style="grid-row:5">Bull (25%)</span><div class="track" style="grid-row:5" tabindex="0" data-tip="2028 EPS ~$3.98 at 45x" aria-label="Bull (25%): ~$179"><span class="bar s1" style="left:0.00%;width:73.39%"></span><span class="bval" style="left:calc(73.39% + 6px)">~$179</span></div><div class="refs" style="grid-row:2 / span 4"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:42.76%"></span></div></div><p class="vnote">Deep-bear bar is drawn red to mark it as a tail case, not a negative value.</p></figure></div><div class="tablewrap"><table class="cmp"><thead><tr><th>Driver</th><th>Description</th><th>TAM effect</th><th>Probability-weighted view</th></tr></thead><tbody><tr><td>1. AI inference and agents</td><td>AI ARR $234M (+212%); inference ARR +762%; tokens 50x since April; Managed Agents launched</td><td>Agentic and inference workloads are the fastest-growing part of AI compute</td><td>70% AI ARR keeps compounding 100%+ into 2027; 30% sharp slowdown as large customers consolidate or prices fall</td></tr><tr><td>2. Capacity delivery</td><td>76 MW → ~155 MW committed; three 2026 sites ahead of schedule; most capacity online in 2027</td><td>Capacity is the binding constraint on 2027 revenue</td><td>60% on time; 40% at least one site slips (supply chain is a stated industry risk)</td></tr><tr><td>3. Core cloud</td><td>~$891M ARR growing ~11%; NDR 102% (MS models 103%)</td><td>Steady developer-cloud demand; AI customers attach core cloud</td><td>75% holds 8-12% growth</td></tr></tbody></table></div>
+<p><strong>Scenario model for 2028 (this memo; 2026 base = $1.175B guidance midpoint, which equals MS's 2026 estimate):</strong></p>
+<div class="tablewrap"><table class="cmp"><thead><tr><th></th><th>Bear (30%)</th><th>Base (45%)</th><th>Bull (25%)</th></tr></thead><tbody><tr><td>2027 revenue growth</td><td>+30%</td><td>+45%</td><td>+55%</td></tr><tr><td>2028 revenue growth</td><td>+15%</td><td>+30%</td><td>+40%</td></tr><tr><td>2028 revenue</td><td>$1.76B</td><td>$2.21B</td><td>$2.55B</td></tr><tr><td>Compare MS 2028 cases</td><td>bear ~$2.2B</td><td>base $2.42B</td><td>bull ~$2.9B</td></tr><tr><td>Non-GAAP net margin</td><td>12%</td><td>16%</td><td>20%</td></tr><tr><td>2028 non-GAAP EPS (MS base $3.07)</td><td>~$1.62</td><td>~$2.77</td><td>~$3.98</td></tr><tr><td>P/E applied</td><td>30x</td><td>35x</td><td>45x</td></tr><tr><td>Implied value</td><td><strong>~$49 (-53%)</strong></td><td>~$97 (-7%)</td><td>~$179 (+72%)</td></tr><tr><td>EV/EBITDA cross-check (12x / 16x / 22x)</td><td>~$49</td><td>~$99</td><td>~$171</td></tr></tbody></table></div>
+<p>Probability-weighted value: <strong>~$103</strong>. On MS's own cases the stock is +68% to base and -11% to bear, which is why MS stays Overweight. This memo's lower range comes almost entirely from allowing 2027 growth to miss.</p>
+<p><strong>Deep-bear tail (not in the weights):</strong> one or two nine-figure AI customers do not renew or ramp, while open-model inference prices fall. Rent (11 years) and equipment leases (~5 years) are fixed, so 2028 revenue is ~$1.5B at a 30% EBITDA margin. At 10x EBITDA less ~$1.2B of lease-adjusted debt, the stock is <strong>~$25 (-76%)</strong>.</p>
+<p><strong>Timeline and milestones:</strong></p>
+<ul class="bul"><li><strong>November 4, 2026 (Q3):</strong> revenue vs. $304-307M (+32-34%); gross margin vs. MS's 51.4% trough; RPO change; Memphis status; first draw on the MUFG facility.</li><li><strong>December 1, 2026:</strong> $312.3M of 2026 convertible notes mature (cash repayment; $767M cash plus $412.5M undrawn revolver).</li><li><strong>February 2027 (FY2027 guide):</strong> management declined to raise 2027 in August (the stock fell 5-8% that morning). The test is whether formal guidance meets the 50%+ ambition and MS's +51%.</li><li><strong>Through 2027:</strong> lease commencements on the $2.76B of data-center leases, MUFG draws, and ARR per MW as sites fill.</li></ul></section>
+<section class="theme" id="risk-framework-with-failure-modes"><h2>5. Risk Framework with Failure Modes</h2><p>Ranked by severity × probability.</p>
+<div class="tablewrap"><table class="cmp"><thead><tr><th>#</th><th>Risk</th><th>Trigger</th><th>Impact</th><th>Mitigation</th></tr></thead><tbody><tr><td>1</td><td><strong>Growth path breaks</strong></td><td>2027 growth guided or delivered well below 50% (site delays, customer ramps)</td><td>Moves the stock from MS's base ($175) toward this memo's bear ($49); MS's range does not model this</td><td>Contracted RPO ($894M; $366M in 12 months); three 2026 sites ahead of schedule</td></tr><tr><td>2</td><td><strong>Fixed-cost and lease overhang</strong></td><td>Sites open but fill slowly</td><td>~$246M/yr of new rent plus ~$209M/yr of equipment-lease principal against owner FCF of ~$116-265M (2027-28)</td><td>Majority of 2026 capacity allocated before launch; leases phase in through mid-2028</td></tr><tr><td>3</td><td><strong>Open-model inference pricing</strong></td><td>Open-weight share keeps rising (88%) as GPU supply grows</td><td>Per-token prices fall; gross margin stays near ~51-54% instead of recovering</td><td>Managed services (85% of AI ARR), agents and core-cloud attach</td></tr><tr><td>4</td><td><strong>Customer concentration</strong></td><td>A nine-figure customer slows, renegotiates or leaves after its ~3.7-year term</td><td>Top 25 are ~20% of revenue; one customer is ~8.5%+ of revenue</td><td>Broadening base (6,000+ Inference Engine customers)</td></tr><tr><td>5</td><td><strong>Dilution and funding</strong></td><td>Further equity raises or convert issuance to fund capacity</td><td>Diluted shares already up ~20% in a year</td><td>MUFG facility ($725M-$1.025B), revolver, pro forma net leverage ~0.7x</td></tr></tbody></table></div>
+<p><strong>Other risks:</strong> adjusted metrics flatter the economics (adjusted FCF excludes lease principal; EBITDA excludes depreciation that MS sees rising 3.6x from 2025 to 2028); stock-based compensation ~11.6% of revenue; 11% of float short and a 1.7 beta.</p>
+<p><strong>Pre-mortem.</strong> If this investment fails by 2029, the most likely reason is that DigitalOcean committed to 155 MW of capacity and ~$3.8B of rent and equipment leases near the peak of the AI-compute cycle. 2027 growth then came in nearer 30% than 50% as sites slipped and large customers bargained harder over open-model inference prices. The fixed costs stayed, owner cash flow stayed thin, and the market valued it as a leveraged small cloud.</p>
+<p><strong>Assumptions that must hold:</strong></p>
+<ol class="bul"><li>2027 revenue growth near 50% (MS: +51%), which requires on-time site openings.</li><li>Large AI customers ramp as contracted and renew after initial terms.</li><li>AI revenue stays mostly managed services with pricing power as open-weight usage rises.</li><li>Gross margin bottoms around Q3-Q4 2026 (~51-52%) and recovers toward 54-55%.</li><li>Lease-funded equipment is matched by contracted revenue, so lease principal is covered by operating cash flow without new equity.</li></ol></section>
+<section class="theme" id="12-month-kpi-watch-list"><h2>6. 12-Month KPI Watch List</h2><div class="tablewrap"><table class="cmp"><thead><tr><th>KPI</th><th>Current value</th><th>Target range</th><th>Red flag</th><th>Frequency / source</th></tr></thead><tbody><tr><td>Revenue growth</td><td>+29% (Q2); Q3 guide +32-34%</td><td>≥35% in Q4 2026; ~50% in 2027 guide</td><td>2027 guide below 40%</td><td>Quarterly release</td></tr><tr><td>AI customer ARR</td><td>$234M (+212%)</td><td>&gt;$300M by Q4 2026</td><td>Sequential decline</td><td>Quarterly release</td></tr><tr><td>Non-bare-metal share of AI ARR</td><td>85%</td><td>≥80%</td><td>Below 75%</td><td>Earnings slides</td></tr><tr><td>Core cloud ARR growth (derived)</td><td>~+11%</td><td>8-12%</td><td>Below 6%</td><td>Quarterly release</td></tr><tr><td>RPO / cRPO</td><td>$894M / $366M</td><td>Rising</td><td>Flat or falling two quarters</td><td>Quarterly release / 10-Q</td></tr><tr><td>Non-GAAP gross margin</td><td>56.8% (Q2, MS calc.); MS Q3e 51.4%</td><td>Bottom ≥51%, then rising</td><td>Below 50%</td><td>Quarterly (derived)</td></tr><tr><td>Adjusted FCF margin</td><td>12% (H1 2026); FY guide 11-13%</td><td>≥10%</td><td>Negative quarter</td><td>Quarterly release</td></tr><tr><td>Finance-lease and equipment-financing liabilities</td><td>$577.7M (June 30)</td><td>Growing in step with RPO</td><td>Rising faster than RPO; &gt;$1.5B before 2027 revenue ramps</td><td>10-Q</td></tr><tr><td>Top-25 customer share</td><td>~20% of revenue</td><td>≤25%</td><td>Above 30%, or any customer above 10%</td><td>10-Q</td></tr><tr><td>Diluted share count</td><td>~126.5M (Q3 guide)</td><td>≤128M</td><td>New equity raise</td><td>Quarterly release / 8-K</td></tr></tbody></table></div>
+<p><strong>Valuation reference points:</strong> MS $175 (bear $93, bull $246); consensus targets ~$155-177; options-implied (October 13) P(&lt;$93) ~45%, P(&gt;$175) ~11.6%. Short interest ~11% of float.</p></section>
+<section class="theme" id="related"><h2>Related</h2><ul class="bul"><li><a class="xref" href="docn-1-document-sources.md">docn-1-document-sources</a>, <a class="xref" href="docn-2-equity-report.md">docn-2-equity-report</a></li><li>Analyst reports (local PDFs): <code>reports/docn-q2-results-morgan-stanley-20260804.pdf</code>, <code>reports/docn-open-intelligence-summit-20261014.pdf</code></li><li><a class="xref" href="comparisons/akam-vs-docn-20261015.md">akam-vs-docn-20261015</a>: side-by-side comparison with Akamai.</li><li><a class="xref" href="akam-3-investment-memo.md">akam-3-investment-memo</a>: Akamai's parallel bet on leased AI compute (Morgan Stanley covers both; same analyst).</li><li><a class="xref" href="../../investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md">ai-compute-commencement-wall-and-refinancing-trap</a> and <a class="xref" href="themes/ai-capex-financing-risk-semianalysis-2026-10.md">ai-capex-financing-risk-semianalysis-2026-10</a>: capacity built ahead of revenue and how it gets financed.</li><li><a class="xref" href="../concepts/valuations.md">valuations</a>: multiple and discount-rate framework.</li></ul></section>
+</main>
+</div>
+<footer>HTML version of <span class="num">investing-fundamentals/company-analyses/docn-3-investment-memo.md</span>; the markdown file is the source of record. Not investment advice.</footer>
+</div>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.id = 'viztip'; tip.hidden = true; document.body.appendChild(tip);
+  function show(el, x, y) {
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var r = tip.getBoundingClientRect(), left = Math.min(x + 12, window.innerWidth - r.width - 8), top = y - r.height - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (top < 8 ? y + 16 : top) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', function () { tip.hidden = true; });
+    el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+    el.addEventListener('blur', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+})();
+</script>
+</body>
+</html>
