@@ -4,6 +4,13 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-22] create | Market newsletter digest, October 22, 2026 (initial, news-based)
+
+- Created: `reading-list/notes/market-newsletter-digest-2026-10-22.md` from a research session on the day's AI selloff, before any newsletter ingestion. Five themes: Lam Research's supply-constrained December guide (two constraints from the call transcript, components and customer cleanrooms; part names not disclosed, candidate suppliers marked as this digest's inference), Meta's capex floor, neocloud financing (Nebius loan, CoreWeave bond yields), the CPI-driven rates backdrop, and the Hang Seng Tech selloff. Sources are news reports, Lam's 8-K and the Motley Fool transcript. `confidence: medium` because most figures are intraday and outlets disagree on five of them.
+- Created: `reading-list/notes/market-newsletter-digest-2026-10-22.html` companion (19 points, 8 charts, 4 tables); `check_html.py` passes.
+- Continuity links to the committed 09-22 to 09-25 digests only; the 09-26 and 09-27 digests were uncommitted at the time, so they are cited in plain text.
+- Updated: `index.md` (Reading List / Notes).
+
 ## [2026-10-09] ingest | SemiAnalysis Weekly Ep. 037 — Who's Funding the $11 Trillion AI Buildout? (Capital Markets)
 
 - Created: `investing-macro/podcasts/sa-whos-funding-the-11-trillion-ai-buildout-20261009.md` (concept): the six questions the episode addresses; the constraint moving from memory to data centers to financing; $11.3T cumulative 2024–29 capex and ~$7T of debt by 2029 (~$1T net new in 2026, ~$400B since June 1); "balance sheet as a service" and ASC 606 off-balance-sheet treatment; Amazon/Oracle/CoreWeave spreads; the H100 rental-price reversal (~$1.30 bottom to ~$3/hr); per-GPU-hour income statement (~$38/hr revenue vs ~$2.80 TCO, ~90% API margin); Nvidia's $497B of backstops (AICP ~$3.25 floor with 50% revenue share, Ports Pike $105B residual-value guarantees, a $500B tranched partnership) and its ~46GW capacity vs ~240GW coming

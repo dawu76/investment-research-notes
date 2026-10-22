@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Newsletter Digest Oct 22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a bond-desk morning sheet. Key readings strip up top (now vs. prior), then a sticky section index beside one reading column. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf3;
+  --line: #d3dae4;
+  --ink: #18212e;
+  --ink-dim: #556377;
+  --accent: #1f4e79;
+  --accent-soft: #e1eaf4;
+  --up: #a8361f;
+  --up-soft: #f7e4df;
+  --hold: #2e6a4d;
+  --hold-soft: #e0efe6;
+  --flag: #8a5a00;
+  --flag-soft: #f6ecd6;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-neg: #e34948;
+  --grid: #dfe4eb;
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+    --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+    --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+    --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+  --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+  --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+  --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16.5px; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); line-height: 1.6; overflow-wrap: break-word;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 0 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-data); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+
+/* Header */
+header.top { padding-block: 2.2rem 1.4rem; display: grid; gap: .6rem; }
+header.top h1 { font-family: var(--f-display); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; }
+.dek { max-width: 46rem; margin: 0; color: var(--ink-dim); font-size: 1.05rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; color: var(--ink-dim); }
+.meta span { font-family: var(--f-data); }
+
+/* Key readings */
+.readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-block: .4rem 1.6rem; }
+@media (min-width: 48rem) { .readings { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .75rem .8rem .8rem; display: grid; gap: .3rem; align-content: start; border-top: 3px solid var(--line); min-width: 0; }
+.tile.up { border-top-color: var(--up); }
+.tile.hold { border-top-color: var(--hold); }
+.tile.flat { border-top-color: var(--flag); }
+.tile .label { font-size: .78rem; color: var(--ink-dim); line-height: 1.3; }
+.tile .val { font-family: var(--f-data); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.tile .path { font-family: var(--f-data); font-size: .74rem; color: var(--ink-dim); line-height: 1.4; }
+.tile .state { justify-self: start; font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .4rem; border-radius: 3px; }
+.tile.up .state { background: var(--up-soft); color: var(--up); }
+.tile.hold .state { background: var(--hold-soft); color: var(--hold); }
+.tile.flat .state { background: var(--flag-soft); color: var(--flag); }
+
+/* Two panels: watch + conflicts */
+.panels { display: grid; gap: 1rem; margin-bottom: 2rem; }
+@media (min-width: 56rem) { .panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 .6rem; font-family: var(--f-body); font-weight: 600; }
+.panel.conflicts { background: var(--flag-soft); border-color: transparent; }
+.panel.conflicts h2 { color: var(--flag); }
+.watch { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.watch li { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.watch .lvl { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+.panel ul.plain { margin: 0; padding-left: 1.1rem; font-size: .9rem; display: grid; gap: .35rem; }
+
+/* Body layout */
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 62rem) { .layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+nav.toc { min-width: 0; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; }
+nav.toc a { display: block; text-decoration: none; color: var(--ink-dim); font-size: .85rem; white-space: nowrap; padding: .3rem .6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .n { font-family: var(--f-data); color: var(--accent); margin-right: .35rem; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1rem); align-self: start; }
+  nav.toc ol { flex-direction: column; overflow: visible; gap: .1rem; }
+  nav.toc a { white-space: normal; background: transparent; border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .3rem .7rem; line-height: 1.35; }
+  nav.toc a:hover { border-left-color: var(--accent); }
+}
+
+main { min-width: 0; max-width: 48rem; display: grid; gap: 2.6rem; }
+section.theme { min-width: 0; }
+section.theme h2 { font-family: var(--f-display); font-size: 1.45rem; margin: .2rem 0 .7rem; }
+.takeaway { margin: 0 0 1rem; padding: .7rem .9rem; background: var(--accent-soft); border-radius: 4px; font-size: .97rem; }
+/* Points: headline + gist visible, full note on expand */
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+details.pt { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.pt[open] { border-color: var(--accent); }
+details.pt > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: .5rem; row-gap: .15rem; padding: .65rem .85rem; }
+details.pt > summary::-webkit-details-marker { display: none; }
+details.pt > summary::before { content: ""; grid-row: 1 / span 2; margin-top: .45rem; width: .45rem; height: .45rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; }
+details.pt[open] > summary::before { transform: rotate(45deg); margin-top: .3rem; }
+@media (prefers-reduced-motion: reduce) { details.pt > summary::before { transition: none; } }
+details.pt > summary:hover .hd { color: var(--accent); }
+.hd { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.gist { grid-column: 2; color: var(--ink-dim); font-size: .9rem; line-height: 1.45; }
+.detail { padding: .2rem 1rem 1rem 2.45rem; display: grid; gap: .6rem; font-size: .95rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.detail p { margin: 0; max-width: 42rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.detail ul ul { margin-top: .4rem; }
+.detail li::marker { color: var(--ink-dim); }
+.detail blockquote { margin: 0; }
+@media (max-width: 30rem) { .detail { padding-left: 1rem; } }
+.chip { display: inline-block; font-family: var(--f-data); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 3px; margin-right: .4rem; vertical-align: .1em; }
+.chip.why { background: var(--accent-soft); color: var(--accent); }
+.chip.cont { background: var(--surface-2); color: var(--ink-dim); }
+li.aside { font-size: .88rem; color: var(--ink-dim); padding: .2rem .85rem; }
+
+/* Bottom line */
+.bottomline { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; margin-bottom: 1.2rem; }
+.bottomline h2 { font-size: 1rem; margin: 0 0 .6rem; font-weight: 600; }
+.bottomline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+@media (min-width: 56rem) { .bottomline ol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.6rem; } }
+.bottomline li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem; font-size: .9rem; line-height: 1.45; }
+.bottomline a { font-family: var(--f-data); font-size: .74rem; text-decoration: none; padding-top: .12rem; }
+
+/* Expand controls */
+.tools { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.tools button { font: 500 .78rem var(--f-body); color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .3rem .6rem; cursor: pointer; }
+.tools button:hover { border-color: var(--accent); }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Charts: horizontal bars, one baseline, values at the bar tip */
+.keyviz { margin: 0 0 1rem; }
+.vizpair { display: grid; gap: 1rem; }
+@media (min-width: 46rem) { .vizpair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+figure.viz { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .8rem .9rem .7rem; min-width: 0; }
+.detail figure.viz { background: transparent; border: 0; padding: .2rem 0; }
+figure.viz figcaption { display: grid; gap: .1rem; margin-bottom: .6rem; }
+.vt { font-weight: 600; font-size: .92rem; }
+.vs { font-size: .78rem; color: var(--ink-dim); }
+.vlegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-dim); margin-bottom: .5rem; }
+.vlegend span { display: inline-flex; align-items: center; gap: .35rem; }
+.sw { width: .7rem; height: .7rem; border-radius: 2px; display: inline-block; }
+.sw.s1 { background: var(--viz-1); } .sw.s2 { background: var(--viz-2); }
+.hbars { display: grid; grid-template-columns: minmax(5.5rem, 9rem) minmax(0, 1fr); column-gap: .7rem; row-gap: .35rem; align-items: center; }
+.blab { font-size: .8rem; color: var(--ink-dim); text-align: right; line-height: 1.2; }
+.track { position: relative; height: 22px; border-radius: 3px; outline: none; grid-column: 2; z-index: 1; }
+.track:hover, .track:focus-visible { background: var(--surface-2); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.bar { position: absolute; top: 4px; height: 14px; border-radius: 0 4px 4px 0; }
+.bar.neg { border-radius: 4px 0 0 4px; }
+.bar.s1 { background: var(--viz-1); } .bar.s2 { background: var(--viz-2); } .bar.sn { background: var(--viz-neg); }
+.bval { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--f-data); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; background: var(--surface); padding: 0 3px; border-radius: 2px; z-index: 1; }
+.track:hover .bval, .track:focus-visible .bval { background: var(--surface-2); }
+.refs { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .5; }
+.refl { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .45; }
+.refhead { grid-column: 2; position: relative; height: 1.1rem; }
+.reflab { position: absolute; transform: translateX(calc(-100% + .3rem)); line-height: 1.1rem; font-family: var(--f-data); font-size: .68rem; color: var(--ink-dim); white-space: nowrap; }
+.vnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-dim); }
+#viztip { position: fixed; z-index: 10; max-width: 18rem; padding: .4rem .55rem; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: .78rem; line-height: 1.35; pointer-events: none; }
+.panel.conflicts { grid-column: 1 / -1; }
+.panel.conflicts table { min-width: 36rem; }
+.panel.conflicts td, .panel.conflicts th { border-bottom-color: color-mix(in srgb, var(--flag) 25%, transparent); }
+details.conf > summary { cursor: pointer; font-weight: 600; color: var(--flag); }
+details.conf[open] > summary { margin-bottom: .6rem; }
+blockquote { margin: .5rem 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font-style: italic; color: var(--ink-dim); }
+.conflict { background: var(--flag-soft); color: var(--ink); padding: 0 .25rem; border-radius: 3px; }
+.conflict-tag { font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); margin-right: .3rem; }
+.xref { font-family: var(--f-data); font-size: .82rem; background: var(--surface-2); padding: .05rem .35rem; border-radius: 3px; text-decoration: none; color: var(--accent); }
+.sources { margin-top: 1rem; font-size: .84rem; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: .6rem; }
+.sources b { font-family: var(--f-data); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; margin-right: .4rem; }
+
+.tablewrap { overflow-x: auto; margin: .6rem 0; }
+table { border-collapse: collapse; font-size: .88rem; min-width: 30rem; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-data); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+.links { display: grid; gap: .5rem; padding-left: 1.1rem; margin: 0; font-size: .92rem; }
+footer { margin-top: 3rem; font-size: .82rem; color: var(--ink-dim); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="eyebrow">Market and investment newsletter digest</div>
+  <h1>Thursday, October 22, 2026</h1>
+  <p class="dek">Investors questioned the return on AI capex and the price of financing it, on three continents at once. Lam Research's supply warning took SOXX down about 6%, Meta fell about 6% after raising its capex floor, neoclouds fell on debt, and the Hang Seng Tech Index had its worst day since April 2025.</p>
+  <div class="meta">
+    <span>Initial version: news and call transcript, no newsletters yet</span><span>5 themes</span><span>Source note: market-newsletter-digest-2026-10-22.md</span>
+  </div>
+</header>
+
+<section class="bottomline" aria-label="Bottom line"><h2>Bottom line</h2><ol>
+<li><a href="#semis">Semis</a><span>Lam's guide was capped by components and cleanrooms, not demand; Lam fell up to 10% and SOXX about 6%.</span></li>
+<li><a href="#hyperscalers">Hyperscalers</a><span>Meta raised its 2026 capex floor to $135B and fell about 6% as investors punish capex raises.</span></li>
+<li><a href="#neoclouds">Neoclouds</a><span>CoreWeave bonds yield ~15% vs. ~9.7% at issuance; Nebius fell 6% after a $3.5B loan.</span></li>
+<li><a href="#rates">Rates</a><span>CPI at 3.7% pushed hike odds from 22% to ~39% and the 10-year above 5.2%.</span></li>
+<li><a href="#china">China tech</a><span>Hang Seng Tech is down 31% this year on negative FCF, regulation and tax-driven selling; worst day since April 2025.</span></li>
+</ol></section>
+
+<div class="eyebrow" style="margin-bottom:.5rem">Key readings, now vs. prior digests</div>
+<div class="readings">
+<div class="tile up"><span class="label">Hang Seng Tech</span><span class="val">~3,830</span><span class="path">3,994.77 (10/21) → ~3,830 (10/22); -31% YTD</span><span class="state">Worst day since Apr 2025</span></div>
+<div class="tile up"><span class="label">Tencent</span><span class="val">HK$393.8</span><span class="path">52-week low, ~40% below its high</span><span class="state">New low</span></div>
+<div class="tile up"><span class="label">Lam Research</span><span class="val">up to -10%</span><span class="path">Record $8.22B quarter → $8.6B December guide</span><span class="state">Supply-capped</span></div>
+<div class="tile up"><span class="label">Semis (SOXX)</span><span class="val">-6%</span><span class="path">SOX ~14% below June high (9/25) → -11.4% week of 10/16 → -6% today</span><span class="state">Drawdown extends</span></div>
+<div class="tile hold"><span class="label">WFE outlook</span><span class="val">>$200B</span><span class="path">~$155B (2026) → >$200B (2027)</span><span class="state">Demand intact</span></div>
+<div class="tile up"><span class="label">Meta 2026 capex</span><span class="val">$135-145B</span><span class="path">$130-145B (July) → $135-145B</span><span class="state">Floor raised</span></div>
+<div class="tile up"><span class="label">CoreWeave bond yield</span><span class="val">~15%</span><span class="path">9-10% coupons (9/23) → ~15%</span><span class="state">Repriced</span></div>
+<div class="tile up"><span class="label">Nebius</span><span class="val">$162.03</span><span class="path">$5B raise (Sep 27 digest) → $3.5B loan at SOFR +2.75%</span><span class="state">-6% today</span></div>
+<div class="tile up"><span class="label">10-year Treasury</span><span class="val">5.23-5.32%</span><span class="path">~5.18% (Sep 27 digest) → 5.23-5.32% (10/14)</span><span class="state">Rising</span></div>
+<div class="tile up"><span class="label">Next-meeting hike odds</span><span class="val">~39%</span><span class="path">71% (9/24) → 22% (day before CPI) → ~39%</span><span class="state">Back up</span></div>
+</div>
+
+<div class="panels">
+  <div class="panel">
+    <h2>Levels and dates the writers are watching</h2>
+    <ul class="watch">
+<li><span class="lvl">Lam March quarter</span><span>Delayed December shipments are due then (Bettinger)</span></li>
+<li><span class="lvl">10 new tier 1 fabs in 2027</span><span>Cleanroom timing sets Lam's 2027 ceiling</span></li>
+<li><span class="lvl">MKS, Advanced Energy, Ichor, UCT reports</span><span>Where a component bottleneck would show (this digest's inference)</span></li>
+<li><span class="lvl">Next FOMC, odds ~37-39%</span><span>Cost of money for debt-funded capex</span></li>
+<li><span class="lvl">CoreWeave bonds ~15%</span><span>Price of new neocloud financing</span></li>
+<li><span class="lvl">Hang Seng Tech ~3,830</span><span>Close to erasing all gains since the September 2024 stimulus</span></li>
+    </ul>
+  </div>
+  <div class="panel conflicts">
+    <details class="conf"><summary>Sources disagree on 5 figures (also flagged in the text)</summary>
+    <div class="tablewrap"><table><thead><tr><th>Figure</th><th>Reading A</th><th>Reading B</th><th>Note</th></tr></thead><tbody><tr><td>Hang Seng Tech drop, Oct 22</td><td>4.38% (one report)</td><td>5% (Bloomberg)</td><td>4.7% in a third report</td></tr><tr><td>Meta's prior capex range</td><td>$135-145B "narrowed"</td><td>$130-145B in July</td><td>Either way the floor rose</td></tr><tr><td>10-year high after CPI</td><td>5.23%</td><td>above 5.32%</td><td>not given</td></tr><tr><td>Hike odds after CPI</td><td>39%</td><td>37%</td><td>not given</td></tr><tr><td>Lam's drop</td><td>8-9%</td><td>as much as 10%</td><td>Time of quote</td></tr></tbody></table></div>
+    </details>
+  </div>
+</div>
+
+<div class="layout">
+<nav class="toc" aria-label="Sections">
+  <div class="tools"><button type="button" id="expand-all">Expand all</button><button type="button" id="collapse-all">Collapse all</button></div>
+  <ol>
+    <li><a href="#semis"><span class="n">1</span>Semis</a></li><li><a href="#hyperscalers"><span class="n">2</span>Hyperscalers</a></li><li><a href="#neoclouds"><span class="n">3</span>Neoclouds</a></li><li><a href="#rates"><span class="n">4</span>Rates</a></li><li><a href="#china"><span class="n">5</span>China tech</a></li>
+    <li><a href="#links"><span class="n">+</span>Related pages</a></li>
+  </ol>
+</nav>
+
+<main>
+<p class="eyebrow" style="margin:0">Tap a point to read the full note, sources and comparisons</p>
+
+<section class="theme" id="semis">
+<div class="eyebrow">Theme 1</div>
+<h2>Semis and Chip Equipment: Lam's Supply Warning Spreads</h2>
+<p class="takeaway">Lam's record quarter came with a guide capped by supply, not demand: a short component squeeze at a few suppliers and customer cleanroom space through 2027. The sector sold off on a capped upside, extending a drawdown already under way.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="Chip stocks in morning trading, Oct 22"><figcaption><span class="vt">Chip stocks in morning trading, Oct 22</span><span class="vs">Percent change, intraday</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Lam Research</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Lam fell as much as 10% (other quotes 8-9%)" aria-label="Lam Research: -10%"><span class="bar sn neg" style="left:23.27%;width:72.73%"></span><span class="bval" style="right:calc(76.73% + 6px)">-10%</span></div><span class="blab" style="grid-row:2">Marvell</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Marvell about -8%" aria-label="Marvell: -8%"><span class="bar sn neg" style="left:37.82%;width:58.18%"></span><span class="bval" style="right:calc(62.18% + 6px)">-8%</span></div><span class="blab" style="grid-row:3">AMD</span><div class="track" style="grid-row:3" tabindex="0" data-tip="AMD about -8%" aria-label="AMD: -8%"><span class="bar sn neg" style="left:37.82%;width:58.18%"></span><span class="bval" style="right:calc(62.18% + 6px)">-8%</span></div><span class="blab" style="grid-row:4">Intel</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Intel about -7%" aria-label="Intel: -7%"><span class="bar sn neg" style="left:45.09%;width:50.91%"></span><span class="bval" style="right:calc(54.91% + 6px)">-7%</span></div><span class="blab" style="grid-row:5">Applied Materials</span><div class="track" style="grid-row:5" tabindex="0" data-tip="Applied Materials about -6%" aria-label="Applied Materials: -6%"><span class="bar sn neg" style="left:52.36%;width:43.64%"></span><span class="bval" style="right:calc(47.64% + 6px)">-6%</span></div><span class="blab" style="grid-row:6">SOXX</span><div class="track" style="grid-row:6" tabindex="0" data-tip="iShares Semiconductor ETF about -6%" aria-label="SOXX: -6%"><span class="bar sn neg" style="left:52.36%;width:43.64%"></span><span class="bval" style="right:calc(47.64% + 6px)">-6%</span></div><span class="blab" style="grid-row:7">ASML</span><div class="track" style="grid-row:7" tabindex="0" data-tip="ASML about -4%" aria-label="ASML: -4%"><span class="bar sn neg" style="left:66.91%;width:29.09%"></span><span class="bval" style="right:calc(33.09% + 6px)">-4%</span></div><div class="refs" style="grid-row:1 / span 7"><span class="zero" style="left:96.00%"></span></div></div><p class="vnote">Intraday quotes; Lam drawn at its low.</p></figure></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Record quarter, modest December guide</span><span class="gist">$8.22B revenue (+54% y/y); December guide $8.6B ± $400M</span></summary><div class="detail"><p><strong>What Lam reported (Lam Research Q1 FY2027 release and call, October 21).</strong> September-quarter revenue was a record <strong>$8.22B</strong>, up <strong>22%</strong> sequentially and <strong>54%</strong> year over year. The December-quarter guide is <strong>$8.6B ± $400M</strong>, gross margin <strong>52.5% ± 1pt</strong>, operating margin <strong>40.5% ± 1pt</strong> and EPS <strong>$2.33 ± $0.15</strong>.</p><div class="tablewrap"><table><thead><tr><th>Line</th><th class="r">September quarter (actual)</th><th class="r">December quarter (guide)</th></tr></thead><tbody><tr><td>Revenue</td><td class="r">$8.22B</td><td class="r">$8.6B ± $400M</td></tr><tr><td>Gross margin</td><td class="r">not given</td><td class="r">52.5% ± 1pt</td></tr><tr><td>Operating margin</td><td class="r">not given</td><td class="r">40.5% ± 1pt</td></tr><tr><td>EPS</td><td class="r">not given</td><td class="r">$2.33 ± $0.15</td></tr></tbody></table></div><p>CFO Doug Bettinger: "this revenue guide would have been a bit higher if not for some near-term supply chain constraints."</p><ul><li class="why"><span class="chip why">Why it matters</span> the midpoint is only about <strong>5%</strong> above the quarter just reported, which reads as deceleration for a stock priced for acceleration. Bettinger would not quantify the lost revenue.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Two constraints, neither part named</span><span class="gist">Components tight "in the quarter"; cleanrooms limit 2027</span></summary><div class="detail"><p><strong>What the constraint is (call Q&amp;A).</strong> Lam described two separate limits and named neither the parts nor the suppliers ("I'm not going to get into specifically where it is").</p><ul><li><strong>Components, near term:</strong> "it just got a little bit tight in the quarter," at "certain suppliers that are seeing percentage growth of our demand to them rising even much faster" than Lam's own growth. Lam says it is working with suppliers to speed their capacity expansion and would invest if needed, but most suppliers "are well-capitalized." Bettinger: "For those of us who were around during the COVID shortages, this is nothing like that," and "I think we'll be caught up very shortly." The revenue is delayed, not lost: "because of timing, we will ship that in the March quarter."</li><li><strong>Cleanroom space, through 2027:</strong> this sits at Lam's customers, which cannot take tools until fab shells are ready. "This year has been primarily clean room constrained." Bettinger sees <strong>10 new tier 1 fabs</strong> coming online during 2027, and "Clean rooms need to come on schedule." On next year: "things are going to continue to be constrained, we think," and "I am not going to put a number on what the unconstrained demand would be."</li><li>This digest's inference, not Lam's: tool makers buy subsystems from a narrow supplier base, so likely candidates are RF power generators (MKS, Advanced Energy), gas and fluid delivery modules (Ichor, UCT), vacuum pumps and precision ceramic or quartz chamber parts. A DRAM-led, etch-heavy mix would stress RF power first. Those suppliers' own October-November reports on backlog and lead times are where to check.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">WFE heads past $200B in 2027</span><span class="gist">~$155B in 2026, "&gt;$200B" in 2027, led by DRAM</span></summary><div class="detail"><p><strong>Demand outlook (CEO Tim Archer).</strong> Wafer fab equipment (WFE) spending is expected in the "mid $150 billion range" (~<strong>$155B</strong>) for 2026, with a preliminary 2027 outlook of "more than <strong>$200 billion</strong>," led by DRAM, then leading-edge foundry/logic, then NAND. BofA's summary: Lam is "supply constrained, not demand constrained."</p><figure class="viz" role="group" aria-label="Wafer fab equipment spending"><figcaption><span class="vt">Wafer fab equipment spending</span><span class="vs">$ billions, Lam outlook</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">2026</span><div class="track" style="grid-row:1" tabindex="0" data-tip="2026: &quot;mid $150 billion range&quot; (Archer)" aria-label="2026: ~$155B"><span class="bar s1" style="left:0.00%;width:57.77%"></span><span class="bval" style="left:calc(57.77% + 6px)">~$155B</span></div><span class="blab" style="grid-row:2">2027 (preliminary)</span><div class="track" style="grid-row:2" tabindex="0" data-tip="2027: &quot;more than $200 billion&quot; (Archer)" aria-label="2027 (preliminary): &gt;$200B"><span class="bar s1" style="left:0.00%;width:74.55%"></span><span class="bval" style="left:calc(74.55% + 6px)">>$200B</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">2027 drawn at $200B, the floor of "more than."</p></figure><ul><li class="why"><span class="chip why">Why it matters</span> a constraint on supply caps how fast that demand turns into revenue, so 2027 upside is limited by fab readiness and supplier capacity rather than by orders. For the stock, a capped upside on a full multiple is enough to sell.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">China share jumps, then falls</span><span class="gist">26% in June to 35% in September; December "meaningfully down"</span></summary><div class="detail"><p><strong>China mix.</strong> China was <strong>35%</strong> of September-quarter revenue, up from <strong>26%</strong> in June. Bettinger expects December to be "meaningfully down, driven by the domestic customers in China," while "the multinationals in China likely continue to be reasonably strong."</p><figure class="viz" role="group" aria-label="China&#x27;s share of Lam revenue"><figcaption><span class="vt">China's share of Lam revenue</span><span class="vs">Percent of quarterly revenue</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">June quarter</span><div class="track" style="grid-row:1" tabindex="0" data-tip="June quarter 26%" aria-label="June quarter: 26%"><span class="bar s1" style="left:0.00%;width:53.30%"></span><span class="bval" style="left:calc(53.30% + 6px)">26%</span></div><span class="blab" style="grid-row:2">September quarter</span><div class="track" style="grid-row:2" tabindex="0" data-tip="September quarter 35%; December expected &quot;meaningfully down&quot;" aria-label="September quarter: 35%"><span class="bar s1" style="left:0.00%;width:71.75%"></span><span class="bval" style="left:calc(71.75% + 6px)">35%</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure></div></details></li>
+<li><details class="pt"><summary><span class="hd">Selloff spreads across the group</span><span class="gist">Lam up to -10%, Marvell and AMD -8%, SOXX -6%</span></summary><div class="detail"><p><strong>Market reaction.</strong> Lam fell as much as <strong>10%</strong> to its lowest since April. In morning trading Marvell and AMD were down about <strong>8%</strong>, Intel about <strong>7%</strong>, Applied Materials about <strong>6%</strong>, ASML about <strong>4%</strong> and the iShares Semiconductor ETF (SOXX) about <strong>6%</strong>.</p><div class="tablewrap"><table><thead><tr><th>Firm</th><th class="r">Old target</th><th class="r">New target</th></tr></thead><tbody><tr><td>Needham</td><td class="r">$390</td><td class="r">$290</td></tr><tr><td>Morgan Stanley</td><td class="r">not given</td><td class="r">$339</td></tr></tbody></table></div><p>Needham cut its Lam target from <strong>$390 to $290</strong>; Morgan Stanley cut to <strong>$339</strong>.</p><ul><li><span class="conflict"><span class="conflict-tag">Data note</span>reports put Lam's drop at <strong>8%</strong>, <strong>9%</strong> and "as much as <strong>10%</strong>," depending on the time of the quote.</span></li><li class="cont"><span class="chip cont">Vs. prior digests</span> <a class="xref" href="market-newsletter-digest-2026-09-25.md">market-newsletter-digest-2026-09-25</a> had the SOX <strong>about 14% below its June highs</strong>, with the average SOX name <strong>off about 26%</strong>. The September 27 digest had Beachman's semis at "about <strong>-19%</strong>" below the June peak. CNN reported the semiconductor index fell <strong>3.8%</strong> on October 16, its <strong>eighth</strong> straight decline, and <strong>11.4%</strong> for that week, its worst week since April 2025. Today extends a drawdown already under way rather than starting one.</li></ul></div></details></li>
+<li class="aside">Cross-reference: <a class="xref" href="../../investing-fundamentals/company-analyses/themes/deepseek-v4-1-flash-memory-bottlenecks.md">deepseek-v4-1-flash-memory-bottlenecks</a> for the memory-tier demand behind a DRAM-led 2027.</li>
+</ul>
+<p class="sources"><b>Sources</b>Lam Research Q1 FY2027 press release (SEC 8-K) and earnings call transcript (Motley Fool), Benzinga, Yahoo Finance call highlights, 24/7 Wall St., TradingKey, TradingView/Stocktwits, GuruFocus, AOL, CNN.</p>
+</section>
+<section class="theme" id="hyperscalers">
+<div class="eyebrow">Theme 2</div>
+<h2>Hyperscalers: Meta Raises the Capex Floor and Gets Punished</h2>
+<p class="takeaway">Meta raised its 2026 capex floor to $135B and said Muse serving costs will rise; the stock fell about 6%. Capex increases are now punished because free cash flow keeps shrinking.</p>
+
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Meta lifts capex floor, stock -6%</span><span class="gist">$135-145B for 2026; Muse needs "significant investment"</span></summary><div class="detail"><p><strong>Meta's third quarter (company report, October 21-22).</strong> Meta raised the low end of its 2026 capex plan, now <strong>$135B-145B</strong>. CFO Susan Li said growing Muse's user base will need "significant investment" and that total serving costs will rise.</p><div class="tablewrap"><table><thead><tr><th>When</th><th class="r">2026 capex range</th></tr></thead><tbody><tr><td>July (per one source)</td><td class="r">$130-145B</td></tr><tr><td>Now</td><td class="r">$135-145B</td></tr></tbody></table></div><p class="vnote">Sources describe the change differently; the floor rose.</p><p>The stock fell about <strong>6%</strong>. Meta also announced a non-voting Class C share, to be distributed to all shareholders as a one-time stock dividend effective <strong>January 19, 2027</strong>.</p><ul><li><span class="conflict"><span class="conflict-tag">Conflict</span>one source describes the range as narrowed to <strong>$135-145B</strong>; another has the July range as <strong>$130-145B</strong>, so the change is a higher floor, not a higher ceiling.</span></li><li class="cont"><span class="chip cont">Vs. prior digests</span> the September 27 digest had Meta's <strong>~$700B</strong> of off-balance-sheet commitments and Robonomics sizing Muse at <strong>~1-2GW</strong> per 100M daily users. Today's guidance is the first company confirmation that Muse's serving costs will show up in the spending line.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">"Spends too much, Tesla too little"</span><span class="gist">Capex raises now punished; Meta CDS ~94bp vs. Microsoft ~50bp</span></summary><div class="detail"><p><strong>The market's frame.</strong> TheStreet's headline: "Meta Spends Too Much, Tesla Too Little." Investors now punish capex increases that would have been rewarded a year ago, because free cash flow keeps shrinking.</p><p>Tesla slipped about <strong>1%</strong>.</p><ul><li class="cont"><span class="chip cont">Vs. prior digests</span> <a class="xref" href="market-newsletter-digest-2026-09-24.md">market-newsletter-digest-2026-09-24</a> had AI-linked CDS tiered by funding model and widening since June, with <strong>Meta ~94bp</strong> against <strong>Microsoft ~50bp</strong>. <a class="xref" href="market-newsletter-digest-2026-09-22.md">market-newsletter-digest-2026-09-22</a> had hyperscaler and neocloud construction-in-progress above <strong>$374B</strong>.</li><li class="why"><span class="chip why">Why it matters</span> the same capex-versus-FCF question is driving the China selloff (§5), so this is a global repricing of AI spenders, not a Meta-specific event.</li></ul></div></details></li>
+<li class="aside">Cross-reference: <a class="xref" href="../../investing-macro/podcasts/sa-whos-funding-the-11-trillion-ai-buildout-20261009.md">sa-whos-funding-the-11-trillion-ai-buildout-20261009</a> for who finances the buildout and <a class="xref" href="../../investing-macro/klement-ai-bubble-2027-forecast-20261008.md">klement-ai-bubble-2027-forecast-20261008</a> for the bubble-timing case.</li>
+</ul>
+<p class="sources"><b>Sources</b>StockTitan (Meta Q3 2026 results), BigGo Finance, TheStreet Pro, AOL, Value Add VC, 24/7 Wall St.</p>
+</section>
+<section class="theme" id="neoclouds">
+<div class="eyebrow">Theme 3</div>
+<h2>Neoclouds: Debt Raises Now Hurt the Stocks</h2>
+<p class="takeaway">Nebius and CoreWeave fell on their financing, not their demand: CoreWeave's bonds yield about 15% against about 9.7% at issuance, and short interest across the group is 20-26% of float.</p>
+<div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="CoreWeave bond yield"><figcaption><span class="vt">CoreWeave bond yield</span><span class="vs">Percent</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">At issuance</span><div class="track" style="grid-row:1" tabindex="0" data-tip="About 9.7% at issuance" aria-label="At issuance: ~9.7%"><span class="bar s1" style="left:0.00%;width:46.79%"></span><span class="bval" style="left:calc(46.79% + 6px)">~9.7%</span></div><span class="blab" style="grid-row:2">Now</span><div class="track" style="grid-row:2" tabindex="0" data-tip="About 15% (one analysis)" aria-label="Now: ~15%"><span class="bar s1" style="left:0.00%;width:72.35%"></span><span class="bval" style="left:calc(72.35% + 6px)">~15%</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure><figure class="viz" role="group" aria-label="AI-linked CDS (Sep 24 digest)"><figcaption><span class="vt">AI-linked CDS (Sep 24 digest)</span><span class="vs">Basis points</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Microsoft</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Microsoft ~50bp" aria-label="Microsoft: ~50bp"><span class="bar s1" style="left:0.00%;width:3.73%"></span><span class="bval" style="left:calc(3.73% + 6px)">~50bp</span></div><span class="blab" style="grid-row:2">Meta</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Meta ~94bp" aria-label="Meta: ~94bp"><span class="bar s1" style="left:0.00%;width:7.01%"></span><span class="bval" style="left:calc(7.01% + 6px)">~94bp</span></div><span class="blab" style="grid-row:3">Oracle</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Oracle ~224bp" aria-label="Oracle: ~224bp"><span class="bar s1" style="left:0.00%;width:16.70%"></span><span class="bval" style="left:calc(16.70% + 6px)">~224bp</span></div><span class="blab" style="grid-row:4">CoreWeave</span><div class="track" style="grid-row:4" tabindex="0" data-tip="CoreWeave above 850bp" aria-label="CoreWeave: &gt;850bp"><span class="bar s1" style="left:0.00%;width:63.36%"></span><span class="bval" style="left:calc(63.36% + 6px)">>850bp</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">CoreWeave drawn at 850bp, the floor of "above."</p></figure></div></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">New loan, lower stock</span><span class="gist">Nebius -6% to $162.03 after a $3.5B loan; CoreWeave -5%</span></summary><div class="detail"><p><strong>Nebius and CoreWeave.</strong> Nebius fell about <strong>6%</strong> to <strong>$162.03</strong> even after landing a <strong>$3.5B</strong> Citi-led loan priced at Term SOFR <strong>+2.75%</strong> (up to <strong>3.50%</strong>). CoreWeave fell about <strong>5%</strong> to <strong>$58.86</strong>.</p><p>Coverage reads the new borrowing as a risk to the equity rather than as proof of demand.</p><ul><li class="cont"><span class="chip cont">Vs. prior digests</span> the September 27 digest had Nebius raising GPU rates <strong>20%</strong>, Q2 revenue up <strong>454%</strong> to <strong>$582M</strong>, a <strong>$5B</strong> debt raise and management saying it could "sell out 2027 capacity today." <a class="xref" href="market-newsletter-digest-2026-09-23.md">market-newsletter-digest-2026-09-23</a> had Nebius demanding prepayments "that reach <strong>100%</strong> on 1 year commits." Pricing power has not stopped the stock from trading on its financing.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">CoreWeave bonds near 15%</span><span class="gist">About 9.7% at issuance; CDS above 850bp in September</span></summary><div class="detail"><p><strong>CoreWeave's bonds.</strong> One analysis puts CoreWeave's bond yields at about <strong>15%</strong>, against about <strong>9.7%</strong> at issuance.</p><ul><li class="cont"><span class="chip cont">Vs. prior digests</span> <a class="xref" href="market-newsletter-digest-2026-09-23.md">market-newsletter-digest-2026-09-23</a> had CoreWeave's unsecured coupons in a <strong>9-10%</strong> band alongside SoftBank's BB+ paper and <strong>$46B</strong> of debt ahead of the equity; <a class="xref" href="market-newsletter-digest-2026-09-24.md">market-newsletter-digest-2026-09-24</a> had CoreWeave CDS <strong>above 850bp</strong>. A move from about 9.7% to about 15% is a repricing of the whole debt stack, which feeds into the cost of every new GPU contract it finances.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Shorts hold 20-26% of float</span><span class="gist">CoreWeave, Nebius, IREN, Applied Digital, Core Scientific</span></summary><div class="detail"><p><strong>Positioning.</strong> Reuters data cited by Invezz puts short interest in CoreWeave, Nebius, IREN, Applied Digital and Core Scientific at about <strong>20-26%</strong> of free float, which makes moves larger in both directions.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Huang answers the wrong question</span><span class="gist">Demand "off the charts"; financing is the worry</span></summary><div class="detail"><p><strong>Nvidia's defense did not help.</strong> Jensen Huang said AI cloud demand is "off the charts." Coverage notes that the comment answers the demand question, not the financing one, which is what the stocks are trading on.</p></div></details></li>
+<li class="aside">Cross-reference: <a class="xref" href="../../investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md">ai-compute-commencement-wall-and-refinancing-trap</a> for the refinancing-cliff mechanics behind neocloud debt.</li>
+</ul>
+<p class="sources"><b>Sources</b>Yahoo Finance, Invezz (two reports), TipRanks, Channelchek.</p>
+</section>
+<section class="theme" id="rates">
+<div class="eyebrow">Theme 4</div>
+<h2>Rates: Hot CPI Brought Hikes Back Into the Price</h2>
+<p class="takeaway">September CPI at 3.7% against 3.6% expected took next-meeting hike odds from 22% to about 39% and the 10-year above 5.2%. The AI selloffs of October 15-16 followed.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="Odds of a Fed hike at the next meeting"><figcaption><span class="vt">Odds of a Fed hike at the next meeting</span><span class="vs">Percent; readings from different days</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Sep 23 digest</span><div class="track" style="grid-row:1" tabindex="0" data-tip="October hike odds moved from about 54% to about 70%" aria-label="Sep 23 digest: ~70%"><span class="bar s1" style="left:0.00%;width:71.75%"></span><span class="bval" style="left:calc(71.75% + 6px)">~70%</span></div><span class="blab" style="grid-row:2">Sep 24 digest</span><div class="track" style="grid-row:2" tabindex="0" data-tip="October hike odds 71% (MacroVisor)" aria-label="Sep 24 digest: 71%"><span class="bar s1" style="left:0.00%;width:72.77%"></span><span class="bval" style="left:calc(72.77% + 6px)">71%</span></div><span class="blab" style="grid-row:3">Day before CPI</span><div class="track" style="grid-row:3" tabindex="0" data-tip="22% the day before the Oct 14 CPI (CME)" aria-label="Day before CPI: 22%"><span class="bar s1" style="left:0.00%;width:22.55%"></span><span class="bval" style="left:calc(22.55% + 6px)">22%</span></div><span class="blab" style="grid-row:4">After CPI, Oct 14</span><div class="track" style="grid-row:4" tabindex="0" data-tip="About 39% after CPI (CME); some outlets 37%" aria-label="After CPI, Oct 14: 39%"><span class="bar s1" style="left:0.00%;width:39.98%"></span><span class="bval" style="left:calc(39.98% + 6px)">39%</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">Uneven dates.</p></figure></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Hot CPI revives hike odds</span><span class="gist">CPI 3.7% vs. 3.6%; odds 22% to ~39%; 10-year 5.23-5.32%</span></summary><div class="detail"><p><strong>September CPI (October 14).</strong> Headline CPI rose <strong>3.7%</strong> year over year against <strong>3.6%</strong> expected. CME odds of a hike at the next meeting jumped to about <strong>39%</strong> from <strong>22%</strong> the day before; some outlets put it at <strong>37%</strong>.</p><p>The S&amp;P 500 fell about <strong>1.1%</strong> that day, led by large tech.</p><ul><li><span class="conflict"><span class="conflict-tag">Conflict</span>the 10-year's post-CPI high was <strong>5.23%</strong> in some reports and "briefly above <strong>5.32%</strong>" in others.</span></li><li class="cont"><span class="chip cont">Vs. prior digests</span> the September 27 digest had the 10-year ending that week around <strong>5.18%</strong>. <a class="xref" href="market-newsletter-digest-2026-09-24.md">market-newsletter-digest-2026-09-24</a> had October hike odds at <strong>71%</strong>, and <a class="xref" href="market-newsletter-digest-2026-09-23.md">market-newsletter-digest-2026-09-23</a> had them moving from about <strong>54% to about 70%</strong>. The odds were down to <strong>22%</strong> before this CPI print, so the data between late September and mid-October took most of the hike out, and CPI put part of it back.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Rates hit every layer of AI capex</span><span class="gist">Bonds, SOFR loans, discount rates; Nasdaq -2% on Oct 16</span></summary><div class="detail"><p><strong>Why rates matter for this selloff.</strong> A debt-funded capex cycle is sensitive to the cost of money at every layer: hyperscaler bond issuance, neocloud loans priced over SOFR (§3), and the discount rate on long-dated AI cash flows. The October 16 session (Nasdaq down more than <strong>2%</strong> on AI-debt questions) and the October 15 global rout in SK Hynix, Samsung and SoftBank on funding worries both came after the CPI print.</p></div></details></li>
+<li class="aside">Cross-reference: <a class="xref" href="../../investing-macro/podcasts/ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001.md">ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001</a> for the case that AI capex crowds out bond demand, and <a class="xref" href="../../investing-fundamentals/concepts/valuations.md">valuations</a> for the rate sensitivity of long-duration equities.</li>
+</ul>
+<p class="sources"><b>Sources</b>CNN (October 14 and October 16), Kiplinger, Ground News, CNBC (October 15).</p>
+</section>
+<section class="theme" id="china">
+<div class="eyebrow">Theme 5</div>
+<h2>China Tech: Capex, Regulation and Forced Selling</h2>
+<p class="takeaway">The Hang Seng Tech Index is down 31% this year as Alibaba, Tencent and Baidu turned free-cash-flow negative on AI capex. October added e-commerce regulation, a token price war and offshore-trust tax selling.</p>
+<div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="China hyperscaler capex incl. ByteDance"><figcaption><span class="vt">China hyperscaler capex incl. ByteDance</span><span class="vs">$ billions</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">2024</span><div class="track" style="grid-row:1" tabindex="0" data-tip="About $35B in 2024 (Sep 25 digest)" aria-label="2024: ~$35B"><span class="bar s1" style="left:0.00%;width:26.09%"></span><span class="bval" style="left:calc(26.09% + 6px)">~$35B</span></div><span class="blab" style="grid-row:2">2025</span><div class="track" style="grid-row:2" tabindex="0" data-tip="$50B+ in 2025" aria-label="2025: $50B+"><span class="bar s1" style="left:0.00%;width:37.27%"></span><span class="bval" style="left:calc(37.27% + 6px)">$50B+</span></div><span class="blab" style="grid-row:3">2026 (tracking)</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Tracking toward $100B in 2026" aria-label="2026 (tracking): ~$100B"><span class="bar s1" style="left:0.00%;width:74.55%"></span><span class="bval" style="left:calc(74.55% + 6px)">~$100B</span></div><div class="refs" style="grid-row:1 / span 3"><span class="zero" style="left:0.00%"></span></div></div><p class="vnote">2025 drawn at $50B; 2026 is a run-rate estimate.</p></figure><figure class="viz" role="group" aria-label="Central Huijin flows"><figcaption><span class="vt">Central Huijin flows</span><span class="vs">$ billions (single report)</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Raised via ETF sales, H1 2026</span><div class="track" style="grid-row:1" tabindex="0" data-tip="$231B raised through ETF sales in H1 2026" aria-label="Raised via ETF sales, H1 2026: $231B"><span class="bar s1" style="left:0.00%;width:75.77%"></span><span class="bval" style="left:calc(75.77% + 6px)">$231B</span></div><span class="blab" style="grid-row:2">Reinvested since July</span><div class="track" style="grid-row:2" tabindex="0" data-tip="$43B reinvested since July" aria-label="Reinvested since July: $43B"><span class="bar s1" style="left:0.00%;width:14.10%"></span><span class="bval" style="left:calc(14.10% + 6px)">$43B</span></div><div class="refs" style="grid-row:1 / span 2"><span class="zero" style="left:0.00%"></span></div></div></figure></div></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Worst day since April 2025</span><span class="gist">About -5% to ~3,830; -31% YTD; near pre-stimulus levels</span></summary><div class="detail"><p><strong>The index.</strong> The Hang Seng Tech Index fell about <strong>5%</strong> on October 22, its worst day since April 2025, to about <strong>3,830</strong>, its lowest in about two years. It is down <strong>31%</strong> for the year and close to erasing all gains since Beijing's September 2024 stimulus.</p><p>On October 21 it had already dropped <strong>1.26%</strong> to <strong>3,994.77</strong>.</p><ul><li><span class="conflict"><span class="conflict-tag">Conflict</span>the October 22 drop is <strong>4.38%</strong> in one report, <strong>4.7%</strong> in another and <strong>5%</strong> in Bloomberg's.</span></li><li><span class="conflict"><span class="conflict-tag">Data note</span>none of the sources date a peak or name an August trigger for the decline. A 31% year-to-date loss suggests the slide began earlier, with the August second-quarter reports (below) as the closest candidate for a step-down.</span></li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Capex has flipped FCF negative</span><span class="gist">Tencent HK$393.8, ~40% off its high; 3M+ GPUs ordered</span></summary><div class="detail"><p><strong>AI capex has turned free cash flow negative.</strong> Bloomberg ties the year's decline to doubts that hyperscalers' AI spending will earn adequate returns. Tencent fell <strong>4.04%</strong> to <strong>HK$393.8</strong> on October 21, a 52-week low about <strong>40%</strong> below its high, with one analysis cutting its 2026 free-cash-flow estimate to <strong>HK$180-200B</strong> after the capex step-up.</p><p>ByteDance, Alibaba and Tencent together reportedly ordered more than <strong>3 million</strong> GPUs worth over <strong>$35B</strong>.</p><ul><li class="cont"><span class="chip cont">Vs. prior digests</span> <a class="xref" href="market-newsletter-digest-2026-09-25.md">market-newsletter-digest-2026-09-25</a> had Alibaba, Tencent and Baidu spending a combined <strong>$20B</strong> in 2Q26, more than double a year earlier, and all three posting negative free cash flow for the first time. Including ByteDance, combined capex went from <strong>about $35B (2024)</strong> to <strong>$50B+ (2025)</strong> and is tracking toward <strong>$100B in 2026</strong>. <a class="xref" href="market-newsletter-digest-2026-09-23.md">market-newsletter-digest-2026-09-23</a> had Alibaba's <strong>20GW</strong>-by-2032 target, which Hello China Tech called "a bet on T-Head."</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Token price war squeezes payback</span><span class="gist">DeepSeek V4.1 Flash $0.15 per million input tokens</span></summary><div class="detail"><p><strong>The AI model price war.</strong> Chinese labs are cutting prices hard; DeepSeek V4.1 Flash costs <strong>$0.15</strong> per million input tokens. A draft government proposal would require export licenses for frontier models above <strong>2 trillion</strong> parameters or trained with more than <strong>10^26</strong> FLOPs.</p><ul><li class="why"><span class="chip why">Why it matters</span> falling token prices squeeze the cloud and model-as-a-service revenue that is supposed to pay back the capex above.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Regulators summon platforms; Alibaba -6.1%</span><span class="gist">Product quality and instant retail; below HK$100</span></summary><div class="detail"><p><strong>E-commerce regulation (Alibaba's 6.1% drop).</strong> Market regulators held a Beijing symposium calling on major platforms to tighten product-quality governance and consumer protection, especially in livestream commerce, instant retail and social e-commerce. Alibaba fell <strong>6.1%</strong> on Thursday, its most since August 24, and below <strong>HK$100</strong>.</p><p>One analyst said the earnings impact "has been diminishing, but more on the sentiment level." US-listed shares fell the day before: Alibaba about <strong>5%</strong>, JD.com and PDD about <strong>4%</strong>.</p><ul><li class="cont"><span class="chip cont">Vs. prior digests</span> <a class="xref" href="market-newsletter-digest-2026-09-24.md">market-newsletter-digest-2026-09-24</a> had SAMR probing Trip.com's dominant market position and Futu's valuation down about a third. The September 26 digest had the end of China's food-delivery price war as a support for Alibaba's core cash flow; today's instant-retail scrutiny touches the same business.</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Trust-tax deadline and thin state buying</span><span class="gist">90-day grace period ended Oct 22; Huijin $231B out, $43B back</span></summary><div class="detail"><p><strong>Forced selling and thin state support.</strong> A <strong>90-day</strong> grace period for collecting income tax on offshore trusts expired October 22, which analysts linked to founders and large holders selling the most liquid index names. One report says Central Huijin raised <strong>$231B</strong> through ETF sales in H1 2026 but has reinvested only <strong>$43B</strong> since July.</p><p>Hong Kong IPO and placement supply is also draining liquidity, and short interest in Tencent was about <strong>18.74%</strong> on October 20.</p><ul><li><span class="conflict"><span class="conflict-tag">Data note</span>the Central Huijin figures come from a single report.</span></li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">Consumption weak, stimulus odds fading</span><span class="gist">CSI 300 in a bear market after ten weeks</span></summary><div class="detail"><p><strong>Macro and policy.</strong> Weak domestic consumption persists and the SCMP reports shrinking odds of strong stimulus. The CSI 300 entered a bear market after a ten-week rout.</p><ul><li class="cont"><span class="chip cont">Vs. prior digests</span> <a class="xref" href="market-newsletter-digest-2026-09-23.md">market-newsletter-digest-2026-09-23</a> described Xi's Washington visit as low on substance, with chip export limits off the agenda.</li></ul></div></details></li>
+</ul>
+<p class="sources"><b>Sources</b>Bloomberg, Yahoo Finance, SCMP, Finimize, Pomegra, HuggingNews, BigGo Finance (two reports), Malay Mail, 24/7 Wall St., Business Recorder, Arabian Post, KuCoin, Stocktwits, IBTimes.</p>
+</section>
+
+<section class="theme" id="links">
+  <div class="eyebrow">Wiki</div>
+  <h2>Cross-Wiki Linkages &amp; Related Analyses</h2>
+  <ul class="links">
+<li><a class="xref" href="market-newsletter-digest-2026-09-25.md">market-newsletter-digest-2026-09-25</a>: China's 2Q26 capex and first negative free cash flow, Alibaba FY1Q27 cloud growth, the SOX 14% below its June highs and October hike odds near two in three.</li>
+<li><a class="xref" href="market-newsletter-digest-2026-09-24.md">market-newsletter-digest-2026-09-24</a>: the AI CDS ladder (Microsoft ~50bp, Meta ~94bp, Oracle ~224bp, CoreWeave above 850bp), 71% October hike odds and the Trip.com probe.</li>
+<li><a class="xref" href="market-newsletter-digest-2026-09-23.md">market-newsletter-digest-2026-09-23</a>: CoreWeave's 9-10% coupons and $46B of debt, Nebius's 100% prepayments, Alibaba's 20GW target and Xi's visit.</li>
+<li><a class="xref" href="market-newsletter-digest-2026-09-22.md">market-newsletter-digest-2026-09-22</a>: construction-in-progress above $374B across hyperscalers and neoclouds.</li>
+<li><a class="xref" href="../../investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md">ai-compute-commencement-wall-and-refinancing-trap</a>: refinancing framework for §3.</li>
+<li><a class="xref" href="../../investing-macro/podcasts/sa-whos-funding-the-11-trillion-ai-buildout-20261009.md">sa-whos-funding-the-11-trillion-ai-buildout-20261009</a>: financing sources for the buildout in §2 and §3.</li>
+<li><a class="xref" href="../../investing-macro/klement-ai-bubble-2027-forecast-20261008.md">klement-ai-bubble-2027-forecast-20261008</a>: bubble-timing case relevant to §1 and §2.</li>
+<li><a class="xref" href="../../investing-macro/podcasts/ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001.md">ax-brij-khurana-wellington-ai-capex-crowding-out-bonds-20261001</a>: AI capex and bond demand for §4.</li>
+<li><a class="xref" href="../../investing-fundamentals/company-analyses/themes/deepseek-v4-1-flash-memory-bottlenecks.md">deepseek-v4-1-flash-memory-bottlenecks</a>: memory demand behind the DRAM-led 2027 WFE outlook in §1.</li>
+<li><a class="xref" href="../../investing-fundamentals/concepts/valuations.md">valuations</a>: rate sensitivity of long-duration equities for §4.</li>
+  </ul>
+</section>
+
+</main>
+</div>
+
+<footer>
+  Initial version built from news coverage and the Lam Research call transcript gathered on 2026-10-22; no newsletters ingested yet. Market moves are intraday unless noted. HTML companion to <span class="num">reading-list/notes/market-newsletter-digest-2026-10-22.md</span>; the markdown file is the source of record.
+</footer>
+</div>
+<script>
+(function () {
+  var pts = function () { return document.querySelectorAll('details.pt'); };
+  document.getElementById('expand-all').addEventListener('click', function () { pts().forEach(function (d) { d.open = true; }); });
+  document.getElementById('collapse-all').addEventListener('click', function () { pts().forEach(function (d) { d.open = false; }); });
+})();
+</script>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.id = 'viztip'; tip.hidden = true; document.body.appendChild(tip);
+  function show(el, x, y) {
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var r = tip.getBoundingClientRect(), left = Math.min(x + 12, window.innerWidth - r.width - 8), top = y - r.height - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (top < 8 ? y + 16 : top) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', function () { tip.hidden = true; });
+    el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+    el.addEventListener('blur', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+})();
+</script>
+</body>
+</html>
