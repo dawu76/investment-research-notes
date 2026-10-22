@@ -4,6 +4,16 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-22] ingest | October 22 digest: French OAT carry trade and London macro desk exits
+
+- Updated: `reading-list/notes/market-newsletter-digest-2026-10-22.md`. Added §6 ("European Rates: The French Carry Trade Clears Out London Macro Desks") from the eFinancialCareers article the user supplied (Sarah Butcher, October 20):
+  - **The article:** up to ~100 London EGB traders out (mid-70s a few weeks earlier, ~10% voluntary); a leveraged long-OAT trade financed in repo broke as French yields rose; many of the same PMs also lost in March; banks may rehire at lower pay; a headhunter warns BTPs could follow.
+  - **Supporting coverage:** French 10-year 5.113% on October 22 (above the US 10-year, per CNBC); OAT-Bund ~157.5bp on October 21, widest since 2011-12; budget votes October 20 and 27; French repo ~12bp over the deposit rate with Natixis, Barclays and Federated Hermes quotes (Hedgeweek/Bloomberg); Allianz Trade on asset-swap unwinds and depth >50% below normal.
+  - **Continuity:** spread 110bp (September 24) to ~157.5bp; September 23 ECB hike pricing; September 22 French political strain; September 27 swap-spread tightening; September 18 basis-trade contrast.
+  - **Flags:** a conflict on the spread level, and a data note that CNBC's OAT-above-UST claim fits the ~5.12% Treasury of October 20-21, not the "above 5.2%" October 14 level.
+- Also updated the intro, the cross-wiki list (added `market-newsletter-digest-2026-09-18`, `bond-supply-tsunami-2026`) and `index.md` (the digest entry).
+- Rebuilt the HTML companion with `build_html.py` from the October 22 content file plus §6. Additions: a section chart (spread, departures), 2 tiles (replacing Tencent and WFE outlook), 3 watch items and 2 conflicts. `check_html.py` passes (25 points, 10 charts, 4 tables); rendered and checked.
+
 ## [2026-10-22] update | AKAM memo: three paths for the stock if the covenant is breached
 
 - Updated: `akam-3-investment-memo.md` (covenant section, after the Assessment). Added a scenario table:
