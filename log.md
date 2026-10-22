@@ -4,6 +4,15 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-22] update | AKAM memo: three paths for the stock if the covenant is breached
+
+- Updated: `akam-3-investment-memo.md` (covenant section, after the Assessment). Added a scenario table:
+  - **(1) Waived or amended before the December 31 test:** most likely; little stock effect unless debt limits are added.
+  - **(2) Breach with the revolver undrawn and no fix:** the funding gap widens to ~$1.7-2.4B; ~$60-72 a share on ~$0.85 of refinancing cost against MS's implied ~$6.90 2027 EPS at 10-12x, or ~15% dilution if funded with $1.5B of stock at $70.
+  - **(3) Breach after a draw, with loans accelerated:** cross-acceleration of the notes; deep bear ~$40 or lower.
+  - Also added signals (8-K Items 1.01, 2.03, 2.04) and second-order effects (convert-arbitrage hedging, the conversion feedback loop, signaling).
+- Updated the HTML companion in place; `check_html.py` flags only URL fragments inside links, as before.
+
 ## [2026-10-22] update | DOCN memo: October 22 sell-off (-10%) and corrections
 
 - Updated: `docn-3-investment-memo.md`. Rewrote the October 22 update, which had been written in the morning when DOCN was up ~3% ("the sell-off pauses"). New title: "the sell-off resumes on financing fears." Changes:
