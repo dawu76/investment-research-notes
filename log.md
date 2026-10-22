@@ -6,9 +6,16 @@
 
 ## [2026-10-22] lint | index.md and log.md cleanup
 
-- Checked: all 224 index wikilinks resolve (the `\|` aliases in tables are valid); every page created in log entries since 2026-10-09 has an index entry; no duplicate or out-of-order log headers.
+- Checked: all 224 index wikilinks resolve (the `\|` aliases in tables are valid); every page created in log entries since 2026-10-09 has an index entry; no duplicate log headers.
+- Re-sorted the log newest-first by date, text unchanged: the 2026-10-22 DOCN memo update had been appended at the end of the file, ten entries from 2026-07-27 to 2026-09-10 sat below the 2026-05-24 init entry, and six June digest entries were out of order.
 - Fixed: index header date and page count (2026-10-20 / 256 to 2026-10-22 / 257, adding the October 22 digest); AKAM and DOCN rows now say "1–3 + HTML", matching the CEG row, since both have HTML companions.
 - Committed the pages from the 2026-10-09 to 2026-10-21 entries that were still untracked (AKAM, DOCN, CEG and SoFi pipelines, three comparisons, three themes, two podcast notes, the September 26 and 27 digests, the MOS memo update and the sell-side reports those pages cite), together with these index and log updates. Left untracked: AS, ONON, PHM, PDD, MRVL and SE report files not cited by any page, `.playwright-mcp/` and a stray transcript file.
+
+## [2026-10-22] update | DigitalOcean ($DOCN): October 22 update to the investment memo
+
+- Updated: `investing-fundamentals/company-analyses/docn-3-investment-memo.md` (added "Update, October 22, 2026: the sell-off pauses, the credit gauge doesn't": price since October 16 (~$101.48 close October 21), CoreWeave 2032 bond yields as the sector gauge, Nebius falling on its GPU-backed Citi facility and what that implies for DOCN's MUFG facility, analyst actions (Barclays Hold unconfirmed, UBS $140, Piper Sandler Overweight), unchanged liquidity check, valuation at ~$101.5, and pre-November 4 watch items; bumped `updated` to 2026-10-22).
+- Updated: `investing-fundamentals/company-analyses/docn-3-investment-memo.html` (mirrored the October 22 section, TOC entry and header note).
+- Updated: `log.md`
 
 ## [2026-10-22] create | Market newsletter digest, October 22, 2026 (initial, news-based)
 
@@ -420,6 +427,74 @@
 - Updated: `index.md` (Cataloged `market-newsletter-digest-2026-09-18.md`, updated page count to 214, updated date to 2026-09-18).
 - Updated: `log.md`
 
+## [2026-09-10] create | DeepSeek V4.1 Flash: Memory Architecture, AI Bottlenecks, and Semiconductor Value Chain Impact
+
+- Created: `investing-fundamentals/company-analyses/themes/deepseek-v4-1-flash-memory-bottlenecks.md`
+  - Synthesized comprehensive architectural analysis of DeepSeek V4.1 Flash launched September 10, 2026.
+  - Deconstructed core innovations: Causal Encoder-Decoder (CED) with single projected KV cache from 20-layer encoder, Compressed Sparse Attention 2 (CSA2) with Full/Reindex/Reuse modes, FP4 (E2M1) KV quantization, 196B Engram host-prefetched parameter tier, and SWA Bounded Replay.
+  - Detailed the **890 bytes/token** global KV cache breakthrough (4× reduction vs. V4-Flash, 437× vs. MHA baseline), demonstrating sub-1GB VRAM requirements for 1M-token context windows and 350+ concurrent stream capacity on 8×H100 nodes.
+  - Resolved four foundational bottlenecks: memory bandwidth decode wall, agent multi-turn VRAM capacity wall, prefill/decode asymmetric compute allocation, and storage I/O paging stalls.
+  - Mapped equity winners and losers across hardware memory tiers:
+    - Enterprise NAND/SSD ($WDC, Kioxia, Solidigm, Samsung/Micron NAND): Critical structural headwind as SWA Bounded Replay eliminates KV cache SSD paging.
+    - HBM Pure-Plays (SK Hynix 000660.KS, Samsung 005930.KS): Multiple normalization and pricing power softening as context is decoupled from HBM gigabytes.
+    - Server Host DRAM & CXL ($MU, 005930.KS, $ALAB): Major structural tailwind from 196B Engram conditional parameters residing in host DDR5/CXL memory pools (highlighted by Micron CEO attendance).
+    - GPU Accelerators ($NVDA, $AMD): High-VRAM markup pricing power softens, but unit volume preserved by 552B MoE footprint and Jevons paradox.
+    - Inter-GPU Fabric ($AVGO, $ANET, $MRVL): MoE 552B parameter routing preserves intense All-to-All network demand.
+    - Enterprise Software/SaaS ($NOW, $CRM, $PLTR): Restores 75–80%+ gross margins for agentic products by dropping token COGS toward nominal levels.
+- Updated: `index.md` (indexed under Themes; bumped total pages to 213; updated date to 2026-09-10).
+- Updated: `investing-fundamentals/concepts/ai-inference-costs-accounting.md` (bumped date to 2026-09-10; added cross-reference).
+- Updated: `investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md` (added cross-reference).
+- Updated: `investing-fundamentals/company-analyses/themes/deepseek-v4-1-flash-memory-bottlenecks.md` (expanded Section 2 with technical breakdowns of how CED global KV projection, CSA2 tri-mode attention, native FP4 micro-scaling, Engram deterministic prefetching, SWA Bounded Replay local recomputation, and DSpark speculative decoding function under the hood; integrated the "Alexander the Great" multi-token concept problem and early-layer FLOP savings; added Section 5.G on the geopolitical driver bypassing Western HBM/CoWoS sanctions for Huawei Ascend and Chinese labs).
+- Updated: `log.md`
+
+## [2026-09-01] create & update | FinTech Regulatory & Usury Risk: TILA Reg Z, True Lender Exposure, and Company Pipeline Audits ($DAVE, $SEZL)
+
+- Created: `investing-fundamentals/company-analyses/comparisons/fintech-usury-tila-regulatory-exposure-2026.md`
+  - Synthesized the consumer fintech regulatory and usury risk spectrum comparing High Risk ($DAVE, $SEZL, $ML, private EWA), Moderate Risk ($AFRM, $KLAR, $XYZ), and Structurally Immune ($SOFI).
+  - Deconstructed the legal mechanics: FDIA Section 27 "True Lender" rent-a-charter vulnerabilities vs. TILA Regulation Z (12 CFR § 1026.4) disguised finance charges (subscriptions, express delivery fees, tipping).
+  - Modeled quantitative downside valuation bridges: $DAVE down -78% to -84% ($55–$75) and $SEZL down -81% to -88% ($16–$25) under adverse court injunctions and mandatory fee unbundling.
+- Updated: `investing-fundamentals/company-analyses/sezl-2-equity-report.md` (added Accounting Policies & Internal Controls section detailing March 2026 PwC auditor transition, open ICFR material weakness on notes receivable cash flows, ASC 606 vs. ASC 310 revenue recognition tension, and Hindenburg Dec 2024 mitigation scorecard; cross-linked to comparison).
+- Updated: `investing-fundamentals/company-analyses/sezl-3-investment-memo.md` (added regulatory reclassification downside valuation bridge of $16.00–$25.00 / -80% to -86% drawdown to Risk section; cross-linked to comparison).
+- Updated: `investing-fundamentals/company-analyses/sezl-4-stress-test.md` (cross-linked to comparison).
+- Updated: `investing-fundamentals/company-analyses/dave-2-equity-report.md` (deepened legal & regulatory risk analysis with details on FTC + DOJ federal lawsuit Case No. 2:24-cv-09419 in C.D. Cal. naming CEO Jason Wilk individually, City of Baltimore predatory lending suit, and ROSCA $1/mo subscriptions; cross-linked to comparison).
+- Updated: `investing-fundamentals/company-analyses/dave-3-investment-memo.md` (added FTC/DOJ adverse ruling valuation bridge of $55.00–$75.00 / -78% to -84% drawdown to Risk #1; cross-linked to comparison).
+- Updated: `investing-fundamentals/company-analyses/dave-investment-research.html` (synchronized interactive HTML suite: updated Iceberg Risks table with Case No. 2:24-cv-09419 docket specifics; added dedicated Legal & Regulatory Litigation card in Tab 2; incorporated the $55–$75 regulatory downside valuation bridge in Tab 3; expanded Tab 6 source table with Cross-FinTech Usury Framework link; and added Risk Audit & Litigation section in Tab 7 Complete Dossier).
+- Updated: `investing-fundamentals/company-analyses/sezl-investment-research.html` (synchronized interactive HTML suite: updated Iceberg Risks table with TILA Reg Z usury reclassification and OCC bank capital trapped drag; added dedicated Accounting Policies, PwC Auditor Transition & ICFR Material Weakness card in Tab 2; added Hindenburg Dec 2024 Resolution Scorecard in Tab 2; incorporated the $16–$25 regulatory/bank capital downside valuation bridge in Tab 3; expanded Tab 6 source table with PwC 8-K, CFPB docket, and Cross-FinTech Usury Framework links; and added Accounting Governance & Regulatory Downside section in Tab 7 Complete Dossier).
+- Updated: `index.md` (indexed new comparison document under Comparisons; bumped total pages to 212).
+- Updated: `log.md`
+
+## [2026-09-01] update | AI Compute Commencement Wall — critical re-assessment, verdict re-grading, and gray-area flagging
+
+- Updated: `investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md`
+- **Frontmatter corrected:** `confidence: high → medium`, `contested: false → true`, added `contradictions: [market-newsletter-digest-2026-08-20]` (source digest cites >$2.3T across all labs vs. this page's ~$1.2T single-lab figure). Added digest 2026-08-19 to `sources`.
+- **Added prominent "Bottom Line — Conclusions as of 2026-09-01"** block at page top: 7 numbered conclusions surfacing what the statement-by-statement structure had buried.
+- **Verdicts re-graded** against the evidence the page itself supplies, with a stated verdict scale:
+  - Statement 2 ($636B market cap multiplier): `HIGHLY ACCURATE` → `MECHANISM ACCURATE / FIGURE UNVERIFIED`. No independent verification was performed; single-day moves lack a beta counterfactual and sit inside Nvidia's ordinary daily variance.
+  - Statement 3 (200% coverage deficit): `SUBSTANTIVELY ACCURATE` → `PARTIALLY ACCURATE`. Added explicit 3×3 coverage-ratio matrix showing the supported range is **120%–333%**, not ">200%"; only 4 of 9 cells clear 200%. The page's own Path 3 (ARR $40–60B) implies 50–125% coverage, falsifying the "all four scenarios" universality claim.
+  - Statement 4 (refinancing trap): retained but added the under-stated hyperscaler channel — **RPO quality re-rating precedes impairment**; Microsoft counterparty concentration noted alongside Oracle.
+- **Added Statement 5 — Vendor-Financed Circularity (`UNASSESSED GAP`):** the "Nvidia as Fannie Mae for compute" mechanism present in the source digest but never assessed. Determines *when* the wall arrives; circular financing defers and enlarges rather than cancels it.
+- **Added five `⬖ Gray area` callouts** on genuinely contested interpretations rather than overwriting: (1) where "binding" stops being binary in take-or-pay; (2) whether an attributable event study is feasible at all; (3) three definitional choices (exit ARR vs. GAAP, gross vs. net of credits, commenced vs. signed) that swing the coverage ratio more than the bear/bull spread; (4) cluster fungibility assumed not demonstrated; (5) vendor backstop vs. ordinary market-development spend.
+- **Added Transmission Channel 5 — Renegotiation & Absorption:** take-or-pay against a distressed sole anchor tenant restructures rather than defaults; resolves the binary framing in §1/§3 that contradicted the page's own Path 2 base case. Loss changes form (revenue quality, RPO discount) rather than disappearing.
+- **Surfaced the obscured conclusion:** Paths 1+2 carry ~80% of probability mass and *both* involve significant multiple compression; Path 2's "managed restructuring" label embeds a ~35% derate. Flagged the 30/50/20 split as an underived judgmental prior.
+- **Indicators expanded 4 → 6** and converted to a threshold table: added **RPO counterparty concentration** (highest signal, tracks Statement 4's real channel) and **commencement slippage**; flagged indicators 2 and 4 as weakly specified.
+- **Added §5 Portfolio Implications:** derating protection over crash protection; separating the neocloud solvency trade from the hyperscaler multiple trade; indicator-linked rather than date-linked sizing.
+- **Fixed broken wikilink** `[[cyber-saas-seat-risk]]` → `[[cyber-saas-seat-risk-2-equity-report]]`; converted the misaligned ASCII transmission matrix to a markdown table; added a Review Triggers section.
+- Updated: `index.md` (re-assessment noted on the entry)
+- Updated: `investing-macro/macro-frameworks/README.md` (noted the accuracy audit and gray-area flags)
+- Updated: `log.md`
+
+## [2026-09-01] create | AI Compute Commencement Wall, Take-or-Pay Liabilities, and the 2027–2028 Payment Shock
+
+- Created: `investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md`
+- Synthesized structural financial assessment evaluating claims on OpenAI's $1.2T compute origination spree, the $636B supplier market cap multiplier, 200% revenue coverage deficit models, and hyperscaler ROIC inversion / refinancing traps.
+- Documented the 24–36 month construction "teaser lag" vs. binding commencement date obligations, take-or-pay contractual structures, and circular vendor equity dynamics.
+- Detailed the 4 transmission channels: GPU collateral/private ABS debt impairment, hyperscaler server D&A useful life revisions, semiconductor order cancellation bullwhip, and utility/nuclear PPA stranding.
+- Mapped 3 equity market paths: (1) "Telecom 2000" Capital Overhang & Downside Unwind (30% probability), (2) Managed Restructuring / "Cloud Ingestion & Sovereign Bailout" (50% probability), and (3) Autonomous Productivity Monetization Surge (20% probability), alongside leading monitoring indicators (spot GPU rental rates, private secondary discounts, depreciation revisions).
+- Updated: `investing-macro/macro-frameworks/README.md` (cross-linked under AI Infrastructure & Capital Cycles section)
+- Updated: `investing-macro/market-newsletter-digest-2026-08-20.md` (cross-linked to framework)
+- Updated: `index.md` (indexed under Macro frameworks; total pages bumped to 211)
+- Updated: `log.md`
+
 ## [2026-08-27] create | DAVE Interactive HTML Research Suite
 
 - Created: `investing-fundamentals/company-analyses/dave-investment-research.html` (Interactive dark-mode institutional research and stress-test application consolidating Stages 1–4 for Dave Inc.: (1) Multi-tab navigation across Executive Dashboard, Business Model & $37 FCF Waterfall, Investment Memo & 2-Year Valuation Explorer, Adversarial Stress-Test & 6 Iceberg Risks, 6-Column KPI Watch List & Sizing, and Verified Sources; (2) Interactive scenario switchers for Bear/Base/Bull IRR and Downside Stress-Test flow-through; (3) Client-side quick search filter, collapsible deep dives, and print-ready CSS).
@@ -472,16 +547,31 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-08-21] update | CRCL company analysis pipeline (Claude Code reviewed & enriched)
+## [2026-08-21] update | AppLovin (APP) company analysis pipeline (Wall Street consensus shift, Piper Sandler PT cut, AXON compute cost dynamics)
 
-- Updated: `investing-fundamentals/company-analyses/crcl-2-equity-report.md` (Incorporated Claude Code review feedback: reconciled FY26E revenue model and H2 Arc platform ramp, updated realized reserve yield series ~3.63%, clarified native USDC gas mechanics with zero unbacked tokens, refined OCC Trust Charter scope and Fed master account access nuance, accurate statutory placement of stablecoin yield restrictions under GENIUS Act §4(a)(11), and expanded competitive matrix with bank deposit tokens and Stripe/Bridge).
-- Updated: `investing-fundamentals/company-analyses/crcl-3-investment-memo.md` (Restated 3-year valuation framework incorporating explicit tax, SBC dilution, and calibrated shares ~270M -> 285M FY28: $100.80 Base / $192.50 Bull / $21.60 Bear price targets, probability-weighted expected value $107.89 (+50.9% return), added Depeg/Run risk & Tokenized-MMF substitution to Risk Matrix, and updated 12-month KPI watch list).
-- Refactored: `investing-fundamentals/company-analyses/CRCL.md` (Converted into a clean, concise routing hub with YAML frontmatter, eliminating duplicated/divergent legacy metrics).
+- Updated: `investing-fundamentals/company-analyses/app-1-document-sources.md` (completed Section E equity research coverage table incorporating Piper Sandler's August 21 PT cut from $385 to $325, JPMorgan's Neutral $350–$400 target, Bank of America's downgrade to $400, Morgan Stanley's $650 Overweight target, and BTIG's $410 Buy rating).
+- Updated: `investing-fundamentals/company-analyses/app-2-equity-report.md` (expanded Moat Vulnerabilities to detail AXON algorithmic yield deceleration, diminishing returns in mobile gaming optimization, and rising AI compute/GPU infrastructure outlays dragging EBITDA margins).
+- Updated: `investing-fundamentals/company-analyses/app-3-investment-memo.md` (updated valuation asymmetry box with Street consensus target range of $325–$650; incorporated compute cost inflation and model maturation into Risk #4).
 - Updated: `log.md`
 
-## [2026-08-21] ingest | Market and Investment Newsletter Digest (August 19, 2026)
+## [2026-08-21] create | Treasury Financial Repression: SLR Bank Deregulation, Stablecoins as T-Bill Sinks, and Shadow Yield Curve Control
 
-- Ingested & Synthesized: `investing-macro/market-newsletter-digest-2026-08-19.md` (Deep synthesis of 14 key newsletters and institutional research reports received on August 19, 2026: (1) Ben Thompson & Michael Parekh on AI capital curve exhaustion, Nvidia $500B Wall Street AI Infrastructure Consortium, OpenAI $7B self-tender at $852B valuation, Anthropic $9.1B–$16.1B Riot compute deal, and developer software deflation; (2) U.S. Treasury doubling long-end buybacks to $4B/operation, George Noble & Andy Constan on the "Bessent-put" / short US Treasuries steepener, Arthur Hayes on sovereign debt monetization, and $1.44B crypto short squeeze; (3) Custom AI Silicon & Optical Infrastructure: Google $120B Marvell co-design deal with 59M share warrant, Broadcom gross margin compression, FUNDA 6D Torus 4x optical uplift, Cerebras CS-4 3nm wafer-scale processor launch, and 500% memory price spike "RAMageddon"; (4) Alexander Stahel on China as the new crude oil swing producer and QTR on BNPL/subprime consumer liquidity exhaustion)
+- Created: `investing-macro/macro-frameworks/treasury-financial-repression-slr-stablecoins.md`
+- Synthesized the Treasury's market-based financial repression framework: using bank deregulation (SLR/eSLR exemptions, Basel III capital relief) to expand primary dealer warehousing capacity and eliminate the 5–25 bps illiquidity penalty across the 95% of the Treasury curve that is off-the-run.
+- Detailed the regulatory rulemaking roadmap (Q4 2026 Fed/FDIC/OCC final joint rule vote, SEC FICC mandatory clearing harmonization, and 2027 implementation).
+- Documented stablecoins as a captive $500B–$1T+ T-bill sink (GENIUS/CLARITY Acts), enabling the Treasury to twist issuance to the front end, reduce 10Y/30Y coupon auction sizes, run debt buybacks, and suppress the long-term term premium.
+- Analyzed systemic downsides and risks: G-SIB duration/solvency traps, 50x hedge fund cash-futures basis trade fragility, credit crowding-out of the real economy, de-peg fire sales, and unchecked fiscal profligacy.
+- Mapped the asymmetric banking impact and lobbying dynamics: existential deposit flight / NIM collapse for Regional Banks vs. fee/deposit-monopoly defense by TBTF Mega-Banks (BPI/ABA lobbying for anti-yield rules and proprietary deposit tokens).
+- Updated: `investing-macro/macro-frameworks/README.md` (cross-link added)
+- Updated: `investing-macro/bond-supply-tsunami-2026.md` (cross-link and policy response note added)
+- Updated: `index.md` (indexed under Macro frameworks)
+- Updated: `log.md`
+
+## [2026-08-21] create | AFRM company analysis pipeline (Claude Code reviewed & enriched)
+
+- Created & Updated: `investing-fundamentals/company-analyses/afrm-1-document-sources.md` (Ingested FY2021-FY2025 10-Ks, Form S-1/A, FY2026 10-Qs, Investor Day presentations, Apple Pay, Shopify, Amazon commercial partnerships, industrial bank partner origination agreements (Cross River Bank, Celtic Bank), ABS Fitch rating actions, and Wall Street sell-side consensus baselines; computed sha256 `9de5ecea351ee5cf0d141f035c75ec7b86c02fa82fce93fdab9a9f0713b8372b`)
+- Created & Updated: `investing-fundamentals/company-analyses/afrm-2-equity-report.md` (Full fundamental equity research synthesis: $48B GMV run-rate, $4.25B revenue, 24.1M active users, RLTC unit economics ~3.75-4.0% of GMV / 42.4% of revenue, Affirm Card +159% YoY acceleration, Apple Pay native iOS distribution, bank partner FDIA Section 27 rate exportation, $28.2B capital marketplace decomposition, interest rate repricing gap asymmetry, comprehensive credit metrics with measurement bases (2.1% NCOs, 6.1% ACL coverage), reciprocal link to Dave velocity contrast, and proprietary SKU-level underwriting moat)
+- Created & Updated: `investing-fundamentals/company-analyses/afrm-3-investment-memo.md` (High-conviction GARP/Compounder investment memo at ~$76.50: 2-year Sensitivity Matrix modeling $130.00 Base (+30.4% 2-Yr IRR) / $240.00 Bull price targets (+77.1% 2-Yr IRR), dual GAAP P/E & ROTE valuation framework, peer benchmarking matrix (Klarna, Block, PayPal, Synchrony), corporate EV bridge with SBC share dilution, 5-factor risk scoring matrix, pre-mortem failure mode, August 27, 2026 earnings catalyst execution strategy, and enhanced 12-month KPI watch list with data sources)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -493,19 +583,56 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-08-21] create | AFRM company analysis pipeline (Claude Code reviewed & enriched)
+## [2026-08-21] ingest | Market and Investment Newsletter Digest (August 19, 2026)
 
-- Created & Updated: `investing-fundamentals/company-analyses/afrm-1-document-sources.md` (Ingested FY2021-FY2025 10-Ks, Form S-1/A, FY2026 10-Qs, Investor Day presentations, Apple Pay, Shopify, Amazon commercial partnerships, industrial bank partner origination agreements (Cross River Bank, Celtic Bank), ABS Fitch rating actions, and Wall Street sell-side consensus baselines; computed sha256 `9de5ecea351ee5cf0d141f035c75ec7b86c02fa82fce93fdab9a9f0713b8372b`)
-- Created & Updated: `investing-fundamentals/company-analyses/afrm-2-equity-report.md` (Full fundamental equity research synthesis: $48B GMV run-rate, $4.25B revenue, 24.1M active users, RLTC unit economics ~3.75-4.0% of GMV / 42.4% of revenue, Affirm Card +159% YoY acceleration, Apple Pay native iOS distribution, bank partner FDIA Section 27 rate exportation, $28.2B capital marketplace decomposition, interest rate repricing gap asymmetry, comprehensive credit metrics with measurement bases (2.1% NCOs, 6.1% ACL coverage), reciprocal link to Dave velocity contrast, and proprietary SKU-level underwriting moat)
-- Created & Updated: `investing-fundamentals/company-analyses/afrm-3-investment-memo.md` (High-conviction GARP/Compounder investment memo at ~$76.50: 2-year Sensitivity Matrix modeling $130.00 Base (+30.4% 2-Yr IRR) / $240.00 Bull price targets (+77.1% 2-Yr IRR), dual GAAP P/E & ROTE valuation framework, peer benchmarking matrix (Klarna, Block, PayPal, Synchrony), corporate EV bridge with SBC share dilution, 5-factor risk scoring matrix, pre-mortem failure mode, August 27, 2026 earnings catalyst execution strategy, and enhanced 12-month KPI watch list with data sources)
+- Ingested & Synthesized: `investing-macro/market-newsletter-digest-2026-08-19.md` (Deep synthesis of 14 key newsletters and institutional research reports received on August 19, 2026: (1) Ben Thompson & Michael Parekh on AI capital curve exhaustion, Nvidia $500B Wall Street AI Infrastructure Consortium, OpenAI $7B self-tender at $852B valuation, Anthropic $9.1B–$16.1B Riot compute deal, and developer software deflation; (2) U.S. Treasury doubling long-end buybacks to $4B/operation, George Noble & Andy Constan on the "Bessent-put" / short US Treasuries steepener, Arthur Hayes on sovereign debt monetization, and $1.44B crypto short squeeze; (3) Custom AI Silicon & Optical Infrastructure: Google $120B Marvell co-design deal with 59M share warrant, Broadcom gross margin compression, FUNDA 6D Torus 4x optical uplift, Cerebras CS-4 3nm wafer-scale processor launch, and 500% memory price spike "RAMageddon"; (4) Alexander Stahel on China as the new crude oil swing producer and QTR on BNPL/subprime consumer liquidity exhaustion)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-08-14] create | CRCL company analysis pipeline (Q2 2026 results, Arc L1 launch, GENIUS Act & MiCA)
+## [2026-08-21] update | CRCL company analysis pipeline (Claude Code reviewed & enriched)
 
-- Created: `investing-fundamentals/company-analyses/crcl-1-document-sources.md` (Ingested IPO Form S-1/A, FY2025 10-K, Q1 & Q2 2026 10-Qs, OCC National Trust charter, EU MiCA EMI license, BlackRock USDXX audit attestations, and Coinbase renewal agreement; computed sha256 `53ff5f1ca17ffee43f2c1cc966e82b8ffaab0720db27c589adb000fe06d9f1c3`)
-- Created: `investing-fundamentals/company-analyses/crcl-2-equity-report.md` (Full equity research synthesis: $73.3B USDC circulation, $14.8T quarterly on-chain volume, Q2 2026 financials $701M rev / $143M Adj EBITDA, Arc Blockchain institutional L1 launch on Sept 16, 2026, GENIUS Act and MiCA regulatory moat, Coinbase revenue-share mechanics, and competitive benchmarking vs Tether, Stripe Bridge, and USDG)
-- Created: `investing-fundamentals/company-analyses/crcl-3-investment-memo.md` (High-conviction BUY investment memo at ~$71.50: 3-year Sensitivity Matrix modeling $116.80 Base / $261.00 Bull price targets, Interest Rate Easing and Coinbase dependency risk framework, Pre-Mortem failure mode, and 12-month KPI watch list)
+- Updated: `investing-fundamentals/company-analyses/crcl-2-equity-report.md` (Incorporated Claude Code review feedback: reconciled FY26E revenue model and H2 Arc platform ramp, updated realized reserve yield series ~3.63%, clarified native USDC gas mechanics with zero unbacked tokens, refined OCC Trust Charter scope and Fed master account access nuance, accurate statutory placement of stablecoin yield restrictions under GENIUS Act §4(a)(11), and expanded competitive matrix with bank deposit tokens and Stripe/Bridge).
+- Updated: `investing-fundamentals/company-analyses/crcl-3-investment-memo.md` (Restated 3-year valuation framework incorporating explicit tax, SBC dilution, and calibrated shares ~270M -> 285M FY28: $100.80 Base / $192.50 Bull / $21.60 Bear price targets, probability-weighted expected value $107.89 (+50.9% return), added Depeg/Run risk & Tokenized-MMF substitution to Risk Matrix, and updated 12-month KPI watch list).
+- Refactored: `investing-fundamentals/company-analyses/CRCL.md` (Converted into a clean, concise routing hub with YAML frontmatter, eliminating duplicated/divergent legacy metrics).
+- Updated: `log.md`
+
+## [2026-08-19] create | Custom AI Silicon & Optical Networking: Google-Marvell $120B Deal, Broadcom Impact, and Optical Supply Chain Matrix
+
+- Created: `investing-fundamentals/company-analyses/comparisons/google-marvell-broadcom-optical-20260819.md`
+- Synthesized the Google–Marvell ($MRVL) $120B lifetime custom AI silicon agreement (custom inference accelerators, custom TPU NICs, storage/memory controllers, and the 59M share / $12.2B performance equity warrant structure).
+- Documented supply chain disruption across Broadcom ($AVGO) (breaking the sole-source TPU monopoly, margin compression, AMD TPU v10 co-design leaks, VMware CVE-2026-59310 zero-day, and XPV financing credit risks), Astera Labs ($ALAB) (custom controller IC substitution), and Nvidia ($NVDA) (internal inference workload displacement).
+- Analyzed the optical networking selloff following Fabrinet's ($FN) Q1 FY27 guidance deceleration (-20% drop), mapping direct vs. indirect exposure across pluggable module assemblers ($AAOI — high risk) vs. upstream laser and physical materials leaders ($LITE, $COHR — indispensable InP/EML/CW laser moats).
+- Updated: `investing-macro/market-newsletter-digest-2026-08-19.md` (added Section 3 covering custom AI silicon and optical transceiver selloff)
+- Updated: `index.md` (indexed comparison document and updated August 19 digest description)
+- Updated: `log.md`
+
+## [2026-08-19] update | CRCL company analysis pipeline (CLARITY Act Senate vote, Arc L1 revenue models, SEC safe harbor)
+
+- Updated: `investing-fundamentals/company-analyses/crcl-2-equity-report.md` (incorporated the September 15 Senate CLARITY Act cloture vote, SEC Regulation Crypto Assets safe harbor rules, U.S. Treasury long-end buyback doubling, and multi-year Arc L1 platform revenue modeling: $310M–$330M FY26, $550M–$700M FY27, $800M–$1.0B+ FY28 with 80%+ contribution margin).
+- Updated: `investing-fundamentals/company-analyses/crcl-3-investment-memo.md` (highlighted the mid-September dual catalyst window—Sept 15 CLARITY Act vote and Sept 16 Arc mainnet launch; updated scenario matrix, KPI watch list, and bank deposit-flight yield restriction risks).
+- Updated: `investing-fundamentals/company-analyses/CRCL.md` (refreshed overview and fundamental analysis with latest Arc and legislative developments).
+- Updated: `log.md`
+
+## [2026-08-19] ingest | Market and Investment Newsletter Digest — August 19, 2026
+
+- Created / Updated: `investing-macro/market-newsletter-digest-2026-08-19.md`
+- Synthesized Michael Parekh's *AI: Reset to Zero #138* ("‘Gaming the System’ for AI: Nvidia, OpenAI & Anthropic"): Nvidia's $500B Wall Street financing consortium (Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR), OpenAI's $7B self-funded pre-IPO tender offer ($852B valuation), Anthropic's $9.1B–$16.1B compute agreement with Riot Platforms, and historical parallels to the 1870s transcontinental railroad capital buildout.
+- Added analysis of the August 19 crypto market surge (BTC >$68k, ETH, SOL, crypto equities): U.S. Treasury's announcement doubling long-end debt buybacks ($2B to $4B+ per operation), the SEC's proposed "Regulation Crypto Assets" safe harbor rules, and the cascading $1.44B short squeeze.
+- Updated: `index.md` (indexed under Macro section)
+- Updated: `log.md`
+
+## [2026-08-18] create | Global Liquidity Framework — The Asynchronous Business Cycle and Asset Allocation
+
+- Created: `investing-macro/macro-frameworks/global-liquidity-framework.md`
+- Synthesized Michael Howell's Global Liquidity Framework: the two circulations of money (financial vs. real economy), the 15–18 month asynchronous business cycle lag, momentum vs. level dynamics, and late-cycle asset allocation (commodities and defensives vs. high-multiple tech and long bonds).
+- Included rigorous empirical assessment for institutional investors (Marshallian $k$, $300T+ debt refinancing mechanics, BIS research, monetary transmission lags, historical late-cycle precedents from 2000 and 2007–2008, plus structural limitations: fiscal dominance, measurement ambiguity, and non-linear crash risk).
+- Updated: `investing-macro/macro-frameworks/README.md` (added cross-link under Michael Howell section)
+- Updated: `index.md` (indexed under Macro section)
+- Updated: `log.md`
+
+## [2026-08-14] ingest | Market and Investment Newsletter Digest — August 14, 2026
+
+- Created: `investing-macro/market-newsletter-digest-2026-08-14.md` (Digest of key themes: Bob Elliott on the AI "expectations mania", post-WWII record 25% annual earnings growth assumption, margin expansion paradox and 8% productivity impossibility, $5T circular vendor loop vs. $130B–$150B real AI revenues, 2008 banking contagion parallel, the "Kellogg's" real-economy test, -15% household savings math, and portfolio defense across TIPS, gold, European/Japanese value, and biotech)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -518,9 +645,17 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-08-14] ingest | Market and Investment Newsletter Digest — August 14, 2026
+## [2026-08-14] create | CRCL company analysis pipeline (Q2 2026 results, Arc L1 launch, GENIUS Act & MiCA)
 
-- Created: `investing-macro/market-newsletter-digest-2026-08-14.md` (Digest of key themes: Bob Elliott on the AI "expectations mania", post-WWII record 25% annual earnings growth assumption, margin expansion paradox and 8% productivity impossibility, $5T circular vendor loop vs. $130B–$150B real AI revenues, 2008 banking contagion parallel, the "Kellogg's" real-economy test, -15% household savings math, and portfolio defense across TIPS, gold, European/Japanese value, and biotech)
+- Created: `investing-fundamentals/company-analyses/crcl-1-document-sources.md` (Ingested IPO Form S-1/A, FY2025 10-K, Q1 & Q2 2026 10-Qs, OCC National Trust charter, EU MiCA EMI license, BlackRock USDXX audit attestations, and Coinbase renewal agreement; computed sha256 `53ff5f1ca17ffee43f2c1cc966e82b8ffaab0720db27c589adb000fe06d9f1c3`)
+- Created: `investing-fundamentals/company-analyses/crcl-2-equity-report.md` (Full equity research synthesis: $73.3B USDC circulation, $14.8T quarterly on-chain volume, Q2 2026 financials $701M rev / $143M Adj EBITDA, Arc Blockchain institutional L1 launch on Sept 16, 2026, GENIUS Act and MiCA regulatory moat, Coinbase revenue-share mechanics, and competitive benchmarking vs Tether, Stripe Bridge, and USDG)
+- Created: `investing-fundamentals/company-analyses/crcl-3-investment-memo.md` (High-conviction BUY investment memo at ~$71.50: 3-year Sensitivity Matrix modeling $116.80 Base / $261.00 Bull price targets, Interest Rate Easing and Coinbase dependency risk framework, Pre-Mortem failure mode, and 12-month KPI watch list)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-08-13] ingest | Market and Investment Newsletter Digest — July 28, 2026
+
+- Created: `investing-macro/market-newsletter-digest-2026-07-28.md` (Digest of key themes: Torsten Slok on $275B+ hyperscaler CapEx consensus revisions and Big Tech FCF margin compression, off-balance-sheet GPU debt financing, John Hwang on why Nvidia and Microsoft back open-weights to counter Anthropic and AWS/GCP custom chips, Moonshot Kimi K3 $20M revenue sharing licensing, Kospi 11% circuit-breaker flash crash and semiconductor memory bullwhip, Cadence Design Systems record $6.2B backlog, pre-FOMC FCI looseness vs. Kevin Warsh rate hike risks, Palantir 2Q26 AIP growth momentum, DoorDash $82B local commerce moat, Netflix ad-tier unit economics, a16z on physical AI simulation moats, AI Street on $200M multi-agent quant portfolios, and Adam Tooze on compute dollar hegemony)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -531,33 +666,10 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-08-13] ingest | Market and Investment Newsletter Digest — July 28, 2026
+## [2026-07-28] ingest | Monetary Matters — Next Financial Crisis Unlikely To Start in Private Markets | Nicholas Brooks
 
-- Created: `investing-macro/market-newsletter-digest-2026-07-28.md` (Digest of key themes: Torsten Slok on $275B+ hyperscaler CapEx consensus revisions and Big Tech FCF margin compression, off-balance-sheet GPU debt financing, John Hwang on why Nvidia and Microsoft back open-weights to counter Anthropic and AWS/GCP custom chips, Moonshot Kimi K3 $20M revenue sharing licensing, Kospi 11% circuit-breaker flash crash and semiconductor memory bullwhip, Cadence Design Systems record $6.2B backlog, pre-FOMC FCI looseness vs. Kevin Warsh rate hike risks, Palantir 2Q26 AIP growth momentum, DoorDash $82B local commerce moat, Netflix ad-tier unit economics, a16z on physical AI simulation moats, AI Street on $200M multi-agent quant portfolios, and Adam Tooze on compute dollar hegemony)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-28] ingest | Market and Investment Newsletter Digest — July 27, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-27.md` (Digest of key themes: $250B+ hyperscaler CapEx scrutiny vs 1990s telecom overbuild, circular vendor financing, OpenAI autonomous coding agents, MSFT Q2 Copilot preview, and Bitcoin miner power pivot)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-28] ingest | Market and Investment Newsletter Digest — July 26, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-26.md` (Digest of key themes: July FOMC collision & 4.70% 10-year Treasury yield spikes, Esther Yang macro analysis, sector rotation into value, Nvidia/Microsoft open-source alliance, and SaaS unit economics compression)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-28] ingest | Market and Investment Newsletter Digest — July 25, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-25.md` (Digest of key themes: "AI is Oil Not God" resource commoditization, open-source AI lobbying wars, tokenized stocks 5x boom, Indium-Phosphide substrate bottlenecks, and Tech Schism 22x MSFT options carry positioning)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-28] ingest | Market and Investment Newsletter Digest — July 24, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-24.md` (Digest of key themes: bond yield signals, George Noble rate warnings, TPW Advisory investment era discernment, oil supply revenge, Claude Opus 5 vibe checks, and Schiff vs Pomp gold/BTC bets)
+- Created: `investing-macro/podcasts/mv-next-financial-crisis-unlikely-to-start-in-private-markets-20260723.md` (Detailed summary of Nicholas Brooks on private credit fundamentals, conservative 40-50% LTVs, $1.2T+ PE sponsor dry powder, absence of mark-to-market bank run risks, and senior direct lending allocation)
+- Created: `trading/interviews/20260723-nicholas-brooks-monetary-matters-transcript.md` (Raw interview transcript with timestamps)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -567,52 +679,45 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-28] ingest | Monetary Matters — Next Financial Crisis Unlikely To Start in Private Markets | Nicholas Brooks
+## [2026-07-28] ingest | Market and Investment Newsletter Digest — July 24, 2026
 
-- Created: `investing-macro/podcasts/mv-next-financial-crisis-unlikely-to-start-in-private-markets-20260723.md` (Detailed summary of Nicholas Brooks on private credit fundamentals, conservative 40-50% LTVs, $1.2T+ PE sponsor dry powder, absence of mark-to-market bank run risks, and senior direct lending allocation)
-- Created: `trading/interviews/20260723-nicholas-brooks-monetary-matters-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-24.md` (Digest of key themes: bond yield signals, George Noble rate warnings, TPW Advisory investment era discernment, oil supply revenge, Claude Opus 5 vibe checks, and Schiff vs Pomp gold/BTC bets)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-27] ingest | Financial Sense — Jim Welsh on Gold's Next Leg, Oil, and Climbing Bond Yields | Jim Welsh
+## [2026-07-28] ingest | Market and Investment Newsletter Digest — July 25, 2026
 
-- Created: `investing-macro/podcasts/fs-golds-next-leg-oil-and-climbing-bond-yields-20260724.md` (Detailed summary of Jim Welsh on gold Elliott Wave 4 consolidation, Wave 5 upside targets, 10-year Treasury yields climbing past 5.0%+, and oil price second-wave inflation risks)
-- Created: `trading/interviews/20260724-jim-welsh-financial-sense-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-25.md` (Digest of key themes: "AI is Oil Not God" resource commoditization, open-source AI lobbying wars, tokenized stocks 5x boom, Indium-Phosphide substrate bottlenecks, and Tech Schism 22x MSFT options carry positioning)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-27] ingest | Excess Returns — It Only Happens at Bottoms | Andy Constan
+## [2026-07-28] ingest | Market and Investment Newsletter Digest — July 26, 2026
 
-- Created: `investing-options/podcasts/er-options-extreme-at-the-highs-20260718.md` (Detailed summary of Andy Constan on options market skew extremes at all-time highs, short dealer gamma squeezes, the "Size of the Pie" macro limit, and zero-cost collar hedging)
-- Created: `trading/interviews/20260718-andy-constan-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-26.md` (Digest of key themes: July FOMC collision & 4.70% 10-year Treasury yield spikes, Esther Yang macro analysis, sector rotation into value, Nvidia/Microsoft open-source alliance, and SaaS unit economics compression)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-27] ingest | 22V Research — AI’s Speed Crash: The Structural Bull Market Isn’t Over | Jordi Visser
+## [2026-07-28] ingest | Market and Investment Newsletter Digest — July 27, 2026
 
-- Created: `investing-macro/podcasts/22v-ais-speed-crash-structural-bull-market-20260725.md` (Detailed summary of Jordi Visser on algorithmic speed crashes, systematic volatility de-leveraging, ~16% S&P 500 earnings beat rates, credit spread stability, and long-term HBM memory scarcity through 2030)
-- Created: `trading/interviews/20260725-jordi-visser-22v-research-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-27.md` (Digest of key themes: $250B+ hyperscaler CapEx scrutiny vs 1990s telecom overbuild, circular vendor financing, OpenAI autonomous coding agents, MSFT Q2 Copilot preview, and Bitcoin miner power pivot)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-27] ingest | Excess Returns — We Asked the Man Who Mapped the AI Economy If the Boom Is Real | Kai Wu & Azeem Azhar
+## [2026-07-27] create | Individual Bonds vs. Bond Funds — Mark-to-Market, Real Returns, and the Annuity Math
 
-- Created: `investing-macro/podcasts/er-we-asked-the-man-who-mapped-the-ai-economy-20260721.md` (Detailed summary of Kai Wu & Azeem Azhar on mapping the AI value chain, hardware profit concentration, hyperscaler ROIC compression, open-source LLM price deflation, and enterprise productivity lag)
-- Created: `trading/interviews/20260721-azeem-azhar-excess-returns-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
+- Created: `investing-quant/concepts/individual-bonds-vs-bond-funds.md`
+- Filed from a conversation evaluating a financial-planning blog claim about TLT/IEF
+  mark-to-market losses vs. individual Treasuries held to maturity; covers real vs.
+  nominal YTM, the present-value annuity factor derivation, and a worked real-loss
+  example ($100k, 1.9% coupon, 30yr, 3% inflation).
+- Updated: `investing-macro/bond-supply-tsunami-2026.md` (added cross-link in section 4, individual long-bond holders)
+- Updated: `index.md` (new page listed under Quant > Concepts; page count 178 → 179)
 - Updated: `log.md`
 
-## [2026-07-27] ingest | RiskReversal Media — This Is How the AI Bubble Actually Pops | Dan Nathan & Guy Adami
+## [2026-07-27] ingest | What's Next For Markets — Software's AI Reckoning | Billy Fitzsimmons
 
-- Created: `investing-macro/podcasts/rr-this-is-how-the-ai-bubble-actually-pops-20260724.md` (Detailed summary of Dan Nathan & Guy Adami on hyperscaler CapEx prisoner's dilemma, semiconductor bullwhip effect, memory market volatility, and Nifty Fifty historical bubble parallels)
-- Created: `trading/interviews/20260724-dan-nathan-guy-adami-riskreversal-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-27] ingest | Basis Points — Google CRUSHES Earnings, CapEx Debate & Tesla Q2 | Steven Fiorillo & Amit
-
-- Created: `investing-fundamentals/podcasts/bp-google-crushes-earnings-capex-debate-20260724.md` (Detailed summary of Steven Fiorillo & Amit on Google Q2 earnings blowout, GCP 36% margins, SpaceX GPU compute rental, Tesla Q2 margin collapse to 1.4%, and Microsoft FY27 $220B–$240B CapEx guide)
-- Created: `trading/interviews/20260724-steven-fiorillo-amit-basis-points-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-fundamentals/podcasts/wnfm-softwares-ai-reckoning-20260726.md` (Detailed summary of Billy Fitzsimmons on enterprise software valuation compression, seat-based SaaS vs vibe coding disruption, hyperscaler CapEx wars, and OpenAI/Anthropic IPO catalysts)
+- Created: `trading/interviews/20260726-billy-fitzsimmons-whats-next-for-markets-transcript.md` (Raw interview transcript with timestamps)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -623,10 +728,45 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-27] ingest | What's Next For Markets — Software's AI Reckoning | Billy Fitzsimmons
+## [2026-07-27] ingest | Basis Points — Google CRUSHES Earnings, CapEx Debate & Tesla Q2 | Steven Fiorillo & Amit
 
-- Created: `investing-fundamentals/podcasts/wnfm-softwares-ai-reckoning-20260726.md` (Detailed summary of Billy Fitzsimmons on enterprise software valuation compression, seat-based SaaS vs vibe coding disruption, hyperscaler CapEx wars, and OpenAI/Anthropic IPO catalysts)
-- Created: `trading/interviews/20260726-billy-fitzsimmons-whats-next-for-markets-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-fundamentals/podcasts/bp-google-crushes-earnings-capex-debate-20260724.md` (Detailed summary of Steven Fiorillo & Amit on Google Q2 earnings blowout, GCP 36% margins, SpaceX GPU compute rental, Tesla Q2 margin collapse to 1.4%, and Microsoft FY27 $220B–$240B CapEx guide)
+- Created: `trading/interviews/20260724-steven-fiorillo-amit-basis-points-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-27] ingest | RiskReversal Media — This Is How the AI Bubble Actually Pops | Dan Nathan & Guy Adami
+
+- Created: `investing-macro/podcasts/rr-this-is-how-the-ai-bubble-actually-pops-20260724.md` (Detailed summary of Dan Nathan & Guy Adami on hyperscaler CapEx prisoner's dilemma, semiconductor bullwhip effect, memory market volatility, and Nifty Fifty historical bubble parallels)
+- Created: `trading/interviews/20260724-dan-nathan-guy-adami-riskreversal-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-27] ingest | Excess Returns — We Asked the Man Who Mapped the AI Economy If the Boom Is Real | Kai Wu & Azeem Azhar
+
+- Created: `investing-macro/podcasts/er-we-asked-the-man-who-mapped-the-ai-economy-20260721.md` (Detailed summary of Kai Wu & Azeem Azhar on mapping the AI value chain, hardware profit concentration, hyperscaler ROIC compression, open-source LLM price deflation, and enterprise productivity lag)
+- Created: `trading/interviews/20260721-azeem-azhar-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-27] ingest | 22V Research — AI’s Speed Crash: The Structural Bull Market Isn’t Over | Jordi Visser
+
+- Created: `investing-macro/podcasts/22v-ais-speed-crash-structural-bull-market-20260725.md` (Detailed summary of Jordi Visser on algorithmic speed crashes, systematic volatility de-leveraging, ~16% S&P 500 earnings beat rates, credit spread stability, and long-term HBM memory scarcity through 2030)
+- Created: `trading/interviews/20260725-jordi-visser-22v-research-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-27] ingest | Excess Returns — It Only Happens at Bottoms | Andy Constan
+
+- Created: `investing-options/podcasts/er-options-extreme-at-the-highs-20260718.md` (Detailed summary of Andy Constan on options market skew extremes at all-time highs, short dealer gamma squeezes, the "Size of the Pie" macro limit, and zero-cost collar hedging)
+- Created: `trading/interviews/20260718-andy-constan-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-27] ingest | Financial Sense — Jim Welsh on Gold's Next Leg, Oil, and Climbing Bond Yields | Jim Welsh
+
+- Created: `investing-macro/podcasts/fs-golds-next-leg-oil-and-climbing-bond-yields-20260724.md` (Detailed summary of Jim Welsh on gold Elliott Wave 4 consolidation, Wave 5 upside targets, 10-year Treasury yields climbing past 5.0%+, and oil price second-wave inflation risks)
+- Created: `trading/interviews/20260724-jim-welsh-financial-sense-transcript.md` (Raw interview transcript with timestamps)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -654,81 +794,9 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-19] ingest | Market Newsletter Digest — July 19, 2026
+## [2026-07-19] ingest | Market Newsletter Digest — July 14, 2026
 
-- Created: `investing-macro/market-newsletter-digest-2026-07-19.md` (Detailed digest of macro and fundamental themes from July 19, 2026 newsletters, covering Stripe and Advent's $53B+ buyout offer for PayPal; Moonshot AI's 2.8T Kimi K3 MoE release knocking Google Gemini out of top-3 and inferring SaaS-beating closed model API unit economics; NAND KV cache offloading; Jim Chanos's warning on hyperscaler ROIIC dropping to 10% and Micron failing the NVIDIA ceiling rule; Nebius's asset-light pivot and CoreWeave hedging; ASML and TSMC beat-and-raise guidance vs SOXX selloff; DTCC live tokenized stock trading launch for October 2026; Jenoptik AG's micro-optics explosion; ATI's SpaceX Starship superalloy chokepoint; Kalshi GPU compute forward curves; and US power grid deficit analysis)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 18, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-18.md` (Detailed digest of macro and fundamental themes from July 18, 2026 newsletters, covering the Moonshot Kimi K3 2.8T MoE launch; AI price wars undercutting frontier margins; extreme RPO concentration in hyperscaler backlogs; Jim Chanos's ROIC warnings and neocloud pivot to asset-light; Ray Dalio's 75% bubble gauge reading; Kevin Warsh's Congressional trilemma; Strait of Hormuz conflict and Brent crude rising above $85/bbl; TSMC's capex raise and pricing caution; SpaceX share slumps; and Netflix's Q2 earnings and multiple realignment)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 12, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-12.md` (Detailed digest of macro and fundamental themes from July 12, 2026 newsletters, covering the Yen carry recompression trade setup; equity repo market leverage stress and dealers charging +150bps over SOFR; Tom Lee's S&P 8,000 year-end target and H2 correction risk; combined free cash flow rollover of major tech hyperscalers; TSMC's grating coupler failures causing Nvidia to shift to Tower Semiconductor's silicon photonics NPO; local data center environmental backlash; China's MIIT banning Claude Code; SiliconFlow's token economics; SpaceX's exit liquidity lockup expiration; Jersey Mike's $12B franchise S1 model; and Fannie/Freddie housing capital reforms)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 11, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-11.md` (Detailed digest of macro and fundamental themes from July 11, 2026 newsletters, covering the BOJ's reserve losses and reverse carry trade dynamics on JGB 30-year 4% coupons; Kevin Warsh's hawkish Fed hold with dot plot suggesting 3.8% year-end rates; SK Hynix's $26.5B IPO Nasdaq debut; Oracle's S&P credit downgrade to one notch above junk on $42B cash burn and OpenAI reliance; Math & Markets' software-to-silicon margin transfer mechanism and favouring of ADBE/INTU over SNOW/DDOG/ZS; Meta's Muse Spark 1.1 model launch priced 4-8x cheaper than Anthropic; Sovereign AI push via Magna AI; California's upcoming 7.25%+ sales tax on SaaS; and the Strait of Hormuz crisis oil and rates dynamics)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 5, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-05.md` (Detailed digest of macro and fundamental themes from July 5, 2026 newsletters, covering TSCS Research's 1987 Gulf tanker-war parallel showing how crisis costs migrate into insurance/labor markets rather than the headline oil price; SpotGamma's options-flow confirmation of the semis-to-software rotation; Robinhood's decentralized-prime-broker ambitions behind its 7% Earn yield product; an institutional research roundup covering $8.6T of unicorns and 1999-level margin debt; James Lavish on Warsh's hawkish Sintra rhetoric masking a dovish inflation-measurement pivot; MacroVisor's half-time oil-oversupply call following the UAE's OPEC+ exit; Etched's and Beacon's founder profiles; and quick hits on liquidity-over-valuation and America's 250th as polycrisis)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 4, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-04.md` (Detailed digest of macro and fundamental themes from July 4, 2026 newsletters — a lighter, holiday-shortened day — covering the real-time semiconductor/memory sell-off triggered by Meta's compute-resale news alongside a soft June jobs report and Korea's third trading halt in three weeks; Nvidia's newly-named vendor-financing "backstop" program for neoclouds amid hyperscalers becoming chip competitors; a rigorous statistical rebuttal of the SMH/IGV correlation trade; Ironsides' H1 2026 macro recap and case for September/December rate cuts; a CDO-to-IPO structural parallel drawn from SpaceX's record $75B offering; a record week of European defense contract awards (Saab, BAE, KNDS's IPO postponement); and quick hits on small-cap positioning and tariff-vs-war market impact)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 3, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-03.md` (Detailed digest of macro and fundamental themes from July 3, 2026 newsletters, covering the bear/bull debate over Meta's compute-resale plan (George Noble vs. Clouded Judgement); Bonner Private Research's "AI Sovereignty" thesis built on Alex Karp's attack on subscription AI; the widening memory shortage (DRAM antitrust suits, the Apple-Micron public feud, Qualcomm's HBC workaround); Broadcom's custom AI accelerator deep dive (Google/Anthropic/OpenAI XPU deals); Doomberg on sanctions backfiring via Huawei's EUV-free chip roadmap; James Wang's data on America's 250th-anniversary business-formation boom; Michael Gayed's CLO ETF pick built for a higher-for-longer Fed; Shopee's multi-platform defense against TikTok Shop in Southeast Asia; and quick hits from TSOH and Torsten Slok on middle-market rate stress)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 2, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-02.md` (Detailed digest of macro and fundamental themes from July 2, 2026 newsletters, covering Sintra's coordinated retirement of Fed forward guidance ahead of June payrolls; Michael Gayed's Q3-open recap of gold's worst quarter since 2013 against the SOX's best quarter ever and a 40-year yen low; Charlie Bilello's consumer-facing "hundred-year flood" memory chipflation data; SemiAnalysis and Big Technology dissecting Meta's neocloud compute-resale pivot alongside Karp's frontier-lab attack; Arm CEO Rene Haas on agentic AI's CPU core-count economics; Matt Levine on Unicode homoglyph stock manipulation and universal basic AI; the OpenAI advertising "Devil's Triangle" of contradictory monetization pressures; Nicolas Colin's local-model thesis on the coming Big AI unwind; and Jimmy's Journal on Amazon's logistics moat as an agentic-commerce moat)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 1, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-01.md` (Detailed digest of macro and fundamental themes from July 1, 2026 newsletters, covering Fed Chair Warsh's Sintra debut amid a split desk read on Iran-Doha talks; Matt Levine's "Egg Libor" benchmark-manipulation piece; Michael Gayed's 50-year survey showing every equity crisis was a currency crisis first; the AI chipflation story confirmed by Apple's DRAM-driven price hikes and Korea's $576B chip investment; Meta's compute release-valve monetization strategy; Rebound Capital's Amazon robotics/advertising deep dive; Chris Dover on OpenAI's private-market strategy versus SpaceX's IPO, the YC token investment, and the Jalapeño chip; Adam Tooze on China's capital-controlled wealth disconnect from the AI boom; EPB Research on the structural decline in American housing investment; and a speculative Greenspan/AI-monetary-policy piece)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — June 30, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-06-30.md` (Detailed digest of macro and fundamental themes from June 30, 2026 newsletters, covering the Q2 quarter-end close with historic single-stock dispersion, yen at 1986 lows, and the Supreme Court's Fed-independence ruling on Governor Cook; Matt Levine on Susquehanna's insider-trading suit; the AI ROI runway debate between Torsten Slok's margin warning and SemiAnalysis's token-budgeting field data; Part II of the memory supercycle covering failed US export controls and Korea's $880B-$3.1T AI investment plan; Netflix's re-rating thesis alongside Comcast's NBCUniversal spinoff; the Q2 crypto wrap and Bitcoin-bailout speculation around Strategy's capital framework; Ed Zitron and the BIS on AI systemic financial risk; Michael Gayed's extreme healthcare-vs-tech defensive rotation signal; Stripe Sessions' agentic commerce demos and cloud-agent adoption at OpenAI/Anthropic/Cursor; and Danielle DiMartino Booth on the K-shaped economy cracking)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — June 29, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-06-29.md` (Detailed digest of macro and fundamental themes from June 29, 2026 newsletters, covering the Iran ceasefire's fragile weekend collapse-and-reversal ahead of Fed Chair Warsh's Sintra debut and June NFP, Matt Levine on record stock market leverage, SpearPoint's K-shaped mid-year AI-capex read, the memory/HBM supercycle and DDR price spikes, the hyperscaler "tollbooth" token-optimization thesis and The Diff's agent-minute measurement problem, BTC ETF's 7th straight outflow week and Strategy's mNAV compression, Axon Enterprise and Cloudflare's agentic-internet thesis, the private equity consensus-trade unwind, China-EU relations and China's hydropower/chip dominance, Topdown Charts' bullish ex-US/small-cap positioning, and email security's shift to an identity-graph architecture)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 17, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-17.md` (Detailed digest of macro and fundamental themes from July 17, 2026 newsletters, covering Moonshot's Kimi K3 2.8T parameters release, the AI model price crash, OpenAI compute chief tenancy model, data center GW boom and PJM 6.5GW power deficit, the circular RPO backlog loop, Kospi 25% correction, the SOX entering a bear market, Netflix Q2 earnings drop, and Kevin Warsh's testimony vs the Strait of Hormuz oil shock)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-19] ingest | Market Newsletter Digest — July 16, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-16.md` (Detailed digest of macro and fundamental themes from July 16, 2026 newsletters, covering TSMC's Q2 earnings and $100B Arizona expansion, ASML's Q2 gross margin beat and High-NA 18A qualification, the $638B AI capex debt supercycle, GPU-to-power bottleneck shift, Menlo Ventures' Anthropic SPV, SpaceX IPO short selling dynamics, the SOX breaking $12,000, Howard Marks on AI autonomy and the 2008 meltdown playbook, June PPI, and Bank of Japan's reverse carry trade lessons)
+- Created: `investing-macro/market-newsletter-digest-2026-07-14.md` (Detailed digest of macro and fundamental themes from July 14, 2026 newsletters, covering Strait of Hormuz tolling proposals and crude price targets, Russian refinery throughput collapse and low-sulfur diesel shortages, Apple's IP theft lawsuit against OpenAI, Meta capex increases vs Fred Hickey bubble warning, SK Hynix Nasdaq listing and GraniteShares leveraged ETFs, Kevin Warsh's hawkish Fed testimony, and ATI as a space-era specialty superalloy chokepoint)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -738,155 +806,81 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-19] ingest | Market Newsletter Digest — July 14, 2026
+## [2026-07-19] ingest | Market Newsletter Digest — July 16, 2026
 
-- Created: `investing-macro/market-newsletter-digest-2026-07-14.md` (Detailed digest of macro and fundamental themes from July 14, 2026 newsletters, covering Strait of Hormuz tolling proposals and crude price targets, Russian refinery throughput collapse and low-sulfur diesel shortages, Apple's IP theft lawsuit against OpenAI, Meta capex increases vs Fred Hickey bubble warning, SK Hynix Nasdaq listing and GraniteShares leveraged ETFs, Kevin Warsh's hawkish Fed testimony, and ATI as a space-era specialty superalloy chokepoint)
+- Created: `investing-macro/market-newsletter-digest-2026-07-16.md` (Detailed digest of macro and fundamental themes from July 16, 2026 newsletters, covering TSMC's Q2 earnings and $100B Arizona expansion, ASML's Q2 gross margin beat and High-NA 18A qualification, the $638B AI capex debt supercycle, GPU-to-power bottleneck shift, Menlo Ventures' Anthropic SPV, SpaceX IPO short selling dynamics, the SOX breaking $12,000, Howard Marks on AI autonomy and the 2008 meltdown playbook, June PPI, and Bank of Japan's reverse carry trade lessons)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | Market Newsletter Digest — July 13, 2026
+## [2026-07-19] ingest | Market Newsletter Digest — July 17, 2026
 
-- Created: `investing-macro/market-newsletter-digest-2026-07-13.md` (Detailed digest of macro and fundamental themes from July 13, 2026 newsletters, covering the Maradona Theory of Interest Rates, AI Tokens per Watt optimization, Upstream/Downstream supply chain divergence, and Texas Stock Exchange)
+- Created: `investing-macro/market-newsletter-digest-2026-07-17.md` (Detailed digest of macro and fundamental themes from July 17, 2026 newsletters, covering Moonshot's Kimi K3 2.8T parameters release, the AI model price crash, OpenAI compute chief tenancy model, data center GW boom and PJM 6.5GW power deficit, the circular RPO backlog loop, Kospi 25% correction, the SOX entering a bear market, Netflix Q2 earnings drop, and Kevin Warsh's testimony vs the Strait of Hormuz oil shock)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Compound and Friends #251 — You're About to See the Real AI Winners Stand Up | Jonathan Thomas
+## [2026-07-19] ingest | Market Newsletter Digest — June 29, 2026
 
-- Created: `investing-macro/podcasts/tcaf-real-ai-winners-stand-up-20260717.md` (Detailed summary of TCAF episode 251 with Jonathan Thomas on the active ETF structural tailwind, the shift from AI creators to adopters, capex bubble lessons, and American Century's philanthropic model)
-- Created: `trading/interviews/20260717-jonathan-thomas-tcaf-transcript.md` (Raw transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-06-29.md` (Detailed digest of macro and fundamental themes from June 29, 2026 newsletters, covering the Iran ceasefire's fragile weekend collapse-and-reversal ahead of Fed Chair Warsh's Sintra debut and June NFP, Matt Levine on record stock market leverage, SpearPoint's K-shaped mid-year AI-capex read, the memory/HBM supercycle and DDR price spikes, the hyperscaler "tollbooth" token-optimization thesis and The Diff's agent-minute measurement problem, BTC ETF's 7th straight outflow week and Strategy's mNAV compression, Axon Enterprise and Cloudflare's agentic-internet thesis, the private equity consensus-trade unwind, China-EU relations and China's hydropower/chip dominance, Topdown Charts' bullish ex-US/small-cap positioning, and email security's shift to an identity-graph architecture)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Compound and Friends #250 — The Real Ticking Time Bomb | Michael Cembalest
+## [2026-07-19] ingest | Market Newsletter Digest — June 30, 2026
 
-- Created: `investing-macro/podcasts/tcaf-the-real-ticking-time-bomb-20260710.md` (Detailed summary of TCAF episode 250 with Michael Cembalest on the 2031-2032 crossover point, capex margins, custom ASICs TCO improvements, and cybersecurity vulnerabilities)
-- Created: `trading/interviews/20260710-michael-cembalest-tcaf-transcript.md` (Raw transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-06-30.md` (Detailed digest of macro and fundamental themes from June 30, 2026 newsletters, covering the Q2 quarter-end close with historic single-stock dispersion, yen at 1986 lows, and the Supreme Court's Fed-independence ruling on Governor Cook; Matt Levine on Susquehanna's insider-trading suit; the AI ROI runway debate between Torsten Slok's margin warning and SemiAnalysis's token-budgeting field data; Part II of the memory supercycle covering failed US export controls and Korea's $880B-$3.1T AI investment plan; Netflix's re-rating thesis alongside Comcast's NBCUniversal spinoff; the Q2 crypto wrap and Bitcoin-bailout speculation around Strategy's capital framework; Ed Zitron and the BIS on AI systemic financial risk; Michael Gayed's extreme healthcare-vs-tech defensive rotation signal; Stripe Sessions' agentic commerce demos and cloud-agent adoption at OpenAI/Anthropic/Cursor; and Danielle DiMartino Booth on the K-shaped economy cracking)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Compound and Friends #249 — Brian Belski Returns! | Brian Belski
+## [2026-07-19] ingest | Market Newsletter Digest — July 1, 2026
 
-- Created: `investing-macro/podcasts/tcaf-brian-belski-returns-20260703.md` (Detailed summary of TCAF episode 249 with Brian Belski on the S&P 7,000 target, secular bull market parameters, small-cap earnings acceleration, and regional bank M&A)
-- Created: `trading/interviews/20260703-brian-belski-tcaf-transcript.md` (Raw transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-01.md` (Detailed digest of macro and fundamental themes from July 1, 2026 newsletters, covering Fed Chair Warsh's Sintra debut amid a split desk read on Iran-Doha talks; Matt Levine's "Egg Libor" benchmark-manipulation piece; Michael Gayed's 50-year survey showing every equity crisis was a currency crisis first; the AI chipflation story confirmed by Apple's DRAM-driven price hikes and Korea's $576B chip investment; Meta's compute release-valve monetization strategy; Rebound Capital's Amazon robotics/advertising deep dive; Chris Dover on OpenAI's private-market strategy versus SpaceX's IPO, the YC token investment, and the Jalapeño chip; Adam Tooze on China's capital-controlled wealth disconnect from the AI boom; EPB Research on the structural decline in American housing investment; and a speculative Greenspan/AI-monetary-policy piece)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Julia La Roche Show #391 — The Wrap: Bank Earnings and Oil Prices Soar | Chris Whalen
+## [2026-07-19] ingest | Market Newsletter Digest — July 2, 2026
 
-- Created: `investing-macro/podcasts/jlr-wrap-bank-earnings-and-oil-prices-soar-20260718.md` (Detailed summary of Chris Whalen's wrap on bank earnings disconnect, private credit systemic risks, and diesel shortages)
-- Created: `trading/interviews/20260718-chris-whalen-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-02.md` (Detailed digest of macro and fundamental themes from July 2, 2026 newsletters, covering Sintra's coordinated retirement of Fed forward guidance ahead of June payrolls; Michael Gayed's Q3-open recap of gold's worst quarter since 2013 against the SOX's best quarter ever and a 40-year yen low; Charlie Bilello's consumer-facing "hundred-year flood" memory chipflation data; SemiAnalysis and Big Technology dissecting Meta's neocloud compute-resale pivot alongside Karp's frontier-lab attack; Arm CEO Rene Haas on agentic AI's CPU core-count economics; Matt Levine on Unicode homoglyph stock manipulation and universal basic AI; the OpenAI advertising "Devil's Triangle" of contradictory monetization pressures; Nicolas Colin's local-model thesis on the coming Big AI unwind; and Jimmy's Journal on Amazon's logistics moat as an agentic-commerce moat)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Julia La Roche Show — Not A Normal Market | Ted Oakley
+## [2026-07-19] ingest | Market Newsletter Digest — July 3, 2026
 
-- Created: `investing-macro/podcasts/jlr-not-a-normal-market-20260716.md` (Detailed summary of Ted Oakley's macro perspectives on standard deviation equity metrics, capital preservation, and energy/gold miners)
-- Created: `trading/interviews/20260716-ted-oakley-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-03.md` (Detailed digest of macro and fundamental themes from July 3, 2026 newsletters, covering the bear/bull debate over Meta's compute-resale plan (George Noble vs. Clouded Judgement); Bonner Private Research's "AI Sovereignty" thesis built on Alex Karp's attack on subscription AI; the widening memory shortage (DRAM antitrust suits, the Apple-Micron public feud, Qualcomm's HBC workaround); Broadcom's custom AI accelerator deep dive (Google/Anthropic/OpenAI XPU deals); Doomberg on sanctions backfiring via Huawei's EUV-free chip roadmap; James Wang's data on America's 250th-anniversary business-formation boom; Michael Gayed's CLO ETF pick built for a higher-for-longer Fed; Shopee's multi-platform defense against TikTok Shop in Southeast Asia; and quick hits from TSOH and Torsten Slok on middle-market rate stress)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Julia La Roche Show — Market Rotten to the Core | Larry McDonald
+## [2026-07-19] ingest | Market Newsletter Digest — July 4, 2026
 
-- Created: `investing-macro/podcasts/jlr-market-rotten-to-the-core-20260714.md` (Detailed summary of Larry McDonald's interview on AI/data center capex rotations, commercial real estate credit risks, stablecoin policies, and the $6,500 gold target)
-- Created: `trading/interviews/20260714-larry-mcdonald-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-04.md` (Detailed digest of macro and fundamental themes from July 4, 2026 newsletters — a lighter, holiday-shortened day — covering the real-time semiconductor/memory sell-off triggered by Meta's compute-resale news alongside a soft June jobs report and Korea's third trading halt in three weeks; Nvidia's newly-named vendor-financing "backstop" program for neoclouds amid hyperscalers becoming chip competitors; a rigorous statistical rebuttal of the SMH/IGV correlation trade; Ironsides' H1 2026 macro recap and case for September/December rate cuts; a CDO-to-IPO structural parallel drawn from SpaceX's record $75B offering; a record week of European defense contract awards (Saab, BAE, KNDS's IPO postponement); and quick hits on small-cap positioning and tariff-vs-war market impact)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Julia La Roche Show — No Rate Hike Coming | Danielle DiMartino Booth
+## [2026-07-19] ingest | Market Newsletter Digest — July 5, 2026
 
-- Created: `investing-macro/podcasts/jlr-no-rate-hike-coming-20260709.md` (Detailed summary of Danielle DiMartino Booth's interview on labor market participation declines, consumer credit contraction, and Federal Reserve leadership transition)
-- Created: `trading/interviews/20260709-danielle-dimartino-booth-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-05.md` (Detailed digest of macro and fundamental themes from July 5, 2026 newsletters, covering TSCS Research's 1987 Gulf tanker-war parallel showing how crisis costs migrate into insurance/labor markets rather than the headline oil price; SpotGamma's options-flow confirmation of the semis-to-software rotation; Robinhood's decentralized-prime-broker ambitions behind its 7% Earn yield product; an institutional research roundup covering $8.6T of unicorns and 1999-level margin debt; James Lavish on Warsh's hawkish Sintra rhetoric masking a dovish inflation-measurement pivot; MacroVisor's half-time oil-oversupply call following the UAE's OPEC+ exit; Etched's and Beacon's founder profiles; and quick hits on liquidity-over-valuation and America's 250th as polycrisis)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Julia La Roche Show — Economic Statecraft Changed Everything | Michael Every
+## [2026-07-19] ingest | Market Newsletter Digest — July 11, 2026
 
-- Created: `investing-macro/podcasts/jlr-economic-statecraft-changed-everything-20260707.md` (Detailed summary of Michael Every's interview on the global shift toward economic statecraft, central bank models breakdown, and reshoring interest rate pressures)
-- Created: `trading/interviews/20260707-michael-every-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-11.md` (Detailed digest of macro and fundamental themes from July 11, 2026 newsletters, covering the BOJ's reserve losses and reverse carry trade dynamics on JGB 30-year 4% coupons; Kevin Warsh's hawkish Fed hold with dot plot suggesting 3.8% year-end rates; SK Hynix's $26.5B IPO Nasdaq debut; Oracle's S&P credit downgrade to one notch above junk on $42B cash burn and OpenAI reliance; Math & Markets' software-to-silicon margin transfer mechanism and favouring of ADBE/INTU over SNOW/DDOG/ZS; Meta's Muse Spark 1.1 model launch priced 4-8x cheaper than Anthropic; Sovereign AI push via Magna AI; California's upcoming 7.25%+ sales tax on SaaS; and the Strait of Hormuz crisis oil and rates dynamics)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Julia La Roche Show — A Recession Signal Just Triggered | Henrik Zeberg
+## [2026-07-19] ingest | Market Newsletter Digest — July 12, 2026
 
-- Created: `investing-macro/podcasts/jlr-a-recession-signal-just-triggered-20260702.md` (Detailed summary of Henrik Zeberg's interview on labor market indicators, swissblock recession frameworks, and the final equity melt-up to blow-off top)
-- Created: `trading/interviews/20260702-henrik-zeberg-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-12.md` (Detailed digest of macro and fundamental themes from July 12, 2026 newsletters, covering the Yen carry recompression trade setup; equity repo market leverage stress and dealers charging +150bps over SOFR; Tom Lee's S&P 8,000 year-end target and H2 correction risk; combined free cash flow rollover of major tech hyperscalers; TSMC's grating coupler failures causing Nvidia to shift to Tower Semiconductor's silicon photonics NPO; local data center environmental backlash; China's MIIT banning Claude Code; SiliconFlow's token economics; SpaceX's exit liquidity lockup expiration; Jersey Mike's $12B franchise S1 model; and Fannie/Freddie housing capital reforms)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | The Julia La Roche Show #383 — Andrew Pancholi: Smart Money Is Quietly Exiting Stocks | Andrew Pancholi
+## [2026-07-19] ingest | Market Newsletter Digest — July 18, 2026
 
-- Created: `investing-macro/podcasts/jlr-smart-money-exiting-stocks-20260630.md` (Detailed summary of The Julia La Roche Show interview with Andrew Pancholi on mathematical macro cycles, smart money outflows in Dow futures, $183 oil targets, and $6,900 gold by March 2027)
-- Created: `trading/interviews/20260630-andrew-pancholi-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-18.md` (Detailed digest of macro and fundamental themes from July 18, 2026 newsletters, covering the Moonshot Kimi K3 2.8T MoE launch; AI price wars undercutting frontier margins; extreme RPO concentration in hyperscaler backlogs; Jim Chanos's ROIC warnings and neocloud pivot to asset-light; Ray Dalio's 75% bubble gauge reading; Kevin Warsh's Congressional trilemma; Strait of Hormuz conflict and Brent crude rising above $85/bbl; TSMC's capex raise and pricing caution; SpaceX share slumps; and Netflix's Q2 earnings and multiple realignment)
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-18] ingest | MacroVoices #541 — Dr. Anas Alhajji: Bab el-Mandeb: The Next Oil Chokepoint Nobody's Watching | Dr. Anas Alhajji
+## [2026-07-19] ingest | Market Newsletter Digest — July 19, 2026
 
-- Created: `investing-macro/podcasts/mv-bab-el-mandeb-the-next-oil-chokepoint-20260716.md` (Detailed summary of MacroVoices interview with Dr. Anas Alhajji on Bab el-Mandeb chokepoints, the U.S.-Iran MOU collapse, Qatari helium semiconductor bottlenecks, and the fallacy of the SPR refill case)
-- Created: `trading/interviews/20260716-anas-alhajji-macrovoices-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-18] ingest | MacroVoices #540 — Adam Parker: Beyond the AI Bubble | Adam Parker
-
-- Created: `investing-macro/podcasts/mv-beyond-the-ai-bubble-20260709.md` (Detailed summary of MacroVoices interview with Adam Parker on equity earnings durability, energy tech-diversification, six AI revenue buckets, and quantitative pod microstructure)
-- Created: `trading/interviews/20260709-adam-parker-macrovoices-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-18] ingest | MacroVoices #539 — Rory Johnston: Hormuz Crisis, is it Really Over? | Rory Johnston
-
-- Created: `investing-macro/podcasts/mv-hormuz-crisis-is-it-really-over-20260702.md` (Detailed summary of MacroVoices interview with Rory Johnston on Middle East oil jailbreaks, China's 5M b/d import cut, refining bottlenecks, and WTI spec short positioning)
-- Created: `trading/interviews/20260702-rory-johnson-macrovoices-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-18] ingest | MacroVoices #538 — Lyn Alden: Is The War Really Over and What's Next For Markets? | Lyn Alden
-
-- Created: `investing-macro/podcasts/mv-is-the-war-really-over-20260625.md` (Detailed summary of MacroVoices interview with Lyn Alden on persistent deficits, stablecoin networks, AI energy bottlenecks, and the hawkish transition of the Fed under Kevin Warsh)
-- Created: `trading/interviews/20260625-lyn-alden-macrovoices-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-18] ingest | MacroVoices #537 — Brent Johnson: There's No Turning Back | Brent Johnson
-
-- Created: `investing-macro/podcasts/mv-theres-no-turning-back-20260618.md` (Detailed summary of MacroVoices interview with Brent Johnson on stablecoin hegemony, the imperial transition of the U.S., DXY milkshake dynamics, and agricultural fertilizer yield shocks)
-- Created: `trading/interviews/20260618-brent-johnson-macrovoices-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-18] ingest | MacroVoices #536 — Larry McDonald: The Migration is Upon us | Larry McDonald
-
-- Created: `investing-macro/podcasts/mv-the-migration-is-upon-us-20260611.md` (Detailed summary of MacroVoices interview with Larry McDonald on super core CPI inflation, the $3T tech lockup overhang, and rotations into value, healthcare, and energy)
-- Created: `trading/interviews/20260611-larry-mcdonald-macrovoices-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-18] ingest | Excess Returns — Jack Schwager on Timeless Lessons from the New Wave of Elite Traders | Jack Schwager
-
-- Created: `investing-macro/podcasts/er-lessons-from-new-wave-of-elite-traders-20260716.md` (Detailed summary of Excess Returns interview with Jack Schwager on video game reflexes, Sharpe critiques, and risk rules of modern Market Wizards)
-- Created: `trading/interviews/20260716-jack-schwager-excess-returns-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-18] ingest | Excess Returns — He Found 2.5 Million Missing Workers | Eric Pachman
-
-- Created: `investing-macro/podcasts/er-he-found-2-5-million-missing-workers-20260714.md` (Detailed summary of Excess Returns interview with Eric Pachman on survey response failures, Medicaid Care Economy tail risks, OER/Core CPI structural issues, and refining crack spreads)
-- Created: `trading/interviews/20260714-eric-pachman-excess-returns-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-18] ingest | Excess Returns — 33 Charts that Show Why a Market Correction May Be Coming | Jim Paulsen
-
-- Created: `investing-macro/podcasts/er-33-charts-market-correction-coming-20260710.md` (Detailed summary of Excess Returns interview with Jim Paulsen on stagnation in job growth indicators, Quasi Policy Index contraction, and rotation into Old Era equities)
-- Created: `trading/interviews/20260710-jim-paulsen-excess-returns-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-18] ingest | Excess Returns — Big Uptrend. Tech Momentum Cracking | Katie Stockton
-
-- Created: `investing-macro/podcasts/er-big-uptrend-tech-momentum-cracking-20260708.md` (Detailed summary of Excess Returns interview with Katie Stockton on short-term momentum consolidations, overbought stochastic sell signals, NYSE breadth, and the TAC ETF)
-- Created: `trading/interviews/20260708-katie-stockton-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/market-newsletter-digest-2026-07-19.md` (Detailed digest of macro and fundamental themes from July 19, 2026 newsletters, covering Stripe and Advent's $53B+ buyout offer for PayPal; Moonshot AI's 2.8T Kimi K3 MoE release knocking Google Gemini out of top-3 and inferring SaaS-beating closed model API unit economics; NAND KV cache offloading; Jim Chanos's warning on hyperscaler ROIIC dropping to 10% and Micron failing the NVIDIA ceiling rule; Nebius's asset-light pivot and CoreWeave hedging; ASML and TSMC beat-and-raise guidance vs SOXX selloff; DTCC live tokenized stock trading launch for October 2026; Jenoptik AG's micro-optics explosion; ATI's SpaceX Starship superalloy chokepoint; Kalshi GPU compute forward curves; and US power grid deficit analysis)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -897,10 +891,149 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-17] ingest | Excess Returns — We Asked a 20-Year Bond Manager Why AI CapEx Is a Fragile Loop | Jeff Klingelhofer
+## [2026-07-18] ingest | Excess Returns — Big Uptrend. Tech Momentum Cracking | Katie Stockton
 
-- Created: `investing-macro/podcasts/er-we-asked-a-20-year-bond-manager-20260706.md` (Detailed summary of Excess Returns interview with Jeff Klingelhofer on the AI capex wealth effect loop, the Fed's three mandates, and public vs. private credit quality)
-- Created: `trading/interviews/20260706-jeff-klingelhofer-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/podcasts/er-big-uptrend-tech-momentum-cracking-20260708.md` (Detailed summary of Excess Returns interview with Katie Stockton on short-term momentum consolidations, overbought stochastic sell signals, NYSE breadth, and the TAC ETF)
+- Created: `trading/interviews/20260708-katie-stockton-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | Excess Returns — 33 Charts that Show Why a Market Correction May Be Coming | Jim Paulsen
+
+- Created: `investing-macro/podcasts/er-33-charts-market-correction-coming-20260710.md` (Detailed summary of Excess Returns interview with Jim Paulsen on stagnation in job growth indicators, Quasi Policy Index contraction, and rotation into Old Era equities)
+- Created: `trading/interviews/20260710-jim-paulsen-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | Excess Returns — He Found 2.5 Million Missing Workers | Eric Pachman
+
+- Created: `investing-macro/podcasts/er-he-found-2-5-million-missing-workers-20260714.md` (Detailed summary of Excess Returns interview with Eric Pachman on survey response failures, Medicaid Care Economy tail risks, OER/Core CPI structural issues, and refining crack spreads)
+- Created: `trading/interviews/20260714-eric-pachman-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | Excess Returns — Jack Schwager on Timeless Lessons from the New Wave of Elite Traders | Jack Schwager
+
+- Created: `investing-macro/podcasts/er-lessons-from-new-wave-of-elite-traders-20260716.md` (Detailed summary of Excess Returns interview with Jack Schwager on video game reflexes, Sharpe critiques, and risk rules of modern Market Wizards)
+- Created: `trading/interviews/20260716-jack-schwager-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | MacroVoices #536 — Larry McDonald: The Migration is Upon us | Larry McDonald
+
+- Created: `investing-macro/podcasts/mv-the-migration-is-upon-us-20260611.md` (Detailed summary of MacroVoices interview with Larry McDonald on super core CPI inflation, the $3T tech lockup overhang, and rotations into value, healthcare, and energy)
+- Created: `trading/interviews/20260611-larry-mcdonald-macrovoices-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | MacroVoices #537 — Brent Johnson: There's No Turning Back | Brent Johnson
+
+- Created: `investing-macro/podcasts/mv-theres-no-turning-back-20260618.md` (Detailed summary of MacroVoices interview with Brent Johnson on stablecoin hegemony, the imperial transition of the U.S., DXY milkshake dynamics, and agricultural fertilizer yield shocks)
+- Created: `trading/interviews/20260618-brent-johnson-macrovoices-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | MacroVoices #538 — Lyn Alden: Is The War Really Over and What's Next For Markets? | Lyn Alden
+
+- Created: `investing-macro/podcasts/mv-is-the-war-really-over-20260625.md` (Detailed summary of MacroVoices interview with Lyn Alden on persistent deficits, stablecoin networks, AI energy bottlenecks, and the hawkish transition of the Fed under Kevin Warsh)
+- Created: `trading/interviews/20260625-lyn-alden-macrovoices-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | MacroVoices #539 — Rory Johnston: Hormuz Crisis, is it Really Over? | Rory Johnston
+
+- Created: `investing-macro/podcasts/mv-hormuz-crisis-is-it-really-over-20260702.md` (Detailed summary of MacroVoices interview with Rory Johnston on Middle East oil jailbreaks, China's 5M b/d import cut, refining bottlenecks, and WTI spec short positioning)
+- Created: `trading/interviews/20260702-rory-johnson-macrovoices-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | MacroVoices #540 — Adam Parker: Beyond the AI Bubble | Adam Parker
+
+- Created: `investing-macro/podcasts/mv-beyond-the-ai-bubble-20260709.md` (Detailed summary of MacroVoices interview with Adam Parker on equity earnings durability, energy tech-diversification, six AI revenue buckets, and quantitative pod microstructure)
+- Created: `trading/interviews/20260709-adam-parker-macrovoices-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | MacroVoices #541 — Dr. Anas Alhajji: Bab el-Mandeb: The Next Oil Chokepoint Nobody's Watching | Dr. Anas Alhajji
+
+- Created: `investing-macro/podcasts/mv-bab-el-mandeb-the-next-oil-chokepoint-20260716.md` (Detailed summary of MacroVoices interview with Dr. Anas Alhajji on Bab el-Mandeb chokepoints, the U.S.-Iran MOU collapse, Qatari helium semiconductor bottlenecks, and the fallacy of the SPR refill case)
+- Created: `trading/interviews/20260716-anas-alhajji-macrovoices-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Julia La Roche Show #383 — Andrew Pancholi: Smart Money Is Quietly Exiting Stocks | Andrew Pancholi
+
+- Created: `investing-macro/podcasts/jlr-smart-money-exiting-stocks-20260630.md` (Detailed summary of The Julia La Roche Show interview with Andrew Pancholi on mathematical macro cycles, smart money outflows in Dow futures, $183 oil targets, and $6,900 gold by March 2027)
+- Created: `trading/interviews/20260630-andrew-pancholi-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Julia La Roche Show — A Recession Signal Just Triggered | Henrik Zeberg
+
+- Created: `investing-macro/podcasts/jlr-a-recession-signal-just-triggered-20260702.md` (Detailed summary of Henrik Zeberg's interview on labor market indicators, swissblock recession frameworks, and the final equity melt-up to blow-off top)
+- Created: `trading/interviews/20260702-henrik-zeberg-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Julia La Roche Show — Economic Statecraft Changed Everything | Michael Every
+
+- Created: `investing-macro/podcasts/jlr-economic-statecraft-changed-everything-20260707.md` (Detailed summary of Michael Every's interview on the global shift toward economic statecraft, central bank models breakdown, and reshoring interest rate pressures)
+- Created: `trading/interviews/20260707-michael-every-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Julia La Roche Show — No Rate Hike Coming | Danielle DiMartino Booth
+
+- Created: `investing-macro/podcasts/jlr-no-rate-hike-coming-20260709.md` (Detailed summary of Danielle DiMartino Booth's interview on labor market participation declines, consumer credit contraction, and Federal Reserve leadership transition)
+- Created: `trading/interviews/20260709-danielle-dimartino-booth-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Julia La Roche Show — Market Rotten to the Core | Larry McDonald
+
+- Created: `investing-macro/podcasts/jlr-market-rotten-to-the-core-20260714.md` (Detailed summary of Larry McDonald's interview on AI/data center capex rotations, commercial real estate credit risks, stablecoin policies, and the $6,500 gold target)
+- Created: `trading/interviews/20260714-larry-mcdonald-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Julia La Roche Show — Not A Normal Market | Ted Oakley
+
+- Created: `investing-macro/podcasts/jlr-not-a-normal-market-20260716.md` (Detailed summary of Ted Oakley's macro perspectives on standard deviation equity metrics, capital preservation, and energy/gold miners)
+- Created: `trading/interviews/20260716-ted-oakley-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Julia La Roche Show #391 — The Wrap: Bank Earnings and Oil Prices Soar | Chris Whalen
+
+- Created: `investing-macro/podcasts/jlr-wrap-bank-earnings-and-oil-prices-soar-20260718.md` (Detailed summary of Chris Whalen's wrap on bank earnings disconnect, private credit systemic risks, and diesel shortages)
+- Created: `trading/interviews/20260718-chris-whalen-la-roche-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Compound and Friends #249 — Brian Belski Returns! | Brian Belski
+
+- Created: `investing-macro/podcasts/tcaf-brian-belski-returns-20260703.md` (Detailed summary of TCAF episode 249 with Brian Belski on the S&P 7,000 target, secular bull market parameters, small-cap earnings acceleration, and regional bank M&A)
+- Created: `trading/interviews/20260703-brian-belski-tcaf-transcript.md` (Raw transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Compound and Friends #250 — The Real Ticking Time Bomb | Michael Cembalest
+
+- Created: `investing-macro/podcasts/tcaf-the-real-ticking-time-bomb-20260710.md` (Detailed summary of TCAF episode 250 with Michael Cembalest on the 2031-2032 crossover point, capex margins, custom ASICs TCO improvements, and cybersecurity vulnerabilities)
+- Created: `trading/interviews/20260710-michael-cembalest-tcaf-transcript.md` (Raw transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | The Compound and Friends #251 — You're About to See the Real AI Winners Stand Up | Jonathan Thomas
+
+- Created: `investing-macro/podcasts/tcaf-real-ai-winners-stand-up-20260717.md` (Detailed summary of TCAF episode 251 with Jonathan Thomas on the active ETF structural tailwind, the shift from AI creators to adopters, capex bubble lessons, and American Century's philanthropic model)
+- Created: `trading/interviews/20260717-jonathan-thomas-tcaf-transcript.md` (Raw transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-18] ingest | Market Newsletter Digest — July 13, 2026
+
+- Created: `investing-macro/market-newsletter-digest-2026-07-13.md` (Detailed digest of macro and fundamental themes from July 13, 2026 newsletters, covering the Maradona Theory of Interest Rates, AI Tokens per Watt optimization, Upstream/Downstream supply chain divergence, and Texas Stock Exchange)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -911,59 +1044,10 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-16] ingest | Excess Returns — He Wrote the Book on Why Moats Fail | Ritavan
+## [2026-07-17] ingest | Excess Returns — We Asked a 20-Year Bond Manager Why AI CapEx Is a Fragile Loop | Jeff Klingelhofer
 
-- Created: `investing-macro/podcasts/er-he-wrote-the-book-on-why-moats-fail-20260701.md` (Detailed summary of Excess Returns interview with Ritavan on the System Gambit framework, self-improving loops, path dependence, and why checklists fail when causal models change)
-- Created: `trading/interviews/20260701-ritavan-excess-returns-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-16] ingest | Excess Returns — He Wrote the Book on 100-Baggers | Chris Mayer
-
-- Created: `investing-macro/podcasts/er-he-wrote-the-book-on-100-baggers-20260626.md` (Detailed summary of Excess Returns interview with Chris Mayer on SpaceX's $2.6T valuation, S1 governance, the "early is overrated" fallacy, and the statistical reality of 100x outcomes)
-- Created: `trading/interviews/20260626-chris-mayer-excess-returns-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-16] ingest | Thoughtful Money — Sky-High Earnings Expectations Courting Disaster?
-
-- Created: `investing-macro/podcasts/tm-sky-high-earnings-expectations-20260703.md` (Detailed summary of Thoughtful Money Weekly Market Recap with Lance Roberts on sky-high forward earnings expectations, the "sandwich generation" planning crisis, factor rotation model rebalancing, and Blackstone's Virginia zoning failure)
-- Created: `trading/interviews/20260703-lance-roberts-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-16] ingest | Thoughtful Money — Growing Risk Of Semiconductors Rolling Over & Dragging The Market Down With Them
-
-- Created: `investing-macro/podcasts/tm-growing-risk-of-semiconductors-rolling-over-20260710.md` (Detailed summary of Thoughtful Money Weekly Market Recap with Lance Roberts on technical head-and-shoulders in semiconductors, real-time margin changes, AI capex GDP multipliers, and public-private utility partnerships)
-- Created: `trading/interviews/20260710-lance-roberts-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-16] ingest | Thoughtful Money — There's Going To Be One Hell Of A Hangover When The Market Party Ends
-
-- Created: `investing-macro/podcasts/tm-theres-going-to-be-one-hell-of-a-hangover-20260628.md` (Detailed summary of Thoughtful Money interview with Louis Gave on the 4-quadrant macro framework, bank relative strength, JPY repatriation risks, and the 60/20/20 portfolio)
-- Created: `trading/interviews/20260628-louis-gav-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-16] ingest | Thoughtful Money — Longtime Bull Warns 'High' Risk Of Market Correction Soon
-
-- Created: `investing-macro/podcasts/tm-longtime-bull-warns-high-risk-of-market-correction-soon-20260702.md` (Detailed summary of Thoughtful Money interview with Darius Dale on 1998-style correction risks, Kevin Warsh's 5 task forces, bank financial repression, and the E-shaped economy)
-- Created: `trading/interviews/20260702-darius-dale-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-16] ingest | Thoughtful Money — Fourth Turning To Turn The Dollar Into A Wrecking Ball?
-
-- Created: `investing-macro/podcasts/tm-fourth-turning-to-turn-the-dollar-into-a-wrecking-ball-20260702.md` (Detailed summary of Thoughtful Money interview with George Gammon on the Eurodollar liability system, currency cross-rate depreciation, private credit redemption halts, and pairs trading)
-- Created: `trading/interviews/20260702-george-gammon-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-16] ingest | Thoughtful Money — The Equity Markets Are Insane Right Now
-
-- Created: `investing-macro/podcasts/tm-the-equity-markets-are-insane-right-now-20260706.md` (Detailed summary of Thoughtful Money interview with Jan Van Eck on tech profit growth, BDC private credit opportunities, single-LLM headwinds, and long-term asset positioning)
-- Created: `trading/interviews/20260706-jan-van-eck-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
+- Created: `investing-macro/podcasts/er-we-asked-a-20-year-bond-manager-20260706.md` (Detailed summary of Excess Returns interview with Jeff Klingelhofer on the AI capex wealth effect loop, the Fed's three mandates, and public vs. private credit quality)
+- Created: `trading/interviews/20260706-jeff-klingelhofer-excess-returns-transcript.md` (Raw interview transcript with timestamps)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -974,9 +1058,65 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-15] create | portfolio-secured-puts-interview-20260715-notes page
+## [2026-07-16] ingest | Thoughtful Money — The Equity Markets Are Insane Right Now
 
-- Created: `investing-options/income/portfolio-secured-puts-interview-20260715-notes.md` (Accompanying strategy guide for Portfolio-Secured Puts, detailing duration parameters, SPAV ratios, reinvestment, and valuation guidelines)
+- Created: `investing-macro/podcasts/tm-the-equity-markets-are-insane-right-now-20260706.md` (Detailed summary of Thoughtful Money interview with Jan Van Eck on tech profit growth, BDC private credit opportunities, single-LLM headwinds, and long-term asset positioning)
+- Created: `trading/interviews/20260706-jan-van-eck-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-16] ingest | Thoughtful Money — Fourth Turning To Turn The Dollar Into A Wrecking Ball?
+
+- Created: `investing-macro/podcasts/tm-fourth-turning-to-turn-the-dollar-into-a-wrecking-ball-20260702.md` (Detailed summary of Thoughtful Money interview with George Gammon on the Eurodollar liability system, currency cross-rate depreciation, private credit redemption halts, and pairs trading)
+- Created: `trading/interviews/20260702-george-gammon-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-16] ingest | Thoughtful Money — Longtime Bull Warns 'High' Risk Of Market Correction Soon
+
+- Created: `investing-macro/podcasts/tm-longtime-bull-warns-high-risk-of-market-correction-soon-20260702.md` (Detailed summary of Thoughtful Money interview with Darius Dale on 1998-style correction risks, Kevin Warsh's 5 task forces, bank financial repression, and the E-shaped economy)
+- Created: `trading/interviews/20260702-darius-dale-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-16] ingest | Thoughtful Money — There's Going To Be One Hell Of A Hangover When The Market Party Ends
+
+- Created: `investing-macro/podcasts/tm-theres-going-to-be-one-hell-of-a-hangover-20260628.md` (Detailed summary of Thoughtful Money interview with Louis Gave on the 4-quadrant macro framework, bank relative strength, JPY repatriation risks, and the 60/20/20 portfolio)
+- Created: `trading/interviews/20260628-louis-gav-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-16] ingest | Thoughtful Money — Growing Risk Of Semiconductors Rolling Over & Dragging The Market Down With Them
+
+- Created: `investing-macro/podcasts/tm-growing-risk-of-semiconductors-rolling-over-20260710.md` (Detailed summary of Thoughtful Money Weekly Market Recap with Lance Roberts on technical head-and-shoulders in semiconductors, real-time margin changes, AI capex GDP multipliers, and public-private utility partnerships)
+- Created: `trading/interviews/20260710-lance-roberts-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-16] ingest | Thoughtful Money — Sky-High Earnings Expectations Courting Disaster?
+
+- Created: `investing-macro/podcasts/tm-sky-high-earnings-expectations-20260703.md` (Detailed summary of Thoughtful Money Weekly Market Recap with Lance Roberts on sky-high forward earnings expectations, the "sandwich generation" planning crisis, factor rotation model rebalancing, and Blackstone's Virginia zoning failure)
+- Created: `trading/interviews/20260703-lance-roberts-thoughtful-money-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-16] ingest | Excess Returns — He Wrote the Book on 100-Baggers | Chris Mayer
+
+- Created: `investing-macro/podcasts/er-he-wrote-the-book-on-100-baggers-20260626.md` (Detailed summary of Excess Returns interview with Chris Mayer on SpaceX's $2.6T valuation, S1 governance, the "early is overrated" fallacy, and the statistical reality of 100x outcomes)
+- Created: `trading/interviews/20260626-chris-mayer-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-16] ingest | Excess Returns — He Wrote the Book on Why Moats Fail | Ritavan
+
+- Created: `investing-macro/podcasts/er-he-wrote-the-book-on-why-moats-fail-20260701.md` (Detailed summary of Excess Returns interview with Ritavan on the System Gambit framework, self-improving loops, path dependence, and why checklists fail when causal models change)
+- Created: `trading/interviews/20260701-ritavan-excess-returns-transcript.md` (Raw interview transcript with timestamps)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-15] create | cpo-and-npo-optics theme page
+
+- Created: `investing-fundamentals/company-analyses/themes/cpo-and-npo-optics.md` (Synthesizes CPO/NPO differences, Nvidia's shift from TSMC to Tower, UHP laser landscape Lumentum vs Coherent, and VCSEL CPO packaging; moved from concepts to themes)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -985,9 +1125,9 @@
 - Created: `investing-options/income/portfolio-secured-puts-interview-20260715-transcript.md` (Cleaned and formatted complete transcript of the YouTube interview with Brandon Arnett on portfolio-secured puts, margin mechanics, covered calls, and valuation investing)
 - Updated: `log.md`
 
-## [2026-07-15] create | cpo-and-npo-optics theme page
+## [2026-07-15] create | portfolio-secured-puts-interview-20260715-notes page
 
-- Created: `investing-fundamentals/company-analyses/themes/cpo-and-npo-optics.md` (Synthesizes CPO/NPO differences, Nvidia's shift from TSMC to Tower, UHP laser landscape Lumentum vs Coherent, and VCSEL CPO packaging; moved from concepts to themes)
+- Created: `investing-options/income/portfolio-secured-puts-interview-20260715-notes.md` (Accompanying strategy guide for Portfolio-Secured Puts, detailing duration parameters, SPAV ratios, reinvestment, and valuation guidelines)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -1003,27 +1143,9 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-10] create | semianalysis-research-2026-06 concept page
+## [2026-07-10] ingest | Market and Investment Newsletter Digest - July 7, 2026
 
-- Created: `investing-macro/semianalysis-research-2026-06.md` (Synthesis of SemiAnalysis June 2026 research: US datacenter delays, hardware-software co-design, and Nvidia multipolar strategy)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-10] update | rename semianalysis-research-july-2026 to semianalysis-research-2026-07
-
-- Renamed: `investing-macro/semianalysis-research-july-2026.md` to `investing-macro/semianalysis-research-2026-07.md`
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-10] create | semianalysis-research-july-2026 concept page
-
-- Created: `investing-macro/semianalysis-research-july-2026.md` (Synthesis of SemiAnalysis July 2026 research: Nvidia debt backstop, Anthropic Q3 profitability and IPO, Claude Code SaaS threat)
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-07-10] ingest | Market and Investment Newsletter Digest - July 9, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-07-09.md`
+- Created: `investing-macro/market-newsletter-digest-2026-07-07.md`
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -1033,9 +1155,27 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-10] ingest | Market and Investment Newsletter Digest - July 7, 2026
+## [2026-07-10] ingest | Market and Investment Newsletter Digest - July 9, 2026
 
-- Created: `investing-macro/market-newsletter-digest-2026-07-07.md`
+- Created: `investing-macro/market-newsletter-digest-2026-07-09.md`
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-10] create | semianalysis-research-july-2026 concept page
+
+- Created: `investing-macro/semianalysis-research-july-2026.md` (Synthesis of SemiAnalysis July 2026 research: Nvidia debt backstop, Anthropic Q3 profitability and IPO, Claude Code SaaS threat)
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-10] update | rename semianalysis-research-july-2026 to semianalysis-research-2026-07
+
+- Renamed: `investing-macro/semianalysis-research-july-2026.md` to `investing-macro/semianalysis-research-2026-07.md`
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-07-10] create | semianalysis-research-2026-06 concept page
+
+- Created: `investing-macro/semianalysis-research-2026-06.md` (Synthesis of SemiAnalysis June 2026 research: US datacenter delays, hardware-software co-design, and Nvidia multipolar strategy)
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -1045,16 +1185,16 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-07-07] create | bayes-and-base-rates concept page
-
-- Created: `investing-fundamentals/concepts/bayes-and-base-rates.md` (Summarizes the Bayesian updating framework, reference-class forecasting, case studies of AI Capex/RPOs, and project success rates for datacenter buildouts)
-- Updated: `index.md`
-- Updated: `log.md`
-
 ## [2026-07-07] ingest | TCI Conference: $MSFT and $SPGI Investment Theses
 
 - Updated: `investing-macro/market-newsletter-digest-2026-06-18.md` (Updated Section 6 to document arguments for/against $MSFT and $SPGI based on Moats & Multiples Substack)
 - Updated: `investing-fundamentals/company-analyses/README.md` (Added $MSFT and $SPGI sections summarizing TCI's theses and counterarguments)
+- Updated: `log.md`
+
+## [2026-07-07] create | bayes-and-base-rates concept page
+
+- Created: `investing-fundamentals/concepts/bayes-and-base-rates.md` (Summarizes the Bayesian updating framework, reference-class forecasting, case studies of AI Capex/RPOs, and project success rates for datacenter buildouts)
+- Updated: `index.md`
 - Updated: `log.md`
 
 ## [2026-07-03] create | funding-short-squeeze concept page
@@ -1094,18 +1234,6 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-06-18] ingest | Market and Investment Newsletter Digest - June 18, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-06-18.md`
-- Updated: `index.md`
-- Updated: `log.md`
-
-## [2026-06-19] ingest | Market and Investment Newsletter Digest - June 19, 2026
-
-- Created: `investing-macro/market-newsletter-digest-2026-06-19.md`
-- Updated: `index.md`
-- Updated: `log.md`
-
 ## [2026-06-21] ingest | Market and Investment Newsletter Digest - June 21, 2026
 
 - Created: `investing-macro/market-newsletter-digest-2026-06-21.md`
@@ -1118,15 +1246,27 @@
 - Updated: `index.md`
 - Updated: `log.md`
 
-## [2026-06-02] ingest | Market and Investment Newsletter Digest - June 2, 2026
+## [2026-06-19] ingest | Market and Investment Newsletter Digest - June 19, 2026
 
-- Created: `investing-macro/market-newsletter-digest-2026-06-02.md`
+- Created: `investing-macro/market-newsletter-digest-2026-06-19.md`
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-06-18] ingest | Market and Investment Newsletter Digest - June 18, 2026
+
+- Created: `investing-macro/market-newsletter-digest-2026-06-18.md`
 - Updated: `index.md`
 - Updated: `log.md`
 
 ## [2026-06-03] ingest | Market and Investment Newsletter Digest - June 3, 2026
 
 - Created: `investing-macro/market-newsletter-digest-2026-06-03.md`
+- Updated: `index.md`
+- Updated: `log.md`
+
+## [2026-06-02] ingest | Market and Investment Newsletter Digest - June 2, 2026
+
+- Created: `investing-macro/market-newsletter-digest-2026-06-02.md`
 - Updated: `index.md`
 - Updated: `log.md`
 
@@ -1147,143 +1287,3 @@
   1 crypto analysis, 2 real estate pages, 2 book notes
 - Existing files predate this schema and do not have YAML frontmatter; new pages should use it
 - Wiki path: /Users/howardwu/dev/investment-research-notes
-
-## [2026-07-27] create | Individual Bonds vs. Bond Funds — Mark-to-Market, Real Returns, and the Annuity Math
-
-- Created: `investing-quant/concepts/individual-bonds-vs-bond-funds.md`
-- Filed from a conversation evaluating a financial-planning blog claim about TLT/IEF
-  mark-to-market losses vs. individual Treasuries held to maturity; covers real vs.
-  nominal YTM, the present-value annuity factor derivation, and a worked real-loss
-  example ($100k, 1.9% coupon, 30yr, 3% inflation).
-- Updated: `investing-macro/bond-supply-tsunami-2026.md` (added cross-link in section 4, individual long-bond holders)
-- Updated: `index.md` (new page listed under Quant > Concepts; page count 178 → 179)
-- Updated: `log.md`
-
-## [2026-08-18] create | Global Liquidity Framework — The Asynchronous Business Cycle and Asset Allocation
-
-- Created: `investing-macro/macro-frameworks/global-liquidity-framework.md`
-- Synthesized Michael Howell's Global Liquidity Framework: the two circulations of money (financial vs. real economy), the 15–18 month asynchronous business cycle lag, momentum vs. level dynamics, and late-cycle asset allocation (commodities and defensives vs. high-multiple tech and long bonds).
-- Included rigorous empirical assessment for institutional investors (Marshallian $k$, $300T+ debt refinancing mechanics, BIS research, monetary transmission lags, historical late-cycle precedents from 2000 and 2007–2008, plus structural limitations: fiscal dominance, measurement ambiguity, and non-linear crash risk).
-- Updated: `investing-macro/macro-frameworks/README.md` (added cross-link under Michael Howell section)
-- Updated: `index.md` (indexed under Macro section)
-- Updated: `log.md`
-
-## [2026-08-19] ingest | Market and Investment Newsletter Digest — August 19, 2026
-
-- Created / Updated: `investing-macro/market-newsletter-digest-2026-08-19.md`
-- Synthesized Michael Parekh's *AI: Reset to Zero #138* ("‘Gaming the System’ for AI: Nvidia, OpenAI & Anthropic"): Nvidia's $500B Wall Street financing consortium (Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR), OpenAI's $7B self-funded pre-IPO tender offer ($852B valuation), Anthropic's $9.1B–$16.1B compute agreement with Riot Platforms, and historical parallels to the 1870s transcontinental railroad capital buildout.
-- Added analysis of the August 19 crypto market surge (BTC >$68k, ETH, SOL, crypto equities): U.S. Treasury's announcement doubling long-end debt buybacks ($2B to $4B+ per operation), the SEC's proposed "Regulation Crypto Assets" safe harbor rules, and the cascading $1.44B short squeeze.
-- Updated: `index.md` (indexed under Macro section)
-- Updated: `log.md`
-
-## [2026-08-19] update | CRCL company analysis pipeline (CLARITY Act Senate vote, Arc L1 revenue models, SEC safe harbor)
-
-- Updated: `investing-fundamentals/company-analyses/crcl-2-equity-report.md` (incorporated the September 15 Senate CLARITY Act cloture vote, SEC Regulation Crypto Assets safe harbor rules, U.S. Treasury long-end buyback doubling, and multi-year Arc L1 platform revenue modeling: $310M–$330M FY26, $550M–$700M FY27, $800M–$1.0B+ FY28 with 80%+ contribution margin).
-- Updated: `investing-fundamentals/company-analyses/crcl-3-investment-memo.md` (highlighted the mid-September dual catalyst window—Sept 15 CLARITY Act vote and Sept 16 Arc mainnet launch; updated scenario matrix, KPI watch list, and bank deposit-flight yield restriction risks).
-- Updated: `investing-fundamentals/company-analyses/CRCL.md` (refreshed overview and fundamental analysis with latest Arc and legislative developments).
-- Updated: `log.md`
-
-## [2026-08-19] create | Custom AI Silicon & Optical Networking: Google-Marvell $120B Deal, Broadcom Impact, and Optical Supply Chain Matrix
-
-- Created: `investing-fundamentals/company-analyses/comparisons/google-marvell-broadcom-optical-20260819.md`
-- Synthesized the Google–Marvell ($MRVL) $120B lifetime custom AI silicon agreement (custom inference accelerators, custom TPU NICs, storage/memory controllers, and the 59M share / $12.2B performance equity warrant structure).
-- Documented supply chain disruption across Broadcom ($AVGO) (breaking the sole-source TPU monopoly, margin compression, AMD TPU v10 co-design leaks, VMware CVE-2026-59310 zero-day, and XPV financing credit risks), Astera Labs ($ALAB) (custom controller IC substitution), and Nvidia ($NVDA) (internal inference workload displacement).
-- Analyzed the optical networking selloff following Fabrinet's ($FN) Q1 FY27 guidance deceleration (-20% drop), mapping direct vs. indirect exposure across pluggable module assemblers ($AAOI — high risk) vs. upstream laser and physical materials leaders ($LITE, $COHR — indispensable InP/EML/CW laser moats).
-- Updated: `investing-macro/market-newsletter-digest-2026-08-19.md` (added Section 3 covering custom AI silicon and optical transceiver selloff)
-- Updated: `index.md` (indexed comparison document and updated August 19 digest description)
-- Updated: `log.md`
-
-## [2026-08-21] create | Treasury Financial Repression: SLR Bank Deregulation, Stablecoins as T-Bill Sinks, and Shadow Yield Curve Control
-
-- Created: `investing-macro/macro-frameworks/treasury-financial-repression-slr-stablecoins.md`
-- Synthesized the Treasury's market-based financial repression framework: using bank deregulation (SLR/eSLR exemptions, Basel III capital relief) to expand primary dealer warehousing capacity and eliminate the 5–25 bps illiquidity penalty across the 95% of the Treasury curve that is off-the-run.
-- Detailed the regulatory rulemaking roadmap (Q4 2026 Fed/FDIC/OCC final joint rule vote, SEC FICC mandatory clearing harmonization, and 2027 implementation).
-- Documented stablecoins as a captive $500B–$1T+ T-bill sink (GENIUS/CLARITY Acts), enabling the Treasury to twist issuance to the front end, reduce 10Y/30Y coupon auction sizes, run debt buybacks, and suppress the long-term term premium.
-- Analyzed systemic downsides and risks: G-SIB duration/solvency traps, 50x hedge fund cash-futures basis trade fragility, credit crowding-out of the real economy, de-peg fire sales, and unchecked fiscal profligacy.
-- Mapped the asymmetric banking impact and lobbying dynamics: existential deposit flight / NIM collapse for Regional Banks vs. fee/deposit-monopoly defense by TBTF Mega-Banks (BPI/ABA lobbying for anti-yield rules and proprietary deposit tokens).
-- Updated: `investing-macro/macro-frameworks/README.md` (cross-link added)
-- Updated: `investing-macro/bond-supply-tsunami-2026.md` (cross-link and policy response note added)
-- Updated: `index.md` (indexed under Macro frameworks)
-- Updated: `log.md`
-
-## [2026-08-21] update | AppLovin (APP) company analysis pipeline (Wall Street consensus shift, Piper Sandler PT cut, AXON compute cost dynamics)
-
-- Updated: `investing-fundamentals/company-analyses/app-1-document-sources.md` (completed Section E equity research coverage table incorporating Piper Sandler's August 21 PT cut from $385 to $325, JPMorgan's Neutral $350–$400 target, Bank of America's downgrade to $400, Morgan Stanley's $650 Overweight target, and BTIG's $410 Buy rating).
-- Updated: `investing-fundamentals/company-analyses/app-2-equity-report.md` (expanded Moat Vulnerabilities to detail AXON algorithmic yield deceleration, diminishing returns in mobile gaming optimization, and rising AI compute/GPU infrastructure outlays dragging EBITDA margins).
-- Updated: `investing-fundamentals/company-analyses/app-3-investment-memo.md` (updated valuation asymmetry box with Street consensus target range of $325–$650; incorporated compute cost inflation and model maturation into Risk #4).
-- Updated: `log.md`
-
-## [2026-09-01] create | AI Compute Commencement Wall, Take-or-Pay Liabilities, and the 2027–2028 Payment Shock
-
-- Created: `investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md`
-- Synthesized structural financial assessment evaluating claims on OpenAI's $1.2T compute origination spree, the $636B supplier market cap multiplier, 200% revenue coverage deficit models, and hyperscaler ROIC inversion / refinancing traps.
-- Documented the 24–36 month construction "teaser lag" vs. binding commencement date obligations, take-or-pay contractual structures, and circular vendor equity dynamics.
-- Detailed the 4 transmission channels: GPU collateral/private ABS debt impairment, hyperscaler server D&A useful life revisions, semiconductor order cancellation bullwhip, and utility/nuclear PPA stranding.
-- Mapped 3 equity market paths: (1) "Telecom 2000" Capital Overhang & Downside Unwind (30% probability), (2) Managed Restructuring / "Cloud Ingestion & Sovereign Bailout" (50% probability), and (3) Autonomous Productivity Monetization Surge (20% probability), alongside leading monitoring indicators (spot GPU rental rates, private secondary discounts, depreciation revisions).
-- Updated: `investing-macro/macro-frameworks/README.md` (cross-linked under AI Infrastructure & Capital Cycles section)
-- Updated: `investing-macro/market-newsletter-digest-2026-08-20.md` (cross-linked to framework)
-- Updated: `index.md` (indexed under Macro frameworks; total pages bumped to 211)
-- Updated: `log.md`
-
-## [2026-09-01] update | AI Compute Commencement Wall — critical re-assessment, verdict re-grading, and gray-area flagging
-
-- Updated: `investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md`
-- **Frontmatter corrected:** `confidence: high → medium`, `contested: false → true`, added `contradictions: [market-newsletter-digest-2026-08-20]` (source digest cites >$2.3T across all labs vs. this page's ~$1.2T single-lab figure). Added digest 2026-08-19 to `sources`.
-- **Added prominent "Bottom Line — Conclusions as of 2026-09-01"** block at page top: 7 numbered conclusions surfacing what the statement-by-statement structure had buried.
-- **Verdicts re-graded** against the evidence the page itself supplies, with a stated verdict scale:
-  - Statement 2 ($636B market cap multiplier): `HIGHLY ACCURATE` → `MECHANISM ACCURATE / FIGURE UNVERIFIED`. No independent verification was performed; single-day moves lack a beta counterfactual and sit inside Nvidia's ordinary daily variance.
-  - Statement 3 (200% coverage deficit): `SUBSTANTIVELY ACCURATE` → `PARTIALLY ACCURATE`. Added explicit 3×3 coverage-ratio matrix showing the supported range is **120%–333%**, not ">200%"; only 4 of 9 cells clear 200%. The page's own Path 3 (ARR $40–60B) implies 50–125% coverage, falsifying the "all four scenarios" universality claim.
-  - Statement 4 (refinancing trap): retained but added the under-stated hyperscaler channel — **RPO quality re-rating precedes impairment**; Microsoft counterparty concentration noted alongside Oracle.
-- **Added Statement 5 — Vendor-Financed Circularity (`UNASSESSED GAP`):** the "Nvidia as Fannie Mae for compute" mechanism present in the source digest but never assessed. Determines *when* the wall arrives; circular financing defers and enlarges rather than cancels it.
-- **Added five `⬖ Gray area` callouts** on genuinely contested interpretations rather than overwriting: (1) where "binding" stops being binary in take-or-pay; (2) whether an attributable event study is feasible at all; (3) three definitional choices (exit ARR vs. GAAP, gross vs. net of credits, commenced vs. signed) that swing the coverage ratio more than the bear/bull spread; (4) cluster fungibility assumed not demonstrated; (5) vendor backstop vs. ordinary market-development spend.
-- **Added Transmission Channel 5 — Renegotiation & Absorption:** take-or-pay against a distressed sole anchor tenant restructures rather than defaults; resolves the binary framing in §1/§3 that contradicted the page's own Path 2 base case. Loss changes form (revenue quality, RPO discount) rather than disappearing.
-- **Surfaced the obscured conclusion:** Paths 1+2 carry ~80% of probability mass and *both* involve significant multiple compression; Path 2's "managed restructuring" label embeds a ~35% derate. Flagged the 30/50/20 split as an underived judgmental prior.
-- **Indicators expanded 4 → 6** and converted to a threshold table: added **RPO counterparty concentration** (highest signal, tracks Statement 4's real channel) and **commencement slippage**; flagged indicators 2 and 4 as weakly specified.
-- **Added §5 Portfolio Implications:** derating protection over crash protection; separating the neocloud solvency trade from the hyperscaler multiple trade; indicator-linked rather than date-linked sizing.
-- **Fixed broken wikilink** `[[cyber-saas-seat-risk]]` → `[[cyber-saas-seat-risk-2-equity-report]]`; converted the misaligned ASCII transmission matrix to a markdown table; added a Review Triggers section.
-- Updated: `index.md` (re-assessment noted on the entry)
-- Updated: `investing-macro/macro-frameworks/README.md` (noted the accuracy audit and gray-area flags)
-- Updated: `log.md`
-
-## [2026-09-01] create & update | FinTech Regulatory & Usury Risk: TILA Reg Z, True Lender Exposure, and Company Pipeline Audits ($DAVE, $SEZL)
-
-- Created: `investing-fundamentals/company-analyses/comparisons/fintech-usury-tila-regulatory-exposure-2026.md`
-  - Synthesized the consumer fintech regulatory and usury risk spectrum comparing High Risk ($DAVE, $SEZL, $ML, private EWA), Moderate Risk ($AFRM, $KLAR, $XYZ), and Structurally Immune ($SOFI).
-  - Deconstructed the legal mechanics: FDIA Section 27 "True Lender" rent-a-charter vulnerabilities vs. TILA Regulation Z (12 CFR § 1026.4) disguised finance charges (subscriptions, express delivery fees, tipping).
-  - Modeled quantitative downside valuation bridges: $DAVE down -78% to -84% ($55–$75) and $SEZL down -81% to -88% ($16–$25) under adverse court injunctions and mandatory fee unbundling.
-- Updated: `investing-fundamentals/company-analyses/sezl-2-equity-report.md` (added Accounting Policies & Internal Controls section detailing March 2026 PwC auditor transition, open ICFR material weakness on notes receivable cash flows, ASC 606 vs. ASC 310 revenue recognition tension, and Hindenburg Dec 2024 mitigation scorecard; cross-linked to comparison).
-- Updated: `investing-fundamentals/company-analyses/sezl-3-investment-memo.md` (added regulatory reclassification downside valuation bridge of $16.00–$25.00 / -80% to -86% drawdown to Risk section; cross-linked to comparison).
-- Updated: `investing-fundamentals/company-analyses/sezl-4-stress-test.md` (cross-linked to comparison).
-- Updated: `investing-fundamentals/company-analyses/dave-2-equity-report.md` (deepened legal & regulatory risk analysis with details on FTC + DOJ federal lawsuit Case No. 2:24-cv-09419 in C.D. Cal. naming CEO Jason Wilk individually, City of Baltimore predatory lending suit, and ROSCA $1/mo subscriptions; cross-linked to comparison).
-- Updated: `investing-fundamentals/company-analyses/dave-3-investment-memo.md` (added FTC/DOJ adverse ruling valuation bridge of $55.00–$75.00 / -78% to -84% drawdown to Risk #1; cross-linked to comparison).
-- Updated: `investing-fundamentals/company-analyses/dave-investment-research.html` (synchronized interactive HTML suite: updated Iceberg Risks table with Case No. 2:24-cv-09419 docket specifics; added dedicated Legal & Regulatory Litigation card in Tab 2; incorporated the $55–$75 regulatory downside valuation bridge in Tab 3; expanded Tab 6 source table with Cross-FinTech Usury Framework link; and added Risk Audit & Litigation section in Tab 7 Complete Dossier).
-- Updated: `investing-fundamentals/company-analyses/sezl-investment-research.html` (synchronized interactive HTML suite: updated Iceberg Risks table with TILA Reg Z usury reclassification and OCC bank capital trapped drag; added dedicated Accounting Policies, PwC Auditor Transition & ICFR Material Weakness card in Tab 2; added Hindenburg Dec 2024 Resolution Scorecard in Tab 2; incorporated the $16–$25 regulatory/bank capital downside valuation bridge in Tab 3; expanded Tab 6 source table with PwC 8-K, CFPB docket, and Cross-FinTech Usury Framework links; and added Accounting Governance & Regulatory Downside section in Tab 7 Complete Dossier).
-- Updated: `index.md` (indexed new comparison document under Comparisons; bumped total pages to 212).
-- Updated: `log.md`
-
-## [2026-09-10] create | DeepSeek V4.1 Flash: Memory Architecture, AI Bottlenecks, and Semiconductor Value Chain Impact
-
-- Created: `investing-fundamentals/company-analyses/themes/deepseek-v4-1-flash-memory-bottlenecks.md`
-  - Synthesized comprehensive architectural analysis of DeepSeek V4.1 Flash launched September 10, 2026.
-  - Deconstructed core innovations: Causal Encoder-Decoder (CED) with single projected KV cache from 20-layer encoder, Compressed Sparse Attention 2 (CSA2) with Full/Reindex/Reuse modes, FP4 (E2M1) KV quantization, 196B Engram host-prefetched parameter tier, and SWA Bounded Replay.
-  - Detailed the **890 bytes/token** global KV cache breakthrough (4× reduction vs. V4-Flash, 437× vs. MHA baseline), demonstrating sub-1GB VRAM requirements for 1M-token context windows and 350+ concurrent stream capacity on 8×H100 nodes.
-  - Resolved four foundational bottlenecks: memory bandwidth decode wall, agent multi-turn VRAM capacity wall, prefill/decode asymmetric compute allocation, and storage I/O paging stalls.
-  - Mapped equity winners and losers across hardware memory tiers:
-    - Enterprise NAND/SSD ($WDC, Kioxia, Solidigm, Samsung/Micron NAND): Critical structural headwind as SWA Bounded Replay eliminates KV cache SSD paging.
-    - HBM Pure-Plays (SK Hynix 000660.KS, Samsung 005930.KS): Multiple normalization and pricing power softening as context is decoupled from HBM gigabytes.
-    - Server Host DRAM & CXL ($MU, 005930.KS, $ALAB): Major structural tailwind from 196B Engram conditional parameters residing in host DDR5/CXL memory pools (highlighted by Micron CEO attendance).
-    - GPU Accelerators ($NVDA, $AMD): High-VRAM markup pricing power softens, but unit volume preserved by 552B MoE footprint and Jevons paradox.
-    - Inter-GPU Fabric ($AVGO, $ANET, $MRVL): MoE 552B parameter routing preserves intense All-to-All network demand.
-    - Enterprise Software/SaaS ($NOW, $CRM, $PLTR): Restores 75–80%+ gross margins for agentic products by dropping token COGS toward nominal levels.
-- Updated: `index.md` (indexed under Themes; bumped total pages to 213; updated date to 2026-09-10).
-- Updated: `investing-fundamentals/concepts/ai-inference-costs-accounting.md` (bumped date to 2026-09-10; added cross-reference).
-- Updated: `investing-macro/macro-frameworks/ai-compute-commencement-wall-and-refinancing-trap.md` (added cross-reference).
-- Updated: `investing-fundamentals/company-analyses/themes/deepseek-v4-1-flash-memory-bottlenecks.md` (expanded Section 2 with technical breakdowns of how CED global KV projection, CSA2 tri-mode attention, native FP4 micro-scaling, Engram deterministic prefetching, SWA Bounded Replay local recomputation, and DSpark speculative decoding function under the hood; integrated the "Alexander the Great" multi-token concept problem and early-layer FLOP savings; added Section 5.G on the geopolitical driver bypassing Western HBM/CoWoS sanctions for Huawei Ascend and Chinese labs).
-- Updated: `log.md`
-
-
-## [2026-10-22] update | DigitalOcean ($DOCN): October 22 update to the investment memo
-
-- Updated: `investing-fundamentals/company-analyses/docn-3-investment-memo.md` (added "Update, October 22, 2026: the sell-off pauses, the credit gauge doesn't": price since October 16 (~$101.48 close October 21), CoreWeave 2032 bond yields as the sector gauge, Nebius falling on its GPU-backed Citi facility and what that implies for DOCN's MUFG facility, analyst actions (Barclays Hold unconfirmed, UBS $140, Piper Sandler Overweight), unchanged liquidity check, valuation at ~$101.5, and pre-November 4 watch items; bumped `updated` to 2026-10-22).
-- Updated: `investing-fundamentals/company-analyses/docn-3-investment-memo.html` (mirrored the October 22 section, TOC entry and header note).
-- Updated: `log.md`
