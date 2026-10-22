@@ -4,6 +4,15 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-22] update | AKAM: what a breach of the revolver leverage covenant triggers
+
+- Checked the 2022 credit agreement and all five convertible indentures on EDGAR, replacing the memo's "not verified" note:
+  - **Credit agreement:** §6.04 is tested quarterly on trailing four-quarter EBITDA, and the 4.00x step-up can be used at most twice. A breach is an immediate event of default (Article VII (d)): no 30-day cure and no equity cure. Required Lenders (>50%) can terminate the $1.0B commitment and accelerate loans, and §4.02(b) blocks new borrowing while in default.
+  - **Indentures, §6.01(g):** each has cross-acceleration, not cross-default. It is triggered by acceleration of, or a maturity payment default on, other borrowed-money debt above $150M (2027 notes) or $300M (2029, 2030, 2032, 2033 notes), uncured 30 days after notice from the trustee or 25% of holders.
+  - **Conclusion:** a breach with the revolver undrawn only removes the backstop. A breach after a draw could reach all ~$7.6B of notes if more than $150M of loans were accelerated. The likely outcome is a waiver or amendment.
+- Updated: `akam-3-investment-memo.md` (covenant section: test mechanics, breach consequences, watch item for a revolver draw, indenture links; `updated` bumped) and `akam-2-equity-report.md` (balance-sheet covenant note; `updated` bumped).
+- Updated the HTML companions in place (`akam-3-investment-memo.html`, `akam-2-equity-report.html`); the original builder script was not available. `check_html.py`: the report passes; the memo's only flags are URL fragments inside links, the same as before the edit.
+
 ## [2026-10-22] lint | index.md and log.md cleanup
 
 - Checked: all 224 index wikilinks resolve (the `\|` aliases in tables are valid); every page created in log entries since 2026-10-09 has an index entry; no duplicate log headers.
