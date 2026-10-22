@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SE Investment Memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a bond-desk morning sheet. Key readings strip up top (now vs. prior), then a sticky section index beside one reading column. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --surface-2: #e9edf3;
+  --line: #d3dae4;
+  --ink: #18212e;
+  --ink-dim: #556377;
+  --accent: #1f4e79;
+  --accent-soft: #e1eaf4;
+  --up: #a8361f;
+  --up-soft: #f7e4df;
+  --hold: #2e6a4d;
+  --hold-soft: #e0efe6;
+  --flag: #8a5a00;
+  --flag-soft: #f6ecd6;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-neg: #e34948;
+  --grid: #dfe4eb;
+  --f-display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+    --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+    --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+    --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f151e; --surface: #161e2a; --surface-2: #1c2635; --line: #2b384b;
+  --ink: #e2e8f0; --ink-dim: #9aa9bc; --accent: #7fb0e3; --accent-soft: #1b2d44;
+  --up: #f0937e; --up-soft: #3c211b; --hold: #7cc7a0; --hold-soft: #17322a;
+  --flag: #e5bb62; --flag-soft: #382c14; color-scheme: dark;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-neg: #e66767; --grid: #2b384b;
+}
+
+* { box-sizing: border-box; }
+html { font-size: 16.5px; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); line-height: 1.6; overflow-wrap: break-word;
+}
+.wrap { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 0 4rem; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+.num { font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-data); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+
+/* Header */
+header.top { padding-block: 2.2rem 1.4rem; display: grid; gap: .6rem; }
+header.top h1 { font-family: var(--f-display); font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0; }
+.dek { max-width: 46rem; margin: 0; color: var(--ink-dim); font-size: 1.05rem; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font-size: .85rem; color: var(--ink-dim); }
+.meta span { font-family: var(--f-data); }
+
+/* Key readings */
+.readings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-block: .4rem 1.6rem; }
+@media (min-width: 48rem) { .readings { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .75rem .8rem .8rem; display: grid; gap: .3rem; align-content: start; border-top: 3px solid var(--line); min-width: 0; }
+.tile.up { border-top-color: var(--up); }
+.tile.hold { border-top-color: var(--hold); }
+.tile.flat { border-top-color: var(--flag); }
+.tile .label { font-size: .78rem; color: var(--ink-dim); line-height: 1.3; }
+.tile .val { font-family: var(--f-data); font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.tile .path { font-family: var(--f-data); font-size: .74rem; color: var(--ink-dim); line-height: 1.4; }
+.tile .state { justify-self: start; font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; padding: .1rem .4rem; border-radius: 3px; }
+.tile.up .state { background: var(--up-soft); color: var(--up); }
+.tile.hold .state { background: var(--hold-soft); color: var(--hold); }
+.tile.flat .state { background: var(--flag-soft); color: var(--flag); }
+
+/* Two panels: watch + conflicts */
+.panels { display: grid; gap: 1rem; margin-bottom: 2rem; }
+@media (min-width: 56rem) { .panels { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; min-width: 0; }
+.panel h2 { font-size: 1rem; margin: 0 0 .6rem; font-family: var(--f-body); font-weight: 600; }
+.panel.conflicts { background: var(--flag-soft); border-color: transparent; }
+.panel.conflicts h2 { color: var(--flag); }
+.watch { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.watch li { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: .7rem; font-size: .9rem; line-height: 1.45; }
+.watch .lvl { font-family: var(--f-data); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+.panel ul.plain { margin: 0; padding-left: 1.1rem; font-size: .9rem; display: grid; gap: .35rem; }
+
+/* Body layout */
+.layout { display: grid; gap: 2rem; }
+@media (min-width: 62rem) { .layout { grid-template-columns: 14rem minmax(0, 1fr); } }
+nav.toc { min-width: 0; }
+nav.toc ol { list-style: none; margin: 0; padding: 0; display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .4rem; }
+nav.toc a { display: block; text-decoration: none; color: var(--ink-dim); font-size: .85rem; white-space: nowrap; padding: .3rem .6rem; border-radius: 4px; background: var(--surface); border: 1px solid var(--line); }
+nav.toc a:hover { color: var(--ink); border-color: var(--accent); }
+nav.toc .n { font-family: var(--f-data); color: var(--accent); margin-right: .35rem; }
+@media (min-width: 62rem) {
+  nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 1rem); align-self: start; }
+  nav.toc ol { flex-direction: column; overflow: visible; gap: .1rem; }
+  nav.toc a { white-space: normal; background: transparent; border: 0; border-left: 2px solid var(--line); border-radius: 0; padding: .3rem .7rem; line-height: 1.35; }
+  nav.toc a:hover { border-left-color: var(--accent); }
+}
+
+main { min-width: 0; max-width: 48rem; display: grid; gap: 2.6rem; }
+section.theme { min-width: 0; }
+section.theme h2 { font-family: var(--f-display); font-size: 1.45rem; margin: .2rem 0 .7rem; }
+.takeaway { margin: 0 0 1rem; padding: .7rem .9rem; background: var(--accent-soft); border-radius: 4px; font-size: .97rem; }
+/* Points: headline + gist visible, full note on expand */
+ul.points { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+details.pt { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details.pt[open] { border-color: var(--accent); }
+details.pt > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1.1rem minmax(0, 1fr); column-gap: .5rem; row-gap: .15rem; padding: .65rem .85rem; }
+details.pt > summary::-webkit-details-marker { display: none; }
+details.pt > summary::before { content: ""; grid-row: 1 / span 2; margin-top: .45rem; width: .45rem; height: .45rem; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); transition: transform .15s; }
+details.pt[open] > summary::before { transform: rotate(45deg); margin-top: .3rem; }
+@media (prefers-reduced-motion: reduce) { details.pt > summary::before { transition: none; } }
+details.pt > summary:hover .hd { color: var(--accent); }
+.hd { font-weight: 600; font-size: 1rem; line-height: 1.35; }
+.gist { grid-column: 2; color: var(--ink-dim); font-size: .9rem; line-height: 1.45; }
+.detail { padding: .2rem 1rem 1rem 2.45rem; display: grid; gap: .6rem; font-size: .95rem; border-top: 1px solid var(--line); padding-top: .8rem; }
+.detail p { margin: 0; max-width: 42rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .5rem; }
+.detail ul ul { margin-top: .4rem; }
+.detail li::marker { color: var(--ink-dim); }
+.detail blockquote { margin: 0; }
+@media (max-width: 30rem) { .detail { padding-left: 1rem; } }
+.chip { display: inline-block; font-family: var(--f-data); font-size: .64rem; letter-spacing: .06em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 3px; margin-right: .4rem; vertical-align: .1em; }
+.chip.why { background: var(--accent-soft); color: var(--accent); }
+.chip.cont { background: var(--surface-2); color: var(--ink-dim); }
+li.aside { font-size: .88rem; color: var(--ink-dim); padding: .2rem .85rem; }
+
+/* Bottom line */
+.bottomline { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; margin-bottom: 1.2rem; }
+.bottomline h2 { font-size: 1rem; margin: 0 0 .6rem; font-weight: 600; }
+.bottomline ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+@media (min-width: 56rem) { .bottomline ol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 1.6rem; } }
+.bottomline li { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: .6rem; font-size: .9rem; line-height: 1.45; }
+.bottomline a { font-family: var(--f-data); font-size: .74rem; text-decoration: none; padding-top: .12rem; }
+
+/* Expand controls */
+.tools { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.tools button { font: 500 .78rem var(--f-body); color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: .3rem .6rem; cursor: pointer; }
+.tools button:hover { border-color: var(--accent); }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Charts: horizontal bars, one baseline, values at the bar tip */
+.keyviz { margin: 0 0 1rem; }
+.vizpair { display: grid; gap: 1rem; }
+@media (min-width: 46rem) { .vizpair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+figure.viz { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: .8rem .9rem .7rem; min-width: 0; }
+.detail figure.viz { background: transparent; border: 0; padding: .2rem 0; }
+figure.viz figcaption { display: grid; gap: .1rem; margin-bottom: .6rem; }
+.vt { font-weight: 600; font-size: .92rem; }
+.vs { font-size: .78rem; color: var(--ink-dim); }
+.vlegend { display: flex; flex-wrap: wrap; gap: .3rem 1rem; font-size: .78rem; color: var(--ink-dim); margin-bottom: .5rem; }
+.vlegend span { display: inline-flex; align-items: center; gap: .35rem; }
+.sw { width: .7rem; height: .7rem; border-radius: 2px; display: inline-block; }
+.sw.s1 { background: var(--viz-1); } .sw.s2 { background: var(--viz-2); }
+.hbars { display: grid; grid-template-columns: minmax(5.5rem, 9rem) minmax(0, 1fr); column-gap: .7rem; row-gap: .35rem; align-items: center; }
+.blab { font-size: .8rem; color: var(--ink-dim); text-align: right; line-height: 1.2; }
+.track { position: relative; height: 22px; border-radius: 3px; outline: none; grid-column: 2; z-index: 1; }
+.track:hover, .track:focus-visible { background: var(--surface-2); }
+.track:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.bar { position: absolute; top: 4px; height: 14px; border-radius: 0 4px 4px 0; }
+.bar.neg { border-radius: 4px 0 0 4px; }
+.bar.s1 { background: var(--viz-1); } .bar.s2 { background: var(--viz-2); } .bar.sn { background: var(--viz-neg); }
+.bval { position: absolute; top: 50%; transform: translateY(-50%); font-family: var(--f-data); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; background: var(--surface); padding: 0 3px; border-radius: 2px; z-index: 1; }
+.track:hover .bval, .track:focus-visible .bval { background: var(--surface-2); }
+.refs { grid-column: 2; position: relative; align-self: stretch; pointer-events: none; }
+.zero { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .5; }
+.refl { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink-dim); opacity: .45; }
+.refhead { grid-column: 2; position: relative; height: 1.1rem; }
+.reflab { position: absolute; transform: translateX(calc(-100% + .3rem)); line-height: 1.1rem; font-family: var(--f-data); font-size: .68rem; color: var(--ink-dim); white-space: nowrap; }
+.vnote { margin: .5rem 0 0; font-size: .78rem; color: var(--ink-dim); }
+#viztip { position: fixed; z-index: 10; max-width: 18rem; padding: .4rem .55rem; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: .78rem; line-height: 1.35; pointer-events: none; }
+.panel.conflicts { grid-column: 1 / -1; }
+.panel.conflicts table { min-width: 36rem; }
+.panel.conflicts td, .panel.conflicts th { border-bottom-color: color-mix(in srgb, var(--flag) 25%, transparent); }
+details.conf > summary { cursor: pointer; font-weight: 600; color: var(--flag); }
+details.conf[open] > summary { margin-bottom: .6rem; }
+blockquote { margin: .5rem 0; padding: .1rem 0 .1rem .9rem; border-left: 2px solid var(--accent); font-style: italic; color: var(--ink-dim); }
+.conflict { background: var(--flag-soft); color: var(--ink); padding: 0 .25rem; border-radius: 3px; }
+.conflict-tag { font-family: var(--f-data); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--flag); margin-right: .3rem; }
+.xref { font-family: var(--f-data); font-size: .82rem; background: var(--surface-2); padding: .05rem .35rem; border-radius: 3px; text-decoration: none; color: var(--accent); }
+.sources { margin-top: 1rem; font-size: .84rem; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: .6rem; }
+.sources b { font-family: var(--f-data); font-size: .7rem; letter-spacing: .07em; text-transform: uppercase; font-weight: 500; margin-right: .4rem; }
+
+.tablewrap { overflow-x: auto; margin: .6rem 0; }
+table { border-collapse: collapse; font-size: .88rem; min-width: 30rem; width: 100%; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--f-data); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); font-weight: 500; }
+td.r, th.r { text-align: right; font-family: var(--f-data); font-variant-numeric: tabular-nums; }
+
+.links { display: grid; gap: .5rem; padding-left: 1.1rem; margin: 0; font-size: .92rem; }
+footer { margin-top: 3rem; font-size: .82rem; color: var(--ink-dim); }
+.bottomline li { grid-template-columns: 8.5rem minmax(0, 1fr); }
+section.theme h3 { font-size: 1.05rem; margin: 1.2rem 0 .5rem; }
+section.theme > p { margin: .5rem 0; max-width: 46rem; }
+.detail ol { margin: 0; padding-left: 1.3rem; display: grid; gap: .5rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Investment memo · October 21, 2026</div>
+  <h1>Sea Limited ($SE): Investment Memo</h1>
+  <p class="dek">SE fell 18% from October 2 to 21 while its peers held up, mostly on Sea-specific news: a DBS downgrade, a Sea Cloud launch with no capex figures in the week neoclouds collapsed, and a year of spending resets. At $77.93 the price implies 2028 EBITDA ~29% below the Street; the memo&#x27;s weighted value is ~$93 with a ~$55 bear case.</p>
+  <p class="dek" style="font-size:.9rem"><strong>Date:</strong> October 21, 2026. <strong>Price:</strong> $77.93 (late-session reading; intraday low $76.00, a new 52-week low). <strong>Market cap:</strong> ~$50B on 638M diluted shares; <strong>EV</strong> ~$38B after ~$11.5B of net cash and investments (MS's net cash figure). <strong>Street:</strong> Morgan Stanley Overweight $153 (Oct 5); Morningstar fair value $152, 5 stars (fair value set Mar 4); DBS Hold $105 (Oct 1, bear case $71); Maybank Buy $150 (Oct 19); Bernstein Buy $150 (Oct 20); BofA Buy $130 (Oct 21, single source). <strong>Next catalyst:</strong> Q3 2026 results, estimated November 10 (one source says November 17; Sea had not confirmed the date as of October 21).</p><p class="dek" style="font-size:.9rem">Business detail is in <a class="xref" href="se-2-equity-report.md">se-2-equity-report</a>. Sources: <a class="xref" href="se-1-document-sources.md">se-1-document-sources</a>.</p><p class="dek" style="font-size:.9rem"><span class="num">contested: true</span>: the Street's ~$150 targets assume Shopee's margin rises from 0.67% to ~1.1% of GMV by 2028. DBS ($105) and the October tape assume reinvestment continues. Sections 2 and 3 explain the gap.</p>
+  <div class="meta"><span>Source note: se-3-investment-memo.md</span></div>
+</header>
+
+<section class="bottomline" aria-label="Bottom line"><h2>Bottom line</h2><ol>
+<li><a href="#1-executive-summary">Summary</a><span>At ~7.5x 2027 EBITDA the stock is below MS&#x27;s $80 bear case; weighted value ~$93.</span></li>
+<li><a href="#2-why-the-stock-fell-october-2-21-2026">Why it fell</a><span>-18.1% while MELI rose 9.3%; the Sea Cloud memo (-9.09%) and DBS downgrade led.</span></li>
+<li><a href="#3-business-model-unit-economics">Unit economics</a><span>Shopee is 72% of revenue but 25% of segment EBITDA; ~$0.06 of EBITDA per order.</span></li>
+<li><a href="#4-valuation-what-78-assumes">Valuation</a><span>$78 implies ~$4.5B of 2028 EBITDA, ~29% below MS and Morningstar.</span></li>
+<li><a href="#5-competitive-position-moat">Moat</a><span>Over 50% share in most markets, but margins have not risen; TikTok users grow ~3x faster.</span></li>
+<li><a href="#6-top-3-growth-drivers-sensitivities">Scenarios</a><span>~$55 / ~$112 / ~$165 by end-2027; the Shopee margin row drives the range.</span></li>
+<li><a href="#7-risk-framework-with-failure-modes">Risks</a><span>Reinvestment never ends; then Sea Cloud capex and a Monee credit cycle.</span></li>
+<li><a href="#8-12-month-kpi-watch-list">KPIs</a><span>Shopee EBITDA/GMV, GMV growth, take rate and Sea Cloud spending lead the list.</span></li>
+</ol></section>
+
+<div class="eyebrow" style="margin-bottom:.5rem">Key readings</div>
+<div class="readings">
+<div class="tile up"><span class="label">Share price</span><span class="val">$77.93</span><span class="path">October 21; intraday low $76.00; down from $95.19 (October 2)</span><span class="state">52-week low</span></div>
+<div class="tile up"><span class="label">SE vs. peers</span><span class="val">-18.1%</span><span class="path">October 2-21; MELI +9.3%, PDD +4.4%, KWEB -0.5%</span><span class="state">Sea-specific</span></div>
+<div class="tile flat"><span class="label">Weighted value (memo)</span><span class="val">~$93</span><span class="path">Today; bear ~$55 / base ~$112 / bull ~$165 (end-2027)</span><span class="state">~19% upside</span></div>
+<div class="tile hold"><span class="label">EV / 2027 adj. EBITDA</span><span class="val">~7.5x</span><span class="path">MS estimates; three-year average NTM EV/EBITDA ~18x</span><span class="state">Low</span></div>
+<div class="tile up"><span class="label">Price-implied 2028 EBITDA</span><span class="val">~$4.5B</span><span class="path">vs. $6.35B (MS) and $6.36B (Morningstar)</span><span class="state">~29% below Street</span></div>
+<div class="tile flat"><span class="label">Shopee EBITDA / GMV</span><span class="val">0.67%</span><span class="path">Q2 2026; Street targets assume ~1.1% by 2028</span><span class="state">Unproven</span></div>
+<div class="tile up"><span class="label">Sea Cloud capex</span><span class="val">Not disclosed</span><span class="path">~25,000 GPUs and 40+ data centers already in place</span><span class="state">Unknown</span></div>
+<div class="tile flat"><span class="label">Street targets</span><span class="val">~$150</span><span class="path">MS $153, Morningstar $152; DBS Hold $105</span><span class="state">Split</span></div>
+</div>
+
+<div class="panels">
+  <div class="panel"><h2>Dates and levels to watch</h2><ul class="watch">
+<li><span class="lvl">November 10 (est.)</span><span>Q3 results: Sea Cloud capex and funding, Q4 margin commentary. One source says November 17.</span></li>
+<li><span class="lvl">Early March 2027</span><span>Q4/FY2026 results and 2027 guidance; the March 2026 guide caused a 17% drop.</span></li>
+<li><span class="lvl">2027</span><span>Indonesia&#x27;s 40% debt-to-income cap on BNPL; earliest Monee listing per DBS.</span></li>
+<li><span class="lvl">&lt;0.6%</span><span>Shopee EBITDA/GMV red flag (0.67% in Q2 2026).</span></li>
+<li><span class="lvl">&gt;1.5%</span><span>Monee 90+ day NPL red flag (1.0% now).</span></li>
+<li><span class="lvl">&gt;$1B</span><span>Sea Cloud capex a year: red flag, especially with external funding.</span></li>
+<li><span class="lvl">$80 / $71</span><span>Morgan Stanley and DBS bear-case values; the stock trades near or below them.</span></li>
+  </ul></div>
+  <div class="panel conflicts"><details class="conf"><summary>Data notes and caveats (8)</summary><ul class="plain"><li>The $77.93 October 21 price may be a late-session reading rather than the final close.</li><li>The Q3 date is estimated: November 10 from most sources, November 17 from one; Sea had not confirmed it.</li><li>BofA&#x27;s $130 target comes from a single source.</li><li>Peer percentage changes are this memo&#x27;s arithmetic on stockanalysis.com closes.</li><li>Memo scenario values are end-2027; the ~$93 weighted value is discounted at 11%.</li><li>Stress test: with bear-heavy weights (45/45/10) the discounted value is ~$81, about where the stock trades.</li><li>The &quot;Tencent monetization&quot; overhang is speculation; no 2026 Tencent sale or filing was found.</li><li>The threat from Meta&#x27;s Muse to Shopee is inference, not reported fact.</li></ul></details></div>
+</div>
+
+<div class="layout">
+<nav class="toc" aria-label="Sections">
+  <div class="tools"><button type="button" id="expand-all">Expand all</button><button type="button" id="collapse-all">Collapse all</button></div>
+  <ol><li><a href="#1-executive-summary"><span class="n">1</span>Summary</a></li><li><a href="#2-why-the-stock-fell-october-2-21-2026"><span class="n">2</span>Why it fell</a></li><li><a href="#3-business-model-unit-economics"><span class="n">3</span>Unit economics</a></li><li><a href="#4-valuation-what-78-assumes"><span class="n">4</span>Valuation</a></li><li><a href="#5-competitive-position-moat"><span class="n">5</span>Moat</a></li><li><a href="#6-top-3-growth-drivers-sensitivities"><span class="n">6</span>Growth &amp; scenarios</a></li><li><a href="#7-risk-framework-with-failure-modes"><span class="n">7</span>Risks</a></li><li><a href="#8-12-month-kpi-watch-list"><span class="n">8</span>KPIs</a></li><li><a href="#bottom-line"><span class="n">9</span>Bottom line</a></li></ol>
+</nav>
+<main>
+<p class="eyebrow" style="margin:0">Tap a point to read the full note</p>
+<section class="theme" id="1-executive-summary">
+<div class="eyebrow">Section 1</div>
+<h2>1. Executive Summary</h2>
+<p class="takeaway">At ~7.5x 2027 adjusted EBITDA the stock trades below MS&#x27;s own $80 bear case. The thesis works if Shopee&#x27;s margin rises even modestly and new spending fronts stop.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="Value per share: memo scenarios and outside views"><figcaption><span class="vt">Value per share: memo scenarios and outside views</span><span class="vs">Dollars</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Outside views</span><span><i class="sw s2"></i>This memo</span></div><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:33.63%;top:0.0rem">Price $77.93 &#9662;</span></div><span class="blab" style="grid-row:2">Bull case (memo)</span><div class="track" style="grid-row:2" tabindex="0" data-tip="End-2027 value; 2028 adjusted EBITDA ~$7.2B at 13x" aria-label="Bull case (memo): ~$165"><span class="bar s2" style="left:0.00%;width:71.21%"></span><span class="bval" style="left:calc(71.21% + 6px)">~$165</span></div><span class="blab" style="grid-row:3">Morgan Stanley target</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Overweight, October 5" aria-label="Morgan Stanley target: $153"><span class="bar s1" style="left:0.00%;width:66.03%"></span><span class="bval" style="left:calc(66.03% + 6px)">$153</span></div><span class="blab" style="grid-row:4">Morningstar fair value</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Set March 4; 5 stars" aria-label="Morningstar fair value: $152"><span class="bar s1" style="left:0.00%;width:65.60%"></span><span class="bval" style="left:calc(65.60% + 6px)">$152</span></div><span class="blab" style="grid-row:5">Base case (memo)</span><div class="track" style="grid-row:5" tabindex="0" data-tip="End-2027 value; ~$6.05B at 10x" aria-label="Base case (memo): ~$112"><span class="bar s2" style="left:0.00%;width:48.34%"></span><span class="bval" style="left:calc(48.34% + 6px)">~$112</span></div><span class="blab" style="grid-row:6">DBS target</span><div class="track" style="grid-row:6" tabindex="0" data-tip="Hold, October 1" aria-label="DBS target: $105"><span class="bar s1" style="left:0.00%;width:45.32%"></span><span class="bval" style="left:calc(45.32% + 6px)">$105</span></div><span class="blab" style="grid-row:7">Weighted value (memo)</span><div class="track" style="grid-row:7" tabindex="0" data-tip="Today, discounted at 11%; 30/50/20 weights" aria-label="Weighted value (memo): ~$93"><span class="bar s2" style="left:0.00%;width:40.14%"></span><span class="bval" style="left:calc(40.14% + 6px)">~$93</span></div><span class="blab" style="grid-row:8">MS bear case</span><div class="track" style="grid-row:8" tabindex="0" data-tip="Morgan Stanley&#x27;s DCF bear case (10% weight)" aria-label="MS bear case: $80"><span class="bar s1" style="left:0.00%;width:34.53%"></span><span class="bval" style="left:calc(34.53% + 6px)">$80</span></div><span class="blab" style="grid-row:9">Bear case (memo)</span><div class="track" style="grid-row:9" tabindex="0" data-tip="End-2027 value; ~$4.0B at 7x" aria-label="Bear case (memo): ~$55"><span class="bar s2" style="left:0.00%;width:23.74%"></span><span class="bval" style="left:calc(23.74% + 6px)">~$55</span></div><div class="refs" style="grid-row:2 / span 8"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:33.63%"></span></div></div><p class="vnote">Memo scenario values are end-2027; the weighted value is discounted to today.</p></figure></div>
+<p><strong>Thesis.</strong> Sea owns the leading e-commerce marketplace in Southeast Asia and a fast-growing lender built on its transaction data. Both are growing 30-60% and are profitable. Garena's game earnings pay for much of the reinvestment. At ~$78 the stock trades at ~7.5x 2027 adjusted EBITDA (MS estimates), about 18.5x MS's 2027 EPS and below MS's own bear-case value ($80). The market is pricing roughly 2028 adjusted EBITDA of ~$4.5B, about 29% below MS's $6.35B (section 4). That is consistent with Shopee's margin staying near today's level and Sea Cloud adding losses. The thesis works if Shopee's margin rises even modestly and management stops opening new spending fronts. It fails if 2026's pattern of new investment programs (warehouses in March, quick commerce and the Migoo AI assistant, Sea Cloud in October) keeps repeating.</p>
+<p><strong>Bull case.</strong> Shopee reaches ~1.3% EBITDA/GMV by 2028 as ads and fees rise while warehouse spending pays off. Monee keeps growing 30%+ with stable credit and lists at $18-22B (DBS's estimate). Sea Cloud mostly monetizes GPUs Sea already owns. Value ~$165 at end-2027.</p>
+<p><strong>Bear case.</strong> Pinduoduo, TikTok Shop and AI shopping agents force Shopee to keep subsidizing, so its margin stays ~0.7%. Monee's provisions rise with off-Shopee and Brazil lending, Free Fire fades, and Sea Cloud becomes a GPU capex program. Value ~$55 at end-2027.</p>
+<p><strong>Target investor.</strong> Growth at a reasonable price, with tolerance for emerging-market, FX and governance risk. Forrest Li holds ~59% of the votes (March 2025) and Tencent holds a large non-voting stake, so outside shareholders have little influence over capital allocation. Not suitable for income investors (no dividend) or anyone who cannot sit through 30-50% drawdowns, which this stock has had several times.</p>
+</section>
+<section class="theme" id="2-why-the-stock-fell-october-2-21-2026">
+<div class="eyebrow">Section 2</div>
+<h2>2. Why the Stock Fell: October 2-21, 2026</h2>
+<p class="takeaway">Mostly company-specific: SE fell 18.1% while MELI rose 9.3% and PDD 4.4%. The Sea Cloud memo (-9.09%) was the biggest day, on top of the DBS downgrade and a year of spending resets.</p>
+<div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="SE on the days that mattered"><figcaption><span class="vt">SE on the days that mattered</span><span class="vs">Percent change in the close</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">Oct 1</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Oct 1: DBS downgrade to Hold, $148 to $105; close $95.27" aria-label="Oct 1: -2.15%"><span class="bar sn neg" style="left:58.12%;width:8.35%"></span><span class="bval" style="right:calc(41.88% + 6px)">-2.15%</span></div><span class="blab" style="grid-row:2">Oct 15</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Oct 15: Google AI Futures Fund tie-up; close $97.50; the last up day" aria-label="Oct 15: +2.3%"><span class="bar s1" style="left:66.47%;width:8.93%"></span><span class="bval" style="left:calc(75.40% + 6px)">+2.3%</span></div><span class="blab" style="grid-row:3">Oct 16</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Oct 16: Nasdaq -2.1% selloff; close $93.77" aria-label="Oct 16: -3.83%"><span class="bar sn neg" style="left:51.60%;width:14.87%"></span><span class="bval" style="right:calc(48.40% + 6px)">-3.83%</span></div><span class="blab" style="grid-row:4">Oct 19</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Oct 19: no single headline; close $88.47" aria-label="Oct 19: -5.65%"><span class="bar sn neg" style="left:44.54%;width:21.94%"></span><span class="bval" style="right:calc(55.46% + 6px)">-5.65%</span></div><span class="blab" style="grid-row:5">Oct 20</span><div class="track" style="grid-row:5" tabindex="0" data-tip="Oct 20: CEO memo (Sea Cloud, Monee); close $80.43 on 18.7M shares" aria-label="Oct 20: -9.09%"><span class="bar sn neg" style="left:31.18%;width:35.29%"></span><span class="bval" style="right:calc(68.82% + 6px)">-9.09%</span></div><span class="blab" style="grid-row:6">Oct 21</span><div class="track" style="grid-row:6" tabindex="0" data-tip="Oct 21: China internet weak; close $77.93; new 52-week low $76.00" aria-label="Oct 21: -3.11%"><span class="bar sn neg" style="left:54.40%;width:12.07%"></span><span class="bval" style="right:calc(45.60% + 6px)">-3.11%</span></div><div class="refs" style="grid-row:1 / span 6"><span class="zero" style="left:66.47%"></span></div></div><p class="vnote">Oct 1 DBS downgrade; Oct 16 Nasdaq selloff; Oct 20 CEO memo. Hover a bar for the detail.</p></figure><figure class="viz" role="group" aria-label="SE vs. peers, October 2 to 21"><figcaption><span class="vt">SE vs. peers, October 2 to 21</span><span class="vs">Percent change</span></figcaption><div class="hbars"><span class="blab" style="grid-row:1">SE</span><div class="track" style="grid-row:1" tabindex="0" data-tip="$95.19 to $77.93" aria-label="SE: -18.1%"><span class="bar sn neg" style="left:29.37%;width:30.63%"></span><span class="bval" style="right:calc(70.63% + 6px)">-18.1%</span></div><span class="blab" style="grid-row:2">GRAB</span><div class="track" style="grid-row:2" tabindex="0" data-tip="3.08 to 2.82" aria-label="GRAB: -8.4%"><span class="bar sn neg" style="left:45.78%;width:14.22%"></span><span class="bval" style="right:calc(54.22% + 6px)">-8.4%</span></div><span class="blab" style="grid-row:3">BABA</span><div class="track" style="grid-row:3" tabindex="0" data-tip="105.85 to 104.41" aria-label="BABA: -1.4%"><span class="bar sn neg" style="left:57.63%;width:2.37%"></span><span class="bval" style="right:calc(42.37% + 6px)">-1.4%</span></div><span class="blab" style="grid-row:4">KWEB</span><div class="track" style="grid-row:4" tabindex="0" data-tip="23.86 to 23.74" aria-label="KWEB: -0.5%"><span class="bar sn neg" style="left:59.15%;width:0.85%"></span><span class="bval" style="right:calc(40.85% + 6px)">-0.5%</span></div><span class="blab" style="grid-row:5">CPNG</span><div class="track" style="grid-row:5" tabindex="0" data-tip="13.78 to 13.87" aria-label="CPNG: +0.7%"><span class="bar s1" style="left:60.00%;width:1.18%"></span><span class="bval" style="left:calc(61.18% + 6px)">+0.7%</span></div><span class="blab" style="grid-row:6">PDD</span><div class="track" style="grid-row:6" tabindex="0" data-tip="75.38 to 78.71" aria-label="PDD: +4.4%"><span class="bar s1" style="left:60.00%;width:7.45%"></span><span class="bval" style="left:calc(67.45% + 6px)">+4.4%</span></div><span class="blab" style="grid-row:7">MELI</span><div class="track" style="grid-row:7" tabindex="0" data-tip="1,696.56 to 1,854.88" aria-label="MELI: +9.3%"><span class="bar s1" style="left:60.00%;width:15.74%"></span><span class="bval" style="left:calc(75.74% + 6px)">+9.3%</span></div><div class="refs" style="grid-row:1 / span 7"><span class="zero" style="left:60.00%"></span></div></div><p class="vnote">Closes from stockanalysis.com; October 21 may be a late-session reading.</p></figure></div></div>
+<p>SE fell <strong>18%</strong> from $95.19 (Oct 2) to $77.93 (Oct 21) and <strong>~39% year to date</strong> (Morningstar shows a -30.65% total return through Oct 19). Nearly all of the October decline came in four sessions.</p>
+<div class="tablewrap"><table><thead><tr><th>Date</th><th>Close</th><th>Move</th><th>What happened</th></tr></thead><tbody><tr><td>Oct 1</td><td>$95.27</td><td>-2.15%</td><td><strong>DBS downgrades to Hold</strong>, target $148 to $105. Reasons: Shopee spending on quick commerce, VIP and the Migoo AI app; Pinduoduo's main app entering Southeast Asia (10-13% of Shopee GMV exposed); 2027 e-commerce adjusted EBITDA 5% below consensus.</td></tr><tr><td>Oct 15</td><td>$97.50</td><td>+2.3%</td><td>Google AI Futures Fund collaboration. This was the last up day.</td></tr><tr><td>Oct 16</td><td>$93.77</td><td>-3.83%</td><td>Nasdaq -2.1% (worst week since June, -4.5%), chip/AI selloff, CoreWeave -12%, hot CPI/PPI. Mostly market-driven.</td></tr><tr><td>Oct 19</td><td>$88.47</td><td>-5.65%</td><td>No single headline. Maybank cut its target to $150, DBS reiterated Hold with Q3 GMV 2-3% below consensus, and insider 10b5-1 sales continued. Part was profit-taking after the Oct 15 pop.</td></tr><tr><td>Oct 20</td><td>$80.43</td><td>-9.09%</td><td><strong>CEO memo (6-K):</strong> Sea Cloud launch and a possible Monee listing. Reuters ran it at ~11pm ET Oct 19. Volume was 18.7M, ~2.5x Oct 19.</td></tr><tr><td>Oct 21</td><td>$77.93</td><td>-3.11%</td><td>China internet also fell (BABA -3.9%, PDD -3.6%, KWEB -2.5%). The CFO's Oct 19 sale was filed, BofA cut its target to $130, and SE hit a new 52-week low of $76.00.</td></tr></tbody></table></div>
+<p>Closes from stockanalysis.com. Oct 21 may be a late-session reading rather than the final close.</p>
+<h3>Macro or company-specific?</h3>
+<p><strong>Mostly company-specific.</strong> Over Oct 2-21, the closest peers held up while SE fell 18%:</p>
+<div class="tablewrap"><table><thead><tr><th>Ticker</th><th>Oct 2</th><th>Oct 21</th><th>Change</th></tr></thead><tbody><tr><td>SE</td><td>95.19</td><td>77.93</td><td><strong>-18.1%</strong></td></tr><tr><td>MELI</td><td>1,696.56</td><td>1,854.88</td><td>+9.3%</td></tr><tr><td>PDD</td><td>75.38</td><td>78.71</td><td>+4.4%</td></tr><tr><td>CPNG</td><td>13.78</td><td>13.87</td><td>+0.7%</td></tr><tr><td>BABA</td><td>105.85</td><td>104.41</td><td>-1.4%</td></tr><tr><td>KWEB</td><td>23.86</td><td>23.74</td><td>-0.5%</td></tr><tr><td>GRAB</td><td>3.08</td><td>2.82</td><td>-8.4%</td></tr></tbody></table></div>
+<p>Peer prices from stockanalysis.com; percentages are this memo's arithmetic.</p>
+<p>Two things came from the market. The Oct 16 drop came with the Nasdaq's AI-led selloff. Part of Oct 21 came with China internet. Grab's -8% also suggests some Southeast Asia-specific weakness, from a weak rupiah (USD/IDR 17,855 in Q3, +9% y/y) and soft Indonesian consumer confidence (DBS). The rest (roughly 15-20 points of underperformance against MELI, PDD and KWEB) came from Sea.</p>
+<p>September was different. MS (Oct 5) called SE's ~13% one-month correction "largely macro/factor-driven," moving with MELI, GRAB and CPNG as US 10-year yields rose above 5.2% (FRED peak 5.24% on Oct 9, the highest since 2002 on some measures). In October that relationship broke: MELI rallied and SE fell. This explains why the macro-or-company answer depends on the window. Over two weeks it is mostly Sea. Over two months it is both.</p>
+<h3>The fears, in order of importance</h3>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">1. A new capital-intensive bet, announced in the worst possible week.</span><span class="gist">Sea Cloud was announced as an &quot;AI-first enterprise platform.&quot;</span></summary><div class="detail"><p><strong>1. A new capital-intensive bet, announced in the worst possible week.</strong></p><p>Sea Cloud was announced as an "AI-first enterprise platform." Data Center Dynamics called it a "neocloud."</p><p>The memo gave no capex, customers, pricing or funding plan. Investors had just watched CoreWeave's bond scare and a 20-28% weekly drop in neocloud stocks (October 12-16; see <a class="xref" href="docn-3-investment-memo.md">docn-3-investment-memo</a> and <a class="xref" href="comparisons/akam-vs-docn-20261015.md">akam-vs-docn-20261015</a>), and they assumed the worst.</p><p>The Q2 call (August 11) never mentioned AI, cloud or GPU spending, so this was a surprise. Facts that cut against the fear:</p><ul><li>Sea already runs ~25,000 GPUs, 150,000+ servers, 40+ data centers and 100+ MW for its own businesses, so Sea Cloud may mainly sell spare or shared capacity.</li><li>Sea rents rather than buys most of its physical assets.</li><li>Maybank called the AI spend "manageable."</li></ul>
+<p>But the "other services" segment already lost $46M in Q2 (up 236% y/y), and MS models it losing $123M in 9M26. Sea Cloud will show up there.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">2. Management keeps finding new ways to spend.</span><span class="gist">This is the deeper issue, and it predates October.</span></summary><div class="detail"><p><strong>2. Management keeps finding new ways to spend.</strong></p><p>This is the deeper issue, and it predates October.</p><ul><li>March 3: Shopee guided 2026 EBITDA "no lower than 2025," added a warehouse build-out and a mid-to-high-30s tax rate. The stock fell 17% and Morningstar cut its fair value 23%, from $198 to $152.</li><li>Q2: revenue grew 48% but adjusted EBITDA only 10.6% and net income 10.6%. S&amp;M rose 64.5% and provisions 71.5%. EPS of $0.70 missed ~$0.83-0.86 consensus. MarketBeat counts 0 EPS beats in 8 quarters.</li><li>October: DBS's downgrade named more spending (quick commerce, VIP, Migoo), and Sea Cloud came three weeks later.</li></ul>
+<p>Each episode moves margin expansion further out. The market has stopped giving credit for the 2027 "higher benchmark" management promised in March.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">3. The Monee IPO was read as a distraction rather than a catalyst.</span><span class="gist">The memo&#x27;s wording is loose: Monee is &quot;approaching the point where it can stand on its own two feet...</span></summary><div class="detail"><p><strong>3. The Monee IPO was read as a distraction rather than a catalyst.</strong></p><p>The memo's wording is loose: Monee is "approaching the point where it can stand on its own two feet... Going public could give it the resources and the room."</p><p>DBS sees no listing before 2027 and lists real obstacles:</p><ul><li>licenses in eight markets</li><li>MAS approval for anyone holding more than 5% of MariBank</li><li>Indonesia's 40% debt-to-income cap on BNPL from 2027</li><li>arm's-length terms with Shopee, whose users and payment flows Monee depends on</li></ul>
+<p>Splitting off the fastest-growing, highest-margin unit also raises a question the market doesn't like: how profitable is Shopee on its own? DBS's sum of parts ($18-22B for Monee against ~$6B implied in the price) is the bull's counter.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">4. Competition is changing shape.</span><span class="gist">Pinduoduo&#x27;s main app (not Temu) entered Malaysia in December 2025, removed its free-shipping minimum in August 2026 and leads shopping-app...</span></summary><div class="detail"><p><strong>4. Competition is changing shape.</strong></p><ul><li>Pinduoduo's main app (not Temu) entered Malaysia in December 2025, removed its free-shipping minimum in August 2026 and leads shopping-app downloads there.</li><li>TikTok MAU grows ~3x faster than Shopee's in ASEAN (+15% vs. +5%, September).</li><li>Meta's Muse shopping agent (US/Canada only so far) points to a future where an agent, not Shopee's search page, captures purchase intent. That would undercut ads, Shopee's main margin lever. MS lists "potential Muse disruption" among the concerns. The threat to Shopee is inference, not reported fact (see <a class="xref" href="../../reading-list/notes/market-newsletter-digest-2026-09-22.md">market-newsletter-digest-2026-09-22</a>).</li></ul></div></details></li>
+<li><details class="pt"><summary><span class="hd">5. Supply overhangs (minor).</span><span class="gist">Insiders file Form 4s almost daily (CCO ~1,000 shares a day, Garena president 40,000, CFO 10,000), all under 10b5-1 plans adopted months ago.</span></summary><div class="detail"><p><strong>5. Supply overhangs (minor).</strong></p><p>Insiders file Form 4s almost daily (CCO ~1,000 shares a day, Garena president 40,000, CFO 10,000), all under 10b5-1 plans adopted months ago. These are small next to holdings, but the steady flow of headlines hurts sentiment.</p><p>MS also cites a "potential Tencent monetization" overhang. No 2026 Tencent sale or filing was found; its last sale was January 2022. Treat that as speculation.</p></div></details></li>
+</ul>
+<p><strong>What did not happen:</strong> no guidance cut, no earnings miss in October, no credit event, no regulatory action. The fundamentals reported so far (Q2) are intact: GMV +28%, NPL 1.0%, Garena bookings +15.5%. The stock is pricing what management might spend next, not what the business earned.</p>
+</section>
+<section class="theme" id="3-business-model-unit-economics">
+<div class="eyebrow">Section 3</div>
+<h2>3. Business Model &amp; Unit Economics</h2>
+<p class="takeaway">Shopee earns ~$0.06 of EBITDA per $9.1 order; Garena earns 47% of segment EBITDA on 11% of revenue. Operating leverage is negative by choice in 2026.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="Revenue share vs. EBITDA share by segment, FY2025"><figcaption><span class="vt">Revenue share vs. EBITDA share by segment, FY2025</span><span class="vs">Percent of group revenue / of segment adjusted EBITDA</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Share of revenue</span><span><i class="sw s2"></i>Share of segment EBITDA</span></div><div class="hbars"><span class="blab" style="grid-row:1">Shopee revenue</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Shopee $16.6B revenue" aria-label="Shopee revenue: 72%"><span class="bar s1" style="left:0.00%;width:73.80%"></span><span class="bval" style="left:calc(73.80% + 6px)">72%</span></div><span class="blab" style="grid-row:2">Shopee EBITDA</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Shopee $0.88B adjusted EBITDA" aria-label="Shopee EBITDA: 25%"><span class="bar s2" style="left:0.00%;width:25.62%"></span><span class="bval" style="left:calc(25.62% + 6px)">25%</span></div><span class="blab" style="grid-row:3">Monee revenue</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Monee $3.79B revenue" aria-label="Monee revenue: 17%"><span class="bar s1" style="left:0.00%;width:17.43%"></span><span class="bval" style="left:calc(17.43% + 6px)">17%</span></div><span class="blab" style="grid-row:4">Monee EBITDA</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Monee $1.02B adjusted EBITDA" aria-label="Monee EBITDA: 29%"><span class="bar s2" style="left:0.00%;width:29.72%"></span><span class="bval" style="left:calc(29.72% + 6px)">29%</span></div><span class="blab" style="grid-row:5">Garena revenue</span><div class="track" style="grid-row:5" tabindex="0" data-tip="Garena $2.41B revenue" aria-label="Garena revenue: 11%"><span class="bar s1" style="left:0.00%;width:11.28%"></span><span class="bval" style="left:calc(11.28% + 6px)">11%</span></div><span class="blab" style="grid-row:6">Garena EBITDA</span><div class="track" style="grid-row:6" tabindex="0" data-tip="Garena $1.66B adjusted EBITDA" aria-label="Garena EBITDA: 47%"><span class="bar s2" style="left:0.00%;width:48.18%"></span><span class="bval" style="left:calc(48.18% + 6px)">47%</span></div><div class="refs" style="grid-row:1 / span 6"><span class="zero" style="left:0.00%"></span></div></div></figure></div>
+<p><strong>Revenue and profit by segment (FY2025):</strong> Shopee $16.6B revenue (72%), $0.88B adjusted EBITDA (25% of segment EBITDA). Monee $3.79B (17%), $1.02B (29%). Garena $2.41B (11%), $1.66B (47%). Group adjusted EBITDA was $3.44B. Geography: Indonesia is the largest Shopee market (~34% of Shopee MAU), Brazil the main growth market, and Taiwan the most developed.</p>
+<div class="tablewrap"><table><thead><tr><th>Unit economics (Q2 2026)</th><th>Value</th><th>Derivation</th></tr></thead><tbody><tr><td>Shopee average order value</td><td>~$9.1</td><td>$38.3B GMV / 4.2B orders</td></tr><tr><td>Shopee core marketplace revenue per order</td><td>~$1.01</td><td>$4.26B / 4.2B (core take rate ~11.1%)</td></tr><tr><td>Shopee adjusted EBITDA per order</td><td>~$0.06</td><td>$255M / 4.2B (0.67% of GMV)</td></tr><tr><td>Monee provision for credit losses / Monee revenue</td><td>~40%</td><td>$555M / $1,403M</td></tr><tr><td>Monee adjusted EBITDA margin</td><td>20.5%</td><td>$288M / $1,403M (26.9% in FY2025)</td></tr><tr><td>Monee 90+ day NPL</td><td>1.0%</td><td>stable q/q</td></tr><tr><td>Garena bookings per paying user (quarter)</td><td>~$11.2</td><td>$763.5M / 68.1M paying users (10.2% pay ratio)</td></tr></tbody></table></div>
+<p><strong>Operating leverage is negative by choice in 2026.</strong> Revenue grew 48% in Q2 and adjusted EBITDA 10.6%. MS expects EBITDA growth to reach 15% in Q3 and 29% in 2027 (adjusted EBITDA $5.12B), as Shopee's take-rate gains outrun reinvestment. Each 10 bp of Shopee EBITDA/GMV on 2027 GMV of ~$193B (MS) is ~$190M of EBITDA, about 4% of group 2027 EBITDA.</p>
+<p><strong>Working capital and cash conversion.</strong> Shopee runs negative working capital (it collects from buyers before paying sellers). Monee absorbs capital: the loan book grew $1.9B in H1 2026. FY2025 operating cash flow of $5.02B was 3.1x net income, but that includes the float. Morningstar's free cash flow to the firm drops from $3.79B (2025) to $1.79B (2026e). Sea does not disclose a cash conversion cycle.</p>
+</section>
+<section class="theme" id="4-valuation-what-78-assumes">
+<div class="eyebrow">Section 4</div>
+<h2>4. Valuation: What $78 Assumes</h2>
+<p class="takeaway">The price implies 2028 adjusted EBITDA of ~$4.5B against MS&#x27;s $6.35B and Morningstar&#x27;s $6.36B, about 29% below the Street.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="2028 adjusted EBITDA: what the price implies vs. forecasts"><figcaption><span class="vt">2028 adjusted EBITDA: what the price implies vs. forecasts</span><span class="vs">$ billions</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Forecast</span><span><i class="sw s2"></i>Price-implied</span></div><div class="hbars"><span class="blab" style="grid-row:1">Memo bull</span><div class="track" style="grid-row:1" tabindex="0" data-tip="Shopee 1.3% of GMV, Monee 22% margin" aria-label="Memo bull: ~$7.2B"><span class="bar s1" style="left:0.00%;width:69.46%"></span><span class="bval" style="left:calc(69.46% + 6px)">~$7.2B</span></div><span class="blab" style="grid-row:2">Morningstar</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Morningstar model" aria-label="Morningstar: $6.36B"><span class="bar s1" style="left:0.00%;width:61.36%"></span><span class="bval" style="left:calc(61.36% + 6px)">$6.36B</span></div><span class="blab" style="grid-row:3">Morgan Stanley</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Morgan Stanley model" aria-label="Morgan Stanley: $6.35B"><span class="bar s1" style="left:0.00%;width:61.26%"></span><span class="bval" style="left:calc(61.26% + 6px)">$6.35B</span></div><span class="blab" style="grid-row:4">Memo base</span><div class="track" style="grid-row:4" tabindex="0" data-tip="MS&#x27;s figure less ~$0.3B for Sea Cloud" aria-label="Memo base: ~$6.05B"><span class="bar s1" style="left:0.00%;width:58.36%"></span><span class="bval" style="left:calc(58.36% + 6px)">~$6.05B</span></div><span class="blab" style="grid-row:5">Implied by $78</span><div class="track" style="grid-row:5" tabindex="0" data-tip="10x exit multiple, ~$12B net cash, 11% required return" aria-label="Implied by $78: ~$4.5B"><span class="bar s2" style="left:0.00%;width:43.41%"></span><span class="bval" style="left:calc(43.41% + 6px)">~$4.5B</span></div><span class="blab" style="grid-row:6">Memo bear</span><div class="track" style="grid-row:6" tabindex="0" data-tip="Shopee 0.7% of GMV, 15% GMV growth, Monee 17%" aria-label="Memo bear: ~$4.0B"><span class="bar s1" style="left:0.00%;width:38.59%"></span><span class="bval" style="left:calc(38.59% + 6px)">~$4.0B</span></div><div class="refs" style="grid-row:1 / span 6"><span class="zero" style="left:0.00%"></span></div></div></figure></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Multiples at $77.93</span><span class="gist">~9.6x 2026 and ~7.5x 2027 MS adjusted EBITDA; ~8.7x 2027 MS ModelWare EBITDA (MS called 11x &quot;attractive&quot; at $95).</span></summary><div class="detail"><p><strong>Multiples at $77.93:</strong></p><p>~9.6x 2026 and ~7.5x 2027 MS adjusted EBITDA; ~8.7x 2027 MS ModelWare EBITDA (MS called 11x "attractive" at $95). P/E is ~27x 2026 and ~18.5x 2027 (MS EPS $2.90 / $4.21), or ~19.6x on Morningstar's 2027 EPS ($3.98).</p><p>SE's three-year average NTM EV/EBITDA was ~18x (MS, FactSet).</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Reverse valuation</span><span class="gist">an investor who wants an 11% annual return and expects SE to trade at 10x 2028 adjusted EBITDA at end-2027, with ~$12B of net cash, needs $78 ×...</span></summary><div class="detail"><p><strong>Reverse valuation:</strong></p><p>an investor who wants an 11% annual return and expects SE to trade at 10x 2028 adjusted EBITDA at end-2027, with ~$12B of net cash, needs $78 × 1.133 ≈ $88/share then. That is ~$57B of equity and ~$45B of EV, which implies <strong>2028 adjusted EBITDA of ~$4.5B</strong>, against MS's $6.35B and Morningstar's $6.36B.</p><p>The price assumes the Street's 2028 numbers are ~29% too high.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Sum of the parts at $78 (EV ~$38B)</span><span class="gist">value Garena at 6x 2026e EBITDA ($1.89B → ~$11B).</span></summary><div class="detail"><p><strong>Sum of the parts at $78 (EV ~$38B):</strong></p><p>value Garena at 6x 2026e EBITDA ($1.89B → ~$11B). If Monee is worth 10x 2026e EBITDA (~$12B), Shopee gets ~$15B, or ~14x its 2026e EBITDA ($1.07B) and ~0.09x GMV.</p><p>If Monee is worth DBS's $18-22B, Shopee gets $5-9B. Either way the market is paying little for Shopee's margin expansion.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Street vs. price</span><span class="gist">MS&#x27;s probability-weighted DCF (base $155 at 80%, bear $80 at 10%, bull $210 at 10%) puts only 10% weight on the bear case, and the stock now...</span></summary><div class="detail"><p><strong>Street vs. price:</strong></p><p>MS's probability-weighted DCF (base $155 at 80%, bear $80 at 10%, bull $210 at 10%) puts only 10% weight on the bear case, and the stock now trades below it. DBS's bear case is $71.</p></div></details></li>
+</ul>
+</section>
+<section class="theme" id="5-competitive-position-moat">
+<div class="eyebrow">Section 5</div>
+<h2>5. Competitive Position &amp; Moat</h2>
+<p class="takeaway">Over 50% share in most Southeast Asian markets, but Shopee&#x27;s margin has not risen, so the network effect has not yet turned into pricing power.</p>
+<div class="keyviz"><figure class="viz" role="group" aria-label="App user growth, September 2026"><figcaption><span class="vt">App user growth, September 2026</span><span class="vs">Monthly active users, percent y/y</span></figcaption><div class="vlegend"><span><i class="sw s1"></i>Shopee</span><span><i class="sw s2"></i>Competitor</span></div><div class="hbars"><span class="blab" style="grid-row:1">TikTok, ASEAN</span><div class="track" style="grid-row:1" tabindex="0" data-tip="TikTok ASEAN MAU +15%" aria-label="TikTok, ASEAN: +15%"><span class="bar s2" style="left:0.00%;width:61.50%"></span><span class="bval" style="left:calc(61.50% + 6px)">+15%</span></div><span class="blab" style="grid-row:2">Shopee, ASEAN</span><div class="track" style="grid-row:2" tabindex="0" data-tip="Shopee ASEAN MAU +5%" aria-label="Shopee, ASEAN: +5%"><span class="bar s1" style="left:0.00%;width:20.50%"></span><span class="bval" style="left:calc(20.50% + 6px)">+5%</span></div><span class="blab" style="grid-row:3">Mercado Libre, Brazil</span><div class="track" style="grid-row:3" tabindex="0" data-tip="Mercado Libre Brazil MAU +16%" aria-label="Mercado Libre, Brazil: +16%"><span class="bar s2" style="left:0.00%;width:65.60%"></span><span class="bval" style="left:calc(65.60% + 6px)">+16%</span></div><span class="blab" style="grid-row:4">Shopee, Brazil</span><div class="track" style="grid-row:4" tabindex="0" data-tip="Shopee Brazil MAU +11%" aria-label="Shopee, Brazil: +11%"><span class="bar s1" style="left:0.00%;width:45.10%"></span><span class="bval" style="left:calc(45.10% + 6px)">+11%</span></div><div class="refs" style="grid-row:1 / span 4"><span class="zero" style="left:0.00%"></span></div></div></figure></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">Market position</span><span class="gist">~52% of Southeast Asian e-commerce GMV in 2024 and above 50% in every Southeast Asian market except Indonesia (46%).</span></summary><div class="detail"><p><strong>Market position:</strong></p><p>~52% of Southeast Asian e-commerce GMV in 2024 and above 50% in every Southeast Asian market except Indonesia (46%). Over 50% in Taiwan.</p><p>In Brazil, Shopee app MAU is growing 11% vs. Mercado Libre's 16% (September 2026, Sensor Tower via MS). Shopee had 534M worldwide MAU in September 2026, +5% y/y.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Moat classification</span><span class="gist">network effect (Shopee; Morningstar Narrow), cost advantage in logistics (in-house costs below third-party rates; instant-delivery cost per order...</span></summary><div class="detail"><p><strong>Moat classification:</strong></p><p>network effect (Shopee; Morningstar Narrow), cost advantage in logistics (in-house costs below third-party rates; instant-delivery cost per order -20% in Indonesia), data advantage in credit (Monee underwrites with Shopee transaction histories; NPL ~1% while the book grew 62%). Garena: none (single title).</p><p>Regulatory: MariBank licenses are a modest barrier.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Durability evidence</span><span class="gist">share has held through TikTok&#x27;s entry and fee increases have stuck (Shopee and TikTok both raised fees in Q4 2025 and 2026).</span></summary><div class="detail"><p><strong>Durability evidence:</strong></p><p>share has held through TikTok's entry and fee increases have stuck (Shopee and TikTok both raised fees in Q4 2025 and 2026). Against that, Shopee's margin has not risen (0.69% of GMV in FY2025, 0.67% in Q2 2026, 0.58% in Q3 2025), so the network effect has not yet produced pricing power that survives competition.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">Key competitors and differentiation</span><span class="gist">TikTok Shop/Tokopedia: content-led and the fastest-growing. Shopee&#x27;s answer is its own livestream and video commerce (25% of SEA physical orders).</span></summary><div class="detail"><p><strong>Key competitors and differentiation:</strong></p><ul><li><strong>TikTok Shop/Tokopedia:</strong> content-led and the fastest-growing. Shopee's answer is its own livestream and video commerce (25% of SEA physical orders).</li><li><strong>Pinduoduo/Temu (PDD):</strong> cross-border low prices. Shopee's answer is local sellers plus faster delivery.</li><li><strong>Lazada (Alibaba):</strong> distant number three.</li><li><strong>Mercado Libre:</strong> in Brazil. Shopee competes on price and leads in low-ticket categories.</li><li><strong>AI shopping agents (Meta Muse, ChatGPT shopping):</strong> Shopee has integrated with ChatGPT (June 2026) and built Migoo.</li></ul></div></details></li>
+</ul>
+</section>
+<section class="theme" id="6-top-3-growth-drivers-sensitivities">
+<div class="eyebrow">Section 6</div>
+<h2>6. Top 3 Growth Drivers &amp; Sensitivities</h2>
+<p class="takeaway">End-2027 values of ~$55 / ~$112 / ~$165; the weighted value is ~$93 today. The Shopee margin row drives most of the range.</p>
+<div class="keyviz"><div class="vizpair"><figure class="viz" role="group" aria-label="2028 Shopee EBITDA / GMV by scenario"><figcaption><span class="vt">2028 Shopee EBITDA / GMV by scenario</span><span class="vs">Percent of GMV</span></figcaption><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:36.63%;top:0.0rem">Q2 2026: 0.67% &#9662;</span></div><span class="blab" style="grid-row:2">Bear (30%)</span><div class="track" style="grid-row:2" tabindex="0" data-tip="$1.49B on $213B GMV" aria-label="Bear (30%): 0.70%"><span class="bar s1" style="left:0.00%;width:38.27%"></span><span class="bval" style="left:calc(38.27% + 6px)">0.70%</span></div><span class="blab" style="grid-row:3">Base (50%)</span><div class="track" style="grid-row:3" tabindex="0" data-tip="$2.46B on $224B GMV" aria-label="Base (50%): 1.1%"><span class="bar s1" style="left:0.00%;width:60.13%"></span><span class="bval" style="left:calc(60.13% + 6px)">1.1%</span></div><span class="blab" style="grid-row:4">Bull (20%)</span><div class="track" style="grid-row:4" tabindex="0" data-tip="$2.99B on $230B GMV" aria-label="Bull (20%): 1.3%"><span class="bar s1" style="left:0.00%;width:71.07%"></span><span class="bval" style="left:calc(71.07% + 6px)">1.3%</span></div><div class="refs" style="grid-row:2 / span 3"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:36.63%"></span></div></div></figure><figure class="viz" role="group" aria-label="End-2027 value per share by scenario"><figcaption><span class="vt">End-2027 value per share by scenario</span><span class="vs">Dollars</span></figcaption><div class="hbars"><div class="refhead" style="grid-row:1;height:1.1rem"><span class="reflab" style="left:33.63%;top:0.0rem">Price $77.93 &#9662;</span></div><span class="blab" style="grid-row:2">Bear (30%)</span><div class="track" style="grid-row:2" tabindex="0" data-tip="-29% vs. $77.93" aria-label="Bear (30%): ~$55"><span class="bar s1" style="left:0.00%;width:23.74%"></span><span class="bval" style="left:calc(23.74% + 6px)">~$55</span></div><span class="blab" style="grid-row:3">Base (50%)</span><div class="track" style="grid-row:3" tabindex="0" data-tip="+43%" aria-label="Base (50%): ~$112"><span class="bar s1" style="left:0.00%;width:48.34%"></span><span class="bval" style="left:calc(48.34% + 6px)">~$112</span></div><span class="blab" style="grid-row:4">Bull (20%)</span><div class="track" style="grid-row:4" tabindex="0" data-tip="+112%" aria-label="Bull (20%): ~$165"><span class="bar s1" style="left:0.00%;width:71.21%"></span><span class="bval" style="left:calc(71.21% + 6px)">~$165</span></div><div class="refs" style="grid-row:2 / span 3"><span class="zero" style="left:0.00%"></span><span class="refl" style="left:33.63%"></span></div></div></figure></div></div>
+<ul class="points">
+<li><details class="pt"><summary><span class="hd">1. Shopee margin ramp (take rate and ads, logistics payback).</span><span class="gist">TAM impact: none on volume, but each 10 bp of EBITDA/GMV is ~$190-225M a year in 2027-28. Probability-weighted, ~1.0% in 2028 (bear 0.7% at 30%,...</span></summary><div class="detail"><p><strong>1. Shopee margin ramp (take rate and ads, logistics payback).</strong></p><p>TAM impact: none on volume, but each 10 bp of EBITDA/GMV is ~$190-225M a year in 2027-28. Probability-weighted, ~1.0% in 2028 (bear 0.7% at 30%, base 1.1% at 50%, bull 1.3% at 20%). Milestones: Q4 2026 margin after the warehouse build-out (management said it would "pay off by Q4"), Brazil commission increases, and ad take rate disclosures.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">2. Monee loan growth at stable credit.</span><span class="gist">TAM: 50-70% of Southeast Asia unbanked or under-banked; digital lending growth ~17% a year 2024-30 (Bain/Google/Temasek).</span></summary><div class="detail"><p><strong>2. Monee loan growth at stable credit.</strong></p><p>TAM: 50-70% of Southeast Asia unbanked or under-banked; digital lending growth ~17% a year 2024-30 (Bain/Google/Temasek). MS models DFS revenue +37% in 2027 and +24% in 2028. Probability-weighted 2028 margin ~19.5% (17% / 20% / 22%).</p><p>Milestones: NPL and provision ratio each quarter, Indonesia's BNPL debt-to-income cap (2027), the Philippines MariBank ramp, and any Monee listing filing.</p></div></details></li>
+<li><details class="pt"><summary><span class="hd">3. GMV growth in Brazil and ASEAN.</span><span class="gist">TAM: e-commerce at 4-29% of retail in major Southeast Asian markets vs. 52% in China.</span></summary><div class="detail"><p><strong>3. GMV growth in Brazil and ASEAN.</strong></p><p>TAM: e-commerce at 4-29% of retail in major Southeast Asian markets vs. 52% in China. MS has GMV +26% in 2026, +20% in 2027 and +16% in 2028 ($224B).</p><p>Milestones: Q3 GMV (MS $40.3B; DBS $39.2-39.6B), the 2027 GMV guide in March 2027, and Sensor Tower MAU against TikTok and Pinduoduo.</p></div></details></li>
+</ul>
+<p><strong>Sensitivity: 2028 adjusted EBITDA and end-2027 value per share</strong></p>
+<div class="tablewrap"><table><thead><tr><th></th><th>Bear (30%)</th><th>Base (50%)</th><th>Bull (20%)</th></tr></thead><tbody><tr><td>2028 GMV</td><td>$213B (15% CAGR from 2026)</td><td>$224B (MS)</td><td>$230B</td></tr><tr><td>Shopee EBITDA / GMV</td><td>0.70% → $1.49B</td><td>1.1% → $2.46B</td><td>1.3% → $2.99B</td></tr><tr><td>Monee revenue / margin</td><td>$8.6B / 17% → $1.45B</td><td>$10.1B / 20% → $2.0B</td><td>$10.5B / 22% → $2.3B</td></tr><tr><td>Garena EBITDA</td><td>$1.70B</td><td>$2.16B</td><td>$2.20B</td></tr><tr><td>Other incl. Sea Cloud</td><td>-$0.65B</td><td>-$0.57B (MS -$0.27B, less $0.3B for Sea Cloud)</td><td>-$0.30B</td></tr><tr><td><strong>2028 adjusted EBITDA</strong></td><td><strong>~$4.0B</strong></td><td><strong>~$6.05B</strong></td><td><strong>~$7.2B</strong></td></tr><tr><td>EV/EBITDA applied</td><td>7x</td><td>10x</td><td>13x</td></tr><tr><td>Net cash at end-2027</td><td>$8B (cloud capex)</td><td>$12B</td><td>$14B</td></tr><tr><td><strong>Value per share (650M shares)</strong></td><td><strong>~$55</strong></td><td><strong>~$112</strong></td><td><strong>~$165</strong></td></tr><tr><td>vs. $77.93</td><td>-29%</td><td>+43%</td><td>+112%</td></tr></tbody></table></div>
+<p>Weighted value at end-2027 is ~$105, or ~$93 today discounted at 11%, about 19% above $77.93. The bear case is not an extreme. It requires Shopee's 2026 margin to persist, GMV growth to slow to 15%, Monee's margin to slip to 17%, and Sea Cloud to lose ~$0.4B a year. The upside depends mostly on the Shopee margin row.</p>
+<p><strong>Timeline:</strong></p>
+<ul class="points">
+<li class="aside">Q3 results (est. Nov 10): Sea Cloud capex and funding, and Q4 margin commentary.</li>
+<li class="aside">Q4/FY2026 results (early March 2027): 2027 guidance; the March 2026 guide caused a 17% drop.</li>
+<li class="aside">Monee listing steps (2027 at the earliest).</li>
+<li class="aside">Garena's 10th-anniversary content and the Monster Hunter Outlanders launch.</li>
+</ul>
+</section>
+<section class="theme" id="7-risk-framework-with-failure-modes">
+<div class="eyebrow">Section 7</div>
+<h2>7. Risk Framework with Failure Modes</h2>
+<p class="takeaway">The top risk is that reinvestment never ends; next are a Sea Cloud capex program and a Monee credit cycle.</p>
+
+<div class="tablewrap"><table><thead><tr><th>Rank</th><th>Risk</th><th>Severity × probability</th><th>Trigger</th><th>Impact</th><th>Mitigation</th></tr></thead><tbody><tr><td>1</td><td><strong>Reinvestment never ends.</strong> Shopee's margin stays ~0.7% as each competitive threat brings a new spending program.</td><td>High × High</td><td>2027 guide with Shopee EBITDA/GMV below ~0.8%, or a new program (subsidies, AI assistant, quick commerce)</td><td>2028 EBITDA ~$4B; stock $55-65</td><td>Take rates rising; Shopee and TikTok both raising fees; management's US$1B 2026 Shopee EBITDA target</td></tr><tr><td>2</td><td><strong>Sea Cloud becomes a capex program.</strong> Sea buys GPUs and leases data centers for outside customers, at neocloud returns.</td><td>High × Medium</td><td>Capex guidance &gt;$1B, external financing, or "other services" losses above ~$150M a quarter</td><td>Net cash falls $3-5B; the multiple shifts toward neocloud levels</td><td>Existing 25k-GPU base; asset-light history; Maybank calls the spend "manageable"</td></tr><tr><td>3</td><td><strong>Monee credit cycle.</strong> Off-Shopee, Brazil and cash-loan growth raise losses; Indonesia's 2027 BNPL cap slows growth.</td><td>High × Medium</td><td>NPL 90+ above 1.5%, or provisions above ~45% of Monee revenue</td><td>Monee EBITDA -30-50%; the IPO case falls apart</td><td>NPL steady at 1.0-1.1%; Shopee data for underwriting; off-book funding</td></tr><tr><td>4</td><td><strong>Competition and disintermediation.</strong> Pinduoduo's main app, TikTok Shop, and AI agents capture shopping intent.</td><td>Medium × Medium</td><td>Shopee GMV growth below ~18%, or ASEAN MAU share falling (Sensor Tower)</td><td>Lower take rate and higher marketing spend</td><td>Logistics, VIP and content commerce; ChatGPT/Migoo integrations</td></tr><tr><td>5</td><td><strong>Free Fire declines.</strong> Garena's ~$1.7-1.9B of EBITDA funds the group; a 2022-23-style decline (bookings -40%, -34%) would remove it.</td><td>Medium × Low-Medium</td><td>Bookings negative y/y for two quarters; MAU falling</td><td>Group EBITDA -15-25%</td><td>Content collaborations; Tencent-licensed launches; Free Fire MAX in India</td></tr></tbody></table></div>
+<p><strong>Pre-mortem.</strong> If this investment fails over three years, the most likely reason is that Sea kept reinvesting at the moment the margin was supposed to show up. The 2027 guide resets lower again, Sea Cloud absorbs cash, and the stock rerates as a low-margin conglomerate controlled by a founder. In that world Shopee's 2028 EBITDA/GMV is still under 0.8% and EV/EBITDA settles at 6-8x.</p>
+<p><strong>Assumptions that must hold:</strong></p>
+<ul class="points">
+<li class="aside">1. Shopee's EBITDA/GMV reaches at least ~0.9% in 2027 and ~1.0% in 2028.</li>
+<li class="aside">2. Sea Cloud's capex stays under ~$1B a year and is mostly self-funded, without equity or a large debt raise.</li>
+<li class="aside">3. Monee's 90-day NPL stays at or below ~1.3%.</li>
+<li class="aside">4. Garena's bookings stay roughly flat or better.</li>
+<li class="aside">5. No large Tencent block sale at a deep discount (the "overhang" never becomes an event).</li>
+</ul>
+</section>
+<section class="theme" id="8-12-month-kpi-watch-list">
+<div class="eyebrow">Section 8</div>
+<h2>8. 12-Month KPI Watch List</h2>
+<p class="takeaway">Ten KPIs, led by Shopee EBITDA/GMV, GMV growth, the take rate and Sea Cloud spending.</p>
+
+<div class="tablewrap"><table><thead><tr><th>#</th><th>KPI</th><th>Current</th><th>Target range</th><th>Red flag</th><th>Frequency / source</th></tr></thead><tbody><tr><td>1</td><td>Shopee adjusted EBITDA / GMV</td><td>0.67% (Q2 2026)</td><td>0.7-0.8% (Q4 2026); 0.85%+ (2027)</td><td>&lt;0.6%, or 2027 guide implies flat</td><td>Quarterly / results release</td></tr><tr><td>2</td><td>Shopee GMV growth y/y</td><td>+28.4% (Q2)</td><td>20-25%</td><td>&lt;18%</td><td>Quarterly / release</td></tr><tr><td>3</td><td>Core marketplace take rate (core revenue / GMV)</td><td>~11.1% (Q2)</td><td>11.3-11.8%</td><td>Flat or down q/q for two quarters</td><td>Quarterly / release, MS model</td></tr><tr><td>4</td><td>Sea Cloud capex and "other services" adjusted EBITDA</td><td>-$46M (Q2)</td><td>Capex disclosed and &lt;$1B a year; losses &lt;$100M a quarter</td><td>Capex &gt;$1B, external funding, losses &gt;$150M a quarter</td><td>Quarterly / release and call (first read Nov 10)</td></tr><tr><td>5</td><td>Monee 90+ day NPL</td><td>1.0%</td><td>≤1.2%</td><td>&gt;1.5%</td><td>Quarterly / release</td></tr><tr><td>6</td><td>Monee provisions / Monee revenue</td><td>~40%</td><td>≤40%</td><td>&gt;45%</td><td>Quarterly / release</td></tr><tr><td>7</td><td>Monee adjusted EBITDA margin</td><td>20.5%</td><td>19-22%</td><td>&lt;17%</td><td>Quarterly / release</td></tr><tr><td>8</td><td>Garena bookings growth y/y</td><td>+15.5% (Q2)</td><td>≥0%</td><td>Negative for 2 quarters</td><td>Quarterly / release; monthly Sensor Tower via MS</td></tr><tr><td>9</td><td>Group adjusted EBITDA growth y/y</td><td>+10.6% (Q2)</td><td>15%+ (Q3, per MS); 25%+ (2027)</td><td>&lt;5%</td><td>Quarterly / release</td></tr><tr><td>10</td><td>App share: Shopee vs. TikTok and Pinduoduo MAU/downloads (ASEAN, Brazil)</td><td>Shopee ASEAN MAU +5%, TikTok +15%; PDD #1 in MY downloads</td><td>Shopee MAU growth ≥ market</td><td>Shopee ASEAN MAU negative y/y</td><td>Monthly / Sensor Tower via MS tracker</td></tr></tbody></table></div>
+</section>
+<section class="theme" id="bottom-line">
+<div class="eyebrow">Section 9</div>
+<h2>Bottom Line</h2>
+
+<p>October's selloff was mostly about Sea, not the market. A vague Sea Cloud announcement landed in the week neoclouds were collapsing, on top of a year of margin resets, a DBS downgrade and a steady flow of insider-sale headlines. Nothing in the reported numbers has broken. The price now assumes 2028 EBITDA ~29% below the Street, which is close to Shopee's margin never improving. That makes the risk/reward favorable if the Q3 call (est. Nov 10) caps Sea Cloud spending and points Shopee's margin up. If management instead discloses a large GPU program or guides 2027 margins flat, the bear case (~$55) becomes the base case. Waiting until Nov 10 costs some upside if the call goes well, but it removes the largest unknown.</p>
+<p><strong>Stress test (<a class="xref" href="se-4-stress-test.md">se-4-stress-test</a>).</strong> The arbitrator leaned bear (moderate) on Shopee's margin trajectory. The deciding facts: six flat quarters, a ~1.5% incremental Shopee margin in Q2, and a US$1B Shopee target that equals only ~0.62% of 2026 GMV. It leaned slightly bull on fee increases sticking, since GMV grew 28% after two fee rounds and total Shopee revenue/GMV rose from ~12.7% to ~14.6%. On the valuation floor it leaned bull, but at bear-heavy weights (45/45/10) the discounted value is ~$81, about where the stock trades. Its sizing: a one-third starter position, half after a Q3 print showing Shopee EBITDA/GMV ≥0.68%, GMV ≥24% and bounded Sea Cloud spend, and full only after two quarters above 0.75%.</p>
+</section>
+</main>
+</div>
+<footer>HTML companion to <span class="num">investing-fundamentals/company-analyses/se-3-investment-memo.md</span>; the markdown file is the source of record.</footer>
+</div>
+<script>
+(function () {
+  var pts = function () { return document.querySelectorAll('details.pt'); };
+  document.getElementById('expand-all').addEventListener('click', function () { pts().forEach(function (d) { d.open = true; }); });
+  document.getElementById('collapse-all').addEventListener('click', function () { pts().forEach(function (d) { d.open = false; }); });
+})();
+</script>
+<script>
+(function () {
+  var tip = document.createElement('div'); tip.id = 'viztip'; tip.hidden = true; document.body.appendChild(tip);
+  function show(el, x, y) {
+    tip.textContent = el.getAttribute('data-tip'); tip.hidden = false;
+    var r = tip.getBoundingClientRect(), left = Math.min(x + 12, window.innerWidth - r.width - 8), top = y - r.height - 10;
+    tip.style.left = Math.max(8, left) + 'px'; tip.style.top = (top < 8 ? y + 16 : top) + 'px';
+  }
+  document.querySelectorAll('[data-tip]').forEach(function (el) {
+    el.addEventListener('mousemove', function (e) { show(el, e.clientX, e.clientY); });
+    el.addEventListener('mouseleave', function () { tip.hidden = true; });
+    el.addEventListener('focus', function () { var b = el.getBoundingClientRect(); show(el, b.left + b.width / 2, b.top); });
+    el.addEventListener('blur', function () { tip.hidden = true; });
+  });
+  window.addEventListener('scroll', function () { tip.hidden = true; }, { passive: true });
+})();
+</script>
+</body>
+</html>

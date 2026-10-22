@@ -4,6 +4,15 @@
 > Format: `## [YYYY-MM-DD] action | subject`
 > Actions: ingest, update, query, lint, create, archive, delete, init
 
+## [2026-10-22] create | Sea Limited ($SE): HTML companions for the equity report and memo
+
+- Created: `investing-fundamentals/company-analyses/se-2-equity-report.html` (29 collapsible points, 10 charts) and `se-3-investment-memo.html` (16 points, 8 charts, 6 tables), using the digest-shell styling and the CEG companion engine. Each has a bottom line, 8 key-reading tiles, a watch list and a collapsed data-notes panel (7 and 8 notes).
+  - Memo charts: scenario values vs. Street, SE's key October days, SE vs. peers October 2-21, revenue vs. EBITDA share, price-implied vs. forecast 2028 EBITDA, app user growth, scenario margin and value.
+  - Report charts: segment revenue and EBITDA, Q2 segment EBITDA, GMV growth path, cost lines and operating margin trend, FCFF and loan book, Shopee EBITDA/GMV path, app user growth.
+- `check_html.py`: word-level faithfulness and chart values pass. It reports links to `docn-3-investment-memo.md` and `comparisons/akam-vs-docn-20261015.md` as broken in this branch only; both exist in the main checkout (untracked), so they resolve there.
+- Rendered with all points open at desktop and phone widths; fixed two charts where value labels overlapped row labels.
+- Updated: `index.md` (SE row notes the HTML companions).
+
 ## [2026-10-21] create | Sea Limited ($SE) stage 4: bull/bear stress test
 
 - Created: `investing-fundamentals/company-analyses/se-4-stress-test.md`. Recent-developments search (no Q3 date notice yet; new 52-week low ~$76-77; Q2 adj EBITDA beat vs EPS miss; nothing new on Sea Cloud capex). Independent bull and bear reports (verbatim) and arbitrator ruling:
